@@ -20,9 +20,12 @@ const Header = () => {
         >
           About
         </Link>
-        {/* <Link className="header-link-home white-text" to="/disclaimer"> */}
-        免責事項
-        {/* </Link> */}
+        <Link
+          className="font-bold no-underline text-xl mx-3 text-white"
+          href="/disclaimer"
+        >
+          免責事項
+        </Link>
       </span>
     </header>
   );
