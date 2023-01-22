@@ -5,7 +5,7 @@ import Intro from "../components/intro";
 import Layout from "../components/layout";
 import { getAllPosts } from "../lib/api";
 import Head from "next/head";
-import { ADMINISTRATOR, CMS_NAME } from "../lib/constants";
+import { ADMINISTRATOR, CMS_NAME, TITLE } from "../lib/constants";
 import Post from "../interfaces/post";
 import { Bio } from "../components/bio";
 
@@ -23,7 +23,7 @@ export default function Index({ allPosts }: Props) {
           <title>Next.js Blog Example with {CMS_NAME}</title>
         </Head>
         <Container>
-          <Intro />
+          <Intro title={TITLE} />
           <Bio admin={ADMINISTRATOR} />
           <p>
             このページはわたくしWATが日ごろの業務及び業務外等の活動で得た技術的知見を備忘のために書き記しておく事を目的に開設した、個人的なノート代わりのサイトです。

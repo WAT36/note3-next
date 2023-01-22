@@ -13,11 +13,14 @@ const Header = () => {
         {/* </Link>
             <Link className="header-link-home white-text" to="/notes"> */}
         Notes
-        {/* </Link>
-            <Link className="header-link-home white-text" to="/about"> */}
-        About
-        {/* </Link>
-            <Link className="header-link-home white-text" to="/disclaimer"> */}
+        {/* </Link> */}
+        <Link
+          className="font-bold no-underline text-xl mx-3 text-white"
+          href="/about"
+        >
+          About
+        </Link>
+        {/* <Link className="header-link-home white-text" to="/disclaimer"> */}
         免責事項
         {/* </Link> */}
       </span>
