@@ -8,10 +8,13 @@ const Header = () => {
         {TITLE}
       </Link>
       <span className="float-right">
-        {/* <Link className="header-link-home white-text" to="/blog_top"> */}
-        Blog
-        {/* </Link>
-            <Link className="header-link-home white-text" to="/notes"> */}
+        <Link
+          className="font-bold no-underline text-xl mx-3 text-white"
+          href="/posts/"
+        >
+          Blog
+        </Link>
+        {/* <Link className="header-link-home white-text" to="/notes"> */}
         Notes
         {/* </Link> */}
         <Link
