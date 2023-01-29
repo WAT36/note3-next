@@ -14,9 +14,12 @@ const Header = () => {
         >
           Blog
         </Link>
-        {/* <Link className="header-link-home white-text" to="/notes"> */}
-        Notes
-        {/* </Link> */}
+        <Link
+          className="font-bold no-underline text-xl mx-3 text-white"
+          href="/notes"
+        >
+          Notes
+        </Link>
         <Link
           className="font-bold no-underline text-xl mx-3 text-white"
           href="/about"
