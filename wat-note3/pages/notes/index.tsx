@@ -4,15 +4,17 @@ import Note from "../../interfaces/note";
 import { getAllNotes } from "../../lib/notesApi";
 import Intro from "../../components/intro";
 import { Bio } from "../../components/bio";
-import { ADMINISTRATOR } from "../../lib/constants";
+import { ADMINISTRATOR, NOTES_DIR } from "../../lib/constants";
 import MoreStories from "../../components/more-stories";
 import Link from "next/link";
+import { getNoteSlugs } from "../../lib/fileSystem";
 
 type Props = {
   allNotes: Note[];
+  subPageLinks;
 };
 
-export default function PostIndex({ allNotes }: Props) {
+export default function NoteIndex({ allNotes, subPageLinks }: Props) {
   return (
     <>
       <Layout>
@@ -20,11 +22,9 @@ export default function PostIndex({ allNotes }: Props) {
           <Intro title={"Notes."} />
           <Bio admin={ADMINISTRATOR} />
           Notesのトップページです、計画中・・
-          <Link href="/notes/notes-tests">テスト記事</Link>
-          <Link href="/notes/directory_test">ディレクトリテスト</Link>
-          <Link href="/notes/directory_test/dynamic-routing">
-            Dynamic Roouting
-          </Link>
+          {subPageLinks.map((link) => {
+            return <Link href={link.slug}>{link.name}</Link>;
+          })}
         </Container>
       </Layout>
     </>
@@ -41,7 +41,16 @@ export const getStaticProps = async () => {
     "excerpt",
   ]);
 
+  // ページ下へのリンク作成
+  const slugs = getNoteSlugs(NOTES_DIR, false);
+  const subPageLinks = slugs.map((slug) => {
+    return {
+      slug: "notes/" + slug.slug.join("/"),
+      name: slug.slug.join("/"),
+    };
+  });
+
   return {
-    props: { allNotes },
+    props: { allNotes, subPageLinks },
   };
 };

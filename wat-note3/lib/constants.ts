@@ -1,3 +1,5 @@
+import { join } from "path";
+
 import { Administrator } from "../interfaces/author";
 
 export const EXAMPLE_PATH = "blog-starter";
@@ -9,3 +11,5 @@ export const ADMINISTRATOR: Administrator = {
   name: "Tatsuroh Wakasugi",
   nickname: "WAT",
 };
+
+export const NOTES_DIR = join(process.cwd(), "_notes");
