@@ -8,6 +8,8 @@ import { ADMINISTRATOR, NOTES_DIR } from "../../lib/constants";
 import MoreStories from "../../components/more-stories";
 import Link from "next/link";
 import { getNoteSlugs } from "../../lib/fileSystem";
+import NoteLink from "../../components/note-link";
+import NoteDirLink from "../../components/notedir-link";
 
 type Props = {
   allNotes: Note[];
@@ -23,7 +25,11 @@ export default function NoteIndex({ allNotes, subPageLinks }: Props) {
           <Bio admin={ADMINISTRATOR} />
           Notesのトップページです、計画中・・
           {subPageLinks.map((link) => {
-            return <Link href={link.slug}>{link.name}</Link>;
+            return link.isDir ? (
+              <NoteDirLink slug={link.slug} name={link.name} />
+            ) : (
+              <NoteLink slug={link.slug} name={link.name} />
+            );
           })}
         </Container>
       </Layout>
@@ -47,6 +53,7 @@ export const getStaticProps = async () => {
     return {
       slug: "notes/" + slug.slug.join("/"),
       name: slug.slug.join("/"),
+      isDir: slug.isDir,
     };
   });
 

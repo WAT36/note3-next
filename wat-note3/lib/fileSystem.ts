@@ -32,6 +32,7 @@ export function getNoteSlugs(rootDirectory: string, isRecursive: boolean) {
       // ディレクトリのパス
       files.push({
         slug: fp.replace(new RegExp(NOTES_DIR + "/"), "").split("/"),
+        isDir: true,
       });
       if (isRecursive) {
         files.push(getNoteSlugs(fp, isRecursive));
@@ -43,6 +44,7 @@ export function getNoteSlugs(rootDirectory: string, isRecursive: boolean) {
           .replace(new RegExp(NOTES_DIR + "/"), "")
           .replace(/\.md$/, "")
           .split("/"),
+        isDir: false,
       });
     }
   }
