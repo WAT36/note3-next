@@ -13,3 +13,7 @@ export const ADMINISTRATOR: Administrator = {
 };
 
 export const NOTES_DIR = join(process.cwd(), "_notes");
+
+export const DIR_NAME = {
+  "notes/directory_test": "ディレクトリ_テスト",
+};

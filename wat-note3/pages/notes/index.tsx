@@ -1,7 +1,7 @@
 import Layout from "../../components/layout";
 import Container from "../../components/container";
 import Note from "../../interfaces/note";
-import { getAllNotes } from "../../lib/notesApi";
+import { getAllNotes, getNoteBySlug } from "../../lib/notesApi";
 import Intro from "../../components/intro";
 import { Bio } from "../../components/bio";
 import { ADMINISTRATOR, NOTES_DIR } from "../../lib/constants";
@@ -26,7 +26,7 @@ export default function NoteIndex({ allNotes, subPageLinks }: Props) {
           Notesのトップページです、計画中・・
           {subPageLinks.map((link) => {
             return link.isDir ? (
-              <NoteDirLink slug={link.slug} name={link.name} />
+              <NoteDirLink slug={link.slug} />
             ) : (
               <NoteLink slug={link.slug} name={link.name} />
             );
@@ -50,9 +50,10 @@ export const getStaticProps = async () => {
   // ページ下へのリンク作成
   const slugs = getNoteSlugs(NOTES_DIR, false);
   const subPageLinks = slugs.map((slug) => {
+    const noteTitle = getNoteBySlug(slug.slug, ["title"]).title;
     return {
       slug: "notes/" + slug.slug.join("/"),
-      name: slug.slug.join("/"),
+      name: noteTitle || slug.slug.join("/"),
       isDir: slug.isDir,
     };
   });

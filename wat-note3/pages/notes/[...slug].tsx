@@ -18,7 +18,7 @@ import { getNoteSlugs } from "../../lib/fileSystem";
 
 type Props = {
   note: NoteType;
-  subPageLinks;
+  subPageLinks?;
 };
 
 export default function Note({ note, subPageLinks }: Props) {
@@ -71,7 +71,7 @@ function NoteDirContents(subPageLinks) {
         <Bio admin={ADMINISTRATOR} />
         {subPageLinks.map((link) => {
           return link.isDir ? (
-            <NoteDirLink slug={link.slug} name={link.name} />
+            <NoteDirLink slug={link.slug} />
           ) : (
             <NoteLink slug={link.slug} name={link.name} />
           );
@@ -100,14 +100,19 @@ export async function getStaticProps({ params }: Params) {
   const content = await markdownToHtml(note.content || "");
 
   // ページ下へのリンク作成
-  const slugs = getNoteSlugs(NOTES_DIR + "/" + params.slug.join("/"), false);
-  const subPageLinks = slugs.map((slug) => {
-    return {
-      slug: "notes/" + slug.slug.join("/"),
-      name: slug.slug.join("/"),
-      isDir: slug.isDir,
-    };
-  });
+  let subPageLinks;
+  if (note.isDir) {
+    const dirSlug = NOTES_DIR + "/" + params.slug.join("/");
+    const slugs = getNoteSlugs(dirSlug, false);
+    subPageLinks = slugs.map((slug) => {
+      const noteTitle = getNoteBySlug(slug.slug, ["title"]).title;
+      return {
+        slug: "notes/" + slug.slug.join("/"),
+        name: noteTitle || slug.slug.join("/"),
+        isDir: slug.isDir,
+      };
+    });
+  }
 
   return {
     props: {
@@ -115,7 +120,7 @@ export async function getStaticProps({ params }: Params) {
         ...note,
         content,
       },
-      subPageLinks,
+      subPageLinks: subPageLinks || null,
     },
   };
 }

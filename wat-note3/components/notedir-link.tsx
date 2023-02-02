@@ -1,15 +1,15 @@
 import Link from "next/link";
+import { DIR_NAME } from "../lib/constants";
 
 type Props = {
   slug: string;
-  name: string;
 };
 
-const NoteDirLink = ({ slug, name }: Props) => {
+const NoteDirLink = ({ slug }: Props) => {
   return (
     <div className="my-4">
       <Link className="font-bold text-5xl mx-3 underline" href={slug}>
-        🗂{name}
+        🗂{DIR_NAME[slug] || slug}
       </Link>
     </div>
   );

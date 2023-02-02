@@ -24,7 +24,6 @@ export function getNoteBySlug(slug: string[], fields: string[] = []) {
   } else {
     const fileContents = readFileSync(fullPath, "utf8");
     const { data, content } = matter(fileContents);
-
     // Ensure only the minimal needed data is exposed
     fields.forEach((field) => {
       if (field === "slug") {
