@@ -69,13 +69,17 @@ function NoteDirContents(subPageLinks) {
       <Container>
         <Intro title={"Notes."} />
         <Bio admin={ADMINISTRATOR} />
-        {subPageLinks.map((link) => {
-          return link.isDir ? (
-            <NoteDirLink slug={link.slug} />
-          ) : (
-            <NoteLink slug={link.slug} name={link.name} />
-          );
-        })}
+        {subPageLinks.length > 0 ? (
+          subPageLinks.map((link) => {
+            return link.isDir ? (
+              <NoteDirLink slug={link.slug} />
+            ) : (
+              <NoteLink slug={link.slug} name={link.name} />
+            );
+          })
+        ) : (
+          <p className="text-4xl">ここにはまだ記事が存在しません。</p>
+        )}
       </Container>
     </>
   );
