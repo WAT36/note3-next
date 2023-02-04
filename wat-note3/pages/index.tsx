@@ -25,12 +25,17 @@ export default function Index({ allPosts }: Props) {
         <Container>
           <Intro title={TITLE} />
           <Bio admin={ADMINISTRATOR} />
-          <p>
-            このページはわたくしWATが日ごろの業務及び業務外等の活動で得た技術的知見を備忘のために書き記しておく事を目的に開設した、個人的なノート代わりのサイトです。
-            たまに自分で作ったプロダクトや雑品などについても書いていけたら良いなあと思っています。
-          </p>
-          <p>このページはNext.jsを使って作成しております。</p>
-          <p>まあ、よろしく</p>
+          <div className="my-4">
+            <p>
+              このページはわたくしWATが日ごろの業務及び業務外等の活動で得た技術的知見を備忘のために書き記しておく事を目的に開設した、個人的なノート代わりのサイトです。
+              たまに自分で作ったプロダクトや雑品などについても書いていけたら良いなあと思っています。
+            </p>
+            <p>このページはNext.jsを使って作成しております。</p>
+            <p>まあ、よろしく</p>
+          </div>
+          <h3 className="text-6xl font-bold my-4 tracking-tighter leading-tight md:pr-8">
+            Posts Pick Up
+          </h3>
           {heroPost && (
             <HeroPost
               title={heroPost.title}
@@ -41,7 +46,6 @@ export default function Index({ allPosts }: Props) {
               excerpt={heroPost.excerpt}
             />
           )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
       </Layout>
     </>
