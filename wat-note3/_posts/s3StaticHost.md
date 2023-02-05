@@ -9,7 +9,7 @@ author:
   picture: '/assets/blog/authors/WAT.jpg'
 ogImage:
   url: ''
-draft: false
+draft: true
 ---
 
 この３代目ブログをどこで立てて公開すべきか？と考えた時,  
