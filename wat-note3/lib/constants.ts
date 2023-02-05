@@ -15,9 +15,9 @@ export const ADMINISTRATOR: Administrator = {
 export const NOTES_DIR = join(process.cwd(), "_notes");
 
 export const DIR_NAME = {
-  "notes/directory_test": "ディレクトリ_テスト",
-
   "notes/container": "コンテナ",
   "notes/frontend": "フロントエンド",
   "notes/programming": "プログラミング",
+
+  "frontend/001_html": "HTML",
 };
