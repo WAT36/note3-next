@@ -3,6 +3,7 @@ title: 'S3の静的webサイトホスティング'
 excerpt: ''
 coverImage: ''
 date: '2023-02-04T15:31:15.000Z'
+tag: ["AWS","S3"]
 author:
   name: Tatsuroh Wakasugi
   picture: '/assets/blog/authors/WAT.jpg'
