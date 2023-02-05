@@ -20,6 +20,11 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
 
   const items: Items = {};
 
+  // .mdでdraft: trueとなっているものは作成しない（非表示）
+  if (data["draft"] === true) {
+    return null;
+  }
+
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
     if (field === "slug") {
@@ -41,6 +46,9 @@ export function getAllPosts(fields: string[] = []) {
   const slugs = getPostSlugs();
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
+    .filter((item) => {
+      return item;
+    })
     // sort posts by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;

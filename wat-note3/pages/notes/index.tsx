@@ -49,14 +49,24 @@ export const getStaticProps = async () => {
 
   // ページ下へのリンク作成
   const slugs = getNoteSlugs(NOTES_DIR, false);
-  const subPageLinks = slugs.map((slug) => {
-    const noteTitle = getNoteBySlug(slug.slug, ["title"]).title;
-    return {
-      slug: "notes/" + slug.slug.join("/"),
-      name: noteTitle || slug.slug.join("/"),
-      isDir: slug.isDir,
-    };
-  });
+  const subPageLinks = slugs
+    .map((slug) => {
+      const noteConfig = getNoteBySlug(slug.slug, ["title", "draft"]);
+      // null(draftタグtrue)の場合は作成しない
+      if (!slug.isDir && noteConfig["draft"]) {
+        return null;
+      }
+
+      const noteTitle = noteConfig.title;
+      return {
+        slug: "notes/" + slug.slug.join("/"),
+        name: noteTitle || slug.slug.join("/"),
+        isDir: slug.isDir,
+      };
+    })
+    .filter((link) => {
+      return link;
+    });
 
   return {
     props: { allNotes, subPageLinks },

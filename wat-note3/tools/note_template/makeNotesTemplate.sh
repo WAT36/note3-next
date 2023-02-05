@@ -40,8 +40,8 @@ excerpt: ''
 coverImage: ''
 date: '${nowDate}'
 author:
-  name: ''
-  picture: ''
+  name: Tatsuroh Wakasugi
+  picture: '/assets/blog/authors/WAT.jpg'
 ogImage:
   url: ''
 ---" > ${filename}

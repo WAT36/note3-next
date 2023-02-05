@@ -69,13 +69,17 @@ function NoteDirContents(subPageLinks) {
       <Container>
         <Intro title={"Notes."} />
         <Bio admin={ADMINISTRATOR} />
-        {subPageLinks.map((link) => {
-          return link.isDir ? (
-            <NoteDirLink slug={link.slug} />
-          ) : (
-            <NoteLink slug={link.slug} name={link.name} />
-          );
-        })}
+        {subPageLinks.length > 0 ? (
+          subPageLinks.map((link) => {
+            return link.isDir ? (
+              <NoteDirLink slug={link.slug} />
+            ) : (
+              <NoteLink slug={link.slug} name={link.name} />
+            );
+          })
+        ) : (
+          <p className="text-4xl">ここにはまだ記事が存在しません。</p>
+        )}
       </Container>
     </>
   );
@@ -104,14 +108,23 @@ export async function getStaticProps({ params }: Params) {
   if (note.isDir) {
     const dirSlug = NOTES_DIR + "/" + params.slug.join("/");
     const slugs = getNoteSlugs(dirSlug, false);
-    subPageLinks = slugs.map((slug) => {
-      const noteTitle = getNoteBySlug(slug.slug, ["title"]).title;
-      return {
-        slug: "notes/" + slug.slug.join("/"),
-        name: noteTitle || slug.slug.join("/"),
-        isDir: slug.isDir,
-      };
-    });
+    subPageLinks = slugs
+      .map((slug) => {
+        const noteConfig = getNoteBySlug(slug.slug, ["title", "draft"]);
+        // null(draftタグtrue)の場合は作成しない
+        if (!slug.isDir && noteConfig["draft"]) {
+          return null;
+        }
+        const noteTitle = noteConfig.title;
+        return {
+          slug: slug.slug.join("/"),
+          name: noteTitle || slug.slug.join("/"),
+          isDir: slug.isDir,
+        };
+      })
+      .filter((link) => {
+        return link;
+      });
   }
 
   return {
