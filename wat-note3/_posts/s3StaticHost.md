@@ -1,7 +1,7 @@
 ---
 title: 'S3の静的webサイトホスティング'
 excerpt: ''
-coverImage: ''
+coverImage: '/assets/posts/s3StaticHost/coverImage.png'
 date: '2023-02-04T15:31:15.000Z'
 tag: ["AWS","S3"]
 author:
@@ -9,7 +9,7 @@ author:
   picture: '/assets/blog/authors/WAT.jpg'
 ogImage:
   url: ''
-draft: true
+draft: false
 ---
 
 この３代目ブログをどこで立てて公開すべきか？と考えた時,  
@@ -73,6 +73,23 @@ Hello! S3!
 
 AWSマネジメントコンソールに入り、S3のセクションへと行く。
 
+そこで、バケットを新規作成する。
+
+バケット名を入力し、
+
+![](/assets/posts/s3StaticHost/s3_001.png)
+
+パブリックアクセスのブロックをオフにする。
+
+![](/assets/posts/s3StaticHost/s3_002.png)
+
+暗号化を設定して、最後に「バケットを作成」を押下する。
+
+![](/assets/posts/s3StaticHost/s3_003.png)
+
+すると、バケットが新規作成される。
+
+![](/assets/posts/s3StaticHost/s3_004.png)
 
 ## 静的Webサイトホスティングの設定
 
@@ -80,7 +97,11 @@ AWSマネジメントコンソールに入り、S3のセクションへと行く
 
 S3コンソールから作成したバケットを開いて、「プロパティ」を押下する。
 
+![](/assets/posts/s3StaticHost/s3_005.png)
+
 その中に、「静的ウェブサイトホスティング」と言う項目があり、デフォルトでは無効になっているので、ここの「編集」ボタンを押下する。
+
+![](/assets/posts/s3StaticHost/s3_006.png)
 
 その後、編集項目が何個かあるので、以下で設定する。
 
@@ -94,6 +115,8 @@ S3コンソールから作成したバケットを開いて、「プロパティ
 すると、静的ウェブサイトホスティングが有効化される。
 
 コンソール上の、静的ウェブサイトホスティングの項目にURLが表示され、これがウェブサイトのURLになる。
+
+![](/assets/posts/s3StaticHost/s3_007.png)
 
 ## バケットポリシーの設定
 
@@ -122,6 +145,8 @@ S3コンソールから作成したバケットを開いて、「プロパティ
 }
 ```
 
+![](/assets/posts/s3StaticHost/s3_010.png)
+
 エラー等なければバケットポリシーが正常に設定される。
 
 ## ファイルのアップロード
@@ -130,13 +155,21 @@ S3コンソールから作成したバケットを開いて、「プロパティ
 
 そのため、この２ファイルをバケットにアップロードする。
 
+![](/assets/posts/s3StaticHost/s3_008.png)
+
+![](/assets/posts/s3StaticHost/s3_009.png)
+
 ## サイトにアクセスして確認
 
-最後に、ウェブサイトのURLんいアクセスして、正常に表示されるか確認する。
+最後に、ウェブサイトのURLにアクセスして、正常に表示されるか確認する。
 
 すると、表示された。
 
+![](/assets/posts/s3StaticHost/s3_011.png)
+
 また、このURL下で存在しないURLにアクセスすると
+
+![](/assets/posts/s3StaticHost/s3_012.png)
 
 エラーページが表示された。
 
