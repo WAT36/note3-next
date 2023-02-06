@@ -49,7 +49,11 @@ function NoteContents(note: NoteType) {
           <title>
             {note.title} | Next.js Blog Example with {CMS_NAME}
           </title>
-          <meta property="og:image" content={note.ogImage.url} />
+          {note.ogImage ? (
+            <meta property="og:image" content={note.ogImage.url} />
+          ) : (
+            <></>
+          )}
         </Head>
         <PostHeader
           title={note.title}
