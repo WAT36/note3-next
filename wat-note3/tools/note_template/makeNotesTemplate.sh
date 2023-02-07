@@ -39,6 +39,8 @@ title: ''
 excerpt: ''
 coverImage: ''
 date: '${nowDate}'
+updatedAt: '${nowDate}'
+tag: []
 author:
   name: Tatsuroh Wakasugi
   picture: '/assets/blog/authors/WAT.jpg'
