@@ -4,12 +4,12 @@ import Image from "next/image";
 
 type Props = {
   title: string;
-  src: string;
+  src: string | null;
   slug?: string;
 };
 
 const CoverImage = ({ title, src, slug }: Props) => {
-  const image = (
+  const image = src ? (
     <Image
       src={src}
       alt={`Cover Image for ${title}`}
@@ -19,10 +19,12 @@ const CoverImage = ({ title, src, slug }: Props) => {
       width={1300}
       height={300}
     />
+  ) : (
+    <></>
   );
   return (
     <div className="sm:mx-0 h-48">
-      {slug ? (
+      {src && slug ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]" aria-label={title}>
           {image}
         </Link>
