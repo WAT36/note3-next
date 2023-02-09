@@ -2,17 +2,93 @@
   @apply text-lg leading-relaxed;
 }
 
-.markdown p,
-.markdown ul,
-.markdown ol,
+.markdown p {
+  @apply block my-4
+}
+
+.markdown ul {
+  @apply block list-outside list-disc my-4 pl-10;
+  list-style-image: none;
+}
+
+.markdown ol {
+  @apply block list-outside list-decimal my-4 pl-10;
+  list-style-image: none;
+}
+
 .markdown blockquote {
-  @apply my-6;
+  @apply block my-4 mx-10;
+}
+
+.markdown h1 {
+  @apply block text-3xl font-bold my-4;
+  page-break-after: avoid;
 }
 
 .markdown h2 {
-  @apply text-3xl mt-12 mb-4 leading-snug;
+  @apply block text-2xl font-bold my-4;
+  page-break-after: avoid;
 }
 
 .markdown h3 {
-  @apply text-2xl mt-8 mb-4 leading-snug;
+  @apply block text-xl font-bold my-4;
+  page-break-after: avoid;
+}
+
+.markdown code {
+  @apply font-mono text-xs;
+}
+
+.markdown table {
+  @apply border-solid border border-black;
+  border-spacing: 4px 2px;
+  box-sizing: border-box;
+  display: table;
+  zoom: 1;
+}
+
+.markdown tbody {
+  box-sizing: border-box;
+  display: table-row-group;
+  vertical-align: middle;
+}
+
+.markdown td {
+  @apply border-solid border border-black m-3;
+  display: table-cell;
+  padding: 1px;
+  vertical-align: middle;
+  zoom: 1;
+}
+
+.markdown tfoot {
+  box-sizing: border-box;
+  display: table-footer-group;
+  vertical-align: middle;
+}
+
+.markdown th {
+  @apply border-solid border border-black m-3;
+  display: table-cell;
+  font-weight: bold;
+  padding: 1px;
+  text-align: center;
+  vertical-align: middle;
+  zoom: 1;
+}
+
+.markdown tr {
+  box-sizing: border-box;
+  display: table-row;
+  vertical-align: middle;
+  zoom: 1;
+}
+
+.markdown pre {
+  @apply bg-gray-200;
+  display: block;
+  font-family: monospace;
+  font-size: 10pt;
+  margin: 1em 0;
+  white-space: pre;
 }
