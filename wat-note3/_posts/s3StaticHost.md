@@ -1,6 +1,6 @@
 ---
 title: 'S3の静的webサイトホスティング'
-excerpt: ''
+excerpt: 'AWS S3で低コストでサイトを公開する'
 coverImage: '/assets/posts/s3StaticHost/coverImage.png'
 date: '2023-02-04T15:31:15.000Z'
 tag: ["AWS","S3"]
