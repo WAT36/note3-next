@@ -141,8 +141,8 @@ export async function getStaticProps({ params }: Params) {
             ? -1
             : 1
           : link1.date > link2.date
-          ? 1
-          : -1
+          ? -1
+          : 1
       );
   }
 
