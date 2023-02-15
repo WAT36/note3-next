@@ -123,12 +123,27 @@ export async function getStaticProps({ params }: Params) {
         return {
           slug: slug.slug.join("/"),
           name: noteTitle || slug.slug.join("/"),
+          date: note["date"] || null,
           isDir: slug.isDir,
         };
       })
       .filter((link) => {
         return link;
-      });
+      })
+      // sort posts by date in ascending order
+      .sort((link1, link2) =>
+        link1.isDir && link2.isDir
+          ? link1.name > link2.name
+            ? 1
+            : -1
+          : link1.isDir || link2.isDir
+          ? link1.isDir
+            ? -1
+            : 1
+          : link1.date > link2.date
+          ? 1
+          : -1
+      );
   }
 
   return {
