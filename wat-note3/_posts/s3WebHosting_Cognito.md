@@ -10,6 +10,7 @@ author:
   picture: '/assets/blog/authors/WAT.jpg'
 ogImage:
   url: ''
+draft: true
 ---
 
 前述の S3の静的Webサイトホスティング で立てたWebサイトに、 また前述のCognito による認証を付け加えて、限られたユーザしか閲覧できないようにする。

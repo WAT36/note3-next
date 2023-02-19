@@ -10,6 +10,7 @@ author:
   picture: '/assets/blog/authors/WAT.jpg'
 ogImage:
   url: ''
+draft: true
 ---
 
 前述の S3に立てた静的Webサイト だが、通常ではHTTPでの表示となっている。
