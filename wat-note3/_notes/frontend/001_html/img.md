@@ -1,7 +1,7 @@
 ---
 title: "画像・動画・音声"
 date: "2019-11-04T23:35:30+09:00"
-excerpt: 'HTMLでのルビについて'
+excerpt: 'HTMLでの画像、音声、動画について'
 tag: ["HTML"]
 updatedAt: '2023-02-18T12:07:04.000Z'
 author:
