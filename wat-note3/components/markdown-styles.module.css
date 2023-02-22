@@ -92,3 +92,13 @@
   margin: 1em 0;
   white-space: pre;
 }
+
+.markdown input {
+  background-color: #FFF;
+  border-width: 2px;
+  font-family: sans-serif;
+  font-size: 10pt;
+  overflow: hidden;
+  padding: 1px;
+  zoom: 1;
+}
