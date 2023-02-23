@@ -102,3 +102,17 @@
   padding: 1px;
   zoom: 1;
 }
+
+.markdown em {
+  font-style: italic;
+}
+
+.markdown strong {
+  font-weight: bold;
+}
+
+.markdown blockquote {
+  display: block;
+  margin: 1em 40px;
+}
+
