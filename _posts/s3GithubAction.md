@@ -1,10 +1,10 @@
 ---
-title: 'Github ActionでGithubのコードをS3に上げる'
-excerpt: 'Githubでコミットしたら自動でS3にデプロイされる'
+title: 'Github ActionでNext.jsのコードをS3に上げる'
+excerpt: 'Githubにpushしたら自動でS3にデプロイされる'
 coverImage: ''
 date: '2023-02-21T22:50:12.000Z'
 updatedAt: '2023-02-21T22:50:12.000Z'
-tag: ["AWS","S3","Github","Github Action","CI/CD"]
+tag: ["AWS","S3","Github","Github Action","CI/CD","Next.js"]
 author:
   name: Tatsuroh Wakasugi
   picture: '/assets/blog/authors/WAT.jpg'
@@ -20,6 +20,22 @@ draft: true
 # Githubでリポジトリとコードを用意する
 
 まずは自分のGithubアカウントで、S3に上げる用のリポジトリ及びS3に上げるコードをリポジトリ内に用意しておく。
+
+# ビルド設定
+
+package.jsonで、以下のスクリプトを追加する。
+
+```json
+  "scripts": {
+    //・・・
+    "export": "next build && next export",
+    //・・・
+  },
+```
+
+これにより、ビルド時にnext.jsのコードがoutディレクトリ に吐き出される。
+
+しかし、`next export`コマンドを実行した時、`next/image`ライブラリをインポートしている箇所があると動作しないので、コード中からは削除しておく。（HTMLのimg要素に置き換える）
 
 # コードを上げるためのS3を用意する
 
@@ -81,15 +97,15 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build  # React ビルド
+      - name: Build and Export
+        run: npm run export
 
       - name: Deploy  # S3にデプロイ 
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: 
-          aws s3 cp --recursive --region ap-northeast-1 build s3://(バケット名)
+          aws s3 sync --region ap-northeast-1 ./out s3://(バケット名) --delete
 ```
 
 - 作成が終わったら「Start Commit」を押下すると操作が実行される。
