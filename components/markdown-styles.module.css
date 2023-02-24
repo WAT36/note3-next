@@ -116,3 +116,26 @@
   margin: 1em 40px;
 }
 
+.markdown textarea {
+  background-color: #FFF;
+  border-width: 1px;
+  font-family: monospace;
+  font-size: 10pt;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 2px;
+  white-space: pre-wrap;
+  zoom: 1;
+}
+
+.markdown button {
+  background-color: #F0F0F0;
+  border-width: 3px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 10pt;
+  overflow: hidden;
+  padding: 1px 8px;
+  text-align: center;
+  zoom: 1;
+}
