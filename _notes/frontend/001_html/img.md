@@ -27,7 +27,7 @@ img要素は画像を表示させたい時、及びそれが利用できない�
 使用例
 
 ```
-<img src="/front-end/img.jpg" width="100" height="100" alt="宗谷岬、青空">
+<img src="/assets/note/frontend/html/img/img.jpg" width="100" height="100" alt="宗谷岬、青空">
 ```
 
 実行例
@@ -57,9 +57,9 @@ source要素は、picture要素・video要素・audio要素の子要素として
 
 ```
 <picture>
-    <source media="(min-width: 200em)" srcset="/front-end/img3.jpg" title="img3.jpg">
-    <source media="(min-width: 100em)" srcset="/front-end/img2.jpg" title="img2.jpg">
-    <img src="/front-end/img.jpg" width="100" height="100" alt="宗谷岬、青空">
+    <source media="(min-width: 200em)" srcset="/assets/note/frontend/html/img/img3.jpg" title="img3.jpg">
+    <source media="(min-width: 100em)" srcset="/assets/note/frontend/html/img/img2.jpg" title="img2.jpg">
+    <img src="/assets/note/frontend/html/img/img.jpg" width="100" height="100" alt="宗谷岬、青空">
 </picture>
 ```
 
@@ -93,7 +93,7 @@ video要素は、動画を再生するための要素である。
 例を以下に示す。
 
 ```
-<video src="/front-end/IMG_3279.MOV.mp4" controls muted width="500" height="200" ></video>
+<video src="/assets/note/frontend/html/img/IMG_3279.MOV.mp4" controls muted width="500" height="200" ></video>
 ```
 
 実行例
@@ -121,7 +121,7 @@ audio要素は音声を再生するための要素である。
 先程の動画ファイルをaudio要素で表示させてみよう。
 
 ```
-<audio src="/front-end/IMG_3279.MOV.mp4" controls ></audio>
+<audio src="/assets/note/frontend/html/img/IMG_3279.MOV.mp4" controls ></audio>
 ```
 
 実行例は以下の通り。
@@ -158,10 +158,10 @@ track要素はvideo要素やaudio要素の子要素として利用する要素�
 先程の動画ファイルを利用して実行例を示す。
 
 ```
-<video src="/front-end/IMG_3279.MOV.mp4" controls muted width="500" height="200" >
+<video src="/assets/note/frontend/html/img/IMG_3279.MOV.mp4" controls muted width="500" height="200" >
     <track default kind="captions"
            srclang="ja"
-           src="/front-end/track.vtt">
+           src="/assets/note/frontend/html/img/track.vtt">
 </video>
 ```
 
@@ -237,7 +237,7 @@ area要素は、イメージマップにおいて指定した領域を指定し�
 使用例
 
 ```
-<img src="/front-end/area.png" usemap="#top" width="100" height="100">
+<img src="/assets/note/frontend/html/img/area.png" usemap="#top" width="100" height="100">
 
 <map name="top">
     <area href="https://wat36.github.io/note2-gatsby/" shape="rect" coords="0,0,100,50"></area>
