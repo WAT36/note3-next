@@ -77,6 +77,7 @@ draft: true
   - オリジンパス　空欄
   - 名前　オリジンドメイン入力したら自動で入る
   - S3バケットアクセス　orrigin access conntrol settings　コントロール設定を作成　で作る
+   - 作成したらそれを選択
   - カスタムヘッダーを追加　ここは空欄
   - オリジンシールドを有効にする　とりあえず　いいえ
   - ビューワープロトコルポリシー　Redirect HTTP to HTTPS
@@ -95,6 +96,32 @@ draft: true
   - IPv6 オン
 
 で「ディストリビューションの作成」へ
+
+作成後に、OACを適用するためにS3バケットポリシーを更新する必要がある。
+S3の対象バケットに行って、バケットポリシーを以下で更新しておく。
+
+```json
+{
+    "Version": "2008-10-17",
+    "Id": "PolicyForCloudFrontPrivateContent",
+    "Statement": [
+        {
+            "Sid": "AllowCloudFrontServicePrincipal",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "cloudfront.amazonaws.com"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::<バケット名>/*",
+            "Condition": {
+                "StringEquals": {
+                  "AWS:SourceArn": "arn:aws:cloudfront::<アカウントID>:distribution/<ディストリビューションID>"
+                }
+            }
+        }
+    ]
+}
+```
 
 # Route53で独自ドメインのエイリアスの向き先を変更する
 
