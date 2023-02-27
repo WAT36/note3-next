@@ -20,4 +20,5 @@ export const DIR_NAME = {
   "notes/programming": "プログラミング",
 
   "frontend/001_html": "HTML",
+  "frontend/002_css": "CSS",
 };
