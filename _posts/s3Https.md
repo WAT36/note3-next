@@ -13,7 +13,7 @@ ogImage:
 draft: false
 ---
 
-前述の S3に立てた静的Webサイト だが、通常ではHTTPでの表示となっている。
+前述の [S3に立てた静的Webサイト](/posts/s3StaticHost) だが、通常ではHTTPでの表示となっている。
 
 これをHTTPS化する手順をここに留めておく。
 
