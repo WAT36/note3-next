@@ -2,15 +2,15 @@
 title: 'ドメインを取得してS3(静的Webホスティング)をHTTPS化する'
 excerpt: 'AWSでのドメイン取得方法・S3に立てたWebサイトをHTTPS化する手順'
 coverImage: ''
-date: '2023-02-16T22:29:57.000Z'
-updatedAt: '2023-02-16T22:29:57.000Z'
+date: '2023-02-14T23:03:11.000Z'
+updatedAt: '2023-02-14T23:03:11.000Z'
 tag: ["AWS","S3","ACM","CloudFront","HTTPS","Route53","DNS","ドメイン"]
 author:
   name: Tatsuroh Wakasugi
   picture: '/assets/blog/authors/WAT.jpg'
 ogImage:
   url: ''
-draft: true
+draft: false
 ---
 
 前述の S3に立てた静的Webサイト だが、通常ではHTTPでの表示となっている。
