@@ -10,7 +10,7 @@ author:
   picture: '/assets/blog/authors/WAT.jpg'
 ogImage:
   url: ''
-draft: true
+draft: false
 ---
 
 認証、認可を行うにあたり、AWSのサービス「Cognito」について調べてみたので、ここに書き留めておく。
