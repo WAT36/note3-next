@@ -59,7 +59,7 @@ image<br>
 
 表示例
 
-<div style="background-image: url('/front-end/img_small.jpg')">
+<div style="background-image: url('/assets/note/frontend/css/img_small.jpg')">
 background<br>
 image<br>
 の<br>
@@ -88,7 +88,7 @@ background-clipプロパティは、背景画像をボックスのどの領域�
         width:300px; height:200px; padding:10px;
         border:dashed 3px black; 
         color:white;
-        background-image:url(/front-end/img_small.jpg);
+        background-image:url(/assets/note/frontend/css/img_small.jpg);
         background-clip:content-box;
     }
 </style>
@@ -103,7 +103,7 @@ background-clipプロパティは、背景画像をボックスのどの領域�
         width:300px; height:200px; padding:10px;
         border:dashed 3px black; 
         color:white;
-        background-image:url(/front-end/img_small.jpg);
+        background-image:url(/assets/note/frontend/css/img_small.jpg);
         background-clip:content-box;
     }
 </style>
@@ -131,7 +131,7 @@ background-repeatプロパティは、背景画像を繰り返して表示させ
 ```
 <style type="text/css">
     div.repeat {
-        background-image: url(/front-end/img_small.jpg);
+        background-image: url(/assets/note/frontend/css/img_small.jpg);
         background-repeat: repeat-x;
     }
 
@@ -153,7 +153,7 @@ background-repeatプロパティは、背景画像を繰り返して表示させ
 
 <style type="text/css">
     div.repeat {
-        background-image: url(/front-end/img_small.jpg);
+        background-image: url(/assets/note/frontend/css/img_small.jpg);
         background-repeat: repeat-x;
     }
 
@@ -191,7 +191,7 @@ background-sizeプロパティは、背景画像を表示するサイズを設�
 ```
 <style type="text/css">
     div.size {
-        background-image: url(/front-end/img_small.jpg);
+        background-image: url(/assets/note/frontend/css/img_small.jpg);
         background-size: contain;
     }
 
@@ -213,7 +213,7 @@ background-sizeプロパティは、背景画像を表示するサイズを設�
 
 <style type="text/css">
     div.size {
-        background-image: url(/front-end/img_small.jpg);
+        background-image: url(/assets/note/frontend/css/img_small.jpg);
         background-size: contain;
     }
 
@@ -252,7 +252,7 @@ background-originプロパティは、ボックスにおいて画像を表示さ
         width:300px; height:200px; padding:10px;
         border:dashed 3px black; 
         color:white;
-        background-image:url(/front-end/img_small.jpg);
+        background-image:url(/assets/note/frontend/css/img_small.jpg);
         background-origin:content-box;
     }
 </style>
@@ -267,7 +267,7 @@ background-originプロパティは、ボックスにおいて画像を表示さ
         width:300px; height:200px; padding:10px;
         border:dashed 3px black; 
         color:white;
-        background-image:url(/front-end/img_small.jpg);
+        background-image:url(/assets/note/frontend/css/img_small.jpg);
         background-origin:content-box;
     }
 </style>
@@ -297,7 +297,7 @@ background-positionプロパティは、背景に画像を表示させる位置�
 ```
 <style type="text/css">
     div.position {
-        background-image: url(/front-end/img_small.jpg);
+        background-image: url(/assets/note/frontend/css/img_small.jpg);
         background-repeat: no-repeat;
         background-position: 100% 100%;
     }
@@ -306,7 +306,7 @@ background-positionプロパティは、背景に画像を表示させる位置�
         color:black
     }
 </style>
-<div class="position" width="500" height="400" src="/front-end/img_small.jpg">
+<div class="position" width="500" height="400" src="/assets/note/frontend/css/img_small.jpg">
     <h4 class="position">background-positionのサンプル</h1>
     <p>１行目</p>
     <p>２行目</p>
@@ -320,7 +320,7 @@ background-positionプロパティは、背景に画像を表示させる位置�
 
 <style type="text/css">
     div.position {
-        background-image: url(/front-end/img_small.jpg);
+        background-image: url(/assets/note/frontend/css/img_small.jpg);
         background-repeat: no-repeat;
         background-position: 100% 100%;
     }
@@ -329,7 +329,7 @@ background-positionプロパティは、背景に画像を表示させる位置�
         color:black
     }
 </style>
-<div class="position" width="500" height="400" src="/front-end/img_small.jpg">
+<div class="position" width="500" height="400" src="/assets/note/frontend/css/img_small.jpg">
     <h4 class="position">background-positionのサンプル</h1>
     <p>１行目</p>
     <p>２行目</p>
@@ -357,7 +357,7 @@ background-attachmentプロパティは、ページをスクロールしたと�
 ```
 <style type="text/css">
     div.attachment {
-        background-image: url(/front-end/img_small.jpg);
+        background-image: url(/assets/note/frontend/css/img_small.jpg);
         background-attachment: fixed;
     }
 
@@ -365,7 +365,7 @@ background-attachmentプロパティは、ページをスクロールしたと�
         color:greenyellow
     }
 </style>
-<div class="attachment" width="500" height="200" src="/front-end/img_small.jpg" scrolling="yes">
+<div class="attachment" width="500" height="200" src="/assets/note/frontend/css/img_small.jpg" scrolling="yes">
     <h4 class="attachment">background-attachmentのサンプル</h1>
     <p>１行目</p>
     <p>２行目</p>
@@ -379,7 +379,7 @@ background-attachmentプロパティは、ページをスクロールしたと�
 
 <style type="text/css">
     div.attachment {
-        background-image: url(/front-end/img_small.jpg);
+        background-image: url(/assets/note/frontend/css/img_small.jpg);
         background-attachment: fixed;
     }
 
@@ -387,7 +387,7 @@ background-attachmentプロパティは、ページをスクロールしたと�
         color:greenyellow
     }
 </style>
-<div class="attachment" width="500" height="200" src="/front-end/img_small.jpg" scrolling="yes">
+<div class="attachment" width="500" height="200" src="/assets/note/frontend/css/img_small.jpg" scrolling="yes">
     <h4 class="attachment">background-attachmentのサンプル</h1>
     <p>１行目</p>
     <p>２行目</p>
@@ -410,14 +410,14 @@ backgroundプロパティは、これまでに出てきた背景関連のプロ�
 ```
 <style type="text/css">
     div.all {
-        background: gray url(/front-end/img_small.jpg) no-repeat fixed center;
+        background: gray url(/assets/note/frontend/css/img_small.jpg) no-repeat fixed center;
     }
 
     h4.all {
         color:greenyellow
     }
 </style>
-<div class="all" width="500" height="400" src="/front-end/img_small.jpg">
+<div class="all" width="500" height="400" src="/assets/note/frontend/css/img_small.jpg">
     <h4 class="all">background-attachmentのサンプル</h1>
     <p>１行目</p>
     <p>２行目</p>
@@ -431,14 +431,14 @@ backgroundプロパティは、これまでに出てきた背景関連のプロ�
 
 <style type="text/css">
     div.all {
-        background: gray url(/front-end/img_small.jpg) no-repeat fixed center;
+        background: gray url(/assets/note/frontend/css/img_small.jpg) no-repeat fixed center;
     }
 
     h4.all {
         color:greenyellow
     }
 </style>
-<div class="all" width="500" height="400" src="/front-end/img_small.jpg">
+<div class="all" width="500" height="400" src="/assets/note/frontend/css/img_small.jpg">
     <h4 class="all">background-attachmentのサンプル</h1>
     <p>１行目</p>
     <p>２行目</p>
