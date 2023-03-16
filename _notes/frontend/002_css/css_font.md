@@ -38,7 +38,7 @@ CSSでフォントを指定しても、ユーザーの環境にそのフォン�
 <style>
     @font-face {
         font-family: Rowdies;
-        src: url(/front-end/Rowdies-Regular.ttf)
+        src: url(/assets/note/frontend/css/Rowdies-Regular.ttf)
     }
 
     p#font-face {
@@ -55,7 +55,7 @@ The sample of font-face.
 <style>
     @font-face {
         font-family: Rowdies;
-        src: url(/front-end/Rowdies-Regular.ttf)
+        src: url(/assets/note/frontend/css/Rowdies-Regular.ttf)
     }
 
     p#font-face {
