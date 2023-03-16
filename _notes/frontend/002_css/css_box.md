@@ -16,7 +16,7 @@ CSSで扱うボックスについて。
 
 ボックスの詳細は以下の図の通り。
 
-<img src="/front-end/css_box.png" width=80%>
+<img src="/assets/note/frontend/css/css_box.png">
 
 CSSでは、ボックスの各部分の長さなどを設定することができる。
 
@@ -324,13 +324,13 @@ floatプロパティは、ボックスを左または右に寄せて配置し、
 使用例
 
 ```
-<img src="/front-end/img_small.jpg" style="float:left">
+<img src="/assets/note/frontend/css/img_small.jpg" style="float:left">
 <p style="background-color: #66ff99;">p要素ボックス左</p>
 <p style="background-color: #66ff99;">←左に画像</p>
 <br>
 <br>
 <br>
-<img src="/front-end/img_small.jpg" style="float:right">
+<img src="/assets/note/frontend/css/img_small.jpg" style="float:right">
 <p style="background-color: #66ff99;">p要素ボックス右</p>
 <p style="background-color: #66ff99;">右に画像→</p>
 <br>
@@ -340,13 +340,13 @@ floatプロパティは、ボックスを左または右に寄せて配置し、
 
 表示例
 
-<img src="/front-end/img_small.jpg" style="float:left">
+<img src="/assets/note/frontend/css/img_small.jpg" style="float:left">
 <p style="background-color: #66ff99;">p要素ボックス左</p>
 <p style="background-color: #66ff99;">←左に画像</p>
 <br>
 <br>
 <br>
-<img src="/front-end/img_small.jpg" style="float:right">
+<img src="/assets/note/frontend/css/img_small.jpg" style="float:right">
 <p style="background-color: #66ff99;">p要素ボックス右</p>
 <p style="background-color: #66ff99;">右に画像→</p>
 <br>
@@ -371,24 +371,24 @@ clearプロパティは、floatプロパティで寄せられたボックスの�
 使用例
 
 ```
-<img src="/front-end/img_small.jpg" style="float:left">
+<img src="/assets/note/frontend/css/img_small.jpg" style="float:left">
 <p style="background-color: #66ff99">p要素ボックス右<br>←左に画像</p>
 <p style="clear:none">clearを指定しないと後続の要素も回り込みます</p>
 <br>
 <br>
-<img src="/front-end/img_small.jpg" style="float:left">
+<img src="/assets/note/frontend/css/img_small.jpg" style="float:left">
 <p style="background-color: #66ff99">p要素ボックス右<br>←左に画像</p>
 <p style="clear:left">clearを指定すると後続の要素は回り込みません</p>
 ```
 
 表示例
 
-<img src="/front-end/img_small.jpg" style="float:left">
+<img src="/assets/note/frontend/css/img_small.jpg" style="float:left">
 <p style="background-color: #66ff99">p要素ボックス右<br>←左に画像</p>
 <p style="clear:none">clearを指定しないと後続の要素も回り込みます</p>
 <br>
 <br>
-<img src="/front-end/img_small.jpg" style="float:left">
+<img src="/assets/note/frontend/css/img_small.jpg" style="float:left">
 <p style="background-color: #66ff99">p要素ボックス右<br>←左に画像</p>
 <p style="clear:left">clearを指定すると後続の要素は回り込みません</p>
 <hr>
@@ -466,9 +466,9 @@ visiblityプロパティは、ボックスが透明になったかのように�
 
 ```
 <p>下に画像３個、２個目をhiddenさせる</p>
-<img src="/front-end/img_small.jpg" style="display:inline">
-<img src="/front-end/img_small.jpg" style="display:inline; visibility:hidden">
-<img src="/front-end/img_small.jpg" style="display:inline">
+<img src="/assets/note/frontend/css/img_small.jpg" style="display:inline">
+<img src="/assets/note/frontend/css/img_small.jpg" style="display:inline; visibility:hidden">
+<img src="/assets/note/frontend/css/img_small.jpg" style="display:inline">
 <br>
 <br>
 <p>表</p>
@@ -494,9 +494,9 @@ visiblityプロパティは、ボックスが透明になったかのように�
 表示例
 
 <p>下に画像３個、２個目をhiddenさせる</p>
-<img src="/front-end/img_small.jpg" style="display:inline">
-<img src="/front-end/img_small.jpg" style="display:inline; visibility:hidden">
-<img src="/front-end/img_small.jpg" style="display:inline">
+<img src="/assets/note/frontend/css/img_small.jpg" style="display:inline">
+<img src="/assets/note/frontend/css/img_small.jpg" style="display:inline; visibility:hidden">
+<img src="/assets/note/frontend/css/img_small.jpg" style="display:inline">
 <br>
 <br>
 <p>表</p>
