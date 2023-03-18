@@ -1,7 +1,7 @@
 ---
 title: 'S3静的ホスティングサイト + Cognito認証'
 excerpt: 'S3での静的Webホスティングで立てたサイトにCognitoによる認証を付ける'
-coverImage: ''
+coverImage: '/assets/posts/s3HostingCognito/loginUI.png'
 date: '2023-02-16T22:29:57.000Z'
 updatedAt: '2023-02-16T22:29:57.000Z'
 tag: ["AWS","S3","Cognito"]
@@ -10,7 +10,7 @@ author:
   picture: '/assets/blog/authors/WAT.jpg'
 ogImage:
   url: ''
-draft: true
+draft: false
 ---
 
 前述の S3の静的Webサイトホスティング で立てたWebサイトに、 また前述のCognito による認証を付け加えて、限られたユーザしか閲覧できないようにする。
