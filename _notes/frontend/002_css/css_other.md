@@ -187,7 +187,7 @@ list-style-imageプロパティは、リストの行頭記号に表示する画�
 ```html
 <style type="text/css">
 ul.image {
-    list-style-image: url(/front-end/list-style-image.png);
+    list-style-image: url(/assets/note/frontend/css/list-style-image.png);
 }
 </style>
 <ul class="image">
@@ -201,7 +201,7 @@ ul.image {
 
 <style type="text/css">
 ul.image {
-    list-style-image: url(/front-end/list-style-image.png);
+    list-style-image: url(/assets/note/frontend/css/list-style-image.png);
 }
 </style>
 <ul class="image">
