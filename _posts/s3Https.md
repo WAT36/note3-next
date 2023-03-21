@@ -222,6 +222,28 @@ S3の対象バケットに行って、バケットポリシーを以下で更新
 }
 ```
 
+5. S3のCORS設定を追記する
+
+また、S3対象バケットのアクセス許可　のセクションにあるCORSの設定に以下のJSONを設定する。
+
+```json
+[
+    {
+        "AllowedHeaders": [
+            "*"
+        ],
+        "AllowedMethods": [
+            "GET",
+            "HEAD"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": []
+    }
+]
+```
+
 # Route53で独自ドメインのエイリアスの向き先を変更する
 
 最後に、作成したドメインの向き先をCloudfrontに向ける。
