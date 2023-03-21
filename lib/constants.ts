@@ -21,4 +21,5 @@ export const DIR_NAME = {
 
   "frontend/001_html": "HTML",
   "frontend/002_css": "CSS",
+  "frontend/003_javascript": "Javascript",
 };
