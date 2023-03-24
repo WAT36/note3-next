@@ -10,7 +10,7 @@ author:
   picture: '/assets/blog/authors/WAT.jpg'
 ogImage:
   url: ''
-draft: true
+draft: false
 ---
 
 例えば自分のGithub上のレポジトリ にあるReact等のコード類をAWS S3に上げるなどしたい時はどうすれば良いか。
