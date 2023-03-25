@@ -23,4 +23,6 @@ export const DIR_NAME = {
   "frontend/002_css": "CSS",
   "frontend/003_javascript": "Javascript",
   "frontend/004_webTech": "その他のWeb関連技術",
+
+  "programming/001_stdio": "標準入力・出力",
 };
