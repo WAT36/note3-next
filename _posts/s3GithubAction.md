@@ -75,11 +75,11 @@ IAMユーザのコンソールに行き、ユーザの作成へ行く。
 
 自分のGithubに、作成したIAMユーザーのアクセスキーを登録する。
 
-- Githubの該当するレポジトリのページ＞Settings＞Secrets and Variables＞Actions
-- 「New Repository Secrets」を押下
-- その後にIAMユーザのアクセスキー、シークレットアクセスキーをそれぞれ登録
+1. Githubの該当するレポジトリのページ＞Settings＞Secrets and Variables＞Actions　へ行く
+2. 「New Repository Secrets」を押下
+3. その後にIAMユーザのアクセスキー、シークレットアクセスキーをそれぞれ登録
   - アクセスキーの名前は「AWS_ACCESS_KEY_ID」
-  - シークレットアクセスキーの名前は「AWS_SECRET_ACCESS_KEY」　などの名前で登録する。
+  - シークレットアクセスキーの名前は「AWS_SECRET_ACCESS_KEY」　などの名前で登録する。（次節で使用）
 
 
 # Workflowの作成
@@ -117,7 +117,8 @@ jobs:
           aws s3 sync --region ap-northeast-1 ./out s3://(バケット名) --delete
 ```
 
-- 作成が終わったら「Start Commit」を押下すると操作が実行される。
+- 作成が終わったら「Start Commit」を押下すると、上記のファイルがgithubに入る。
+- 対象のブランチにpushすると、上記コードのアクション(S3にデプロイ)
 - レポジトリ の「Action」タブから実行状況を確認できる。
 
 ![](/assets/posts/s3GithubAction/result.png)
