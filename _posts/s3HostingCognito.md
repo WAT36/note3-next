@@ -17,7 +17,7 @@ draft: false
 
 今回は、Cognito による認証を付け加えて、静的Webサイトを限られたユーザしか閲覧できないようにしてみよう。
 
-# S3パブリックアクセスを無効にする
+# S3パブリックアクセスを無効・OACの設定をする
 
 Cognitoの設定の前に、デフォルトの状態だとS3上の静的Webホスティングサイトが誰でも見える状態なので、まずS3のパブリックアクセスを無効化させる。
 
@@ -25,6 +25,33 @@ Cognitoの設定の前に、デフォルトの状態だとS3上の静的Webホ�
 2. アクセス許可　からブロックパブリックアクセス　を参照し、「パブリックアクセスをすべてブロック」をオンにする
 
 ![](/assets/posts/s3HostingCognito/s3BlockPublicAccess.png)
+
+3. S3バケットポリシーを更新し、OACを適用する。
+
+S3の対象バケットに行って、バケットポリシーを以下で更新する。（これにより、静的WebサイトへのアクセスがCloudfront経由になるように限定される。S3に直接アクセスすると認証エラーとなる。）
+
+```json
+{
+    "Version": "2008-10-17",
+    "Id": "PolicyForCloudFrontPrivateContent",
+    "Statement": [
+        {
+            "Sid": "AllowCloudFrontServicePrincipal",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "cloudfront.amazonaws.com"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::<バケット名>/*",
+            "Condition": {
+                "StringEquals": {
+                  "AWS:SourceArn": "arn:aws:cloudfront::<アカウントID>:distribution/<ディストリビューションID>"
+                }
+            }
+        }
+    ]
+}
+```
 
 # Cognito
 
@@ -35,7 +62,7 @@ Cognitoの設定の前に、デフォルトの状態だとS3上の静的Webホ�
 まずは、閲覧できるユーザーの管理を行うユーザープールを作成する。
 今回は、ユーザーの登録は管理側で行うものとし、サインアップは行えないようにする。
 
-1. Cognitoコンソールへ行く
+1. Cognitoコンソールへ行く。リージョンは各自置きたい場所にする
 2. まずは「ユーザープールの作成」へ
 
 ![](/assets/posts/s3HostingCognito/cognitoConsole.png)
@@ -77,9 +104,11 @@ Cognitoの設定の前に、デフォルトの状態だとS3上の静的Webホ�
 
 17. ユーザープール名 を入力する
 18. ホストされた認証ページ　CognitoのホストされたUIを必要　にチェックを入れる
+19. Cognitoドメイン　を各自入力する
 19. 最初のアプリケーションクライアント　はパブリッククライアント　
 20. アプリケーションクライアント名を入力
 21. クライアントシークレットを生成しない　を設定
+22. 許可されているコールバックURL　には認証後表示するページのURL　を入力
 22. その後「次へ」
 
 (17.,~21. は各自必要に応じて設定)
@@ -103,16 +132,11 @@ Cognitoの設定の前に、デフォルトの状態だとS3上の静的Webホ�
 
 ![](/assets/posts/s3HostingCognito/hostedUIConfig.png)
 
-3. 「許可されているコールバックURL」には認証後表示するページのURL、「許可されているサインアウトURL」はサインアウト後に遷移する先のURLをそれぞれHTTPSで設定する。（各自の環境に合わせて設定する）
+3. 「許可されているサインアウトURL」はサインアウト後に遷移する先のURLがあればHTTPSで設定する。（各自の環境に合わせて設定する）
 4. IDプロバイダー　でCognitoユーザープールを選択
 5. OAuth2.0許可タイプ　は暗黙的な付与を設定する
 6. OpenID接続スコープ　はOpenIDを設定する
 7. その後「変更の保存」
-
-
-8. 次に、アプリケーションの統合＞ドメイン名　でCognitoドメインの作成　をする、名前も入力する
-
-![](/assets/posts/s3HostingCognito/cognitoDomain.png)
 
 9. そのあと、以下にアクセスして、ログイン画面が出てくるか確認する
 
