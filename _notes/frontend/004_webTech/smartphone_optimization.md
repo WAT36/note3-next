@@ -7,6 +7,8 @@ updatedAt: '2023-03-22T08:44:34.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: '/assets/blog/authors/WAT.jpg'
+link:
+  css: ['/assets/note/frontend/web_other/splite.css']
 ---
 
 # スマートフォン最適化
@@ -30,58 +32,39 @@ CSSスプライトとは、複数の画像をつなげて1つのファイルに�
 使用例(css)
 
 ```css
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>CSSスプライト_サンプル</title>
+.splite {
+    background-image: url(/assets/note/frontend/html/img/img.jpg);
+    width: 50px;
+    height: 50px;
+    background-position: 100% 100%;
+}
 
-<style type="text/css">
-    .splite {
-        background-image: url(img_small.jpg);
-        width: 50px;
-        height: 50px;
-        background-position: 100% 100%;
-    }
+.splite1 {
+    background-position: 0 0px;
+}
 
-    .splite1 {
-        background-position: 0 0px;
-    }
+.splite2 {
+    background-position: 0 -50px;
+}
 
-    .splite2 {
-        background-position: 0 -50px;
-    }
-
-    .splite3 {
-        background-position: 0 -100px;
-    }
-
-</style>
-
-</head>
-<body>
-
-<p class="splite splite1"></p></p>
-<p class="splite splite2"></p></p>
-<p class="splite splite3"></p></p>
-
-
-</body>
-</html>
+.splite3 {
+    background-position: 0 -100px;
+}
 ```
 
-使用例(iframe)
+使用例(html)
 
 ```
-<iframe width="500" height="400" src="/css_sample_pages/css_splite.html">
-</iframe>
+<p class="splite splite1"></p>
+<p class="splite splite2"></p>
+<p class="splite splite3"></p>
 ```
 
 表示例
 
-<hr>
-<iframe width="500" height="400" src="/css_sample_pages/css_splite.html">
-</iframe>
-<hr>
+<p class="splite splite1"></p>
+<p class="splite splite2"></p>
+<p class="splite splite3"></p>
 
 
 ## 高画像度画面向けの対応
