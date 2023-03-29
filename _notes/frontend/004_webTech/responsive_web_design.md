@@ -7,7 +7,8 @@ updatedAt: '2023-03-21T14:26:21.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: '/assets/blog/authors/WAT.jpg'
-draft: true
+link:
+  css: ['/assets/note/frontend/web_other/mediaquery.css']
 ---
 
 # レスポンシブWebデザイン
