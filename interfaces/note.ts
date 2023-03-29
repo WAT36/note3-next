@@ -4,6 +4,9 @@ type NoteType = {
   slug: string;
   title: string;
   date: string;
+  link?: {
+    css?: string[];
+  };
   coverImage: string;
   author: Author;
   excerpt: string;
