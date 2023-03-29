@@ -54,6 +54,10 @@ function NoteContents(note: NoteType) {
           ) : (
             <></>
           )}
+          {note.link?.css &&
+            note.link.css.map((cssPath) => {
+              return <link rel="stylesheet" type="text/css" href={cssPath} />;
+            })}
         </Head>
         <PostHeader
           title={note.title}
@@ -100,6 +104,7 @@ export async function getStaticProps({ params }: Params) {
     "title",
     "date",
     "slug",
+    "link",
     "author",
     "content",
     "ogImage",

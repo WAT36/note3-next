@@ -7,6 +7,8 @@ updatedAt: '2023-03-21T14:26:21.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: '/assets/blog/authors/WAT.jpg'
+link:
+  css: ['/assets/note/frontend/web_other/mediaquery.css']
 ---
 
 # レスポンシブWebデザイン
@@ -166,19 +168,19 @@ author:
 
 ```css
 @media screen and (min-width:0px){
-    body{
+    p.mediaquery{
       color: greenyellow;
     }
 }
   
 @media screen and (min-width:300px){
-    body{
+    p.mediaquery{
       color: red;
     }
 }
   
 @media screen and (min-width:600px){
-    body{
+    p.mediaquery{
       color: blue;
     }
 }
@@ -187,30 +189,23 @@ author:
 (html)
 
 ```html
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>メディアクエリサンプル</title>
-<link rel="stylesheet" type="text/css" href="media_query.css">
-</head>
-<body>
+<p class="mediaquery">メディアクエリのテスト</p>
 
-<p>メディアクエリのテスト</p>
+<p class="mediaquery">幅0px以上で緑、幅300px以上で赤、幅600px以上で青になるはず。</p>
 
-<p>幅0px以上で緑、幅300px以上で赤、幅600px以上で青になるはず。</p>
-
-<p>ブラウザの幅を変えると色が変化します</p>
-
-</body>
-</html>
+<p class="mediaquery">ブラウザの幅を変えると色が変化します</p>
 ```
 
 
 表示例
 
-<iframe width="100%" height="400" src="/css_sample_pages/media_query.html">
-</iframe>
+<p class="mediaquery">メディアクエリのテスト</p>
 
+<p class="mediaquery">幅0px以上で緑、幅300px以上で赤、幅600px以上で青になるはず。</p>
+
+<p class="mediaquery">ブラウザの幅を変えると色が変化します</p>
+
+---
 
 ## 可変グリッド
 
@@ -235,12 +230,12 @@ author:
 使用例
 
 ```html
-<img src="/img/front-end/img.jpg" style="max-width: 100%">
+<img src="/assets/note/frontend/html/img/img.jpg" style="max-width: 100%">
 ```
 
 表示例（ブラウザの幅を変えるとサイズが変化します）
 
-<img src="/img/front-end/img.jpg" style="max-width: 100%">
+<img src="/assets/note/frontend/html/img/img.jpg" style="max-width: 100%">
 
 
 
