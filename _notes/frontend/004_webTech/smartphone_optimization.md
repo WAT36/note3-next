@@ -1,7 +1,7 @@
 ---
 title: "スマートフォン最適化"
 date: "2023-03-22T08:44:34.000Z"
-excerpt: 'スマートフォン最適化について'
+excerpt: 'スマートフォン最適化の主な手法について'
 tag: ["Web","HTML","CSS"]
 updatedAt: '2023-03-22T08:44:34.000Z'
 author:
@@ -11,9 +11,7 @@ link:
   css: ['/assets/note/frontend/web_other/splite.css']
 ---
 
-# スマートフォン最適化
-
-スマートフォン最適化についてを述べる。
+スマートフォン最適化手法についてを述べる。
 
 
 ## CSSスプライト
