@@ -138,4 +138,3 @@ defer属性は、async属性と同様にHTMLパース処理を中止すること
 ```html
 <script src="example.js" defer></script>
 ```
-
