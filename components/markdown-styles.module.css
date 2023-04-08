@@ -92,3 +92,8 @@
   margin: 1em 0;
   white-space: pre;
 }
+
+.markdown a {
+  color: #06C;
+  text-decoration: underline;
+}
