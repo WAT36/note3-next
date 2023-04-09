@@ -1,12 +1,16 @@
 ---
 title: "コマンドライン引数"
 date: "2019-10-12T16:42:45.000Z"
-excerpt: 'HTTP・HTTPSについて'
+excerpt: ''
 tag: ["Java","Python","Node.js"]
+programming: ["Java","Python","Node.js"]
 updatedAt: '2019-10-12T16:42:45.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: '/assets/blog/authors/WAT.jpg'
+link:
+  css: ['/assets/note/programming/css/programming.css']
+  javascript: ['/assets/note/programming/javascript/programming.js']
 ---
 
 プログラム(実行ファイル)をターミナルやコマンドプロンプト等から実行する時、同時に値を入力した上で実行することができる。この入力する値を**コマンドライン引数**という。
