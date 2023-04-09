@@ -6,7 +6,9 @@ type NoteType = {
   date: string;
   link?: {
     css?: string[];
+    javascript?: string[];
   };
+  programming?: string[];
   coverImage: string;
   author: Author;
   excerpt: string;
