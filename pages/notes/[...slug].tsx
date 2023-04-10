@@ -15,7 +15,6 @@ import { Bio } from "../../components/bio";
 import NoteDirLink from "../../components/notedir-link";
 import NoteLink from "../../components/note-link";
 import { getNoteSlugs } from "../../lib/fileSystem";
-import { useState } from "react";
 
 type Props = {
   note: NoteType;
@@ -136,6 +135,7 @@ export async function getStaticProps({ params }: Params) {
     "content",
     "ogImage",
     "coverImage",
+    "mode",
   ]);
   const content = await markdownToHtml(note.content || "");
 
