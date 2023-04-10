@@ -52,5 +52,5 @@
 .note_content_by_programming_language {
   display: none;
   padding: var(--spacing-4);
-  border-style: double;
+  border: double thin;
 }
