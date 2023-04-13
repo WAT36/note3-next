@@ -13,7 +13,7 @@ ogImage:
 draft: false
 ---
 
-先程は <Link href="/posts/s3StaticHost/"><a>S3の静的Webサイトホスティング</a></Link> で立てたWebサイトに、 Route53,ACM,Cloudfrontを利用してHTTPS化設定を行った。
+先程は S3の静的Webサイトホスティング で立てたWebサイトに、 Route53,ACM,Cloudfrontを利用してHTTPS化設定を行った。
 
 今回は、Cognito による認証を付け加えて、静的Webサイトを限られたユーザしか閲覧できないようにしてみよう。
 

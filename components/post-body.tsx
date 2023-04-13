@@ -1,5 +1,4 @@
 import markdownStyles from "./markdown-styles.module.css";
-import Link from "next/link";
 
 type Props = {
   content: string;
