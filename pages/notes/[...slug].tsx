@@ -114,16 +114,15 @@ export async function getStaticProps({ params }: Params) {
     const slugs = getNoteSlugs(dirSlug, false);
     subPageLinks = slugs
       .map((slug) => {
-        const noteConfig = getNoteBySlug(slug.slug, ["title", "draft"]);
+        const noteConfig = getNoteBySlug(slug.slug, ["title", "date", "draft"]);
         // null(draftタグtrue)の場合は作成しない
         if (!slug.isDir && noteConfig["draft"]) {
           return null;
         }
-        const noteTitle = noteConfig.title;
         return {
           slug: slug.slug.join("/"),
-          name: noteTitle || slug.slug.join("/"),
-          date: note["date"] || null,
+          name: noteConfig["title"] || slug.slug.join("/"),
+          date: noteConfig["date"] || null,
           isDir: slug.isDir,
         };
       })
