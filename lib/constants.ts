@@ -25,4 +25,5 @@ export const DIR_NAME = {
   "frontend/004_webTech": "その他のWeb関連技術",
 
   "programming/001_stdio": "標準入力・出力",
+  "programming/002_string": "文字列",
 };
