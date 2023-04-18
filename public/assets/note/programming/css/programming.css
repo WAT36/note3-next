@@ -1,0 +1,56 @@
+:root {
+  --spacing-px: "1px";
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+}
+
+.right-placed {
+  float: right;
+}
+
+.programming-language-tagbar {
+  height: var(--spacing-20);
+}
+
+.programming-language-tag {
+  height: var(--spacing-10);
+  color: #ffffff;
+  padding: var(--spacing-1) var(--spacing-4);
+  margin: var(--spacing-0) var(--spacing-4);
+  border-style: none double double double;
+  border-width: var(--spacing-2);
+  border-radius: var(--spacing-0) var(--spacing-0) var(--spacing-4)
+    var(--spacing-4);
+  border-color: #ffffff;
+  background-color: #000080;
+  font-family: var(--font-heading);
+}
+
+.plang_radio {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+}
+
+.plang_radio:checked + .programming-language-tag {
+  color: #000080;
+  border-color: #000080;
+  background-color: #ffffff;
+}
+
+.note_content_by_programming_language {
+  display: none;
+  padding: var(--spacing-4);
+  border: double medium;
+}
