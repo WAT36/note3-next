@@ -10,7 +10,7 @@ author:
   picture: '/assets/blog/authors/WAT.jpg'
 ogImage:
   url: ''
-draft: true
+draft: false
 ---
 
 データを扱うアプリケーションやサービスにおいて、データベースは必要不可欠な存在である。
@@ -33,4 +33,35 @@ DBを自前で用意・管理したくない時に、DBだけ間借りしたい�
 
 公式サイトにもあるが、Youtube,Slackなどの多くの著名なサービスからの利用実績もある。
 
+# 利用登録（サインアップ）、概要紹介
+
+利用するには、まず公式サイトからアカウント登録（サインアップ）を行う。
+
+![](/assets/posts/planetScaleDB/signUp.png)
+
+メールアドレス等を入力すると登録メールが行くので、そこからverificationを行う。すると公式サイトへ行きPlanetScaleの説明が始まる。一個一個見ていく。
+
+![](/assets/posts/planetScaleDB/welcome.png)
+
+PlanetScaleはサーバレスなデータベースであること、
+
+![](/assets/posts/planetScaleDB/serverlessDB.png)
+
+データベースにGitのようなブランチ管理機能を搭載していること、
+
+![](/assets/posts/planetScaleDB/branchingFeature.png)
+
+それもありスキーマ変更が容易に行えること（ロックを行わなくて良いので）
+
+![](/assets/posts/planetScaleDB/nonBlockingSchemaChange.png)
+
+プルリクエストみたいな「デプロイリクエスト」でブランチへの反映・デプロイの管理が行えること
+
+![](/assets/posts/planetScaleDB/deployRequest.png)
+
+![](/assets/posts/planetScaleDB/deployQueue.png)
+
+データベースへの読み取り・書き込みトラフィック量を確認できることなど。
+
+![](/assets/posts/planetScaleDB/ioTraffic.png)
 
