@@ -18,7 +18,7 @@ HTTP(Hyper Text Transfer Protocol)とは、WebサーバとクライアントのW
 
 HTTPの通信は、クライアントからサーバへの**HTTPリクエスト**と、サーバからクライアントへの**HTTPレスポンス**の2つに分けられる。
 
-<img src="/img/front-end/http1.png">
+<img src="/assets/note/frontend/web_other/http1.png">
 
 
 # HTTPSプロトコル
@@ -27,7 +27,7 @@ HTTPSプロトコルは、大まかにいうとセキュリティを確保した
 
 HTTP通信を行う前に、セキュリティの確保として、データを暗号化して送受信するプロトコルであるSSLプロトコル(またはTLSプロトコル)を利用しセッションを確定する。その後に、HTTPセッションの接続を行う。
 
-<img src="/img/front-end/https.png">
+<img src="/assets/note/frontend/web_other/https.png">
 
 
 # HTTPのメッセージ構造
@@ -229,7 +229,7 @@ Basic認証は、ユーザー名とパスワードをコロンで接続し、Bas
 
 盗聴や改竄が容易にできてしまう。
 
-<img src="/img/front-end/basic.png" width="75%" height="75%">
+<img src="/assets/note/frontend/web_other/basic.png" width="75%" height="75%">
 
 
 ## Digest認証
@@ -238,7 +238,7 @@ Digest認証は、Basic認証に加えて、盗聴や改竄を防ぐためにユ
 
 パスワードが暗号化されているので、盗聴できても解読しにくいという利点がある。
 
-<img src="/img/front-end/digest.png" width="75%" height="75%">
+<img src="/assets/note/frontend/web_other/digest.png" width="75%" height="75%">
 
 
 # HTTP cookie (クッキー)
