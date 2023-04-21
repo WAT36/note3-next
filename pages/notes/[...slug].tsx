@@ -57,7 +57,7 @@ export default function Note({ note, subPageLinks }: Props) {
                       name="programming_language"
                       id={lang}
                     />
-                    <label for={lang} className="programming-language-tag">
+                    <label htmlFor={lang} className="programming-language-tag">
                       {lang}
                     </label>
                   </span>
