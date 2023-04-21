@@ -7,6 +7,8 @@ updatedAt: '2023-03-23T00:28:12.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: '/assets/blog/authors/WAT.jpg'
+link:
+  javascript: ['/assets/note/frontend/web_other/webApi.js']
 ---
 
 HTMLに関連する各種APIについて。
@@ -55,7 +57,7 @@ Adaptive Streaming技術には、Apple社が開発したプロトコルである
 
 画像ファイルは、jpegやpngファイルを用意して表示するが、HTML5ではJavascript等の外部ソースを利用しても表示できる。
 
-JavaScriptを使って画像を描画し、HTMLで表示するには**canvas要素**を利用する。canvasは画像をビットマップ形式（１ピクセル毎に色を指定する方式）で描画する。そのため、拡大縮小すると画像が粗くなる。
+JavaScriptを使って画像を描画し、HTMLで表示するには **canvas要素** を利用する。canvasは画像をビットマップ形式（１ピクセル毎に色を指定する方式）で描画する。そのため、拡大縮小すると画像が粗くなる。
 
 利用方法は以下の通り。
 
@@ -79,7 +81,7 @@ html
 ```html
 <p>canvas例</p>
 <canvas id="sample" width="100" height="100"></canvas>
-<script src="/js_sample_pages/api.js"></script>
+<script src="/assets/note/frontend/web_other/webApi.js"></script>
 ```
 
 javascript
@@ -103,16 +105,15 @@ ctx.fill();
 
 <p>canvas例</p>
 <canvas id="sample" width="100" height="100"></canvas>
-<script src="/js_sample_pages/api.js"></script>
 
 <hr>
 <hr>
 
-また、ベクター形式の画像である**SVG (Scalable Vector Graphics)**という方式もある。
+また、ベクター形式の画像である **SVG (Scalable Vector Graphics)** という方式もある。
 
 SVGはベクター形式のため、拡大縮小などしても画像が粗くならないという特徴がある。SVGではXML形式で画像を作成する。
 
-SVGを有効活用したライブラリとして、**D3.js**などがある。以下にSVGの例を示す。
+SVGを有効活用したライブラリとして、 **D3.js** などがある。以下にSVGの例を示す。
 
 html
 
@@ -241,12 +242,12 @@ Web Storageは、大きく**セッションストレージ**と**ローカルス
 html
 
 ```html
-<h2 id="title">ローカルストレージありの場合。下のボックスをクリックすると色が変化します。ページを更新しても変わらないはず。</h2>
-<h2 id="title_nonstorage">ローカルストレージなしの場合。ページを更新すると戻ります。</h2>
+<p id="title">ローカルストレージありの場合：下のボックスをクリックすると色が変化します。ページを更新しても変わらないはず。</p>
+<p id="title_nonstorage">ローカルストレージなしの場合：ページを更新すると戻ります。</p>
 <div id="red"   class="box" style="width: 50px; height: 50px; margin: 20px; background: red"></div>
 <div id="green" class="box" style="width: 50px; height: 50px; margin: 20px; background: green"></div>
 <div id="blue"  class="box" style="width: 50px; height: 50px; margin: 20px; background: blue"></div>
-<script src="/js_sample_pages/api.js"></script>
+<script src="/assets/note/frontend/web_other/webApi.js"></script>
 ```
 
 javascript
@@ -280,12 +281,11 @@ window.onload = function(){
 
 <hr>
 <hr>
-<h2 id="title">ローカルストレージありの場合。下のボックスをクリックすると色が変化します。ページを更新しても変わらないはず。</h2>
-<h2 id="title_nonstorage">ローカルストレージなしの場合。ページを更新すると戻ります。</h2>
+<p id="title">ローカルストレージありの場合：下のボックスをクリックすると色が変化します。ページを更新しても変わらないはず。</p>
+<p id="title_nonstorage">ローカルストレージなしの場合：ページを更新すると戻ります。</p>
 <div id="red"   class="box" style="width: 50px; height: 50px; margin: 20px; background: red"></div>
 <div id="green" class="box" style="width: 50px; height: 50px; margin: 20px; background: green"></div>
 <div id="blue"  class="box" style="width: 50px; height: 50px; margin: 20px; background: blue"></div>
-<script src="/js_sample_pages/api.js"></script>
 <hr>
 <hr>
 

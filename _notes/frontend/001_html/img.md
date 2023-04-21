@@ -240,7 +240,7 @@ area要素は、イメージマップにおいて指定した領域を指定し�
 <img src="/assets/note/frontend/html/img/area.png" usemap="#top" width="100" height="100">
 
 <map name="top">
-    <area href="https://wat36.github.io/note2-gatsby/" shape="rect" coords="0,0,100,50"></area>
+    <area href="https://wat-notes.com/" shape="rect" coords="0,0,100,50"></area>
     <area href="https://github.com/WAT36" shape="rect" coords="0,50,100,100"></area>
 </map>
 ```
@@ -250,7 +250,7 @@ area要素は、イメージマップにおいて指定した領域を指定し�
 <img src="/assets/note/frontend/html/img/area.png" usemap="#top" width="100" height="100">
 
 <map name="top">
-    <area href="https://wat36.github.io/note2-gatsby/" shape="rect" coords="0,0,100,50"></area>
+    <area href="https://wat-notes.com/" shape="rect" coords="0,0,100,50"></area>
     <area href="https://github.com/WAT36" shape="rect" coords="0,50,100,100"></area>
 </map>
 <hr>

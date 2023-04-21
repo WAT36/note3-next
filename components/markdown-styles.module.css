@@ -91,8 +91,14 @@
   font-family: monospace;
   font-size: 10pt;
   margin: 1em 0;
-  white-space: pre;
+  white-space: pre-wrap;
 }
+
+.markdown a {
+  color: #06C;
+  text-decoration: underline;
+}
+
 
 .markdown input {
   background-color: #FFF;
