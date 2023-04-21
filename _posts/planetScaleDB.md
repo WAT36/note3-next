@@ -66,7 +66,7 @@ PlanetScaleはサーバレスなデータベースであること、
 ![](/assets/posts/planetScaleDB/ioTraffic.png)
 
 
-その後最初nのデータベースを作成するように出るので、DB名を入力し、またリージョン(DBを作成する場所)も選択して作成する。
+その後最初のデータベースを作成するように出るので、DB名を入力し、またリージョン(DBを作成する場所)も選択して作成する。
 
 ![](/assets/posts/planetScaleDB/createDB.png)
 
