@@ -23,5 +23,14 @@ draft: true
 
 # PlanetScaleとは
 
+https://planetscale.com/
+
+PlanetScaleとはPlanetScale Inc.が提供しているサーバレスなMySQL DBのサービスである。
+
+DBを自前で用意・管理したくない時に、DBだけ間借りしたい時などに重宝するだろう。
+
+無料プランなども提供されており、利用量によってはコストを大きく抑えることも可能である。
+
+公式サイトにもあるが、Youtube,Slackなどの多くの著名なサービスからの利用実績もある。
 
 
