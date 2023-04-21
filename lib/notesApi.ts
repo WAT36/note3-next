@@ -10,7 +10,7 @@ export function getNoteBySlug(slug: string[], fields: string[] = []) {
   const fullPath = join(NOTES_DIR, `${realSlug}${isDir ? "" : ".md"}`);
 
   type Items = {
-    [key: string]: string;
+    [key: string]: string | object;
   } & {
     isDir?: boolean;
   };
@@ -38,6 +38,15 @@ export function getNoteBySlug(slug: string[], fields: string[] = []) {
       }
       items.isDir = false;
     });
+
+    // mode指定時の処理(programming)
+    if (items.mode && items.mode === "programming") {
+      // programming用css類ファイル指定
+      items.link = {
+        css: ["/assets/note/programming/css/programming.css"],
+        javascript: ["/assets/note/programming/javascript/programming.js"],
+      };
+    }
   }
   return items;
 }

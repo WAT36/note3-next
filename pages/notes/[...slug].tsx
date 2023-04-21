@@ -144,6 +144,7 @@ export async function getStaticProps({ params }: Params) {
     "content",
     "ogImage",
     "coverImage",
+    "mode",
   ]);
   const content = await markdownToHtml(note.content || "");
 
