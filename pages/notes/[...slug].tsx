@@ -15,7 +15,7 @@ import { Bio } from "../../components/bio";
 import NoteDirLink from "../../components/notedir-link";
 import NoteLink from "../../components/note-link";
 import { getNoteSlugs } from "../../lib/fileSystem";
-import { useState } from "react";
+import { useEffect } from "react";
 
 type Props = {
   note: NoteType;
@@ -29,6 +29,18 @@ export default function Note({ note, subPageLinks }: Props) {
   }
 
   const NoteContents = (note: NoteType) => {
+    useEffect(() => {
+      if (note.link?.javascript) {
+        for (const jsPath of note.link?.javascript) {
+          const head = document.getElementsByTagName("head")[0] as HTMLElement;
+          const scriptUrl = document.createElement("script");
+          scriptUrl.type = "text/javascript";
+          scriptUrl.src = jsPath;
+          head.appendChild(scriptUrl);
+        }
+      }
+    }, []);
+
     return (
       <>
         <article className="mb-32">
@@ -111,10 +123,6 @@ export default function Note({ note, subPageLinks }: Props) {
           )}
         </Container>
       </Layout>
-      {note.link?.javascript &&
-        note.link.javascript.map((jsPath) => {
-          return <script src={jsPath} />;
-        })}
     </>
   );
 }
