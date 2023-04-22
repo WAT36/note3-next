@@ -1,3 +1,4 @@
+import { BreadCrumb } from "./bread-crumb";
 import Footer from "./footer";
 import Header from "./header";
 import Meta from "./meta";
@@ -23,6 +24,7 @@ const Layout = ({ preview, children, programmingTag }: Props) => {
               })}
           </div>
         )}
+        <BreadCrumb />
         <main>{children}</main>
       </div>
       <Footer />
