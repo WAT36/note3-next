@@ -16,6 +16,7 @@ import NoteDirLink from "../../components/notedir-link";
 import NoteLink from "../../components/note-link";
 import { getNoteSlugs } from "../../lib/fileSystem";
 import { useEffect } from "react";
+import { ProgrammingTag } from "../../components/programming-tag";
 
 type Props = {
   note: NoteType;
@@ -61,19 +62,7 @@ export default function Note({ note, subPageLinks }: Props) {
           <div className="programming-language-tagbar">
             {note.programming &&
               note.programming.map((lang, index) => {
-                return (
-                  <span className="right-placed">
-                    <input
-                      type="radio"
-                      className="plang_radio"
-                      name="programming_language"
-                      id={lang}
-                    />
-                    <label htmlFor={lang} className="programming-language-tag">
-                      {lang}
-                    </label>
-                  </span>
-                );
+                return <ProgrammingTag lang={lang} />;
               })}
           </div>
           <PostHeader
