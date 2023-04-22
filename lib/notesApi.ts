@@ -10,8 +10,9 @@ export function getNoteBySlug(slug: string[], fields: string[] = []) {
   const fullPath = join(NOTES_DIR, `${realSlug}${isDir ? "" : ".md"}`);
 
   type Items = {
-    [key: string]: string | object;
+    [key: string]: string;
   } & {
+    link?: object;
     isDir?: boolean;
   };
 
