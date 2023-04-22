@@ -59,12 +59,6 @@ export default function Note({ note, subPageLinks }: Props) {
                 return <link rel="stylesheet" type="text/css" href={cssPath} />;
               })}
           </Head>
-          <div className="programming-language-tagbar">
-            {note.programming &&
-              note.programming.map((lang, index) => {
-                return <ProgrammingTag lang={lang} />;
-              })}
-          </div>
           <PostHeader
             title={note.title}
             coverImage={note.coverImage}
@@ -101,7 +95,7 @@ export default function Note({ note, subPageLinks }: Props) {
 
   return (
     <>
-      <Layout>
+      <Layout programmingTag={note.programming}>
         <Container>
           {router.isFallback ? (
             <PostTitle>Loading…</PostTitle>
