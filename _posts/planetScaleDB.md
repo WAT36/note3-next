@@ -70,9 +70,32 @@ PlanetScaleはサーバレスなデータベースであること、
 
 ![](/assets/posts/planetScaleDB/createDB.png)
 
-するとDBが作られる。
+するとDBが作られ、DBの設定画面へ遷移する。
+
+![](/assets/posts/planetScaleDB/dbConfig.png)
 
 なお後述もするが、無料プランではDBは1つまでしか作られない模様。
 
 ![](/assets/posts/planetScaleDB/oneFreeDB.png)
+
+
+# データベースにスキーマを設定する
+
+次に、作成したデータベースにスキーマ（テーブル定義）を設定する方法について。
+
+先程のDB作成後の画面から「Console」を選択。
+
+![](/assets/posts/planetScaleDB/console.png)
+
+ここでブランチを指定して「Connect」
+
+するとコンソール画面へ行く
+
+ここで、作成したいテーブルを作成するSQL文を実際に書いて実行してみる。
+
+![](/assets/posts/planetScaleDB/createTable.png)
+
+実行しSHOW TABLESして確認してみると、作成されていることが確認できる。
+
+コンソール上でだが、これでスキーマ設定が行える。
 
