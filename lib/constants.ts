@@ -11,6 +11,7 @@ export const ADMINISTRATOR: Administrator = {
   name: "Tatsuroh Wakasugi",
   nickname: "WAT",
 };
+export const ALT_IMAGE = "/assets/blog/altImage.png";
 
 export const NOTES_DIR = join(process.cwd(), "_notes");
 
