@@ -115,3 +115,17 @@ PlanetScaleはサーバレスなデータベースであること、
 
 ![](/assets/posts/planetScaleDB/productionBranch.png)
 
+
+# データベースへの接続情報を確認する
+
+データベースに接続する際に必要なユーザ名・アドレスなどの接続情報は、ブランチのコンソール画面にある「Connect」をクリックする
+
+![](/assets/posts/planetScaleDB/connect.png)
+
+すると、接続情報が出てくる。なお利用する言語別に形式が用意されているので、各々の環境に応じて選択し利用する。
+
+![](/assets/posts/planetScaleDB/password.png)
+
+なお、データベースへの接続に利用するパスワードは、初期表示時にしか表示されないので、必ず何処かにメモしておく。
+
+（次回以降の表示時には、伏せられて表示されないので注意する）
