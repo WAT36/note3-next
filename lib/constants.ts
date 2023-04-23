@@ -26,4 +26,7 @@ export const DIR_NAME = {
 
   "programming/001_stdio": "標準入力・出力",
   "programming/002_string": "文字列",
+  "programming/003_number": "数値",
+
+  "programming/003_number/001_log": "対数",
 };
