@@ -16,14 +16,17 @@ export const ALT_IMAGE = "/assets/blog/altImage.png";
 export const NOTES_DIR = join(process.cwd(), "_notes");
 
 export const DIR_NAME = {
-  "notes/container": "コンテナ",
-  "notes/frontend": "フロントエンド",
-  "notes/programming": "プログラミング",
+  posts: "Blog Posts",
+  notes: "Notes",
 
-  "frontend/001_html": "HTML",
-  "frontend/002_css": "CSS",
-  "frontend/003_javascript": "Javascript",
-  "frontend/004_webTech": "その他のWeb関連技術",
+  container: "コンテナ",
+  frontend: "フロントエンド",
+  programming: "プログラミング",
 
-  "programming/001_stdio": "標準入力・出力",
+  "001_html": "HTML",
+  "002_css": "CSS",
+  "003_javascript": "Javascript",
+  "004_webTech": "その他のWeb関連技術",
+
+  "001_stdio": "標準入力・出力",
 };
