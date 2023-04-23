@@ -99,3 +99,19 @@ PlanetScaleはサーバレスなデータベースであること、
 
 コンソール上でだが、これでスキーマ設定が行える。
 
+# ブランチを本番設定・保護化する
+
+本番環境としたいブランチに対して、誤ってテーブル削除などできないようにブランチを本番設定(Promote to Production)することができる。
+
+後述するがスキーマのDeploy Requestを送る際、この本番化設定が必要になるのでここで設定する。
+
+コンソール上から設定したいブランチの「Overview」を表示するとPromote to Production（まだ設定してない場合）があるのでそれをクリック
+
+または「Branches」から本番化設定したいブランチの詳細を開くとPromote to Productionが出るのでクリック
+
+![](/assets/posts/planetScaleDB/promoteToProduction.png)
+
+すると本番ブランチ設定される。
+
+![](/assets/posts/planetScaleDB/productionBranch.png)
+
