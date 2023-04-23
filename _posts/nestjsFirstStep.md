@@ -1,5 +1,5 @@
 ---
-title: 'NestJSを触ってみた'
+title: 'NestJSに入門してみた'
 excerpt: 'NestJSプロジェクトを作成し簡単なAPIを起動させてみた'
 coverImage: ''
 date: '2023-04-23T23:24:57.000Z'
