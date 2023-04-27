@@ -138,3 +138,10 @@ PlanetScaleはサーバレスなデータベースであること、
 
 行うにはまず、本ブランチで「Safe migrations」を設定する必要がある。（これは前述の本番化設定で行ってるので割愛する）
 
+設定後、他ブランチから本ブランチへのDeploy Requestを作成してみよう。
+
+コンソール画面から元ブランチのページへ行くと、本ブランチとの変更分(diff)が表示される。
+
+![](/assets/posts/planetScaleDB/schemaDiff.png)
+
+
