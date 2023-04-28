@@ -144,4 +144,15 @@ PlanetScaleはサーバレスなデータベースであること、
 
 ![](/assets/posts/planetScaleDB/schemaDiff.png)
 
+この右部分に「Create Deploy Request」がある。本ブランチ(Deploy to)とコメント（あれば）を入力して、よければCreate Deploy Requestを押下する。
+
+するとDeploy Requestの詳細・差分が表示される
+
+![](/assets/posts/planetScaleDB/deployRequestDetail.png)
+
+ここでテーブルがデプロイできない状態だとエラーが出る。その場合は直すなどする。
+
+OKなら「Deploy Changes」するとデプロイが行われる
+
+![](/assets/posts/planetScaleDB/deployRequestResult.png)
 
