@@ -156,3 +156,12 @@ OKなら「Deploy Changes」するとデプロイが行われる
 
 ![](/assets/posts/planetScaleDB/deployRequestResult.png)
 
+---
+
+# 料金
+
+https://planetscale.com/docs/concepts/billing
+
+料金はプラン分けされており、無料プランと有料プラン、またエンタープライズ版も存在する。
+
+無料プランではブランチは開発用と本番用の2つのみしか作成できず、また **DBも1つまでしか作れない** という制約がある。また書き込み・読み込み量にも有料プランと差がある。
