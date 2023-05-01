@@ -30,4 +30,5 @@ export const DIR_NAME = {
 
   "programming/003_number/001_log": "対数",
   "programming/003_number/002_round": "四捨五入",
+  "programming/003_number/003_operator": "演算子",
 };
