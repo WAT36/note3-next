@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScaleを利用してみた'
 excerpt: 'サーバレスDBサービス「PlanetScale」について'
-coverImage: ''
+coverImage: '/assets/posts/planetScaleDB/planetscaleLogo.png'
 date: '2023-04-15T00:26:15.000Z'
 updatedAt: '2023-04-15T00:26:15.000Z'
 tag: ["DB","サーバレス"]
