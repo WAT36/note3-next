@@ -32,11 +32,17 @@ export default function Note({ note, subPageLinks }: Props) {
     useEffect(() => {
       if (note.link?.javascript) {
         for (const jsPath of note.link?.javascript) {
-          const head = document.getElementsByTagName("head")[0] as HTMLElement;
-          const scriptUrl = document.createElement("script");
-          scriptUrl.type = "text/javascript";
-          scriptUrl.src = jsPath;
-          head.appendChild(scriptUrl);
+          const id = jsPath.split("/").pop().split(".").shift() + "_js";
+          if (!document.getElementById(id)) {
+            const head = document.getElementsByTagName(
+              "head"
+            )[0] as HTMLElement;
+            const scriptUrl = document.createElement("script");
+            scriptUrl.type = "text/javascript";
+            scriptUrl.src = jsPath;
+            scriptUrl.id = id;
+            head.appendChild(scriptUrl);
+          }
         }
       }
     }, []);
