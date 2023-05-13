@@ -1,4 +1,4 @@
-let plang_radio = document.getElementsByClassName("plang_radio");
+var plang_radio = document.getElementsByClassName("plang_radio");
 if (plang_radio !== null && plang_radio !== undefined) {
   for (let radio of plang_radio) {
     radio.addEventListener("change", function () {
