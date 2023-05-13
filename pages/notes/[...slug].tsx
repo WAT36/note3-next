@@ -30,6 +30,15 @@ export default function Note({ note, subPageLinks }: Props) {
 
   const NoteContents = (note: NoteType) => {
     useEffect(() => {
+      const jsClass = "md_link_js";
+
+      const jsClassElement = document.getElementsByClassName(jsClass);
+      if (jsClassElement.length > 0) {
+        Array.from(jsClassElement).forEach((v) => {
+          return v.remove();
+        });
+      }
+
       if (note.link?.javascript) {
         for (const jsPath of note.link?.javascript) {
           const id = jsPath.split("/").pop().split(".").shift() + "_js";
@@ -41,6 +50,7 @@ export default function Note({ note, subPageLinks }: Props) {
             scriptUrl.type = "text/javascript";
             scriptUrl.src = jsPath;
             scriptUrl.id = id;
+            scriptUrl.className = jsClass;
             head.appendChild(scriptUrl);
           }
         }
