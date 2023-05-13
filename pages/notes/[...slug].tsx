@@ -105,6 +105,17 @@ export default function Note({ note, subPageLinks }: Props) {
   };
 
   const NoteDirContents = (subPageLinks) => {
+    useEffect(() => {
+      const jsClass = "md_link_js";
+
+      const jsClassElement = document.getElementsByClassName(jsClass);
+      if (jsClassElement.length > 0) {
+        Array.from(jsClassElement).forEach((v) => {
+          return v.remove();
+        });
+      }
+    }, []);
+
     return (
       <>
         <Container>
