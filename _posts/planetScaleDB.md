@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScaleを利用してみた'
 excerpt: 'サーバレスDBサービス「PlanetScale」について'
-coverImage: ''
+coverImage: '/assets/posts/planetScaleDB/planetscaleLogo.png'
 date: '2023-04-15T00:26:15.000Z'
 updatedAt: '2023-04-15T00:26:15.000Z'
 tag: ["DB","サーバレス"]
@@ -115,3 +115,72 @@ PlanetScaleはサーバレスなデータベースであること、
 
 ![](/assets/posts/planetScaleDB/productionBranch.png)
 
+
+# データベースへの接続情報を確認する
+
+データベースに接続する際に必要なユーザ名・アドレスなどの接続情報は、ブランチのコンソール画面にある「Connect」をクリックする
+
+![](/assets/posts/planetScaleDB/connect.png)
+
+すると、接続情報が出てくる。なお利用する言語別に形式が用意されているので、各々の環境に応じて選択し利用する。
+
+![](/assets/posts/planetScaleDB/password.png)
+
+なお、データベースへの接続に利用するパスワードは、初期表示時にしか表示されないので、必ず何処かにメモしておく。
+
+（次回以降の表示時には、伏せられて表示されないので注意する）
+
+# ブランチ間でのマージリクエスト（Deploy Request）
+
+先述のとおりPlanetScaleではGitのようなブランチ管理でスキーマ情報を管理している。
+
+このブランチ機能によりあるブランチで変更したスキーマ情報を本番ブランチに反映させることができる。この機能を **Deploy Request** と呼んでいる。
+
+行うにはまず、本ブランチで「Safe migrations」を設定する必要がある。（これは前述の本番化設定で行ってるので割愛する）
+
+設定後、他ブランチから本ブランチへのDeploy Requestを作成してみよう。
+
+コンソール画面から元ブランチのページへ行くと、本ブランチとの変更分(diff)が表示される。
+
+![](/assets/posts/planetScaleDB/schemaDiff.png)
+
+この右部分に「Create Deploy Request」がある。本ブランチ(Deploy to)とコメント（あれば）を入力して、よければCreate Deploy Requestを押下する。
+
+するとDeploy Requestの詳細・差分が表示される
+
+![](/assets/posts/planetScaleDB/deployRequestDetail.png)
+
+ここでテーブルがデプロイできない状態だとエラーが出る。その場合は直すなどする。
+
+OKなら「Deploy Changes」するとデプロイが行われる
+
+![](/assets/posts/planetScaleDB/deployRequestResult.png)
+
+---
+
+# 料金
+
+https://planetscale.com/docs/concepts/billing
+
+料金はプラン分けされており、無料プランと有料プラン、またエンタープライズ版も存在する。
+
+無料プランではブランチは開発用と本番用の2つのみしか作成できず、また **DBも1つまでしか作れない** という制約がある。また書き込み・読み込み量にも有料プランと差がある。
+
+---
+
+# バックアップ
+
+https://planetscale.com/docs/concepts/back-up-and-restore
+
+PlanetScaleではバックアップも自動で取得してくれる。
+
+![](/assets/posts/planetScaleDB/backup.png)
+
+DBのページから「Branch」のセクションに行くと、ブランチごとのバックアップデータが閲覧できる。バックアップスケジュールもここで設定できる。
+
+
+---
+
+この他にも様々な機能等があるが、追々紹介等できればと思う。
+
+今後利用していきたい。

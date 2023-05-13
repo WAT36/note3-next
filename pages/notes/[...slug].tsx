@@ -16,6 +16,7 @@ import NoteDirLink from "../../components/notedir-link";
 import NoteLink from "../../components/note-link";
 import { getNoteSlugs } from "../../lib/fileSystem";
 import { useEffect } from "react";
+import { ProgrammingTag } from "../../components/programming-tag";
 
 type Props = {
   note: NoteType;
@@ -28,19 +29,33 @@ export default function Note({ note, subPageLinks }: Props) {
     return <ErrorPage statusCode={404} />;
   }
 
-  const NoteContents = (note: NoteType) => {
-    useEffect(() => {
-      if (note.link?.javascript) {
-        for (const jsPath of note.link?.javascript) {
-          const head = document.getElementsByTagName("head")[0] as HTMLElement;
+  useEffect(() => {
+    const jsClass = "md_link_js";
+    const jsClassElement = document.getElementsByClassName(jsClass);
+    if (jsClassElement.length > 0) {
+      Array.from(jsClassElement).forEach((v) => {
+        return v.remove();
+      });
+    }
+
+    if (note.link?.javascript) {
+      for (const jsPath of note.link?.javascript) {
+        const id = jsPath.split("/").pop().split(".").shift() + "_js";
+        if (!document.getElementById(id)) {
+          const body = document.getElementsByTagName("body")[0] as HTMLElement;
           const scriptUrl = document.createElement("script");
           scriptUrl.type = "text/javascript";
           scriptUrl.src = jsPath;
-          head.appendChild(scriptUrl);
+          scriptUrl.id = id;
+          scriptUrl.className = jsClass;
+          scriptUrl.defer = true;
+          body.appendChild(scriptUrl);
         }
       }
-    }, []);
+    }
+  }, [router.isReady, router.asPath]);
 
+  const NoteContents = (note: NoteType) => {
     return (
       <>
         <article className="mb-32">
@@ -58,24 +73,6 @@ export default function Note({ note, subPageLinks }: Props) {
                 return <link rel="stylesheet" type="text/css" href={cssPath} />;
               })}
           </Head>
-          <div className="programming-language-tagbar">
-            {note.programming &&
-              note.programming.map((lang, index) => {
-                return (
-                  <span className="right-placed">
-                    <input
-                      type="radio"
-                      className="plang_radio"
-                      name="programming_language"
-                      id={lang}
-                    />
-                    <label htmlFor={lang} className="programming-language-tag">
-                      {lang}
-                    </label>
-                  </span>
-                );
-              })}
-          </div>
           <PostHeader
             title={note.title}
             coverImage={note.coverImage}
@@ -112,7 +109,7 @@ export default function Note({ note, subPageLinks }: Props) {
 
   return (
     <>
-      <Layout>
+      <Layout programmingTag={note.programming}>
         <Container>
           {router.isFallback ? (
             <PostTitle>Loading…</PostTitle>
