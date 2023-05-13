@@ -7,13 +7,11 @@
 }
 
 .markdown ul {
-  @apply block list-outside list-disc my-4 pl-10;
-  list-style-image: none;
+  @apply block list-image-none list-outside list-disc my-4 pl-10;
 }
 
 .markdown ol {
-  @apply block list-outside list-decimal my-4 pl-10;
-  list-style-image: none;
+  @apply block list-image-none list-outside list-decimal my-4 pl-10;
 }
 
 .markdown blockquote {
