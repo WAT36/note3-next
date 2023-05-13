@@ -6,10 +6,11 @@ type Props = {
 };
 
 const NoteDirLink = ({ slug }: Props) => {
+  const pageName = slug.split("/").slice(-1)[0];
   return (
     <div className="my-4">
       <Link className="font-bold text-5xl mx-3 underline" href={slug}>
-        🗂{DIR_NAME[slug] || slug}
+        🗂{DIR_NAME[pageName] || pageName}
       </Link>
     </div>
   );
