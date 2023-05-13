@@ -9,21 +9,15 @@ type Props = {
 };
 
 const CoverImage = ({ title, src, slug }: Props) => {
-  const image = src ? (
+  const image = (
     <img
-      src={src}
+      src={src || ALT_IMAGE}
       className={cn("shadow-sm max-h-full w-auto mx-auto", {
         "hover:shadow-lg transition-shadow duration-200": slug,
       })}
-      onError={({ currentTarget }) => {
-        currentTarget.onerror = null; // prevents looping
-        currentTarget.src = ALT_IMAGE;
-      }}
       width={1300}
       height={300}
     />
-  ) : (
-    <></>
   );
   return (
     <div className="sm:mx-0 h-48">
