@@ -17,9 +17,9 @@ jobs:
         run: |
           aws ssm get-parameter --name "/github/wat-notes3/dev" --output json | jq -r '.Parameter.Value'  > .env
           cat .env >> $GITHUB_ENV
-          cat .env
-          echo "aa"
-          echo $GITHUB_ENV
+
+      - name: echo env
+        run: echo "${{ env.NEXT_PUBLIC_TEST }}"
 
       - name: Install Dependencies
         run: npm install
