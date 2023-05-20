@@ -42,6 +42,8 @@ export default function Index({ allPosts }: Props) {
             <p>まあ、よろしく</p>
             <p>TEST:{process.env.TEST}</p>
             <p>NEXT_PUBLIC_TEST:{process.env.NEXT_PUBLIC_TEST}</p>
+            <p>TEST2:{process.env.TEST2}</p>
+            <p>NEXT_PUBLIC_TEST2:{process.env.NEXT_PUBLIC_TEST2}</p>
           </div>
           <h3 className="text-6xl font-bold my-4 tracking-tighter leading-tight md:pr-8">
             Posts Pick Up
