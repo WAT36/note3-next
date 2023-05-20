@@ -15,9 +15,11 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP }}
         run: |
-          aws ssm get-parameter --name "/github/wat-notes3/dev" --output json | jq -r '.Parameter.Value'  > .env.production
-          cat .env.production >> $GITHUB_ENV
-          cat .env.production
+          aws ssm get-parameter --name "/github/wat-notes3/dev" --output json | jq -r '.Parameter.Value'  > .env
+          cat .env >> $GITHUB_ENV
+          cat .env
+          echo "aa"
+          echo $GITHUB_ENV
 
       - name: Install Dependencies
         run: npm install
