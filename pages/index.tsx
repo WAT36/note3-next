@@ -24,9 +24,6 @@ type TokenProps = {
 export default function Index({ allPosts }: Props) {
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
-  console.log(
-    `TEST:${process.env.TEST},NEXT_PUBLIC_TEST:${process.env.NEXT_PUBLIC_TEST}`
-  );
   return (
     <>
       <Layout>
@@ -74,7 +71,9 @@ export const getStaticProps = async () => {
     "coverImage",
     "excerpt",
   ]);
-
+  console.log(
+    `TEST:${process.env.TEST},NEXT_PUBLIC_TEST:${process.env.NEXT_PUBLIC_TEST}`
+  );
   return {
     props: { allPosts },
   };
