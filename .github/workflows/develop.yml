@@ -15,7 +15,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP }}
         run: |
-          aws ssm get-parameter --name ${{ secrets.AWS_SSM_PARAMETER_PATH_DEV }} --output json | jq -r '.Parameter.Value'  > .env.production
+          aws ssm get-parameter --name "/github/wat-notes3/dev" --output json | jq -r '.Parameter.Value'  > .env.production
           cat .env.production >> $GITHUB_ENV
           cat .env.production
 
