@@ -10,9 +10,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main  # リポジトリをチェックアウト
 
-      - name: Prepare .env.development file
+      - name: Prepare .env.production file
         run: |
-          cat << EOF > .env.development
+          cat << EOF > .env.production
           TEST=parameter_store
           NEXT_PUBLIC_TEST=parameter_store_public_test
           EOF
