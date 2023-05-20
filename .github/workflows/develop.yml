@@ -11,11 +11,7 @@ jobs:
         uses: actions/checkout@main  # リポジトリをチェックアウト
 
       - name: Prepare .env.production file
-        run: |
-          cat << EOF > .env.production
-          TEST=parameter_store
-          NEXT_PUBLIC_TEST=parameter_store_public_test
-          EOF
+        run: aws ssm get-parameter --name ${{ secrets.AWS_SSM_PARAMETER_PATH_DEV }} --output json | jq -r '.Parameter.Value'  > .env.production
 
       - name: Install Dependencies
         run: npm install
