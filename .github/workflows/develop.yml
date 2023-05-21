@@ -28,6 +28,7 @@ jobs:
           ls -la
           cat .env >> $GITHUB_ENV
           echo "TEST7"
+          echo ${{ env.TEST }}
           echo ${{ env.NEXT_PUBLIC_TEST }}
 
       - name: echo env
