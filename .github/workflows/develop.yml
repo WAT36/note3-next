@@ -22,6 +22,7 @@ jobs:
           echo "TEST5"
           aws ssm get-parameter --name /github/wat-notes3/dev --output json | jq -r .Parameter.Value > .env
           echo "TEST6"
+          echo ${{ env.NEXT_PUBLIC_TEST }}
           ls -la
           cat .env >> $GITHUB_ENV
 
