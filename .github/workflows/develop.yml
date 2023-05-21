@@ -16,8 +16,10 @@ jobs:
           echo "TEST2"
           echo `aws ssm get-parameter --name /github/wat-notes3/dev --output text`
           echo "TEST3"
-          aws ssm get-parameter --name /github/wat-notes3/dev --output text > .env
+          echo `aws ssm get-parameter --name /github/wat-notes3/dev --output json`
           echo "TEST4"
+          aws ssm get-parameter --name /github/wat-notes3/dev --output json > .env
+          echo "TEST5"
           ls -la
           cat .env >> $GITHUB_ENV
 
