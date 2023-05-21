@@ -35,6 +35,7 @@ jobs:
         run: |
           VALUE=`aws ssm get-parameter --name /github/wat-notes3/dev --output json | jq -r .Parameter.Value`
           echo "${{ env.VALUE }}"
+          toJSON(`aws ssm get-parameter --name /github/wat-notes3/dev --output json | jq -r .Parameter.Value`)
 
       - name: Install Dependencies
         run: npm install
