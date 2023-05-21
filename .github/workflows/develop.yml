@@ -19,29 +19,9 @@ jobs:
 
       - name: Prepare .env file
         run: |
-          echo "TEST"
-          function set_env_from_parameter_store() {
-            VALUE=$(aws ssm get-parameter --name $1 --with-decryption --query 'Parameter.Value' --output text)
-            echo "$2=$VALUE" >> $GITHUB_ENV
-            echo "::add-mask::$VALUE"
-          }
-          set_env_from_parameter_store '/github/wat-notes3/dev' 'NEXT_PUBLIC_TEST'
-          echo "TEST2"
-          echo `aws ssm get-parameter --name /github/wat-notes3/dev --output json`
-          echo "TEST3"
-          echo `aws ssm get-parameter --name /github/wat-notes3/dev --output json | jq -r .Parameter`
-          echo "TEST4"
-          echo `aws ssm get-parameter --name /github/wat-notes3/dev --output json | jq -r .Parameter.Value`
-          echo "TEST5"
           aws ssm get-parameter --name /github/wat-notes3/dev --output json | jq -r .Parameter.Value > .env
-          echo "TEST5.5"
+          cat .env >> "$GITHUB_ENV"
           cat .env
-          echo "TEST6"
-          aws ssm get-parameter --name /github/wat-notes3/dev --output json | jq -r .Parameter.Value >> "$GITHUB_ENV"
-          ls -la
-          echo "TEST7"
-          echo ${{ env.TEST }}
-          echo ${{ env.NEXT_PUBLIC_TEST }}
 
       - name: Install Dependencies
         run: npm install
