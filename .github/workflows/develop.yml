@@ -10,9 +10,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main  # リポジトリをチェックアウト
 
-      - name: Prepare .env.production file
+      - name: Prepare .env file
         run: |
-          aws ssm get-parameter --name /github/wat-notes3/dev | jq -r .Parameter.Value  > .env
+          aws ssm get-parameter --name /github/wat-notes3/dev > .env
+          echo "TEST"
           ls -la
           cat .env >> $GITHUB_ENV
 
