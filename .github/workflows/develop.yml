@@ -14,12 +14,14 @@ jobs:
         run: |
           echo "TEST"
           echo "TEST2"
-          echo `aws ssm get-parameter --name /github/wat-notes3/dev --output text`
-          echo "TEST3"
           echo `aws ssm get-parameter --name /github/wat-notes3/dev --output json`
+          echo "TEST3"
+          echo `aws ssm get-parameter --name /github/wat-notes3/dev --output json | jq -r .Parameter`
           echo "TEST4"
-          aws ssm get-parameter --name /github/wat-notes3/dev --output json > .env
+          echo `aws ssm get-parameter --name /github/wat-notes3/dev --output json | jq -r .Parameter.Value`
           echo "TEST5"
+          aws ssm get-parameter --name /github/wat-notes3/dev --output json | jq -r .Parameter.Value > .env
+          echo "TEST6"
           ls -la
           cat .env >> $GITHUB_ENV
 
