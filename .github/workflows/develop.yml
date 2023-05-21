@@ -13,7 +13,6 @@ jobs:
       - name: Prepare .env file
         run: |
           echo "TEST"
-          aws ssm get-parameter --name /github/wat-notes3/dev --output text
           echo "TEST2"
           echo `aws ssm get-parameter --name /github/wat-notes3/dev --output text`
           echo "TEST3"
