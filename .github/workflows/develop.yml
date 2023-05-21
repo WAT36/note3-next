@@ -10,9 +10,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main  # リポジトリをチェックアウト
 
+      - name: "set aws credential"
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          AWS-REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP }}
+
       - name: Prepare .env file
         run: |
           echo "TEST"
+          function set_env_from_parameter_store() {
+            VALUE=$(aws ssm get-parameter --name $1 --with-decryption --query 'Parameter.Value' --output text)
+            echo "$2=$VALUE" >> $GITHUB_ENV
+            echo "::add-mask::$VALUE"
+          }
+          set_env_from_parameter_store '/github/wat-notes3/dev' 'NEXT_PUBLIC_TEST'
           echo "TEST2"
           echo `aws ssm get-parameter --name /github/wat-notes3/dev --output json`
           echo "TEST3"
@@ -26,16 +39,9 @@ jobs:
           echo "TEST6"
           aws ssm get-parameter --name /github/wat-notes3/dev --output json | jq -r .Parameter.Value >> "$GITHUB_ENV"
           ls -la
-          cat .env >> $GITHUB_ENV
           echo "TEST7"
           echo ${{ env.TEST }}
           echo ${{ env.NEXT_PUBLIC_TEST }}
-
-      - name: echo env
-        run: |
-          VALUE=`aws ssm get-parameter --name /github/wat-notes3/dev --output json | jq -r .Parameter.Value`
-          echo "${{ env.VALUE }}"
-          toJSON(`aws ssm get-parameter --name /github/wat-notes3/dev --output json | jq -r .Parameter.Value`)
 
       - name: Install Dependencies
         run: npm install
@@ -44,8 +50,5 @@ jobs:
         run: npm run export
 
       - name: Deploy  # S3にデプロイ 
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOP }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOP }}
         run: 
           aws s3 sync --region ap-northeast-1 ./out s3://wat-note3-develop --delete
