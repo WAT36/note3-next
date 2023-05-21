@@ -17,7 +17,9 @@ jobs:
           cat .env >> $GITHUB_ENV
 
       - name: echo env
-        run: echo "${{ env }}"
+        run: |
+          echo "${{ env }}"
+          echo `aws ssm get-parameter --name /github/wat-notes3/dev`
 
       - name: Install Dependencies
         run: npm install
