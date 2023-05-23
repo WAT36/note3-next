@@ -3,7 +3,7 @@ import MoreStories from "../components/more-stories";
 import HeroPost from "../components/hero-post";
 import Intro from "../components/intro";
 import Layout from "../components/layout";
-import { getAllPosts } from "../lib/api";
+import { getAllPosts, getAuthTokens } from "../lib/api";
 import Head from "next/head";
 import { ADMINISTRATOR, TITLE } from "../lib/constants";
 import Post from "../interfaces/post";
@@ -40,10 +40,6 @@ export default function Index({ allPosts }: Props) {
             </p>
             <p>このページはNext.jsを使って作成しております。</p>
             <p>まあ、よろしく</p>
-            <p>TEST:{process.env.TEST}</p>
-            <p>NEXT_PUBLIC_TEST:{process.env.NEXT_PUBLIC_TEST}</p>
-            <p>TEST2:{process.env.TEST2}</p>
-            <p>NEXT_PUBLIC_TEST2:{process.env.NEXT_PUBLIC_TEST2}</p>
           </div>
           <h3 className="text-6xl font-bold my-4 tracking-tighter leading-tight md:pr-8">
             Posts Pick Up
@@ -64,7 +60,7 @@ export default function Index({ allPosts }: Props) {
   );
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async (context) => {
   const allPosts = getAllPosts([
     "title",
     "date",
@@ -73,10 +69,11 @@ export const getStaticProps = async () => {
     "coverImage",
     "excerpt",
   ]);
-  console.log(
-    `TEST:${process.env.TEST},NEXT_PUBLIC_TEST:${process.env.NEXT_PUBLIC_TEST}`
-  );
+  const tokenProps = getAuthTokens(context.query.code);
   return {
-    props: { allPosts },
+    props: {
+      allPosts,
+      tokenProps,
+    },
   };
 };
