@@ -13,7 +13,7 @@ import { useEffect } from "react";
 
 type Props = {
   allPosts: Post[];
-  tokenProps: TokenProps;
+  //tokenProps: TokenProps;
 };
 
 type TokenProps = {
@@ -27,7 +27,7 @@ export default function Index({ allPosts }: Props) {
   const router = useRouter();
 
   useEffect(() => {
-    const code = router.query.code;
+    const code = router.query?.code || undefined;
     console.log(`code:${code}`);
   }, [router]);
 
@@ -78,11 +78,11 @@ export const getStaticProps = async (context) => {
     "coverImage",
     "excerpt",
   ]);
-  const tokenProps = getAuthTokens(context.query.code);
+  //const tokenProps = getAuthTokens(context.query.code);
   return {
     props: {
       allPosts,
-      tokenProps,
+      //tokenProps,
     },
   };
 };
