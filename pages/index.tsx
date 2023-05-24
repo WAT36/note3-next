@@ -27,9 +27,11 @@ export default function Index({ allPosts }: Props) {
   const router = useRouter();
 
   useEffect(() => {
-    const code = router.query?.code || undefined;
-    console.log(`query:${JSON.stringify(router.query)}`);
-    console.log(`code:${code}`);
+    if (router.isReady) {
+      const code = router.query?.code || undefined;
+      console.log(`query:${JSON.stringify(router.query)}`);
+      console.log(`code:${code}`);
+    }
   }, [router]);
 
   const heroPost = allPosts[0];
