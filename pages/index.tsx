@@ -28,6 +28,7 @@ export default function Index({ allPosts }: Props) {
 
   useEffect(() => {
     const code = router.query?.code || undefined;
+    console.log(`query:${JSON.stringify(router.query)}`);
     console.log(`code:${code}`);
   }, [router]);
 
