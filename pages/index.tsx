@@ -8,6 +8,8 @@ import Head from "next/head";
 import { ADMINISTRATOR, TITLE } from "../lib/constants";
 import Post from "../interfaces/post";
 import { Bio } from "../components/bio";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 type Props = {
   allPosts: Post[];
@@ -22,6 +24,13 @@ type TokenProps = {
 };
 
 export default function Index({ allPosts }: Props) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const code = router.query.code;
+    console.log(`code:${code}`);
+  }, [router]);
+
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
   return (
@@ -60,7 +69,7 @@ export default function Index({ allPosts }: Props) {
   );
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   const allPosts = getAllPosts([
     "title",
     "date",
