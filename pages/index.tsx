@@ -29,7 +29,7 @@ export default function Index({ allPosts }: Props) {
   useEffect(() => {
     if (router.isReady) {
       const code = router.query?.code || undefined;
-      console.log(`roouter:${JSON.stringify(router)}`);
+      console.log(`router:${JSON.stringify(router)}`);
       console.log(`query:${JSON.stringify(router.query)}`);
       console.log(`code:${code}`);
     }
