@@ -8,6 +8,9 @@ export const BreadCrumb: NextPage = () => {
 
   // pathを「/」で分解
   const paths = decodeURI(router.asPath).substring(1).split("/");
+  if (paths.slice(-1)[0] === "index.html") {
+    paths.pop();
+  }
 
   // リンク先アドレスの取得
   const roots = [""];
