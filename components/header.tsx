@@ -25,13 +25,13 @@ const Header = () => {
         </Link>
         <Link
           className="font-bold no-underline text-xl mx-3 text-white"
-          href="/about.html"
+          href="/about/index.html"
         >
           About
         </Link>
         <Link
           className="font-bold no-underline text-xl mx-3 text-white"
-          href="/disclaimer.html"
+          href="/disclaimer/index.html"
         >
           免責事項
         </Link>
