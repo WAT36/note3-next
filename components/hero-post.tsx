@@ -30,8 +30,8 @@ const HeroPost = ({
         <div>
           <h3 className="mb-4 text-4xl lg:text-5xl leading-tight">
             <Link
-              as={`/posts/${slug}`}
-              href="/posts/[slug]"
+              as={`/posts/${slug}/index.html`}
+              href="/posts/[slug]/index.html"
               className="hover:underline"
             >
               {title}

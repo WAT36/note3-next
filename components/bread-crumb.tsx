@@ -20,12 +20,12 @@ export const BreadCrumb: NextPage = () => {
     return (
       <div className="mx-3 my-4">
         {/* Homeのリンク */}
-        <Link href={"/"}>Top</Link>
+        <Link href={"/index.html"}>Top</Link>
         {paths.map((x, i) => (
           <>
             {/* サブページのリンク */}
             {" > "}
-            <Link href={roots[i + 1]} key={i}>
+            <Link href={roots[i + 1] + "/index.html"} key={i}>
               {DIR_NAME[x] || (i === paths.length - 1 ? `(本記事)` : x)}
             </Link>
           </>

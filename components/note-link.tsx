@@ -8,7 +8,10 @@ type Props = {
 const NoteLink = ({ slug, name }: Props) => {
   return (
     <div className="my-4">
-      <Link className="font-bold text-5xl mx-3 underline" href={slug}>
+      <Link
+        className="font-bold text-5xl mx-3 underline"
+        href={slug + "/index.html"}
+      >
         {name}
       </Link>
     </div>
