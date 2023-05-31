@@ -8,6 +8,7 @@ export const BreadCrumb: NextPage = () => {
 
   // pathを「/」で分解
   const paths = decodeURI(router.asPath).substring(1).split("/");
+  // 末尾がindex.htmlだった場合それは削除
   if (paths.slice(-1)[0] === "index.html") {
     paths.pop();
   }
