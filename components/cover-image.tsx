@@ -23,8 +23,8 @@ const CoverImage = ({ title, src, slug }: Props) => {
     <div className="sm:mx-0 h-48">
       {src && slug ? (
         <Link
-          as={`/posts/${slug}/index.html`}
-          href="/posts/[slug]/index.html"
+          as={`/posts/${slug}${process.env.NEXT_PUBLIC_URL_END}`}
+          href={`/posts/[slug]${process.env.NEXT_PUBLIC_URL_END}`}
           aria-label={title}
         >
           {image}

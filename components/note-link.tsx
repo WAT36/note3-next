@@ -10,7 +10,7 @@ const NoteLink = ({ slug, name }: Props) => {
     <div className="my-4">
       <Link
         className="font-bold text-5xl mx-3 underline"
-        href={slug + "/index.html"}
+        href={slug + process.env.NEXT_PUBLIC_URL_END}
       >
         {name}
       </Link>

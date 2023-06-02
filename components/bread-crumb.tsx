@@ -9,7 +9,7 @@ export const BreadCrumb: NextPage = () => {
   // pathを「/」で分解
   const paths = decodeURI(router.asPath).substring(1).split("/");
   // 末尾がindex.htmlだった場合それは削除
-  if (paths.slice(-1)[0] === "index.html") {
+  if (paths.slice(-1)[0] === "index.html" || paths.slice(-1)[0] === "") {
     paths.pop();
   }
 
@@ -24,12 +24,12 @@ export const BreadCrumb: NextPage = () => {
     return (
       <div className="mx-3 my-4">
         {/* Homeのリンク */}
-        <Link href={"/index.html"}>Top</Link>
+        <Link href={process.env.NEXT_PUBLIC_URL_END}>Top</Link>
         {paths.map((x, i) => (
           <>
             {/* サブページのリンク */}
             {" > "}
-            <Link href={roots[i + 1] + "/index.html"} key={i}>
+            <Link href={roots[i + 1] + process.env.NEXT_PUBLIC_URL_END} key={i}>
               {DIR_NAME[x] || (i === paths.length - 1 ? `(本記事)` : x)}
             </Link>
           </>
