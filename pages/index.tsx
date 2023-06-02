@@ -3,17 +3,38 @@ import MoreStories from "../components/more-stories";
 import HeroPost from "../components/hero-post";
 import Intro from "../components/intro";
 import Layout from "../components/layout";
-import { getAllPosts } from "../lib/api";
+import { getAllPosts, getAuthTokens } from "../lib/api";
 import Head from "next/head";
 import { ADMINISTRATOR, TITLE } from "../lib/constants";
 import Post from "../interfaces/post";
 import { Bio } from "../components/bio";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 type Props = {
   allPosts: Post[];
+  //tokenProps: TokenProps;
+};
+
+type TokenProps = {
+  access_token?: string;
+  id_token?: string;
+  refresh_token?: string;
+  error?: string;
 };
 
 export default function Index({ allPosts }: Props) {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.isReady) {
+      const code = router.query?.code || undefined;
+      console.log(`router:${JSON.stringify(router)}`);
+      console.log(`query:${JSON.stringify(router.query)}`);
+      console.log(`code:${code}`);
+    }
+  }, [router]);
+
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
   return (
@@ -52,7 +73,7 @@ export default function Index({ allPosts }: Props) {
   );
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps = async (context) => {
   const allPosts = getAllPosts([
     "title",
     "date",
@@ -61,8 +82,11 @@ export const getStaticProps = async () => {
     "coverImage",
     "excerpt",
   ]);
-
+  //const tokenProps = getAuthTokens(context.query.code);
   return {
-    props: { allPosts },
+    props: {
+      allPosts,
+      //tokenProps,
+    },
   };
 };

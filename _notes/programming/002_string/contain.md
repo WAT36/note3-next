@@ -1,13 +1,13 @@
 ---
 title: "指定文字列が含まれているかを確認する"
 date: "2019-10-15T19:27:48.000Z"
-excerpt: '文字列中にある文字列が含まれているかを確認する方法。'
-tag: ["Java","Python","Javascript"]
-programming: ["Java","Python","Javascript"]
-updatedAt: '2019-10-15T19:27:48.000Z'
+excerpt: "文字列中にある文字列が含まれているかを確認する方法。"
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
+updatedAt: "2019-10-15T19:27:48.000Z"
 author:
   name: Tatsuroh Wakasugi
-  picture: '/assets/blog/authors/WAT.jpg'
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -22,21 +22,21 @@ class Main{
         String s = "apple,banana,cherry,durian";
         System.out.println(s.contains("banana"));
 
-        System.out.println(s.contains("grape"));        
+        System.out.println(s.contains("grape"));
     }
 }
 ```
 
-Javaで文字列中にある文字列が含まれているかを確認するにはStringのメソッドである **contains()** を利用する。  
+Java で文字列中にある文字列が含まれているかを確認するには String のメソッドである **contains()** を利用する。
 
-`public boolean contain(String s)`  
+`public boolean contains(String s)`
 
-呼び出し元の文字列中に引数に指定した文字列が含まれていればtrue、そうでない場合はfalseを返す。
+呼び出し元の文字列中に引数に指定した文字列が含まれていれば true、そうでない場合は false を返す。
 
 実行結果
 
 ```
-$ javac Main.java 
+$ javac Main.java
 $ java Main
 true
 false
@@ -45,17 +45,17 @@ false
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-pythonで文字列中にある文字列が含まれているかを確認するには **in** 演算子を使う。   
+python で文字列中にある文字列が含まれているかを確認するには **in** 演算子を使う。
 
-文字列A中に文字列Bが含まれているか確認したい場合は以下のようにする。
+文字列 A 中に文字列 B が含まれているか確認したい場合は以下のようにする。
 
 `文字列B in 文字列A`
 
-含まれているとTrue、そうでない場合はFalseを返す。
+含まれていると True、そうでない場合は False を返す。
 
 ```python
->>> s = "apple,banana,cherry" 
->>> 
+>>> s = "apple,banana,cherry"
+>>>
 >>> "banana" in s
 True
 >>>
@@ -75,19 +75,19 @@ False
 (元の文字列).endsWith(検索する文字列 [,位置])
 ```
 
-Javascriptでは **String.includes()** メソッドで判別が行える。利用方法は上記の通り。
+Javascript では **String.includes()** メソッドで判別が行える。利用方法は上記の通り。
 
 また、文字列が指定した文字列で始まるか、終わるかを判別したい場合は、 **String.startsWith()** と **String.endsWith()** も利用できる。
 
-この方法で、ある文字列に指定した文字列が含まれているかを判別でき、含まれているとtrue、そうでない場合はfalseを返す。
+この方法で、ある文字列に指定した文字列が含まれているかを判別でき、含まれていると true、そうでない場合は false を返す。
 
 実行結果
 
 ```javascript
-var s = 'apple,banana,cherry';
+var s = "apple,banana,cherry";
 
-console.log(s.includes('banana'));
-console.log(s.includes('durian'));
+console.log(s.includes("banana"));
+console.log(s.includes("durian"));
 ```
 
 ```
@@ -96,7 +96,3 @@ false
 ```
 
 </div>
-
-
-
-
