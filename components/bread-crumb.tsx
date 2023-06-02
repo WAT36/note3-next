@@ -19,7 +19,7 @@ export const BreadCrumb: NextPage = () => {
     roots.push(roots[i] + "/" + paths[i]);
   }
 
-  if (roots.slice(-1)[0] !== "/") {
+  if (roots.slice(-1)[0] !== "/" && roots.slice(-1)[0] !== "") {
     // トップページ以外
     return (
       <div className="mx-3 my-4">
