@@ -34,8 +34,7 @@
 }
 
 .markdown code {
-  @apply font-mono text-xs;
-  white-space: pre-wrap;
+  @apply font-mono text-xs whitespace-pre-wrap;
 }
 
 .markdown table {
