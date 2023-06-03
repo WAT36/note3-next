@@ -92,6 +92,11 @@ Module を定義するには、`@Module` デコレーターを利用し、その
 例
 
 ```typescript
+import { Module } from "@nestjs/common";
+import { AppController } from "./app.controller";
+import { AppService } from "./app.service";
+import { QuizModule } from "./quiz/quiz.module";
+
 @Module({
   imports: [XXXModule],
   controllers: [AppController],
@@ -108,3 +113,34 @@ export class AppModule {}
 | controllers  | インスタンス化された、このモジュールで宣言されるコントローラ一覧                                                                   |
 | imports      | このモジュールで必要なプロパイダ(サービス)をエクスポートしているモジュールの一覧                                                   |
 | exports      | このモジュールをインポートしている別のモジュールで使用されるプロバイダ(サービス)一覧（このモジュールが提供しているプロバイダ一覧） |
+
+## Controller
+
+Controller は、クライアントからの応答を受理し、レスポンスを返す役割を持つクラスである。
+
+クライアントからの応答を受けるエンドポイントを設け、それ毎に処理を割り振り、得た結果をクライアントに返す、ルーティングのような機能を持つ。
+
+Controller を定義するには、`@Controller` デコレーターを利用し、パス及び利用する Service 等を記述する。
+
+例
+
+```typescript
+import { Controller, Get } from "@nestjs/common";
+import { AppService } from "./app.service";
+
+@Controller()
+export class AppController {
+  constructor(private readonly appService: AppService) {}
+
+  @Get()
+  getHello(): string {
+    return this.appService.getHello();
+  }
+}
+```
+
+この例だと getHello を実行したい場合は GET メソッドでパス'/'にリクエストを送ると実行される。
+
+パスを変えたい場合、例えば'/app/hello'で getHello を実行したい場合は、@Controller('/app')、@Get('/hello')と指定するなどする。
+
+別の HTTP メソッドを利用したい場合は、それに対応するデコレータがあるのでそちらを利用する。
