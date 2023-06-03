@@ -144,3 +144,24 @@ export class AppController {
 パスを変えたい場合、例えば'/app/hello'で getHello を実行したい場合は、@Controller('/app')、@Get('/hello')と指定するなどする。
 
 別の HTTP メソッドを利用したい場合は、それに対応するデコレータがあるのでそちらを利用する。
+
+## Service（Provider）
+
+Service は具体的な処理、ビジネスロジックを定義するクラスである。NestJS では具体的な処理を行うクラスは Provider とも呼ばれ、Service はここに含まれる。
+
+大体は Controller から利用され、エンドポイントごとの具体的な処理を書く。
+
+Service(Provider)を実装するには、クラスに`@Injectable` デコレーターを宣言する。
+
+例
+
+```typescript
+import { Injectable } from "@nestjs/common";
+
+@Injectable()
+export class AppService {
+  getHello(): string {
+    return "Hello World!";
+  }
+}
+```
