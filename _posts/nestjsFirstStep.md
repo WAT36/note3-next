@@ -73,13 +73,65 @@ npm run start
 
 NestJS は主に以下の要素からなる。
 
-- Module
-- Controller
 - Service
+- Controller
+- Module
 
 基本はこれらの 3 つの要素を使って、1 つの機能を作成する。
 
 以下にそれぞれ記載する。
+
+## Service（Provider）
+
+Service は具体的な処理、ビジネスロジックを定義するクラスである。NestJS では具体的な処理を行うクラスは Provider とも呼ばれ、Service はここに含まれる。
+
+大体は Controller から利用され、エンドポイントごとの具体的な処理を書く。
+
+Service(Provider)を実装するには、クラスに `@Injectable` デコレーターを宣言する。
+
+例
+
+```typescript
+import { Injectable } from "@nestjs/common";
+
+@Injectable()
+export class AppService {
+  getHello(): string {
+    return "Hello World!";
+  }
+}
+```
+
+## Controller
+
+Controller は、クライアントからの応答を受理し、レスポンスを返す役割を持つクラスである。
+
+クライアントからの応答を受けるエンドポイントを設け、それ毎に処理を割り振り、得た結果をクライアントに返す、ルーティングのような機能を持つ。
+
+Controller を定義するには、`@Controller` デコレーターを利用し、パス及び利用する Service 等を記述する。
+
+例
+
+```typescript
+import { Controller, Get } from "@nestjs/common";
+import { AppService } from "./app.service";
+
+@Controller()
+export class AppController {
+  constructor(private readonly appService: AppService) {}
+
+  @Get()
+  getHello(): string {
+    return this.appService.getHello();
+  }
+}
+```
+
+この例だと getHello を実行したい場合は GET メソッドでパス'/'にリクエストを送ると実行される。
+
+パスを変えたい場合、例えば'/app/hello'で getHello を実行したい場合は、@Controller('/app')、@Get('/hello')と指定するなどする。
+
+別の HTTP メソッドを利用したい場合は、それに対応するデコレータがあるのでそちらを利用する。
 
 ## Module
 
@@ -113,55 +165,3 @@ export class AppModule {}
 | controllers  | インスタンス化された、このモジュールで宣言されるコントローラ一覧                                                                   |
 | imports      | このモジュールで必要なプロパイダ(サービス)をエクスポートしているモジュールの一覧                                                   |
 | exports      | このモジュールをインポートしている別のモジュールで使用されるプロバイダ(サービス)一覧（このモジュールが提供しているプロバイダ一覧） |
-
-## Controller
-
-Controller は、クライアントからの応答を受理し、レスポンスを返す役割を持つクラスである。
-
-クライアントからの応答を受けるエンドポイントを設け、それ毎に処理を割り振り、得た結果をクライアントに返す、ルーティングのような機能を持つ。
-
-Controller を定義するには、`@Controller` デコレーターを利用し、パス及び利用する Service 等を記述する。
-
-例
-
-```typescript
-import { Controller, Get } from "@nestjs/common";
-import { AppService } from "./app.service";
-
-@Controller()
-export class AppController {
-  constructor(private readonly appService: AppService) {}
-
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
-}
-```
-
-この例だと getHello を実行したい場合は GET メソッドでパス'/'にリクエストを送ると実行される。
-
-パスを変えたい場合、例えば'/app/hello'で getHello を実行したい場合は、@Controller('/app')、@Get('/hello')と指定するなどする。
-
-別の HTTP メソッドを利用したい場合は、それに対応するデコレータがあるのでそちらを利用する。
-
-## Service（Provider）
-
-Service は具体的な処理、ビジネスロジックを定義するクラスである。NestJS では具体的な処理を行うクラスは Provider とも呼ばれ、Service はここに含まれる。
-
-大体は Controller から利用され、エンドポイントごとの具体的な処理を書く。
-
-Service(Provider)を実装するには、クラスに`@Injectable` デコレーターを宣言する。
-
-例
-
-```typescript
-import { Injectable } from "@nestjs/common";
-
-@Injectable()
-export class AppService {
-  getHello(): string {
-    return "Hello World!";
-  }
-}
-```
