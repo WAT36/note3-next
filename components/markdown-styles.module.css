@@ -42,9 +42,7 @@
 }
 
 .markdown tbody {
-  box-sizing: border-box;
-  display: table-row-group;
-  vertical-align: middle;
+  @apply box-border table-row-group align-middle;
 }
 
 .markdown td {
