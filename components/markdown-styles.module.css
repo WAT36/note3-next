@@ -46,11 +46,7 @@
 }
 
 .markdown td {
-  @apply border-solid border border-black m-3;
-  display: table-cell;
-  padding: 1px;
-  vertical-align: middle;
-  zoom: 1;
+  @apply border-solid border border-black m-3 table-cell p-px align-middle;
 }
 
 .markdown tfoot {
