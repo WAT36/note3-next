@@ -50,9 +50,7 @@
 }
 
 .markdown tfoot {
-  box-sizing: border-box;
-  display: table-footer-group;
-  vertical-align: middle;
+  @apply box-border table-footer-group align-middle
 }
 
 .markdown th {
