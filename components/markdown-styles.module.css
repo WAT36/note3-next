@@ -54,12 +54,7 @@
 }
 
 .markdown th {
-  @apply border-solid border border-black m-3;
-  display: table-cell;
-  font-weight: bold;
-  padding: 1px;
-  text-align: center;
-  vertical-align: middle;
+  @apply border-solid border border-black m-3 table-cell font-bold p-0.5 text-center align-middle;
   zoom: 1;
 }
 
