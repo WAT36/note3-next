@@ -59,9 +59,7 @@
 }
 
 .markdown tr {
-  box-sizing: border-box;
-  display: table-row;
-  vertical-align: middle;
+  @apply box-border table-row align-middle;
   zoom: 1;
 }
 
