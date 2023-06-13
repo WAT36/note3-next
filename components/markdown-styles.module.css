@@ -64,12 +64,7 @@
 }
 
 .markdown pre {
-  @apply bg-gray-200;
-  display: block;
-  font-family: monospace;
-  font-size: 10pt;
-  margin: 1em 0;
-  white-space: pre-wrap;
+  @apply bg-gray-200 block font-mono text-base my-4 mx-0 whitespace-pre-wrap;
 }
 
 .markdown a {
