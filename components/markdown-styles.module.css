@@ -73,13 +73,7 @@
 
 
 .markdown input {
-  background-color: #FFF;
-  border-width: 2px;
-  font-family: sans-serif;
-  font-size: 10pt;
-  overflow: hidden;
-  padding: 1px;
-  zoom: 1;
+  @apply bg-white border-2 font-sans text-sm overflow-hidden p-px;
 }
 
 .markdown em {
