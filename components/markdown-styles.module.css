@@ -68,8 +68,7 @@
 }
 
 .markdown a {
-  color: #06C;
-  text-decoration: underline;
+  @apply text-sky-600 underline;
 }
 
 
