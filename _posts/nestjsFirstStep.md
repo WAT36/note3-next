@@ -172,6 +172,10 @@ export class AppModule {}
 
 そして、アプリケーションのルートモジュール（src/app.module.ts）で、作成した機能のモジュールをインポートする。
 
----
+例えば、aaa という機能を作りたい場合は、src フォルダ下で aaa というフォルダを作成し、そのフォルダ下で Service,Controller,Module ファイルを作成する。
 
-これ以外にも細かい機能・使用があるが、必要に応じ追々追記していく。
+その後、app.module.ts の import に、作成した aaa の Module を追記する。
+
+(新機能作成の一例)
+
+![](/assets/posts/nestjsFirstStep/makeNewFunc.png)
