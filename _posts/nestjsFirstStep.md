@@ -179,3 +179,7 @@ export class AppModule {}
 (新機能作成の一例)
 
 ![](/assets/posts/nestjsFirstStep/makeNewFunc.png)
+
+---
+
+他機能についても今後書き記していきたい。
