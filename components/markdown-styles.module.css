@@ -77,7 +77,7 @@
 }
 
 .markdown em {
-  font-style: italic;
+  @apply italic;
 }
 
 .markdown strong {
