@@ -81,7 +81,7 @@
 }
 
 .markdown strong {
-  font-weight: bold;
+  @apply font-bold;
 }
 
 .markdown blockquote {
