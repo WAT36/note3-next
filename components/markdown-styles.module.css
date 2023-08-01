@@ -85,8 +85,7 @@
 }
 
 .markdown blockquote {
-  display: block;
-  margin: 1em 40px;
+  @apply block mx-4 my-10;
 }
 
 .markdown textarea {
