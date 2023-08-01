@@ -5,7 +5,7 @@ import Intro from "../components/intro";
 import Layout from "../components/layout";
 import { getAllPosts } from "../lib/api";
 import Head from "next/head";
-import { ADMINISTRATOR, CMS_NAME, TITLE } from "../lib/constants";
+import { ADMINISTRATOR, TITLE } from "../lib/constants";
 import Post from "../interfaces/post";
 import { Bio } from "../components/bio";
 
@@ -20,7 +20,7 @@ export default function Index({ allPosts }: Props) {
     <>
       <Layout>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title> {TITLE} </title>
         </Head>
         <Container>
           <Intro title={TITLE} />
@@ -52,7 +52,7 @@ export default function Index({ allPosts }: Props) {
   );
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps = async (context) => {
   const allPosts = getAllPosts([
     "title",
     "date",
@@ -61,8 +61,9 @@ export const getStaticProps = async () => {
     "coverImage",
     "excerpt",
   ]);
-
   return {
-    props: { allPosts },
+    props: {
+      allPosts,
+    },
   };
 };
