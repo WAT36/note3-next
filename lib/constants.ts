@@ -31,6 +31,7 @@ export const DIR_NAME = {
   "001_stdio": "標準入力・出力",
   "002_string": "文字列",
   "003_number": "数値",
+  "004_list": "配列・リスト",
 
   "001_log": "対数",
   "002_round": "四捨五入",
