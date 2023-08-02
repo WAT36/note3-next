@@ -89,15 +89,7 @@
 }
 
 .markdown textarea {
-  background-color: #FFF;
-  border-width: 1px;
-  font-family: monospace;
-  font-size: 10pt;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  padding: 2px;
-  white-space: pre-wrap;
-  zoom: 1;
+  @apply bg-white border font-mono text-sm overflow-x-hidden overflow-y-scroll p-0.5 whitespace-pre-wrap;
 }
 
 .markdown button {
