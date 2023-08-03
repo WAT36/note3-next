@@ -93,13 +93,6 @@
 }
 
 .markdown button {
-  background-color: #F0F0F0;
-  border-width: 3px;
-  box-sizing: border-box;
-  font-family: sans-serif;
-  font-size: 10pt;
-  overflow: hidden;
-  padding: 1px 8px;
-  text-align: center;
+  @apply bg-white border-2 box-border font-sans text-sm overflow-hidden py-px text-center;
   zoom: 1;
 }
