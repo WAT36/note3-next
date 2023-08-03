@@ -1,7 +1,7 @@
 ---
 title: "多次元配列"
 date: "2019-10-19T19:35:30+09:00"
-excerpt: "配列を定義する方法。"
+excerpt: "多次元配列を定義する方法。"
 tag: ["Java", "Javascript"]
 programming: ["Java", "Javascript"]
 updatedAt: "2019-10-19T19:35:30+09:00"
