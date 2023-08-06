@@ -33,3 +33,9 @@ AWS CDK (AWS Cloud Development Kit) は、主要なプログラミング言語�
 利用できる言語には、TypeScript, Python, Javascript, Java, C#/.NET, Go 言語等がある。
 
 AWS CDK を利用してできたコードにより、CloudFormation 用のテンプレートが生成され、更にそれをデプロイすることで AWS 上にサービスをデプロイできる。
+
+# CDK の設定方法
+
+実際に CDK を利用する方法を述べる。
+
+なお、使用する言語はここでは Typescript とする。
