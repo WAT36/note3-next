@@ -7,13 +7,11 @@
 }
 
 .markdown ul {
-  @apply block list-outside list-disc my-4 pl-10;
-  list-style-image: none;
+  @apply block list-image-none list-outside list-disc my-4 pl-10;
 }
 
 .markdown ol {
-  @apply block list-outside list-decimal my-4 pl-10;
-  list-style-image: none;
+  @apply block list-image-none list-outside list-decimal my-4 pl-10;
 }
 
 .markdown blockquote {
@@ -36,113 +34,65 @@
 }
 
 .markdown code {
-  @apply font-mono text-xs;
-  white-space: pre-wrap;
+  @apply font-mono text-xs whitespace-pre-wrap;
 }
 
 .markdown table {
-  @apply border-solid border border-black;
-  border-spacing: 4px 2px;
-  box-sizing: border-box;
-  display: table;
-  zoom: 1;
+  @apply border-solid border border-black border-spacing-1 box-border table;
 }
 
 .markdown tbody {
-  box-sizing: border-box;
-  display: table-row-group;
-  vertical-align: middle;
+  @apply box-border table-row-group align-middle;
 }
 
 .markdown td {
-  @apply border-solid border border-black m-3;
-  display: table-cell;
-  padding: 1px;
-  vertical-align: middle;
-  zoom: 1;
+  @apply border-solid border border-black m-3 table-cell p-px align-middle;
 }
 
 .markdown tfoot {
-  box-sizing: border-box;
-  display: table-footer-group;
-  vertical-align: middle;
+  @apply box-border table-footer-group align-middle
 }
 
 .markdown th {
-  @apply border-solid border border-black m-3;
-  display: table-cell;
-  font-weight: bold;
-  padding: 1px;
-  text-align: center;
-  vertical-align: middle;
+  @apply border-solid border border-black m-3 table-cell font-bold p-0.5 text-center align-middle;
   zoom: 1;
 }
 
 .markdown tr {
-  box-sizing: border-box;
-  display: table-row;
-  vertical-align: middle;
+  @apply box-border table-row align-middle;
   zoom: 1;
 }
 
 .markdown pre {
-  @apply bg-gray-200;
-  display: block;
-  font-family: monospace;
-  font-size: 10pt;
-  margin: 1em 0;
-  white-space: pre-wrap;
+  @apply bg-gray-200 block font-mono text-base my-4 mx-0 whitespace-pre-wrap;
 }
 
 .markdown a {
-  color: #06C;
-  text-decoration: underline;
+  @apply text-sky-600 underline;
 }
 
 
 .markdown input {
-  background-color: #FFF;
-  border-width: 2px;
-  font-family: sans-serif;
-  font-size: 10pt;
-  overflow: hidden;
-  padding: 1px;
-  zoom: 1;
+  @apply bg-white border-2 font-sans text-sm overflow-hidden p-px;
 }
 
 .markdown em {
-  font-style: italic;
+  @apply italic;
 }
 
 .markdown strong {
-  font-weight: bold;
+  @apply font-bold;
 }
 
 .markdown blockquote {
-  display: block;
-  margin: 1em 40px;
+  @apply block mx-4 my-10;
 }
 
 .markdown textarea {
-  background-color: #FFF;
-  border-width: 1px;
-  font-family: monospace;
-  font-size: 10pt;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  padding: 2px;
-  white-space: pre-wrap;
-  zoom: 1;
+  @apply bg-white border font-mono text-sm overflow-x-hidden overflow-y-scroll p-0.5 whitespace-pre-wrap;
 }
 
 .markdown button {
-  background-color: #F0F0F0;
-  border-width: 3px;
-  box-sizing: border-box;
-  font-family: sans-serif;
-  font-size: 10pt;
-  overflow: hidden;
-  padding: 1px 8px;
-  text-align: center;
+  @apply bg-white border-2 box-border font-sans text-sm overflow-hidden py-px text-center;
   zoom: 1;
 }
