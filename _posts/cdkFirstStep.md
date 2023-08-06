@@ -22,4 +22,14 @@ CloudFormation は AWS サービスの一つで、AWS 上のサービスやイ�
 
 CloudFormation で使われるコードは、JSON または YAML 形式である。
 
-直接書いても良いが、大体は CDK を利用した方が使いやすい。その CDK についてを以下に述べる。
+直接書いても良いが、大体は AWS CDK を利用した方が使いやすい。その AWS CDK についてを以下に述べる。
+
+# AWS CDK とは
+
+<!-- 説明文見直して欲しい -->
+
+AWS CDK (AWS Cloud Development Kit) は、主要なプログラミング言語を利用して CloudFormation テンプレートを作成し、AWS 上にサービス等をデプロイできるフレームワークである。
+
+利用できる言語には、TypeScript, Python, Javascript, Java, C#/.NET, Go 言語等がある。
+
+AWS CDK を利用してできたコードにより、CloudFormation 用のテンプレートが生成され、更にそれをデプロイすることで AWS 上にサービスをデプロイできる。
