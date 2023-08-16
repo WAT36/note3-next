@@ -59,3 +59,18 @@ npm install -g aws-cdk
 ```
 npx cdk --version
 ```
+
+## CDK プロジェクトの作成
+
+次に、CDK 用のフォルダを作成し、移動する
+
+```bash
+mkdir cdk用プロジェクト名
+cd cdk用プロジェクト名
+```
+
+その後、そこで CDK プロジェクトを作成する（typescript）
+
+```bash
+npx cdk init app --language typescript
+```
