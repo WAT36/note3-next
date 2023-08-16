@@ -14,7 +14,7 @@ ogImage:
 
 近年はサーバーなどのインフラサービスを全てコードで管理する IaC(Infrastructure as Code)が流行っている。
 
-IaC のサービスは Terraform などがあるが、今回私は AWS 上でいろいろサービスを構築していることから、AWS 上で AWS サービスをコードで構築・管理できる「CloudFormation」を利用してみる事にした。
+IaC が行えるサービスは Terraform などがあるが、今回私は AWS 上でいろいろサービスを構築していることから、AWS 上で AWS サービスをコードで構築・管理できる「CloudFormation」を利用してみる事にした。
 
 # CloudFormation とは
 
@@ -39,3 +39,9 @@ AWS CDK を利用してできたコードにより、CloudFormation 用のテン
 実際に CDK を利用する方法を述べる。
 
 なお、使用する言語はここでは Typescript とする。
+
+## AWS CLI
+
+まずは AWS CLI をインストールし、CloudFormation が実行できる IAM ユーザでログインする。
+
+<!-- インストール方法書く？ >
