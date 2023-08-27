@@ -80,11 +80,7 @@ $ aws --version
 他環境でのインストール方法については、以下の公式ページを参考にしてください。
 ​
 [AWS CLI の最新バージョンを使用してインストールまたは更新を行う(公式ページ)](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html)
-​
-
-<!-- インストール方法書く？ -->
-
-​
+​​
 
 ## AWS CLI での IAM ユーザー設定
 
@@ -101,9 +97,55 @@ AWS マネジメントコンソールから IAM のコンソールに行き、�
 ​
 最小権限が望ましいので、CDK を利用するにあたり必要最低限な許可を付与してください。
 ​
+​<!-- 設定方法を図示する？ -->
+​<!-- どのロールを使うか描いた方がいい？ Fullでやる？ -->
+
+​<!-- キーが必要になるのでコンソール上でユーザ作成するとこをやる -->
 ​
+IAM ユーザーを作成した後、ユーザーのアクセスキーとシークレットアクセスキーをダウンロードできるので、設定のためにダウンロードします。
 ​
-​
+その後、自分のローカルの aws クレデンシャルファイルに、ユーザ名とアクセスキーの情報を設定します。
+
+ローカルのホームディレクトリ上に `.aws/credentials` ファイルを作成します（既にある場合はそれを利用します）
+
+credentials ファイルの中身は以下のようにします。XX にはダウンロードしたキーの値を設定します。
+
+複数のアカウントのデータを設定したい場合は、default の部分を他のユーザ名にして登録します。
+
+```
+[default]
+aws_access_key_id=XXXXXXXXXXXXXXXXXXXX
+aws_secret_access_key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+region=ap-northeast-1
+output=json
+
+# 他のユーザも登録したいとき
+[(ユーザ名)]
+aws_access_key_id=XXXXXXXXXXXXXXXXXXXX
+aws_secret_access_key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+region=ap-northeast-1
+output=json
+```
+
+aws cli を利用する時は、credentials に記載されているユーザデータが利用されます。
+
+現在どのユーザデータを利用しているかは、 `aws configure list` コマンドで確認できます。
+
+```
+$ aws configure list
+      Name                    Value             Type    Location
+      ----                    -----             ----    --------
+   profile                <not set>             None    None
+access_key     ******************** shared-credentials-file
+secret_key     ******************** shared-credentials-file
+    region           ap-northeast-1      config-file    ~/.aws/config
+```
+
+ユーザーを変えるには、環境変数`AWS_PROFILE`に credentials で設定したユーザ名を設定することで、ユーザーの切り替えを行えます。
+
+```
+$ export AWS_PROFILE=(ユーザ名)
+```
 
 ## AWS CDK のインストール
 
