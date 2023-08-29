@@ -94,8 +94,8 @@ AWS マネジメントコンソールから IAM のコンソールに行き、�
 所属するグループに関しては各自の環境に応じて設定してください。
 ​
 ロールやポリシーに関しては、アクセス許可の所で設定します。
-​
-最小権限が望ましいので、CDK を利用するにあたり必要最低限な許可を付与してください。
+
+今回は説明用として FullAccess を利用しますが、最小権限で行うのが望ましいので、CDK の運用時には必要最低限な許可を付与してください。
 ​
 ​<!-- 設定方法を図示する？ -->
 ​<!-- どのロールを使うか描いた方がいい？ Fullでやる？ -->
@@ -131,7 +131,7 @@ aws cli を利用する時は、credentials に記載されているユーザデ
 
 現在どのユーザデータを利用しているかは、 `aws configure list` コマンドで確認できます。
 
-```
+```bash
 $ aws configure list
       Name                    Value             Type    Location
       ----                    -----             ----    --------
@@ -143,7 +143,7 @@ secret_key     ******************** shared-credentials-file
 
 ユーザーを変えるには、環境変数`AWS_PROFILE`に credentials で設定したユーザ名を設定することで、ユーザーの切り替えを行えます。
 
-```
+```bash
 $ export AWS_PROFILE=(ユーザ名)
 ```
 
@@ -153,7 +153,7 @@ $ export AWS_PROFILE=(ユーザ名)
 
 まずは npm を利用して、aws-cdk をグローバルにインストールします。
 
-```
+```bash
 $ npm install -g aws-cdk
 ```
 
@@ -161,7 +161,7 @@ $ npm install -g aws-cdk
 実行後、正しくインストールされているかを確認するため、以下のコマンドを実行して cdk のバージョン番号を確認します。
 ​
 
-```
+```bash
 $ npx cdk --version
 2.84.0 (build f7c792f)
 ```
@@ -172,13 +172,13 @@ $ npx cdk --version
 
 ブートストラップの実行には以下のコマンドで行います。
 
-```
+```bash
 $ npx cdk bootstrap aws://(アカウント番号)/(リージョン名)
 ```
 
 なお、アカウント番号が不明な場合は、以下の aws コマンドで確認できます。
 
-```
+```bash
 $ aws sts get-caller-identity
 {
     "UserId": "(ユーザID)",
