@@ -147,7 +147,7 @@ secret_key     ******************** shared-credentials-file
 $ export AWS_PROFILE=(ユーザ名)
 ```
 
-## AWS CDK のインストール
+## AWS CDK のインストールとブートストラップ
 
 ​ ではここから、CDK のインストールを行なっていきます。
 
@@ -187,33 +187,31 @@ $ aws sts get-caller-identity
 }
 ```
 
-​
-
 ## CDK プロジェクトの作成
 
-​
-次に、CDK 用のフォルダを作成し、移動する
-​
-
-```bash
-mkdir cdk用プロジェクト名
-cd cdk用プロジェクト名
-```
-
-​
-その後、そこで CDK プロジェクトを作成する（typescript）
+次に、CDK のプロジェクトを作成します。
+CDK のプロジェクト用のフォルダを作成し、移動します。
 ​
 
 ```bash
-npx cdk init app --language typescript
+$ mkdir (cdk用プロジェクト名)
+$ cd (cdk用プロジェクト名)
 ```
 
 ​
+その後、そこで CDK プロジェクトを作成するコマンドを実行します。
+
+```bash
+$ npx cdk init (cdk用プロジェクト名) --language typescript
+```
+
+​ これにより CDK プロジェクトが作成されます。
+次にどのようなファイルが作成されるかを見ていきます。
 
 ## 作成されるファイルについて
 
 ​
-cdk プロジェクト作成時に作成される最初のファイルについてを示す。
+cdk プロジェクト作成時に作成される最初のファイルについてを見てみましょう。
 ​
 
 ### **lib/(アプリ名)-stack.ts**
