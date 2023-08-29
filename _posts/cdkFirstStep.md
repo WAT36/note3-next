@@ -154,7 +154,7 @@ $ export AWS_PROFILE=(ユーザ名)
 まずは npm を利用して、aws-cdk をグローバルにインストールします。
 
 ```
-npm install -g aws-cdk
+$ npm install -g aws-cdk
 ```
 
 ​
@@ -162,8 +162,29 @@ npm install -g aws-cdk
 ​
 
 ```
-npx cdk --version
+$ npx cdk --version
 2.84.0 (build f7c792f)
+```
+
+その後、最初の設定として **ブートストラップ** を行います。
+
+ブートストラップとは、CDK でのデプロイ時に利用する、専用の S3 バケットとその他のコンテナ類を作成する作業です。
+
+ブートストラップの実行には以下のコマンドで行います。
+
+```
+$ npx cdk bootstrap aws://(アカウント番号)/(リージョン名)
+```
+
+なお、アカウント番号が不明な場合は、以下の aws コマンドで確認できます。
+
+```
+$ aws sts get-caller-identity
+{
+    "UserId": "(ユーザID)",
+    "Account": "(アカウント番号)",
+    "Arn": "arn:aws:iam::(アカウント番号):user/(IAMユーザ名)"
+}
 ```
 
 ​
@@ -208,3 +229,8 @@ cdk プロジェクト作成時に作成される最初のファイルについ�
 ​
 
 - アプリのエントリーポイントで、スタックファイルをロードするところ
+
+# 参考ページ
+
+- [AWS CDK の開始方法(公式ページ)](https://docs.aws.amazon.com/ja_jp/cdk/v2/guide/getting_started.html)
+- [ブートストラッピング(公式ページ)](https://docs.aws.amazon.com/ja_jp/cdk/v2/guide/bootstrapping.html)
