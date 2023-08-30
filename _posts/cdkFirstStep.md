@@ -202,17 +202,34 @@ $ cd (cdk用プロジェクト名)
 その後、そこで CDK プロジェクトを作成するコマンドを実行します。
 
 ```bash
-$ npx cdk init (cdk用プロジェクト名) --language typescript
+$ npx cdk init app --language typescript
+```
+
+ここで指定している"app"は CDK 作成時のテンプレートの名前です。
+デフォルトでは app が使用されます。
+
+```
+Available templates:
+* app: Template for a CDK Application
+   └─ cdk init app --language=typescript
+* lib: Template for a CDK Construct Library
+   └─ cdk init lib --language=typescript
+* sample-app: Example CDK Application with some constructs
+   └─ cdk init sample-app --language=typescript
 ```
 
 ​ これにより CDK プロジェクトが作成されます。
+
 次にどのようなファイルが作成されるかを見ていきます。
 
 ## 作成されるファイルについて
 
 ​
 cdk プロジェクト作成時に作成される最初のファイルについてを見てみましょう。
-​
+
+上記の cdk init コマンドを実行すると、以下のファイル群が作成されます。
+
+​![](/assets/posts/cdkFirstStep/cdkFiles.png)
 
 ### **lib/(アプリ名)-stack.ts**
 
