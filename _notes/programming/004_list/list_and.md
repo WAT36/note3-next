@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-26T21:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -15,9 +15,9 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java では List クラスに**retainAll()**というメソッドがある。これは呼び出し元のリストに含まれている要素の内、引数に指定したリスト内にも含まれている要素のみを残し、他の要素は全て削除するというメソッドである。  
+Java では List クラスに **retainAll()** というメソッドがある。これは呼び出し元のリストに含まれている要素の内、引数に指定したリスト内にも含まれている要素のみを残し、他の要素は全て削除するというメソッドである。  
 `boolean retainAll(Collection<?> c)`  
-このメソッドを活用することにより２つのリストに共通して入っている要素のみを取り出すことができる。ただし同じ値の要素が複数入っていた場合はその数だけ要素が残るということもあるので、重複している値を１つにするには**Set()**等を使い重複を排除する。
+このメソッドを活用することにより２つのリストに共通して入っている要素のみを取り出すことができる。ただし同じ値の要素が複数入っていた場合はその数だけ要素が残るということもあるので、重複している値を１つにするには **Set()** 等を使い重複を排除する。
 
 使用例を以下に示す。
 

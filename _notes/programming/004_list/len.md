@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-22T19:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -15,7 +15,7 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java では List クラスに**size()**というメソッドがあり、これはリストに入っているデータの個数（＝リストの長さ）を返してくれる。  
+Java では List クラスに **size()** というメソッドがあり、これはリストに入っているデータの個数（＝リストの長さ）を返してくれる。  
 `int size()`  
 実行例を以下に示す。
 
@@ -43,7 +43,7 @@ class Main{
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python では**len()**という関数があり、引数のリストの長さ（リスト内の要素の数）を返してくれる。
+Python では **len()** という関数があり、引数のリストの長さ（リスト内の要素の数）を返してくれる。
 
 ```python
 >>> a=[1,2,3]

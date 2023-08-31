@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-26T20:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -56,7 +56,7 @@ class Main{
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python では[リストをソート]({{< relref "/docs/programming/list/sort.md" >}})する方法で述べた 2 つの関数において、それぞれ引数**reverse**があり、それを True に設定してやると逆順にソートしてくれる。（デフォルトではこの引数 reverse は False になっている）
+Python では前章の「リストをソート」する方法で述べた 2 つの関数において、それぞれ引数**reverse**があり、それを True に設定してやると逆順にソートしてくれる。（デフォルトではこの引数 reverse は False になっている）
 
 ```python
 >>> a=[1,9,8,7,6,5,3,2]

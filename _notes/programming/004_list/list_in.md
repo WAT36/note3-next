@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-27T03:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -15,7 +15,7 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java では List クラスに**contains()**というメソッドがある。これは呼び出し元のリストに引数に指定した要素が含まれていた場合に true、そうでない場合 false を返すメソッドである。  
+Java では List クラスに **contains()** というメソッドがある。これは呼び出し元のリストに引数に指定した要素が含まれていた場合に true、そうでない場合 false を返すメソッドである。  
 `boolean contains(Object o)`
 
 使用例を以下に示す。

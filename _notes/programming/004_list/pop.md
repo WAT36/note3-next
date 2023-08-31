@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-27T00:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -15,7 +15,7 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java では List クラスにリストの指定した位置（インデックス）の要素を削除するメソッド**remove()**がある。  
+Java では List クラスにリストの指定した位置（インデックス）の要素を削除するメソッド **remove()** がある。  
 `E remove(int index)`  
 このメソッドはリストから指定したインデックスの要素を取り出して返す。その後リストでは取り出されたインデックスよりも後続の要素を左に移動する動作を行う。
 
@@ -59,7 +59,7 @@ class Main{
 
 Python での方法は次の 2 つがある。
 
-- リストの関数**pop()**を利用する。
+- リストの関数 **pop()** を利用する。
 - **del** 文を利用する
 
 pop 関数はリストの指定した位置（インデックス）を引数とし、実行するとリストからそのインデックスの要素を取り出し、返す。  

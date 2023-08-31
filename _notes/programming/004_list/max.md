@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-27T09:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -15,7 +15,7 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java ではリストに関するメソッドがあるライブラリ**java.util.Collections**に、リスト内の要素の最大値を取得するメソッド**max()**があるので、それを利用する。  
+Java ではリストに関するメソッドがあるライブラリ**java.util.Collections**に、リスト内の要素の最大値を取得するメソッド **max()** があるので、それを利用する。  
 String など文字列のリストの場合は、値を辞書順に並べたときの一番後ろの値が返される。
 
 ```java
@@ -68,7 +68,7 @@ c
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python には組み込み関数**max()**があり、引数として受け取ったイテラブルな値の最大値を返してくれる。  
+Python には組み込み関数 **max()** があり、引数として受け取ったイテラブルな値の最大値を返してくれる。  
 要素が文字列の場合は、辞書順に並べたときの一番後ろの値が返される。
 
 ```python

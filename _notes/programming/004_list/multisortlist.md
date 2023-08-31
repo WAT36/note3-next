@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-27T07:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -17,8 +17,8 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java では[リストのソート]({{< relref "/docs/programming/list/sort.md" >}})の記事で述べた**Collections.sort()**メソッドを用いる。  
-違う点は、sort()メソッドにソートしたいリストだけでなく、リストをどのように順序付けるかを定義する**Comparator**を定義させる。
+Java では「リストのソート」の記事で述べた **Collections.sort()** メソッドを用いる。  
+違う点は、sort()メソッドにソートしたいリストだけでなく、リストをどのように順序付けるかを定義する **Comparator** を定義させる。
 
 `public static <T> void sort(List<T> list,Comparator<? super T> c)`
 

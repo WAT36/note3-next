@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-27T02:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -57,7 +57,7 @@ a:3
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python ではリストの関数に**count()**があり、これは引数に指定した要素がリスト内にいくつあるかを返してくれる。
+Python ではリストの関数に **count()** があり、これは引数に指定した要素がリスト内にいくつあるかを返してくれる。
 
 ```python
 >>> l=['a','b','c','d','a','a']

@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-27T12:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -55,7 +55,7 @@ clear後[]
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python ではリストにある関数**clear()**を使う。
+Python ではリストにある関数 **clear()** を使う。
 
 ```python
 >>> a=[1,2,3,4,5,6]

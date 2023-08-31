@@ -6,8 +6,8 @@ tag: ["Python"]
 programming: ["Python"]
 updatedAt: "2019-10-27T15:36:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 

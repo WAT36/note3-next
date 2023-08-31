@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-27T05:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -16,7 +16,7 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java では String に**join()**というメソッドがある。これは引数にデリミタと Iterable 変数を指定し、Iterable の中にある要素を全てデリミタで繋げて出力するというメソッドである。
+Java では String に **join()** というメソッドがある。これは引数にデリミタと Iterable 変数を指定し、Iterable の中にある要素を全てデリミタで繋げて出力するというメソッドである。
 
 `public static String join(CharSequence delimiter, Iterable<? extends CharSequence> elements)`
 
@@ -49,7 +49,7 @@ class Main{
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python では文字列の関数に**join()**というのがあり、引数にリスト等を指定してやると、リスト内の要素を呼び出し元の文字列で繋げた文字列を返す。
+Python では文字列の関数に **join()** というのがあり、引数にリスト等を指定してやると、リスト内の要素を呼び出し元の文字列で繋げた文字列を返す。
 呼び出し元を **""** にすると、リスト内の要素が全て連結された形で出てくる。
 
 使用例を以下に示す。

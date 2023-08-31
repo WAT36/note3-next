@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-26T21:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -15,7 +15,7 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java ではライブラリ**java.util.Collections**に、リスト内の要素を逆にするメソッド**reverse()**があるので、それを利用する。  
+Java ではライブラリ**java.util.Collections**に、リスト内の要素を逆にするメソッド **reverse()** があるので、それを利用する。  
 `public static void reverse(List<?> list)`  
 実行例を以下に示す。
 

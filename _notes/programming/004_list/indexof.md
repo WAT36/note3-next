@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-27T08:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -15,14 +15,14 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java では List クラスにある**indexOf()**というメソッドで、要素があるインデックスを取得することができる。
+Java では List クラスにある **indexOf()** というメソッドで、要素があるインデックスを取得することができる。
 
 `int indexOf(Object o)`
 
 なお、リスト内に指定した要素が複数入っていた場合は、一番最初にある要素のインデックスを返す。  
 指定した要素がリスト内にない場合は、-1 を返す。
 
-また、リストで後ろの方から検索を行う**lastIndexOf()**というメソッドもある。
+また、リストで後ろの方から検索を行う **lastIndexOf()** というメソッドもある。
 
 `int lastIndexOf(Object o)`
 
@@ -81,7 +81,7 @@ last index of '5': -1
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python ではリストの関数に**index()**というのがあり、引数に指定した要素のリスト内でのインデックスを返してくれる。  
+Python ではリストの関数に **index()** というのがあり、引数に指定した要素のリスト内でのインデックスを返してくれる。  
 `list.index(x[, start[, end]])`  
 指定した要素 x がリスト内に複数ある場合は、リスト内の最初の要素のインデックスを返す。  
 リストの指定した範囲内のみで調べたい場合は、引数 start,end に値を設定して行うと、指定した範囲内で行える。  

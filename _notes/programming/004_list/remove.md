@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-27T01:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -15,13 +15,13 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java では List クラスにリストの指定した要素を削除するメソッド**remove()**がある。  
+Java では List クラスにリストの指定した要素を削除するメソッド **remove()** がある。  
 `boolean remove(Object o)`  
 このメソッドはリストから指定した要素を削除する。複数ある場合は最初のもののみを削除する。
 
 ## int のリストで使いたい時は？
 
-int のリストでこのメソッドを使いたい時、先述の[リストの指定したインデックスの要素を削除する]({{< relref "/docs/programming/list/pop.md" >}})で述べた
+int のリストでこのメソッドを使いたい時、先述の「リストの指定したインデックスの要素を削除する」で述べた
 
 `E remove(int index)`
 
@@ -76,7 +76,7 @@ class Main{
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python にはリストに指定した要素を削除する関数**remove()**があるので、これを利用する。  
+Python にはリストに指定した要素を削除する関数 **remove()** があるので、これを利用する。  
 引数にはリストから削除したい要素を入力する。  
 指定した要素がリスト内に複数ある場合は、最初のもののみを削除する。  
 リストに存在しない値を入力するとエラーになる。

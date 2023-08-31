@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-26T21:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -18,7 +18,7 @@ mode: programming
 
 Java での考え方としては
 
-- **addAll()**メソッドを利用してリスト a にリスト b の要素を全て加える
+- **addAll()** メソッドを利用してリスト a にリスト b の要素を全て加える
 - リストを**Set**にして重複要素を排除する
 - 作成した Set を再び List にすると最終的にリスト a または b に入っている要素が残る
 

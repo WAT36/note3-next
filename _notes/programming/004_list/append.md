@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-23T19:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -15,7 +15,7 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java では List クラスに**add()**というメソッドがあり、引数の要素をリストの最後に追加する。  
+Java では List クラスに **add()** というメソッドがあり、引数の要素をリストの最後に追加する。  
 `boolean add(E e)`  
 型の問題などで要素を追加できない時はエラーとなる。  
 また、オーバーロードとしてリストの指定した位置に要素を追加する add メソッドもある。  

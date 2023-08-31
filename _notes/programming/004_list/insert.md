@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-24T19:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -15,7 +15,7 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java では List クラスに**add()**というメソッドがある。[リストへの要素追加]({{< relref "/docs/programming/list/append.md" >}})で述べたメソッドと名前が同じであるが、こちらはそれに挿入する位置を引数に追加したメソッドである。  
+Java では List クラスに **add()** というメソッドがある。前章の「リストへの要素追加」で述べたメソッドと名前が同じであるが、こちらはそれに挿入する位置を引数に追加したメソッドである。  
 `void add(int index,E element)`  
 このメソッドを活用することによりリストの任意の位置に要素を追加することができる。
 

@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-27T04:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -15,7 +15,7 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java は List の親クラスである Collections クラスに**swap()**メソッドがあるので、これを利用する。  
+Java は List の親クラスである Collections クラスに **swap()** メソッドがあるので、これを利用する。  
 `public static void swap(List<?> list,int i,int j)`  
 使用例を以下に示す。
 

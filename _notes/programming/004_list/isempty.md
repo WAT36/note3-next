@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-27T11:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -15,7 +15,7 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java では List クラスにリストが空であるかを判別するメソッド**isEmpty()**がある。  
+Java では List クラスにリストが空であるかを判別するメソッド **isEmpty()** がある。  
 `boolean isEmpty()`
 空の場合は true を、そうでない場合は false を返す。
 

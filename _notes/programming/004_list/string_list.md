@@ -6,8 +6,8 @@ tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-26T23:35:30+09:00"
 author:
-name: Tatsuroh Wakasugi
-picture: "/assets/blog/authors/WAT.jpg"
+  name: Tatsuroh Wakasugi
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -17,8 +17,8 @@ mode: programming
 
 Java では以下２つの手順を踏んで行う。
 
-- 文字列を分割する String.**split()**を利用して文字列を１文字ずつの配列に分割する
-- **Arrays.asList()**メソッドを利用して配列をリストに変換する
+- 文字列を分割する String. **split()** を利用して文字列を１文字ずつの配列に分割する
+- **Arrays.asList()** メソッドを利用して配列をリストに変換する
 
 String.split()は引数に指定した文字列を境に元の文字列を切り分けるメソッドである。引数に空文字""を入力したときは、文字列を１文字ずつに分割する。  
 Arrays.asList()は引数に指定した配列を対応するリストに変換するというものである。
@@ -60,7 +60,7 @@ l: a,p,p,l,e, ,b,a,n,a,n,a,
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python では文字列をそのまま**list()**の引数に指定してやると、文字列を１文字ずつのリストに変換してくれる。
+Python では文字列をそのまま **list()** の引数に指定してやると、文字列を１文字ずつのリストに変換してくれる。
 
 使用例を以下に示す。
 
