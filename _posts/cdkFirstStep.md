@@ -256,8 +256,64 @@ lib フォルダに(プロジェクト名)-stack.ts というファイルが作�
 
 そして、bin/(プロジェクト名).ts 内で、そのスタックのクラスを利用するように書き換えます。
 
+# CDK の利用方法
+
+では実際に CDK を使ってデプロイ等を行なってみましょう。
+
+ここでは例として、S3 バケットを作成してみようと思います。
+
+## コードの定義
+
+デプロイに利用するスタック内に、S3 バケットを作成するコードを記述します。
+
+先程の lib/cdk-test-stack.ts を利用します。
+
+```typescript
+import * as cdk from "aws-cdk-lib";
+import { Construct } from "constructs";
+import * as s3 from "aws-cdk-lib/aws-s3";
+// import * as sqs from 'aws-cdk-lib/aws-sqs';
+
+export class CdkTestStack extends cdk.Stack {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
+
+    // The code that defines your stack goes here
+
+    // example resource
+    // const queue = new sqs.Queue(this, 'CdkTestQueue', {
+    //   visibilityTimeout: cdk.Duration.seconds(300)
+    // });
+
+    // S3 Bucket
+    const s3Bucket = new s3.Bucket(this, "S3Bucket", {
+      bucketName: "cdk-test-bucket",
+    });
+  }
+}
+```
+
+そして、このスタックを cdk コマンドを使いデプロイします。
+
+スタック名は bin/cdk-test.ts 内で'CdkTestStack'としているので、それを利用します。
+
+```
+$ cdk deploy CdkTestStack
+```
+
+すると設定した AWS アカウントでスタックがデプロイされ、定義している S3 バケットが作られます。
+
+<!-- AWSコンソールでS3バケットを見せる -->
+
+ここで使用した S3 を作るコードは、CDK のライブラリで定義されており、他のリソースやサービスを作成することももちろん可能です。
+
+CDK のライブラリの全容については、以下の公式レファレンスをご覧ください。
+
+[AWS CDK Reference Documentation](https://docs.aws.amazon.com/cdk/api/v2/)
+
 # 参考ページ
 
 - [AWS CDK の開始方法(公式ページ)](https://docs.aws.amazon.com/ja_jp/cdk/v2/guide/getting_started.html)
 - [ブートストラッピング(公式ページ)](https://docs.aws.amazon.com/ja_jp/cdk/v2/guide/bootstrapping.html)
 - [スタック(公式ページ)](https://docs.aws.amazon.com/ja_jp/cdk/v2/guide/stacks.html)
+- [AWS CDK Reference Documentation](https://docs.aws.amazon.com/cdk/api/v2/)
