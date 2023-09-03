@@ -1,7 +1,7 @@
 ---
 title: "CloudFormation(CDK)を導入してみた"
 excerpt: "CDKを導入したのでその方法を書く"
-coverImage: ""
+coverImage: "/assets/posts/cdkFirstStep/cdkLogo.png"
 date: "2023-07-30T23:48:18.000Z"
 updatedAt: "2023-07-30T23:48:18.000Z"
 tag: []
