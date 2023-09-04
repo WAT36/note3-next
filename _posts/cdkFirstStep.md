@@ -15,7 +15,8 @@ ogImage:
 ​
 近年はサーバーなどのインフラサービスを全てコードで管理する IaC(Infrastructure as Code)が流行っている。
 ​
-IaC が行えるサービスは Terraform などがあるが、今回私は AWS 上でいろいろサービスを構築していることから、AWS サービスをコードで構築・管理できる「CloudFormation」を利用してみる事にした。
+
+IaC が行えるサービスは Terraform などがあるが、今回私は AWS 上でいろいろサービスを構築していることから、AWS サービスをコードで構築・管理できる「CloudFormation」を利用してみた。
 ​
 
 # CloudFormation とは
@@ -23,9 +24,13 @@ IaC が行えるサービスは Terraform などがあるが、今回私は AWS 
 ​
 CloudFormation は AWS サービスの一つで、AWS 上のサービスやインフラリソースをコードベースで管理し、デプロイを実行する事でそのコードで定義した通りのインフラリソースを AWS 上にデプロイしてくれるサービスである。
 ​
+
 CloudFormation で使われるコードは、JSON または YAML 形式である。
+
+![](/assets/posts/cdkFirstStep/cloudFormation.png)
+
 ​
-直接これらの形式で書いても良いが、AWS CDK というライブラリを利用すると、主だったプログラミング言語で CloudFormation に対応するコードが記述できる。その AWS CDK についてを以下に述べる。
+直接この形式で書いても良いが、AWS CDK というライブラリを利用すると、主だったプログラミング言語で CloudFormation に対応するコードが記述できる。その AWS CDK についてを以下に述べる。
 ​
 
 # AWS CDK とは
@@ -76,6 +81,7 @@ $ aws --version
 
 ​
 他環境でのインストール方法については、以下の公式ページを参考のこと。
+
 ​
 [AWS CLI の最新バージョンを使用してインストールまたは更新を行う(公式ページ)](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html)
 ​​
