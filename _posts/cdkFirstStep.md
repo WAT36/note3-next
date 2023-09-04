@@ -35,15 +35,17 @@ CloudFormation で使われるコードは、JSON または YAML 形式である
 
 # AWS CDK とは
 
-<!-- 説明文見直して欲しい -->
-
 ​
 AWS CDK (AWS Cloud Development Kit) は、主要なプログラミング言語で記述されたコードを CloudFormation テンプレートに変換し、AWS 上にサービス等をデプロイできるフレームワークである。
+
 ​
 利用できる言語には、TypeScript, Python, Javascript, Java, C#/.NET, Go 言語等がある。
+
 ​
 AWS CDK を利用して作成されたコードにより、CloudFormation 用のテンプレートが生成される。更にそれをデプロイすることで AWS 上にサービスをデプロイできる。
 ​
+
+![](/assets/posts/cdkFirstStep/cdkDeployFlow.png)
 
 # CDK の設定方法
 
