@@ -117,7 +117,7 @@ IAM グループではなくロールやポリシーをアタッチする場合�
 ![](/assets/posts/cdkFirstStep/iamAdministratorAccess.png)
 
 ​
-IAM ユーザーを作成した後、ユーザーの詳細ページからセキュリティ認証情報＞アクセスキー　からアクセスキーとシークレットアクセスキーを作成し、ダウンロードする。
+IAM ユーザーを作成した後、ユーザーの詳細ページにあるセキュリティ認証情報＞アクセスキー　からアクセスキーとシークレットアクセスキーを作成し、ダウンロードする。
 
 ![](/assets/posts/cdkFirstStep/iamAccessKey.png)
 
