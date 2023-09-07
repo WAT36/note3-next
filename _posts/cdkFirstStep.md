@@ -249,14 +249,14 @@ Available templates:
 cdk プロジェクト作成時に作成される最初のファイルについてを見ていく。
 
 上記の cdk init コマンドを実行すると、以下のファイル群が作成される。
-
 ​![](/assets/posts/cdkFirstStep/cdkFiles.png)
 
 このうち、重要なファイルについてを以下に記す。
 
 ### **bin/(プロジェクト名).ts**
 
-​bin フォルダに(プロジェクト名).ts というファイルが作成される。（今回の例だと cdk-test.ts）
+​bin フォルダに`(プロジェクト名).ts`というファイルが作成される。（今回の例だと cdk-test.ts）
+​![](/assets/posts/cdkFirstStep/bin-cdk-test-ts.png)
 
 このファイルは CDK プロジェクトのエントリーポイントで、CDK コマンドでのデプロイ時に真っ先に実行される。
 
@@ -264,7 +264,8 @@ cdk プロジェクト作成時に作成される最初のファイルについ�
 
 ### **lib/(プロジェクト名)-stack.ts**
 
-lib フォルダに(プロジェクト名)-stack.ts というファイルが作成される。 (今回の例だと cdk-test-stack.ts)
+lib フォルダに`(プロジェクト名)-stack.ts`というファイルが作成される。 (今回の例だと cdk-test-stack.ts)
+​![](/assets/posts/cdkFirstStep/lib-cdk-test-stack-ts.png)
 
 このファイルは CDK で使われる一つのスタックの定義ファイルとして利用し、デプロイすると作成される AWS のリソースやサービスを定義する。
 
