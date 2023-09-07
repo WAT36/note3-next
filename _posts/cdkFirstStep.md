@@ -208,6 +208,7 @@ $ aws sts get-caller-identity
 ## CDK プロジェクトの作成
 
 次に、CDK のプロジェクトを作成する。
+
 CDK のプロジェクト用のフォルダを作成し、移動する。
 ​
 
@@ -225,6 +226,7 @@ $ npx cdk init app --language typescript
 ```
 
 ここで指定している"app"は CDK 作成時のテンプレートの名前である。
+
 デフォルトでは app が使用される。
 
 ```
@@ -237,7 +239,7 @@ Available templates:
    └─ cdk init sample-app --language=typescript
 ```
 
-​ これにより CDK プロジェクトが作成される。
+これにより CDK プロジェクトが作成される。
 
 次にどのようなファイルが作成されるかを見ていく。
 
