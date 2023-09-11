@@ -309,8 +309,8 @@ export class CdkTestStack extends cdk.Stack {
     // });
 
     // S3 Bucket
-    const s3Bucket = new s3.Bucket(this, "S3Bucket", {
-      bucketName: "cdk-test-bucket",
+    const s3Bucket = new s3.Bucket(this, "CdkTestS3Bucket", {
+      bucketName: "cdktests-bucket",
     });
   }
 }
@@ -325,8 +325,7 @@ $ cdk deploy CdkTestStack
 ```
 
 すると設定した AWS アカウントでスタックがデプロイされ、定義している S3 バケットが作られます。
-
-<!-- AWSコンソールでS3バケットを見せる -->
+​![](/assets/posts/cdkFirstStep/cdkS3BucketCreated.png)
 
 ## cdk コマンド
 
