@@ -16,7 +16,7 @@ ogImage:
 近年はサーバーなどのインフラサービスを全てコードで管理する IaC(Infrastructure as Code)が流行っている。
 ​
 
-IaC が行えるサービスは Terraform などがあるが、今回私は AWS 上でいろいろサービスを構築していることから、AWS サービスをコードで構築・管理できる「CloudFormation」を利用してみた。
+IaC が行えるサービスは Terraform などがあるが、今回自分は AWS 上でいろいろサービスを構築していることから、AWS サービスをコードで構築・管理できる「CloudFormation」を利用してみた。
 ​
 
 # CloudFormation とは
@@ -30,7 +30,7 @@ CloudFormation で使われるコードは、JSON または YAML 形式である
 ![](/assets/posts/cdkFirstStep/cloudFormation.png)
 
 ​
-直接この形式で書いても良いが、AWS CDK というライブラリを利用すると、主だったプログラミング言語で CloudFormation に対応するコードが記述できる。その AWS CDK についてを以下に述べる。
+直接 JSON や YAML 形式で書いても良いが、AWS CDK というライブラリを利用すると、主だったプログラミング言語で CloudFormation に対応するコードが記述できる。その AWS CDK についてを以下に述べる。
 ​
 
 # AWS CDK とは
@@ -107,7 +107,7 @@ AWS マネジメントコンソールから IAM のコンソールに行き、�
 ![](/assets/posts/cdkFirstStep/iamUserName.png)
 
 ​
-所属させる IAM グループがある場合は、各自の環境に応じて設定すること。
+作成したユーザーに所属させたい IAM グループがある場合は、各自の環境に応じて設定すること。
 
 ​
 IAM グループではなくロールやポリシーをアタッチする場合は、「ポリシーを直接アタッチする」所で設定する。
@@ -169,7 +169,7 @@ $ export AWS_PROFILE=(ユーザ名)
 
 ​ ここから、CDK のインストールを行なっていく。
 
-まずは npm を利用して、aws-cdk をグローバルにインストールする。
+まずは npm を利用して、aws-cdk をグローバルインストールする。
 
 ```bash
 $ npm install -g aws-cdk
@@ -385,17 +385,17 @@ $ cdk deploy CdkTestStack
 
 ---
 
-いくつか代表的なものとして述べましたが、この他にも cdk コマンドの種類はいくつかあります。
+いくつか代表的なものとして述べましたが、この他にも cdk コマンドは存在する。
 
-cdk コマンドの詳細については、以下の公式ページを参照してください。
+cdk コマンドの詳細については、以下の公式ページを参照されたし。
 
 [AWS CDK ツールキット (cdk コマンド) (公式ページ)](https://docs.aws.amazon.com/ja_jp/cdk/v2/guide/cli.html)
 
 ## CDK 公式レファレンス
 
-ここで使用した S3 を作るコードは、CDK のライブラリで定義されており、他のリソースやサービスを作成することももちろん可能です。
+ここで使用した S3 を作るコードは、CDK のライブラリで定義されており、他のリソースやサービスを作成することももちろん可能である。
 
-CDK のライブラリの全容については、以下の公式レファレンスをご覧ください。
+CDK のライブラリの全容については、以下の公式レファレンスを参考のこと。
 
 [AWS CDK Reference Documentation](https://docs.aws.amazon.com/cdk/api/v2/)
 
