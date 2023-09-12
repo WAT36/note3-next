@@ -15,7 +15,7 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java では Map クラスに**put()**というメソッドがあり、引数にキー・値を指定すると、その Map 内にキー・値が入る。  
+Java では Map クラスに **put()** というメソッドがあり、引数にキー・値を指定すると、その Map 内にキー・値が入る。  
 `V put(K key, V value)`  
 既に同じキーがあった場合は上書きされて入る。
 

@@ -17,8 +17,8 @@ mode: programming
 
 Java で Map にあるキーの最大値を取得するには以下の手順で行う。
 
-- Map のメソッド**keySet()**を使い、キーのみを Set に格納したデータを取得する
-- そのキーの Set を Collections クラスの**max()**メソッドを用いて最大値を取得する(参考：[リストの内一番大きい要素を調べる]({{< relref "/docs/programming/list/max.md" >}}))
+- Map のメソッド **keySet()** を使い、キーのみを Set に格納したデータを取得する
+- そのキーの Set を Collections クラスの **max()** メソッドを用いて最大値を取得する(参考：リストの内一番大きい要素を調べる)
 
 Map クラスの keySet()メソッドは、Map にあるキーを Set に格納したものを返すメソッドである。Set は List から重複要素を除外させたデータ構造である。  
 `Set<K> keySet()`
@@ -60,7 +60,7 @@ max key: key3
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python では単に組み込み関数**max()**を使えば、辞書にある最大のキーを取得できる。
+Python では単に組み込み関数 **max()** を使えば、辞書にある最大のキーを取得できる。
 
 ```python
 >>> d={'key':'value', 'key2':'value2', 'key3':'value3'}

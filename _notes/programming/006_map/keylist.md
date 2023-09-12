@@ -15,7 +15,7 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java では Map クラスに**keySet()**というメソッドがある。これにより Map のキーを Set で取得することができる。
+Java では Map クラスに **keySet()** というメソッドがある。これにより Map のキーを Set で取得することができる。
 
 `Set<K> keySet()`
 
@@ -58,7 +58,7 @@ class Main{
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python は辞書の関数に**keys()**という関数があり、これを利用することで辞書のキーのイテラブルオブジェクトを取得できる。  
+Python は辞書の関数に **keys()** という関数があり、これを利用することで辞書のキーのイテラブルオブジェクトを取得できる。  
 ただし、この keys 関数で返されるオブジェクトはリストではなく dict_keys 型なので注意。リストに変換したい場合は list()を使って変換する。  
 for 文でループさせたい時は `for i in 辞書.keys()` のようにすればよい。  
 実行例を以下に示す。
@@ -81,7 +81,7 @@ dict_keys(['key', 'key2', 'key3'])
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-Javascript において、連想配列の添字のリストを取得するには、**Object.keys()**メソッドを利用する。引数には連想配列のオブジェクトを指定する。
+Javascript において、連想配列の添字のリストを取得するには、 **Object.keys()** メソッドを利用する。引数には連想配列のオブジェクトを指定する。
 
 使用法は以下の通り。
 
