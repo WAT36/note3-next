@@ -34,6 +34,7 @@ export const DIR_NAME = {
   "004_list": "配列・リスト",
   "005_control": "制御構文",
   "006_map": "辞書(Map)",
+  "007_class_func": "クラス・関数(メソッド)",
 
   "001_log": "対数",
   "002_round": "四捨五入",
