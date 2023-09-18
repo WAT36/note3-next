@@ -2,8 +2,8 @@
 title: "継承"
 date: "2019-10-29T03:37:30+09:00"
 excerpt: "継承について"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-29T03:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
