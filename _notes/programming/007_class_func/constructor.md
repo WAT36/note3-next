@@ -2,8 +2,8 @@
 title: "コンストラクタ"
 date: "2019-10-29T02:37:30+09:00"
 excerpt: "コンストラクタについて"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-29T02:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -85,8 +85,8 @@ Python では　**\_\_init()\_\_** という関数がクラスのコンストラ
 >>>
 ```
 
-{{< /tab >}}
-{{< tab "Javascript" >}}
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
 
 Javascript でのコンストラクタは Java や Python のそれとは対象が微妙に異なる。
 

@@ -180,7 +180,7 @@ AttributeError: 'Beverage' object has no attribute 'alcohol_content'
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-Javascript では[コンストラクタ](https://wat36.github.io/pages/docs/programming/class_func/constructor/)を使って作られたオブジェクトを使った継承が行える。
+Javascript ではコンストラクタを使って作られたオブジェクトを使った継承が行える。
 
 例えば以下のようなオブジェクトがあったとする。
 
