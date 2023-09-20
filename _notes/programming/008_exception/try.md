@@ -4,7 +4,7 @@ date: "2019-10-30T00:37:30+09:00"
 excerpt: "例外処理(try文)について"
 tag: ["Java", "Python", "Javascript"]
 programming: ["Java", "Python", "Javascript"]
-updatedAt: "2019-10-29T08:37:30+09:00"
+updatedAt: "2019-10-30T00:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
