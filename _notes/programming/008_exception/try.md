@@ -16,7 +16,7 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java では**try-catch(-finally)**文で実行時エラー(例外)のハンドリングを行う。  
+Java では **try-catch(-finally)** 文で実行時エラー(例外)のハンドリングを行う。  
 記法は以下の通り。
 
 ```
@@ -89,7 +89,7 @@ finally
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python では**try-except(-finally)**文で実行時エラー(例外)のハンドリングを行う。  
+Python では **try-except(-finally)** 文で実行時エラー(例外)のハンドリングを行う。  
 記法は以下の通り。
 
 ```
@@ -133,7 +133,7 @@ finally
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-Javascript は Java と形式は同じで**try-catch(-finally)**文で実行時エラー(例外)のハンドリングを行う。  
+Javascript は Java と形式は同じで **try-catch(-finally)** 文で実行時エラー(例外)のハンドリングを行う。  
 記法は以下の通り。
 
 ```
