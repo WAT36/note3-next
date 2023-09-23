@@ -11,7 +11,7 @@ type DnsStackProps = {
 
 // DNS系のリソース
 export class DnsStack extends cdk.Stack {
-  readonly hostedZone: route53.IHostedZone;
+  readonly hostedZone: route53.HostedZone;
 
   constructor(scope: Construct, id: string, props: DnsStackProps) {
     super(scope, id, {
@@ -32,7 +32,7 @@ export class DnsStack extends cdk.Stack {
         zoneName: process.env.HOSTZONE_NAME || "",
         hostedZoneId: process.env.HOSTZONE_ID || "",
       }
-    );
+    ) as route53.HostedZone;
 
     //this.hostedZone.applyRemovalPolicy(cdk.RemovalPolicy.RETAIN);
   }

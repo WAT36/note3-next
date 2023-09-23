@@ -8,7 +8,7 @@ dotenv.config();
 
 type CertificateStackProps = {
   env: string;
-  hostedZone: route53.IHostedZone;
+  hostedZone: route53.HostedZone;
 };
 
 // us-east-1(その他、グローバル)リージョンに作成する、証明書リソース

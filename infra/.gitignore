@@ -2,10 +2,11 @@
 !jest.config.js
 *.d.ts
 node_modules
-yaml
 *.drawio
-.env
 
 # CDK asset staging directory
 .cdk.staging
 cdk.out
+yaml
+.env
+ids.json
