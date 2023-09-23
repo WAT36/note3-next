@@ -30,4 +30,4 @@ jobs:
 
       - name: Deploy  # S3にデプロイ 
         run: 
-          aws s3 sync --region ap-northeast-1 ./out s3://wat-note3-develop --delete
+          aws s3 sync --region ap-northeast-1 ./out s3://dev-wat-note3-bucket --delete
