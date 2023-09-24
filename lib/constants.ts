@@ -37,6 +37,7 @@ export const DIR_NAME = {
   "007_class_func": "クラス・関数(メソッド)",
   "008_exception": "例外処理",
   "009_file": "ファイル処理",
+  "099_other": "その他",
 
   "001_log": "対数",
   "002_round": "四捨五入",
