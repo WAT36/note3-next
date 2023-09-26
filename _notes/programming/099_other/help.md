@@ -2,8 +2,8 @@
 title: "関数、メソッドのヘルプを見る"
 date: "2019-11-01T03:37:30+09:00"
 excerpt: "関数、メソッドのヘルプを見る方法について"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Python"]
+programming: ["Python"]
 updatedAt: "2019-11-01T03:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
