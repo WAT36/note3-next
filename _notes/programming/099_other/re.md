@@ -1,7 +1,7 @@
 ---
 title: "正規表現"
 date: "2019-11-01T07:37:30+09:00"
-excerpt: "Nullについて"
+excerpt: "正規表現について"
 tag: ["Python"]
 programming: ["Python"]
 updatedAt: "2019-11-01T07:37:30+09:00"
