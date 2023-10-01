@@ -38,6 +38,7 @@ export const DIR_NAME = {
   "008_exception": "例外処理",
   "009_file": "ファイル処理",
   "099_other": "その他",
+  "101_data_process": "グラフ・データ処理",
 
   "001_log": "対数",
   "002_round": "四捨五入",
