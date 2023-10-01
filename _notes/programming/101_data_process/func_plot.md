@@ -50,7 +50,6 @@ array([-1000,  -729,  -512,  -343,  -216,  -125,   -64,   -27,    -8,
 
 実行結果
 
-<img src="/img/datascience/Figure_2.png" width=50%>
-![](/assets/note/programming/101_data_process/plot/Figure_1.png)
+![](/assets/note/programming/101_data_process/func_plot/Figure_2.png)
 
 </div>
