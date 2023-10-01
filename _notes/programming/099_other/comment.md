@@ -2,8 +2,8 @@
 title: "コメントアウト"
 date: "2019-11-01T04:37:30+09:00"
 excerpt: "コメントアウトについて"
-tag: ["Java"]
-programming: ["Java"]
+tag: ["Java", "Python"]
+programming: ["Java", "Python"]
 updatedAt: "2019-11-01T04:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -28,8 +28,8 @@ Java でのコメントアウトの仕方は以下の通り。
 1 行だけをコメントアウトしたい時は`//`を利用した方が良い。これを利用すると、その行内で//から後は全てコメントアウトされる。  
 複数行をコメントアウトするときは`/* */`を利用する。これを利用すると、/_ から _/ までの間は全てコメントアウトされる。
 
-{{< /tab >}}
-{{< tab "Python" >}}
+</div>
+<div class="note_content_by_programming_language" id="note_content_Python">
 
 Python では **#** がコメントアウトの役割を成す。  
 ＃を書くと、その行で#以後の部分はコメントアウトされる。  

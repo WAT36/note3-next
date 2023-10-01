@@ -2,8 +2,8 @@
 title: "大域変数と局所変数（グローバルオブジェクトとCallオブジェクト）"
 date: "2019-11-01T09:37:30+09:00"
 excerpt: "大域変数と局所変数（グローバルオブジェクトとCallオブジェクト）について"
-tag: []
-programming: []
+tag: ["Javascript"]
+programming: ["Javascript"]
 updatedAt: "2019-11-01T10:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -12,6 +12,8 @@ mode: programming
 ---
 
 大域変数と局所変数（グローバルオブジェクトと Call オブジェクト）についてを述べる。
+
+<div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ## グローバルオブジェクトと Call オブジェクト
 
@@ -156,3 +158,5 @@ console.log(c());
 2
 3
 ```
+
+</div>

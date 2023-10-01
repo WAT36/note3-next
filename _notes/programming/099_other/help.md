@@ -16,7 +16,7 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python に**help()**という組み込み関数がある。引数に関数名を入力すると、文字列として扱われて検索し、得たレファレンスなどを返してくれる。  
+Python に **help()** という組み込み関数がある。引数に関数名を入力すると、文字列として扱われて検索し、得たレファレンスなどを返してくれる。  
 help()は、対話モードで使用する。
 
 例えば関数 max を help で調べて見ると以下のようになる。

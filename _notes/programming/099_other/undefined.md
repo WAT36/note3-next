@@ -13,6 +13,8 @@ mode: programming
 
 Javascript の undefined について記載する。
 
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
 undefined とは Javascript のグローバルオブジェクトのプロパティの一つである。
 
 変数を設定し、初期値を設定しなかった時、Javascript はデフォルトで undefined を設定する。
@@ -20,3 +22,5 @@ undefined とは Javascript のグローバルオブジェクトのプロパテ�
 値を return しない関数も、undefined を返す。また、定義されていないプロパティを参照しようとした時も undefined を返す。
 
 undefined は null と混同しやすいが、undefined は「定義されていない」、null は「空である」という状態になる。
+
+</div>

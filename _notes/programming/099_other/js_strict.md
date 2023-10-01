@@ -13,9 +13,11 @@ mode: programming
 
 Javascript の Strict モードについて。
 
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
 Javascript の仕様には様々な理由で曖昧さが存在しており、それが時にエラーの原因になりうることもある。
 
-これらの問題の原因に対して、厳格な(Strict)チェックをするための機能が**Strict モード**になる。
+これらの問題の原因に対して、厳格な(Strict)チェックをするための機能が **Strict モード** になる。
 
 この Strict モードを指定することにより、エラーの発見が容易になったり、適切な最適化が行え処理を高速化することができる。
 
@@ -62,3 +64,5 @@ SyntaxError: Cannot use the reserved word 'package' as a variable name in strict
 ```
 
 このように、Strict モードを使うことによって、曖昧な仕様に対する厳格なエラーチェックを行ってくれる。
+
+</div>
