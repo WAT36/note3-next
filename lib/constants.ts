@@ -39,6 +39,7 @@ export const DIR_NAME = {
   "009_file": "ファイル処理",
   "099_other": "その他",
   "101_data_process": "グラフ・データ処理",
+  "102_machine_learning": "機械学習",
 
   "001_log": "対数",
   "002_round": "四捨五入",
