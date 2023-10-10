@@ -46,4 +46,6 @@ export const DIR_NAME = {
   "003_operator": "演算子",
 
   "1021_supervised_learning": "教師あり学習",
+
+  "10211_regression": "回帰",
 };
