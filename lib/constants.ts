@@ -44,4 +44,6 @@ export const DIR_NAME = {
   "001_log": "対数",
   "002_round": "四捨五入",
   "003_operator": "演算子",
+
+  "1021_supervised_learning": "教師あり学習",
 };
