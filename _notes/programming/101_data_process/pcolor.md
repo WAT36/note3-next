@@ -52,7 +52,7 @@ mode: programming
 
 ![](/assets/note/programming/101_data_process/pcolor/Figure_10.png)
 
-ヒートマップのグラデーションの色はユーザー側で指定できる。指定したい場合は、plt.**gray()**、plt.**jet()**、plt.**pink()**など色を指定して行う。  
+ヒートマップのグラデーションの色はユーザー側で指定できる。指定したい場合は、plt.**gray()**、plt.**jet()**、plt. **pink()** など色を指定して行う。  
 指定できる色は **help(pyplot.colormaps)** を参照すると記載されている。  
 試しに、gray()を指定した例を示す。
 

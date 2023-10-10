@@ -14,9 +14,9 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 グラフの軸の表示範囲は入力した座標の最大値、最小値に基づいて決定されるが、  
-こちらで x,y 軸の表示範囲を指定したい場合、x 軸は**xlim(min,max)**、y 軸は**ylim(min,max)**という関数を使って指定する。
+こちらで x,y 軸の表示範囲を指定したい場合、x 軸は**xlim(min,max)**、y 軸は **ylim(min,max)** という関数を使って指定する。
 
-例として、前述の[グラフに色をつける]({{< relref "/docs/programming/graph/color.md" >}})で作成したグラフに表示範囲を指定した例を示す。
+例として、前述の「グラフに色をつける」で作成したグラフに表示範囲を指定した例を示す。
 
 ```python
 >>> import numpy as np

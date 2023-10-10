@@ -13,7 +13,7 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-グラフのタイトルを設定、表示するには pyplot の関数**title()**を利用する。
+グラフのタイトルを設定、表示するには pyplot の関数 **title()** を利用する。
 
 例として、前述の「グラフに色をつける」で作成したグラフにタイトルを設定した例を示す。
 
