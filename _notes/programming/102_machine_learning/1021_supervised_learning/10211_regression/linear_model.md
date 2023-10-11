@@ -46,13 +46,13 @@ author:
 
 プロットすると以下のような図になる。
 
-![](/assets/note/programming/102_machine_learning/1021_supervised_learning/10211_regression/Figure_16.png)
+![](/assets/note/programming/102_machine_learning/1021_supervised_learning/10211_regression/linear_model/Figure_16.png)
 
 今回は基本となる数式として直線の式(**直線モデル**)を利用して予測を行ってみる。
 
 このデータに対して、なんとなくだが、以下のような直線を引くとそれらしい予測を行えそうである。
 
-![](/assets/note/programming/102_machine_learning/1021_supervised_learning/10211_regression/Figure_17.png)
+![](/assets/note/programming/102_machine_learning/1021_supervised_learning/10211_regression/linear_model/Figure_17.png)
 
 直線の式は以下の式のように表すことができる。
 
