@@ -38,8 +38,14 @@ export const DIR_NAME = {
   "008_exception": "例外処理",
   "009_file": "ファイル処理",
   "099_other": "その他",
+  "101_data_process": "グラフ・データ処理",
+  "102_machine_learning": "機械学習",
 
   "001_log": "対数",
   "002_round": "四捨五入",
   "003_operator": "演算子",
+
+  "1021_supervised_learning": "教師あり学習",
+
+  "10211_regression": "回帰",
 };
