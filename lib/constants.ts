@@ -46,6 +46,7 @@ export const DIR_NAME = {
   "003_operator": "演算子",
 
   "1021_supervised_learning": "教師あり学習",
+  "1022_unsupervised_learning": "教師なし学習",
 
   "10211_regression": "回帰",
   "10212_classification": "分類",
