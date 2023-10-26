@@ -49,3 +49,31 @@ https://www.algolia.com/
 Algolia の公式ページへいき、アカウントを作成（サインアップ）する。
 
 サインアップし、ログインするとダッシュボードが表示される。
+
+# アプリケーションの作成
+
+まずは Algolia 上でアプリケーションの作成を行う。
+
+Application の欄から「Create Application」を押下する。
+
+![](/assets/posts/algolia/createApplication1.png)
+
+アプリケーション名を入力します
+
+![](/assets/posts/algolia/createApplication2.png)
+
+データセンターを選択します。
+
+無料版だと制限があり、選択できるデータセンターに限りがあるようです。
+
+![](/assets/posts/algolia/selectDatacenter.png)
+
+最後にサマリーが出てきます
+
+![](/assets/posts/algolia/summary.png)
+
+Create Application を押すと作成されます。
+
+作成されたアプリケーションのダッシュボードが表示されます。
+
+![](/assets/posts/algolia/applicationDashboard.png)
