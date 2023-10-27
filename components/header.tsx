@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { TITLE } from "../lib/constants";
 
+const searchButtonClick = () => {
+  const element = document.getElementById("search-textbox") as HTMLInputElement;
+  console.log(element.value);
+};
+
 const Header = () => {
   return (
     <header className="bg-gray-400 text-white z-50">
@@ -10,6 +15,22 @@ const Header = () => {
       >
         {TITLE}
       </Link>
+
+      {/*検索ボックス */}
+      <input
+        type="text"
+        id="search-textbox"
+        className="text-black ml-2"
+        placeholder="Search"
+      />
+      <button
+        type="button"
+        className="ml-2 border-white rounded-sm"
+        onClick={searchButtonClick}
+      >
+        検索
+      </button>
+
       <span className="float-right">
         <Link
           className="font-bold no-underline text-xl mx-3 text-white"

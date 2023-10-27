@@ -34,6 +34,7 @@ function Hit({ hit }) {
 }
 
 const queryHook: SearchBoxProps["queryHook"] = (query, search) => {
+  console.log(`queryHook:${query}`);
   search(query);
 };
 
@@ -77,6 +78,11 @@ export default function Index({ allPosts }: Props) {
           <InstantSearch
             searchClient={searchClient}
             indexName={process.env.NEXT_PUBLIC_INDEX_NAME}
+            initialUiState={{
+              YourIndexName: {
+                query: "S3",
+              },
+            }}
           >
             <Configure hitsPerPage={5} />
             <SearchBox
