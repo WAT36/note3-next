@@ -9,9 +9,6 @@
   },
   "dependencies": {
     "@algolia/client-search": "^4.20.0",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.14.15",
     "algoliasearch": "^4.20.0",
     "aws-cdk-lib": "^2.97.0",
     "classnames": "^2.3.2",
