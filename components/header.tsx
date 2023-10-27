@@ -1,12 +1,20 @@
 import Link from "next/link";
 import { TITLE } from "../lib/constants";
-
-const searchButtonClick = () => {
-  const element = document.getElementById("search-textbox") as HTMLInputElement;
-  console.log(element.value);
-};
+import { useRouter } from "next/router";
 
 const Header = () => {
+  const router = useRouter();
+  const searchButtonClick = () => {
+    const element = document.getElementById(
+      "search-textbox"
+    ) as HTMLInputElement;
+
+    router.push({
+      pathname: "/search",
+      query: { query: element.value },
+    });
+  };
+
   return (
     <header className="bg-gray-400 text-white z-50">
       <Link

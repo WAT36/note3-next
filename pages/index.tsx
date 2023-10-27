@@ -7,35 +7,9 @@ import Head from "next/head";
 import { ADMINISTRATOR, TITLE } from "../lib/constants";
 import Post from "../interfaces/post";
 import { Bio } from "../components/bio";
-import {
-  InstantSearch,
-  SearchBox,
-  Hits,
-  SearchBoxProps,
-  Configure,
-} from "react-instantsearch";
-import algoliasearch from "algoliasearch/lite";
 
 type Props = {
   allPosts: Post[];
-};
-
-const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_APP_ID || "",
-  process.env.NEXT_PUBLIC_SEARCH_DATA_API_KEY || ""
-);
-
-function Hit({ hit }) {
-  return (
-    <>
-      <a href={hit.path + process.env.NEXT_PUBLIC_URL_END}>{hit.title}</a>
-    </>
-  );
-}
-
-const queryHook: SearchBoxProps["queryHook"] = (query, search) => {
-  console.log(`queryHook:${query}`);
-  search(query);
 };
 
 export default function Index({ allPosts }: Props) {
@@ -71,27 +45,6 @@ export default function Index({ allPosts }: Props) {
               excerpt={heroPost.excerpt}
             />
           )}
-          {/*記事検索用領域 */}
-          <h3 className="text-6xl font-bold my-4 tracking-tighter leading-tight md:pr-8">
-            Search
-          </h3>
-          <InstantSearch
-            searchClient={searchClient}
-            indexName={process.env.NEXT_PUBLIC_INDEX_NAME}
-            initialUiState={{
-              YourIndexName: {
-                query: "S3",
-              },
-            }}
-          >
-            <Configure hitsPerPage={5} />
-            <SearchBox
-              placeholder={"Search for posts/notes"}
-              queryHook={queryHook}
-              className={"text-black"}
-            />
-            <Hits hitComponent={Hit} />
-          </InstantSearch>
         </Container>
       </Layout>
     </>
