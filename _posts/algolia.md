@@ -208,3 +208,24 @@ index.saveObjects(records, { autoGenerateObjectIDIfNotExist: true });
 するとデータ登録できました！
 
 ![](/assets/posts/algolia/createApiKey5.png)
+
+# クエリを投げて Algolia からデータを取得する
+
+Algolia にデータの登録は行えたが
+
+これらに対して検索語句を入力して実際に検索結果を得るにはどうすれば良いのか？
+
+検索方法についてを示す。
+
+念のため Postman を使い、API に直でリクエストを送るには以下の通り。
+
+```bash
+curl -X GET \
+     -H "X-Algolia-API-Key: ${API_KEY}" \
+     -H "X-Algolia-Application-Id: ${APPLICATION_ID}" \
+    "https://${APPLICATION_ID}-dsn.algolia.net/1/indexes/imdb?query=george%20clo&hitsPerPage=2&getRankingInfo=1"
+```
+
+するとデータが得られる。
+
+参考：https://www.algolia.com/doc/rest-api/search/
