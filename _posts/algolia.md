@@ -77,3 +77,15 @@ Create Application を押すと作成されます。
 作成されたアプリケーションのダッシュボードが表示されます。
 
 ![](/assets/posts/algolia/applicationDashboard.png)
+
+# インデックスを作成する
+
+algolia では検索対象データの保管単位(データベースのようなもの)を「インデックス」と呼んでいます。
+
+ここでは、インデックスを作成してみます。
+
+![](/assets/posts/algolia/createIndex1.png)
+
+Create Index からインデックス名を入力するとインデックスが作成されます。
+
+![](/assets/posts/algolia/createIndex2.png)
