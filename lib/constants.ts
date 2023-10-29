@@ -47,6 +47,7 @@ export const DIR_NAME = {
 
   "1021_supervised_learning": "教師あり学習",
   "1022_unsupervised_learning": "教師なし学習",
+  "1023_deep_learning": "深層学習(ディープラーニング)",
 
   "10211_regression": "回帰",
   "10212_classification": "分類",
