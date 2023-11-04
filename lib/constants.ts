@@ -52,4 +52,6 @@ export const DIR_NAME = {
 
   "10211_regression": "回帰",
   "10212_classification": "分類",
+
+  "2011_ml_func": "関数(機械学習系)",
 };
