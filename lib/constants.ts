@@ -54,4 +54,5 @@ export const DIR_NAME = {
   "10212_classification": "分類",
 
   "2011_ml_func": "関数(機械学習系)",
+  "2022_probability": "確率・統計",
 };
