@@ -41,6 +41,7 @@ export const DIR_NAME = {
   "101_data_process": "グラフ・データ処理",
   "102_machine_learning": "機械学習",
   "201_math": "数学系",
+  "301_procon": "競プロテク",
 
   "001_log": "対数",
   "002_round": "四捨五入",
