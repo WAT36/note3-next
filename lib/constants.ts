@@ -40,12 +40,19 @@ export const DIR_NAME = {
   "099_other": "その他",
   "101_data_process": "グラフ・データ処理",
   "102_machine_learning": "機械学習",
+  "201_math": "数学系",
 
   "001_log": "対数",
   "002_round": "四捨五入",
   "003_operator": "演算子",
 
   "1021_supervised_learning": "教師あり学習",
+  "1022_unsupervised_learning": "教師なし学習",
+  "1023_deep_learning": "深層学習(ディープラーニング)",
 
   "10211_regression": "回帰",
+  "10212_classification": "分類",
+
+  "2011_ml_func": "関数(機械学習系)",
+  "2022_probability": "確率・統計",
 };
