@@ -1,6 +1,8 @@
 const fs = require("fs");
+const path = require("path");
 const algoliasearch = require("algoliasearch");
-require("dotenv").config();
+const ENV_PATH = path.join(__dirname, "../../.env.local");
+require("dotenv").config({ path: ENV_PATH });
 
 // mdファイルリストを読み込む（別シェルで実施だが、できればこのjsファイルで完結させたい・・）
 const text = fs.readFileSync("filelist.txt", "utf-8");
