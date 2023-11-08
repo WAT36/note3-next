@@ -54,7 +54,11 @@ https://www.algolia.com/
 
 Algolia の公式ウェブサイトにアクセスし、アカウントを作成（サインアップ）します。
 
+![](/assets/posts/algolia/algoliaSignup.png)
+
 サインアップし、ログインするとダッシュボードが表示されます。
+
+![](/assets/posts/algolia/algoliaDashboard.png)
 
 # アプリケーションの作成
 
