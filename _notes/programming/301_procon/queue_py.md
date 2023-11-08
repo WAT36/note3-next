@@ -9,6 +9,8 @@ author:
   picture: "/assets/blog/authors/WAT.jpg"
 ---
 
+※この記事は Qiita にも投稿されています： [キューと Python での実装モジュール「deque」](https://qiita.com/T_Wakasugi/items/3fb56285ce9325389ee8)
+
 幅優先探索を実装する時にキューと言うデータ構造を使用するのが良いそうなので、
 今回はキューについてを調べて見た。（幅優先探索については後日・・機会あれば）
 

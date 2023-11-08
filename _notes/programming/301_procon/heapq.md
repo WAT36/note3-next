@@ -9,6 +9,8 @@ author:
   picture: "/assets/blog/authors/WAT.jpg"
 ---
 
+※この記事は Qiita にも投稿されています： [優先度付きキュー（ヒープ）と Python で実装するライブラリ「heapq」について](https://qiita.com/T_Wakasugi/items/dac6eb77a3cace54f95e)
+
 先日 Atcoder Beginner Contest 141 に参加してきたが、D 問題がいくらやっても TLE になり詰まった挙句 TIME UP になった。
 
 原因はリストから最大値を取り出してくる箇所。
