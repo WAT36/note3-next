@@ -1,9 +1,9 @@
 ---
 title: "キューとPythonでの実装モジュール「deque」"
-date: "2019-11-09T00:01:30+09:00"
+date: "2019-11-09T01:01:30+09:00"
 excerpt: "キューとPythonでの実装モジュール「deque」について"
 tag: ["Python"]
-updatedAt: "2019-11-09T00:01:30+09:00"
+updatedAt: "2019-11-09T01:01:30+09:00"
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

@@ -1,9 +1,9 @@
 ---
 title: "Pythonで二分探索を行うライブラリ「bisect」"
-date: "2019-11-09T00:01:30+09:00"
+date: "2019-11-09T02:01:30+09:00"
 excerpt: "Pythonで二分探索を行うライブラリ「bisect」について"
 tag: ["Python"]
-updatedAt: "2019-11-09T00:01:30+09:00"
+updatedAt: "2019-11-09T02:01:30+09:00"
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
