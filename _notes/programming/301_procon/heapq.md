@@ -1,7 +1,7 @@
 ---
 title: "優先度付きキュー（ヒープ）とPythonで実装するライブラリ「heapq」について"
 date: "2019-11-09T03:01:30+09:00"
-excerpt: "優先度付きキュー（ヒープ）とPythonで実装するライブラリ「heapq」についてについて"
+excerpt: "優先度付きキュー（ヒープ）とPythonで実装するライブラリ「heapq」について"
 tag: ["Python"]
 updatedAt: "2019-11-09T03:01:30+09:00"
 author:
