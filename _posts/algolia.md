@@ -112,11 +112,7 @@ Algolia では、検索対象データの保存単位（データベースのよ
 
 Algolia のウェブ画面からデータを入力する方法もありますが、今回は API を使用してデータを投入する方法を試してみます。
 
-詳細は以下の公式ページを参照してください。
-
-https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/#algolia-records
-
-インデックスに登録する検索データ（レコードと呼ばれる）は以下の形式です（公式ページからの引用）。
+インデックスに登録する検索データ（レコードと呼ばれる）は以下のような形式です（公式ページからの引用）。
 
 ```
 {
@@ -132,7 +128,9 @@ https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/#
 
 まずは上記のようなデータを用意します。そして、これらのデータを Algolia に送信して登録します。
 
-詳細な手順については公式ページを参照してください。
+詳細は以下の公式ページを参照してください。
+
+https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/#algolia-records
 
 https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/
 
@@ -159,8 +157,6 @@ API キーにはさまざまな種類がありますが、Admin API キーは使
 ![](/assets/posts/algolia/createApiKey1.png)
 
 Search 用の API Key はデフォルトであることが多いです。
-
-次に
 
 次に、API Keys > All API Leys > New API Keys をクリックし、新しいキーの情報を入力します。
 
@@ -223,3 +219,12 @@ curl -X GET \
 するとデータが得られる。
 
 参考：https://www.algolia.com/doc/rest-api/search/
+
+# 参考
+
+- [Algolia(公式ページ)](https://www.algolia.com/)
+- [Prepare your records for indexing(公式ページ)](https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/#algolia-records)
+- [Send and update your data(公式ページ)](https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/)
+- [Importing with the API(公式ページ)](https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/how-to/importing-with-the-api/)
+- [API keys(公式ページ)](https://www.algolia.com/doc/guides/security/api-keys/)
+- [Search API(公式ページ)](https://www.algolia.com/doc/rest-api/search/)
