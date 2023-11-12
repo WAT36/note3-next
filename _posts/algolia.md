@@ -36,7 +36,7 @@ ogImage:
 
 # Algolia とは
 
-Algolia は、以下の特徴を持った全文検索 API サービスです。
+Algolia[^1] は、以下の特徴を持った全文検索 API サービスです。
 
 - 検索 API サービスを SaaS として提供
 - 遅延がほとんどない、非常に高速でリアルタイムな検索機能を提供
@@ -44,11 +44,7 @@ Algolia は、以下の特徴を持った全文検索 API サービスです。
 - 検索ロジックをカスタマイズでき、検索結果を最適化できる
 - 開発者向けに API が提供されており、多くの言語から利用が可能
 
-公式ページは以下です。
-
-https://www.algolia.com/
-
-ここから、実際にアカウントを作成し、Algolia を利用してみましょう。
+Algolia の公式ページ[^1]から、実際にアカウントを作成し、Algolia を利用してみましょう。
 
 # Algolia を使ってみる
 
@@ -112,7 +108,7 @@ Algolia では、検索対象データの保存単位（データベースのよ
 
 Algolia のウェブ画面からデータを入力する方法もありますが、今回は API を使用してデータを投入する方法を試してみます。
 
-インデックスに登録する検索データ（レコードと呼ばれる）は以下のような形式です（公式ページからの引用）。
+インデックスに登録する検索データ（レコードと呼ばれる）は以下のような形式です（公式ページ[^2]からの引用）。
 
 ```
 {
@@ -126,17 +122,9 @@ Algolia のウェブ画面からデータを入力する方法もありますが
 }
 ```
 
-まずは上記のようなデータを用意します。そして、これらのデータを Algolia に送信して登録します。
+まずは上記のようなデータを用意します。そして、これらのデータを Algolia (の API)に送信して登録します。
 
-詳細は以下の公式ページを参照してください。
-
-https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/#algolia-records
-
-https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/
-
-https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/how-to/importing-with-the-api/
-
-API 経由でデータを投入するには、必要なパラメータがあります。
+API 経由でデータを投入するには、必要なパラメータ[^3]があります。
 
 - インデックス名
 
@@ -148,9 +136,7 @@ API 経由でデータを投入するには、必要なパラメータがあり�
 
 - API キー
 
-API キーを作成して使用します。API キーは Algolia に API を使用してデータを登録・利用するためのキーです。 API キーの作成については以下の公式ページを参照してください。
-
-https://www.algolia.com/doc/guides/security/api-keys/
+API キーを作成して使用します。API キーは Algolia に API を使用してデータを登録・利用するためのキーです。 API キーの作成についてはこちらの公式ページ[^4]を参照してください。
 
 API キーにはさまざまな種類がありますが、Admin API キーは使用しないように注意してください。 API キーを作成するには、ダッシュボードから API Keys にアクセスします。 Search 用の API キーは通常デフォルトで設定されています。
 
@@ -207,6 +193,8 @@ index.saveObjects(records, { autoGenerateObjectIDIfNotExist: true });
 
 Algolia にデータを登録できましたが、これらに対して検索クエリを入力して実際に検索結果を取得するにはどうすればよいでしょうか？ 検索方法について説明します。
 
+Algolia には外部から検索を行うための検索用 API[^5]があり、こちらを利用してみます。
+
 curl コマンドを利用し、API に直でリクエストを送るには以下の通りです。
 
 ```bash
@@ -218,13 +206,10 @@ curl -X GET \
 
 するとデータが得られる。
 
-参考：https://www.algolia.com/doc/rest-api/search/
+---
 
-# 参考
-
-- [Algolia(公式ページ)](https://www.algolia.com/)
-- [Prepare your records for indexing(公式ページ)](https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/#algolia-records)
-- [Send and update your data(公式ページ)](https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/)
-- [Importing with the API(公式ページ)](https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/how-to/importing-with-the-api/)
-- [API keys(公式ページ)](https://www.algolia.com/doc/guides/security/api-keys/)
-- [Search API(公式ページ)](https://www.algolia.com/doc/rest-api/search/)
+[^1]: [Algolia(公式ページ)](https://www.algolia.com/)
+[^2]: [Prepare your records for indexing(公式ページ)](https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/#algolia-records)
+[^3]: [Importing with the API(公式ページ)](https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/how-to/importing-with-the-api/)
+[^4]: [API keys(公式ページ)](https://www.algolia.com/doc/guides/security/api-keys/)
+[^5]: [Search API(公式ページ)](https://www.algolia.com/doc/rest-api/search/)
