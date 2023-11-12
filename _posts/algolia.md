@@ -195,16 +195,24 @@ Algolia にデータを登録できましたが、これらに対して検索ク
 
 Algolia には外部から検索を行うための検索用 API[^5]があり、こちらを利用してみます。
 
-curl コマンドを利用し、API に直でリクエストを送るには以下の通りです。
+curl コマンドを利用し、API に直でリクエストを送る例を以下に記載します。
 
 ```bash
 curl -X GET \
      -H "X-Algolia-API-Key: ${API_KEY}" \
      -H "X-Algolia-Application-Id: ${APPLICATION_ID}" \
-    "https://${APPLICATION_ID}-dsn.algolia.net/1/indexes/imdb?query=george%20clo&hitsPerPage=2&getRankingInfo=1"
+    "https://${APPLICATION_ID}-dsn.algolia.net/1/indexes/imdb?query={クエリ}%20clo&hitsPerPage=2&getRankingInfo=1"
 ```
 
-するとデータが得られる。
+同様に Postman などでも上記のような GET リクエストを設定して実行すると、結果が返ってきます。
+
+![](/assets/posts/algolia/searchResult.png)
+
+検索結果は基本 JSON のようなオブジェクト形式で返され、自分で用意したデータのうち投げ出したクエリに該当するものが得られます。
+
+より高度な検索の方法やもう少し詳細な検索データの取得を行いたい、と言う場合はリクエストデータ等にいくつか手を加える事で行えますが、それについてはまた今後の記事で書こうと思います（書けるようにしたい・・）
+
+もしくは公式ページ[^1]を掘り下げて参照してみてください。
 
 ---
 
