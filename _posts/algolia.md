@@ -199,10 +199,12 @@ curl コマンドを利用し、API に直でリクエストを送る例を以�
 
 ```bash
 curl -X GET \
-     -H "X-Algolia-API-Key: ${API_KEY}" \
-     -H "X-Algolia-Application-Id: ${APPLICATION_ID}" \
+     -H "X-Algolia-API-Key: {API_KEY}" \
+     -H "X-Algolia-Application-Id: {APPLICATION_ID}" \
     "https://${APPLICATION_ID}-dsn.algolia.net/1/indexes/imdb?query={クエリ}%20clo&hitsPerPage=2&getRankingInfo=1"
 ```
+
+{API_KEY}には作成した API キーを、{APPLICATION_ID}にはアプリケーション ID を代入してください。
 
 同様に Postman などでも上記のような GET リクエストを設定して実行すると、結果が返ってきます。
 
@@ -210,9 +212,43 @@ curl -X GET \
 
 検索結果は基本 JSON のようなオブジェクト形式で返され、自分で用意したデータのうち投げ出したクエリに該当するものが得られます。
 
-より高度な検索の方法やもう少し詳細な検索データの取得を行いたい、と言う場合はリクエストデータ等にいくつか手を加える事で行えますが、それについてはまた今後の記事で書こうと思います（書けるようにしたい・・）
+より高度な検索の方法やもう少し詳細な検索データの取得を行いたい、と言う場合はリクエストデータ等にいくつか手を加える事で行えますが、それについてはまた別の記事で書こうと思います（書けるようにしたい・・）
 
-もしくは公式ページ[^1]を掘り下げて参照してみてください。
+# InstantSearch
+
+Algolia はフロントエンドのフレームワーク向けに、検索用の UI コンポーネントライブラリを提供しています。
+
+名前を InstantSearch[^6]といいます。ここでは React での導入例をお出しします。
+
+まずは必要モジュールをインストールします。
+
+```bash
+npm install algoliasearch react-instantsearch
+```
+
+その後、React アプリケーション内で以下のように InstantSearch モジュールを利用する事で、algolia から得た検索結果を得て表示されます。（公式ページからの引用[^7][^8]）
+
+```javascript
+import React from "react";
+import algoliasearch from "algoliasearch/lite";
+import { InstantSearch } from "react-instantsearch";
+
+const searchClient = algoliasearch("YourApplicationID", "YourSearchOnlyAPIKey");
+
+function App() {
+  return (
+    <InstantSearch searchClient={searchClient} indexName="instant_search">
+      {/* Widgets */}
+    </InstantSearch>
+  );
+}
+```
+
+応用したい場合は、上記をもう少し作り替えてみて下さい。
+
+---
+
+とりあえず今回はここまで。結構範囲が広いので、もう少し調べて別記事にお書きしたいと思います。。
 
 ---
 
@@ -221,3 +257,6 @@ curl -X GET \
 [^3]: [Importing with the API(公式ページ)](https://www.algolia.com/doc/guides/sending-and-managing-data/send-and-update-your-data/how-to/importing-with-the-api/)
 [^4]: [API keys(公式ページ)](https://www.algolia.com/doc/guides/security/api-keys/)
 [^5]: [Search API(公式ページ)](https://www.algolia.com/doc/rest-api/search/)
+[^6]: [What is React InstantSearch?(公式ページ)](https://www.algolia.com/doc/guides/building-search-ui/what-is-instantsearch/react/)
+[^7]: [Getting started with React InstantSearch(公式ページ)](https://www.algolia.com/doc/guides/building-search-ui/getting-started/react/)
+[^8]: [How to install React InstantSearch(公式ページ)](https://www.algolia.com/doc/guides/building-search-ui/installation/react/)
