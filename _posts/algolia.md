@@ -20,7 +20,7 @@ ogImage:
 
 # 全文検索とは
 
-それに先立って、まず全文検索とは何かについて述べたいと思います。
+まず全文検索とは何かについて述べたいと思います。
 
 全文検索は、コンピュータにおいて入力条件に基づいて複数の文書から一致する情報を見つけることを指します。
 
@@ -110,7 +110,7 @@ Algolia では、検索対象データの保存単位（データベースのよ
 
 データの投入方法はいくつかあります。
 
-Algolia のウェブ画面からデータを入力する方法もありますが、今回は API を使用してデータを投入する方法を試してみます。
+Algolia のダッシュボードからデータを入力する方法もありますが、今回は API を使用してデータを投入する方法を試してみます。
 
 インデックスに登録する検索データ（レコードと呼ばれる）は以下のような形式です（公式ページ[^2]からの引用）。
 
@@ -126,7 +126,7 @@ Algolia のウェブ画面からデータを入力する方法もありますが
 }
 ```
 
-まずは上記のようなデータを用意します。どういったキー・データを登録したいかは各自で定義して下さい。
+まずは上記のようなデータを用意します。どういったキーや値を登録したいかは各自で定義して下さい。
 
 そして、これらのデータを Algolia (の API)に送信して登録します。
 
@@ -138,7 +138,7 @@ API 経由でデータを投入するには、必要なパラメータ[^3]があ
 
 - アプリケーション ID
 
-アプリケーションを作成するとアプリケーションの ID も発行されるのですが、こちらを使用します。
+アプリケーションを作成するとアプリケーションの ID も発行されます。こちらを使用します。
 
 - API キー
 
@@ -166,17 +166,7 @@ API キーの名前とどのインデックスに対して使用するかを指�
 
 ```javascript
 // for the default version
-const algoliasearch = require("algoliasearch");
-
-// for the default version
 import algoliasearch from "algoliasearch";
-
-// for the search only version
-import algoliasearch from "algoliasearch/lite";
-
-// or just use algoliasearch if you are using a <script> tag
-// if you are using AMD module loader, algoliasearch will not be defined in window,
-// but in the AMD modules of the page
 
 // ************* 値を書き換えて利用 ************
 const client = algoliasearch("(アプリケーションID)", "(APIキー)");
@@ -230,7 +220,7 @@ Algolia はフロントエンドのフレームワーク向けに、検索用の
 npm install algoliasearch react-instantsearch
 ```
 
-その後、React アプリケーション内で以下のように InstantSearch モジュールを利用する事で、algolia から得た検索結果を得て表示されます。（公式ページからの引用[^7][^8]）
+その後、React アプリケーション内で以下のように InstantSearch モジュールを利用します。（公式ページからの引用[^7][^8]）
 
 ```javascript
 import React from "react";
@@ -248,7 +238,37 @@ function App() {
 }
 ```
 
-応用したい場合は、上記をもう少し作り替えてみて下さい。
+(YourApplicationID にはアプリケーション ID を、YourSearchOnlyAPIKey には検索用の API キーを、indexName にはインデックス名を代入)
+
+他、応用例として、例えば検索結果を表示させたい場合は、以下のように利用します。（公式ページからの引用[^7]）
+
+```javascript
+import algoliasearch from "algoliasearch/lite";
+import { InstantSearch, SearchBox, Hits } from "react-instantsearch";
+
+const searchClient = algoliasearch("YourApplicationID", "YourSearchOnlyAPIKey");
+
+function Hit({ hit }) {
+  return (
+    <article>
+      <p>{hit.categories[0]}</p>
+      <h1>{hit.name}</h1>
+      <p>${hit.price}</p>
+    </article>
+  );
+}
+
+function App() {
+  return (
+    <InstantSearch searchClient={searchClient} indexName="instant_search">
+      <SearchBox />
+      <Hits hitComponent={Hit} />
+    </InstantSearch>
+  );
+}
+```
+
+他モジュール、細かい応用例などもありますが、そちらは公式ページをご参照ください。
 
 ---
 
