@@ -24,22 +24,13 @@ const Header = () => {
         {TITLE}
       </Link>
 
-      {/*検索ボックス */}
-      <input
-        type="text"
-        id="search-textbox"
-        className="text-black ml-2"
-        placeholder="Search"
-      />
-      <button
-        type="button"
-        className="ml-2 border-white rounded-sm"
-        onClick={searchButtonClick}
-      >
-        検索
-      </button>
-
       <span className="float-right">
+        <Link
+          className="font-bold no-underline text-xl mx-3 text-white"
+          href={"/search" + process.env.NEXT_PUBLIC_URL_END}
+        >
+          Search
+        </Link>
         <Link
           className="font-bold no-underline text-xl mx-3 text-white"
           href={"/posts" + process.env.NEXT_PUBLIC_URL_END}

@@ -5,11 +5,7 @@ import Intro from "../components/intro";
 import Layout from "../components/layout";
 import { ADMINISTRATOR } from "../lib/constants";
 import algoliasearch from "algoliasearch/lite";
-import { Configure, Hits, InstantSearch } from "react-instantsearch";
-
-type Props = {
-  query: string;
-};
+import { Configure, Hits, InstantSearch, SearchBox } from "react-instantsearch";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_APP_ID || "",
@@ -29,34 +25,25 @@ function Hit({ hit }) {
   );
 }
 
-// const queryHook: SearchBoxProps["queryHook"] = (query, search) => {
-//   search(query);
-// };
+export default function SearchResult() {
+  const indexName = process.env.NEXT_PUBLIC_INDEX_NAME || "";
 
-export default function SearchResult({ query }: Props) {
   return (
     <>
       <Layout>
         <Container>
           <Intro title={"記事検索"} />
           <Bio admin={ADMINISTRATOR} />
-          <p>検索結果「{query}」</p>
-
-          <InstantSearch
-            searchClient={searchClient}
-            indexName={process.env.NEXT_PUBLIC_INDEX_NAME}
-            initialUiState={{
-              YourIndexName: {
-                query: "S3",
-              },
-            }}
-          >
+          <InstantSearch searchClient={searchClient} indexName={indexName}>
             <Configure hitsPerPage={5} />
-            {/* <SearchBox
-              placeholder={"Search for posts/notes"}
-              queryHook={queryHook}
-              className={"text-black"}
-            /> */}
+            <SearchBox
+              placeholder={"検索"}
+              classNames={{
+                input: "text-black border border-black",
+                submitIcon: "mx-1",
+                resetIcon: "mx-1",
+              }}
+            />
             <Hits hitComponent={Hit} />
           </InstantSearch>
         </Container>
