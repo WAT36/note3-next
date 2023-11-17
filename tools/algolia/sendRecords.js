@@ -4,9 +4,21 @@ const algoliasearch = require("algoliasearch");
 const ENV_PATH = path.join(__dirname, "../../.env.local");
 require("dotenv").config({ path: ENV_PATH });
 
-// mdファイルリストを読み込む（別シェルで実施だが、できればこのjsファイルで完結させたい・・）
-const text = fs.readFileSync("filelist.txt", "utf-8");
-const files = text.split("\n");
+// mdファイルリストを読み込む
+const listFiles = (dir) =>
+  fs
+    .readdirSync(dir, { withFileTypes: true })
+    .flatMap((dirent) =>
+      dirent.isFile()
+        ? dirent.name.endsWith(".md")
+          ? [`${dir}/${dirent.name}`]
+          : []
+        : listFiles(`${dir}/${dirent.name}`)
+    );
+
+let files = [];
+files = files.concat(listFiles("../../_notes"));
+files = files.concat(listFiles("../../_posts"));
 
 // algoliaに投入するレコード
 const records = [];
