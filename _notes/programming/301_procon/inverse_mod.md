@@ -327,4 +327,5 @@ $$
 \tag{24}
 x^{\phi(p)}  \equiv 1 \pmod{p}
 $$
+
 -->
