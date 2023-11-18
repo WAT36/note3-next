@@ -20,6 +20,7 @@ jobs:
       - name: Prepare .env file
         run: |
           aws ssm get-parameter --name /github/wat-notes3/dev --output json | jq -r .Parameter.Value > .env
+          cut -d= -f2 .env  | xargs -I arg echo ::add-mask::arg
           cat .env >> "$GITHUB_ENV"
 
       - name: Install Dependencies
