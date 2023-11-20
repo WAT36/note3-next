@@ -89,6 +89,9 @@ const addDataApiKey = process.env.ADD_DATA_API_KEY;
 
 const client = algoliasearch(appId, addDataApiKey);
 const index = client.initIndex(indexName);
-index.saveObjects(records, { autoGenerateObjectIDIfNotExist: true });
-
-console.log("OK!! Done.");
+index
+  .saveObjects(records, { autoGenerateObjectIDIfNotExist: true })
+  .then(({}) => {
+    console.log("OK!! Done.");
+  })
+  .catch((err) => console.error(err));
