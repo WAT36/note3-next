@@ -1,7 +1,20 @@
 import Link from "next/link";
 import { TITLE } from "../lib/constants";
+import { useRouter } from "next/router";
 
 const Header = () => {
+  const router = useRouter();
+  const searchButtonClick = () => {
+    const element = document.getElementById(
+      "search-textbox"
+    ) as HTMLInputElement;
+
+    router.push({
+      pathname: "/search",
+      query: { query: element.value },
+    });
+  };
+
   return (
     <header className="bg-gray-400 text-white z-50">
       <Link
@@ -10,7 +23,14 @@ const Header = () => {
       >
         {TITLE}
       </Link>
+
       <span className="float-right">
+        <Link
+          className="font-bold no-underline text-xl mx-3 text-white"
+          href={"/search" + process.env.NEXT_PUBLIC_URL_END}
+        >
+          Search
+        </Link>
         <Link
           className="font-bold no-underline text-xl mx-3 text-white"
           href={"/posts" + process.env.NEXT_PUBLIC_URL_END}

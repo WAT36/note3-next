@@ -33,10 +33,6 @@
   page-break-after: avoid;
 }
 
-.markdown code {
-  @apply font-mono text-xs whitespace-pre-wrap;
-}
-
 .markdown table {
   @apply border-solid border border-black border-spacing-1 box-border table;
 }
@@ -61,10 +57,6 @@
 .markdown tr {
   @apply box-border table-row align-middle;
   zoom: 1;
-}
-
-.markdown pre {
-  @apply bg-gray-200 block font-mono text-base my-4 mx-0 whitespace-pre-wrap;
 }
 
 .markdown a {
