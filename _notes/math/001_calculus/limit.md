@@ -29,3 +29,18 @@ $$
 $$
 
 は存在しない。
+
+<!-- Graph -->
+<div id="jxgbox" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
+<script>
+let board = JXG.JSXGraph.initBoard('jxgbox', {
+  boundingbox: [ -10, 10, 10, -10],  
+  axis: true, 
+  showNavigation: false,  
+  showCopyright: false    
+});
+function hyperbola(t) {
+  return 1/t;
+}
+let graph = board.create('functiongraph', [hyperbola, -10, 10]);
+</script>
