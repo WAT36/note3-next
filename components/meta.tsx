@@ -50,6 +50,17 @@ const Meta = () => {
       />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
       <script>hljs.highlightAll();</script>
+
+      <script
+        type="text/javascript"
+        charSet="UTF-8"
+        src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"
+      ></script>
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css"
+      />
     </Head>
   );
 };
