@@ -22,10 +22,10 @@ $$
 \lim_{x \to a} f(x) = b
 $$
 
-なお、関数の極限は常に存在するとは限らない。例えば、 $ f(x)= \frac{1}{x} $ は以下の様な図になり、極限
+なお、関数の極限は常に存在するとは限らない。例えば、 $ f(x)= \frac{1}{x^2} $ は以下の様な図になり、極限
 
 $$
-\lim_{x \to 0} \frac{1}{x}
+\lim_{x \to 0} \frac{1}{x^2}
 $$
 
 は存在しない。
@@ -40,7 +40,7 @@ let board = JXG.JSXGraph.initBoard('jxgbox', {
   showCopyright: false    
 });
 function hyperbola(t) {
-  return 1/t;
+  return 1/(t**2);
 }
 let graph = board.create('functiongraph', [hyperbola, -10, 10]);
 </script>
@@ -61,7 +61,9 @@ $$
 
 で表される。
 
-またこの例 $ f(x)= \frac{1}{x} $ では、x→∞（x→-∞ においても同様）としたとき 1/x→0 となる。
+(例： $\lim_{x \to 0} \frac{1}{x^2}=\infin$、$\lim_{x \to 0} -\frac{1}{x^2}=-\infin$)
+
+またこの例 $ f(x)= \frac{1}{x^2} $ では、x→∞（x→-∞ においても同様）としたとき f(x)→0 となる。
 
 このような、
 
