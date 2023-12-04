@@ -23,3 +23,39 @@ Next.js は、React をベースに作られたオープンソースの Web ア�
 Next.js は、以下のサイトで公開されている。
 
 https://nextjs.org/
+
+# 必要環境
+
+Next.js は Node.js 製のモジュールであるため、利用には Node.js の実行環境が必要である。
+
+Node.js が無い場合はインストールしておくこと。
+
+インストール方法についてはここでは割愛する。
+
+ターミナルから Node.js のバージョンを確認し、表示できるかでインストールされているか確認する。
+
+```shell
+$ node --version
+```
+
+# プロジェクト作成
+
+Next.js のプロジェクトを作成します。
+
+プロジェクト作成には、create-next-app コマンドを実行して作成します。
+
+create-next-app コマンドが入ってない場合は npm install でインストールしてください。
+
+```jsx
+npm install -g create-next-app
+```
+
+以下のコマンドを実行します。
+
+—ts オプションを付けると、TypeScript を利用したプロジェクトが作成されます。
+
+```bash
+npx create-next-app@latest --ts (プロジェクト名)
+```
+
+すると Next.js のプロジェクトができます。
