@@ -29,3 +29,19 @@ $$
 $$
 
 ここで、この式を x が a から b まで変化する時の f(x)の**平均変化率**と呼ぶ。
+
+<div id="jxgbox" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
+
+<script>
+let board = JXG.JSXGraph.initBoard('jxgbox', {
+  boundingbox: [ -2, 10, 10, -2],  
+  axis: true, 
+  showNavigation: false,  
+  showCopyright: false    
+});
+function parabola(t) {
+  return (t**2)/10;
+}
+let graph = board.create('functiongraph', [parabola, -2, 10]);
+
+</script>
