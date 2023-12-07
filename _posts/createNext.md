@@ -67,3 +67,25 @@ npx create-next-app@latest --ts (プロジェクト名)
 ---
 
 [^1]: [Node.js(公式ページ)](https://nodejs.org/)
+
+# 開発用サーバーの起動
+
+作成されたプロジェクトのディレクトリに移動して
+
+dev コマンドを打つと開発用サーバが起動します
+
+```shell
+$ cd (作成されたプロジェクトのディレクトリ名)
+$ npm run dev
+```
+
+これによりサーバが起動し、ブラウザで http://localhost:3000 を開くとサンプルページが出ます
+
+![](/assets/posts/createNext/nextSample.png)
+
+その他、build コマンドでコードをビルドして.next 以下に保存でき、start コマンドでその結果をもとにサーバーを立ち上げられる事も可能です。
+
+```shell
+$ npm run build
+$ npm run start
+```
