@@ -24,18 +24,20 @@ Next.js は、以下のサイトで公開されている。
 
 https://nextjs.org/
 
-# 必要環境
+# Node.js、npm のインストール
 
 Next.js は Node.js 製のモジュールであるため、利用には Node.js の実行環境が必要である。
 
-Node.js が無い場合はインストールしておくこと。
+Node.js が無い場合はインストールしておくこと。公式ページ[^1]からインストールできます。
 
-インストール方法についてはここでは割愛する。
-
-ターミナルから Node.js のバージョンを確認し、表示できるかでインストールされているか確認する。
+ターミナルから Node.js のバージョンを確認し、表示できるかでインストールされているか確認します。
 
 ```shell
 $ node --version
+v18.0.0
+
+$ npm --version
+8.6.0
 ```
 
 # プロジェクト作成
@@ -44,13 +46,13 @@ Next.js のプロジェクトを作成します。
 
 プロジェクト作成には、create-next-app コマンドを実行して作成します。
 
-create-next-app コマンドが入ってない場合は npm install でインストールしてください。
+create-next-app コマンドが入ってない場合は npm install で入手してください。
 
-```jsx
-npm install -g create-next-app
+```shell
+$ npm install -g create-next-app
 ```
 
-以下のコマンドを実行します。
+ターミナルから以下のコマンドを実行します。
 
 —ts オプションを付けると、TypeScript を利用したプロジェクトが作成されます。
 
@@ -59,3 +61,9 @@ npx create-next-app@latest --ts (プロジェクト名)
 ```
 
 すると Next.js のプロジェクトができます。
+
+![](/assets/posts/createNext/createNextApp.png)
+
+---
+
+[^1]: [Node.js(公式ページ)](https://nodejs.org/)
