@@ -43,8 +43,8 @@ function parabola(t) {
   return (t**2)/10;
 }
 board.create('functiongraph', [parabola, -2, 10]);
-let p1 = board.create('point', [3,parabola(3)]);
-let p2 = board.create('point', [7,parabola(7)]);
-board.create('line', [p1,p2],{strokeColor: 'red'});
+let p1 = board.create('point', [3,parabola(3)],{name:'(a,f(a))'});
+let p2 = board.create('point', [7,parabola(7)],{name:'(b,f(b))'});
+board.create('line', [p1,p2],{strokeColor: 'red',});
 
 </script>
