@@ -34,7 +34,7 @@ Node.js が無い場合はインストールしておくこと。公式ページ
 
 ```shell
 $ node --version
-v18.0.0
+v19.0.0
 
 $ npm --version
 8.6.0
@@ -88,4 +88,36 @@ $ npm run dev
 ```shell
 $ npm run build
 $ npm run start
+```
+
+## プロジェクトの基本的な構成
+
+create-next-app を実行すると Next.js プロジェクトとファイル群が作成されます。
+
+作成されるファイルの構成と意味合いは以下の通りです。
+
+| フォルダ名        | 意味                                                                            |
+| ----------------- | ------------------------------------------------------------------------------- |
+| node_modules      | Node.js のモジュール群。`npm installするとpackage.jsonを元にインストールされる` |
+| pages             | 各ページのファイル群、コンポーネントなど                                        |
+| public            | 画像などの静的ファイル                                                          |
+| styles            | CSS などスタイルシート                                                          |
+| README.md         | 説明書。各自に応じて変更                                                        |
+| package.json      | npm コマンドの定義と利用するモジュールの定義                                    |
+| package-lock.json | インストールしたモジュールの情報が記載される                                    |
+
+# 新しいページの作成方法
+
+Next.js では pages ディレクトリ以下にある ts ファイル一つが一つのページに対応します。
+
+例えば pages/sample.tsx というファイルを作ってサーバ起動すると、0.0.0.0:3000/sample という URL でアクセスできます。
+
+ファイル内部でコンポーネントの他に実装する関数やその関数の返す値によって、レンダリング手法が変わってきます。どのようなレンダリング手法が使われたかはビルド時の結果でわかります。
+
+Sample.tsx
+
+```typescript
+export default function Sample() {
+  return <p>Hello! Next.js!!</p>;
+}
 ```
