@@ -32,6 +32,32 @@ $$
 
 <div id="jxgbox" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
 
+このとき、b を a に限りなく近づけることで、f(x)の x=a の時での平均変化率を求めることができる。それは以下の式で表される。
+
+$$
+\lim_{b \to a} \frac{f(b)-f(a)}{b-a}
+$$
+
+この時、b=a+h（h は実数）とおくと、上式は以下の様に置き換えられる。
+
+$$
+\lim_{h \to 0} \frac{f(a+h)-f(a)}{h}
+$$
+
+この式が、関数 f(x)の x=a での接線の傾きを表しており、
+
+この値の事を関数 f(x)の x=a における **微分係数** （または　変化率）と呼び、f’(a)で表す。
+
+また、関数 f(x)の微分係数を示した関数の事を関数 f(x)の**導関数**と呼び、f’(x)と表す。
+
+導関数は、以下の式で表される。
+
+$$
+f'(x) = \lim_{h \to 0} \frac{f(a+h)-f(a)}{h}
+$$
+
+一般的に関数を「微分する」という事は、この導関数および微分係数を求めることを指す。
+
 <script>
 let board = JXG.JSXGraph.initBoard('jxgbox', {
   boundingbox: [ -2, 10, 10, -2],  
