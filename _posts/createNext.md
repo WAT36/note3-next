@@ -20,15 +20,13 @@ ogImage:
 
 Next.js は、React をベースに作られたオープンソースの Web アプリケーションフレームワークである。静的 Web サイト生成やサーバーサイドレンダリング（表示する Web ページの内容をサーバー側で生成してユーザーに送る手法）などの機能がある。
 
-Next.js は、以下のサイトで公開されている。
-
-https://nextjs.org/
+Next.js は、こちらの公式ページ[^1]で公開されている。
 
 # Node.js、npm のインストール
 
 Next.js は Node.js 製のモジュールであるため、利用には Node.js の実行環境が必要である。
 
-Node.js が無い場合はインストールしておくこと。公式ページ[^1]からインストールできます。
+Node.js が無い場合はインストールしておくこと。公式ページ[^2]からインストールできます。
 
 ターミナルから Node.js のバージョンを確認し、表示できるかでインストールされているか確認します。
 
@@ -125,7 +123,12 @@ export default function Sample() {
 
 ![](/assets/posts/createNext/nextSamplePage.png)
 
+その他にも様々な機能がありますが追々書いていきます。。
+
+詳しくは公式ページのレファレンス[^3]もご覧ください。
+
 ---
 
 [^1]: [Next.js(公式ページ)](https://nextjs.org/)
-[^2]: [Start building with Next.js(公式ページ)](https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app)
+[^2]: [Node.js(公式ページ)](https://nodejs.org/)
+[^3]: [Start building with Next.js(公式ページ)](https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app)
