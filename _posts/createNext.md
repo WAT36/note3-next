@@ -38,6 +38,16 @@ $ npm --version
 8.6.0
 ```
 
+# 環境情報
+
+今回使用したバージョンは以下の通りです。
+
+```txt
+node: v19.0.0
+npm: v8.19.2
+next: v14.0.4
+```
+
 # プロジェクト作成
 
 Next.js のプロジェクトを作成します。
@@ -63,8 +73,6 @@ npx create-next-app@latest --ts (プロジェクト名)
 ![](/assets/posts/createNext/createNextApp.png)
 
 ---
-
-[^1]: [Node.js(公式ページ)](https://nodejs.org/)
 
 # 開発用サーバーの起動
 
@@ -109,7 +117,7 @@ Next.js では src/app ディレクトリ以下にある page.tsx ファイル�
 
 src/app 以下にディレクトリを配置し、そこに別の page.tsx を作成することで、新しいページを作成できます。
 
-例えば src/app/sample/page.tsx というファイルを作ってサーバ起動すると、http:/localhost:3000/sample という URL でアクセスできます。
+例えば src/app/sample/page.tsx というファイルを作ってサーバ起動すると、http://localhost:3000/sample という URL でアクセスできます。
 
 Sample.tsx
 
