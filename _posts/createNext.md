@@ -64,8 +64,8 @@ $ npm install -g create-next-app
 
 —ts オプションを付けると、TypeScript を利用したプロジェクトが作成される。
 
-```bash
-npx create-next-app@latest --ts (プロジェクト名)
+```shell
+$ npx create-next-app@latest --ts (プロジェクト名)
 ```
 
 すると Next.js のプロジェクトが作られる。
