@@ -60,6 +60,12 @@ $$
 
 一般的に関数を「微分する」という事は、この導関数および微分係数を求めることを指す。
 
+関数 y=f(x)の導関数は、主に以下の記号で表される。
+
+$$
+y',f',f'(x),\frac{dy}{dx},\frac{df}{dx},\frac{d}{dx}f(x)
+$$
+
 <script>
 let board = JXG.JSXGraph.initBoard('jxgbox', {
   boundingbox: [ -2, 10, 10, -2],  
