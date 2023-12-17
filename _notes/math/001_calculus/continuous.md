@@ -43,3 +43,33 @@ $$
 $$
 (a, \infin),[a, \infin),(- \infin,b),(- \infin,b]
 $$
+
+# 連続関数
+
+関数 f(x)が**連続**であるとは、大まかにいうと関数が切れ目のない直線または曲線であるという事なのだが、以下の定義に基づく。
+
+関数 f(x)が区間 I で定義されているとする。区間 I 内の点 x=a で次の２つの条件が成り立つとき、関数 f(x)は x=a で**連続**であるという。
+
+- $\lim_{x \to a} f(x)$ が存在する
+- $\lim_{x \to a} f(x) = f(a)$
+
+また、関数 f(x)が区間 I で定義されている時、区間 I の全ての x で f(x)が連続ならば、f(x)は区間 I で連続であると言い、f(x)を**連続関数**という。
+
+例えば、 $y=x$ や $y=x^2$ 、 $y=2^x$ などは全ての区間で連続である。
+
+$y=\frac{x^2 - x}{|x|}$ （以下図）は x=0 において連続ではない。（x=0 を含まない区間では連続）
+
+<div id="jxgbox" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
+
+<script>
+let board = JXG.JSXGraph.initBoard('jxgbox', {
+  boundingbox: [ -10, 10, 10, -10],  
+  axis: true, 
+  showNavigation: false,  
+  showCopyright: false    
+});
+function notcontinuous(t) {
+  return t===0 ? 10000 : (t**2 - t)/Math.abs(t);
+}
+board.create('functiongraph', [notcontinuous, -10, 10],{name:'y=f(x)'});
+</script>
