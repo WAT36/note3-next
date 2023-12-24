@@ -61,6 +61,52 @@ $y=\frac{x^2 - x}{|x|}$ （以下図）は x=0 において連続ではない。
 
 <div id="jxgbox" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
 
+## 連続関数の四則
+
+関数 f(x),g(x)が x=a で連続ならば、
+
+kf(x)（k は定数）、f(x)＋ g(x)、f(x)-g(x)、f(x)g(x)は x=a で連続である。
+
+[証明]
+
+仮定より
+
+$$
+\lim_{x \to a} f(x) = f(a), \lim_{x \to a} g(x) = g(a)
+$$
+
+なので、
+
+$$
+\begin{aligned}
+\lim_{x \to a} kf(x) &= k \lim_{x \to a} f(x) \\
+&= kf(a) \\
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\lim_{x \to a} {f(x)+g(x)} &= \lim_{x \to a} f(x) + \lim_{x \to a} g(x) \\
+&= f(a) + g(a) \\
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\lim_{x \to a} {f(x)-g(x)} &= \lim_{x \to a} f(x) - \lim_{x \to a} g(x) \\
+&= f(a) - g(a) \\
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\lim_{x \to a} f(x)g(x) &= \lim_{x \to a} f(x) \lim_{x \to a} g(x) \\
+&= f(a)g(a) \\
+\end{aligned}
+$$
+
+となる。
+
 <script>
 let board = JXG.JSXGraph.initBoard('jxgbox', {
   boundingbox: [ -10, 10, 10, -10],  
