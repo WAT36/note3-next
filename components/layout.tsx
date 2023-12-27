@@ -2,7 +2,7 @@ import { BreadCrumb } from "./bread-crumb";
 import Footer from "./footer";
 import Header from "./header";
 import Meta from "./meta";
-import { ProgrammingTag } from "./programming-tag";
+import ProgrammingTag from "./programming-tag";
 
 type Props = {
   preview?: boolean;

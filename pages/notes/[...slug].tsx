@@ -16,7 +16,6 @@ import NoteDirLink from "../../components/notedir-link";
 import NoteLink from "../../components/note-link";
 import { getNoteSlugs } from "../../lib/fileSystem";
 import { useEffect } from "react";
-import { ProgrammingTag } from "../../components/programming-tag";
 
 type Props = {
   note: NoteType;
