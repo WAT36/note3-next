@@ -2,7 +2,7 @@ type Props = {
   lang: string;
 };
 
-export const ProgrammingTag = ({ lang }: Props) => {
+const ProgrammingTag = ({ lang }: Props) => {
   return (
     <span className="right-placed">
       <input
@@ -17,3 +17,5 @@ export const ProgrammingTag = ({ lang }: Props) => {
     </span>
   );
 };
+
+export default ProgrammingTag;
