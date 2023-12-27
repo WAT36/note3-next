@@ -107,6 +107,43 @@ $$
 
 となる。
 
+# 微分可能
+
+関数 f(x)において、区間 I の各点 x=a で微分係数 f’(a)が存在するならば、f(x)は区間 I で**微分可能**であるという。
+
+## 微分可能ならば連続
+
+関数 f(x)が x=a で微分可能ならば、f(x)は x=a で連続である。
+
+[証明]
+
+関数 f(x)が x=a で微分可能なので
+
+$$
+\lim_{\Delta x \to 0} \frac{f(a+ \Delta x)-f(a)}{\Delta x} = f’(a)
+$$
+
+となる値が存在する。 このとき、
+
+$$
+\begin{align}
+  &\lim_{\Delta x \to 0}(f(a+ \Delta x)-f(a))    \\
+          = &\lim_{\Delta x \to 0} \Delta x \frac{f(a+ \Delta x)-f(a)}{\Delta x} \\
+          = &\lim_{\Delta x \to 0} ((a + \Delta x) - a) \frac{f(a+ \Delta x)-f(a)}{\Delta x} \\
+          = &\lim_{\Delta x \to 0} ((a + \Delta x) - a) \lim_{\Delta x \to 0} \frac{f(a+ \Delta x)-f(a)}{\Delta x} \\
+          = &0 * f'(a) \\
+          = &0 \\
+\end{align}
+$$
+
+より
+
+$$
+\lim_{\Delta x \to 0} f(a+ \Delta x) = f(a)
+$$
+
+ゆえに、f(x)は x=a で連続である。
+
 <script>
 let board = JXG.JSXGraph.initBoard('jxgbox', {
   boundingbox: [ -10, 10, 10, -10],  
