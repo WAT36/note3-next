@@ -26,7 +26,7 @@ y=k ならば
 
 $$
 \begin{aligned}
-\frac{dy}{dx} &= \lim_{\Delta x \to 0} \frac{k-k}{\Delta x} \\
+y’ &= \lim_{\Delta x \to 0} \frac{k-k}{\Delta x} \\
 &= \lim_{\Delta x \to 0}  0  \\
 &= 0
 \end{aligned}
@@ -36,4 +36,28 @@ $$
 
 $$
 y’ = 0
+$$
+
+# 2. y=kf(x) (k は定数)
+
+関数 y=kf(x)（k は定数）の導関数は以下の通り。
+
+> $y=kf(x) ならば、y’ = kf’(x) （kは定数）$
+
+[証明]
+
+y=kf(x)ならば
+
+$$
+\begin{aligned}
+y’ &=  \lim_{\Delta x \to 0} \frac{kf(x+ \Delta x)-kf(x)}{\Delta x} \\
+   &= k \lim_{\Delta x \to 0} \frac{f(x+ \Delta x)-f(x)}{\Delta x} \\
+   &= kf’(x)
+\end{aligned}
+$$
+
+よって
+
+$$
+y’ = kf’(x)
 $$
