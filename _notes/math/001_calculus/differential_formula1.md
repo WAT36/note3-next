@@ -61,3 +61,22 @@ $$
 $$
 y’ = kf’(x)
 $$
+
+# 3. {f(x)±g(x)}’ = f’(x) ± g’(x)
+
+関数 y=f(x)±g(x) の導関数は以下の通り。
+
+> $y=f(x) \pm g(x) ならば、y’ = f’(x) \pm g’(x)$
+
+[証明]
+
+y=f(x)±g(x)ならば
+
+$$
+\begin{aligned}
+y’ &= \lim_{\Delta x \to 0} \frac{{f(x+ \Delta x) \pm g(x+ \Delta x)}-{f(x) \pm g(x)}}{\Delta x} \\
+   &= \lim_{\Delta x \to 0} \frac{{f(x+ \Delta x) - f(x)} \pm {g(x+ \Delta x) - g(x)}}{\Delta x} \\
+   &= \lim_{\Delta x \to 0} \frac{f(x+ \Delta x) - f(x)}{\Delta x} \pm \lim_{\Delta x \to 0} \frac{g(x+ \Delta x) - g(x)}{\Delta x} \\
+   &= f’(x) \pm g’(x)
+\end{aligned}
+$$
