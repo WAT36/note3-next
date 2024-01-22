@@ -95,19 +95,19 @@ $$
 \begin{aligned}
 y’ &=  \lim_{\Delta x \to 0} \frac{f(a(x+ \Delta x)+b) - f(ax+b)}{\Delta x} \\
 &=  \lim_{\Delta x \to 0} \frac{f(ax+b+ a \Delta x)- f(ax+b)}{\Delta x} \\
-となり、ここで、t=ax+bとおく。 \\
-この時、 \\
+&となり、ここで、t=ax+bとおく。 \\
+&この時、 \\
 
 \Delta t &= (a(x+ \Delta x)+b) - (ax+b) \\
 &= a \Delta x \\
 
-となる。また、この式より \\
+&となる。また、この式より \\
 
 \Delta x &= \frac{\Delta t}{a} \\
 
-である。 \\
+&である。 \\
 
-ここから、 \\
+&ここから、 \\
 
 y’ &= \lim_{\Delta x \to 0} \frac{f(ax+b+ a \Delta x)- f(ax+b)}{\Delta x} \\
 &=  \lim_{\Delta t \to 0} \frac{f(t+ \Delta t) - f(t)}{\frac{\Delta t}{a}} \\
@@ -115,6 +115,33 @@ y’ &= \lim_{\Delta x \to 0} \frac{f(ax+b+ a \Delta x)- f(ax+b)}{\Delta x} \\
 &= a f’(t)  \\
 &= a f’(ax+b) \\
 
-となる。
+&となる。
 \end{aligned}
 $$
+
+# 5. {f(x)g(x)}’ = f’(x)g(x) + f(x)g’(x)
+
+いわゆる「積の微分」と呼ばれる公式で、微分可能な 2 つの関数 f(x),g(x)がある時、
+
+> $y=f(x)g(x) ならば、y’ = f’(x)g(x) + f(x)g’(x)$
+
+となる。
+
+[証明]
+
+$$
+\begin{aligned}
+y’ &= \lim_{\Delta x \to 0} \frac{f(x+ \Delta x)g(x+ \Delta x) - f(x)g(x)}{\Delta x} \\
+&= \lim_{\Delta x \to 0} \frac{f(x+ \Delta x)g(x+ \Delta x) -f(x)g(x+ \Delta x) +f(x)g(x+ \Delta x)  - f(x)g(x)}{\Delta x} \\
+&= \lim_{\Delta x \to 0} ( \frac{f(x+ \Delta x)g(x+ \Delta x) -f(x)g(x+ \Delta x)}{\Delta x} + \frac{f(x)g(x+ \Delta x) -f(x)g(x)}{\Delta x})  \\
+&= \lim_{\Delta x \to 0} (( \frac{f(x+ \Delta x) -f(x)}{\Delta x} ) g(x+ \Delta x) + (\frac{g(x+ \Delta x) -g(x)}{\Delta x})f(x))  \\
+&= \lim_{\Delta x \to 0} ( \frac{f(x+ \Delta x) -f(x)}{\Delta x} ) g(x+ \Delta x) + \lim_{\Delta x \to 0}(\frac{g(x+ \Delta x) -g(x)}{\Delta x})f(x)  \\
+
+&ここで、関数g(x)は微分可能なので、\lim_{\Delta x \to 0} g(x+ \Delta x) = g(x) である。よって上式は \\
+
+&= \lim_{\Delta x \to 0} ( \frac{f(x+ \Delta x) -f(x)}{\Delta x} ) g(x+ \Delta x) + \lim_{\Delta x \to 0}(\frac{g(x+ \Delta x) -g(x)}{\Delta x})f(x)  \\
+&= f’(x)g(x) + f(x)g’(x) \\
+\end{aligned}
+$$
+
+となる。
