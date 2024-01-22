@@ -80,3 +80,41 @@ y’ &= \lim_{\Delta x \to 0} \frac{{f(x+ \Delta x) \pm g(x+ \Delta x)}-{f(x) \p
    &= f’(x) \pm g’(x)
 \end{aligned}
 $$
+
+# 4. { f(ax+b) }’ = af’(ax+b) (a,b は定数)
+
+関数 y=f(ax+b) (a,b は定数) の導関数は以下の通り。
+
+> $y=f(ax+b) (a,bは定数) ならば、y’ = af’(ax+b)$
+
+[証明]
+
+y=f(ax+b)ならば
+
+$$
+\begin{aligned}
+y’ &=  \lim_{\Delta x \to 0} \frac{f(a(x+ \Delta x)+b) - f(ax+b)}{\Delta x} \\
+&=  \lim_{\Delta x \to 0} \frac{f(ax+b+ a \Delta x)- f(ax+b)}{\Delta x} \\
+となり、ここで、t=ax+bとおく。 \\
+この時、 \\
+
+\Delta t &= (a(x+ \Delta x)+b) - (ax+b) \\
+&= a \Delta x \\
+
+となる。また、この式より \\
+
+\Delta x &= \frac{\Delta t}{a} \\
+
+である。 \\
+
+ここから、 \\
+
+y’ &= \lim_{\Delta x \to 0} \frac{f(ax+b+ a \Delta x)- f(ax+b)}{\Delta x} \\
+&=  \lim_{\Delta t \to 0} \frac{f(t+ \Delta t) - f(t)}{\frac{\Delta t}{a}} \\
+&= a \lim_{\Delta t \to 0} \frac{f(t+ \Delta t) - f(t)}{\Delta t} \\
+&= a f’(t)  \\
+&= a f’(ax+b) \\
+
+となる。
+\end{aligned}
+$$
