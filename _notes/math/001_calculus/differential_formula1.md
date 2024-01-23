@@ -145,3 +145,29 @@ y’ &= \lim_{\Delta x \to 0} \frac{f(x+ \Delta x)g(x+ \Delta x) - f(x)g(x)}{\De
 $$
 
 となる。
+
+# 6. {f(x)/g(x)}’ = {f’(x)g(x) - f(x)g’(x)} / {g(x)}^2
+
+こちらはいわゆる「商の微分」と呼ばれる公式で、微分可能な 2 つの関数 f(x),g(x)がある時、
+
+> $y=\frac{f(x)}{g(x)}$ ならば、$y’ = \frac{f’(x)g(x) - f(x)g’(x)}{g(x)^2}$
+
+となる。
+
+[証明]
+
+$$
+\begin{aligned}
+y' &= \lim_{\Delta x \to 0} \frac{ \frac{f(x+\Delta x)}{g(x+\Delta x)} - \frac{f(x)}{g(x)} }{\Delta x} \\
+&= \lim_{\Delta x \to 0} \frac{ f(x+\Delta x)g(x) - f(x)g(x+\Delta x) }{g(x) g(x+\Delta x) \Delta x } \\
+&= \lim_{\Delta x \to 0} \frac{ f(x+\Delta x)g(x) -f(x)g(x) + f(x)g(x) - f(x)g(x+\Delta x) }{g(x) g(x+\Delta x) \Delta x } \\
+&= \lim_{\Delta x \to 0} (\frac{f(x+\Delta x)-f(x)}{\Delta x}g(x) - f(x) \frac{g(x+\Delta x)-g(x)}{\Delta x}) \frac{1}{g(x)g(x+\Delta x)} \\
+&= \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2} \\
+\end{aligned}
+$$
+
+またこの公式より、f(x)=1 のとき、つまり
+
+> $y=\frac{1}{g(x)}$ ならば、 $y’ = - \frac{g’(x)}{g(x)^2}$
+
+となる。
