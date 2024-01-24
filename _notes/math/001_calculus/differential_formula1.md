@@ -171,3 +171,50 @@ $$
 > $y=\frac{1}{g(x)}$ ならば、 $y’ = - \frac{g’(x)}{g(x)^2}$
 
 となる。
+
+# 7. 合成関数の微分
+
+ここで合成関数とは何か示しておく。
+
+変数 t の関数$y=f(t)$と変数 x の関数$t=g(x)$があったとき、$y=f(t)$に$t=g(x)$を代入してできる関数
+
+$$
+y=f(g(x))
+$$
+
+を２つの関数$y=f(t)$と$t=g(x)$の**合成関数**という。
+
+ここで、関数$y=f(t)$と$t=g(x)$が微分可能であれば、合成関数$y=f(g(x))$も微分可能であって、
+
+$$
+\frac{dy}{dx} = \frac{dy}{dt} \frac{dt}{dx}
+$$
+
+となる。
+
+[証明]
+
+x の増分 Δx に対する$t=g(x)$の増分を Δt とし、t の増分 Δt に対する$y=f(t)$の増分を Δt とする。
+
+また、$y=f(t)$は微分可能であるから、
+
+$$
+\frac{dt}{dx} = \lim_{\Delta x \to 0} \frac{\Delta t}{\Delta x},\frac{dy}{dt} = \lim_{\Delta t \to 0} \frac{\Delta y}{\Delta t}
+$$
+
+となる。また、
+
+$$
+\frac{\Delta y}{\Delta x} = \frac{\Delta y}{\Delta t} \frac{\Delta t}{\Delta x}
+$$
+
+となる。また、関数$t=g(x)$は微分可能なので、連続である。より、Δx→0 のとき、Δt→0 である。したがって、
+
+$$
+\frac{dy}{dx} = \lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x} \\
+= \lim_{\Delta x \to 0} \frac{\Delta y}{\Delta t} \lim_{\Delta x \to 0} \frac{\Delta t}{\Delta x} \\
+= \lim_{\Delta t \to 0} \frac{\Delta y}{\Delta t} \lim_{\Delta x \to 0} \frac{\Delta t}{\Delta x} \\
+= \frac{dy}{dt} \frac{dt}{dx}
+$$
+
+となる。
