@@ -70,8 +70,126 @@ $$
 
 [証明]
 
+<div id="sinc" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
+
 は描こう
 
 図が必要なので
 
 JSXGraph でゴリゴリ書くしかないか・・？
+
+<script>
+        const RADIUS = 1;
+      const ANGLE = Math.PI / 3;
+      // JSXGraph初期設定
+      const board = JXG.JSXGraph.initBoard("sinc", {
+        axis: false, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
+        boundingbox: [-0.6, 2, 1.6, -0.2], // 領域の座標[左、上、右、下]
+        showNavigation: false, // ナビゲーションボタンを表示するかの設定（デフォルトfalse）
+        showCopyright: false, // コピーライト文字列を表示するかの設定（デフォルトfalse）
+      });
+      // 点をプロット
+      // https://jsxgraph.uni-bayreuth.de/wiki/index.php?title=Point
+      var o = board.create("point", [0, 0], {
+        name: "O", // 点の名前
+        size: 1, // 点の大きさ
+        fixed: true,
+        highlight: false,
+      });
+      var a = board.create("point", [RADIUS, 0], {
+        name: `A(1,0)`, // 点の名前
+        size: 1, // 点の大きさ
+        fixed: true,
+        highlight: false,
+      });
+      var b = board.create(
+        "point",
+        [RADIUS * Math.cos(ANGLE), RADIUS * Math.sin(ANGLE)],
+        {
+          name: "B(cosx,sinx)", // 点の名前
+          size: 1, // 点の大きさ
+          fixed: true,
+          highlight: false,
+        }
+      );
+      var t = board.create("point", [RADIUS, RADIUS * Math.tan(ANGLE)], {
+        name: "T(1,tanx)", // 点の名前
+        size: 1, // 点の大きさ
+        fixed: true,
+        highlight: false,
+      });
+      var under_b = board.create("point", [b.X(), o.Y()], {
+        name: " ", // 点の名前
+        size: 0, // 点の大きさ
+        fixed: true,
+      });
+      // 直線をプロット。説明以下参照
+      // https://jsxgraph.uni-bayreuth.de/wiki/index.php?title=Line
+      var lioa = board.create("line", [o, a], {
+        strokeColor: "#000000", // 線の色
+        strokeWidth: 1, // 線の太さ
+        straightFirst: false, // 始点を突き抜けて直線にするか
+        straightLast: false, // 終点を突き抜けて直線にするか
+        highlight: false,
+      });
+      var liot = board.create("line", [o, t], {
+        strokeColor: "#000000", // 線の色
+        strokeWidth: 1, // 線の太さ
+        straightFirst: false, // 始点を突き抜けて直線にするか
+        straightLast: false, // 終点を突き抜けて直線にするか
+        highlight: false,
+      });
+      var liab = board.create("line", [a, b], {
+        strokeColor: "#000000", // 線の色
+        strokeWidth: 1, // 線の太さ
+        straightFirst: false, // 始点を突き抜けて直線にするか
+        straightLast: false, // 終点を突き抜けて直線にするか
+        highlight: false,
+      });
+      var liat = board.create("line", [a, t], {
+        strokeColor: "#000000", // 線の色
+        strokeWidth: 1, // 線の太さ
+        straightFirst: false, // 始点を突き抜けて直線にするか
+        straightLast: false, // 終点を突き抜けて直線にするか
+        highlight: false,
+      });
+      var lib = board.create("line", [b, under_b], {
+        strokeColor: "#000000", // 線の色
+        strokeWidth: 1, // 線の太さ
+        straightFirst: false, // 始点を突き抜けて直線にするか
+        straightLast: false, // 終点を突き抜けて直線にするか
+        highlight: false,
+        dash: 2,
+      });
+      // 角度をプロット
+      var an = board.create("angle", [a, o, b], {
+        radius: 1 / 6,
+        name: "x",
+      });
+      var anab = board.create("angle", [a, under_b, b], {
+        radius: 1 / 12,
+        name: " ",
+      });
+      var ana = board.create("angle", [t, a, under_b], {
+        radius: 1 / 12,
+        name: " ",
+      });
+      // 弧をプロット
+      var curve = board.create(
+        "curve",
+        [
+          function (t) {
+            return RADIUS * Math.cos(t);
+          },
+          function (t) {
+            return RADIUS * Math.sin(t);
+          },
+          0,
+          ANGLE,
+        ],
+        {
+          strokeColor: "#000000", // 線の色
+          highlight: false,
+        }
+      );
+</script>
