@@ -72,12 +72,36 @@ $$
 
 <div id="sinc" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
 
-は描こう
+上図で扇形 OAB の中心角を x とし、 0 < x < π/2 とする。
+半径 OA の端点 A における垂線と半径 OB との延長との交点を T とする。
+この時、△OAB、扇形 OAB、△OAT の面積はそれぞれ
 
-図が必要なので
+$$
+\triangle OAB = \frac{1}{2} \sin x \\
+扇形OAB = \frac{1}{2} x \\
+\triangle OAT = \frac{1}{2} \tan x \\
+$$
 
-JSXGraph でゴリゴリ書くしかないか・・？
+である。さらに、△OAB < 扇形 OAB < △OAT 　であるから、
 
+$$
+\sin x  < x < \tan x
+$$
+
+である。ここで、$\sin x > 0$なので、各辺を$\sin x$で割って
+
+$$
+1 < \frac{x}{\sin x} < \frac{1}{\cos x} \\
+\Leftrightarrow	 1 > \frac{\sin x}{x} > \cos x \\
+$$
+
+ここで、$\lim_{x \rightarrow 0} \cos x  = 1$なので、はさみうちの原理により
+
+$$
+\lim_{x \rightarrow 0} \frac{\sin x}{x}  = 0
+$$
+
+<!-- 以下script -->
 <script>
         const RADIUS = 1;
       const ANGLE = Math.PI / 3;
