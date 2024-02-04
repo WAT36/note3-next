@@ -127,6 +127,26 @@ $$
 \end{aligned}
 $$
 
+# 5. (cosx)’ = -sinx
+
+次に cosx の導関数について。これは以下のとおりである。
+
+$$
+(\cos x)' = - \sin x
+$$
+
+[証明]
+
+先程の sinx の導関数と、合成関数の微分を利用して
+
+$$
+\begin{aligned}
+(\cos x)' &= (\sin(\frac{\pi}{2} - x))' \\
+&= -1 \cdot \cos(\frac{\pi}{2} - x)\\
+&= - \sin x
+\end{aligned}
+$$
+
 <!-- 以下script -->
 <script>
         const RADIUS = 1;
