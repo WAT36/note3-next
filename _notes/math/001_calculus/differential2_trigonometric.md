@@ -101,6 +101,32 @@ $$
 \lim_{x \rightarrow 0} \frac{\sin x}{x}  = 0
 $$
 
+# 4. (sinx)’ = cosx
+
+ここから三角関数の導関数についてを求めていく。
+
+まずは、sinx について。sinx の導関数は以下のとおりである。
+
+$$
+(\sin x)' = \cos x
+$$
+
+[証明]
+
+$$
+\begin{aligned}
+(\sin x)' &= \lim_{\Delta x \to 0} \frac{\sin (x + \Delta x) - \sin x}{\Delta x} \\
+&= \lim_{\Delta x \to 0} \frac{\sin x \cos \Delta x + \cos x \sin \Delta x - \sin x}{\Delta x } \\
+&= \lim_{\Delta x \to 0} \frac{\cos x \sin \Delta x + \sin x (\cos \Delta x - 1)}{\Delta x } \\
+&= \cos x \lim_{\Delta x \to 0} \frac{\sin \Delta x}{\Delta x} + \sin x \lim_{\Delta x \to 0} \frac{(\cos \Delta x - 1)}{\Delta x } \\
+&= \cos x  + \sin x \lim_{\Delta x \to 0} \frac{(\cos^2 \Delta x - 1)}{\Delta x (\cos \Delta x + 1)} \\
+&= \cos x  - \sin x \lim_{\Delta x \to 0} \frac{\sin^2 \Delta x}{\Delta x (\cos \Delta x + 1)} \\
+&= \cos x  - \sin x \lim_{\Delta x \to 0} \frac{\sin \Delta x}{\Delta x} \frac{\sin \Delta x}{(\cos \Delta x + 1)} \\
+&= \cos x  - \sin x \cdot 1 \cdot 0 \\
+&= \cos x \\
+\end{aligned}
+$$
+
 <!-- 以下script -->
 <script>
         const RADIUS = 1;
