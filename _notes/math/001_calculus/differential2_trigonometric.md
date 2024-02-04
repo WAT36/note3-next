@@ -147,6 +147,27 @@ $$
 \end{aligned}
 $$
 
+# 6. (tanx)’ = 1/(cosx)^2
+
+tanx の導関数については以下の通り。
+
+$$
+(\tan x)' =  \frac{1}{\cos^2 x}
+$$
+
+[証明]
+
+商の微分を利用して
+
+$$
+\begin{aligned}
+(\tan x)' &= (\frac{\sin x}{\cos x})' \\
+&= \frac{(\sin x)' \cos x - \sin x (\cos x)'}{\cos^2 x} \\
+&= \frac{\cos^2 x + \sin^2 x}{\cos^2 x} \\
+&= \frac{1}{\cos^2 x} \\
+\end{aligned}
+$$
+
 <!-- 以下script -->
 <script>
         const RADIUS = 1;
