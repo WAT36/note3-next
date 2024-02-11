@@ -24,7 +24,11 @@ $$
 
 と表す。
 
-<!-- （何か例を出して図を載せる？？y=log2x とy=2^xみたいな）TODO -->
+例えば$y=2^x$の逆関数は$y=\log_{2}x$である。
+
+（例：$y=2^x$と$y=\log_{2}x$の図。点線が$y=x$でこれを境に対になっている）
+
+<div id="inverse" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
 
 逆関数は、単調関数 $y=f(x)$において、変数 x と y を入れ替えた関数 x=f(y)を y について解く事でも求められる。
 
@@ -136,3 +140,35 @@ $$
 （y=tanx と y=tan^{-1}x のグラフを書く）
 
 またこの図より、定義域は(-∞,∞)、値域は(-π/2,π/2)となる。
+
+<script>
+  const RADIUS = 1;
+  const ANGLE = Math.PI / 3;
+  // JSXGraph初期設定
+  const board = JXG.JSXGraph.initBoard("inverse", {
+    axis: true, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
+    boundingbox: [-5, 5, 5, -5], // 領域の座標[左、上、右、下]
+    showNavigation: false, // ナビゲーションボタンを表示するかの設定（デフォルトfalse）
+    showCopyright: false, // コピーライト文字列を表示するかの設定（デフォルトfalse）
+  });
+  // 関数
+  function x2(t) {
+    return 2 ** t;
+  }
+  function log2x(t) {
+    return Math.log2(t);
+  }
+  function x(t) {
+    return t;
+  }
+  // 関数をプロット
+  let graph1 = board.create("functiongraph", [x2, -5, 5], {
+    label: "関数ラベル",
+    withLabel: true,
+  });
+  let graph2 = board.create("functiongraph", [log2x, -5, 5]);
+  let graph3 = board.create("functiongraph", [x, -5, 5], {
+    strokeColor: "#a9a9a9", // 線の色
+    dash: 1, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
+  });
+</script>
