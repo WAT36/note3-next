@@ -141,6 +141,36 @@ $$
 
 またこの図より、定義域は(-∞,∞)、値域は(-π/2,π/2)となる。
 
+# 逆三角関数の微分
+
+これらの逆三角関数の微分を考える。
+
+## 1. 逆正弦関数の微分
+
+関数 y=sin^{-1}x の微分は以下のとおり。
+
+$$
+(\sin^{-1}x)' = \frac{1}{\sqrt{1-x^2}}
+$$
+
+[証明]
+
+まず
+
+$$
+\begin{aligned}
+y &= \sin^{-1} x \Leftrightarrow x = \sin y \\
+であり、y=\sin^{-1}xの値域は[-\frac{\pi}{2},\frac{\pi}{2}]であり、このとき\cos y > 0であるから、 \\
+\frac{dx}{dy} &= \cos y \\
+&= \sqrt{1-\sin^{2}y}\\
+&= \sqrt{1-x^2} \\
+である。\\
+よって、逆関数の微分の公式から\\
+\frac{dy}{dx} &= \frac{1}{\frac{dx}{dy}} \\
+&= \frac{1}{\sqrt{1-x^2}}
+\end{aligned}
+$$
+
 <script>
   const RADIUS = 1;
   const ANGLE = Math.PI / 3;
