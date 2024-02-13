@@ -1,22 +1,14 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import Container from "../../components/container";
-import PostBody from "../../components/post-body";
-import PostHeader from "../../components/post-header";
-import Layout from "../../components/layout";
 import { getNoteBySlug, getAllNotes } from "../../lib/notesApi";
 import PostTitle from "../../components/post-title";
-import Head from "next/head";
-import { ADMINISTRATOR, NOTES_DIR, TITLE } from "../../lib/constants";
+import { NOTES_DIR } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import type NoteType from "../../interfaces/note";
-import Intro from "../../components/intro";
-import { Bio } from "../../components/bio";
-import NoteDirLink from "../../components/notedir-link";
-import NoteLink from "../../components/note-link";
 import { getNoteSlugs } from "../../lib/fileSystem";
 import { useEffect } from "react";
-import { ProgrammingTag } from "../../components/programming-tag";
+import NotePage from "../../components/note-page";
+import NoteDirPage from "../../components/notedir-page";
 
 type Props = {
   note: NoteType;
@@ -55,72 +47,12 @@ export default function Note({ note, subPageLinks }: Props) {
     }
   }, [router.isReady, router.asPath]);
 
-  const NoteContents = (note: NoteType) => {
-    return (
-      <>
-        <article className="mb-32">
-          <Head>
-            <title>
-              {note.title} | {TITLE}
-            </title>
-            {note.ogImage ? (
-              <meta property="og:image" content={note.ogImage.url} />
-            ) : (
-              <></>
-            )}
-            {note.link?.css &&
-              note.link.css.map((cssPath) => {
-                return <link rel="stylesheet" type="text/css" href={cssPath} />;
-              })}
-          </Head>
-          <PostHeader
-            title={note.title}
-            coverImage={note.coverImage}
-            date={note.date}
-            author={note.author}
-          />
-          <PostBody content={note.content} />
-        </article>
-      </>
-    );
-  };
-
-  const NoteDirContents = (subPageLinks) => {
-    return (
-      <>
-        <Container>
-          <Intro title={"Notes."} />
-          <Bio admin={ADMINISTRATOR} />
-          {subPageLinks.length > 0 ? (
-            subPageLinks.map((link) => {
-              return link.isDir ? (
-                <NoteDirLink slug={link.slug} />
-              ) : (
-                <NoteLink slug={link.slug} name={link.name} />
-              );
-            })
-          ) : (
-            <p className="text-4xl">ここにはまだ記事が存在しません。</p>
-          )}
-        </Container>
-      </>
-    );
-  };
-
-  return (
-    <>
-      <Layout programmingTag={note.programming}>
-        <Container>
-          {router.isFallback ? (
-            <PostTitle>Loading…</PostTitle>
-          ) : Boolean(note.isDir) ? (
-            NoteDirContents(subPageLinks)
-          ) : (
-            NoteContents(note)
-          )}
-        </Container>
-      </Layout>
-    </>
+  return router.isFallback ? (
+    <PostTitle>Loading…</PostTitle>
+  ) : Boolean(note.isDir) ? (
+    <NoteDirPage subPageLinks={subPageLinks} />
+  ) : (
+    <NotePage note={note} />
   );
 }
 
