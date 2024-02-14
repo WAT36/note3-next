@@ -147,7 +147,7 @@ $$
 
 ## 1. 逆正弦関数の微分
 
-関数 y=sin^{-1}x の微分は以下のとおり。
+関数 $y=sin^{-1}x$ の微分は以下のとおり。
 
 $$
 (\sin^{-1}x)' = \frac{1}{\sqrt{1-x^2}}
@@ -168,6 +168,32 @@ y &= \sin^{-1} x \Leftrightarrow x = \sin y \\
 よって、逆関数の微分の公式から\\
 \frac{dy}{dx} &= \frac{1}{\frac{dx}{dy}} \\
 &= \frac{1}{\sqrt{1-x^2}}
+\end{aligned}
+$$
+
+## 2. 逆余弦関数の微分
+
+関数 $y=cos^{-1}x$ の微分は以下のとおり。
+
+$$
+(\cos^{-1}x)' = - \frac{1}{\sqrt{1-x^2}}
+$$
+
+[証明]
+
+同様にして
+
+$$
+\begin{aligned}
+y&=\cos^{-1} x \Leftrightarrow x = \cos y \\
+であり、y=\cos^{-1}xの値域は[0,\pi]であり、このとき\sin y > 0であるから、 \\
+\frac{dx}{dy} &= -\sin y \\
+&= - \sqrt{1-\cos^{2}y}\\
+&= - \sqrt{1-x^2} \\
+である。\\
+よって、逆関数の微分の公式から\\
+\frac{dy}{dx} &= \frac{1}{\frac{dx}{dy}} \\
+&= - \frac{1}{\sqrt{1-x^2}}
 \end{aligned}
 $$
 
