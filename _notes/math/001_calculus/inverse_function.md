@@ -197,6 +197,32 @@ y&=\cos^{-1} x \Leftrightarrow x = \cos y \\
 \end{aligned}
 $$
 
+## 3. 逆正接関数の微分
+
+関数$y=tan^{-1}x$の微分は以下のとおり。
+
+$$
+(\tan^{-1}x)' = \frac{1}{1+x^2}
+$$
+
+[証明]
+
+同様にして
+
+$$
+\begin{aligned}
+y$=\tan^{-1} x \Leftrightarrow x = \tan y \\
+であるから、 \\
+\frac{dx}{dy} &= \frac{1}{\cos^2 y} \\
+&= 1+\tan^{2}y\\
+&= 1+x^2 \\
+である。\\
+よって、逆関数の微分の公式から\\
+\frac{dy}{dx} &= \frac{1}{\frac{dx}{dy}} \\
+&= \frac{1}{1+x^2}
+\end{aligned}
+$$
+
 <script>
   const RADIUS = 1;
   const ANGLE = Math.PI / 3;
