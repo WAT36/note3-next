@@ -4,11 +4,13 @@ import matter from "gray-matter";
 import { NOTES_DIR } from "./constants";
 import { getNoteSlugs, isDirectory } from "./fileSystem";
 
+// 記事のパス(string[])から
 export function getNoteBySlug(slug: string[], fields: string[] = []) {
   const realSlug = slug.join("/");
   const isDir = isDirectory(join(NOTES_DIR, `${realSlug}`));
   const fullPath = join(NOTES_DIR, `${realSlug}${isDir ? "" : ".md"}`);
 
+  // ファイル(ディレクトリ)データ
   type Items = {
     [key: string]: string;
   } & {
@@ -23,7 +25,9 @@ export function getNoteBySlug(slug: string[], fields: string[] = []) {
     items["slug"] = realSlug;
     items.isDir = true;
   } else {
+    // .mdファイルの場合、ファイルパスから.mdファイルを読み込む
     const fileContents = readFileSync(fullPath, "utf8");
+    // .mdファイル冒頭の注釈を読み込む
     const { data, content } = matter(fileContents);
     // Ensure only the minimal needed data is exposed
     fields.forEach((field) => {
@@ -52,7 +56,10 @@ export function getNoteBySlug(slug: string[], fields: string[] = []) {
   return items;
 }
 
-export function getAllNotes(fields: string[] = []) {
-  const slugs: { slug: string }[] = getNoteSlugs(NOTES_DIR, true);
+export function getAllNotes() {
+  const slugs: { slug: string[]; isDir: boolean }[] = getNoteSlugs(
+    NOTES_DIR,
+    true
+  );
   return slugs;
 }

@@ -38,14 +38,7 @@ export default function NoteIndex({ allNotes, subPageLinks }: Props) {
 }
 
 export const getStaticProps = async () => {
-  const allNotes = getAllNotes([
-    "title",
-    "date",
-    "slug",
-    "author",
-    "coverImage",
-    "excerpt",
-  ]);
+  const allNotes = getAllNotes();
 
   // ページ下へのリンク作成
   const slugs = getNoteSlugs(NOTES_DIR, false);

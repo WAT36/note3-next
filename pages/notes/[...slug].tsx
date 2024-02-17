@@ -56,6 +56,7 @@ export default function Note({ note, subPageLinks }: Props) {
   );
 }
 
+// getStaticPathsの返り値、各文書のファイルパス(catch-all dynamic routingのためstring[])
 type Params = {
   params: {
     slug: string[];
@@ -126,17 +127,22 @@ export async function getStaticProps({ params }: Params) {
   };
 }
 
+// 一番最初に実行される関数
 export async function getStaticPaths() {
-  const notes = getAllNotes(["slug"]);
+  // _notes下の全ファイルのファイルパスを取得
+  const notes = getAllNotes();
 
   return {
+    // paths: 生成したいページのパスパラメータの組み合わせ、配列の要素1つ1つが１ページになる
     paths: notes.map((note) => {
       return {
         params: {
-          slug: note.slug,
+          slug: note.slug, // [...slug]なのでここはstring[]
         },
       };
     }),
+    // 生成するページが存在しない場合の処理、404ページを出す
     fallback: false,
   };
+  // pathsのぞれぞれの要素に対して、getStaticPropsが呼ばれる
 }
