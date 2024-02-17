@@ -5,14 +5,14 @@ import PostTitle from "../../components/post-title";
 import { NOTES_DIR } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import type NoteType from "../../interfaces/note";
-import { getNoteSlugs } from "../../lib/fileSystem";
+import { getNoteUnderDirSlugs } from "../../lib/fileSystem";
 import { useEffect } from "react";
 import NotePage from "../../components/note-page";
 import NoteDirPage from "../../components/notedir-page";
 
 type Props = {
   note: NoteType;
-  subPageLinks?;
+  subPageLinks?: SubPageLink[];
 };
 
 export default function Note({ note, subPageLinks }: Props) {
@@ -63,6 +63,13 @@ type Params = {
   };
 };
 
+export type SubPageLink = {
+  slug: string;
+  name: string;
+  isDir: boolean;
+  date?: string;
+};
+
 export async function getStaticProps({ params }: Params) {
   const note = getNoteBySlug(params.slug, [
     "title",
@@ -76,13 +83,17 @@ export async function getStaticProps({ params }: Params) {
     "coverImage",
     "mode",
   ]);
-  const content = await markdownToHtml(note.content || "");
+  // MarkdownコンテンツをHTMLに変換（ディレクトリの場合_index.mdを、記事の場合***.mdを読む）
+  const content = await markdownToHtml(
+    note.isDir ? note.dirPreface || "" : note.content || ""
+  );
 
-  // ページ下へのリンク作成
-  let subPageLinks;
+  // ディレクトリの場合の処理
+  let subPageLinks: SubPageLink[];
   if (note.isDir) {
     const dirSlug = NOTES_DIR + "/" + params.slug.join("/");
-    const slugs = getNoteSlugs(dirSlug, false);
+    // 指定ディレクトリ直下にあるファイル・ディレクトリを取得
+    const slugs = getNoteUnderDirSlugs(dirSlug, false);
     subPageLinks = slugs
       .map((slug) => {
         const noteConfig = getNoteBySlug(slug.slug, ["title", "date", "draft"]);
@@ -97,10 +108,11 @@ export async function getStaticProps({ params }: Params) {
           isDir: slug.isDir,
         };
       })
+      // 上記のnull(draftタグtrue)を省く
       .filter((link) => {
         return link;
       })
-      // sort posts by date in ascending order
+      // 日付でソートする
       .sort((link1, link2) =>
         link1.isDir && link2.isDir
           ? link1.name > link2.name

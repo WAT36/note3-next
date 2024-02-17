@@ -22,7 +22,10 @@ export function isDirectory(path: string) {
 }
 
 // 指定ディレクトリ以下の全ディレクトリ・ファイル(.md)名を取得
-export function getNoteSlugs(rootDirectory: string, isRecursive: boolean) {
+export function getNoteUnderDirSlugs(
+  rootDirectory: string,
+  isRecursive: boolean
+) {
   // rootDirectory直下のファイル・ディレクトリ取得
   const rootEnts = readdirSync(rootDirectory, { withFileTypes: true });
 
@@ -36,7 +39,7 @@ export function getNoteSlugs(rootDirectory: string, isRecursive: boolean) {
         isDir: true,
       });
       if (isRecursive) {
-        files.concat(getNoteSlugs(fp, isRecursive));
+        files.concat(getNoteUnderDirSlugs(fp, isRecursive));
       }
     } else if (dirent.isFile() && [".md"].includes(path.extname(dirent.name))) {
       const dir = path.join(rootDirectory, dirent.name);

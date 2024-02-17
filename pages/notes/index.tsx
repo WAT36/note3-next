@@ -5,9 +5,7 @@ import { getAllNotes, getNoteBySlug } from "../../lib/notesApi";
 import Intro from "../../components/intro";
 import { Bio } from "../../components/bio";
 import { ADMINISTRATOR, NOTES_DIR } from "../../lib/constants";
-import MoreStories from "../../components/more-stories";
-import Link from "next/link";
-import { getNoteSlugs } from "../../lib/fileSystem";
+import { getNoteUnderDirSlugs } from "../../lib/fileSystem";
 import NoteLink from "../../components/note-link";
 import NoteDirLink from "../../components/notedir-link";
 
@@ -41,7 +39,7 @@ export const getStaticProps = async () => {
   const allNotes = getAllNotes();
 
   // ページ下へのリンク作成
-  const slugs = getNoteSlugs(NOTES_DIR, false);
+  const slugs = getNoteUnderDirSlugs(NOTES_DIR, false);
   const subPageLinks = slugs
     .map((slug) => {
       const noteConfig = getNoteBySlug(slug.slug, ["title", "draft"]);

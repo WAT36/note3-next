@@ -1,8 +1,8 @@
-import { readFileSync } from "fs";
+import { existsSync, readFileSync, statSync } from "fs";
 import { join } from "path";
 import matter from "gray-matter";
 import { NOTES_DIR } from "./constants";
-import { getNoteSlugs, isDirectory } from "./fileSystem";
+import { getNoteUnderDirSlugs, isDirectory } from "./fileSystem";
 
 // 記事のパス(string[])から
 export function getNoteBySlug(slug: string[], fields: string[] = []) {
@@ -24,6 +24,14 @@ export function getNoteBySlug(slug: string[], fields: string[] = []) {
     // ディレクトリの場合（デザイン要考案）
     items["slug"] = realSlug;
     items.isDir = true;
+
+    // ディレクトリ直下に「_index.md」ファイルがある場合、その内容を読み込む
+    const indexFilePath = fullPath + "/_index.md";
+    if (existsSync(indexFilePath) && statSync(indexFilePath).isFile()) {
+      const fileContents = readFileSync(indexFilePath, "utf8");
+      const { data, content } = matter(fileContents);
+      items["dirPreface"] = content;
+    }
   } else {
     // .mdファイルの場合、ファイルパスから.mdファイルを読み込む
     const fileContents = readFileSync(fullPath, "utf8");
@@ -57,7 +65,7 @@ export function getNoteBySlug(slug: string[], fields: string[] = []) {
 }
 
 export function getAllNotes() {
-  const slugs: { slug: string[]; isDir: boolean }[] = getNoteSlugs(
+  const slugs: { slug: string[]; isDir: boolean }[] = getNoteUnderDirSlugs(
     NOTES_DIR,
     true
   );
