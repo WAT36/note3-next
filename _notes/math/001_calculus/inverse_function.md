@@ -97,7 +97,9 @@ $$
 y=\sin^{-1}x  \Leftrightarrow x = \sin y
 $$
 
-<!-- （y=sinxとy=sin^{-1}xのグラフを書く） TODO -->
+以下に、正弦関数(黒線)と逆正弦関数(赤線)のグラフを示す。
+
+<div id="arcsin" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
 
 またこの図より、定義域は[-1,1]、値域は[-π/2,π/2]となる。
 
@@ -224,8 +226,6 @@ y$=\tan^{-1} x \Leftrightarrow x = \tan y \\
 $$
 
 <script>
-  const RADIUS = 1;
-  const ANGLE = Math.PI / 3;
   // JSXGraph初期設定
   const board = JXG.JSXGraph.initBoard("inverse", {
     axis: true, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
@@ -252,5 +252,37 @@ $$
   let graph3 = board.create("functiongraph", [x, -5, 5], {
     strokeColor: "#a9a9a9", // 線の色
     dash: 1, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
+  });
+
+  // 逆正弦関数
+  const board2 = JXG.JSXGraph.initBoard("arcsin", {
+    axis: true, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
+    boundingbox: [-3, 3, 3, -3], // 領域の座標[左、上、右、下]
+    showNavigation: false, // ナビゲーションボタンを表示するかの設定（デフォルトfalse）
+    showCopyright: false, // コピーライト文字列を表示するかの設定（デフォルトfalse）
+  });
+  // 関数
+  function sin(t) {
+    return Math.sin(t);
+  }
+  function arcsin(t) {
+    return Math.asin(t);
+  }
+  // 関数をプロット
+  let graph_sinall = board2.create("functiongraph", [sin, -5, 5], {
+    strokeColor: "#a9a9a9", // 線の色
+    dash: 1, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
+  });
+  let graph_sin = board2.create(
+    "functiongraph",
+    [sin, -Math.PI / 2, Math.PI / 2],
+    {
+      strokeColor: "#000000", // 線の色
+    }
+  );
+  let graph_arcsin = board2.create("functiongraph", [arcsin, -10, 10], {
+    strokeColor: "#ff0000", // 線の色
+    strokeWidth: 2,
+    highlight: true,
   });
 </script>
