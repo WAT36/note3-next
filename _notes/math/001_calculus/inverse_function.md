@@ -119,7 +119,9 @@ $$
 y=\cos^{-1}x  \Leftrightarrow x = \cos y
 $$
 
-<!-- （y=cosxとy=cos^{-1}xのグラフを書く） TODO -->
+以下に、余弦関数(黒線)と逆余弦関数(赤線)のグラフを示す。
+
+<div id="arccos" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
 
 またこの図より、定義域は[-1,1]、値域は[0,π]となる。
 
@@ -281,6 +283,33 @@ $$
     }
   );
   let graph_arcsin = board2.create("functiongraph", [arcsin, -10, 10], {
+    strokeColor: "#ff0000", // 線の色
+    strokeWidth: 2,
+    highlight: true,
+  });
+
+  const board3 = JXG.JSXGraph.initBoard("arccos", {
+    axis: true, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
+    boundingbox: [-4, 4, 4, -4], // 領域の座標[左、上、右、下]
+    showNavigation: false, // ナビゲーションボタンを表示するかの設定（デフォルトfalse）
+    showCopyright: false, // コピーライト文字列を表示するかの設定（デフォルトfalse）
+  });
+  // 関数
+  function cos(t) {
+    return Math.cos(t);
+  }
+  function arccos(t) {
+    return Math.acos(t);
+  }
+  // 関数をプロット
+  let graph_cosall = board3.create("functiongraph", [cos, -5, 5], {
+    strokeColor: "#a9a9a9", // 線の色
+    dash: 1, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
+  });
+  let graph_cos = board3.create("functiongraph", [cos, 0, Math.PI], {
+    strokeColor: "#000000", // 線の色
+  });
+  let graph_arccos = board3.create("functiongraph", [arccos, -10, 10], {
     strokeColor: "#ff0000", // 線の色
     strokeWidth: 2,
     highlight: true,
