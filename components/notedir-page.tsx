@@ -20,7 +20,7 @@ const NoteDirPage = ({ subPageLinks, preface }: Props) => {
         <Intro title={"Notes."} />
         <Bio admin={ADMINISTRATOR} />
         {preface && (
-          <div className="max-w-2xl mx-auto">
+          <div className="mx-auto">
             <div
               className={markdownStyles["markdown"]}
               dangerouslySetInnerHTML={{ __html: preface }}

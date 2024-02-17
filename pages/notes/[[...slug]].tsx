@@ -50,7 +50,7 @@ export default function Note({ note, subPageLinks }: Props) {
   return router.isFallback ? (
     <PostTitle>Loading…</PostTitle>
   ) : Boolean(note.isDir) ? (
-    <NoteDirPage subPageLinks={subPageLinks} />
+    <NoteDirPage subPageLinks={subPageLinks} preface={note.content} />
   ) : (
     <NotePage note={note} />
   );
@@ -109,9 +109,9 @@ export async function getStaticProps({ params }: Params) {
           isDir: slug.isDir,
         };
       })
-      // 上記のnull(draftタグtrue)を省く
-      .filter((link) => {
-        return link;
+      // 上記のnull(draftタグtrue)と_index.mdを省く
+      .filter((subPageLink) => {
+        return subPageLink && subPageLink.slug !== "_index";
       })
       // 日付でソートする
       .sort((link1, link2) =>
