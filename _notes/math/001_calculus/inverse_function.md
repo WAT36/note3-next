@@ -141,7 +141,9 @@ $$
 y=\tan^{-1}x  \Leftrightarrow x = \tan y
 $$
 
-（y=tanx と y=tan^{-1}x のグラフを書く）
+以下に、正接関数(黒線)と逆正接関数(赤線)のグラフを示す。
+
+<div id="arctan" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
 
 またこの図より、定義域は(-∞,∞)、値域は(-π/2,π/2)となる。
 
@@ -151,7 +153,7 @@ $$
 
 ## 1. 逆正弦関数の微分
 
-関数 $y=sin^{-1}x$ の微分は以下のとおり。
+関数 $y=\sin^{-1}x$ の微分は以下のとおり。
 
 $$
 (\sin^{-1}x)' = \frac{1}{\sqrt{1-x^2}}
@@ -164,12 +166,25 @@ $$
 $$
 \begin{aligned}
 y &= \sin^{-1} x \Leftrightarrow x = \sin y \\
-であり、y=\sin^{-1}xの値域は[-\frac{\pi}{2},\frac{\pi}{2}]であり、このとき\cos y > 0であるから、 \\
+\end{aligned}
+$$
+
+であり、$y=\sin^{-1}x$の値域は$[-\frac{\pi}{2},\frac{\pi}{2}]$であり、このとき$\cos y > 0$であるから、
+
+$$
+\begin{aligned}
 \frac{dx}{dy} &= \cos y \\
 &= \sqrt{1-\sin^{2}y}\\
 &= \sqrt{1-x^2} \\
-である。\\
-よって、逆関数の微分の公式から\\
+\end{aligned}
+$$
+
+である。
+
+よって、逆関数の微分の公式から
+
+$$
+\begin{aligned}
 \frac{dy}{dx} &= \frac{1}{\frac{dx}{dy}} \\
 &= \frac{1}{\sqrt{1-x^2}}
 \end{aligned}
@@ -177,7 +192,7 @@ $$
 
 ## 2. 逆余弦関数の微分
 
-関数 $y=cos^{-1}x$ の微分は以下のとおり。
+関数 $y=\cos^{-1}x$ の微分は以下のとおり。
 
 $$
 (\cos^{-1}x)' = - \frac{1}{\sqrt{1-x^2}}
@@ -190,12 +205,25 @@ $$
 $$
 \begin{aligned}
 y&=\cos^{-1} x \Leftrightarrow x = \cos y \\
-であり、y=\cos^{-1}xの値域は[0,\pi]であり、このとき\sin y > 0であるから、 \\
+\end{aligned}
+$$
+
+であり、$y=\cos^{-1}x$の値域は$[0,\pi]$であり、このとき$\sin y > 0$であるから、
+
+$$
+\begin{aligned}
 \frac{dx}{dy} &= -\sin y \\
 &= - \sqrt{1-\cos^{2}y}\\
 &= - \sqrt{1-x^2} \\
-である。\\
-よって、逆関数の微分の公式から\\
+\end{aligned}
+$$
+
+である。
+
+よって、逆関数の微分の公式から
+
+$$
+\begin{aligned}
 \frac{dy}{dx} &= \frac{1}{\frac{dx}{dy}} \\
 &= - \frac{1}{\sqrt{1-x^2}}
 \end{aligned}
@@ -203,7 +231,7 @@ $$
 
 ## 3. 逆正接関数の微分
 
-関数$y=tan^{-1}x$の微分は以下のとおり。
+関数$y=\tan^{-1}x$の微分は以下のとおり。
 
 $$
 (\tan^{-1}x)' = \frac{1}{1+x^2}
@@ -214,14 +242,25 @@ $$
 同様にして
 
 $$
+y=\tan^{-1} x \Leftrightarrow x = \tan y \\
+$$
+
+であるから、
+
+$$
 \begin{aligned}
-y$=\tan^{-1} x \Leftrightarrow x = \tan y \\
-であるから、 \\
 \frac{dx}{dy} &= \frac{1}{\cos^2 y} \\
 &= 1+\tan^{2}y\\
 &= 1+x^2 \\
-である。\\
-よって、逆関数の微分の公式から\\
+\end{aligned}
+$$
+
+である。
+
+よって、逆関数の微分の公式から
+
+$$
+\begin{aligned}
 \frac{dy}{dx} &= \frac{1}{\frac{dx}{dy}} \\
 &= \frac{1}{1+x^2}
 \end{aligned}
@@ -310,6 +349,33 @@ $$
     strokeColor: "#000000", // 線の色
   });
   let graph_arccos = board3.create("functiongraph", [arccos, -10, 10], {
+    strokeColor: "#ff0000", // 線の色
+    strokeWidth: 2,
+    highlight: true,
+  });
+
+  const board5 = JXG.JSXGraph.initBoard("arctan", {
+    axis: true, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
+    boundingbox: [-5, 5, 5, -5], // 領域の座標[左、上、右、下]
+    showNavigation: false, // ナビゲーションボタンを表示するかの設定（デフォルトfalse）
+    showCopyright: false, // コピーライト文字列を表示するかの設定（デフォルトfalse）
+  });
+  // 関数
+  function tan(t) {
+    return Math.tan(t);
+  }
+  function arctan(t) {
+    return Math.atan(t);
+  }
+  // 関数をプロット
+  let graph_tan = board5.create(
+    "functiongraph",
+    [tan, -Math.PI / 2, Math.PI / 2],
+    {
+      strokeColor: "#000000", // 線の色
+    }
+  );
+  let graph_arctan = board5.create("functiongraph", [arctan, -5, 5], {
     strokeColor: "#ff0000", // 線の色
     strokeWidth: 2,
     highlight: true,
