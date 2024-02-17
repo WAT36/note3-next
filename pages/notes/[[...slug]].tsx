@@ -91,7 +91,8 @@ export async function getStaticProps({ params }: Params) {
   // ディレクトリの場合の処理
   let subPageLinks: SubPageLink[];
   if (note.isDir) {
-    const dirSlug = NOTES_DIR + "/" + params.slug.join("/");
+    const dirSlug =
+      NOTES_DIR + "/" + (params.slug ? params.slug.join("/") : "");
     // 指定ディレクトリ直下にあるファイル・ディレクトリを取得
     const slugs = getNoteUnderDirSlugs(dirSlug, false);
     subPageLinks = slugs
@@ -143,7 +144,6 @@ export async function getStaticProps({ params }: Params) {
 export async function getStaticPaths() {
   // _notes下の全ファイルのファイルパスを取得
   const notes = getAllNotes();
-
   return {
     // paths: 生成したいページのパスパラメータの組み合わせ、配列の要素1つ1つが１ページになる
     paths: notes.map((note) => {

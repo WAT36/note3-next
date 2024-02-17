@@ -5,7 +5,7 @@ import Intro from "./intro";
 import { Bio } from "./bio";
 import NoteDirLink from "./notedir-link";
 import NoteLink from "./note-link";
-import { SubPageLink } from "../pages/notes/[...slug]";
+import { SubPageLink } from "../pages/notes/[[...slug]]";
 import markdownStyles from "./markdown-styles.module.css";
 
 type Props = {

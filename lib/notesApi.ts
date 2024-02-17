@@ -6,7 +6,7 @@ import { getNoteUnderDirSlugs, isDirectory } from "./fileSystem";
 
 // 記事のパス(string[])から
 export function getNoteBySlug(slug: string[], fields: string[] = []) {
-  const realSlug = slug.join("/");
+  const realSlug = slug && slug.length > 0 ? slug.join("/") : "/";
   const isDir = isDirectory(join(NOTES_DIR, `${realSlug}`));
   const fullPath = join(NOTES_DIR, `${realSlug}${isDir ? "" : ".md"}`);
 
@@ -67,6 +67,7 @@ export function getNoteBySlug(slug: string[], fields: string[] = []) {
 export function getAllNotes() {
   const slugs: { slug: string[]; isDir: boolean }[] = getNoteUnderDirSlugs(
     NOTES_DIR,
+    true,
     true
   );
   return slugs;

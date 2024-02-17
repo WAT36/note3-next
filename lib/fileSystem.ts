@@ -24,7 +24,8 @@ export function isDirectory(path: string) {
 // 指定ディレクトリ以下の全ディレクトリ・ファイル(.md)名を取得
 export function getNoteUnderDirSlugs(
   rootDirectory: string,
-  isRecursive: boolean
+  isRecursive: boolean,
+  includeMySelf?: boolean
 ) {
   // rootDirectory直下のファイル・ディレクトリ取得
   const rootEnts = readdirSync(rootDirectory, { withFileTypes: true });
@@ -51,6 +52,17 @@ export function getNoteUnderDirSlugs(
         isDir: false,
       });
     }
+  }
+
+  // 自分も含む場合の処理
+  if (includeMySelf && isDirectory(rootDirectory)) {
+    files.push({
+      slug:
+        rootDirectory === NOTES_DIR
+          ? [""]
+          : rootDirectory.replace(new RegExp(NOTES_DIR + "/"), "").split("/"),
+      isDir: true,
+    });
   }
   return files;
 }
