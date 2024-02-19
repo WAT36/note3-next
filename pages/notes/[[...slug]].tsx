@@ -111,7 +111,7 @@ export async function getStaticProps({ params }: Params) {
       })
       // 上記のnull(draftタグtrue)と_index.mdを省く
       .filter((subPageLink) => {
-        return subPageLink && subPageLink.slug !== "_index";
+        return subPageLink && !subPageLink.slug.endsWith("_index");
       })
       // 日付でソートする
       .sort((link1, link2) =>
