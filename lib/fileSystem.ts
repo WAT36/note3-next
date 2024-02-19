@@ -30,7 +30,7 @@ export function getNoteUnderDirSlugs(
   // rootDirectory直下のファイル・ディレクトリ取得
   const rootEnts = readdirSync(rootDirectory, { withFileTypes: true });
 
-  const files: { slug: string[]; isDir: boolean }[] = [];
+  const files = [];
   for (const dirent of rootEnts) {
     if (dirent.isDirectory()) {
       // ディレクトリのパス
@@ -40,10 +40,16 @@ export function getNoteUnderDirSlugs(
         isDir: true,
       });
       if (isRecursive) {
-        files.concat(getNoteUnderDirSlugs(fp, isRecursive));
+        files.push(getNoteUnderDirSlugs(fp, isRecursive));
       }
     } else if (dirent.isFile() && [".md"].includes(path.extname(dirent.name))) {
       const dir = path.join(rootDirectory, dirent.name);
+
+      // _index.mdは数えない
+      if (dir.endsWith("_index.md")) {
+        continue;
+      }
+
       files.push({
         slug: dir
           .replace(new RegExp(NOTES_DIR + "/"), "")
@@ -64,5 +70,5 @@ export function getNoteUnderDirSlugs(
       isDir: true,
     });
   }
-  return files;
+  return files.flat();
 }
