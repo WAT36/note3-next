@@ -21,6 +21,11 @@ export function isDirectory(path: string) {
   }
 }
 
+type FileSlugs = {
+  slug: string[];
+  isDir: boolean;
+};
+
 // 指定ディレクトリ以下の全ディレクトリ・ファイル(.md)名を取得
 export function getNoteUnderDirSlugs(
   rootDirectory: string,
@@ -30,7 +35,7 @@ export function getNoteUnderDirSlugs(
   // rootDirectory直下のファイル・ディレクトリ取得
   const rootEnts = readdirSync(rootDirectory, { withFileTypes: true });
 
-  const files = [];
+  const files: (FileSlugs | FileSlugs[])[] = [];
   for (const dirent of rootEnts) {
     if (dirent.isDirectory()) {
       // ディレクトリのパス
