@@ -48,6 +48,54 @@ $$
 
 と表す。
 
+# 対数関数の微分
+
+対数関数$y=\log x$の微分を考えよう。
+
+$$
+\begin{aligned}
+y' &= \lim_{\Delta x \rightarrow 0} \frac{\log(x+\Delta x) - \log x}{\Delta x} \\
+&= \lim_{\Delta x \rightarrow 0} \frac{1}{\Delta x} \log(1 + \frac{\Delta x}{x})  \\
+\end{aligned}
+$$
+
+ここで $h=\frac{\Delta x}{x}$とおくと、$\Delta x \rightarrow 0$のとき$h \rightarrow 0$なので上式は
+
+$$
+\begin{aligned}
+&= \lim_{\Delta x \rightarrow 0} \frac{1}{x} \frac{x}{\Delta x} \log(1 + \frac{\Delta x}{x}) \\
+&= \lim_{h \rightarrow 0} \frac{1}{x} \frac{1}{h} \log(1 + h) \\
+&= \frac{1}{x} \lim_{h \rightarrow 0} \log(1 + h)^{\frac{1}{h}} \\
+&= \frac{1}{x} \log e \\
+&= \frac{1}{x}
+\end{aligned}
+$$
+
+よって
+
+$$
+(\log x)' = \frac{1}{x}
+$$
+
+である。
+
+また、これを利用して底が実数 a の対数関数$y=\log_{a}x$の微分は、底の変換公式を利用して
+
+$$
+\begin{aligned}
+y' &= (\log_{a}x)' \\
+&= (\frac{\log x}{\log a})' \\
+&= \frac{1}{\log a} \cdot (\log x)' \\
+&= \frac{1}{x \log a}
+\end{aligned}
+$$
+
+となる。よって
+
+$$
+(\log_{a}x)' = \frac{1}{x \log a}
+$$
+
 <script>
   // JSXGraph初期設定
   const board = JXG.JSXGraph.initBoard("e", {
