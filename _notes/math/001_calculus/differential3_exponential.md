@@ -96,6 +96,66 @@ $$
 (\log_{a}x)' = \frac{1}{x \log a}
 $$
 
+# 指数関数の微分
+
+指数関数$y=e^x$の微分を考えよう。
+
+まず、指数関数$y=e^x$は、$x=\log y$である。
+
+このとき、
+
+$$
+\frac{dx}{dy} = \frac{1}{y}
+$$
+
+なので、$y=e^x$の微分は
+
+$$
+\begin{aligned}
+y' &= \frac{dy}{dx} \\
+&= \frac{1}{\frac{dx}{dy}}
+&= y \\
+&= e^x
+\end{aligned}
+$$
+
+である。よって、
+
+$$
+(e^x)' = e^x
+$$
+
+次に、、$y=a^x$ (a は実数) の微分を考えよう。
+
+$$
+y= a^x \\
+$$
+
+において、両辺の自然対数を取ると
+
+$$
+\begin{aligned}
+\log y &= \log a^x \\
+&= x \log a \\
+\end{aligned}
+$$
+
+ここで両辺を x で微分すると、合成関数の微分を利用し
+
+$$
+\begin{aligned}
+\frac{y'}{y} &= \log a \\
+y' &= y \log a \\
+y' &= a^x \log a
+\end{aligned}
+$$
+
+である。よって
+
+$$
+(a^x)' = a^x \log a
+$$
+
 <script>
   // JSXGraph初期設定
   const board = JXG.JSXGraph.initBoard("e", {
