@@ -16,7 +16,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gray-400 text-white z-50">
+    <header className="bg-gray-400 text-white z-50 dark:bg-slate-900">
       <Link
         className="font-bold no-underline text-xl mx-3 text-white"
         href={"" + process.env.NEXT_PUBLIC_URL_END}
