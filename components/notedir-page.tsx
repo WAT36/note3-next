@@ -1,25 +1,32 @@
 import Layout from "./layout";
 import Container from "./container";
-import Head from "next/head";
-import NoteType from "../interfaces/note";
-import { ADMINISTRATOR, TITLE } from "../lib/constants";
-import PostHeader from "./post-header";
-import PostBody from "./post-body";
+import { ADMINISTRATOR } from "../lib/constants";
 import Intro from "./intro";
 import { Bio } from "./bio";
 import NoteDirLink from "./notedir-link";
 import NoteLink from "./note-link";
+import { SubPageLink } from "../pages/notes/[[...slug]]";
+import markdownStyles from "./markdown-styles.module.css";
 
 type Props = {
-  subPageLinks?;
+  subPageLinks?: SubPageLink[];
+  preface?: string;
 };
 
-const NoteDirPage = ({ subPageLinks }: Props) => {
+const NoteDirPage = ({ subPageLinks, preface }: Props) => {
   return (
     <Layout>
       <Container>
         <Intro title={"Notes."} />
         <Bio admin={ADMINISTRATOR} />
+        {preface && (
+          <div className="mx-auto">
+            <div
+              className={markdownStyles["markdown"]}
+              dangerouslySetInnerHTML={{ __html: preface }}
+            />
+          </div>
+        )}
         {subPageLinks.length > 0 ? (
           subPageLinks.map((link) => {
             return link.isDir ? (

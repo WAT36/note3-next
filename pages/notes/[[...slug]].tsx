@@ -5,14 +5,14 @@ import PostTitle from "../../components/post-title";
 import { NOTES_DIR } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import type NoteType from "../../interfaces/note";
-import { getNoteSlugs } from "../../lib/fileSystem";
+import { getNoteUnderDirSlugs } from "../../lib/fileSystem";
 import { useEffect } from "react";
 import NotePage from "../../components/note-page";
 import NoteDirPage from "../../components/notedir-page";
 
 type Props = {
   note: NoteType;
-  subPageLinks?;
+  subPageLinks?: SubPageLink[];
 };
 
 export default function Note({ note, subPageLinks }: Props) {
@@ -50,16 +50,24 @@ export default function Note({ note, subPageLinks }: Props) {
   return router.isFallback ? (
     <PostTitle>Loading…</PostTitle>
   ) : Boolean(note.isDir) ? (
-    <NoteDirPage subPageLinks={subPageLinks} />
+    <NoteDirPage subPageLinks={subPageLinks} preface={note.content} />
   ) : (
     <NotePage note={note} />
   );
 }
 
+// getStaticPathsの返り値、各文書のファイルパス(catch-all dynamic routingのためstring[])
 type Params = {
   params: {
     slug: string[];
   };
+};
+
+export type SubPageLink = {
+  slug: string;
+  name: string;
+  isDir: boolean;
+  date?: string;
 };
 
 export async function getStaticProps({ params }: Params) {
@@ -75,13 +83,18 @@ export async function getStaticProps({ params }: Params) {
     "coverImage",
     "mode",
   ]);
-  const content = await markdownToHtml(note.content || "");
+  // MarkdownコンテンツをHTMLに変換（ディレクトリの場合_index.mdを、記事の場合***.mdを読む）
+  const content = await markdownToHtml(
+    note.isDir ? note.dirPreface || "" : note.content || ""
+  );
 
-  // ページ下へのリンク作成
-  let subPageLinks;
+  // ディレクトリの場合の処理
+  let subPageLinks: SubPageLink[];
   if (note.isDir) {
-    const dirSlug = NOTES_DIR + "/" + params.slug.join("/");
-    const slugs = getNoteSlugs(dirSlug, false);
+    const dirSlug =
+      NOTES_DIR + "/" + (params.slug ? params.slug.join("/") : "");
+    // 指定ディレクトリ直下にあるファイル・ディレクトリを取得
+    const slugs = getNoteUnderDirSlugs(dirSlug, false);
     subPageLinks = slugs
       .map((slug) => {
         const noteConfig = getNoteBySlug(slug.slug, ["title", "date", "draft"]);
@@ -96,10 +109,11 @@ export async function getStaticProps({ params }: Params) {
           isDir: slug.isDir,
         };
       })
-      .filter((link) => {
-        return link;
+      // 上記のnull(draftタグtrue)と_index.mdを省く
+      .filter((subPageLink) => {
+        return subPageLink && !subPageLink.slug.endsWith("_index");
       })
-      // sort posts by date in ascending order
+      // 日付でソートする
       .sort((link1, link2) =>
         link1.isDir && link2.isDir
           ? link1.name > link2.name
@@ -126,17 +140,21 @@ export async function getStaticProps({ params }: Params) {
   };
 }
 
+// 一番最初に実行される関数
 export async function getStaticPaths() {
-  const notes = getAllNotes(["slug"]);
-
+  // _notes下の全ファイルのファイルパスを取得
+  const notes = getAllNotes();
   return {
+    // paths: 生成したいページのパスパラメータの組み合わせ、配列の要素1つ1つが１ページになる
     paths: notes.map((note) => {
       return {
         params: {
-          slug: note.slug,
+          slug: note.slug, // [...slug]なのでここはstring[]
         },
       };
     }),
+    // 生成するページが存在しない場合の処理、404ページを出す
     fallback: false,
   };
+  // pathsのぞれぞれの要素に対して、getStaticPropsが呼ばれる
 }
