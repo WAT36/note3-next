@@ -171,8 +171,10 @@ $$
 がわかる。この式より
 
 $$
-y' = y(\log y)' \\
-= f(x) (\log f(x))'
+\begin{aligned}
+y' &= y(\log y)' \\
+&= f(x) (\log f(x))'
+\end{aligned}
 $$
 
 となる。この公式を利用する計算法を対数微分法と呼ぶ。
