@@ -59,47 +59,23 @@ re.compile(pattern, flags=0)
 実際に正規表現を使って文字列から該当する部分を検索・抽出するにはどうすればよいのか？
 それには re モジュールの以下諸関数を利用する。
 
-<table >
-<tr>
-<td style="border-style: none;">・re.<b>search</b>(pattern, string, flags=0) </td>
-<td style="border-style: none;">#stringで正規表現patternに最初にマッチした部分を返す</td>
-</tr>
-<tr>
-<td style="border-style: none;">・re.<b>match</b>(pattern, string, flags=0) </td>
-<td style="border-style: none;">#stringの先頭が正規表現patternにマッチしていたらそれを返す</td>
-</tr>
-<tr>
-<td style="border-style: none;">・re.<b>fullmatch</b>(pattern, string, flags=0) </td>
-<td style="border-style: none;">#string全体が正規表現patternにマッチしていたらそれを返す</td>
-</tr>
-<tr>
-<td style="border-style: none;">・re.<b>findall</b>(pattern, string, flags=0) </td>
-<td style="border-style: none;">#string中で正規表現patternにマッチしているものをリストにして全て返す</td>
-</tr>
-</table>
+|                                               |                                                                         |
+| :-------------------------------------------- | :---------------------------------------------------------------------- |
+| re.<b>search</b>(pattern, string, flags=0)    | #string で正規表現 pattern に最初にマッチした部分を返す                 |
+| re.<b>match</b>(pattern, string, flags=0)     | #string の先頭が正規表現 pattern にマッチしていたらそれを返す           |
+| re.<b>fullmatch</b>(pattern, string, flags=0) | #string 全体が正規表現 pattern にマッチしていたらそれを返す             |
+| re.<b>findall</b>(pattern, string, flags=0)   | #string 中で正規表現 pattern にマッチしているものをリストにして全て返す |
 
 いずれの関数も、もし該当する部分がない場合は None が返される。
 また、これら諸関数の返り値は文字列ではなく、マッチオブジェクトと呼ばれる型のデータを返す(findall はリストを返す)。
 マッチオブジェクトから結果を取得したい場合は、以下の諸関数をさらに利用する。
 
-<table>
-<tr>
-<td style="border-style: none;">・Match.<b>start</b>()</td>
-<td style="border-style: none;">#マッチした文字列の文字列中での最初のインデックスを返す</td>
-</tr>
-<tr>
-<td style="border-style: none;">・Match.<b>end</b>()</td>
-<td style="border-style: none;">#マッチした文字列の文字列中での最後のインデックスを返す</td>
-</tr>
-<tr>
-<td style="border-style: none;">・Match.<b>span</b>()</td>
-<td style="border-style: none;">#マッチした文字列が文字列中でどこからどこまでのインデックスなのかを返す</td>
-</tr>
-<tr>
-<td style="border-style: none;">・Match.<b>group</b>()</td>
-<td style="border-style: none;">#マッチした文字列を返す</td>
-</tr>
-</table>
+|                      |                                                                         |
+| :------------------- | :---------------------------------------------------------------------- |
+| Match.<b>start</b>() | #マッチした文字列の文字列中での最初のインデックスを返す                 |
+| Match.<b>end</b>()   | #マッチした文字列の文字列中での最後のインデックスを返す                 |
+| Match.<b>span</b>()  | #マッチした文字列が文字列中でどこからどこまでのインデックスなのかを返す |
+| Match.<b>group</b>() | #マッチした文字列を返す                                                 |
 
 ```python
 >>> import re
