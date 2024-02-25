@@ -24,6 +24,96 @@ $$
 y - f(a) = f'(a)(x-a)
 $$
 
-である。
+である。例を以下に示す。
 
-（何か図を載せたい。ある関数とその接線を示すグラフ。点の位置をホバーすると変わる様な）
+<div id="sessen" class="jxgbox" style="width: 400px; height: 400px"></div>
+
+<script>
+  // JSXGraph初期設定
+  const board = JXG.JSXGraph.initBoard("sessen", {
+    axis: true, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
+    boundingbox: [-5, 5, 5, -5], // 領域の座標[左、上、右、下]
+    keepaspectratio: true, // 表示するdivボックスの縦横比に合わせる？（デフォルトfalse)
+    showNavigation: false,
+    showCopyright: false,
+  });
+  // 関数 (x-2)x(x+2)
+  function fx(t) {
+    return t ** 3 - 4 * t;
+  }
+  // 導関数
+  function dfx(t) {
+    return 3 * t ** 2 - 4;
+  }
+  // 接線
+  function sessenCalc(a, x) {
+    return dfx(a) * (x - a) + fx(a);
+  }
+  // 関数をプロット
+  let graph = board.create("functiongraph", [fx, -10, 10], {
+    highlight: false, //ホバー時に色を変えて表示させるか
+    strokeColor: "#0000ff", // 線の色
+  });
+  // スライダーをプロット
+  var slider1 = board.create("slider", [
+    [-3, 4.8],
+    [3, 4.8],
+    [-3, 0.1, 3],
+  ]);
+  // 点をプロット
+  // スライダーの値に応じて変化
+  var p = board.create(
+    "point",
+    [
+      function () {
+        return slider1.Value();
+      },
+
+      function () {
+        return fx(slider1.Value());
+      },
+    ],
+    {
+      name: `a`, // 点の名前
+      size: 5, // 点の大きさ
+      face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+      highlight: false, //ホバー時に色を変えて表示させるか
+      trace: false, // 移動したときに跡を残すか？
+      strokeColor: "#ff0000", // 線の色
+    }
+  );
+  var p2 = board.create(
+    "point",
+    [
+      function () {
+        return slider1.Value() + 1;
+      },
+
+      function () {
+        return sessenCalc(slider1.Value(), slider1.Value() + 1);
+      },
+    ],
+    {
+      name: ``, // 点の名前
+      size: 0, // 点の大きさ
+      face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+      highlight: false, //ホバー時に色を変えて表示させるか
+      trace: false, // 移動したときに跡を残すか？
+      strokeColor: "#ffffff", // 色
+    }
+  );
+  var sessen = board.create("line", [p, p2], {
+    strokeColor: "#ff0000", // 線の色
+    strokeWidth: 3, // 線の太さ
+    straightFirst: true, // 始点を突き抜けて直線にするか
+    straightLast: true, // 終点を突き抜けて直線にするか
+    dash: 0, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
+    highlight: false, //ホバー時に色を変えて表示させるか
+  });
+  //凡例
+  var legend = board.create("legend", [-5, 4.5], {
+    labels: ["曲線 y=(x-2)x(x+2)", "接線 y-f(a) = f'(a)(x-a)"],
+    colors: ["#0000ff", "#ff0000"],
+    strokeWidth: 5,
+  });
+</script>
