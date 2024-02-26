@@ -28,6 +28,27 @@ $$
 
 <div id="sessen" class="jxgbox" style="width: 400px; height: 400px"></div>
 
+# 法線の方程式
+
+関数 y=f(x)の x=a における**法線**とは、x=a における接線に垂直に交わる直線のことを言う。
+
+この法線の傾きを m とすると、
+
+$$
+mf'(a) = -1 \\
+\Leftrightarrow m = - \frac{1}{f'(a)}
+$$
+
+となる。
+
+よって、関数 y=f(x)の x=a における法線の方程式は以下のとおりである。
+
+$$
+y-f(a) = - \frac{1}{f'(a)}(x-a)
+$$
+
+（これも接線と同じように何か図を載せたい）
+
 <script>
   // JSXGraph初期設定
   const board = JXG.JSXGraph.initBoard("sessen", {
