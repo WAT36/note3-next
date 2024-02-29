@@ -7,13 +7,15 @@ type Props = {
 
 const ProgrammingNoteLink = ({ slug, name }: Props) => {
   return (
-    <div className="my-4">
-      <Link
-        className="font-bold text-5xl mx-3 underline text-green-400"
-        href={slug + process.env.NEXT_PUBLIC_URL_END}
-      >
-        {name}
-      </Link>
+    <div className="p-3 border border-double border-green-400">
+      <div className="w-3/6 inline-block">
+        <Link
+          className="underline text-green-400"
+          href={slug + process.env.NEXT_PUBLIC_URL_END}
+        >
+          {name}
+        </Link>
+      </div>
     </div>
   );
 };
