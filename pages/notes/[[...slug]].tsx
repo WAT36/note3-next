@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import { getNoteBySlug, getAllNotes } from "../../lib/notesApi";
 import PostTitle from "../../components/post-title";
-import { NOTES_DIR } from "../../lib/constants";
+import { NOTES_DIR, PROGRAMMING_LANGUAGE_NAME } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import type NoteType from "../../interfaces/note";
 import { getNoteUnderDirSlugs } from "../../lib/fileSystem";
@@ -69,6 +69,7 @@ export type SubPageLink = {
   isDir: boolean;
   date?: string;
   mode?: string;
+  programmingAbst?: { [key: string]: string[] };
 };
 
 export async function getStaticProps({ params }: Params) {
@@ -103,10 +104,27 @@ export async function getStaticProps({ params }: Params) {
           "date",
           "draft",
           "mode",
+          "content",
         ]);
         // null(draftタグtrue)の場合は作成しない
         if (!slug.isDir && noteConfig["draft"]) {
           return null;
+        }
+        const programmingAbst = {};
+        if (noteConfig["mode"] === "programming") {
+          for (let i = 0; i < PROGRAMMING_LANGUAGE_NAME.length; i++) {
+            // 記事内の指定した言語で書かれているコード部分を抜き出してくる
+            const extractAbst = noteConfig["content"].match(
+              new RegExp("```" + PROGRAMMING_LANGUAGE_NAME[i] + "[\\s\\S]*?```")
+            );
+            programmingAbst[PROGRAMMING_LANGUAGE_NAME[i]] = extractAbst
+              ? extractAbst.map((data) =>
+                  data
+                    .replace("```" + PROGRAMMING_LANGUAGE_NAME[i], "")
+                    .replace("```", "")
+                )
+              : null;
+          }
         }
         return {
           slug: slug.slug.join("/"),
@@ -114,6 +132,10 @@ export async function getStaticProps({ params }: Params) {
           date: noteConfig["date"] || null,
           isDir: slug.isDir,
           mode: noteConfig["mode"] || null,
+          programmingAbst:
+            Object.keys(programmingAbst).length === 0
+              ? undefined
+              : programmingAbst,
         };
       })
       // 上記のnull(draftタグtrue)と_index.mdを省く

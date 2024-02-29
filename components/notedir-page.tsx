@@ -33,7 +33,11 @@ const NoteDirPage = ({ subPageLinks, preface }: Props) => {
             return link.isDir ? (
               <NoteDirLink slug={link.slug} />
             ) : link.mode && link.mode === "programming" ? (
-              <ProgrammingNoteLink slug={link.slug} name={link.name} />
+              <ProgrammingNoteLink
+                slug={link.slug}
+                name={link.name}
+                abst={link.programmingAbst}
+              />
             ) : (
               <NoteLink slug={link.slug} name={link.name} />
             );
