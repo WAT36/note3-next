@@ -189,43 +189,17 @@ Javascript の Object オブジェクトは、全てのオブジェクトの基�
 
 プロパティ・メソッド類は以下の通り。
 
-<table style="border:none;">
-    <thead>
-        <th style="border:none;">プロパティ名</td>
-        <th style="border:none;">説明</td>
-    </thead>
-    <tr>
-        <td style="border:none;">constructor</td>
-        <td style="border:none;">コンストラクタを返す</td>
-    </tr>
-</table>
+| プロパティ名 | 説明                 |
+| :----------- | :------------------- |
+| constructor  | コンストラクタを返す |
 
-<table style="border:none;">
-    <thead>
-        <th style="border:none;">メソッド名</td>
-        <th style="border:none;">説明</td>
-    </thead>
-    <tr>
-        <td style="border:none;">toString()</td>
-        <td style="border:none;">オブジェクトを文字列で返す</td>
-    </tr>
-    <tr>
-        <td style="border:none;">valueOf()</td>
-        <td style="border:none;">オブジェクトのプリミティブ値を返す</td>
-    </tr>
-    <tr>
-        <td style="border:none;">hasOwnProperty()</td>
-        <td style="border:none;">指定したプロパティがオブジェクトのプロパティならばtrueを返す</td>
-    </tr>
-    <tr>
-        <td style="border:none;">propertyIsEnumerable()</td>
-        <td style="border:none;">指定したプロパティが列挙可能な場合trueを返す</td>
-    </tr>
-    <tr>
-        <td style="border:none;">isPrototypeOf()</td>
-        <td style="border:none;">指定したオブジェクトがプロトタイプの場合はtrueを返す</td>
-    </tr>
-</table>
+| メソッド名             | 説明                                                           |
+| :--------------------- | :------------------------------------------------------------- |
+| toString()             | オブジェクトを文字列で返す                                     |
+| valueOf()              | オブジェクトのプリミティブ値を返す                             |
+| hasOwnProperty()       | 指定したプロパティがオブジェクトのプロパティならば true を返す |
+| propertyIsEnumerable() | 指定したプロパティが列挙可能な場合 true を返す                 |
+| isPrototypeOf()        | 指定したオブジェクトがプロトタイプの場合は true を返す         |
 
 以下に例を記載する。
 

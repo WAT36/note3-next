@@ -29,48 +29,17 @@ Javascript はスクリプトを読み込んだ時に、**グローバルオブ�
 
 代表的なグローバルオブジェクトは以下の通り。
 
-<table style="border:none;">
-    <thead>
-        <th style="border:none;">オブジェクト名</th>
-        <th style="border:none;">説明</th>
-    </thead>
-    <tr>
-        <td style="border:none;">Array</td>
-        <td style="border:none;">配列オブジェクト</td>
-    </tr>
-    <tr>
-        <td style="border:none;">Boolean</td>
-        <td style="border:none;">真偽値オブジェクト</td>
-    </tr>
-    <tr>
-        <td style="border:none;">Date</td>
-        <td style="border:none;">日付オブジェクト</td>
-    </tr>
-    <tr>
-        <td style="border:none;">Error</td>
-        <td style="border:none;">エラーオブジェクト</td>
-    </tr>
-    <tr>
-        <td style="border:none;">JSON</td>
-        <td style="border:none;">JSONオブジェクト</td>
-    </tr>
-    <tr>
-        <td style="border:none;">Math</td>
-        <td style="border:none;">Mathオブジェクト</td>
-    </tr>
-    <tr>
-        <td style="border:none;">Number</td>
-        <td style="border:none;">数値オブジェクト</td>
-    </tr>
-    <tr>
-        <td style="border:none;">Object</td>
-        <td style="border:none;">オブジェクト</td>
-    </tr>
-    <tr>
-        <td style="border:none;">String</td>
-        <td style="border:none;">文字列オブジェクト</td>
-    </tr>
-</table>
+| オブジェクト名 | 説明               |
+| :------------- | :----------------- |
+| Array          | 配列オブジェクト   |
+| Boolean        | 真偽値オブジェクト |
+| Date           | 日付オブジェクト   |
+| Error          | エラーオブジェクト |
+| JSON           | JSON オブジェクト  |
+| Math           | Math オブジェクト  |
+| Number         | 数値オブジェクト   |
+| Object         | オブジェクト       |
+| String         | 文字列オブジェクト |
 
 ## グローバル関数
 
@@ -78,52 +47,18 @@ Javascript はスクリプトを読み込んだ時に、**グローバルオブ�
 
 代表的なグローバル関数は以下の通り。
 
-<table style="border:none;">
-    <thead>
-        <th style="border:none;">関数名</th>
-        <th style="border:none;">説明</th>
-    </thead>
-    <tr>
-        <td style="border:none;">decodeURI()</td>
-        <td style="border:none;">URIをデコード</td>
-    </tr>
-    <tr>
-        <td style="border:none;">decodeURIComponnent()</td>
-        <td style="border:none;">URIの要素をデコード</td>
-    </tr>
-    <tr>
-        <td style="border:none;">encodeURI()</td>
-        <td style="border:none;">URIをエンコード</td>
-    </tr>
-    <tr>
-        <td style="border:none;">encodeURIComponent()</td>
-        <td style="border:none;">URIの要素をエンコード</td>
-    </tr>
-    <tr>
-        <td style="border:none;">escape()</td>
-        <td style="border:none;">文字列を16進数文字列を変換</td>
-    </tr>
-    <tr>
-        <td style="border:none;">eval()</td>
-        <td style="border:none;">文字列を評価する(演算)</td>
-    </tr>
-    <tr>
-        <td style="border:none;">isFinite()</td>
-        <td style="border:none;">有限か否かを判定</td>
-    </tr>
-    <tr>
-        <td style="border:none;">isNaN()</td>
-        <td style="border:none;">NaN(非数値)か否かを判定する</td>
-    </tr>
-    <tr>
-        <td style="border:none;">parseFloat()</td>
-        <td style="border:none;">文字列を浮動小数点数に変換</td>
-    </tr>
-    <tr>
-        <td style="border:none;">parseInt()</td>
-        <td style="border:none;">文字列を整数に変換</td>
-    </tr>
-</table>
+| 関数名                | 説明                         |
+| :-------------------- | :--------------------------- |
+| decodeURI()           | URI をデコード               |
+| decodeURIComponnent() | URI の要素をデコード         |
+| encodeURI()           | URI をエンコード             |
+| encodeURIComponent()  | URI の要素をエンコード       |
+| escape()              | 文字列を 16 進数文字列を変換 |
+| eval()                | 文字列を評価する(演算)       |
+| isFinite()            | 有限か否かを判定             |
+| isNaN()               | NaN(非数値)か否かを判定する  |
+| parseFloat()          | 文字列を浮動小数点数に変換   |
+| parseInt()            | 文字列を整数に変換           |
 
 ## クロージャ
 
