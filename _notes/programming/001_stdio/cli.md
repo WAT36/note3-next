@@ -89,18 +89,3 @@ $ node main.js AA 10
 ```
 
 </div>
-
-<div class="programming-abstract">
-  <div class="java">
-    public static void main(String args[]){
-      System.out.println(Arrays.toString(args));
-    }
-  </div>
-  <div class="python">
-    import sys # sysモジュールをインポート
-    print(sys.argv)
-  </div>
-  <div class="javascript">
-    console.log(process.argv);
-  </div>
-</div>
