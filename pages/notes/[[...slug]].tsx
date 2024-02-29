@@ -68,6 +68,7 @@ export type SubPageLink = {
   name: string;
   isDir: boolean;
   date?: string;
+  mode?: string;
 };
 
 export async function getStaticProps({ params }: Params) {
@@ -97,7 +98,12 @@ export async function getStaticProps({ params }: Params) {
     const slugs = getNoteUnderDirSlugs(dirSlug, false);
     subPageLinks = slugs
       .map((slug) => {
-        const noteConfig = getNoteBySlug(slug.slug, ["title", "date", "draft"]);
+        const noteConfig = getNoteBySlug(slug.slug, [
+          "title",
+          "date",
+          "draft",
+          "mode",
+        ]);
         // null(draftタグtrue)の場合は作成しない
         if (!slug.isDir && noteConfig["draft"]) {
           return null;
@@ -107,6 +113,7 @@ export async function getStaticProps({ params }: Params) {
           name: noteConfig["title"] || slug.slug.join("/"),
           date: noteConfig["date"] || null,
           isDir: slug.isDir,
+          mode: noteConfig["mode"] || null,
         };
       })
       // 上記のnull(draftタグtrue)と_index.mdを省く
