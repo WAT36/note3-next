@@ -8,3 +8,8 @@
       color: #fff;
     }
 }
+
+/*プログラミング記事内の簡略コード用*/
+.programming-abstract{
+  display:none;
+}
