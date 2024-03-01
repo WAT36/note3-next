@@ -69,7 +69,7 @@ export type SubPageLink = {
   isDir: boolean;
   date?: string;
   mode?: string;
-  programmingAbst?: { [key: string]: string[] };
+  programmingAbst?: { [key: string]: string };
 };
 
 export async function getStaticProps({ params }: Params) {
@@ -118,11 +118,13 @@ export async function getStaticProps({ params }: Params) {
               new RegExp("```" + PROGRAMMING_LANGUAGE_NAME[i] + "[\\s\\S]*?```")
             );
             programmingAbst[PROGRAMMING_LANGUAGE_NAME[i]] = extractAbst
-              ? extractAbst.map((data) =>
-                  data
-                    .replace("```" + PROGRAMMING_LANGUAGE_NAME[i], "")
-                    .replace("```", "")
-                )
+              ? extractAbst
+                  .map((data) =>
+                    data
+                      .replace("```" + PROGRAMMING_LANGUAGE_NAME[i], "")
+                      .replace("```", "")
+                  )
+                  .join("")
               : null;
           }
         }
