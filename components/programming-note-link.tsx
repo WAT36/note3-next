@@ -1,5 +1,4 @@
 import Link from "next/link";
-import parse from "html-react-parser";
 
 type Props = {
   slug: string;
