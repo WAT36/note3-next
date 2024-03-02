@@ -111,7 +111,7 @@ class BookCollection implements Aggregate {
 }
 ```
 
-これらを実際に利用した例は以下です。
+これらを実際に利用した例を以下に記載する。
 
 ```java
 // 利用例
