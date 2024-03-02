@@ -47,7 +47,9 @@ $$
 y-f(a) = - \frac{1}{f'(a)}(x-a)
 $$
 
-（これも接線と同じように何か図を載せたい）
+例を以下に示す。
+
+<div id="hosen" class="jxgbox" style="width: 400px; height: 400px"></div>
 
 # 媒介変数表示
 
@@ -191,6 +193,122 @@ $$
   var legend = board.create("legend", [-5, 4.5], {
     labels: ["曲線 y=(x-2)x(x+2)", "接線 y-f(a) = f'(a)(x-a)"],
     colors: ["#0000ff", "#ff0000"],
+    strokeWidth: 5,
+  });
+
+  /*以下は法線*/
+  const board2 = JXG.JSXGraph.initBoard("hosen", {
+    axis: true, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
+    boundingbox: [-5, 5, 5, -5], // 領域の座標[左、上、右、下]
+    keepaspectratio: true, // 表示するdivボックスの縦横比に合わせる？（デフォルトfalse)
+    showNavigation: false,
+    showCopyright: false,
+  });
+  // 法線
+  function hosenCalc(a, x) {
+    return (-1 / dfx(a)) * (x - a) + fx(a);
+  }
+  // 関数をプロット
+  let graph2 = board2.create("functiongraph", [fx, -10, 10], {
+    highlight: false, //ホバー時に色を変えて表示させるか
+    strokeColor: "#0000ff", // 線の色
+  });
+  // スライダーをプロット
+  var slider2 = board2.create("slider", [
+    [-3, 4.8],
+    [3, 4.8],
+    [-3, 0.1, 3],
+  ]);
+  // 点をプロット
+  // スライダーの値に応じて変化
+  var ph1 = board2.create(
+    "point",
+    [
+      function () {
+        return slider2.Value();
+      },
+
+      function () {
+        return fx(slider2.Value());
+      },
+    ],
+    {
+      name: `a`, // 点の名前
+      size: 5, // 点の大きさ
+      face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+      highlight: false, //ホバー時に色を変えて表示させるか
+      trace: false, // 移動したときに跡を残すか？
+      strokeColor: "#ff0000", // 線の色
+    }
+  );
+  //(接線用の)延長線上の点
+  var ph2 = board2.create(
+    "point",
+    [
+      function () {
+        return slider2.Value() + 1;
+      },
+
+      function () {
+        return sessenCalc(slider2.Value(), slider2.Value() + 1);
+      },
+    ],
+    {
+      name: ``, // 点の名前
+      size: 0, // 点の大きさ
+      face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+      highlight: false, //ホバー時に色を変えて表示させるか
+      trace: false, // 移動したときに跡を残すか？
+      strokeColor: "#ffffff", // 色
+    }
+  );
+  //(法線用の)延長線上の点
+  var ph3 = board2.create(
+    "point",
+    [
+      function () {
+        return slider2.Value() + 1;
+      },
+
+      function () {
+        return hosenCalc(slider2.Value(), slider2.Value() + 1);
+      },
+    ],
+    {
+      name: ``, // 点の名前
+      size: 0, // 点の大きさ
+      face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+      highlight: false, //ホバー時に色を変えて表示させるか
+      trace: false, // 移動したときに跡を残すか？
+      strokeColor: "#ffffff", // 色
+    }
+  );
+  // 接線をプロット
+  var sessen2 = board2.create("line", [ph1, ph2], {
+    strokeColor: "#808080", // 線の色
+    strokeWidth: 1, // 線の太さ
+    straightFirst: true, // 始点を突き抜けて直線にするか
+    straightLast: true, // 終点を突き抜けて直線にするか
+    dash: 0, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
+    highlight: false, //ホバー時に色を変えて表示させるか
+  });
+  // 法線をプロット
+  var hosen = board2.create("line", [ph1, ph3], {
+    strokeColor: "#ff0000", // 線の色
+    strokeWidth: 3, // 線の太さ
+    straightFirst: true, // 始点を突き抜けて直線にするか
+    straightLast: true, // 終点を突き抜けて直線にするか
+    dash: 0, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
+    highlight: false, //ホバー時に色を変えて表示させるか
+  });
+  //凡例
+  var legend = board2.create("legend", [-5, 4.5], {
+    labels: [
+      "曲線 y=(x-2)x(x+2)",
+      "接線 y-f(a) = f'(a)(x-a)",
+      "法線 y-f(a) = {-1/f'(a)}(x-a)",
+    ],
+    colors: ["#0000ff", "#808080", "#ff0000"],
     strokeWidth: 5,
   });
 </script>
