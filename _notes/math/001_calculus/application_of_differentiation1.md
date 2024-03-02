@@ -93,7 +93,29 @@ $$
 
 となる。
 
-（媒介変数表示の例としてサイクロイドがあるが載せる？）
+媒介変数表示の例として、以下のような式を考える。
+
+$$
+x=t- \sin t, y=1- \cos t
+$$
+
+この式で表される曲線をサイクロイドといい、以下の図のような曲線である。
+
+<div id="cycloid" class="jxgbox" style="width: 400px; height: 400px"></div>
+
+この式の $\frac{dy}{dx}$ は
+
+$$
+\frac{dx}{dt} = 1- \cos t, \frac{dy}{dt} = \sin t
+$$
+
+より
+
+$$
+\frac{dy}{dx} = \frac{\sin t}{1- \cos t}
+$$
+
+となる。
 
 # 陰関数の微分
 
@@ -311,4 +333,72 @@ $$
     colors: ["#0000ff", "#808080", "#ff0000"],
     strokeWidth: 5,
   });
+
+  // JSXGraph初期設定
+  const boardC = JXG.JSXGraph.initBoard("cycloid", {
+    axis: true, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
+    boundingbox: [-1, 5, 8, -1], // 領域の座標[左、上、右、下]
+    keepaspectratio: true, // 表示するdivボックスの縦横比に合わせる？（デフォルトfalse)
+    showNavigation: false,
+    showCopyright: false,
+  });
+  // サイクロイドのx座標
+  function cycloidX(t) {
+    return t - Math.sin(t);
+  }
+  // サイクロイドのy座標
+  function cycloidY(t) {
+    return 1 - Math.cos(t);
+  }
+  // スライダーをプロット
+  var sliderT = boardC.create(
+    "slider",
+    [
+      [4, 4.8],
+      [7, 4.8],
+      [-3, 0.1, 10],
+    ],
+    { name: "t", snapWidth: 0.1 }
+  );
+  // 点をプロット
+  // スライダーの値に応じて変化
+  var pC = boardC.create(
+    "point",
+    [
+      function () {
+        return cycloidX(sliderT.Value());
+      },
+
+      function () {
+        return cycloidY(sliderT.Value());
+      },
+    ],
+    {
+      name: `a`, // 点の名前
+      size: 5, // 点の大きさ
+      face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+      highlight: false, //ホバー時に色を変えて表示させるか
+      trace: true, // 移動したときに跡を残すか？
+      strokeColor: "#ff0000", // 線の色
+    }
+  );
+  //曲線をプロット
+  // the cycloid curve.
+  var curve = boardC.create(
+    "curve",
+    [
+      function (t) {
+        return t - Math.sin(t);
+      },
+      function (t) {
+        return 1 - Math.cos(t);
+      },
+      -1 * Math.PI,
+      4 * Math.PI,
+    ],
+    {
+      strokeColor: "#808080", // 線の色
+      strokeWidth: 1, // 線の太さ
+    }
+  );
 </script>
