@@ -99,7 +99,9 @@ $$
 x=t- \sin t, y=1- \cos t
 $$
 
-この式で表される曲線をサイクロイドといい、以下の図のような曲線である。
+この式で表される曲線をサイクロイドという。
+
+サイクロイドとは、一直線上を一つの円がすべることなくころがるとき、この円の周上に固定された一点が描く曲線のことであり、以下の図のような曲線である。
 
 <div id="cycloid" class="jxgbox" style="width: 400px; height: 400px"></div>
 
@@ -399,6 +401,21 @@ $$
     {
       strokeColor: "#808080", // 線の色
       strokeWidth: 1, // 線の太さ
+    }
+  );
+  // 円をプロット
+  var ci1 = boardC.create(
+    "circle",
+    [
+      function () {
+        return [sliderT.Value(), 1];
+      },
+      1,
+    ],
+    {
+      strokeColor: "#808080", // 線の色
+      strokeWidth: 1, // 線の太さ
+      dash: 1,
     }
   );
 </script>
