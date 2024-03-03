@@ -129,7 +129,47 @@ $$
 
 この形式を関数の**陰関数表示**といい、この形で表された関数を**陰関数**という。
 
-(何か例を載せる？)
+例として、以下の楕円を表す陰関数
+
+$$
+\frac{x^2}{a^2} + \frac{y^2}{b^2} - 1 = 0
+$$
+
+の $\frac{dy}{dx}$ を求めてみよう。
+
+上式の両辺を x で微分すれば
+
+$$
+\frac{2x}{a^2} + \frac{2y}{b^2} \frac{dy}{dx} = 0 \\
+\frac{dy}{dx} = - \frac{b^2 x}{a^2 y}
+$$
+
+となる。
+
+これを利用して、楕円の接線の式もわかる。楕円上の点($x_{1},y_{1}$)における接線の方程式は、以下のようになる。
+
+$$
+y-y_{1} = - \frac{b^2 x_{1}}{a^2 y_{1}}(x-x_{1}) \\
+\therefore \frac{x_{1} x}{a^2} + \frac{y_{1} y}{b^2} = \frac{x_{1}^2}{a^2} + \frac{y_{1}^2}{b^2}
+$$
+
+しかし、点($x_{1},y_{1}$)は楕円上にあるので、式
+
+$$
+\frac{x_{1}^2}{a^2} + \frac{y_{1}^2}{b^2} = 1
+$$
+
+が成立する。なので接線の式は
+
+$$
+\frac{x_{1} x}{a^2} + \frac{y_{1} y}{b^2} = 1
+$$
+
+となる。
+
+これらの式をもとにして、以下に、a=3,b=2 とした時の楕円および楕円上の接線を示した図を記載する。
+
+<div id="oval" class="jxgbox" style="width: 400px; height: 400px"></div>
 
 <script>
   // JSXGraph初期設定
@@ -418,4 +458,112 @@ $$
       dash: 1,
     }
   );
+
+  // JSXGraph初期設定
+  const boardOval = JXG.JSXGraph.initBoard("oval", {
+    axis: true, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
+    boundingbox: [-4, 4, 4, -4], // 領域の座標[左、上、右、下]
+    keepaspectratio: true, // 表示するdivボックスの縦横比に合わせる？（デフォルトfalse)
+  });
+  const a = 3;
+  const b = 2;
+  // 楕円のx座標
+  function ovalX(t) {
+    return a * Math.cos(t);
+  }
+  // 楕円のy座標
+  function ovalY(t) {
+    return b * Math.sin(t);
+  }
+  // 楕円上の接線
+  function ovalSessenCalc(a, b, x1, y1, x) {
+    return -1 * ((b * b * x1) / (a * a * y1)) * (x - x1) + y1;
+  }
+  // スライダーをプロット
+  var sliderOval = boardOval.create(
+    "slider",
+    [
+      [1, 3.5],
+      [3, 3.5],
+      [0, 0.05, 2 * Math.PI],
+    ],
+    { snapWidth: 0.1 }
+  );
+  // 点をプロット
+  // スライダーの値に応じて変化
+  var pOval = boardOval.create(
+    "point",
+    [
+      function () {
+        return ovalX(sliderOval.Value());
+      },
+
+      function () {
+        return ovalY(sliderOval.Value());
+      },
+    ],
+    {
+      name: `(x1,y1)`, // 点の名前
+      size: 5, // 点の大きさ
+      face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+      highlight: false, //ホバー時に色を変えて表示させるか
+      trace: false, // 移動したときに跡を残すか？
+      strokeColor: "#ff0000", // 線の色
+    }
+  );
+  //曲線(楕円)をプロット
+  var curveOval = boardOval.create(
+    "curve",
+    [
+      function (t) {
+        return ovalX(t);
+      },
+      function (t) {
+        return ovalY(t);
+      },
+      0,
+      2 * Math.PI,
+    ],
+    {
+      strokeColor: "#ff4500", // 線の色
+      strokeWidth: 1, // 線の太さ
+    }
+  );
+  var pOval2 = boardOval.create(
+    "point",
+    [
+      function () {
+        return sliderOval.Value() === 0
+          ? ovalX(sliderOval.Value())
+          : ovalX(sliderOval.Value()) + 1;
+      },
+      function () {
+        return sliderOval.Value() === 0
+          ? 1
+          : ovalSessenCalc(
+              a,
+              b,
+              ovalX(sliderOval.Value()),
+              ovalY(sliderOval.Value()),
+              ovalX(sliderOval.Value()) + 1
+            );
+      },
+    ],
+    {
+      name: ``, // 点の名前
+      size: 0, // 点の大きさ
+      face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+      highlight: false, //ホバー時に色を変えて表示させるか
+      trace: false, // 移動したときに跡を残すか？
+      strokeColor: "#ffffff", // 色
+    }
+  );
+  var sessenOval = boardOval.create("line", [pOval, pOval2], {
+    strokeColor: "#ff0000", // 線の色
+    strokeWidth: 3, // 線の太さ
+    straightFirst: true, // 始点を突き抜けて直線にするか
+    straightLast: true, // 終点を突き抜けて直線にするか
+    dash: 0, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
+    highlight: false, //ホバー時に色を変えて表示させるか
+  });
 </script>
