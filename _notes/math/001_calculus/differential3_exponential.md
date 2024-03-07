@@ -179,6 +179,29 @@ $$
 
 となる。この公式を利用する計算法を対数微分法と呼ぶ。
 
+## $y=x^{\alpha}$ の微分
+
+この対数微分法を利用して、 $y=x^{\alpha}$ の微分を求めてみよう。
+
+まず、両辺の対数を取ると
+
+$$
+\log y = \alpha \log x
+$$
+
+そして、両辺を x で微分すると
+
+$$
+\begin{aligned}
+\frac{1}{y} \cdot y' &= \alpha \cdot \frac{1}{x} \\
+\Leftrightarrow y' &= \alpha \frac{y}{x} \\
+\Leftrightarrow y' &= \alpha \frac{x^{\alpha}}{x} \\
+\Leftrightarrow y' &= \alpha x^{\alpha - 1} \\
+\end{aligned}
+$$
+
+よって、 $y=x^{\alpha}$ の微分は $y’=x^{\alpha -1}$ になる。
+
 <script>
   // JSXGraph初期設定
   const board = JXG.JSXGraph.initBoard("e", {
