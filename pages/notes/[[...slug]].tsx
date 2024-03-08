@@ -135,9 +135,7 @@ export async function getStaticProps({ params }: Params) {
           isDir: slug.isDir,
           mode: noteConfig["mode"] || null,
           programmingAbst:
-            Object.keys(programmingAbst).length === 0
-              ? undefined
-              : programmingAbst,
+            Object.keys(programmingAbst).length === 0 ? null : programmingAbst,
         };
       })
       // 上記のnull(draftタグtrue)と_index.mdを省く
