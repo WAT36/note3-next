@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { programmingLanguageState } from "../atoms/ProgrammingLanguage";
 
 type Props = {
   slug: string;
@@ -7,6 +9,11 @@ type Props = {
 };
 
 const ProgrammingNoteLink = ({ slug, name, abst }: Props) => {
+  // Recoilの Atoms を呼び出して定義
+  const setLanguage = useSetRecoilState(programmingLanguageState);
+  // ステートとして利用する
+  const [programmingLanguage] = useRecoilState(programmingLanguageState);
+
   return (
     <div className="p-3 border border-double border-green-400">
       <div className="w-2/6 inline-block">
@@ -19,7 +26,7 @@ const ProgrammingNoteLink = ({ slug, name, abst }: Props) => {
       </div>
       <div className="w-4/6 inline-block">
         <pre>
-          <code>{abst && abst["java"]}</code>
+          <code>{abst && abst[programmingLanguage.language]}</code>
         </pre>
       </div>
     </div>
