@@ -1,4 +1,4 @@
-import Avatar from "./avatar";
+import Avatar from "./ui-elements/avatar/Avatar";
 import DateFormatter from "./date-formatter";
 import CoverImage from "./cover-image";
 import Link from "next/link";
