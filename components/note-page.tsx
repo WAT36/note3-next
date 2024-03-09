@@ -12,7 +12,7 @@ type Props = {
 
 const NotePage = ({ note }: Props) => {
   return (
-    <Layout programmingTag={note.programming}>
+    <Layout canChangeProgrammingLanguage={true}>
       <Container>
         <article className="mb-32">
           <Head>

@@ -7,6 +7,7 @@ import NoteDirLink from "./notedir-link";
 import NoteLink from "./note-link";
 import { SubPageLink } from "../pages/notes/[[...slug]]";
 import markdownStyles from "./markdown-styles.module.css";
+import ProgrammingNoteLink from "./programming-note-link";
 
 type Props = {
   subPageLinks?: SubPageLink[];
@@ -15,7 +16,7 @@ type Props = {
 
 const NoteDirPage = ({ subPageLinks, preface }: Props) => {
   return (
-    <Layout>
+    <Layout canChangeProgrammingLanguage={true}>
       <Container>
         <Intro title={"Notes."} />
         <Bio admin={ADMINISTRATOR} />
@@ -31,6 +32,12 @@ const NoteDirPage = ({ subPageLinks, preface }: Props) => {
           subPageLinks.map((link) => {
             return link.isDir ? (
               <NoteDirLink slug={link.slug} />
+            ) : link.mode && link.mode === "programming" ? (
+              <ProgrammingNoteLink
+                slug={link.slug}
+                name={link.name}
+                abst={link.programmingAbst}
+              />
             ) : (
               <NoteLink slug={link.slug} name={link.name} />
             );
