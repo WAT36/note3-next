@@ -20,7 +20,9 @@ ogImage:
 
 > 関数 f(x)が閉区間[a,b]で連続であれば、関数 f(x)が最大値 M を取る点 x=c と最小値 m を取る点 c’が区間[a,b]内に存在する。
 
-（何か例となる図を図示する）
+例として以下に関数 y=(x-2)x(x+2)を対象とした図を記載する。区間をどう指定しても、最大値 M を取る点 x=c と最小値 m を取る点 c’が存在する。
+
+<div id="maxmin" class="jxgbox" style="width: 400px; height: 400px"></div>
 
 [証明]
 
@@ -85,3 +87,230 @@ $$
 最大値と最小値が同じなため、関数 f(x)は区間[a,b]で一定である。
 
 ゆえに a<c<b である任意の c について、f’(c)=0 である。
+
+<script>
+// JSXGraph初期設定
+const boardMaxMin = JXG.JSXGraph.initBoard("maxmin", {
+  axis: true, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
+  boundingbox: [-4, 4, 4, -4], // 領域の座標[左、上、右、下]
+  keepaspectratio: true, // 表示するdivボックスの縦横比に合わせる？（デフォルトfalse)
+  showNavigation: false, // ナビゲーションボタンを表示するかの設定（デフォルトfalse）
+  showCopyright: false, // コピーライト文字列を表示するかの設定（デフォルトfalse）
+});
+// 関数 (x-2)x(x+2)
+function fx(t) {
+  return t ** 3 - 4 * t;
+}
+// 指定区間内で関数の最大値をとるxを返す
+function getMaxX(start, end) {
+  var maxX;
+  var y = -1000000;
+  for (let x = start; x <= end; x += 0.01) {
+    if (y <= fx(x)) {
+      y = fx(x);
+      maxX = x;
+    }
+  }
+  return maxX;
+}
+// 指定区間内で関数の最小値をとるxを返す
+function getMinX(start, end) {
+  var minX;
+  var y = 1000000;
+  for (let x = start; x <= end; x += 0.01) {
+    if (y >= fx(x)) {
+      y = fx(x);
+      minX = x;
+    }
+  }
+  return minX;
+}
+// 関数をプロット
+let graph = boardMaxMin.create("functiongraph", [fx, -10, 10], {
+  highlight: false, //ホバー時に色を変えて表示させるか
+  strokeColor: "#0000ff", // 線の色
+});
+// スライダーをプロット
+var slider1 = boardMaxMin.create("slider", [
+  [-3, 3.8],
+  [0, 3.8],
+  [-3, 0.1, 0],
+]);
+var slider2 = boardMaxMin.create("slider", [
+  [0, 3.8],
+  [3, 3.8],
+  [0, 0.1, 3],
+]);
+// 直線をプロット
+var pa1 = boardMaxMin.create(
+  "point",
+  [
+    function () {
+      return slider1.Value();
+    },
+    3.2,
+  ],
+  {
+    name: `a`, // 点の名前
+    size: 0, // 点の大きさ
+    face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+    highlight: false, //ホバー時に色を変えて表示させるか
+    trace: false, // 移動したときに跡を残すか？
+    strokeColor: "#ffffff", // 色
+  }
+);
+var pb1 = boardMaxMin.create(
+  "point",
+  [
+    function () {
+      return slider2.Value();
+    },
+    3.2,
+  ],
+  {
+    name: `b`, // 点の名前
+    size: 0, // 点の大きさ
+    face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+    highlight: false, //ホバー時に色を変えて表示させるか
+    trace: false, // 移動したときに跡を残すか？
+    strokeColor: "#ffffff", // 色
+  }
+);
+var lia = boardMaxMin.create("line", [
+  pa1,
+  [
+    function () {
+      return pa1.X();
+    },
+    1,
+  ],
+]);
+var lib = boardMaxMin.create("line", [
+  pb1,
+  [
+    function () {
+      return pb1.X();
+    },
+    1,
+  ],
+]);
+// 指定区間内の最大値の点
+var pMax1 = boardMaxMin.create(
+  "point",
+  [
+    function () {
+      return getMaxX(slider1.Value(), slider2.Value());
+    },
+    0,
+  ],
+  {
+    name: `c`, // 点の名前
+    size: 2, // 点の大きさ
+    face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+    highlight: false, //ホバー時に色を変えて表示させるか
+    trace: false, // 移動したときに跡を残すか？
+    strokeColor: "#ff0000", // 色
+  }
+);
+var pMax2 = boardMaxMin.create(
+  "point",
+  [
+    function () {
+      return pMax1.X();
+    },
+    function () {
+      return fx(pMax1.X());
+    },
+  ],
+  {
+    name: `M`, // 点の名前
+    size: 2, // 点の大きさ
+    face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+    highlight: false, //ホバー時に色を変えて表示させるか
+    trace: false, // 移動したときに跡を残すか？
+    strokeColor: "#ff0000", // 色
+  }
+);
+var pMin1 = boardMaxMin.create(
+  "point",
+  [
+    function () {
+      return getMinX(slider1.Value(), slider2.Value());
+    },
+    0,
+  ],
+  {
+    name: `c'`, // 点の名前
+    size: 2, // 点の大きさ
+    face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+    highlight: false, //ホバー時に色を変えて表示させるか
+    trace: false, // 移動したときに跡を残すか？
+    strokeColor: "#ff0000", // 色
+  }
+);
+var pMin2 = boardMaxMin.create(
+  "point",
+  [
+    function () {
+      return pMin1.X();
+    },
+    function () {
+      return fx(pMin1.X());
+    },
+  ],
+  {
+    name: `m`, // 点の名前
+    size: 2, // 点の大きさ
+    face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+    highlight: false, //ホバー時に色を変えて表示させるか
+    trace: false, // 移動したときに跡を残すか？
+    strokeColor: "#ff0000", // 色
+  }
+);
+var liMax = boardMaxMin.create("line", [pMax1, pMax2], {
+  strokeColor: "#ff0000", // 線の色
+  strokeWidth: 4, // 線の太さ
+  straightFirst: false, // 始点を突き抜けて直線にするか
+  straightLast: false, // 終点を突き抜けて直線にするか
+  dash: 2, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
+  highlight: false, //ホバー時に色を変えて表示させるか
+});
+var liMin = boardMaxMin.create("line", [pMin1, pMin2], {
+  strokeColor: "#ff0000", // 線の色
+  strokeWidth: 4, // 線の太さ
+  straightFirst: false, // 始点を突き抜けて直線にするか
+  straightLast: false, // 終点を突き抜けて直線にするか
+  dash: 2, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
+  highlight: false, //ホバー時に色を変えて表示させるか
+});
+var poly = boardMaxMin.create(
+  "polygon",
+  [
+    [
+      function () {
+        return slider1.Value();
+      },
+      10,
+    ],
+    [
+      function () {
+        return slider1.Value();
+      },
+      -10,
+    ],
+    [
+      function () {
+        return slider2.Value();
+      },
+      -10,
+    ],
+    [
+      function () {
+        return slider2.Value();
+      },
+      10,
+    ],
+  ],
+  { fillOpacity: 0.05 }
+);
+</script>
