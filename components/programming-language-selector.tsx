@@ -1,15 +1,18 @@
-import { useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { programmingLanguageState } from "../atoms/ProgrammingLanguage";
 import { PROGRAMMING_LANGUAGE_NAME } from "../lib/constants";
 
 type Props = {};
 
 const ProgrammingLanguageSelector = ({}: Props) => {
+  // ステートとして利用する
+  const [programmingLanguage] = useRecoilState(programmingLanguageState);
   // Recoilの Atoms を呼び出して定義
   const setProgrammingLanguage = useSetRecoilState(programmingLanguageState);
   return (
     <div className="inline-block float-right mx-3 my-4">
       <select
+        id="programmingLanguageSelector"
         className="text-black"
         name="programmingLanguage"
         onChange={(e) => {
@@ -17,7 +20,13 @@ const ProgrammingLanguageSelector = ({}: Props) => {
         }}
       >
         {PROGRAMMING_LANGUAGE_NAME.map((pl) => {
-          return <option value={pl}>{pl}</option>;
+          return programmingLanguage.language === pl ? (
+            <option selected value={pl}>
+              {pl}
+            </option>
+          ) : (
+            <option value={pl}>{pl}</option>
+          );
         })}
       </select>
     </div>
