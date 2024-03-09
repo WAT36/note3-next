@@ -1,4 +1,4 @@
-import { BreadCrumb } from "./bread-crumb";
+import { BreadCrumb } from "./ui-elements/bread-crumb/BreadCrumb";
 import Footer from "./footer";
 import Header from "./header";
 import Meta from "./meta";

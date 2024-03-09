@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { DIR_NAME } from "../lib/constants";
+import { DIR_NAME } from "../../../lib/constants";
 
 export const BreadCrumb: NextPage = () => {
   const router = useRouter();

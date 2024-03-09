@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { BreadCrumb } from "../components/bread-crumb";
+import { BreadCrumb } from "../components/ui-elements/bread-crumb/BreadCrumb";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
