@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Bio } from "../components/bio";
+import { Bio } from "../components/ui-elements/bio/Bio";
 import Container from "../components/ui-elements/container/Container";
 import Intro from "../components/intro";
 import Layout from "../components/layout";

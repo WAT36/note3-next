@@ -1,4 +1,4 @@
-import { Administrator } from "../interfaces/author";
+import { Administrator } from "../../../interfaces/author";
 
 type Props = {
   admin: Administrator;

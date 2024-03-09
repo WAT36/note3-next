@@ -6,7 +6,7 @@ import { getAllPosts } from "../lib/api";
 import Head from "next/head";
 import { ADMINISTRATOR, TITLE } from "../lib/constants";
 import Post from "../interfaces/post";
-import { Bio } from "../components/bio";
+import { Bio } from "../components/ui-elements/bio/Bio";
 
 type Props = {
   allPosts: Post[];

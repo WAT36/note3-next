@@ -1,6 +1,6 @@
 import AboutList from "../components/about/about-list";
 import AboutSection from "../components/about/about-section";
-import { Bio } from "../components/bio";
+import { Bio } from "../components/ui-elements/bio/Bio";
 import Container from "../components/ui-elements/container/Container";
 import Intro from "../components/intro";
 import Layout from "../components/layout";

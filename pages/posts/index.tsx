@@ -3,7 +3,7 @@ import Container from "../../components/ui-elements/container/Container";
 import Post from "../../interfaces/post";
 import { getAllPosts } from "../../lib/api";
 import Intro from "../../components/intro";
-import { Bio } from "../../components/bio";
+import { Bio } from "../../components/ui-elements/bio/Bio";
 import { ADMINISTRATOR } from "../../lib/constants";
 import MoreStories from "../../components/more-stories";
 
