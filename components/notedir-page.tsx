@@ -16,7 +16,7 @@ type Props = {
 
 const NoteDirPage = ({ subPageLinks, preface }: Props) => {
   return (
-    <Layout>
+    <Layout canChangeProgrammingLanguage={true}>
       <Container>
         <Intro title={"Notes."} />
         <Bio admin={ADMINISTRATOR} />

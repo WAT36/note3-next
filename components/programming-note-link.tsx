@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { programmingLanguageState } from "../atoms/ProgrammingLanguage";
 
 type Props = {
@@ -9,8 +9,6 @@ type Props = {
 };
 
 const ProgrammingNoteLink = ({ slug, name, abst }: Props) => {
-  // Recoilの Atoms を呼び出して定義
-  const setLanguage = useSetRecoilState(programmingLanguageState);
   // ステートとして利用する
   const [programmingLanguage] = useRecoilState(programmingLanguageState);
 
