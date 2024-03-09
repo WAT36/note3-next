@@ -1,4 +1,4 @@
-import Container from "../components/container";
+import Container from "../components/ui-elements/container/Container";
 import HeroPost from "../components/hero-post";
 import Intro from "../components/intro";
 import Layout from "../components/layout";

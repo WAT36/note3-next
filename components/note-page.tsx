@@ -1,5 +1,5 @@
 import Layout from "./layout";
-import Container from "./container";
+import Container from "./ui-elements/container/Container";
 import Head from "next/head";
 import NoteType from "../interfaces/note";
 import { TITLE } from "../lib/constants";

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Bio } from "../components/bio";
-import Container from "../components/container";
+import Container from "../components/ui-elements/container/Container";
 import Intro from "../components/intro";
 import Layout from "../components/layout";
 import { ADMINISTRATOR } from "../lib/constants";

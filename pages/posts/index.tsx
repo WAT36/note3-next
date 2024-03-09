@@ -1,5 +1,5 @@
 import Layout from "../../components/layout";
-import Container from "../../components/container";
+import Container from "../../components/ui-elements/container/Container";
 import Post from "../../interfaces/post";
 import { getAllPosts } from "../../lib/api";
 import Intro from "../../components/intro";

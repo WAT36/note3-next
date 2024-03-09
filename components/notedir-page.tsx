@@ -1,5 +1,5 @@
 import Layout from "./layout";
-import Container from "./container";
+import Container from "./ui-elements/container/Container";
 import { ADMINISTRATOR } from "../lib/constants";
 import Intro from "./intro";
 import { Bio } from "./bio";
