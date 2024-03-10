@@ -22,7 +22,7 @@ export const BreadCrumb: NextPage = () => {
   if (roots.slice(-1)[0] !== "/" && roots.slice(-1)[0] !== "") {
     // トップページ以外
     return (
-      <div className="mx-3 my-4">
+      <div className="mx-3 my-4 inline-block">
         {/* Homeのリンク */}
         <Link href={process.env.NEXT_PUBLIC_URL_END}>Top</Link>
         {paths.map((x, i) => (

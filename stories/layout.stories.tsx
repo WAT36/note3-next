@@ -27,6 +27,5 @@ export const Default: Story = {
   args: {
     preview: false,
     children: <p>{"Layout Test"}</p>,
-    programmingTag: ["test1", "test2"],
   },
 };

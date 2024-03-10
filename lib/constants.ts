@@ -58,3 +58,5 @@ export const DIR_NAME = {
   "2011_ml_func": "関数(機械学習系)",
   "2022_probability": "確率・統計",
 };
+
+export const PROGRAMMING_LANGUAGE_NAME = ["java", "python", "javascript"];
