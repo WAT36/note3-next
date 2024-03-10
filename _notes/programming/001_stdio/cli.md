@@ -66,7 +66,7 @@ $ python cli.py aa 10
 ```
 
 </div>
-<div class="note_content_by_programming_language" id="note_content_Node.js">
+<div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
 console.log(process.argv);
