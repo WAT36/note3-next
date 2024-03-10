@@ -88,6 +88,20 @@ $$
 
 ゆえに a<c<b である任意の c について、f’(c)=0 である。
 
+# 平均値の定理
+
+以下の定理を平均値の定理と呼ぶ。
+
+> 関数 f(x)が閉区間[a,b]で連続であり、開区間(a,b)で微分可能であれば、
+> {f(b)-f(a)}/{b-a} = f’(c), a<c<b
+> となる数 c が少なくとも１つ存在する。
+
+[証明]
+
+後述する？
+
+あと図も載せたいか
+
 <script>
 // JSXGraph初期設定
 const boardMaxMin = JXG.JSXGraph.initBoard("maxmin", {
