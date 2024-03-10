@@ -3,7 +3,7 @@ import Container from "../components/ui-elements/container/Container";
 import Intro from "../components/intro";
 import Layout from "../components/layout";
 import { ADMINISTRATOR } from "../lib/constants";
-import H2 from "../components/headline";
+import H2 from "../components/ui-elements/headline/Headline";
 
 export default function Disclaimer() {
   return (

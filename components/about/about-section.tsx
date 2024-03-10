@@ -1,4 +1,4 @@
-import H2 from "../headline";
+import H2 from "../ui-elements/headline/Headline";
 
 type Props = {
   title: string;
