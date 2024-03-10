@@ -1,5 +1,5 @@
 import { BreadCrumb } from "./ui-elements/bread-crumb/BreadCrumb";
-import Footer from "./footer";
+import Footer from "./ui-elements/footer/Footer";
 import Header from "./header";
 import Meta from "./meta";
 import ProgrammingLanguageSelector from "./programming-language-selector";
