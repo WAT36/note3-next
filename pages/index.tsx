@@ -1,6 +1,6 @@
 import Container from "../components/ui-elements/container/Container";
 import HeroPost from "../components/hero-post";
-import Intro from "../components/intro";
+import Intro from "../components/ui-elements/intro/Intro";
 import Layout from "../components/layout";
 import { getAllPosts } from "../lib/api";
 import Head from "next/head";

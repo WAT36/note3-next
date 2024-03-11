@@ -1,7 +1,7 @@
 import Layout from "./layout";
 import Container from "./ui-elements/container/Container";
 import { ADMINISTRATOR } from "../lib/constants";
-import Intro from "./intro";
+import Intro from "./ui-elements/intro/Intro";
 import { Bio } from "./ui-elements/bio/Bio";
 import NoteDirLink from "./notedir-link";
 import NoteLink from "./note-link";
