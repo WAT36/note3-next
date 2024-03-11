@@ -1,6 +1,6 @@
 import Avatar from "./ui-elements/avatar/Avatar";
 import DateFormatter from "./ui-elements/date-formatter/DateFormatter";
-import CoverImage from "./cover-image";
+import CoverImage from "./ui-elements/cover-image/CoverImage";
 import Link from "next/link";
 import type Author from "../interfaces/author";
 

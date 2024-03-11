@@ -1,10 +1,10 @@
 import cn from "classnames";
 import Link from "next/link";
-import { ALT_IMAGE } from "../lib/constants";
+import { ALT_IMAGE } from "../../../lib/constants";
 
 type Props = {
   title: string;
-  src: string | null;
+  src?: string;
   slug?: string;
 };
 
