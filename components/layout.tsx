@@ -1,7 +1,7 @@
 import { BreadCrumb } from "./ui-elements/bread-crumb/BreadCrumb";
 import Footer from "./ui-elements/footer/Footer";
 import Header from "./header";
-import Meta from "./meta";
+import { Meta } from "./ui-elements/meta/Meta";
 import ProgrammingLanguageSelector from "./programming-language-selector";
 import SubHeader from "./subheader";
 
