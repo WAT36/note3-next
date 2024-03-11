@@ -102,6 +102,52 @@ $$
 
 あと図も載せたいか
 
+# 微分と近似
+
+微分について。
+
+関数 f(x)がその定義域で微分可能で、導関数 f’(x)が連続であるとする。
+
+点 x における x の増分 Δx に対する y=f(x)の増分 Δy は
+
+$$
+\Delta y = f(x + \Delta x) - f(x)
+$$
+
+となる。また、平均値の定理から
+
+$$
+\frac{\Delta y }{\Delta x} = \frac{f(x + \Delta x) - f(x)}{\Delta x} \\
+\frac{\Delta y }{\Delta x} = f'(c)\\
+\Delta y = f'(c) \Delta x\\
+
+
+$$
+
+となる数 c（x≦c≦x+Δx）が存在する。
+
+この時、はさみうちの原理から、Δx→0 のとき x+Δx→x となるので、
+
+c→x となる。つまり、Δx が微小であれば、c は x と近似でき、f’(c)も f’(x)と近似できる。
+
+ゆえに上式は
+
+$$
+\Delta y \simeq f'(x) \Delta x
+$$
+
+とみなせる。
+
+この Δy の近似値 f’(x)Δx を関数 y=f(x)の微分といい、記号
+
+$$
+dy = f'(x) \Delta x
+$$
+
+で表せる。下の図で、、
+
+（ここで表した図形の図を書きたい）
+
 <script>
 // JSXGraph初期設定
 const boardMaxMin = JXG.JSXGraph.initBoard("maxmin", {
