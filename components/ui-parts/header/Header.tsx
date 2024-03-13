@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { TITLE } from "../lib/constants";
+import { TITLE } from "../../../lib/constants";
 import { useRouter } from "next/router";
 
 const Header = () => {
