@@ -1,9 +1,9 @@
-import { BreadCrumb } from "./ui-elements/bread-crumb/BreadCrumb";
-import Footer from "./ui-elements/footer/Footer";
-import Header from "./ui-parts/header/Header";
-import { Meta } from "./ui-elements/meta/Meta";
-import ProgrammingLanguageSelector from "./programming-language-selector";
-import SubHeader from "./subheader";
+import { BreadCrumb } from "../../ui-elements/bread-crumb/BreadCrumb";
+import Footer from "../../ui-elements/footer/Footer";
+import Header from "../../ui-parts/header/Header";
+import { Meta } from "../../ui-elements/meta/Meta";
+import ProgrammingLanguageSelector from "../../programming-language-selector";
+import SubHeader from "../../subheader";
 
 type Props = {
   preview?: boolean;

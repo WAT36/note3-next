@@ -1,4 +1,4 @@
-import Layout from "./layout";
+import Layout from "./ui-pages/layout/Layout";
 import Container from "./ui-elements/container/Container";
 import { ADMINISTRATOR } from "../lib/constants";
 import Intro from "./ui-elements/intro/Intro";

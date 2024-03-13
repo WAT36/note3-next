@@ -1,7 +1,7 @@
 import Container from "../components/ui-elements/container/Container";
 import HeroPost from "../components/ui-parts/hero-post/HeroPost";
 import Intro from "../components/ui-elements/intro/Intro";
-import Layout from "../components/layout";
+import Layout from "../components/ui-pages/layout/Layout";
 import { getAllPosts } from "../lib/api";
 import Head from "next/head";
 import { ADMINISTRATOR, TITLE } from "../lib/constants";

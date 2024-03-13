@@ -1,4 +1,4 @@
-import Layout from "./layout";
+import Layout from "./ui-pages/layout/Layout";
 import Container from "./ui-elements/container/Container";
 import Head from "next/head";
 import NoteType from "../interfaces/note";

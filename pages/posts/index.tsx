@@ -1,4 +1,4 @@
-import Layout from "../../components/layout";
+import Layout from "../../components/ui-pages/layout/Layout";
 import Container from "../../components/ui-elements/container/Container";
 import Post from "../../interfaces/post";
 import { getAllPosts } from "../../lib/api";

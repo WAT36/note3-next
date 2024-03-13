@@ -1,7 +1,7 @@
 import { Bio } from "../components/ui-elements/bio/Bio";
 import Container from "../components/ui-elements/container/Container";
 import Intro from "../components/ui-elements/intro/Intro";
-import Layout from "../components/layout";
+import Layout from "../components/ui-pages/layout/Layout";
 import { ADMINISTRATOR } from "../lib/constants";
 import H2 from "../components/ui-elements/headline/Headline";
 
