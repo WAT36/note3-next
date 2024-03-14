@@ -4,7 +4,7 @@ import { ADMINISTRATOR } from "../lib/constants";
 import Intro from "./ui-elements/intro/Intro";
 import { Bio } from "./ui-elements/bio/Bio";
 import NoteDirLink from "./notedir-link";
-import NoteLink from "./note-link";
+import NoteLink from "./ui-elements/note-link/NoteLink";
 import { SubPageLink } from "../pages/notes/[[...slug]]";
 import markdownStyles from "./markdown-styles.module.css";
 import ProgrammingNoteLink from "./programming-note-link";
