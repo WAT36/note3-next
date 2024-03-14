@@ -19,7 +19,7 @@ AND ビット演算をする方法についてを示す。
 boolean a = true;
 boolean b = false;
 
-a & b //XORビット演算
+a & b //ANDビット演算
 ```
 
 Java では AND のビット演算子 **&** を使用する。
