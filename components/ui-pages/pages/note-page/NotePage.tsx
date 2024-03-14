@@ -1,10 +1,10 @@
-import Layout from "./ui-pages/layout/Layout";
-import Container from "./ui-elements/container/Container";
+import Layout from "../../layout/Layout";
+import Container from "../../../ui-elements/container/Container";
 import Head from "next/head";
-import NoteType from "../interfaces/note";
-import { TITLE } from "../lib/constants";
-import PostHeader from "./post-header";
-import PostBody from "./post-body";
+import NoteType from "../../../../interfaces/note";
+import { TITLE } from "../../../../lib/constants";
+import PostHeader from "../../../post-header";
+import PostBody from "../../../post-body";
 
 type Props = {
   note: NoteType;

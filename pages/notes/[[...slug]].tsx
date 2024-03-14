@@ -7,7 +7,7 @@ import markdownToHtml from "../../lib/markdownToHtml";
 import type NoteType from "../../interfaces/note";
 import { getNoteUnderDirSlugs } from "../../lib/fileSystem";
 import { useEffect } from "react";
-import NotePage from "../../components/note-page";
+import NotePage from "../../components/ui-pages/pages/note-page/NotePage";
 import NoteDirPage from "../../components/notedir-page";
 
 type Props = {
