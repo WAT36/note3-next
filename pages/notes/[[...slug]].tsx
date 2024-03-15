@@ -8,7 +8,7 @@ import type NoteType from "../../interfaces/note";
 import { getNoteUnderDirSlugs } from "../../lib/fileSystem";
 import { useEffect } from "react";
 import NotePage from "../../components/ui-pages/pages/note-page/NotePage";
-import NoteDirPage from "../../components/notedir-page";
+import NoteDirPage from "../../components/ui-pages/pages/notedir-page/NoteDirPage";
 
 type Props = {
   note: NoteType;
