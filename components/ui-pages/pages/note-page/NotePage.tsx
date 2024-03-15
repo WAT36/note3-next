@@ -4,7 +4,7 @@ import Head from "next/head";
 import NoteType from "../../../../interfaces/note";
 import { TITLE } from "../../../../lib/constants";
 import PostHeader from "../../../post-header";
-import PostBody from "../../../post-body";
+import PostBody from "../../../ui-elements/post-body/PostBody";
 
 type Props = {
   note: NoteType;
