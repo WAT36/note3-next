@@ -3,7 +3,7 @@ import Container from "./ui-elements/container/Container";
 import { ADMINISTRATOR } from "../lib/constants";
 import Intro from "./ui-elements/intro/Intro";
 import { Bio } from "./ui-elements/bio/Bio";
-import NoteDirLink from "./notedir-link";
+import NoteDirLink from "./ui-elements/notedir-link/NoteDirLink";
 import NoteLink from "./ui-elements/note-link/NoteLink";
 import { SubPageLink } from "../pages/notes/[[...slug]]";
 import markdownStyles from "./markdown-styles.module.css";

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { DIR_NAME } from "../lib/constants";
+import { DIR_NAME } from "../../../lib/constants";
 
 type Props = {
   slug: string;
