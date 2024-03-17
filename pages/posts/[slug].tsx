@@ -3,7 +3,7 @@ import ErrorPage from "next/error";
 import Container from "../../components/ui-elements/container/Container";
 import PostBody from "../../components/ui-elements/post-body/PostBody";
 import Header from "../../components/ui-parts/header/Header";
-import PostHeader from "../../components/post-header";
+import PostHeader from "../../components/ui-parts/post-header/PostHeader";
 import Layout from "../../components/ui-pages/layout/Layout";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
 import PostTitle from "../../components/post-title";

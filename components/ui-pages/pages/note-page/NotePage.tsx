@@ -3,7 +3,7 @@ import Container from "../../../ui-elements/container/Container";
 import Head from "next/head";
 import NoteType from "../../../../interfaces/note";
 import { TITLE } from "../../../../lib/constants";
-import PostHeader from "../../../post-header";
+import PostHeader from "../../../ui-parts/post-header/PostHeader";
 import PostBody from "../../../ui-elements/post-body/PostBody";
 
 type Props = {
