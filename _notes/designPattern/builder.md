@@ -21,6 +21,18 @@ Builder（ビルダー）パターンは、ソフトウェアデザインパタ�
 3. **ConcreteBuilder（具体的なビルダー）**: Builder インターフェースを実装し、具体的なビルドプロセスを定義します。
 4. **Director（ディレクター）**: ConcreteBuilder を利用して、製品を構築する際の手順を定義します。
 
+### クラス図
+
+クラス図で表すと以下の様な形である。
+
+```mermaid
+classDiagram
+Builder <|-- ConcreteBuilder
+<<Interface>> Builder
+Builder --o Director
+ConcreteBuilder ..> Product: creates
+```
+
 ### **Builder パターンの実装例**
 
 以下は、Java 言語を使用した Builder パターンの簡単な実装例です。
