@@ -2,7 +2,7 @@ import { BreadCrumb } from "../../ui-elements/bread-crumb/BreadCrumb";
 import Footer from "../../ui-elements/footer/Footer";
 import Header from "../../ui-parts/header/Header";
 import { Meta } from "../../ui-elements/meta/Meta";
-import ProgrammingLanguageSelector from "../../programming-language-selector";
+import ProgrammingLanguageSelector from "../../ui-elements/programming-language-selector/ProgrammingLanguageSelector";
 import SubHeader from "../../subheader";
 
 type Props = {

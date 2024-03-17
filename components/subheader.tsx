@@ -1,5 +1,5 @@
 import { BreadCrumb } from "./bread-crumb";
-import ProgrammingLanguageSelector from "./programming-language-selector";
+import ProgrammingLanguageSelector from "./ui-elements/programming-language-selector/ProgrammingLanguageSelector";
 
 type Props = { canChangeProgrammingLanguage?: boolean };
 

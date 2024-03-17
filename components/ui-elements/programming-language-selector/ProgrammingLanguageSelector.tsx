@@ -1,10 +1,8 @@
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { programmingLanguageState } from "../atoms/ProgrammingLanguage";
-import { PROGRAMMING_LANGUAGE_NAME } from "../lib/constants";
+import { programmingLanguageState } from "../../../atoms/ProgrammingLanguage";
+import { PROGRAMMING_LANGUAGE_NAME } from "../../../lib/constants";
 
-type Props = {};
-
-const ProgrammingLanguageSelector = ({}: Props) => {
+const ProgrammingLanguageSelector = () => {
   // ステートとして利用する
   const [programmingLanguage] = useRecoilState(programmingLanguageState);
   // Recoilの Atoms を呼び出して定義
