@@ -18,8 +18,7 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-String s = "aaa";
-s.toUpperCase(); // "AAA"
+文字列.toUpperCase();
 ```
 
 クラスはここでは Main.java とする
@@ -29,29 +28,17 @@ Java では String クラスに **toUpperCase()** というメソッドがあり
 ただし、文字列自体が変換されるわけではないので、反映させたい場合は出力を元の変数に代入してやる必要がある。以下に例を示す。
 
 ```java
-class Main{
-    public static void main(String args[]){
-      String s = "aaa";
-
-      // 文字列を大文字にする
-      s = s.toUpperCase();
-      System.out.println(s);
-    }
-}
-```
-
-実行すると
-
-```
-AAA
+String s = "aaa";
+// 文字列を大文字にする
+s = s.toUpperCase();
+System.out.println(s); // "AAA"
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-s = "aaa"
-s.upper() # "AAA"
+文字列.upper()
 ```
 
 Python は文字列型の str オブジェクトにメソッド **upper()** があり、これにより文字列を全て大文字にできる。
@@ -62,21 +49,14 @@ Python は文字列型の str オブジェクトにメソッド **upper()** が�
 ```python
 s = "aaa"
 s = s.upper()
-print(s)
-```
-
-実行すると
-
-```
-AAA
+print(s) # "AAA"
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-var s = "aaa";
-s.toUpperCase(); // "AAA"
+文字列.toUpperCase();
 ```
 
 Javascript ではメソッド **toUpperCase()** により文字列を全て大文字にできる。
@@ -87,13 +67,7 @@ Javascript ではメソッド **toUpperCase()** により文字列を全て大�
 ```javascript
 var s = "aaa";
 s = s.toUpperCase();
-console.log(s);
-```
-
-実行すると
-
-```
-AAA
+console.log(s); // "AAA"
 ```
 
 </div>

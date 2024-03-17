@@ -4,7 +4,7 @@ date: "2019-10-11T21:40:21.000Z"
 excerpt: "英字文字列を全て英字小文字にする方法。"
 tag: ["Java", "Python", "Javascript"]
 programming: ["Java", "Python", "Javascript"]
-updatedAt: '2024-03-17T17:26:40.000Z'
+updatedAt: "2024-03-17T17:26:40.000Z"
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -18,8 +18,7 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-String s = "AAA";
-s.toLowerCase(); // "aaa"
+文字列.toLowerCase();
 ```
 
 クラスはここでは Main.java とする
@@ -30,15 +29,10 @@ Java では String クラスに **toLowerCase()** というメソッドがあり
 以下に例を示す。
 
 ```java
-class Main{
-    public static void main(String args[]){
-      String s = "AAA";
-
-      // 文字列を小文字にする
-      s = s.toLowerCase();
-      System.out.println(s);
-    }
-}
+String s = "AAA";
+// 文字列を小文字にする
+s = s.toLowerCase();
+System.out.println(s); // "aaa"
 ```
 
 実行すると
@@ -51,8 +45,7 @@ aaa
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-s = "AAA"
-s.lower() # "aaa"
+文字列.lower()
 ```
 
 Python は文字列型の str オブジェクトにメソッド **lower()** があり、これにより文字列を全て小文字にできる。
@@ -63,21 +56,14 @@ Python は文字列型の str オブジェクトにメソッド **lower()** が�
 ```python
 s = "AAA"
 s = s.lower()
-print(s)
-```
-
-実行すると
-
-```
-aaa
+print(s) # "aaa"
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-var s = "AAA";
-s.toLowerCase(); // "aaa"
+文字列.toLowerCase();
 ```
 
 Javascript ではメソッド **toLowerCase()** により文字列を全て小文字にできる。
@@ -88,13 +74,7 @@ Javascript ではメソッド **toLowerCase()** により文字列を全て小�
 ```javascript
 var s = "AAA";
 s = s.toLowerCase();
-console.log(s);
-```
-
-実行すると
-
-```
-aaa
+console.log(s); // "aaa"
 ```
 
 </div>
