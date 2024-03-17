@@ -35,6 +35,7 @@ class Main{
 
       // 文字列を大文字にする
       s = s.toUpperCase();
+      System.out.println(s);
     }
 }
 ```
