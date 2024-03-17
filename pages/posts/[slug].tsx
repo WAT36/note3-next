@@ -6,7 +6,7 @@ import Header from "../../components/ui-parts/header/Header";
 import PostHeader from "../../components/ui-parts/post-header/PostHeader";
 import Layout from "../../components/ui-pages/layout/Layout";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
-import PostTitle from "../../components/post-title";
+import PostTitle from "../../components/ui-elements/post-title/PostTitle";
 import Head from "next/head";
 import { TITLE } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
