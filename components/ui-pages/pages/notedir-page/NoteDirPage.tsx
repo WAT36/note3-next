@@ -7,7 +7,7 @@ import NoteDirLink from "../../../ui-elements/notedir-link/NoteDirLink";
 import NoteLink from "../../../ui-elements/note-link/NoteLink";
 import { SubPageLink } from "../../../../pages/notes/[[...slug]]";
 import markdownStyles from "./markdown-styles.module.css";
-import ProgrammingNoteLink from "../../../programming-note-link";
+import ProgrammingNoteLink from "../../../ui-parts/programming-note-link/ProgrammingNoteLink";
 
 type Props = {
   subPageLinks?: SubPageLink[];

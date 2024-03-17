@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRecoilState } from "recoil";
-import { programmingLanguageState } from "../atoms/ProgrammingLanguage";
+import { programmingLanguageState } from "../../../atoms/ProgrammingLanguage";
 
 type Props = {
   slug: string;
