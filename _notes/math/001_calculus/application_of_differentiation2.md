@@ -293,6 +293,18 @@ $$
 
 （何か関数を出して例を示す）
 
+# 高次導関数
+
+関数 y=f(x)が n 回微分できるとき、y=f(x)は**n 回微分可能**であるという。
+
+y=f(x)を n 回微分して得られる関数をその**第 n 次導関数**と言い、記号
+
+$$
+y^{(n)},f^{(n)},f^{(n)}(x),\frac{d^n y}{dx^n},\frac{d^n f}{dx^n},\frac{d^n f(x)}{dx^n}
+$$
+
+で表す。
+
 <script>
 // JSXGraph初期設定
 const boardMaxMin = JXG.JSXGraph.initBoard("maxmin", {
