@@ -19,5 +19,8 @@ type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Main: Story = {
-  args: { name: "Tatsuroh Wakasugi", picture: "/assets/blog/authors/WAT.jpg" },
+  args: {
+    name: "Tatsuroh Wakasugi",
+    picture: "/blog/authors/WAT.jpg",
+  },
 };
