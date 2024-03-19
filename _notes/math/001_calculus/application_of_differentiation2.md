@@ -305,6 +305,25 @@ $$
 
 で表す。
 
+# ライプニッツの公式
+
+2 つの関数 f(x),g(x)は n 回微分可能であるとして、積 y=f(x)g(x)の第 n 次導関数を求めてみる。
+
+y=fg
+
+y’=f’g+fg’
+
+y’’=(f’’g+f’g’)+(f’g’+fg’’)=f’’g+2f’g’+fg’’
+
+y’’’=(f’’’g+f’’g’)+2(f’’g’+f’g’’)+(f’g’’+fg’’’)=f’’’g+3f’’g’+3f’g’+fg’’’
+
+したがって、y=f(x)g(x)を n 回微分すれば、次の公式が成り立つ。
+
+$$
+y^{(n)}=f^{(n)}g + nf^{(n-1)}g^{(1)}+\frac{n(n-1)}{2}f^{(n-1)}g^{(2)}+ \cdots +fg^{(n)} \\
+= \sum_{r=0}^{n} {}_n C_r f^{(n-r)} g^{(r)}
+$$
+
 <script>
 // JSXGraph初期設定
 const boardMaxMin = JXG.JSXGraph.initBoard("maxmin", {
