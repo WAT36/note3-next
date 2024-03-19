@@ -21,5 +21,6 @@ type Story = StoryObj<typeof meta>;
 export const Main: Story = {
   args: {
     title: "Cover Image Title",
+    src: "/blog/authors/WAT.jpg",
   },
 };
