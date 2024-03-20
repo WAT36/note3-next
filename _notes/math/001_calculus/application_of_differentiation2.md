@@ -37,6 +37,10 @@ ogImage:
 > f’(c)=0
 > となる数 c が少なくとも１つ存在する。
 
+ここも例として以下に関数 y=(x-2)x(x+2)を対象とした図を記載する。f(a)=f(b)となるような a,b を取った場合、区間[a,b]内に f'(x)=0 となる点が存在する。
+
+<div id="rolle" class="jxgbox" style="width: 400px; height: 400px"></div>
+
 [証明]
 
 関数 f(x)が閉区間[a,b]で連続であるので、最大値・最小値の定理から、
@@ -548,5 +552,199 @@ var poly = boardMaxMin.create(
     ],
   ],
   { fillOpacity: 0.05 }
+);
+
+// ロルの定理
+// JSXGraph初期設定
+const boardRolle = JXG.JSXGraph.initBoard("rolle", {
+  axis: true, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
+  boundingbox: [-4, 4, 4, -4], // 領域の座標[左、上、右、下]
+  keepaspectratio: true, // 表示するdivボックスの縦横比に合わせる？（デフォルトfalse)
+  showNavigation: false, // ナビゲーションボタンを表示するかの設定（デフォルトfalse）
+  showCopyright: false, // コピーライト文字列を表示するかの設定（デフォルトfalse）
+});
+// 関数 (x-2)x(x+2)
+function fxRolle(t) {
+  return t ** 3 - 4 * t;
+}
+// 指定区間内で関数が指定した値を返すようなxを返す
+function getMaxX_fxRolle(ax) {
+  const ay = fxRolle(ax);
+  const vertexX = 2 / Math.sqrt(3);
+  const vertexY = fxRolle(vertexX);
+  if (Math.abs(ay) > Math.abs(vertexY)) {
+    return ax;
+  }
+
+  diff = 10000000;
+  bx = 1000;
+  for (let x = 3; x >= vertexX; x -= 0.01) {
+    if (Math.abs(ay - fxRolle(x)) < diff) {
+      bx = x;
+      diff = Math.abs(ay - fxRolle(x));
+    }
+  }
+  return bx;
+}
+// 関数をプロット
+let graphRolle = boardRolle.create("functiongraph", [fxRolle, -10, 10], {
+  highlight: false, //ホバー時に色を変えて表示させるか
+  strokeColor: "#0000ff", // 線の色
+});
+// スライダーをプロット
+var sliderRolle = boardRolle.create("slider", [
+  [-3, 3.8],
+  [0, 3.8],
+  [-3, 0.1, 0],
+]);
+// 点をプロット
+var paRolle1 = boardRolle.create(
+  "point",
+  [
+    function () {
+      return sliderRolle.Value();
+    },
+    function () {
+      return fxRolle(sliderRolle.Value());
+    },
+  ],
+  {
+    name: `a`, // 点の名前
+    size: 2, // 点の大きさ
+    face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+    highlight: false, //ホバー時に色を変えて表示させるか
+    trace: false, // 移動したときに跡を残すか？
+    strokeColor: "#ff0000", // 色
+  }
+);
+// 点をプロット
+var pbRolle1 = boardRolle.create(
+  "point",
+  [
+    function () {
+      return getMaxX_fxRolle(sliderRolle.Value());
+    },
+    function () {
+      return fxRolle(sliderRolle.Value());
+    },
+  ],
+  {
+    name: ``, // 点の名前
+    size: 2, // 点の大きさ
+    face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+    highlight: false, //ホバー時に色を変えて表示させるか
+    trace: false, // 移動したときに跡を残すか？
+    strokeColor: "#ff0000", // 色
+  }
+);
+// 網掛け領域を表示
+var polyRolle = boardRolle.create(
+  "polygon",
+  [
+    [
+      function () {
+        return sliderRolle.Value();
+      },
+      10,
+    ],
+    [
+      function () {
+        return sliderRolle.Value();
+      },
+      -10,
+    ],
+    [
+      function () {
+        return getMaxX_fxRolle(sliderRolle.Value());
+      },
+      -10,
+    ],
+    [
+      function () {
+        return getMaxX_fxRolle(sliderRolle.Value());
+      },
+      10,
+    ],
+  ],
+  { fillOpacity: 0.05 }
+);
+
+// 範囲内でf'(x)=0となる点を表示
+var pRolle1 = boardRolle.create(
+  "point",
+  [2 / Math.sqrt(3), fxRolle(2 / Math.sqrt(3))],
+  {
+    name: ``, // 点の名前
+    size: function () {
+      return sliderRolle.Value() <= 2 / Math.sqrt(3) &&
+        2 / Math.sqrt(3) <= getMaxX_fxRolle(sliderRolle.Value())
+        ? 3
+        : 0;
+    },
+    // 点の大きさ
+    face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+    highlight: false, //ホバー時に色を変えて表示させるか
+    trace: false, // 移動したときに跡を残すか？
+    strokeColor: "#ffd700", // 色
+    fillColor: "#ffd700", // 色
+  }
+);
+var pRolle2 = boardRolle.create(
+  "point",
+  [-2 / Math.sqrt(3), fxRolle(-2 / Math.sqrt(3))],
+  {
+    name: ``, // 点の名前
+    size: function () {
+      return sliderRolle.Value() <= -2 / Math.sqrt(3) &&
+        -2 / Math.sqrt(3) <= getMaxX_fxRolle(sliderRolle.Value())
+        ? 3
+        : 0;
+    }, // 点の大きさ
+    face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+    highlight: false, //ホバー時に色を変えて表示させるか
+    trace: false, // 移動したときに跡を残すか？
+    strokeColor: "#ffd700", // 色
+    fillColor: "#ffd700", // 色
+  }
+);
+var lRolle1 = boardRolle.create(
+  "line",
+  [
+    [0, fxRolle(2 / Math.sqrt(3))],
+    [1, fxRolle(2 / Math.sqrt(3))],
+  ],
+  {
+    strokeColor: "#ffd700", // 線の色
+    strokeWidth: function () {
+      return sliderRolle.Value() <= 2 / Math.sqrt(3) &&
+        2 / Math.sqrt(3) <= getMaxX_fxRolle(sliderRolle.Value())
+        ? 3
+        : 0;
+    }, // 線の太さ
+    straightFirst: true, // 始点を突き抜けて直線にするか
+    straightLast: true, // 終点を突き抜けて直線にするか
+    dash: 0, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
+    highlight: false, //ホバー時に色を変えて表示させるか
+  }
+);
+var lRolle2 = boardRolle.create(
+  "line",
+  [
+    [0, fxRolle(-2 / Math.sqrt(3))],
+    [1, fxRolle(-2 / Math.sqrt(3))],
+  ],
+  {
+    strokeColor: "#ffd700", // 線の色
+    strokeWidth: function () {
+      return sliderRolle.Value() <= -2 / Math.sqrt(3) &&
+        -2 / Math.sqrt(3) <= getMaxX_fxRolle(sliderRolle.Value())
+        ? 3
+        : 0;
+    }, // 線の太さ
+    straightFirst: true, // 始点を突き抜けて直線にするか
+    straightLast: true, // 終点を突き抜けて直線にするか
+    dash: 0, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
+    highlight: false, //ホバー時に色を変えて表示させるか
+  }
 );
 </script>
