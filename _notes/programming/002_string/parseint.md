@@ -20,7 +20,7 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-Integer.parseInt(文字列);
+Integer.parseInt("文字列");
 ```
 
 Java では各数値型のラッパークラスに **parsexxx(String s)** というメソッドがあり、これにより文字列を数値リテラルに変換してくれる。
@@ -59,7 +59,7 @@ Exception in thread "main" java.lang.NumberFormatException: For input string: "A
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-int(文字列) # 整数値
+int("文字列") # 整数値
 ```
 
 Python で数値の文字列を数値リテラルに変換したい時は組み込み関数の **int()** を利用する。
@@ -90,8 +90,8 @@ ValueError: invalid literal for int() with base 10: 'AA'
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-Number(文字列);
-parseInt(文字列);
+Number("文字列");
+parseInt("文字列");
 ```
 
 Javascript で数値の文字列を数値型に変換したい時は、

@@ -4,7 +4,7 @@ date: "2019-10-14T19:58:19.000Z"
 excerpt: "文字列に別の文字列を追加する方法"
 tag: ["Java", "Python", "Javascript"]
 programming: ["Java", "Python", "Javascript"]
-updatedAt: '2024-03-17T22:39:43.000Z'
+updatedAt: "2024-03-17T22:39:43.000Z"
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -16,11 +16,11 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-String s = "test";
-s + "1"; // "test1"
+"文字列A" + "文字列B";  //"文字列A文字列B"
 
-StringBuilder sb = new StringBuilder("test");
-sb.append("1"); // "test1",インプレースで処理
+// StringBuilderクラスの場合
+StringBuilder sb = new StringBuilder("文字列A");
+sb.append("文字列B"); // "文字列A文字列B",インプレースで処理
 ```
 
 java の場合は使用しているクラスにより方法が異なる。
@@ -55,11 +55,10 @@ System.out.println(sb.toString()); // 1test1
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-s = "test"
-s + "1"  # "test1"
-s += "1" # "test1",インプレース処理
+"文字列A" + "文字列B"  # "文字列A文字列B"
+"文字列A" += "文字列B" # "文字列A文字列B",インプレース処理
 
-"1" * 5 # "11111"
+"文字列A" * 5 # "文字列A文字列A文字列A文字列A文字列A"
 ```
 
 Python でも " **+** "," **+=** " 演算子を使って文字列を連結できる。
@@ -84,10 +83,9 @@ print(t) # testtesttesttesttest
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-var s = "test";
-s + "1"; // "test1"
+"文字列A" + "文字列B"; // "文字列A文字列B"
 //または
-s.concat("1"); // "test1"
+"文字列A".concat("文字列B"); // "文字列A文字列B"
 ```
 
 Javascript でも" **+** " 演算子を使って文字列を連結できる。

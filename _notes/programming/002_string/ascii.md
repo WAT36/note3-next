@@ -4,7 +4,7 @@ date: "2019-10-12T21:43:32.000Z"
 excerpt: "1文字からその文字の文字コード（アスキーコード）を取得する"
 tag: ["Java", "Python", "Javascript"]
 programming: ["Java", "Python", "Javascript"]
-updatedAt: '2024-03-17T22:30:50.000Z'
+updatedAt: "2024-03-17T22:30:50.000Z"
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -22,9 +22,6 @@ mode: programming
 ```java
 char c = 'a'; // char型,1文字
 int a = c;
-
-String s = "aaaaa"; //string型,文字列
-c = s.charAt(0);
 ```
 
 Java では１文字の char 型と文字列の String 型があるが、
@@ -102,7 +99,7 @@ TypeError: ord() expected a character, but string of length 2 found
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-文字列.charCodeAt(index); // 文字列のindex文字目の文字コード取得
+"文字列".charCodeAt(index); // 文字列のindex文字目の文字コード取得
 ```
 
 Javascript で文字から文字コードを取得するには、文字列の関数 **charCodeAt()** を利用する。

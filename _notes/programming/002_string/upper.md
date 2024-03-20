@@ -18,7 +18,7 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-文字列.toUpperCase();
+"文字列".toUpperCase();
 ```
 
 クラスはここでは Main.java とする
@@ -38,7 +38,7 @@ System.out.println(s); // "AAA"
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-文字列.upper()
+"文字列".upper()
 ```
 
 Python は文字列型の str オブジェクトにメソッド **upper()** があり、これにより文字列を全て大文字にできる。
@@ -56,7 +56,7 @@ print(s) # "AAA"
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-文字列.toUpperCase();
+"文字列".toUpperCase();
 ```
 
 Javascript ではメソッド **toUpperCase()** により文字列を全て大文字にできる。

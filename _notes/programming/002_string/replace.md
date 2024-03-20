@@ -4,7 +4,7 @@ date: "2019-10-12T19:46:41.000Z"
 excerpt: "文字列を別の文字列に置換する"
 tag: ["Java", "Python", "Javascript"]
 programming: ["Java", "Python", "Javascript"]
-updatedAt: '2024-03-17T17:35:46.000Z'
+updatedAt: "2024-03-17T17:35:46.000Z"
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -25,7 +25,7 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-文字列.replace(置換前の文字列,置換後の文字列);
+"文字列".replace("文字列A","文字列B"); //文字列中の文字列Aを文字列Bに置換
 ```
 
 java で文字列を置換したい時は **replace()** メソッドを使う。
@@ -44,7 +44,7 @@ System.out.println(t); // end
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-文字列.replace(old,new [,count]) # (old)を(new)に置換
+"文字列".replace("文字列A","文字列B" [,count]) # 文字列中の文字列Aを(count個だけ)文字列Bに置換
 ```
 
 Python では文字列型の str オブジェクトにメソッド **replace()** があり、これにより文字列中の文字を置換できる。
@@ -71,7 +71,7 @@ print(t)  # "endand"
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-文字列.replace(old,new); // (old)を(new)に置換
+"文字列".replace("文字列A", "文字列B"); //文字列中の文字列Aを文字列Bに置換
 ```
 
 Javscript では文字列のメソッド **replace()** があり、これにより文字列中の文字を置換できる。

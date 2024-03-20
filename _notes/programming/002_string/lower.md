@@ -18,7 +18,7 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-文字列.toLowerCase();
+"文字列".toLowerCase();
 ```
 
 クラスはここでは Main.java とする
@@ -45,7 +45,7 @@ aaa
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-文字列.lower()
+"文字列".lower()
 ```
 
 Python は文字列型の str オブジェクトにメソッド **lower()** があり、これにより文字列を全て小文字にできる。
@@ -63,7 +63,7 @@ print(s) # "aaa"
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-文字列.toLowerCase();
+"文字列".toLowerCase();
 ```
 
 Javascript ではメソッド **toLowerCase()** により文字列を全て小文字にできる。
