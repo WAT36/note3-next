@@ -28,7 +28,7 @@ const NoteDirPage = ({ subPageLinks, preface }: Props) => {
             />
           </div>
         )}
-        {subPageLinks.length > 0 ? (
+        {subPageLinks && subPageLinks.length > 0 ? (
           subPageLinks.map((link) => {
             return link.isDir ? (
               <NoteDirLink slug={link.slug} />
