@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import NotePage from "./NotePage";
+import { RecoilRoot } from "recoil";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
   title: "Pages/NotePage",
   component: NotePage,
+  decorators: [(story) => <RecoilRoot>{story()} </RecoilRoot>],
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: "centered",
@@ -23,15 +25,15 @@ export const Main: Story = {
     note: {
       slug: "/",
       title: "note-title",
-      date: "2000/01/01",
+      date: "2000-01-01",
       coverImage: "",
       author: {
         name: "author name",
-        picture: "/",
+        picture: "/blog/authors/WAT.jpg",
       },
       excerpt: "excerpt",
       ogImage: {
-        url: "/",
+        url: "",
       },
       content: "content",
     },
