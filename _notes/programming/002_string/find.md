@@ -1,13 +1,13 @@
 ---
-title: "文字列が何文字目から始まるかを確認する"
+title: "文字列2が文字列1の何文字目から始まるかを確認する"
 date: "2019-10-15T20:19:30.000Z"
-excerpt: '文字列中にある文字列が含まれているときにその位置を確認する'
-tag: ["Java","Python","Javascript"]
-programming: ["Java","Python","Javascript"]
-updatedAt: '2019-10-15T20:19:30.000Z'
+excerpt: "文字列中にある文字列が含まれているときにその位置を確認する"
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
+updatedAt: "2019-10-15T20:19:30.000Z"
 author:
   name: Tatsuroh Wakasugi
-  picture: '/assets/blog/authors/WAT.jpg'
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -17,19 +17,23 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-`public int indexOf(String str)`  
+```java
+"文字列１".indexOf("文字列２" [,開始位置])
+```
 
-JavaではStringのメソッドである **indexOf()** を利用する。  
+`public int indexOf(String str)`
 
-このメソッドは、文字列内で指定された部分文字列が最初に出現する位置のインデックスを返す。   
+Java では String のメソッドである **indexOf()** を利用する。
 
-文字列の途中の位置から検索したい場合は下記のメソッドを利用する。  
+このメソッドは、文字列内で指定された部分文字列が最初に出現する位置のインデックスを返す。
 
-`public int indexOf(String str, int fromIndex)`  
+文字列の途中の位置から検索したい場合は下記のメソッドを利用する。
 
-このメソッドは文字列のfromIndex番目以降の文字列で部分文字列が最初に出現する位置のインデックスを返す。   
+`public int indexOf(String str, int fromIndex)`
 
-ちなみに部分文字列が存在しない場合は-1を返す。
+このメソッドは文字列の fromIndex 番目以降の文字列で部分文字列が最初に出現する位置のインデックスを返す。
+
+ちなみに部分文字列が存在しない場合は-1 を返す。
 
 ```java
 class Main{
@@ -37,13 +41,13 @@ class Main{
         String s = "apple,banana,cherry,durian";
         System.out.println(s.indexOf("banana"));
 
-        System.out.println(s.indexOf("banana",10));        
+        System.out.println(s.indexOf("banana",10));
     }
 }
 ```
 
 ```
-$ javac Main.java 
+$ javac Main.java
 $ java Main
 6
 -1
@@ -52,26 +56,32 @@ $ java Main
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-`str.find(sub[, start[, end]])`  
+```python
+"文字列１".find("文字列２" [,開始位置])
 
-pythonでは文字列strの関数**find**関数を使う。  
+# 文字列の末尾から検索
+"文字列１".rfind("文字列２")
+```
 
+python では文字列 str の関数**find**関数を使う。
 
-subには検索したい部分文字列を入力する。  
+`str.find(sub[, start[, end]])`
 
-実行結果には、strの中でsubが最初に現れる位置のインデックスが返される。  
+sub には検索したい部分文字列を入力する。
 
-存在しない場合には-1が返る。  
+実行結果には、str の中で sub が最初に現れる位置のインデックスが返される。
 
-strの指定した範囲内だけで検索したい場合には、引数start,endに値を指定して実行する。  
+存在しない場合には-1 が返る。
+
+str の指定した範囲内だけで検索したい場合には、引数 start,end に値を指定して実行する。
 
 ```python
->>> s = "apple,banana,cherry" 
->>> 
->>> s.find("banana") 
+>>> s = "apple,banana,cherry"
+>>>
+>>> s.find("banana")
 6
->>> 
->>> s.find("banana",10) 
+>>>
+>>> s.find("banana",10)
 -1
 >>>
 ```
@@ -79,12 +89,12 @@ strの指定した範囲内だけで検索したい場合には、引数start,en
 また、文字列を右から検索する関数**rfind**もある。
 
 ```python
->>> s.rfind("banana") 
+>>> s.rfind("banana")
 6
->>> 
+>>>
 >>> s.find("a")
 0
->>> s.rfind("a") 
+>>> s.rfind("a")
 11
 >>>
 ```
@@ -92,26 +102,33 @@ strの指定した範囲内だけで検索したい場合には、引数start,en
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-`String.indexOf(serachvalue[, fromIndex])`  
+```javascript
+"文字列１".indexOf("文字列２" [,開始位置])
 
-`String.lastIndexOf(serachvalue[, fromIndex])`  
+// 文字列の末尾から検索
+"文字列１".lastIndexOf("文字列２")
+```
 
-javascriptでは文字列Stringの関数 **indexOf()** または **lastIndexOf()** 関数を使う。  
+javascript では文字列 String の関数 **indexOf()** または **lastIndexOf()** 関数を使う。
 
-indexOf関数は文字列前方から検索を行い、lastIndexOf関数は文字列後方から検索を行う。
+`String.indexOf(serachvalue[, fromIndex])`
 
-searchvalueには文字列中で検索したい文字列を入力する。  
+`String.lastIndexOf(serachvalue[, fromIndex])`
 
-実行結果には、Stringの中でsearchvalueが最初に現れる位置のインデックスが返される。  
+indexOf 関数は文字列前方から検索を行い、lastIndexOf 関数は文字列後方から検索を行う。
 
-存在しない場合には-1が返る。  
+searchvalue には文字列中で検索したい文字列を入力する。
 
-Stringの指定した位置からの範囲内だけで検索したい場合には、引数fromIndexに値を指定して実行する。  
+実行結果には、String の中で searchvalue が最初に現れる位置のインデックスが返される。
+
+存在しない場合には-1 が返る。
+
+String の指定した位置からの範囲内だけで検索したい場合には、引数 fromIndex に値を指定して実行する。
 
 ```javascript
-let s = "apple,banana,cherry" 
-console.log(s.indexOf("banana"))
-console.log(s.indexOf("banana",10))
+let s = "apple,banana,cherry";
+console.log(s.indexOf("banana"));
+console.log(s.indexOf("banana", 10));
 ```
 
 実行結果
@@ -122,4 +139,3 @@ console.log(s.indexOf("banana",10))
 ```
 
 </div>
-
