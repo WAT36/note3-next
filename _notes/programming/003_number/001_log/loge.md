@@ -15,13 +15,15 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+Math.log(数値)
+```
+
+Java では java.lang.Math クラス内にある **log()** メソッドがこの役割を果たす。
+
 `public static double log(double a)`
 
-Java では java.lang.Math クラス内にある **log()** メソッドがこの役割を果たす。  
-利用するには java.lang.Math クラスをインポートする。
-
 ```java
-import java.lang.Math;
 class Main{
     public static void main(String args[]){
         int a = 100;
@@ -44,9 +46,15 @@ class Main{
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-`math.log10(x)`
+```python
+import math
+math.log(数値)
+```
 
-python で自然対数を算出するには math モジュールにある関数 **log()** 関数を使用する。  
+python で自然対数を算出するには math モジュールにある関数 **log()** 関数を使用する。
+
+`math.log(x)`
+
 使用するには math モジュールをインポートする。
 
 ```python
@@ -64,9 +72,13 @@ python で自然対数を算出するには math モジュールにある関数 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-`Math.log(x)`
+```javascript
+Math.log(数値);
+```
 
 Javascript で自然対数を算出するには Math オブジェクトにある **log()** 関数を使用する。
+
+`Math.log(x)`
 
 ```javascript
 let a = 100;
