@@ -15,14 +15,15 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-`public static double log10(double a)`
+```java
+Math.log10(数値)
+```
 
 Java では java.lang.Math クラス内にある **log10()** メソッドがこの役割を果たす。
 
-利用するには java.lang.Math クラスをインポートする。
+`public static double log10(double a)`
 
 ```java
-import java.lang.Math;
 class Main{
     public static void main(String args[]){
         int a = 100;
@@ -46,9 +47,15 @@ $ java Main
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
+```python
+import math
+math.log10(数値)
+```
+
+python で常用対数を算出するには math モジュールにある関数 **log10()** 関数を使用する。
+
 `math.log10(x)`
 
-python で常用対数を算出するには math モジュールにある関数 **log10()** 関数を使用する。  
 使用するには math モジュールをインポートする。
 
 ```python
@@ -66,9 +73,13 @@ python で常用対数を算出するには math モジュールにある関数 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-`Math.log10(x)`
+```javascript
+Math.log10(数値);
+```
 
 Javascript で常用対数を算出するには Math オブジェクトにある関数 **log10()** 関数を使用する。
+
+`Math.log10(x)`
 
 使用例
 
