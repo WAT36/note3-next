@@ -15,7 +15,22 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-クラスはここでは Main.java とする
+```java
+// 変数名、値は任意
+char c = 'c'; // 1文字のみ
+String s = "文字列" // 2文字以上も可能
+```
+
+Java で文字を扱うには、基本データ型であり 1 文字のみを扱える**char**型と、
+
+2 文字以上の文字列を扱える**String**型がある。（もう少し言うと StringBuilder 型というのもあるがここでは割愛する）
+
+char 型の場合は 1 文字をシングルクォート('')で囲んで宣言する。char 型で 2 文字以上の文字を宣言するとコンパイルエラ
+ーとなる。
+
+String 型の場合は文字列をダブルクォート("")で囲んで宣言する。文字列は 0 文字から扱える。
+
+使用例
 
 ```java
 class Main{
@@ -31,27 +46,15 @@ class Main{
 }
 ```
 
-Java で文字を扱うには、基本データ型であり 1 文字のみを扱える**char**型と、
-2 文字以上の文字列を扱える**String**型がある。（もう少し言うと StringBuilder 型というのもあるがここでは割愛する
-）
-char 型の場合は 1 文字をシングルクォート('')で囲んで宣言する。char 型で 2 文字以上の文字を宣言するとコンパイルエラ
-ーとなる。
-
-String 型の場合は文字列をダブルクォート("")で囲んで宣言する。文字列は 0 文字から扱える。
-
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 Python では文字列を扱うには
 
-```
-(変数) = "文字列"
-```
-
-または
-
-```
-(変数) = '文字列'
+```python
+# 変数名、値は任意
+s1 = "文字列"
+s2 = '文字列'
 ```
 
 のようにする。
@@ -74,8 +77,9 @@ c
 Javascript でも、シングルクォート('')、ダブルクォート("")を利用して文字列を宣言する。
 
 ```javascript
-var h1 = "Hello! World!";
-var h2 = "Hello! World!";
+// 変数名、値は任意
+var s1 = "Hello! World!";
+var s2 = "Hello! World!";
 ```
 
 </div>
