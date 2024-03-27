@@ -1,7 +1,7 @@
 ---
 title: "supabaseのDBを利用してみた"
 excerpt: "PlanetScaleDBからsupabaseへと変えてみた"
-coverImage: ""
+coverImage: "/assets/posts/supabase/supabaseLogo.png"
 date: "2024-03-21T23:10:23.000Z"
 updatedAt: "2024-03-21T23:10:23.000Z"
 tag: []
@@ -12,29 +12,33 @@ ogImage:
   url: ""
 ---
 
-以前の記事でも記載した、別の個人用サービスでの DB で利用していた PlanetScale が
+以前の記事でも記載した、別の個人用サービスで利用していた PlanetScale が
 
 まさかの無料プランがなくなり完全有料化に・・
+
+https://planetscale.com/blog/planetscale-forever
 
 というわけで、代替 DB を探していたところ
 
 supabase を使ってみようかという事で
 
-そちらでの DB 作成についての記録を残しておいた。
+そちらでの DB 作成についての記録することにした。
 
 # supabase とは
 
 https://supabase.com/
 
-自分は詳しくないが Firebase の代替として書かれている BaaS(Backend as a Service)である。
+supabase とは DB などを提供している BaaS(Backend as a Service)である。Firebase の代替サービスとして位置付けられている。
 
 PlanetScale と同じくサーバーレスなデータベースサービスを提供し、加えて認証、エッジファンクションの機能も提供している。
 
-なお、利用しているデータベースは PostgreSQL である。
+なお、利用・提供しているデータベースは PostgreSQL である。
 
 ![](/assets/posts/supabase/price.png)
 
-# 利用登録（サインアップ）
+実際に利用してみよう。
+
+# 利用登録（サインアップ） ~ プロジェクト・DB を作成する
 
 利用するには、まず公式サイトからアカウント登録（サインアップ）を行う。
 
@@ -46,9 +50,9 @@ PlanetScale と同じくサーバーレスなデータベースサービスを�
 
 New Project のボタンを押してプロジェクトを作成します。
 
-プロジェクト名と DB のパスワードを設定します。
+その後、プロジェクト名と DB のパスワードを設定します。
 
-リージョンはなるべく近いところにしましょう。（私の場合は Tokyo です）
+リージョンはなるべく近いところで設定します。（私の場合は日本なので、 Tokyo にします）
 
 ![](/assets/posts/supabase/newProject.png)
 
@@ -56,9 +60,9 @@ Create new Project を押すとプロジェクトが作成されます。
 
 ![](/assets/posts/supabase/project.png)
 
-# DB を作成する
+# テーブルを作成する
 
-プロジェクトが作成されたので、DB を作成してみましょう。
+プロジェクトおよび DB が作成されたので、テーブルを作成してみましょう。
 
 サイドバーに「Table Editor」および「SQL Editor」という欄があり、そこから作成することができます。
 
