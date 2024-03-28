@@ -12,7 +12,7 @@ ogImage:
   url: ""
 ---
 
-以前の記事でも記載した、別の個人用サービスで利用していた PlanetScale が
+以前の記事でも書いた、別の個人用サービスで利用していた PlanetScale が
 
 まさかの無料プランがなくなり完全有料化に・・
 
@@ -33,6 +33,8 @@ supabase とは DB などを提供している BaaS(Backend as a Service)であ�
 PlanetScale と同じくサーバーレスなデータベースサービスを提供し、加えて認証、エッジファンクションの機能も提供している。
 
 なお、利用・提供しているデータベースは PostgreSQL である。
+
+料金プランは、現時点(2024/3)では有料版の他に無料(Free)プランも存在する。
 
 ![](/assets/posts/supabase/price.png)
 
