@@ -100,11 +100,11 @@ $$
 > {f(b)-f(a)}/{b-a} = f’(c), a<c<b
 > となる数 c が少なくとも１つ存在する。
 
+<div id="meanValue" class="jxgbox" style="width: 400px; height: 400px"></div>
+
 [証明]
 
-後述する？
-
-あと図も載せたいか
+（後述の予定）
 
 # 微分と近似
 
@@ -747,4 +747,230 @@ var lRolle2 = boardRolle.create(
     highlight: false, //ホバー時に色を変えて表示させるか
   }
 );
+      // JSXGraph初期設定
+      const boardMeanValue = JXG.JSXGraph.initBoard("meanValue", {
+        axis: true, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
+        boundingbox: [-4, 4, 4, -4], // 領域の座標[左、上、右、下]
+        keepaspectratio: true, // 表示するdivボックスの縦横比に合わせる？（デフォルトfalse)
+        showNavigation: false, // ナビゲーションボタンを表示するかの設定（デフォルトfalse）
+        showCopyright: false, // コピーライト文字列を表示するかの設定（デフォルトfalse）
+      });
+            // 関数をプロット
+      boardMeanValue.create("functiongraph", [fx, -10, 10], {
+        highlight: false, //ホバー時に色を変えて表示させるか
+        strokeColor: "#0000ff", // 線の色
+      });
+      // スライダーをプロット
+      var sliderMeanValue1 = boardMeanValue.create("slider", [
+        [-3, 3.8],
+        [0, 3.8],
+        [-3, 0.1, 0],
+      ]);
+      var sliderMeanValue2 = boardMeanValue.create("slider", [
+        [0, 3.8],
+        [3, 3.8],
+        [0, 0.1, 3],
+      ]);
+      // 点A
+      var pMeanValueA = boardMeanValue.create(
+        "point",
+        [
+          function () {
+            return sliderMeanValue1.Value();
+          },
+          function () {
+            return fx(sliderMeanValue1.Value());
+          },
+        ],
+        {
+          name: `a`, // 点の名前
+          size: 2, // 点の大きさ
+          face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+          highlight: false, //ホバー時に色を変えて表示させるか
+          trace: false, // 移動したときに跡を残すか？
+          strokeColor: "#ff0000", // 色
+        }
+      );
+      var pMeanValueB = boardMeanValue.create(
+        "point",
+        [
+          function () {
+            return sliderMeanValue2.Value();
+          },
+          function () {
+            return fx(sliderMeanValue2.Value());
+          },
+        ],
+        {
+          name: `b`, // 点の名前
+          size: 2, // 点の大きさ
+          face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+          highlight: false, //ホバー時に色を変えて表示させるか
+          trace: false, // 移動したときに跡を残すか？
+          strokeColor: "#ff0000", // 色
+        }
+      );
+      // 直線AB
+      var lineAB = boardMeanValue.create("line", [pMeanValueA, pMeanValueB], {
+        strokeColor: "#ffd700", // 線の色
+        strokeWidth: 2, // 線の太さ
+        straightFirst: true, // 始点を突き抜けて直線にするか
+        straightLast: true, // 終点を突き抜けて直線にするか
+        dash: 2, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
+        highlight: false, //ホバー時に色を変えて表示させるか
+      });
+
+      // ABの傾き算出
+      function calcInclineAB() {
+        return (
+          (fx(sliderMeanValue2.Value()) - fx(sliderMeanValue1.Value())) /
+          (sliderMeanValue2.Value() - sliderMeanValue1.Value())
+        );
+      }
+      // 点cのx座標算出
+      function cx() {
+        return Math.sqrt((calcInclineAB() + 4) / 3);
+      }
+      // 点c
+      var pMeanValueC1 = boardMeanValue.create(
+        "point",
+        [
+          function () {
+            return cx();
+          },
+          function () {
+            return fx(cx());
+          },
+        ],
+        {
+          name: ``, // 点の名前
+          size: function () {
+            return sliderMeanValue2.Value() >= cx() ? 4 : 0;
+          }, // 点の大きさ
+          face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+          highlight: false, //ホバー時に色を変えて表示させるか
+          trace: false, // 移動したときに跡を残すか？
+          strokeColor: "#ff0000", // 色
+        }
+      );
+      var pMeanValueC2 = boardMeanValue.create(
+        "point",
+        [
+          function () {
+            return -1 * cx();
+          },
+          function () {
+            return fx(-1 * cx());
+          },
+        ],
+        {
+          name: ``, // 点の名前
+          size: function () {
+            return sliderMeanValue1.Value() <= -1 * cx() ? 4 : 0;
+          }, // 点の大きさ
+          face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+          highlight: false, //ホバー時に色を変えて表示させるか
+          trace: false, // 移動したときに跡を残すか？
+          strokeColor: "#ff0000", // 色
+        }
+      );
+      // 点cを通る直線の補助点
+      var pMeanValueSuppleC1 = boardMeanValue.create(
+        "point",
+        [
+          function () {
+            return cx() + 1;
+          },
+          function () {
+            return fx(cx()) + calcInclineAB();
+          },
+        ],
+        {
+          name: ``, // 点の名前
+          size: 0, // 点の大きさ
+          face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+          highlight: false, //ホバー時に色を変えて表示させるか
+          trace: false, // 移動したときに跡を残すか？
+          strokeColor: "#ff0000", // 色
+        }
+      );
+      var pMeanValueSuppleC2 = boardMeanValue.create(
+        "point",
+        [
+          function () {
+            return -1 * cx() + 1;
+          },
+          function () {
+            return fx(-1 * cx()) + calcInclineAB();
+          },
+        ],
+        {
+          name: ``, // 点の名前
+          size: 0, // 点の大きさ
+          face: "o", // 点の形、他にも種類あり、x+^v><'<>'など
+          highlight: false, //ホバー時に色を変えて表示させるか
+          trace: false, // 移動したときに跡を残すか？
+          strokeColor: "#ff0000", // 色
+        }
+      );
+      // 点cを通る直線
+      var lMeanValue1 = boardMeanValue.create(
+        "line",
+        [pMeanValueC1, pMeanValueSuppleC1],
+        {
+          strokeColor: "#ff0000", // 線の色
+          strokeWidth: function () {
+            return sliderMeanValue2.Value() >= cx() ? 4 : 0;
+          }, // 線の太さ
+          straightFirst: true, // 始点を突き抜けて直線にするか
+          straightLast: true, // 終点を突き抜けて直線にするか
+          dash: 0, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
+          highlight: false, //ホバー時に色を変えて表示させるか
+        }
+      );
+      var lMeanValue2 = boardMeanValue.create(
+        "line",
+        [pMeanValueC2, pMeanValueSuppleC2],
+        {
+          strokeColor: "#ff0000", // 線の色
+          strokeWidth: function () {
+            return sliderMeanValue1.Value() <= -1 * cx() ? 4 : 0;
+          }, // 線の太さ
+          straightFirst: true, // 始点を突き抜けて直線にするか
+          straightLast: true, // 終点を突き抜けて直線にするか
+          dash: 0, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
+          highlight: false, //ホバー時に色を変えて表示させるか
+        }
+      );
+      // 網掛け領域を表示
+      var polyMeanValue = boardMeanValue.create(
+        "polygon",
+        [
+          [
+            function () {
+              return sliderMeanValue1.Value();
+            },
+            10,
+          ],
+          [
+            function () {
+              return sliderMeanValue1.Value();
+            },
+            -10,
+          ],
+          [
+            function () {
+              return sliderMeanValue2.Value();
+            },
+            -10,
+          ],
+          [
+            function () {
+              return sliderMeanValue2.Value();
+            },
+            10,
+          ],
+        ],
+        { fillOpacity: 0.05 }
+      );
 </script>
