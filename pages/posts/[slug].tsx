@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import Container from "../../components/container";
-import PostBody from "../../components/post-body";
-import Header from "../../components/header";
-import PostHeader from "../../components/post-header";
-import Layout from "../../components/layout";
+import Container from "../../components/ui-elements/container/Container";
+import PostBody from "../../components/ui-elements/post-body/PostBody";
+import Header from "../../components/ui-parts/header/Header";
+import PostHeader from "../../components/ui-parts/post-header/PostHeader";
+import Layout from "../../components/ui-pages/layout/Layout";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
-import PostTitle from "../../components/post-title";
+import PostTitle from "../../components/ui-elements/post-title/PostTitle";
 import Head from "next/head";
 import { TITLE } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
