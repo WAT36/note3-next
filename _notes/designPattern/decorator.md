@@ -21,6 +21,19 @@ Decorator（デコレータ）パターンは、ソフトウェアデザイン�
 3. **Decorator（デコレータ）**: Component を実装し、追加の機能を提供します。Decorator クラスはその中に Component のインスタンスを持ち、そのインスタンスを装飾します。
 4. **ConcreteDecorator（具体的なデコレータ）**: Decorator を拡張した具体的なクラスで、追加の機能を提供します。ConcreteDecorator クラスは追加の振る舞いを持ち、Component を装飾します。
 
+### クラス図
+
+クラス図で表すと以下の様な形である。
+
+```mermaid
+classDiagram
+Component <|.. ConcreteComponent
+<<Interface>> Component
+Decorator <|-- ConcreteDecorator
+<<Interface>> Decorator
+Component <|.. Decorator
+```
+
 ### **Decorator パターンの実装例**
 
 以下は、Java 言語を使用した Decorator パターンの実装例です。例として、テキストに装飾を加えるテキストエディタを考えてみましょう。
