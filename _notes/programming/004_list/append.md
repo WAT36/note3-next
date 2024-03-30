@@ -15,6 +15,10 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+リスト.add(追加する値)
+```
+
 Java では List クラスに **add()** というメソッドがあり、引数の要素をリストの最後に追加する。  
 `boolean add(E e)`  
 型の問題などで要素を追加できない時はエラーとなる。  
@@ -50,6 +54,12 @@ class Main{
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+リスト.append(追加する値)
+# または
+リスト.insert(追加する位置,追加する値)
+```
 
 Python ではリストの関数として
 
