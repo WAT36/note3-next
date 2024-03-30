@@ -16,10 +16,16 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-工事中・・
+```java
+// 作成中・・
+```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+sum(リスト)
+```
 
 Python では組み込み関数として **sum()** という関数があり、引数として受け取ったイテラブルな値（リストなど）の全要素の合計値を算出してくれる。  
 文字列など、計算が行えない値が入っていた場合はエラーになる。
