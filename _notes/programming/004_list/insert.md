@@ -15,6 +15,10 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+リスト.add(追加する位置,追加する値)
+```
+
 Java では List クラスに **add()** というメソッドがある。前章の「リストへの要素追加」で述べたメソッドと名前が同じであるが、こちらはそれに挿入する位置を引数に追加したメソッドである。  
 `void add(int index,E element)`  
 このメソッドを活用することによりリストの任意の位置に要素を追加することができる。
@@ -52,6 +56,10 @@ class Main{
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```pythonn
+リスト.insert(追加する位置,追加する値)
+```
 
 Python ではリストに関数**insert**がある。これを利用することにより、リストの指定した位置に要素を追加できる。  
 `list.insert(i, x)`  
