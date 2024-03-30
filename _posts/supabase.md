@@ -38,7 +38,7 @@ PlanetScale と同じくサーバーレスなデータベースサービスを�
 
 ![](/assets/posts/supabase/price.png)
 
-実際に利用してみよう。
+実際に利用してみよう。(Free プラン)
 
 # 利用登録（サインアップ） ~ プロジェクト・DB を作成する
 
