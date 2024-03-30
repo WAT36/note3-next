@@ -21,13 +21,13 @@ type Story = StoryObj<typeof meta>;
 export const Main: Story = {
   args: {
     title: "Post Title",
-    coverImage: "/",
-    date: "2000/01/01",
+    coverImage: "/blog/authors/WAT.jpg",
+    date: "2000-01-01",
     excerpt: "excerpt.",
     author: {
       name: "Author name",
-      picture: "/",
+      picture: "/blog/authors/WAT.jpg",
     },
-    slug: "/",
+    slug: "",
   },
 };
