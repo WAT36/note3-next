@@ -1,12 +1,12 @@
-import Container from "../components/container";
-import HeroPost from "../components/hero-post";
-import Intro from "../components/intro";
-import Layout from "../components/layout";
+import Container from "../components/ui-elements/container/Container";
+import HeroPost from "../components/ui-parts/hero-post/HeroPost";
+import Intro from "../components/ui-elements/intro/Intro";
+import Layout from "../components/ui-pages/layout/Layout";
 import { getAllPosts } from "../lib/api";
 import Head from "next/head";
 import { ADMINISTRATOR, TITLE } from "../lib/constants";
 import Post from "../interfaces/post";
-import { Bio } from "../components/bio";
+import { Bio } from "../components/ui-elements/bio/Bio";
 
 type Props = {
   allPosts: Post[];
