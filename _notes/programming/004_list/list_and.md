@@ -15,6 +15,14 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+// リストaとリストbの積集合をとる
+import java.util.HashSet;
+import java.util.Set;
+
+リストa.retainAll(リストb); //リストaのうちリストbにもある要素のみを残し他は全て排除する
+```
+
 Java では List クラスに **retainAll()** というメソッドがある。これは呼び出し元のリストに含まれている要素の内、引数に指定したリスト内にも含まれている要素のみを残し、他の要素は全て削除するというメソッドである。  
 `boolean retainAll(Collection<?> c)`  
 このメソッドを活用することにより２つのリストに共通して入っている要素のみを取り出すことができる。ただし同じ値の要素が複数入っていた場合はその数だけ要素が残るということもあるので、重複している値を１つにするには **Set()** 等を使い重複を排除する。
@@ -69,6 +77,11 @@ l: 100
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+# リストaとリストbの積集合をとる
+list(set(リストa) & set(リストb))
+```
 
 Python ではリストを set 型に変換し、その後 **&** 演算子を使うと、重複している要素のみが残る。  
 リストに戻したい時は、計算後の set を list()で変換してリストにする。
