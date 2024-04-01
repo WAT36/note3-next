@@ -15,6 +15,11 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+import java.util.Collections;
+Collections.reverse(リスト);  //インプレース
+```
+
 Java ではライブラリ**java.util.Collections**に、リスト内の要素を逆にするメソッド **reverse()** があるので、それを利用する。  
 `public static void reverse(List<?> list)`  
 実行例を以下に示す。
@@ -55,6 +60,12 @@ class Main{
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+list(reversed(リスト)) # インプレース処理ではない
+# または
+リスト.reverse()       # インプレース処理
+```
 
 Python ではリストをソートする関数は以下の 2 つがある。
 
