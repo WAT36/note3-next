@@ -16,6 +16,16 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+// リストaとリストbの和集合をとる
+import java.util.HashSet;
+import java.util.Set;
+
+リストa.addAll(リストb); //aにbの要素全て追加
+Set<Integer> set_a = new HashSet<Integer>(リストa); // リストaをSet型にして重複排除
+リストa = new ArrayList<Integer>(set_a); // Set型にしたaをまたList型に戻す
+```
+
 Java での考え方としては
 
 - **addAll()** メソッドを利用してリスト a にリスト b の要素を全て加える
@@ -80,6 +90,11 @@ a or b: 0 1 2 3 100 4
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+# リストaとリストbの和集合をとる
+list(set(リストa) | set(リストb))
+```
 
 Python ではリストを set 型に変換し、その後 **|** 演算子を使うと、両リストの少なくとも一つにある要素が残る。  
 リストに戻したい時は、計算後の set を list()で変換してリストにする。
