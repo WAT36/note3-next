@@ -15,7 +15,12 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java では List クラスに **contains()** というメソッドがある。これは呼び出し元のリストに引数に指定した要素が含まれていた場合に true、そうでない場合 false を返すメソッドである。  
+```java
+リスト.contains(値)
+```
+
+Java では List クラスに **contains()** というメソッドがある。これは呼び出し元のリストに引数に指定した要素が含まれていた場合に true、そうでない場合 false を返すメソッドである。
+
 `boolean contains(Object o)`
 
 使用例を以下に示す。
@@ -59,6 +64,10 @@ false
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+値 in リスト
+```
 
 Python では **in** 演算子が利用でき、これにより指定した要素がリスト内に含まれているかを確認できる。  
 含まれている場合は True を、そうでない場合は False を返す。
