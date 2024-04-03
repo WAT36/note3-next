@@ -15,6 +15,11 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+import java.util.Collections;
+Collections.swap(リスト,a,b) //リストのa番目の要素とb番目の要素を入れ替える
+```
+
 Java は List の親クラスである Collections クラスに **swap()** メソッドがあるので、これを利用する。  
 `public static void swap(List<?> list,int i,int j)`  
 使用例を以下に示す。
@@ -61,9 +66,12 @@ a: 100 3 1 0
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python ではリストの 2 要素の交換に関しての関数は特に無いが、以下のように書くことで要素の入れ替えが行える。  
-（リストの 0 番目、1 番目の要素の入れ替え）  
-`l[0],l[1] = l[1],l[0]`
+```python
+#（リストの a 番目、b 番目の要素の入れ替え）
+リスト[a],リスト[b] = リスト[b],リスト[a]
+```
+
+Python ではリストの 2 要素の交換に関しての関数は特に無いが、上記のように書くことで要素の入れ替えが行える。
 
 使用例を以下に示す。
 
