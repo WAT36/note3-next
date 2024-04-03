@@ -15,6 +15,10 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+// 作成中・・・
+```
+
 Java では具体的なメソッドが(調べたところ)無いため、リストの要素を一個一個見ていって調べる。  
 （他に方法があるかもしれないので、後に要調査。）
 
@@ -56,6 +60,10 @@ a:3
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+リスト.count(値)
+```
 
 Python ではリストの関数に **count()** があり、これは引数に指定した要素がリスト内にいくつあるかを返してくれる。
 
