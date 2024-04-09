@@ -15,6 +15,11 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+import java.util.Collections;
+Collections.min(m.values());
+```
+
 Java で Map にある値の最小値を取得するには、最大値の時と同様に以下の手順で行う。
 
 - Map のメソッド **values()** を使い、値のみを格納した List を取得する
@@ -57,6 +62,10 @@ min value: value
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+min(m.values())
+```
 
 Python では辞書の関数 **values()** で値のみのビューオブジェクト(イテラブル)を取得できるので、これに組み込み関数 **min()** を適用すると、値の最小値を取得できる。
 
