@@ -23,6 +23,12 @@ Javascript では**連想配列**と呼ばれるデータ構造がこれに該�
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+import java.util.Map;
+import java.util.HashMap;
+Map<String,String> m = new HashMap<>();
+```
+
 Java では**java.util.Map**をインポートして利用する。  
 ただし、この Map クラスはインタフェースなので、利用するには具体的な実装がある別の Map のクラスをインポートして利用する。  
 特に指定無い場合は**java.util.HashMap**を使う。
@@ -44,8 +50,11 @@ class Main{
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python では辞書という名前で呼ばれ、**{}** のカッコ内で囲まれたものが辞書となる。  
-`{キー: 値}`
+```python
+m = {キー: 値}
+```
+
+Python では辞書という名前で呼ばれ、**{}** のカッコ内で囲まれたものが辞書となる。
 
 ```python
 >>> a={}
@@ -66,7 +75,7 @@ Javascript では連想配列と呼ばれるデータ構造が該当する。
 例を以下に示す。
 
 ```javascript
-var 変数名 = new Array();
+var m = new Array();
 ```
 
 </div>
