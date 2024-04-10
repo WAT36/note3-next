@@ -18,19 +18,19 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java でのフィールド変数定義方法は以下の通り。
-
-```
+```java
 class クラス名{
 
     //フィールド変数
-    [static] (フィールド変数１　定義)
-    [static] (フィールド変数２　定義)
+    [static] (フィールド変数１の定義)
+    [static] (フィールド変数２の定義)
     ・・・
 
     //文
 }
 ```
+
+Java でのフィールド変数定義方法は以下の通り。
 
 クラス変数にしたい時は変数の前に**static**をつける。  
 static をつけない場合はインスタンス変数となる。  
@@ -95,6 +95,11 @@ carname :lexus
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+class クラス名:
+  クラス変数 = 値
+```
 
 Python にもクラス変数とインスタンス変数がある。  
 クラス変数はクラス内、各関数外に定義し、クラス、インスタンスオブジェクトから参照することができる。  
