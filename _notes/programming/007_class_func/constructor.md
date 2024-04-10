@@ -17,6 +17,15 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+class クラス名{
+  // コンストラクタ
+  クラス名(引数) {
+    // 処理文
+  }
+}
+```
+
 Java では、クラス内でそのクラス名と同じ名前のメソッドを定義した時、それがコンストラクタになる。  
 引数を変えれば、多重定義（オーバーロード）でいくらでも定義できる。  
 ただし、コンストラクタを定義したら、インスタンス生成時に設定する引数はそのコンストラクタと同じでなければならない。  
@@ -60,6 +69,12 @@ Car2:carrola 200-2020 kaki-kukeko
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+class クラス名:
+  def __init__(self,引数):
+    # 処理文
+```
 
 Python では　**\_\_init()\_\_** という関数がクラスのコンストラクタの役目を果たす。  
 クラスのインスタンス生成後、真っ先にこの関数\_\_init\_\_が実行される。  
