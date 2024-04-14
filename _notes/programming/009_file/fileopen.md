@@ -15,6 +15,39 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+import java.io.FileInputStream;
+import java.io.File;
+import java.io.IOException;
+try{
+  FileInputStream fis = new FileInputStream(new File("ファイル名"));
+  int data = 0;
+  while((data = fis.read()) != -1){
+    //読み込んだデータに対する処理
+  }
+}catch (IOException e){
+  // エラー時の処理
+}finally{
+  fis.close();
+}
+
+// または
+import java.io.FileReader;
+import java.io.File;
+import java.io.IOException;
+try{
+  FileReader fr = new FileReader(new File("test.txt"));
+  int data = 0;
+  while((data = fr.read()) != -1){
+    //読み込んだデータに対する処理
+  }
+}catch (IOException e){
+  // エラー時の処理
+}finally{
+  fr.close();
+}
+```
+
 Java ではプロパティファイル(.properties で終わるファイル)に関しては専用のライブラリがありそれを利用して読み込むが、ここではテキストファイルなど一般的なファイルに対する読み込み方法についてを示す。
 
 Java でファイルを読み込むには以下の 2 つの方法がある。
@@ -174,6 +207,11 @@ ddd
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
+```python
+with open('ファイル名','モード') as f:
+    data = f.read()
+```
+
 Python では組み込み関数 **open()** を利用してファイルを開き、読み込む。
 
 `open(ファイル名,モード)`
@@ -192,12 +230,7 @@ open 関数で開いたファイルは、ファイルオブジェクトとして
 
 一連の操作についてここまで述べたが、実はこれらの動作を行う際は**with**文を使うのが非常に便利である。  
 その利点は、with 文から抜けるときに自動的にファイルクローズを実行してくれるからであり（途中に例外が発生しても行われる）、同様の処理を try-except 文で実装するよりも簡略化できる。  
-使用法は以下の通り。
-
-```python
-with open('ファイル名','モード') as f:
-    data = f.read()
-```
+使用法は上記の通り。
 
 実行例を以下に示す。
 
