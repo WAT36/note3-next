@@ -16,11 +16,7 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-class Main{
-    public static void main(String args[]){
-        System.err.println(変数もしくは値);
-    }
-}
+System.err.println(変数もしくは値);
 ```
 
 クラスはここでは Main.java とする

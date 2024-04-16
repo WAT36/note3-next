@@ -24,18 +24,12 @@ $ ./a.exe  (実行ファイル(またはプログラム))
 
 ```java
 import java.util.Scanner;
+public static void main(String args[]){
+  //Scannerのインスタンスを生成
+  Scanner sc = new Scanner(System.in);
 
-class Main{
-  public static void main(String args[]){
-
-    //Scannerのインスタンスを生成
-    Scanner sc = new Scanner(System.in);
-
-    //String型で１行読み込む
-    String s = sc.nextLine();
-
-    System.out.println("入力された値:"+s);
-  }
+  //String型で１行読み込む
+  String s = sc.nextLine();
 }
 ```
 
@@ -64,7 +58,6 @@ $ java Main
 
 ```python
 s = input() # コンソールからの入力をsに格納する
-print("入力された値:",s)
 ```
 
 Python でコンソールからの入力を扱うには組み込み関数の **input()** を使う。

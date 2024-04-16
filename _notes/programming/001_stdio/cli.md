@@ -23,12 +23,8 @@ $ (実行ファイル名) 値1 値2..
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-import java.util.Arrays;
-
-class Main{
-    public static void main(String args[]){
-        System.out.println(Arrays.toString(args));
-    }
+public static void main(String args[]){
+    // args[] にコマンドライン引数が入る
 }
 ```
 
