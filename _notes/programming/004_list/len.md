@@ -15,6 +15,10 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+リスト.size();
+```
+
 Java では List クラスに **size()** というメソッドがあり、これはリストに入っているデータの個数（＝リストの長さ）を返してくれる。  
 `int size()`  
 実行例を以下に示す。
@@ -42,6 +46,10 @@ class Main{
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+len(リスト)
+```
 
 Python では **len()** という関数があり、引数のリストの長さ（リスト内の要素の数）を返してくれる。
 

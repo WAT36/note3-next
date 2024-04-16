@@ -15,6 +15,11 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+import java.util.Collections;
+Collections.min(リスト)
+```
+
 Java ではリストに関するメソッドがあるライブラリ**java.util.Collections**に、リスト内の要素の最小値を取得するメソッド **min()** があるので、それを利用する。  
 String など文字列のリストの場合は、値を辞書順に並べたときの一番初めの値が返される。
 
@@ -67,6 +72,10 @@ a c banana 010101
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+min(リスト)
+```
 
 Python には組み込み関数 **min()** があり、引数として受け取ったイテラブルな値の最小値を返してくれる。  
 要素が文字列の場合は、辞書順に並べたときの一番初めの値が返される。

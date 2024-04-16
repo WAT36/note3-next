@@ -16,6 +16,15 @@ Set 型変数についてを述べる。
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+import java.util.Set;
+import java.util.HashSet;
+Set<String> s = new HashSet<>();
+
+// 値を追加したい時
+s.add("a");
+```
+
 Java でのリストは**Set**クラスをインポートして利用する。  
 しかし、Set クラスはインターフェースであるため、そのまま使用することはできない。  
 使用するには、Set の具体的な定義が書いてあるクラスを Set のインスタンスに代入して使う。  
@@ -50,6 +59,14 @@ $ java Main
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+{}
+{1,2,3}
+# または
+set()
+set([1,2,3])
+```
 
 Python で Set 型変数を作るには中括弧 **{}** または **set** 関数を利用する。(set 関数を利用する場合は文字列またはリストを入力する)  
 実行例を以下に示す。

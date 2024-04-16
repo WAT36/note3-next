@@ -1,26 +1,30 @@
 ---
 title: "論理積(AND)"
 date: "2019-10-17T19:35:30+09:00"
-excerpt: 'ANDビット演算を利用する方法。'
-tag: ["Java","Python","Javascript"]
-programming: ["Java","Python","Javascript"]
-updatedAt: '2019-10-17T19:35:30+09:00'
+excerpt: "ANDビット演算を利用する方法。"
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
+updatedAt: "2019-10-17T19:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
-  picture: '/assets/blog/authors/WAT.jpg'
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
-
-ANDビット演算をする方法についてを示す。
+AND ビット演算をする方法についてを示す。
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-`(左辺) & (右辺)`  
+```java
+boolean a = true;
+boolean b = false;
 
-JavaではANDのビット演算子 **&** を使用する。
+a & b //ANDビット演算
+```
 
-論理演算の時とは違い、こちらは & 1個なので注意。数値型リテラルでも、boolean型でも入力可。  
+Java では AND のビット演算子 **&** を使用する。
+
+論理演算の時とは違い、こちらは & 1 個なので注意。数値型リテラルでも、boolean 型でも入力可。
 
 ```java
 class Main{
@@ -57,17 +61,22 @@ false
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-`(左辺) & (右辺)`  
+```python
+a = True
+b = False
 
-ビット演算に関してはpythonもjavaと同じで **&** を使用する。
+a & b
+```
+
+ビット演算に関しては python も java と同じで **&** を使用する。
 
 ```python
->>> 
+>>>
 >>> a = True
 >>> b = False
 >>> c = 3
 >>> d = 5
->>> 
+>>>
 >>> print(a & a)
 True
 >>> print(a & b)
@@ -87,9 +96,14 @@ False
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-`(左辺) & (右辺)`  
+```javascript
+var a = true;
+var b = false;
 
-ビット演算に関してはJavascriptもjavaと同じで **&** を使用する。
+a & b;
+```
+
+ビット演算に関しては Javascript も java と同じで **&** を使用する。
 
 ```javascript
 > 0 & 1
@@ -103,4 +117,3 @@ False
 ```
 
 </div>
-

@@ -15,24 +15,24 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java でのクラス定義方法は以下の通り。
-
-```
+```java
 [public] class クラス名 [extends 継承元クラス名] [implements 実装先インタフェース名]{
     //文
 }
 ```
 
-あるクラスを継承して作りたい時はクラス名の後に extends を、インタフェースを実装する時はその後に implements を書き加える。
+Java でのクラス定義方法は上記の通り。
+
+アクセス修飾子を指定したいときは public などを、あるクラスを継承して作りたい時はクラス名の後に extends を、インタフェースを実装する時はその後に implements を書き加える。
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python でのクラスを定義するときの記法は以下の通り。
-
-```
+```python
 class クラス名:
-    //文
+    #文
 ```
+
+Python でのクラスを定義するときの記法は上記の通り。
 
 </div>

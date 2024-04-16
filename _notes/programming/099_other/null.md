@@ -25,6 +25,10 @@ Null とは何もない、何も入ってない、という状態を示す語で
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+null
+```
+
 Java では参照型のデータ型において、何も参照していない状態を表す時に null を利用する。
 
 参照型の変数に直接 null を代入することも可能である。変数が null であるかを確認するには、比較演算子(==)を用いる。
@@ -58,6 +62,10 @@ Exception in thread "main" java.lang.NullPointerException
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+None
+```
 
 Python では**None**という語が null である状態を示す。
 

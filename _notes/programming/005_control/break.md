@@ -15,6 +15,10 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+break;
+```
+
 ループ処理の for 文、while 文において、処理の途中に break があった場合、ループを途中で中断し、ループから抜け出してくれる。  
 ループを何重にも重ねていた場合は、その break がある一番内側のループに break が適用される。
 
@@ -111,6 +115,10 @@ default
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
+```python
+break
+```
+
 break 文の使い方は Python も java と同じ。  
 途中で中断したい for,while ループの中に設定する。
 
@@ -142,6 +150,10 @@ break 文の使い方は Python も java と同じ。
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+break
+```
 
 Javascript においても break 文の使い方は同じである。  
 途中で中断したい for,while ループの中に設定する。

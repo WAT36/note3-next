@@ -17,15 +17,13 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java での記法は以下の通り。
-
-```
+```java
 while(条件式){
     //処理
 }
 ```
 
-上記におけるフローは以下の通り。
+Java での記法は上記の通りで、フローは以下の通り。
 
 1. 条件式を実行し true なら 3,false なら 4 に行く
 2. while 文の中身の処理が実行される。
@@ -97,13 +95,13 @@ while(i<5)
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python での記法は以下の通り。
-
-```
+```python
 while 条件式:
     #処理
     ・・・
 ```
+
+Python での記法は上記の通り。
 
 条件式が True である限り、while 文以下の処理を実行し続ける。
 
@@ -126,14 +124,14 @@ while 条件式:
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-Javascript での while 文の記法は以下の通り。
-
 ```javascript
 while(条件){
     //条件が真だった場合に実行される処理
     ・・・
 }
 ```
+
+Javascript での while 文の記法は上記の通り。
 
 条件式が true である限り、while 文内の処理を実行し続ける。
 

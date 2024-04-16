@@ -15,6 +15,11 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Python">
 
+```python
+#  例：0~4の値のリストを作りたい時
+[i for i in range(5)]
+```
+
 リスト内包とは大かっこ **\[ \]** の中に式と for 文（・if 文）を書くことにより、その式によって評価された値のリストを得られるというものである。
 
 実行例を以下に示す。

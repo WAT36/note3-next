@@ -16,6 +16,10 @@ continue 文についてを示す。
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+continue;
+```
+
 Java で continue 文を設定したい時は、設定したい for 文、while 文のループ処理内に設定する。  
 実行例を以下に示す。
 
@@ -68,6 +72,10 @@ class Main{
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
+```python
+continue
+```
+
 Python にも continue 文があり、使い方は java と同じ。  
 for,while ループの中で設定する。
 
@@ -98,6 +106,10 @@ for,while ループの中で設定する。
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+continue
+```
 
 Javascript においても continue 文の使い方は同じである。  
 設定したい for,while ループの中に設定する。

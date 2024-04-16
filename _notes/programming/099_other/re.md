@@ -19,6 +19,25 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Python">
 
+```python
+import re
+
+pattern = re.compile(r'正規表現', flags=0)
+
+match = re.search(pattern,"文字列")     #文字列で正規表現に最初にマッチした部分を返す
+match = re.match(pattern,"文字列")      #文字列の先頭が正規表現にマッチしていたらそれを返す
+match = re.fullmatch(pattern,"文字列")  #文字列全体が正規表現にマッチしていたらそれを返す
+match = re.findall(pattern,"文字列")    #文字列中で正規表現にマッチしているものをリストにして全て返す
+
+match.start() # マッチした文字列の文字列中での最初のインデックスを返す
+match.end()   # マッチした文字列の文字列中での最後のインデックスを返す
+match.span()  # マッチした文字列が文字列中でどこからどこまでのインデックスなのかを返す
+match.group() # マッチした文字列を返す
+
+re.sub(r'正規表現','置換後文字列',"文字列") #文字列中で正規表現にマッチしているものを置換後文字列に置き換えて返す
+
+```
+
 Python では正規表現を扱う**re**モジュールがある。
 この中には色々関数があり、これらを利用して文字列パターンの抽出や検索を行う。
 

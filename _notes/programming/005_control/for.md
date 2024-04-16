@@ -15,15 +15,13 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java での記法は以下の通り。
-
-```
+```java
 for(初期化式;条件式;変化式){
     //処理
 }
 ```
 
-上記におけるフローは以下の通り。
+Java での記法は上記の通りで、フローは以下の通り。
 
 1. 初期化式を実行する。
 2. 条件式を実行し true なら 3,false なら 6 へ行く。
@@ -73,10 +71,12 @@ class Main{
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python にも for 文はあるが、Java の時とは違い初期値や条件は設定しない。  
-Python では、リストなどのシーケンス型の値を用いてループ処理を実装する。記法は以下の通り。
+```python
+for 変数 in シーケンス値
+```
 
-`for 変数 in シーケンス値`
+Python にも for 文はあるが、Java の時とは違い初期値や条件は設定しない。  
+Python では、リストなどのシーケンス型の値を用いてループ処理を実装する。記法は上記の通り。
 
 上記のように書くことで、シーケンス値に入っている値が 1 回のループで頭から順番に 1 個ずつ取り出され、それを元に for 文の処理が実行される。Java の拡張 for 文と似たようなものである。
 
@@ -113,14 +113,12 @@ range(0, 5)
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-Javascript での for 文も、Java と記法・フロー共に同じである。
-
-記法
-
-```
-for(初期化式;条件式;変化式){
-    //処理
+```javascript
+for (初期化式; 条件式; 変化式) {
+  //処理
 }
 ```
+
+Javascript での for 文も、Java と記法・フロー共に同じである。
 
 </div>

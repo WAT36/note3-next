@@ -15,6 +15,10 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+リスト.clear()
+```
+
 Java では List クラスにあるメソッド**clear()** を利用する。
 
 `void clear()`
@@ -54,6 +58,10 @@ clear後[]
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+リスト.clear()
+```
 
 Python ではリストにある関数 **clear()** を使う。
 

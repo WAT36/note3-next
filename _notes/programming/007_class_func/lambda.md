@@ -17,6 +17,11 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+import java.util.function.Function;
+Function<引数の型,返り値の型> 変数名 = (引数) -> { 処理 };
+```
+
 Java では簡易的なメソッドを実装する方法としてラムダ式というのがある。
 
 `( 実装するメソッドの引数 ) -> { 処理 }`
@@ -76,7 +81,9 @@ none() Lambda:implemented.
 
 Python ではキーワード**lambda**を使って定義することで無名関数が書ける。
 
-`lambda (引数): (返す値、式)`
+```python
+lambda (引数): (処理・返り値)
+```
 
 引数は何個でも設定できる。  
 特徴としては lambda の式は変数に格納することができる。  

@@ -15,6 +15,10 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+リスト.remove(削除する値)
+```
+
 Java では List クラスにリストの指定した要素を削除するメソッド **remove()** がある。  
 `boolean remove(Object o)`  
 このメソッドはリストから指定した要素を削除する。複数ある場合は最初のもののみを削除する。
@@ -75,6 +79,10 @@ class Main{
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+リスト.remove(削除する値)
+```
 
 Python にはリストに指定した要素を削除する関数 **remove()** があるので、これを利用する。  
 引数にはリストから削除したい要素を入力する。  
