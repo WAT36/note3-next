@@ -1,9 +1,33 @@
 import Head from "next/head";
 import { CMS_NAME, HOME_OG_IMAGE_URL } from "../../../lib/constants";
+import { GA_ID, GTAG_ID } from "../../../lib/gtag";
 
 export const Meta = () => {
   return (
     <Head>
+      {process.env.NEXT_PUBLIC_APP_ENV === "prd" ? (
+        <>
+          {/* <!-- Google Tag Manager --> */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            (function (w, d, s, l, i) {
+              w[l] = w[l] || [];
+              w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+              var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != "dataLayer" ? "&l=" + l : "";
+              j.async = true;
+              j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+              f.parentNode.insertBefore(j, f);
+            })(window, document, "script", "dataLayer", "${GTAG_ID}");`,
+            }}
+          />
+          {/* <!-- End Google Tag Manager --> */}
+        </>
+      ) : (
+        <></>
+      )}
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -56,6 +80,28 @@ export const Meta = () => {
       />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
       <script>hljs.highlightAll();</script>
+      {process.env.NEXT_PUBLIC_APP_ENV === "prd" ? (
+        <>
+          {/* Google tag (gtag.js) */}
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}', {
+              page_path: window.location.pathname,
+            });`,
+            }}
+          />
+        </>
+      ) : (
+        <></>
+      )}
     </Head>
   );
 };
