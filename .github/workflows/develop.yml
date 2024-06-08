@@ -1,3 +1,4 @@
+# memo インフラ構築はここではしない。事前にローカルからやっておく
 name: Build React on S3(develop)
 on:
   push:
