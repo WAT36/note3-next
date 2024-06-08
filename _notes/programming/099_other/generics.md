@@ -23,6 +23,10 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+型名<クラス名>
+```
+
 Java では**ダイヤモンド演算子**を使ってジェネリクスを宣言する。
 
 クラスを定義する時、及びジェネリクスを利用する変数を定義する時、型名の後ろに<クラス名>というように宣言する。

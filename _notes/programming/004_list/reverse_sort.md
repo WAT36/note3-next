@@ -15,6 +15,12 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+import java.util.Collections;
+Collections.sort(リスト)    // リストがソートされる（インプレース）
+Collections.reverse(リスト) // リストが逆順になる（インプレース）
+```
+
 Java ではリストを逆順にソートするメソッドは無いため、前述の リストのソート と リストを逆順にする 方法を組み合わせて利用する。  
 実行例を以下に示す。
 
@@ -55,6 +61,12 @@ class Main{
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+リスト.sort(reverse=True)
+# または
+sorted(リスト,reverse=True)
+```
 
 Python では前章の「リストをソート」する方法で述べた 2 つの関数において、それぞれ引数**reverse**があり、それを True に設定してやると逆順にソートしてくれる。（デフォルトではこの引数 reverse は False になっている）
 

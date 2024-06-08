@@ -19,6 +19,12 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+[アクセス修飾子] [static] [返り値の型] メソッド名(...引数) {
+    //処理文
+}
+```
+
 Java ではメソッドに可変長引数を設定できる仕様がある。
 
 その仕様は以下の通り。
@@ -54,6 +60,11 @@ $ java Main
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+def 関数名(*可変長引数):
+    # 処理
+```
 
 Python では関数を定義するときに引数の頭に\*を付けたリストのアンパック型にすると、その部分に入力された値はその引数(タプル)の要素として扱われることになる。アンパック型なので、引数はいくらでも入れられることになり、結果これで可変長引数が実現できることになる。
 

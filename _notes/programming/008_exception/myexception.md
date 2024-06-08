@@ -17,13 +17,13 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java では**Exception**クラスを継承して作る事で自作の例外クラスを定義できる。
-
-```
+```java
 [修飾子] 自作の例外クラス名 extends Exception {
   // 文
 }
 ```
+
+Java では**Exception**クラスを継承して作る事で自作の例外クラスを定義できる。
 
 実行例を以下に示す。
 
@@ -63,13 +63,13 @@ throw MyException
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python でも**Exception**クラスから継承したクラスを作ると、それがユーザー定義の例外クラスになる。
-
-```
+```python
 class 例外クラス名(Exception):
     //文
     //(def __init__ など書く)
 ```
+
+Python でも**Exception**クラスから継承したクラスを作ると、それがユーザー定義の例外クラスになる。
 
 実行例を以下に示す。
 

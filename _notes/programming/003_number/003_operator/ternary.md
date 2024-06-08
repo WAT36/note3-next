@@ -1,28 +1,33 @@
 ---
 title: "三項演算子"
 date: "2019-10-16T22:35:30+09:00"
-excerpt: '三項演算子(条件演算子)を利用する方法。'
-tag: ["Java","Python","Javascript"]
-programming: ["Java","Python","Javascript"]
-updatedAt: '2019-10-16T22:35:30+09:00'
+excerpt: "三項演算子(条件演算子)を利用する方法。"
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
+updatedAt: "2019-10-16T22:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
-  picture: '/assets/blog/authors/WAT.jpg'
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
-条件分岐を行う三項演算子についてを示す。  
-
+条件分岐を行う三項演算子についてを示す。
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-`a ? b : c`    
+```java
+boolean a=true;
+int b=0;
+int c=1;
 
-Javaでは三項演算子 " **?** " が実装されている。 例えば上のような式としたとき、aがtrueならbを、falseならcを返すという事になる。  
+a ? b : c
+```
 
-三項演算子の前（上記例でいうa）には必ずboolean値を返すような式にする。  
+Java では三項演算子 " **?** " が実装されている。 例えば上のような式としたとき、a が true なら b を、false なら c を返すという事になる。
 
-実行例を以下に示す。  
+三項演算子の前（上記例でいう a）には必ず boolean 値を返すような式にする。
+
+実行例を以下に示す。
 
 ```java
 class Main{
@@ -48,15 +53,21 @@ a<=b
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-`b  if  a  else  c`  
+```python
+a=True
+b=0
+c=1
 
-Pythonには三項演算子は実装されてはいない。  
+b  if  a  else  c
+```
 
-しかし、上記のようなif,elseを利用することで三項演算子と同様の動作を行う式を実装することはできる。  
+Python には三項演算子は実装されてはいない。
 
-この式では、aがTrueの時bを、Falseならcを返すという意味である。  
+しかし、上記のような if,else を利用することで三項演算子と同様の動作を行う式を実装することはできる。
 
-無論だが、aにはTrueまたはFalseを返すような式を入力する。  
+この式では、a が True の時 b を、False なら c を返すという意味である。
+
+無論だが、a には True または False を返すような式を入力する。
 
 実行例を以下に示す。
 
@@ -68,21 +79,25 @@ Yes
 >>>
 >>> a = 0
 >>> b = 1
->>> 
->>> print( "a>b" if a>b else "a<=b" ) 
+>>>
+>>> print( "a>b" if a>b else "a<=b" )
 a<=b
 >>>
 ```
 
-
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-`a ? b : c`    
+```javascript
+var a = true;
+var b = 0;
+var c = 1;
 
-JavascriptでもJavaと同じく三項演算子 "**?**" が実装されている。利用法も同じである。
+a ? b : c;
+```
 
-条件式aがtrueならb、falseならcを実行する。
+Javascript でも Java と同じく三項演算子 "**?**" が実装されている。利用法も同じである。
+
+条件式 a が true なら b、false なら c を実行する。
 
 </div>
-

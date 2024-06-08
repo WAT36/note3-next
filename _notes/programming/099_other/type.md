@@ -15,9 +15,11 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-java には**instanceof**という演算子がある。
+```java
+変数 instanceof クラス名
+```
 
-`変数 instanceof クラス名`
+java には**instanceof**という演算子がある。
 
 変数に入っているデータの型が右辺のクラスと一致していれば true、そうでない場合は false が返る。  
 この演算子は参照型のクラスにしか使えず、int や char のような基本データ型には利用できない。(ラッパークラスには利用可能)  
@@ -82,6 +84,10 @@ f is Cherry?:false
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
+```python
+type(変数)
+```
+
 Python では組み込み関数 **type()** を使うことにより、変数にあるデータの型が何であるかが分かる。
 
 ```python
@@ -119,7 +125,7 @@ Python では組み込み関数 **type()** を使うことにより、変数に�
 Javascript では特殊演算子**typeof**を利用することで、変数の型を調べることができる。
 
 ```javascript
-typeof (変数 / 定数);
+typeof 変数;
 ```
 
 使用例

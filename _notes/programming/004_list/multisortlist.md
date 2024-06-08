@@ -17,6 +17,12 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+import java.util.Collections;
+// 例：リストlの１番目の項でソートしたい時
+Collections.sort(l,(x,y)->Integer.compare(x.get(1), y.get(1)));
+```
+
 Java では「リストのソート」の記事で述べた **Collections.sort()** メソッドを用いる。  
 違う点は、sort()メソッドにソートしたいリストだけでなく、リストをどのように順序付けるかを定義する **Comparator** を定義させる。
 
@@ -62,6 +68,11 @@ after  sort:[[3, -3], [2, -2], [1, -1], [0, 0]]
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+# 例：リストlの１番目の項でソートしたい時
+リスト.sort(key=lambda x: x[1])
+```
 
 Python ではリストの**sort()**関数に、引数**key**を指定する。
 key には 1 引数関数を指定し、各要素(リスト)の比較に用いたいインデックスの項を返すような関数を指定する

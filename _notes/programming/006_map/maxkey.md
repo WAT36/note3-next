@@ -15,6 +15,11 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+import java.util.Collections;
+Collections.max(m.keySet())
+```
+
 Java で Map にあるキーの最大値を取得するには以下の手順で行う。
 
 - Map のメソッド **keySet()** を使い、キーのみを Set に格納したデータを取得する
@@ -59,6 +64,10 @@ max key: key3
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+max(m)
+```
 
 Python では単に組み込み関数 **max()** を使えば、辞書にある最大のキーを取得できる。
 

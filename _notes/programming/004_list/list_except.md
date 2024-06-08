@@ -16,6 +16,14 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+// リストaとリストbの差集合をとる
+import java.util.HashSet;
+import java.util.Set;
+
+リストa.removeAll(リストb); //リストaのうちリストbにもある要素は削除し他は残す
+```
+
 Java では List クラスに **removeAll()** というメソッドがある。これは呼び出し元のリストに含まれている要素の内、引数に指定したリスト内に含まれている要素を削除し、他の要素は全て残すというメソッドである。  
 `boolean removeAll(Collection<?> c)`  
 このメソッドを活用することにより２つのリストの差集合をとることができる。ただし同じ値の要素が複数入っていた場合はその数だけ要素が残るということもあるので、重複している値を１つにするには **Set()** 等を使い重複を排除する。
@@ -61,6 +69,11 @@ l-m:[1, 3]
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+# リストaとリストbの差集合をとる
+list(set(リストa) - set(リストb))
+```
 
 Python ではリストを set 型に変換し、その後 **-** 演算子を使うと、引かれた set にのみある要素のみが残る。  
 リストに戻したい時は、計算後の set を list()で変換してリストにする。

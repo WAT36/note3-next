@@ -15,6 +15,11 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+import java.util.Collections;
+Collections.sort(リスト) // インプレースで処理
+```
+
 Java ではリストに関するメソッドがあるライブラリ**java.util.Collections**に、リストをソートするメソッド **sort()** があるので、それを利用する。
 
 ```java
@@ -53,6 +58,12 @@ class Main{
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+リスト.sort() # インプレースで処理。リスト自体もソートされる
+# または
+sorted(リスト) # インプレースではない。ソートされたリストが返され、リスト自体はそのまま
+```
 
 Python ではリストをソートする関数は以下の 2 つがある。
 

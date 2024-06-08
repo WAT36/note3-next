@@ -19,8 +19,8 @@ mode: programming
 
 Java でのクラスの継承の方法は以下の通り。
 
-```
-[アクセス修飾子]　class クラス名 extends 継承元クラス(スーパークラス)名 {
+```java
+[アクセス修飾子] class クラス名 extends 継承元クラス(スーパークラス)名 {
   //文
 }
 ```
@@ -31,9 +31,8 @@ Java では継承する元となるクラスを**スーパークラス**、継�
 
 実行例を以下に示す。
 
-Beverage クラス
-
 ```java
+//  Beverageクラス
 class Beverage{
 
     int price = 0;
@@ -48,11 +47,8 @@ class Beverage{
         System.out.println("This "+name+" is "+price+" yen.");
     }
 }
-```
 
-Liquor クラス（Beverage クラスを継承）
-
-```java
+// Liquorクラス、Beverageクラスを継承
 class Liquor extends Beverage{
 
     int alcohol_content=100;
@@ -62,11 +58,7 @@ class Liquor extends Beverage{
         alcohol_content=a;
     }
 }
-```
 
-Main クラス
-
-```java
 class Main{
   public static void main(String args[]){
 
@@ -109,12 +101,12 @@ This screw driver is 1000 yen.
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python でのクラスの継承の方法は以下の通り。
-
-```
+```python
 class クラス名(継承元クラス名):
-    //文
+    #文
 ```
+
+Python でのクラスの継承の方法は上記の通り。
 
 ここで定義したクラスは継承元クラスが持つ変数や関数を受け継ぐので、文中に定義しなくても参照が可能である。  
 別クラスを継承したクラスに定義した変数や関数はそのクラスのみが持ち、継承元のクラスは利用できない。

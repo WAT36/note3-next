@@ -15,6 +15,12 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+m.remove("キー名")
+// 全部削除したい時
+m.clear()
+```
+
 Java では Map クラスに **remove()** というメソッドがあり、引数にキーを指定すると、Map 内でそのキーの要素が削除される。  
 `V remove(Object key)`
 
@@ -61,6 +67,15 @@ class Main{
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+del m["キー名"]
+# または
+m.pop("キー名")
+
+# 全部削除する時
+m.clear()
+```
 
 Python では以下の二つの方法がある。
 
@@ -117,15 +132,13 @@ KeyError: 'key3'
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-Javascript において、連想配列から指定した添字のデータを削除するには、特殊演算子**delete**を利用する。
-
-使用法は以下の通り。
-
 ```javascript
-delete 連想配列.添字;
+delete m.キー名;
 //または
-delete 連想配列[添字];
+delete m["キー名"];
 ```
+
+Javascript において、連想配列から指定した添字のデータを削除するには、特殊演算子**delete**を利用する。
 
 例を以下に示す。
 

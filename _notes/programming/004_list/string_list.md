@@ -15,6 +15,12 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+import java.util.Arrays;
+
+Arrays.asList("文字列".split("")) // 文字列を１字ずつのリストにしたリストが返される
+```
+
 Java では以下２つの手順を踏んで行う。
 
 - 文字列を分割する String. **split()** を利用して文字列を１文字ずつの配列に分割する
@@ -59,6 +65,10 @@ l: a,p,p,l,e, ,b,a,n,a,n,a,
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+list("文字列")
+```
 
 Python では文字列をそのまま **list()** の引数に指定してやると、文字列を１文字ずつのリストに変換してくれる。
 

@@ -16,10 +16,7 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java では **try-catch(-finally)** 文で実行時エラー(例外)のハンドリングを行う。  
-記法は以下の通り。
-
-```
+```java
 try {
     //処理文
 }
@@ -31,6 +28,8 @@ finally{
     //try文またはcatch文の処理終了時に行う処理
 }
 ```
+
+Java では **try-catch(-finally)** 文で実行時エラー(例外)のハンドリングを行う。
 
 Java では例外が発生しうる箇所を try{}で囲んでおくと、例外発生時に処理を中断して catch 文へと飛ぶ。  
 catch 文は宣言時に、例外クラス名と(catch 文内で利用する)変数を指定する。この catch 文はいくらでも宣言でき、try 文内で発生した例外は対応する catch 文へと飛ぶ。try 文内で発生した例外が catch 文で書かれていない場合はハンドリングができないので注意。  
@@ -89,10 +88,7 @@ finally
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python では **try-except(-finally)** 文で実行時エラー(例外)のハンドリングを行う。  
-記法は以下の通り。
-
-```
+```python
 try:
     # 処理文
 except (例外の型名):
@@ -101,6 +97,8 @@ except (例外の型名):
 finally:
     # 処理文
 ```
+
+Python では **try-except(-finally)** 文で実行時エラー(例外)のハンドリングを行う。
 
 try 文の中に例外が発生しうる処理文を記述する。  
 例外が発生した場合は処理を中止し except 文の該当する例外の所に飛ぶ。except 文の宣言時には例外の型名を書く。
@@ -133,21 +131,19 @@ finally
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
+```javascript
+try {
+  //処理文
+} catch (例外の内容を示す変数) {
+  //例外発生時の処理
+} finally {
+  //(catch文は何個でも記述できる)
+  //try文またはcatch文の処理終了時に行う処理
+}
+```
+
 Javascript は Java と形式は同じで **try-catch(-finally)** 文で実行時エラー(例外)のハンドリングを行う。  
 記法は以下の通り。
-
-```
-try {
-    //処理文
-}
-catch(例外の内容を示す変数){
-    //例外発生時の処理
-}
-//(catch文は何個でも記述できる)
-finally{
-    //try文またはcatch文の処理終了時に行う処理
-}
-```
 
 Javascript も Java と同じで try{}で囲んだ範囲内で例外が発生すると、処理を中断して catch 文へと飛ぶ。  
 catch 文は宣言時に、例外を示す変数を指定する。この catch 文はいくらでも宣言でき、try 文内で発生した例外は対応する catch 文へと飛ぶ。
