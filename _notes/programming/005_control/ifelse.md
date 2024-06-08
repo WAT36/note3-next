@@ -16,9 +16,7 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java での記法は以下の通り。
-
-```
+```java
 if(条件1){
     //条件1がtrueならこの処理実行
 }else if(条件2){
@@ -27,6 +25,8 @@ if(条件1){
     //条件1,2ともfalseならこの処理実行
 }
 ```
+
+Java での記法は上記の通り。
 
 if,else if 後の()内には boolean 値または boolean を返すような式にする。  
 else if は限りなく設けることができる。
@@ -64,9 +64,7 @@ $ java Main 2
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python での記法は以下の通り。
-
-```
+```python
 if 条件1:
     #条件1がTrueならこの処理実行
 elif 条件2:
@@ -74,6 +72,8 @@ elif 条件2:
 else:
     #条件1,2ともfalseならこの処理実行
 ```
+
+Python での記法は以下の通り。
 
 条件には bool 値またはそれを返す式にする。  
 また、if,elif,else の後にはコロン":"をつける。  
@@ -98,17 +98,17 @@ elif は限りなく設定できる。
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-Javascript での記法は以下のとおり。
-
-```
+```javascript
 if (条件式1) {
   //条件式1がtrueならこの処理実行
-}else if(条件式2){
+} else if (条件式2) {
   //条件式2がtrueならこの処理実行
-}else{
+} else {
   //条件式1,2がfalseならこの処理実行
 }
 ```
+
+Javascript での記法は以下のとおり。
 
 なお、Javascript では、条件式のところに**数値または文字列**及びその値が入った変数を設定することもできる。
 

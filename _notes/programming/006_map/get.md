@@ -15,6 +15,10 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+m.get("キー名")
+```
+
 Java では Map クラスに **get()** というメソッドがあり、引数にキーを指定すると、Map 内でそのキーに対応づけられている値が返る。  
 `V get(Object key)`
 
@@ -53,6 +57,12 @@ null
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+m["キー名"]
+# または
+m.get("キー名")
+```
 
 Python では以下の二つの方法がある。
 
@@ -93,6 +103,10 @@ KeyError: 'key3'
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+m["キー名"];
+```
 
 Javascript において、連想配列からデータを取得する方法は普通の配列と同じように添字を指定すれば良い。
 

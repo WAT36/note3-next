@@ -15,6 +15,10 @@ Javascript の undefined について記載する。
 
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
+```javascript
+undefined;
+```
+
 undefined とは Javascript のグローバルオブジェクトのプロパティの一つである。
 
 変数を設定し、初期値を設定しなかった時、Javascript はデフォルトで undefined を設定する。

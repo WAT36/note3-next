@@ -83,7 +83,7 @@ export class DistributionStack extends cdk.Stack {
       `${props.env}Note3OriginAccessControl`,
       {
         originAccessControlConfig: {
-          name: "Note3OriginAccessControlForContentsBucket",
+          name: `${props.env}Note3OriginAccessControlForContentsBucket`,
           originAccessControlOriginType: "s3",
           signingBehavior: "always",
           signingProtocol: "sigv4",

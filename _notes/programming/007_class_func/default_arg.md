@@ -16,6 +16,11 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Python">
 
+```python
+def 関数名(引数=デフォルト値):
+    #処理文
+```
+
 Python では関数の定義時に引数に**引数名=デフォルト値**と書くとデフォルト値を設定できる。
 
 実行例を以下に示す。

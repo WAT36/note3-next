@@ -19,11 +19,11 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java で定数を宣言するには、宣言時にデータ型の前に**final**修飾子をつける。
-
-```
+```java
 final データ型 定数名 = 初期値;
 ```
+
+Java で定数を宣言するには、宣言時にデータ型の前に**final**修飾子をつける。
 
 定数として宣言すると、初期化以降は値を代入し直すことはできない。
 

@@ -15,6 +15,11 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+import java.util.Collections;
+Collections.min(m.keySet());
+```
+
 Java で Map にあるキーの最小値を取得するには、最大値と同じで以下の手順で行う。
 
 - Map のメソッド **keySet()** を使い、キーのみを Set に格納したデータを取得する
@@ -59,6 +64,10 @@ min key: key
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+min(m)
+```
 
 Python では単に組み込み関数 **min()** を使えば、辞書にある最小のキーを取得できる。
 

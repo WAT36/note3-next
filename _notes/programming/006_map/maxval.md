@@ -15,6 +15,11 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+import java.util.Collections;
+Collections.max(m.values());
+```
+
 Java で Map にある値の最大値を取得するには以下の手順で行う。
 
 - Map のメソッド **values()** を使い、値のみを格納した List を取得する
@@ -60,6 +65,10 @@ max value: value3
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+max(m.values())
+```
 
 Python では辞書の関数 **values()** で値のみのビューオブジェクト(イテラブル)を取得できるので、これに組み込み関数 **max()** を適用すると、値の最大値を取得できる。
 

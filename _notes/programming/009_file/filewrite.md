@@ -15,6 +15,34 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+import java.io.FileOutputStream;
+import java.io.File;
+import java.io.IOException;
+try{
+  FileOutputStream fos = new FileOutputStream(new File("ファイル名"));
+  fos.write(/*書き込むデータのバイト列*/);
+}catch (IOException e){
+  // エラー時の処理
+}finally{
+  fos.close();
+}
+
+// または
+import java.io.FileWriter;
+import java.io.File;
+import java.io.IOException;
+try{
+  FileWriter fw = new FileWriter(new File("test.txt"));
+  fw.write("書き込む文字列")
+  fw.flush();
+}catch (IOException e){
+  // エラー時の処理
+}finally{
+  fw.close();
+}
+```
+
 読み込み時と同様に、ここではテキストファイルなど一般的なファイルに対する読み込み方法についてを示す。
 
 Java でファイルを書き込むには以下の 2 つの方法がある。
@@ -152,6 +180,11 @@ $ cat testwrite.txt
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
+```python
+with open('ファイル名','モード') as f:
+    f.write('ファイルに書き込む文字列')
+```
+
 Python では関数 open でファイルを開いた後、ファイルオブジェクトの関数 **write()** を利用してファイルを書き込む。
 
 `write(文字列)`
@@ -161,12 +194,7 @@ Python では関数 open でファイルを開いた後、ファイルオブジ�
 
 こちらも読み込みの時と同様に、作業が終わったら最後にファイルオブジェクトの関数 **close()** を利用してファイルをクローズする。
 
-また、書き込みにおいても**with**文が利用できる。with 文を抜け出したとき、自動でファイルクローズも行うので便利。
-
-```python
-with open('ファイル名','モード') as f:
-    f.write('ファイルに書き込む文字列')
-```
+また、書き込みにおいても**with**文が利用できる。with 文を抜け出したとき、自動でファイルクローズも行うので便利。（上記参照）
 
 実行例を以下に示す。
 

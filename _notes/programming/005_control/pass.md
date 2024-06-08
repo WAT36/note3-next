@@ -17,10 +17,18 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+// (なし)
+```
+
 Java には存在しない。
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+pass
+```
 
 Python では for,while の中の処理文には最低１行何か書いておく必要がある。  
 何もする事が無くても何か書いておかなければならないため、このような時に pass 文を用いる。  

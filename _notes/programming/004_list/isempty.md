@@ -15,6 +15,10 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+リスト.isEmpty()
+```
+
 Java では List クラスにリストが空であるかを判別するメソッド **isEmpty()** がある。  
 `boolean isEmpty()`
 空の場合は true を、そうでない場合は false を返す。
@@ -49,6 +53,10 @@ false
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+len(リスト) == 0
+```
 
 Python にはリストが空であるかを判別するための関数は無い。  
 リストが空であるかを判別するには、以下の方法を利用するなどしてみる。

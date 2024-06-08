@@ -15,6 +15,12 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+リスト.indexOf(要素)
+//末尾から数えたい時は
+リスト.lastIndexOf(要素)
+```
+
 Java では List クラスにある **indexOf()** というメソッドで、要素があるインデックスを取得することができる。
 
 `int indexOf(Object o)`
@@ -80,6 +86,10 @@ last index of '5': -1
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+リスト.index(値)
+```
 
 Python ではリストの関数に **index()** というのがあり、引数に指定した要素のリスト内でのインデックスを返してくれる。  
 `list.index(x[, start[, end]])`  

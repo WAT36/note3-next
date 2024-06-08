@@ -1,13 +1,13 @@
 ---
 title: "文字列の長さ"
 date: "2019-10-16T17:19:30.000Z"
-excerpt: '文字列の長さ（文字数）を調べる方法。'
-tag: ["Java","Python","Javascript"]
-programming: ["Java","Python","Javascript"]
-updatedAt: '2019-10-16T17:19:30.000Z'
+excerpt: "文字列の長さ（文字数）を調べる方法。"
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
+updatedAt: "2019-10-16T17:19:30.000Z"
 author:
   name: Tatsuroh Wakasugi
-  picture: '/assets/blog/authors/WAT.jpg'
+  picture: "/assets/blog/authors/WAT.jpg"
 mode: programming
 ---
 
@@ -15,9 +15,13 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-`public int length()`
+```java
+"文字列".length()
+```
 
-JavaではStringクラスに **length()** というメソッドがあり、これはその文字列の長さ（＝文字数）を返す。  
+Java では String クラスに **length()** というメソッドがあり、これはその文字列の長さ（＝文字数）を返す。
+
+`public int length()`
 
 実行例を以下に示す。
 
@@ -38,7 +42,7 @@ class Main{
 実行結果
 
 ```
-$ javac Main.java 
+$ javac Main.java
 $ java Main
 2
 8
@@ -48,15 +52,19 @@ $ java Main
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-`len(str)`
+```python
+len("文字列")
+```
 
-Pythonでは引数の文字列の長さ（＝文字数）を返す関数 **len()** があるので、それを利用する。
+Python では引数の文字列の長さ（＝文字数）を返す関数 **len()** があるので、それを利用する。
+
+`len(str)`
 
 ```python
 >>> a = "ab"
 >>> b = "11223344"
 >>> c = "**************"
->>> 
+>>>
 >>> len(a)
 2
 >>> len(b)
@@ -66,22 +74,25 @@ Pythonでは引数の文字列の長さ（＝文字数）を返す関数 **len()
 >>>
 ```
 
-
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
+```javascript
+"文字列".length;
+```
+
+Javascript では文字列に長さ（＝文字数）を保持しているプロパティ **length** があるので、それを利用する。
+
 `String.length`
 
-Javascriptでは文字列に長さ（＝文字数）を保持しているプロパティ **length** があるので、それを利用する。
-
 ```javascript
-let a = "ab"
-let b = "11223344"
-let c = "**************"
+let a = "ab";
+let b = "11223344";
+let c = "**************";
 
-console.log(a.length)
-console.log(b.length)
-console.log(c.length)
+console.log(a.length);
+console.log(b.length);
+console.log(c.length);
 ```
 
 実行結果
@@ -92,6 +103,4 @@ console.log(c.length)
 14
 ```
 
-
 </div>
-

@@ -15,6 +15,10 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+リスト.remove(削除する位置) // インプレースで処理
+```
+
 Java では List クラスにリストの指定した位置（インデックス）の要素を削除するメソッド **remove()** がある。  
 `E remove(int index)`  
 このメソッドはリストから指定したインデックスの要素を取り出して返す。その後リストでは取り出されたインデックスよりも後続の要素を左に移動する動作を行う。
@@ -56,6 +60,12 @@ class Main{
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+リスト.pop(削除する位置)
+# または
+del リスト[削除する位置]
+```
 
 Python での方法は次の 2 つがある。
 
