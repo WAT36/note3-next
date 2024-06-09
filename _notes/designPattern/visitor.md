@@ -22,6 +22,20 @@ Visitor（ビジター）パターンは、ソフトウェアデザインパタ�
 4. **ConcreteElement（具体的な要素）**: Element を実装した具体的なクラスで、Visitor を受け入れるメソッドの具体的な実装を提供します。
 5. **ObjectStructure（オブジェクト構造）**: Element オブジェクトを保持し、Visitor を受け入れるメソッドを提供します。
 
+### クラス図
+
+クラス図で表すと以下の様な形である。
+
+```mermaid
+classDiagram
+Visitor <|.. ConcreteVisitor
+<<Interface>> Visitor
+Element <|-- ConcreteElement
+<<Interface>> Element
+ConcreteVisitor <|.. ObjectStructure
+ConcreteElement <|.. ObjectStructure
+```
+
 ### **Visitor パターンの実装例**
 
 以下は、Java 言語を使用した Visitor パターンの実装例です。例として、異なる種類の動物に対してサウンドを発する操作を追加することを考えてみましょう。
