@@ -11,3 +11,29 @@ author:
 ogImage:
   url: ""
 ---
+
+値が等しいかを判断する、等価演算子についてを述べる。
+
+Javascript には、これに加えて同値演算子というのもあるので、そちらについても記載する。
+
+<div class="note_content_by_programming_language" id="note_content_Java">
+
+```java
+// 作成中・・
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+# 作成中・・
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+
+```
+
+</div>
