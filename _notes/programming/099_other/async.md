@@ -39,4 +39,19 @@ ogImage:
 
 ```
 
+javascript での非同期処理はいくつかあるが、ここでは **Promise** オブジェクトについて記載する。
+
+Promise オブジェクトは、非同期処理の状態を監視し、その結果を元に処理を分けたりするオブジェクトである。
+
+利用するには、以下のコンストラクタを利用する。
+
+```javascript
+// resolve: 処理の成功を通知するための関数
+// reject:  処理の失敗を通知するための関数
+// statements: 処理本体
+new Promise((resolve, reject) => {
+  statements;
+});
+```
+
 </div>
