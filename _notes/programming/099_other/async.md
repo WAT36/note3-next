@@ -110,4 +110,40 @@ doTimeout("value").then(
 
 下の部分で、doTimeout の引数に"value"を設定し実行している。成功として戻ってくるので、then メソッドで指定した成功時の関数が実行される。
 
+---
+
+また、**Promise.all**メソッドを利用することで、複数の非同期処理を並列に実行することができる。
+
+```javascript
+// promise1,promise2,.. Promiseオブジェクト
+// success: 成功時に実行する関数
+// failure: 失敗時に実行する関数
+Promise.all([
+  promise1,
+  promise2,
+  ...,
+]).then(
+  success, // promise1,2,.. 全てが成功したら実行される
+  failure  // promise1,2,.. いずれかが失敗したら実行される
+)
+```
+
+この Promise.all メソッドでは、引数に Promise オブジェクトの配列を取り、それらが全て成功(resolve)すると成功時の関数が実行される。どれか 1 つでも失敗(reject)したら失敗時の関数が実行されるというものである。
+
+似たようなものとして、並列に実行した非同期処理のいずれか 1 つが最初に完了したところで成功関数を呼び出す**Promise.race**メソッドもある。ただし最初に完了した非同期処理により、結果が変わる場合がある。
+
+```javascript
+// promise1,promise2,.. Promiseオブジェクト
+// success: 成功時に実行する関数
+// failure: 失敗時に実行する関数
+Promise.race([
+  promise1,
+  promise2,
+  ...,
+]).then(
+  success, // promise1,2,.. 全てが成功したら実行される
+  failure  // promise1,2,.. いずれかが失敗したら実行される
+)
+```
+
 </div>
