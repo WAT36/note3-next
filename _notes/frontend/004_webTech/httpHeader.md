@@ -47,44 +47,27 @@ HTTP ヘッダは自分で定義したものも入れ込むことができるた
 
 リクエストヘッダは、クライアントからサーバーへのリクエストに関する情報を提供する。
 
-- **Accept**: クライアントが受け入れるメディアタイプを指定する。
-  - 例: `Accept: text/html`
-- **Accept-Charset**: クライアントが受け入れる文字セットを指定する。
-  - 例: `Accept-Charset: utf-8`
-- **Accept-Encoding**: クライアントが受け入れるエンコーディング方式を指定する。
-  - 例: `Accept-Encoding: gzip, deflate`
-- **Accept-Language**: クライアントが受け入れる言語を指定する。
-  - 例: `Accept-Language: en-US`
-- **Authorization**: 認証情報を提供する。
-  - 例: `Authorization: Basic QWxhZGRpbjpPcGVuU2VzYW1l`
-- **Expect**: クライアントがサーバーに期待する動作を指定する。
-  - 例: `Expect: 100-continue`
-- **From**: リクエストの送信者のメールアドレスを指定する。
-  - 例: `From: user@example.com`
-- **Host**: リクエストの対象ホストを指定する。
-  - 例: `Host: www.example.com`
-- **If-Match**: リソースの ETag と一致する場合にのみリクエストを実行する。
-  - 例: `If-Match: "e0023aa4e"`
-- **If-Modified-Since**: 指定日時以降に変更されている場合にのみリクエストを実行する。
-  - 例: `If-Modified-Since: Sat, 29 Oct 1994 19:43:31 GMT`
-- **If-None-Match**: リソースの ETag と一致しない場合にのみリクエストを実行する。
-  - 例: `If-None-Match: "e0023aa4e"`
-- **If-Range**: リソースが特定の ETag または日付に一致する場合に範囲リクエストを実行する。
-  - 例: `If-Range: "737060cd8c284d8af7ad3082f209582d"`
-- **If-Unmodified-Since**: 指定日時以降に変更されていない場合にのみリクエストを実行する。
-  - 例: `If-Unmodified-Since: Sat, 29 Oct 1994 19:43:31 GMT`
-- **Max-Forwards**: TRACE または OPTIONS リクエストがサーバーに転送される最大回数を指定する。
-  - 例: `Max-Forwards: 10`
-- **Proxy-Authorization**: プロキシサーバーの認証情報を提供する。
-  - 例: `Proxy-Authorization: Basic QWxhZGRpbjpPcGVuU2VzYW1l`
-- **Range**: 部分的なリソースのリクエスト範囲を指定する。
-  - 例: `Range: bytes=500-999`
-- **Referer**: リクエスト元の URL を指定する。
-  - 例: `Referer: http://www.example.com/previous`
-- **TE**: クライアントが受け入れる転送エンコーディングを指定する。
-  - 例: `TE: trailers, deflate`
-- **User-Agent**: クライアントのユーザーエージェント情報を提供する。
-  - 例: `User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)`
+| ヘッダ名                | 意味                                                                       | 指定する値・例など                                          |
+| :---------------------- | :------------------------------------------------------------------------- | :---------------------------------------------------------- |
+| **Accept**              | クライアントが受け入れるメディアタイプを指定する。                         | `<MIME_type>/<MIME_subtype>`。(`text/html`など)             |
+| **Accept-Charset**      | クライアントが受け入れる文字セットを指定する。                             | 文字セットの値。(`utf-8`など)                               |
+| **Accept-Encoding**     | クライアントが受け入れるエンコーディング方式を指定する。                   | 圧縮形式。(`gzip`など)                                      |
+| **Accept-Language**     | クライアントが受け入れる言語を指定する。                                   | 言語タグ。(`en-US`など)                                     |
+| **Authorization**       | 認証情報を提供する。                                                       | 認証方式等を指定(`Basic ***...`など)                        |
+| **Expect**              | クライアントがサーバーに期待する動作を指定する。                           | `100-continue`のみ                                          |
+| **From**                | リクエストの送信者のメールアドレスを指定する。                             | メールアドレス                                              |
+| **Host**                | リクエストの対象ホストを指定する。                                         | ホスト名とポート番号                                        |
+| **If-Match**            | リソースの ETag と一致する場合にのみリクエストを実行する。                 | ETag の値                                                   |
+| **If-Modified-Since**   | 指定日時以降に変更されている場合にのみリクエストを実行する。               | `Date: Wed, 21 Oct 2015 07:28:00 GMT` など                  |
+| **If-None-Match**       | リソースの ETag と一致しない場合にのみリクエストを実行する。               | ETag の値                                                   |
+| **If-Range**            | リソースが特定の ETag または日付に一致する場合に範囲リクエストを実行する。 | ETag の値                                                   |
+| **If-Unmodified-Since** | 指定日時以降に変更されていない場合にのみリクエストを実行する。             | `Date: Wed, 21 Oct 2015 07:28:00 GMT` など                  |
+| **Max-Forwards**        | TRACE または OPTIONS リクエストがサーバーに転送される最大回数を指定する。  | 数値                                                        |
+| **Proxy-Authorization** | プロキシサーバーの認証情報を提供する。                                     | `Basic ***...`など                                          |
+| **Range**               | 部分的なリソースのリクエスト範囲を指定する。                               | 範囲指定値(`bytes=500-999`など)                             |
+| **Referer**             | リクエスト元の URL を指定する。                                            | URL                                                         |
+| **TE**                  | クライアントが受け入れる転送エンコーディングを指定する。                   | 転送エンコーディング方式(`gzip`など)                        |
+| **User-Agent**          | クライアントのユーザーエージェント情報を提供する。                         | 製品識別子(`Mozilla/5.0 (Windows NT 10.0; Win64; x64)`など) |
 
 # レスポンスヘッダ（Response Headers）
 
