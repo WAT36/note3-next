@@ -11,6 +11,7 @@ author:
   picture: "/assets/blog/authors/WAT.jpg"
 ogImage:
   url: ""
+mode: programming
 ---
 
 プログラミングにおける非同期処理とは、特定の操作を待つことなくプログラムの他の部分を実行できる処理方法のことを指す。
