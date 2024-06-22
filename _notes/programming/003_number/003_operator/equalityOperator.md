@@ -11,6 +11,7 @@ author:
   picture: "/assets/blog/authors/WAT.jpg"
 ogImage:
   url: ""
+mode: programming
 ---
 
 値が等しいかを判断する、等価演算子についてを述べる。
