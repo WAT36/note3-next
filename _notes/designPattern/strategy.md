@@ -21,17 +21,6 @@ Strategy（ストラテジー）パターンは、ソフトウェアデザイン
 2. **ConcreteStrategy（具体的なストラテジー）**: Strategy を実装する具体的なクラス。異なるアルゴリズムを提供する。
 3. **Context（コンテキスト）**: Strategy インターフェースを利用してアルゴリズムを実行するクラス。具体的なストラテジーを保持し、必要に応じて切り替える。
 
-# クラス図
-
-クラス図で表すと以下の様な形である。
-
-```mermaid
-classDiagram
-Strategy <|-- ConcreteStrategy
-<<Interface>> Strategy
-Context o-- Strategy
-```
-
 # **Strategy パターンの実装例**
 
 以下は、Java 言語を使用した Strategy パターンの実装例である。例として、異なるソートアルゴリズムを実行するソートプログラムを考えよう。

@@ -22,20 +22,6 @@ Factory Method（ファクトリメソッド）パターンは、ソフトウェ
 3. **Creator（生成者）**: Product インターフェースを持ち、ConcreteProduct の生成メソッドを宣言した抽象クラスまたはインターフェース。
 4. **ConcreteCreator（具体的な生成者）**: Creator インターフェースを実装し、具体的な ConcreteProduct の生成処理を行うクラス。
 
-# クラス図
-
-クラス図で表すと以下の様な形である。
-
-```mermaid
-classDiagram
-Product <|-- ConcreteProduct
-<<Interface>> Product
-Creator <|-- ConcreteCreator
-<<Interface>> Creator
-Product <-- Creator: creates
-ConcreteProduct <-- ConcreteCreator: creates
-```
-
 # **実例: ページの生成**
 
 例として、ウェブページの生成を考えよう。ここでは、ページ内にテキストや画像などの要素が配置されるとする。

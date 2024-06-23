@@ -22,19 +22,6 @@ Bridge（ブリッジ）パターンは、ソフトウェアデザインパタ�
 3. **Implementor（実装）**: 実装クラスを表すインターフェースや抽象クラス。Implementor は Abstraction によって参照される。
 4. **ConcreteImplementor（具体的な実装）**: Implementor を実装する具体的なクラス。これが実際の機能を提供する。
 
-# クラス図
-
-クラス図で表すと以下の様な形である。
-
-```mermaid
-classDiagram
-Abstraction <|-- RefinedAbstraction
-<<Interface>> Abstraction
-Implementor <|-- ConcreteImplementor
-<<Interface>> Implementor
-Abstraction o-- Implementor
-```
-
 # **Bridge パターンの実装例**
 
 以下は、Java 言語を使用した Bridge パターンの実装例である。例として、異なる種類の橋を作成するソフトウェアを考えてみよう。

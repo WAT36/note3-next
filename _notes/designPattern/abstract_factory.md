@@ -24,21 +24,6 @@ Abstract Factory（抽象ファクトリー）パターンは、ソフトウェ�
 4. **ConcreteProduct（具体的な製品）**: AbstractProduct を実装し、具体的なオブジェクトの構造を提供する。
 5. **Client（クライアント）**: AbstractFactory を通じて具体的なオブジェクトを生成し、これらのオブジェクトを利用する。
 
-# クラス図
-
-クラス図で表すと以下の様な形である。
-
-```mermaid
-classDiagram
-AbstractFactory <|-- ConcreteFactory
-<<Interface>> AbstractFactory
-AbstractProduct <|-- ConcreteProduct
-<<Interface>> AbstractProduct
-AbstractFactory <-- Client: uses
-AbstractProduct <-- AbstractFactory: creates
-ConcreteProduct <-- ConcreteFactory: creates
-```
-
 # **Abstract Factory パターンの実装例**
 
 以下は、Java 言語を使用した Abstract Factory パターンの実装例です。例として、GUI コンポーネントを生成する Abstract Factory パターンを考えてみよう。

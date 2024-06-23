@@ -42,18 +42,6 @@ Iterator パターンは主に以下の要素で構成される。
 3. **ConcreteIterator（具体的なイテレーター）**: Iterator インターフェースを実装し、集合的な要素内の具体的な要素にアクセスする。
 4. **ConcreteAggregate（具体的な集合）**: Aggregate インターフェースを実装し、具体的な要素の集まりを管理する。ConcreteAggregate クラスは、Iterator インターフェースを生成するためのメソッドを実装する。
 
-クラス図で表すと以下の様な形である。（mermaid.js で書いています）
-
-```mermaid
-classDiagram
-Iterator <|-- ConcreteIterator
-<<Interface>> Iterator
-Aggregate <|-- ConcreteAggregate
-<<Interface>> Aggregate
-Iterator <-- Aggregate: creates
-ConcreteIterator o--> ConcreteAggregate
-```
-
 # 実装例
 
 実際の例として、本のコレクションを扱う場合を考えよう。

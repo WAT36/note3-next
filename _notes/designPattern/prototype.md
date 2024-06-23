@@ -21,17 +21,6 @@ Prototype（プロトタイプ）パターンは、ソフトウェアデザイ�
 2. **ConcretePrototype（具体的なプロトタイプ）**: Prototype インターフェースを実装し、**`clone`** メソッドによって自分自身の複製を生成する。
 3. **Client（クライアント）**: 新しいオブジェクトの複製を要求し、Prototype を使用して複製を行う。
 
-# クラス図
-
-クラス図で表すと以下の様な形である。
-
-```mermaid
-classDiagram
-Prototype <|-- ConcretePrototype
-<<Interface>> Prototype
-Prototype <-- Client: uses
-```
-
 # **Prototype パターンの実装例**
 
 以下は、Java 言語を使用した Prototype パターンの単純な実装例である。
