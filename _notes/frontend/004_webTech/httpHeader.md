@@ -89,23 +89,14 @@ HTTP ヘッダは自分で定義したものも入れ込むことができるた
 
 エンティティヘッダは、リクエストまたはレスポンスのペイロードに関する情報を提供する。
 
-- **Allow**: リソースがサポートする HTTP メソッドを指定する。
-  - 例: `Allow: GET, POST`
-- **Content-Encoding**: エンティティのエンコード方式を指定する。
-  - 例: `Content-Encoding: gzip`
-- **Content-Language**: エンティティの言語を指定する。
-  - 例: `Content-Language: en`
-- **Content-Length**: エンティティのサイズをバイト単位で指定する。
-  - 例: `Content-Length: 348`
-- **Content-Location**: エンティティの代替位置を指定する。
-  - 例: `Content-Location: /index.htm`
-- **Content-MD5**: エンティティの MD5 ハッシュを指定する。
-  - 例: `Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ==`
-- **Content-Range**: エンティティの範囲を指定する。
-  - 例: `Content-Range: bytes 21010-47021/47022`
-- **Content-Type**: エンティティのメディアタイプを指定する。
-  - 例: `Content-Type: text/html; charset=utf-8`
-- **Expires**: エンティティの有効期限を指定する。
-  - 例: `Expires: Thu, 01 Dec 1994 16:00:00 GMT`
-- **Last-Modified**: エンティティの最終更新日時を指定する。
-  - 例: `Last-Modified: Tue, 15 Nov 1994 12:45:26 GMT`
+| ヘッダ名             | 意味                                             | 指定する値・例など                                                                   |
+| :------------------- | :----------------------------------------------- | :----------------------------------------------------------------------------------- |
+| **Allow**            | リソースがサポートする HTTP メソッドを指定する。 | HTTP メソッド名(`GET, POST`など)                                                     |
+| **Content-Encoding** | エンティティのエンコード方式を指定する。         | 圧縮形式。(`gzip`など)                                                               |
+| **Content-Language** | エンティティの言語を指定する。                   | 言語タグ。(`en-US`など)                                                              |
+| **Content-Length**   | エンティティのサイズをバイト単位で指定する。     | バイト数                                                                             |
+| **Content-Location** | エンティティの代替位置を指定する。               | 相対・絶対 URL                                                                       |
+| **Content-Range**    | エンティティの範囲を指定する。                   | 範囲指定値(`bytes=500-999`など)                                                      |
+| **Content-Type**     | エンティティのメディアタイプを指定する。         | `<MIME_type>/<MIME_subtype>`、文字エンコーディング。(`text/html; charset=UTF-8`など) |
+| **Expires**          | エンティティの有効期限を指定する。               | `Date: Wed, 21 Oct 2015 07:28:00 GMT` など                                           |
+| **Last-Modified**    | エンティティの最終更新日時を指定する。           | `Date: Wed, 21 Oct 2015 07:28:00 GMT` など                                           |
