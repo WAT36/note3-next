@@ -11,3 +11,43 @@ author:
 ogImage:
   url: ""
 ---
+
+<div class="note_content_by_programming_language" id="note_content_Java">
+
+```java
+// 工事中。。
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+# 工事中。。
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+"文字列".substring(start [,end]);
+```
+
+javascript は String に**substring**メソッドがあり、これによって文字列の一部分を切り出すことができる。
+
+引数には 1 つか 2 つ(start,end とする)とることができ、これにより文字列の start+1 文字目から end 文字目までを切り出せる。
+
+```javascript
+let str = "abcdefghijklmnopqrstuvwxyz";
+
+console.log(str.substring(10));
+console.log(str.substring(10, 20));
+```
+
+実行結果
+
+```
+klmnopqrstuvwxyz
+klmnopqrst
+```
+
+</div>
