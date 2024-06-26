@@ -22,6 +22,7 @@ export const DIR_NAME = {
   container: "コンテナ",
   frontend: "フロントエンド",
   programming: "プログラミング",
+  designPattern: "ソフトウェアデザインパターン",
 
   "001_html": "HTML",
   "002_css": "CSS",
