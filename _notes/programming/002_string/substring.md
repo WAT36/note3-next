@@ -10,6 +10,7 @@ author:
   picture: "/assets/blog/authors/WAT.jpg"
 ogImage:
   url: ""
+mode: programming
 ---
 
 <div class="note_content_by_programming_language" id="note_content_Java">
