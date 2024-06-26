@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const algoliasearch = require("algoliasearch");
-const ENV_PATH = path.join(__dirname, "../../.env.local");
+const ENV_PATH = path.join(__dirname, "../../.env");
 require("dotenv").config({ path: ENV_PATH });
 
 // mdファイルリストを読み込む
@@ -76,7 +76,7 @@ for (let i = 0; i < files.length; i++) {
   records.push({
     title,
     excerpt,
-    tags,
+    _tags: tags,
     path: fileSlug.replace(".md", ""),
     objectID: fileSlug,
   });
