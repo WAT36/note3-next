@@ -1,9 +1,9 @@
 ---
-title: "多次元配列"
+title: "多次元配列(リスト)"
 date: "2019-10-19T19:35:30+09:00"
-excerpt: "多次元配列を定義する方法。"
-tag: ["Java", "Javascript"]
-programming: ["Java", "Javascript"]
+excerpt: "多次元配列(リスト)を定義する方法。"
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-19T19:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -11,14 +11,17 @@ author:
 mode: programming
 ---
 
-多次元配列とは、配列の中に同じ長さの配列を複数含ませたデータ構造のことである。
+多次元配列とは、配列(リスト)の中にさらに配列(リスト)を含ませたデータ構造のことである。
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java において、例として二次元配列を設定するには以下の形式で宣言する。
+Java において、例として二次元配列・リストを設定するには以下の形式で宣言する。
 
 ```java
+// 配列
 データ型[][] 配列名 = new データ型[要素数][要素数];
+// リスト
+ArrayList<ArrayList<型名>> リスト名 = new ArrayList<>();
 ```
 
 配列の次元数を増やしたい場合は、かっこ[]の数をその数になるように増やして設定する。
@@ -51,6 +54,15 @@ $ java Main
 1 2 3 4
 2 3 4 5
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+変数名 = [[]]
+```
+
+Python では上記のような形式で多次元リストを宣言する。上記は二次元リストの例である。
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
