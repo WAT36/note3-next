@@ -11,6 +11,7 @@ author:
   picture: "/assets/blog/authors/WAT.jpg"
 ogImage:
   url: ""
+mode: programming
 ---
 
 文字列の末尾に別の文字列を繋げて新しい文字列としてデータを作る方法についてをまとめる。
