@@ -118,35 +118,6 @@ Arrayオブジェクト名[インデックス] = 値;
 
 </div>
 
-<hr>
-
-## 配列の長さ(要素数)を確認する
-
-配列の長さ、つまりは入っている要素の数を表示する方法についてを述べる。
-
-<div class="note_content_by_programming_language" id="note_content_Java">
-
-Java では配列オブジェクトに**length**という属性があり、それが配列の長さを示している。
-
-```
-配列.length
-```
-
-この方法により、配列の長さを表示することができる。
-
-</div>
-<div class="note_content_by_programming_language" id="note_content_Javascript">
-
-Javascript も Java と同じく配列に**length**という属性がある。それが配列の長さを示している。
-
-```
-配列.length
-```
-
-</div>
-
-<hr>
-
 ## 配列に値を追加する
 
 言語により概念が異なるが、配列に値を追加する方法についてを述べる。
