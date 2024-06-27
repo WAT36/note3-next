@@ -17,8 +17,6 @@ export const tagFilterSearch = async (tagName: string) => {
       tagFilters: [tagName],
     })
     .then(({ hits }) => {
-      //console.log(hits);
-      console.log("Promise OK!");
       return hits;
     });
   return results;
