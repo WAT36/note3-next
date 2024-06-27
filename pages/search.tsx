@@ -35,7 +35,7 @@ export default function SearchResult() {
           <Intro title={"記事検索"} />
           <Bio admin={ADMINISTRATOR} />
           <InstantSearch searchClient={searchClient} indexName={indexName}>
-            <Configure hitsPerPage={5} />
+            {/* <Configure hitsPerPage={5} /> */}
             <SearchBox
               placeholder={"検索"}
               classNames={{
