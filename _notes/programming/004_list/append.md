@@ -2,8 +2,8 @@
 title: "リストに要素を加える"
 date: "2019-10-23T19:35:30+09:00"
 excerpt: "リストに要素を加える方法。"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-23T19:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -12,6 +12,8 @@ mode: programming
 ---
 
 リストに要素を加える方法についてを示す。
+
+(配列に関しては固定長のため、要素を加えるというのは基本ないため、ここでは述べない。)
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
@@ -84,6 +86,24 @@ Python ではリストの関数として
 >>> a
 [1, 100, 3]
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+Array.push(要素);
+```
+
+Javascript では Array オブジェクトの**push**メソッドで、Array オブジェクトに要素を追加できる。
+
+使用例を以下に示す。
+
+```javascript
+let arr = [1, 2, 3, 4, 5];
+arr.push(6);
+console.log(arr);
+// [1, 2, 3, 4, 5, 6]
 ```
 
 </div>

@@ -2,8 +2,8 @@
 title: "配列・リストの長さ"
 date: "2019-10-22T19:35:30+09:00"
 excerpt: "配列・リストの長さ(要素数)を調べる方法。"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-22T19:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
