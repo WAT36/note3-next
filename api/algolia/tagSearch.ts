@@ -11,15 +11,22 @@ export const tagFilterSearch = async (tagName: string) => {
 
   const index = client.initIndex(process.env.NEXT_PUBLIC_INDEX_NAME);
 
-  await index
+  const results = await index
     .search("query", {
       query: "",
       tagFilters: [tagName],
     })
     .then(({ hits }) => {
-      console.log(hits);
+      //console.log(hits);
+      console.log("Promise OK!");
+      return hits;
     });
+  return results;
 };
 
 // // test
-// tagFilterSearch("AWS");
+// const main = async () => {
+//   const results = await tagFilterSearch("AWS");
+//   console.log(results);
+// };
+// main();
