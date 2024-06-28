@@ -18,7 +18,10 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
+// 末尾に追加
 リスト.add(追加する値)
+// 指定した位置に追加
+リスト.add(追加する位置,追加する値)
 ```
 
 Java では List クラスに **add()** というメソッドがあり、引数の要素をリストの最後に追加する。  
@@ -58,8 +61,9 @@ class Main{
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
+# 末尾に追加
 リスト.append(追加する値)
-# または
+# 指定した位置に追加
 リスト.insert(追加する位置,追加する値)
 ```
 
@@ -92,18 +96,26 @@ Python ではリストの関数として
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
+// 末尾に追加
 Array.push(要素);
+// 指定した位置に追加
+Array.splice(指定位置, 0, 追加する要素何個でも);
 ```
 
 Javascript では Array オブジェクトの**push**メソッドで、Array オブジェクトに要素を追加できる。
+
+また、Array オブジェクトに**splice**メソッドも存在し、これは Array オブジェクトの指定した位置から指定した要素数を削除し、そこを指定した要素で置き換えるというメソッドである。
+
+ここで、削除する要素数を 0 とすれば、Array オブジェクトの指定した位置に指定した要素を挿入することができる。
 
 使用例を以下に示す。
 
 ```javascript
 let arr = [1, 2, 3, 4, 5];
 arr.push(6);
-console.log(arr);
-// [1, 2, 3, 4, 5, 6]
+console.log(arr); // [1, 2, 3, 4, 5, 6]
+arr.splice(2, 0, "new", "added");
+console.log(arr); // [1, 2, 'new', 'added', 3, 4, 5, 6]
 ```
 
 </div>
