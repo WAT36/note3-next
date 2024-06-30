@@ -2,8 +2,8 @@
 title: "例外の明示的な発生"
 date: "2019-10-30T02:37:30+09:00"
 excerpt: "例外を明示的に発生する方法について"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-30T02:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -68,5 +68,16 @@ NameError: 例外発生!
 NameError発生!
 >>>
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+throw new Error();
+```
+
+Javascript でも**throw**文を使うことで指定した例外を発生することができる。
+
+上記の例では Error オブジェクトだが、それ以外の例外オブジェクトを指定することも可能である。
 
 </div>
