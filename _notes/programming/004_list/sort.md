@@ -17,10 +17,15 @@ mode: programming
 
 ```java
 import java.util.Collections;
-Collections.sort(リスト) // インプレースで処理
+Collections.sort(リスト)    // リストがソートされる（インプレース）
+
+// 逆順にソートしたい時は以下も行う
+Collections.reverse(リスト) // リストが逆順になる（インプレース）
 ```
 
 Java ではリストに関するメソッドがあるライブラリ**java.util.Collections**に、リストをソートするメソッド **sort()** があるので、それを利用する。
+
+逆順にソートしたい時は、ソート した後に リストを逆順にする reverse メソッドを利用する。
 
 ```java
 import java.util.ArrayList;
@@ -44,6 +49,12 @@ class Main{
     for(int i=0;i<l.size();i++){
       System.out.print(l.get(i) + " ");
     }
+
+    Collections.reverse(l);
+
+    for(int i=0;i<l.size();i++){
+      System.out.print(l.get(i) + " ");
+    }
   }
 }
 ```
@@ -54,6 +65,7 @@ class Main{
 > java Main
 1 3 -2 100
 -2 1 3 100
+100 3 1 -2
 ```
 
 </div>
@@ -63,6 +75,11 @@ class Main{
 リスト.sort() # インプレースで処理。リスト自体もソートされる
 # または
 sorted(リスト) # インプレースではない。ソートされたリストが返され、リスト自体はそのまま
+
+# 逆順にソートしたい時
+リスト.sort(reverse=True)
+# または
+sorted(リスト,reverse=True)
 ```
 
 Python ではリストをソートする関数は以下の 2 つがある。
@@ -72,6 +89,8 @@ Python ではリストをソートする関数は以下の 2 つがある。
 
 sorted 関数は引数に受け取ったリストをソートしたものを返す。この時、リスト自体はソートされた形にはならない。  
 sort 関数は引数は無く、ソートしたいリストの関数として呼び出し利用する。実行後、リストはインプレース(コピーを取らず、そのリストオブジェクトを直接ソートする)でソートされる。
+
+またこの 2 つの関数においてはそれぞれ引数**reverse**があり、それを True に設定してやると逆順にソートしてくれる。（デフォルトではこの引数 reverse は False になっている）
 
 ```python
 >>> a=[1,9,8,7,6,5,3,2]
@@ -84,6 +103,18 @@ sort 関数は引数は無く、ソートしたいリストの関数として呼
 >>> a.sort()
 >>> a
 [1, 2, 3, 5, 6, 7, 8, 9]
+>>>
+>>> a=[1,9,8,7,6,5,3,2]
+>>>
+>>> sorted(a,reverse=True)
+[9, 8, 7, 6, 5, 3, 2, 1]
+>>>
+>>> a
+[1, 9, 8, 7, 6, 5, 3, 2]
+>>>
+>>> a.sort(reverse=True)
+>>> a
+[9, 8, 7, 6, 5, 3, 2, 1]
 >>>
 ```
 
