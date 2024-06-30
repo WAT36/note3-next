@@ -2,8 +2,8 @@
 title: "定数"
 date: "2019-11-01T02:37:30+09:00"
 excerpt: "定数について"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-11-01T02:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -37,5 +37,22 @@ final int N = 50;
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 Python には定数という仕様は存在しない。
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+const 定数名 = 値;
+```
+
+Javascript では **const** 命令を用いて変数を宣言する。
+
+記法は上記のとおり。
+
+例
+
+```Javascript
+const A = 10
+```
 
 </div>

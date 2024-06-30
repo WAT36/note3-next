@@ -3,7 +3,6 @@ import { unified } from "unified";
 import remark2rehype from "remark-rehype";
 import remarkParse from "remark-parse";
 import rehypeStringify from "rehype-stringify";
-
 import math from "remark-math";
 import rehypeKatex from "rehype-katex";
 
