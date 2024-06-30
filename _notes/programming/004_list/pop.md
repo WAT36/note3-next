@@ -3,7 +3,7 @@ title: "リストの指定したインデックスの要素を削除する"
 date: "2019-10-27T00:35:30+09:00"
 excerpt: "リストの指定したインデックスの要素を削除する方法。"
 tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python, "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-27T00:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
