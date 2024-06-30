@@ -96,13 +96,15 @@ Python ではリストの関数として
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-// 末尾に追加
-Array.push(要素);
 // 指定した位置に追加
 Array.splice(指定位置, 0, 追加する要素何個でも);
+// 先頭に追加
+Array.unshift(要素);
+// 末尾に追加
+Array.push(要素);
 ```
 
-Javascript では Array オブジェクトの**push**メソッドで、Array オブジェクトに要素を追加できる。
+Javascript では Array オブジェクトの**unshift**,**push**メソッドで、Array オブジェクトの先頭、末尾に要素を追加できる。
 
 また、Array オブジェクトに**splice**メソッドも存在し、これは Array オブジェクトの指定した位置から指定した要素数を削除し、そこを指定した要素で置き換えるというメソッドである。
 
@@ -114,8 +116,10 @@ Javascript では Array オブジェクトの**push**メソッドで、Array オ
 let arr = [1, 2, 3, 4, 5];
 arr.push(6);
 console.log(arr); // [1, 2, 3, 4, 5, 6]
+arr.unshift(0);
+console.log(arr); // [0, 1, 2, 3, 4, 5, 6]
 arr.splice(2, 0, "new", "added");
-console.log(arr); // [1, 2, 'new', 'added', 3, 4, 5, 6]
+console.log(arr); // [0, 1, 'new', 'added', 2, 3, 4, 5, 6]
 ```
 
 </div>
