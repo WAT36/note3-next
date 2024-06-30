@@ -83,20 +83,20 @@ Python では**リスト内包表記**という方法を用いる。
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-Array.filter((value, index) => {
+Array.filter((value, index, array) => {
   // 条件式。要素valueが条件に合えばtrue,合わなければfalseを返す式を置く。
 });
 ```
 
 javascript には Array オブジェクトに**filter**メソッドがある。これは、Array オブジェクト内の要素を１個１個見ていき、指定した条件に合う要素だけを残すメソッドである。
 
-利用するには filter メソッドの引数に関数を入力する。この関数は、引数に value,index をおく。value は要素、index はインデックスを指す。(利用しない場合、index は書かなくても良い)それに応じて、式で value 等に対して条件に合致するなら true を、しない場合は false を返すような処理を作成する。実行後、true が返された要素のみで作られた Array オブジェクトが返される。
+利用するには filter メソッドの引数に関数を入力する。この関数は、引数に value,index,array をおく。value は要素、index はインデックス, array は元の Array オブジェクトを指す。(利用しない場合、index,array は書かなくても良い。)それに応じて、式で value 等に対して条件に合致するなら true を、しない場合は false を返すような処理を作成する。実行後、true が返された要素のみで作られた Array オブジェクトが返される。
 
 実行例を以下に見せる。これは、Array オブジェクト中にある奇数の要素のみを取り出すものである。
 
 ```javascript
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let odds = arr.filter((value, index) => {
+let odds = arr.filter((value) => {
   return value % 2 !== 0;
 });
 console.log(odds);
