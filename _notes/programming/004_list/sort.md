@@ -2,8 +2,8 @@
 title: "リストのソート"
 date: "2019-10-26T19:35:30+09:00"
 excerpt: "リスト内の要素をソートする方法。"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-26T19:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -116,6 +116,46 @@ sort 関数は引数は無く、ソートしたいリストの関数として呼
 >>> a
 [9, 8, 7, 6, 5, 3, 2, 1]
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+Array.sort([比較関数]); // 破壊的メソッド
+```
+
+javascript では Array オブジェクトに**sort**メソッドがあり、これによりオブジェクト内の要素を昇順でソートする。
+
+ただし、sort メソッドはオブジェクト内の要素を文字列に置き換えてソートするので注意。
+例えば数値型の要素の時、10,100 などは 9 の前にソートされる。（文字列型だと 10,100 の方が 9 より早いため。）
+
+そのような比較を避けたい場合は、sort メソッドの引数に比較用の関数を入力する。
+
+この関数は、２要素 a,b(名前は何でも良い)が与えられたときに、その２要素の順番を決めるのに必要な式を定義する必要がある。
+
+この式は、a が b より大きい場合は正の値を、a が b より小さい場合は負の値を、等しいときは 0 を出力させるような式にする。
+
+以下に例を示す。
+
+```javascript
+let arr = [1, 2, 9, 3, 8, 4, 7, 5, 6, 10];
+arr.sort();
+console.log(arr); // このソートだと10が9の前にくる
+
+arr.sort((a, b) => a - b); // aがbより大きいならaが前に
+console.log(arr);
+
+arr.sort((a, b) => b - a); // aがbより小さいならaが後に
+console.log(arr);
+```
+
+実行結果
+
+```
+[1, 10, 2, 3, 4, 5, 6, 7, 8, 9]
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 ```
 
 </div>
