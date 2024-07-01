@@ -2,8 +2,8 @@
 title: "リストの指定した要素を削除する"
 date: "2019-10-27T01:35:30+09:00"
 excerpt: "リストの指定した要素を削除する方法。"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-27T01:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -113,6 +113,33 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 ValueError: list.remove(x): x not in list
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+Array.filter((value, index, array) => value !== 指定要素);
+```
+
+ここも専用のメソッドは見当たらないため、**filter**メソッドを利用する。
+
+利用するには filter メソッドの引数に関数を入力する。この関数は、引数に value,index,array をおく。value は要素、index はインデックス, array は元の Array オブジェクトを指す。(利用しない場合、index,array は書かなくても良い。)それに応じて、式で value 等に対して条件に合致するなら true を、しない場合は false を返すような処理を作成する。実行後、true が返された要素のみで作られた Array オブジェクトが返される。
+
+これを利用し、要素 value が指定した値に合うときに false を返すような式を書けば良い。
+
+実行例を以下に見せる。これは、Array オブジェクト中にある 10 以外の要素のみを取り出すものである。
+
+実行例を以下に示す。
+
+```javascript
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let result = arr.filter((value) => {
+  return value !== 10;
+});
+
+console.log(result);
+// [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
 </div>
