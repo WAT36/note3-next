@@ -2,8 +2,8 @@
 title: "指定した要素がリスト内にあるか調べる"
 date: "2019-10-27T03:35:30+09:00"
 excerpt: "指定した要素がリスト内にあるか調べる方法。"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-27T03:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -80,6 +80,33 @@ True
 >>> 10 in a
 False
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+Array.indexOf(要素) !== -1;
+```
+
+ここは Array オブジェクトの**indexOf**メソッドを利用する。
+
+indexOf メソッドは、引数に指定した要素が Array オブジェクトにあるか探し、あった場合はそのインデックスを返すのだが、ない場合は-1 を返す。これを利用し、indexOf メソッドで返ってくる値が-1 でなかったら存在し、-1 の場合は存在しないと判断できる。
+
+実行例を以下に示す。
+
+```javascript
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let elm = 11;
+console.log(
+  `${elm}はarrに存在${arr.indexOf(elm) !== -1 ? "します" : "しません"}`
+);
+```
+
+実行結果
+
+```
+11はarrに存在しません
 ```
 
 </div>
