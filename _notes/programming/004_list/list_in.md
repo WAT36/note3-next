@@ -86,27 +86,25 @@ False
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-Array.indexOf(要素) !== -1;
+Array.includes(要素);
 ```
 
-ここは Array オブジェクトの**indexOf**メソッドを利用する。
+ここは Array オブジェクトの**includes**メソッドを利用する。
 
-indexOf メソッドは、引数に指定した要素が Array オブジェクトにあるか探し、あった場合はそのインデックスを返すのだが、ない場合は-1 を返す。これを利用し、indexOf メソッドで返ってくる値が-1 でなかったら存在し、-1 の場合は存在しないと判断できる。
+includes メソッドは、引数に指定した要素が Array オブジェクトにあるかを判別するメソッドである。
 
 実行例を以下に示す。
 
 ```javascript
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let elm = 11;
-console.log(
-  `${elm}はarrに存在${arr.indexOf(elm) !== -1 ? "します" : "しません"}`
-);
+console.log(arr.includes(arr));
 ```
 
 実行結果
 
 ```
-11はarrに存在しません
+false
 ```
 
 </div>
