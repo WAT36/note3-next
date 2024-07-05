@@ -2,8 +2,8 @@
 title: "文字列を１文字ずつのリストにする"
 date: "2019-10-26T23:35:30+09:00"
 excerpt: "文字列を１文字ずつのリストにする方法。"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-26T23:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -82,6 +82,34 @@ Python では文字列をそのまま **list()** の引数に指定してやる�
 >>> list(s)
 ['a', 'p', 'p', 'l', 'e', ' ', 'b', 'a', 'n', 'a', 'n', 'a']
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+"文字列".splot('')
+// または
+[..."文字列"]
+```
+
+方法は主に 2 つで、まずは文字列の split メソッド。これは文字列を指定した文字を境に分割し Array オブジェクトにすると言うもので、ここで空文字を指定すると 1 文字ずつに分割された Array オブジェクトとなる。
+
+また、スプレッド構文(...)を使うことで、文字列を 1 文字ずつの要素に展開することができ、これを Array オブジェクトにすることで 1 文字ずつの Array オブジェクトにすることができる。
+
+実行例を以下に示す。
+
+```javascript
+let str = "abcdefg";
+console.log(str.split(""));
+console.log([...str]);
+```
+
+実行結果
+
+```
+['a', 'b', 'c', 'd', 'e', 'f', 'g']
+['a', 'b', 'c', 'd', 'e', 'f', 'g']
 ```
 
 </div>
