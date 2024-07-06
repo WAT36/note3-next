@@ -88,7 +88,7 @@ Python では文字列をそのまま **list()** の引数に指定してやる�
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-"文字列".splot('')
+"文字列".split('')
 // または
 [..."文字列"]
 ```
