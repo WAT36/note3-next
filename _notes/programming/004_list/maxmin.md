@@ -2,8 +2,8 @@
 title: "リスト内の要素の最大値・最小値を取得する"
 date: "2019-10-27T09:35:30+09:00"
 excerpt: "リスト内の要素の最大値・最小値を取得する方法"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-27T09:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -106,6 +106,33 @@ Python には組み込み関数 **max()** 及び **min()** があり、引数と
 >>> min(b)
 '0101'
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+Matn.max(...Array);
+Matn.min(...Array);
+```
+
+ここでは Array オブジェクトを展開する**スプレッド演算子**と、引数のうち最大・最小値を返す**Math.max()**及び**Math.min()**メソッドを利用する。
+
+Math.max()、Math.min()の引数に、スプレッド演算子で展開した Array オブジェクトを指定することで、最大・最小値を取得できる。
+
+以下に例を示す。
+
+```javascript
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(`最大値：${Math.max(...arr)}`);
+console.log(`最小値：${Math.min(...arr)}`);
+```
+
+実行結果
+
+```
+最大値：10
+最小値：1
 ```
 
 </div>
