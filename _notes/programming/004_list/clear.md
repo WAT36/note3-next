@@ -2,8 +2,8 @@
 title: "リストを空にする"
 date: "2019-10-27T12:35:30+09:00"
 excerpt: "リストを空にする方法"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-27T12:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -76,6 +76,39 @@ Python ではリストにある関数 **clear()** を使う。
 >>> a
 []
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+let arr = [1, 2, 3]; // 例
+arr.length = 0;
+//  または
+arr = [];
+```
+
+Array オブジェクトを空にするメソッドは見当たらない（調べ）ため、ここでは主に 2 つの方法を示す。
+
+- Array オブジェクトの長さを 0 に設定する
+- Array オブジェクトの変数に空の配列を代入する
+
+以下に例を示す。
+
+```javascript
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+arr.length = 0;
+console.log(arr);
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+arr = [];
+console.log(arr);
+```
+
+実行結果
+
+```
+[]
+[]
 ```
 
 </div>
