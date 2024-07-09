@@ -70,7 +70,7 @@ Python では辞書という名前で呼ばれ、**{}** のカッコ内で囲ま
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-var m = new Map();
+let m = new Map();
 ```
 
 Javascript では**Map オブジェクト**と呼ばれるものが該当する。
