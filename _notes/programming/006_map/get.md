@@ -105,7 +105,7 @@ KeyError: 'key3'
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-m["キー名"];
+Map.get(キー);
 ```
 
 Javascript において、連想配列からデータを取得する方法は普通の配列と同じように添字を指定すれば良い。
@@ -113,14 +113,14 @@ Javascript において、連想配列からデータを取得する方法は普
 例を以下に示す。
 
 ```javascript
-var temperature = new Array();
+let temperature = new Map();
 
-temperature["Tokyo"] = 20;
-temperature["Sapporo"] = 15;
-temperature["Naha"] = 25;
+temperature.set("Tokyo", 20);
+temperature.set("Sapporo", 15);
+temperature.set("Naha", 25);
 
-console.log(temperature["Tokyo"]);
-console.log(temperature["Naha"]);
+console.log(temperature.get("Tokyo"));
+console.log(temperature.get("Naha"));
 ```
 
 結果
