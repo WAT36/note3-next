@@ -90,27 +90,29 @@ dict_keys(['key', 'key2', 'key3'])
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-Object.keys(m);
+Map.keys();
 ```
 
-Javascript において、連想配列の添字のリストを取得するには、 **Object.keys()** メソッドを利用する。引数には連想配列のオブジェクトを指定する。
+Javascript において、Map オブジェクトのキーリストを取得するには、 Map オブジェクトの**keys()** メソッドを利用する。
+
+keys()メソッドでは、キーの値が入ったイテレーターオブジェクトが返る。一個ずつ見たい時は、for...of を利用することで１つずつ取り出せる。
 
 例を以下に示す。
 
 ```javascript
-var temperature = new Array();
+let temperature = new Map();
 
-temperature["Tokyo"] = 20;
-temperature["Sapporo"] = 15;
-temperature["Naha"] = 25;
+temperature.set("Tokyo", 20);
+temperature.set("Sapporo", 15);
+temperature.set("Naha", 25);
 
-console.log(Object.keys(temperature));
+console.log(temperature.keys());
 ```
 
 結果
 
 ```
-["Tokyo", "Sapporo", "Naha"]
+MapIterator {'Tokyo', 'Sapporo', 'Naha'}
 ```
 
 </div>
