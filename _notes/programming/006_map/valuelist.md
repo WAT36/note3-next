@@ -95,27 +95,29 @@ value3
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-Object.values(m);
+Map.values();
 ```
 
-Javascript において、連想配列の値のリストを取得するには、 **Object.values()** メソッドを利用する。引数には連想配列のオブジェクトを指定する。
+Javascript において、Map オブジェクトの値のリストを取得するには、 Map オブジェクトの**values()** メソッドを利用する。
+
+values()メソッドでは、値が入ったイテレーターオブジェクトが返る。一個ずつ見たい時は、for...of を利用することで１つずつ取り出せる。
 
 例を以下に示す。
 
 ```javascript
-var temperature = new Array();
+let temperature = new Map();
 
-temperature["Tokyo"] = 20;
-temperature["Sapporo"] = 15;
-temperature["Naha"] = 25;
+temperature.set("Tokyo", 20);
+temperature.set("Sapporo", 15);
+temperature.set("Naha", 25);
 
-console.log(Object.values(temperature));
+console.log(temperature.values());
 ```
 
 結果
 
 ```
-[20, 15, 25]
+MapIterator {20, 15, 25}
 ```
 
 </div>
