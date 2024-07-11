@@ -1,7 +1,7 @@
 ---
-title: "辞書(Map)から最大のキーを取得"
+title: "辞書(Map)から最大・最小のキーを取得"
 date: "2019-10-28T04:36:30+09:00"
-excerpt: "辞書(Map)から最大のキーを取得する方法ついて"
+excerpt: "辞書(Map)から最大・最小のキーを取得する方法ついて"
 tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-28T04:36:30+09:00"
@@ -18,12 +18,13 @@ mode: programming
 ```java
 import java.util.Collections;
 Collections.max(m.keySet())
+Collections.min(m.keySet())
 ```
 
-Java で Map にあるキーの最大値を取得するには以下の手順で行う。
+Java で Map にあるキーの最大値・最小値を取得するには以下の手順で行う。
 
 - Map のメソッド **keySet()** を使い、キーのみを Set に格納したデータを取得する
-- そのキーの Set を Collections クラスの **max()** メソッドを用いて最大値を取得する(参考：リストの内一番大きい要素を調べる)
+- そのキーの Set を Collections クラスの **max()** または **min()** メソッドを用いて最大・最小値を取得する
 
 Map クラスの keySet()メソッドは、Map にあるキーを Set に格納したものを返すメソッドである。Set は List から重複要素を除外させたデータ構造である。  
 `Set<K> keySet()`
@@ -50,6 +51,7 @@ class Main{
     String maxkey = Collections.max(key);
 
     System.out.println("max key: " + maxkey);
+    System.out.println("min key: " + minkey);
   }
 }
 ```
@@ -60,6 +62,7 @@ class Main{
 > java Main
 {key2=value2, key3=value3, key=value}
 max key: key3
+min key: key
 ```
 
 </div>
@@ -67,6 +70,7 @@ max key: key3
 
 ```python
 max(m)
+min(m)
 ```
 
 Python では単に組み込み関数 **max()** を使えば、辞書にある最大のキーを取得できる。
@@ -78,6 +82,8 @@ Python では単に組み込み関数 **max()** を使えば、辞書にある�
 >>>
 >>> max(d)
 'key3'
+>>> min(d)
+'key'
 >>>
 ```
 
