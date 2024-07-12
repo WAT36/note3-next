@@ -88,3 +88,10 @@ Python では単に組み込み関数 **max()** を使えば、辞書にある�
 ```
 
 </div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+// 工事中・・・
+```
+
+</div>
