@@ -40,23 +40,27 @@ Date オブジェクトを生成するには、**new Date()** で生成する。
 
 Date オブジェクトで利用可能なメソッド等は以下の通り。
 
-| メソッド            | 概要                                 |
-| :------------------ | :----------------------------------- |
-| getFullYear()       | 年を取得                             |
-| getMonth()          | 月を取得                             |
-| getDate()           | 日を取得                             |
-| getDay()            | 曜日(0:日曜~6:土曜)を取得            |
-| getHours()          | 時を取得                             |
-| getMinutes()        | 分を取得                             |
-| getSeconds()        | 秒を取得                             |
-| getMilliSeconds()   | ミリ秒を取得                         |
-| getTime()           | 1970/01/01 00:00:00 からの経過ミリ秒 |
-| setFullYear(y)      | 年を y に設定                        |
-| setMonth(m)         | 月を m に設定                        |
-| setDate(d)          | 日を d に設定                        |
-| setHours(h)         | 時を h に設定                        |
-| setMinutes(m)       | 分を m に設定                        |
-| setSeconds(s)       | 秒を s に設定                        |
-| setMilliSeconds(ms) | ミリ秒を ms に設定                   |
+| メソッド            | 概要                                                                  |
+| :------------------ | :-------------------------------------------------------------------- |
+| getFullYear()       | 年を取得                                                              |
+| getMonth()          | 月を取得                                                              |
+| getDate()           | 日を取得                                                              |
+| getDay()            | 曜日(0:日曜~6:土曜)を取得                                             |
+| getHours()          | 時を取得                                                              |
+| getMinutes()        | 分を取得                                                              |
+| getSeconds()        | 秒を取得                                                              |
+| getMilliSeconds()   | ミリ秒を取得                                                          |
+| getTime()           | 1970/01/01 00:00:00 からの経過ミリ秒                                  |
+| setFullYear(y)      | 年を y に設定                                                         |
+| setMonth(m)         | 月を m に設定                                                         |
+| setDate(d)          | 日を d に設定                                                         |
+| setHours(h)         | 時を h に設定                                                         |
+| setMinutes(m)       | 分を m に設定                                                         |
+| setSeconds(s)       | 秒を s に設定                                                         |
+| setMilliSeconds(ms) | ミリ秒を ms に設定                                                    |
+| now()               | 現在時点での 1970/01/01 00:00:00 からの経過ミリ秒を取得(静的メソッド) |
+| toString()          | 日時を文字列として取得                                                |
+| toDateString()      | 日付部分を文字列として取得                                            |
+| toTimeString()      | 時刻部分を文字列として取得                                            |
 
 </div>
