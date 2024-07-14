@@ -2,8 +2,8 @@
 title: "正規表現"
 date: "2019-11-01T07:37:30+09:00"
 excerpt: "正規表現について"
-tag: ["Python"]
-programming: ["Python"]
+tag: ["Python", "Javascript"]
+programming: ["Python", "Javascript"]
 updatedAt: "2019-11-01T07:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -157,5 +157,24 @@ None
 'Aabbbcccdddeeefff'
 >>>
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+var re = new RegExp('正規表現','オプション')
+var re = /正規表現/オプション
+```
+
+javascript で正規表現を解析し、文字列検索をするための機能を提供するのが**RegExp**オブジェクトである。生成するにはコンストラクターの RegExp()を使うか、正規表現を/で囲んだ表現(正規表現リテラル)で表す。
+
+オプション は正規表現の挙動を示すパラメータで、以下の値を指定できる。
+
+| オプション | 意味                                                                       |
+| :--------- | :------------------------------------------------------------------------- |
+| g          | 文字列全体に対してマッチするか(無指定の場合は１度マッチした時点で処理終了) |
+| i          | 大文字小文字を区別するか                                                   |
+| m          | 複数行に対応するか                                                         |
+| u          | Unicode 対応                                                               |
 
 </div>
