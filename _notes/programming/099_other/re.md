@@ -189,9 +189,28 @@ String.match(正規表現);
 
 他、正規表現関連で利用できるメソッドは以下の通り。
 
-| メソッド                    | 概要                                                                     |
-| :-------------------------- | :----------------------------------------------------------------------- |
-| String.search(pattern)      | 文字列(String)で正規表現 pattern に最初に一致する位置を返す              |
-| String.replace(pattern,rep) | 文字列(String)で正規表現 pattern に一致した箇所を文字列 rep に置き換える |
+| メソッド                       | 概要                                                                     |
+| :----------------------------- | :----------------------------------------------------------------------- |
+| String.search(pattern)         | 文字列(String)で正規表現 pattern に最初に一致する位置を返す              |
+| String.replace(pattern,rep)    | 文字列(String)で正規表現 pattern に一致した箇所を文字列 rep に置き換える |
+| String.split(pattern [,limit]) | 文字列(String)で正規表現 pattern に一致した箇所で分割する                |
+
+例をいくつか示す。
+
+```javascript
+var p = "2022-02-02 10:12:32";
+var q = "集合時間は10:00です。";
+console.log(q.search(new RegExp(/\d/, "g")));
+console.log(q.replace(/\d\d:\d\d/g, "12:00"));
+console.log(p.split(/[- :]/g));
+```
+
+実行結果
+
+```
+5
+集合時間は12:00です。
+['2022', '02', '02', '10', '12', '32']
+```
 
 </div>
