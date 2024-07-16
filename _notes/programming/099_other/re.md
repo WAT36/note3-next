@@ -194,6 +194,7 @@ String.match(正規表現);
 | String.search(pattern)         | 文字列(String)で正規表現 pattern に最初に一致する位置を返す              |
 | String.replace(pattern,rep)    | 文字列(String)で正規表現 pattern に一致した箇所を文字列 rep に置き換える |
 | String.split(pattern [,limit]) | 文字列(String)で正規表現 pattern に一致した箇所で分割する                |
+| regexp.test(str)               | 正規表現リテラル regexp が文字列 str にマッチするか判定する              |
 
 例をいくつか示す。
 
@@ -203,6 +204,7 @@ var q = "集合時間は10:00です。";
 console.log(q.search(new RegExp(/\d/, "g")));
 console.log(q.replace(/\d\d:\d\d/g, "12:00"));
 console.log(p.split(/[- :]/g));
+console.log(/\d\d:\d\d/g.test(q));
 ```
 
 実行結果
@@ -211,6 +213,7 @@ console.log(p.split(/[- :]/g));
 5
 集合時間は12:00です。
 ['2022', '02', '02', '10', '12', '32']
+true
 ```
 
 </div>
