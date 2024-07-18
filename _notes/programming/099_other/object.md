@@ -33,4 +33,6 @@ Object オブジェクトにある主なメソッド類は以下の通り。
 | Object.assign(target,src,...) | オブジェクト target にオブジェクト src のプロパティをコピーする |
 | Object.create(proto [,props]) | オブジェクト proto を元に、新しいオブジェクトを生成する         |
 
+例をいくつか示す。
+
 </div>
