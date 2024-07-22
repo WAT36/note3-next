@@ -43,6 +43,11 @@ console.log(obj.valueOf()); // {}
 var d = new Date("2000/01/01");
 console.log(d.toString()); // Sat Jan 01 2000 00:00:00 GMT+0900 (日本標準時)
 console.log(d.valueOf()); // 946652400000
+
+const target = { a: 1, b: 2 };
+const source = { b: 3, c: 4 };
+Object.assign(target, source);
+console.log(target); // { a: 1, b: 3, c: 4 }
 ```
 
 </div>
