@@ -74,6 +74,31 @@ Javascript では**関数**と**メソッド**で意味合いが微妙に異な�
 
 戻り値を設定したい場合は、**return**文を使って戻したい値を記載する。
 
+実行例を以下に示す。
+
+```javascript
+function Add(a, b) {
+  return a + b;
+}
+console.log(Add(1, 2));
+
+var Sub = new Function("a", "b", "return a-b");
+console.log(Sub(4, 3));
+
+var Mul = function (a, b) {
+  return a * b;
+};
+console.log(Mul(5, 6));
+```
+
+実行結果
+
+```
+3
+1
+30
+```
+
 一方メソッドに関して、Javascript では、オブジェクト型データのプロパティに定義した関数のことをメソッドと呼んでいる。
 
 メソッドを使用するには、オブジェクト型の変数のメソッドが指定されているキーを呼び出せば良い。
