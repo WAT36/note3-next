@@ -96,4 +96,17 @@ def variable_args(*args,sep="/"):
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
+```javascript
+function 関数名() {
+  console.log("引数：" + arguments);
+  console.log("引数の数：" + arguments.length);
+}
+```
+
+javascript においては、関数の引数は**arguments**オブジェクトに入るという仕様がある。arguments オブジェクトは、関数内でのみ利用できる特別なオブジェクトである。
+
+実は javascript では関数の引数をチェックしないという仕様があり、関数の定義時の引数と違う引数を入力してもエラーは発生しない。
+
+しかし、入力した引数はこの arguments オブジェクトに入るので、引数を利用したい場合はこれを利用する。
+
 </div>
