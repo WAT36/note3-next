@@ -97,16 +97,49 @@ def variable_args(*args,sep="/"):
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-function 関数名() {
-  console.log("引数：" + arguments);
-  console.log("引数の数：" + arguments.length);
+function 関数名(...args) {
+  console.log("引数：" + args);
+  console.log("引数の数：" + args.length);
 }
 ```
 
-javascript においては、関数の引数は**arguments**オブジェクトに入るという仕様がある。arguments オブジェクトは、関数内でのみ利用できる特別なオブジェクトである。
+javascript においては、関数の引数に **...** をつけると、入力した引数が全てその引数に入る。これが可変長引数（javascript では残余引数とも呼ぶ）である。
 
-実は javascript では関数の引数をチェックしないという仕様があり、関数の定義時の引数と違う引数を入力してもエラーは発生しない。
+また、普通の引数と混在して定義することもできる。
 
-しかし、入力した引数はこの arguments オブジェクトに入るので、引数を利用したい場合はこれを利用する。
+実行例を以下に示す。
+
+```javascript
+function sum(...args) {
+  let sum = 0;
+  for (let i = 0; i < args.length; i++) {
+    if (isNaN(args[i])) {
+      console.error(`Error,引数が数値ではありません：${args[i]}`);
+      return;
+    }
+    sum += args[i];
+  }
+  return sum;
+}
+
+console.log(sum(1, 2, 3, 4, 5));
+console.log(sum(1, "a", "b"));
+
+function myFavorite(best, ...args) {
+  console.log(`私が一番好きなものは${best}です`);
+  console.log(`その他：${args}`);
+}
+
+console.log(myFavorite("melon", "lemon", "apple", "banana"));
+```
+
+実行結果
+
+```
+15
+Error,引数が数値ではありません：a
+"私が一番好きなものはmelonです"
+"その他：lemon,apple,banana"
+```
 
 </div>
