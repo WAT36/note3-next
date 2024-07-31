@@ -133,28 +133,26 @@ KeyError: 'key3'
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-delete m.キー名;
-//または
-delete m["キー名"];
+Map.remove(キー);
 ```
 
-Javascript において、連想配列から指定した添字のデータを削除するには、特殊演算子**delete**を利用する。
+Javascript において、Map オブジェクトから指定したキーのデータを削除するには、Map オブジェクトの**remove**メソッドを利用する。引数にはキーを指定する。
 
 例を以下に示す。
 
 ```javascript
-var temperature = new Array();
+let temperature = new Map();
 
-temperature["Tokyo"] = 20;
-temperature["Sapporo"] = 15;
-temperature["Naha"] = 25;
+temperature.set("Tokyo", 20);
+temperature.set("Sapporo", 15);
+temperature.set("Naha", 25);
 
-console.log(temperature["Tokyo"]);
+console.log(temperature.get("Tokyo"));
 
 //'Tokyo'のデータを消す
-delete temperature["Tokyo"];
+temperature.delete("Tokyo");
 
-console.log(temperature["Tokyo"]);
+console.log(temperature.get("Tokyo"));
 ```
 
 結果

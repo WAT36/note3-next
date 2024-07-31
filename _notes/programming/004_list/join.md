@@ -2,8 +2,8 @@
 title: "リストの全要素を連結して１つの文字列に変換する"
 date: "2019-10-27T05:35:30+09:00"
 excerpt: "リストの全要素を連結して１つの文字列に変換する方法。"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-27T05:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -71,6 +71,31 @@ Python では文字列の関数に **join()** というのがあり、引数に�
 >>> ''.join(a)
 'abbcccdddd'
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+Array.join("");
+// または
+Array.toString();
+```
+
+Javascript では Array オブジェクトに**join**メソッドがあり、これを利用すると Array オブジェクト内の要素を引数で指定した文字列で連結し、1 つの文字列を作成する。
+
+指定した文字列を空文字`""`にすると、Array オブジェクトの要素を全てそのまま繋げた文字列を出力する。
+
+また、Array オブジェクトの**toString**メソッドを使っても要素を連結した文字列を出力できる。ただしこちらは要素をカンマで繋げた形で出力される。
+
+例を以下に示す。
+
+```javascript
+let arr = ["aaa", "bbb", "ccc"];
+let arrJoin = arr.join("");
+console.log(arrJoin); // aaabbbccc
+let arrString = arr.toString();
+console.log(arrString); // aaa,bbb,ccc
 ```
 
 </div>

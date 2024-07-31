@@ -2,8 +2,8 @@
 title: "Set型"
 date: "2019-10-27T14:35:30+09:00"
 excerpt: "Set型について"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-27T14:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -82,6 +82,69 @@ Python で Set 型変数を作るには中括弧 **{}** または **set** 関数
 >>> b
 {'a', 'b', 'c'}
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+let s = new Set();
+
+// 諸メソッド
+Set.size; // 要素数を返す
+Set.add(val); // 値valを追加
+Set.has(val); // 値valを持つか確認
+Set.delete(val); // 値valを削除
+Set.clear(); // 全要素を削除
+Set.values(); // 全要素を返す
+```
+
+Javascript においても Set はあり、**Set オブジェクト**と呼ばれる。
+
+インスタンスオブジェクトを生成するには、**new Set()**として利用する。
+
+また、Set オブジェクトのメソッドやプロパティは以下の通り。
+
+| メソッド等      | 意味                |
+| :-------------- | :------------------ |
+| Set.size        | 要素数を返す        |
+| Set.add(val)    | 値 val を追加       |
+| Set.has(val)    | 値 val を持つか確認 |
+| Set.delete(val) | 値 val を削除       |
+| Set.clear()     | 全要素を削除        |
+| Set.values()    | 全要素を返す        |
+
+例を以下に示す。
+
+```javascript
+let s = new Set();
+
+// 値追加
+s.add("a");
+s.add("b");
+s.add("c");
+s.add("b");
+s.add("a");
+
+console.log(s);
+//{'a','b','c'}
+
+console.log(s.size);
+// 3
+
+console.log(s.has("b"));
+// true
+
+s.delete("b");
+console.log(s);
+//{'a','c'}
+
+console.log(s.values());
+//SetIterator{'a','c'}
+
+s.clear();
+console.log(s);
+// {}
 ```
 
 </div>

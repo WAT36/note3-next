@@ -1,7 +1,7 @@
 ---
-title: "辞書(Map)から最大の値を取得"
+title: "辞書(Map)から最大・最小の値を取得"
 date: "2019-10-28T06:36:30+09:00"
-excerpt: "辞書(Map)から最大の値を取得する方法ついて"
+excerpt: "辞書(Map)から最大・最小の値を取得する方法ついて"
 tag: ["Java", "Python"]
 programming: ["Java", "Python"]
 updatedAt: "2019-10-28T06:36:30+09:00"
@@ -11,19 +11,20 @@ author:
 mode: programming
 ---
 
-辞書(Map)から最大の値を取得する方法についてを示す。
+辞書(Map)から最大・最小の値を取得する方法についてを示す。
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
 import java.util.Collections;
 Collections.max(m.values());
+Collections.min(m.values());
 ```
 
 Java で Map にある値の最大値を取得するには以下の手順で行う。
 
 - Map のメソッド **values()** を使い、値のみを格納した List を取得する
-- その値の List を Collections クラスの **max()** メソッドを用いて最大値を取得する(参考：リストの内一番大きい要素を調べる)
+- その値の List を Collections クラスの **max()** または **min()** メソッドを用いて最大値を取得する(参考：リストの内一番大きい・小さい要素を調べる)
 
 Map クラスの values()メソッドは、Map にある値を Collection(List,Set の親クラス)に格納したものを返すメソッドである。  
 `Collection<V> values()`
@@ -49,8 +50,9 @@ class Main{
 
     List<String> value = new ArrayList<>(m.values());
     String maxval = Collections.max(value);
-
+    String minval = Collections.min(value);
     System.out.println("max value: " + maxval);
+    System.out.println("min value: " + minval);
   }
 }
 ```
@@ -61,6 +63,7 @@ class Main{
 > java Main
 {key2=value2, key3=value3, key=value}
 max value: value3
+min value: value
 ```
 
 </div>
@@ -68,9 +71,10 @@ max value: value3
 
 ```python
 max(m.values())
+min(m.values())
 ```
 
-Python では辞書の関数 **values()** で値のみのビューオブジェクト(イテラブル)を取得できるので、これに組み込み関数 **max()** を適用すると、値の最大値を取得できる。
+Python では辞書の関数 **values()** で値のみのビューオブジェクト(イテラブル)を取得できるので、これに組み込み関数 **max()** または **min()** を適用すると、値の最大値・最小値を取得できる。
 
 ```python
 >>> d={'key':'value', 'key2':'value2', 'key3':'value3'}
@@ -81,7 +85,16 @@ Python では辞書の関数 **values()** で値のみのビューオブジェ�
 >>>
 >>> max(v)
 'value3'
+>>> min(v)
+'value'
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+// 工事中・・・
 ```
 
 </div>

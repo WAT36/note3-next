@@ -2,8 +2,8 @@
 title: "可変長引数の関数"
 date: "2019-10-29T06:37:30+09:00"
 excerpt: "可変長引数の関数について"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-29T06:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -91,6 +91,55 @@ def variable_args(*args,sep="/"):
 ('2020',)
 2020
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+function 関数名(...args) {
+  console.log("引数：" + args);
+  console.log("引数の数：" + args.length);
+}
+```
+
+javascript においては、関数の引数に **...** をつけると、入力した引数が全てその引数に入る。これが可変長引数（javascript では残余引数とも呼ぶ）である。
+
+また、普通の引数と混在して定義することもできる。
+
+実行例を以下に示す。
+
+```javascript
+function sum(...args) {
+  let sum = 0;
+  for (let i = 0; i < args.length; i++) {
+    if (isNaN(args[i])) {
+      console.error(`Error,引数が数値ではありません：${args[i]}`);
+      return;
+    }
+    sum += args[i];
+  }
+  return sum;
+}
+
+console.log(sum(1, 2, 3, 4, 5));
+console.log(sum(1, "a", "b"));
+
+function myFavorite(best, ...args) {
+  console.log(`私が一番好きなものは${best}です`);
+  console.log(`その他：${args}`);
+}
+
+console.log(myFavorite("melon", "lemon", "apple", "banana"));
+```
+
+実行結果
+
+```
+15
+Error,引数が数値ではありません：a
+"私が一番好きなものはmelonです"
+"その他：lemon,apple,banana"
 ```
 
 </div>
