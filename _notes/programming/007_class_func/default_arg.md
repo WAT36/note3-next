@@ -1,9 +1,9 @@
 ---
-title: "(Python)引数のデフォルト値"
+title: "引数のデフォルト値"
 date: "2019-10-29T05:37:30+09:00"
-excerpt: "(Python)引数のデフォルト値について"
-tag: ["Python"]
-programming: ["Python"]
+excerpt: "引数のデフォルト値について"
+tag: ["Python", "Javascript"]
+programming: ["Python", "Javascript"]
 updatedAt: "2019-10-29T05:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -40,6 +40,20 @@ Python では関数の定義時に引数に**引数名=デフォルト値**と�
 >>> greet()
 'Hello!'
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+function 関数名(引数1=デフォルト値1,引数2=デフォルト値2,...){
+  //  関数の処理
+}
+
+// (応用) 名前付き引数
+function 関数名({引数1=デフォルト値1,引数2=デフォルト値2,...}){
+  //  関数の処理
+}
 ```
 
 </div>
