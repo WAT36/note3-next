@@ -56,6 +56,10 @@ function 関数名({引数1=デフォルト値1,引数2=デフォルト値2,...}
 }
 ```
 
+javascript で関数のデフォルト値を宣言するには、**引数名 = デフォルト値** の形式で宣言すれば良い。
+
+実行時に入力されなかった引数でデフォルト値の定義があるものは、そのデフォルト値が使われる。
+
 ## 名前付き引数
 
 少しそれるが、似た技法として**名前付き引数**という方法もあるのでここで記載する。
@@ -69,6 +73,13 @@ function 関数名({引数1=デフォルト値1,引数2=デフォルト値2,...}
 実行例を以下に示す。
 
 ```javascript
+function getSquare(edge = 5) {
+  return edge * edge;
+}
+
+console.log(getSquare());
+console.log(getSquare(1));
+
 function getTriangle({ base = 1, height = 1 }) {
   return (base * height) / 2;
 }
@@ -80,6 +91,8 @@ console.log(getTriangle({ base: 5, height: 5 }));
 実行結果
 
 ```
+25
+1
 0.5
 12.5
 ```
