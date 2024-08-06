@@ -38,4 +38,12 @@ Python でのクラスを定義するときの記法は上記の通り。
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
+```javascript
+
+```
+
+javascript では「クラス」というものがなく、「プロトタイプ（ひな形）」という概念がある。
+
+**プロトタイプ**とは、「あるオブジェクトの元となるオブジェクト」のこと。javascript では、クラスの代わりにこのプロトタイプを利用して、オブジェクトを生成していく。
+
 </div>
