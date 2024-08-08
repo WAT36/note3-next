@@ -54,14 +54,36 @@ javascript では、関数(Function オブジェクト)にクラスとしての�
 
 **this**キーワードを利用することで、インスタンスのプロパティを設定することもできる。
 
+またプロパティに関数オブジェクトを設定することもでき、関数オブジェクトが設定されたプロパティはメソッドとみなされる。
+
+ちなみに javascript(プロトタイプベースのオブジェクト指向)では、作成したインスタンスにプロパティを後で定義することもできる。
+
+この定義した新しいプロパティは、当然だが定義したインスタンス内でしか使えないので注意。
+
+実行例を以下に示す。
+
 ```javascript
 var Member = function (name) {
   this.name = name;
+
+  this.getName = function () {
+    return this.name;
+  };
 };
 
 var m1 = new Member("Takao");
 
 console.log(m1.name); // 'Takao'
+console.log(m1.getName()); // 'Takao'
+
+m1.sayHello = function () {
+  return "Hello! World!";
+};
+
+console.log(m1.sayHello()); // 'Hello! World!'
+
+var m2 = new Member("Kotone");
+console.log(m2.sayHello()); // エラー。定義されていないので
 ```
 
 </div>
