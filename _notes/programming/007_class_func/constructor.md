@@ -122,7 +122,7 @@ var Person = function (name) {
 この関数を、**new**キーワードを用いて別の変数に格納すると、変数にはオブジェクト型のデータが格納される。
 
 ```javascript
-var john = Person("john");
+var john = new Person("john");
 console.log(john.name);
 ```
 
