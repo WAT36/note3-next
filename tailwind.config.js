@@ -1,5 +1,4 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+const tailwindCssConfig = {
   content: ["./components/**/*.{ts,tsx}", "./pages/**/*.tsx"],
   theme: {
     extend: {
@@ -34,3 +33,5 @@ module.exports = {
   plugins: [],
   darkMode: "media",
 };
+
+export default tailwindCssConfig;
