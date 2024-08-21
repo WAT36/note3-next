@@ -1,8 +1,12 @@
-const fs = require("fs");
-const path = require("path");
-const algoliasearch = require("algoliasearch");
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import algoliasearch from "algoliasearch";
+import * as dotenv from "dotenv";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const ENV_PATH = path.join(__dirname, "../../.env");
-require("dotenv").config({ path: ENV_PATH });
+dotenv.config({ path: ENV_PATH });
 
 // mdファイルリストを読み込む
 const listFiles = (dir) =>
