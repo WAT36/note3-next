@@ -26,6 +26,12 @@ var Person = function (name) {
 Person.prototype.getName = function () {
   return this.name;
 };
+// 以下も可能
+Person.prototype = {
+  getName: function () {
+    return this.name;
+  },
+};
 ```
 
 javascript では、オブジェクトに**prototype**というプロパティがある。
@@ -34,7 +40,7 @@ javascript で、コンストラクタからインスタンスを生成すると
 
 メソッドの数が少なければいいのだが、メソッドの数が多い場合、作成されるインスタンスに全メソッドが作られ、メモリが逼迫する恐れがある。
 
-ここで、prototype プロパティにプロパティやメソッドを定義すると、作成されたインスタンスにはメソッド類の実体は作られず、元となるオブジェクトの prototype プロパティに定義したメソッド類を参照して利用するようになる。
+ここで、prototype プロパティにメソッドを定義すると、作成されたインスタンスにはメソッド類の実体は作られず、元となるオブジェクトの prototype プロパティに定義したメソッド類を参照して利用するようになる。
 
 これにより、実行時のメモリ利用量を抑えられる。
 
