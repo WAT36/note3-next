@@ -2,8 +2,8 @@
 title: "リストaにありリストbに入ってない要素のみを表示（差集合）"
 date: "2019-10-26T22:35:30+09:00"
 excerpt: "リスト2つの差集合をとる方法。"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-26T22:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -89,6 +89,33 @@ Python ではリストを set 型に変換し、その後 **-** 演算子を使�
 >>> list(a_minus_b)
 [1, 5, 6, 7, 8, 9]
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+//Array_a,Array_bの2つのArrayオブジェクトがあるとする
+Array_a.filter((value) => !Array_b.includes(value));
+```
+
+2 つの Array オブジェクトに対し片方のみにある要素のみを取り出す(差集合)には、ここも専用のメソッドが見当たらない（あればお知らせください。。）ため、
+積集合と同様に Array オブジェクトの**filter**メソッドと**includes**メソッドを利用する。
+
+先ほどの積集合と逆で、includes メソッドで false が返ってくるときに true となるように、`!include`とすれば良い。
+
+実行例を以下に示す。
+
+```javascript
+let arrA = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let arrB = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+console.log(arrA.filter((value) => !arrB.includes(value)));
+```
+
+実行結果
+
+```
+[1, 2, 3, 4]
 ```
 
 </div>

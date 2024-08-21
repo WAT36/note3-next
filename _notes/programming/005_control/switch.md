@@ -85,9 +85,7 @@ Python には**switch 文が存在しない**。
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-Javascript には**switch 文**が存在し、利用法は Java と同じである。
-
-```
+```javascript
 switch (式) {
     case 定数１:
         //式の結果が定数１に一致したときはここの処理が実行
@@ -102,5 +100,7 @@ switch (式) {
         break;
 }
 ```
+
+Javascript には**switch 文**が存在し、利用法は Java と同じで、上記の通り。
 
 </div>

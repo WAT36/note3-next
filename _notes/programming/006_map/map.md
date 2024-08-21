@@ -16,9 +16,6 @@ mode: programming
 辞書(Map)とは **"キー"** と **"値"** の２つの要素からなるデータ構造で、キーを指定した時、辞書(Map)内でそのキーに対応づけられている値が返ってくるというデータ構造である。  
 またこの定義上、キーは辞書(Map)内では一意でないといけない（キーが重複してはならない）。ただし、値の方は一意になってなくても良い（重複しても良い）
 
-Javascript では**連想配列**と呼ばれるデータ構造がこれに該当する。
-連想配列とは、配列の添字を文字列とした配列のことである。
-
 定義の方法をそれぞれの言語で示す。
 
 <div class="note_content_by_programming_language" id="note_content_Java">
@@ -69,13 +66,12 @@ Python では辞書という名前で呼ばれ、**{}** のカッコ内で囲ま
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-Javascript では連想配列と呼ばれるデータ構造が該当する。
-定義は普通の配列と同じ。
-
-例を以下に示す。
-
 ```javascript
-var m = new Array();
+let m = new Map();
 ```
+
+Javascript では**Map オブジェクト**と呼ばれるものが該当する。
+
+宣言するには、`new Map();`と言う形で行う。これで Map オブジェクトが作成される。
 
 </div>

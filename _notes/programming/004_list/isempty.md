@@ -2,8 +2,8 @@
 title: "リストが空であるか判別する"
 date: "2019-10-27T11:35:30+09:00"
 excerpt: "リストが空であるか判別する方法"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-27T11:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -87,6 +87,28 @@ False
 >>> bool(b)     #空でないリストをboolで変換する
 True
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+Array.length === 0;
+```
+
+ここでは Array オブジェクトの長さが 0 であるかを判別することで空であるかを判定する。
+
+以下に例を示す。
+
+```javascript
+let arr = [];
+console.log(`arrは空${arr.length === 0 ? "です" : "でない"}`);
+```
+
+実行結果
+
+```
+arrは空です
 ```
 
 </div>

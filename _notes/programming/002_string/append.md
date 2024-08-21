@@ -86,6 +86,9 @@ print(t) # testtesttesttesttest
 "文字列A" + "文字列B"; // "文字列A文字列B"
 //または
 "文字列A".concat("文字列B"); // "文字列A文字列B"
+
+// 文字列を指定回数繰り返し連結した文字列を取得
+"文字列A".repeat(3); // "文字列A文字列A文字列A"
 ```
 
 Javascript でも" **+** " 演算子を使って文字列を連結できる。
@@ -105,6 +108,25 @@ console.log(str2);
 ```
 Hello!World!
 Hello!World!
+```
+
+(番外)
+
+文字列同士を繋げるという意味では似てはいるが、以下のメソッドも紹介する。
+
+javascript には、指定した文字列を指定した回数だけ繰り返し連結した文字を取得する **repeat(num)** というメソッドも存在する。引数 num には繰り返す回数を入力する。
+
+例
+
+```javascript
+var str = "Hello!World!";
+console.log(str.repeat(3));
+```
+
+実行結果
+
+```
+Hello!World!Hello!World!Hello!World!
 ```
 
 </div>

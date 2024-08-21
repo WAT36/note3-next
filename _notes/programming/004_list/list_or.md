@@ -2,8 +2,8 @@
 title: "リストaまたはbに入っている要素を表示（和集合）"
 date: "2019-10-26T21:35:30+09:00"
 excerpt: "リスト2つの和集合をとる方法。"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-26T21:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -110,6 +110,39 @@ Python ではリストを set 型に変換し、その後 **|** 演算子を使�
 >>> list(a_or_b)
 [1, 2, 3, 4, 5, 6, 7, 8, 9]
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+[...new Set([...Array_A, ...Array_B])];
+```
+
+ここは **Set オブジェクト**と **スプレッド構文(...)**を使う。
+
+Set オブジェクトとは、後述するが簡単に言うと、要素の重複を許さない、かつインデックスや順番がないような値の集合を示すオブジェクトである。
+
+スプレッド構文とは、Array オブジェクト等に利用することで内部の要素を展開する構文である。
+
+これを利用することで、まず Array オブジェクトの中に Set オブジェクトを用意し、引数の Array オブジェクトの要素に 2 つの Array オブジェクト Array_A,Array_B を、スプレッド構文を指定して入力する。するとこの Array オブジェクト内には Array_a,Array_b の要素が入る状態になる。
+
+それが、Set オブジェクトにより重複要素が排除され、一意的な要素のみが残る状態となる。
+
+その Set オブジェクトがさらにスプレッド構文で展開され、最終的に Array オブジェクトになる。結果として、この Array オブジェクトには Array_A または Array_B に入っていた要素のみがある状態になる。（重複された要素は削除）
+
+実行例を以下に示す。
+
+```javascript
+let arrA = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let arrB = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+console.log([...new Set([...arrA, ...arrB])]);
+```
+
+実行結果
+
+```
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 ```
 
 </div>

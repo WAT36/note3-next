@@ -2,8 +2,8 @@
 title: "多次元リスト(配列)である列をキーにしてソートする"
 date: "2019-10-27T07:35:30+09:00"
 excerpt: "多次元リスト(配列)である列をキーにしてソートする方法"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-27T07:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -92,6 +92,29 @@ key には 1 引数関数を指定し、各要素(リスト)の比較に用い�
 >>> a
 [[5, -5], [3, -3], [1, -1], [2, 2], [4, 4]]
 >>>#リストの各要素(リスト)の1番目の要素でソートされる
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+// 例、2*2 Arrayの２要素目でソートする
+let arr = [
+  [1, 4],
+  [2, 3],
+  [3, 2],
+];
+arr.sort((a, b) => a[1] - b[1]);
+```
+
+ここでは sort メソッドを利用し、ソートで利用する関数でどこをソート対象にするかを定義する。
+
+上記の例では、2 つの要素からなる Array オブジェクトの Array オブジェクトにおいて、２要素目をキーにソートしたい時の例である。
+
+上記例を実行後、Array オブジェクトは以下になる。
+
+```
+[[3, 2],[2, 3],[1, 4]]
 ```
 
 </div>

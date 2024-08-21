@@ -45,49 +45,60 @@ Python では**関数**と言う名で呼ばれる。定義方法は上記の通
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-Javascript では**関数**と**メソッド**で意味合いが微妙に異なるので注意。
-
-## 関数
-
-関数について、Javascript では**function**キーワードを用いる方法と、**Function**コンストラクタを用いて定義する方法がある。
-
-```
+```javascript
+// 関数
 function 関数名(引数) {
     //関数内の処理
+    return 戻り値; // 値を返す時はreturnを使う
 }
-
 //または
-
 var オブジェクト名 = new Function([引数1[,引数2]],"処理")
+// オブジェクト名(引数)　で呼び出す
+
+// メソッド
+var 変数名 = {
+    (key名) : function(){
+        //メソッド内の処理
+    },
+}
 ```
+
+Javascript では**関数**と**メソッド**で意味合いが微妙に異なるので注意。
+
+関数について、Javascript では**function**キーワードを用いる方法と、**Function**コンストラクタを用いて定義する方法がある。
 
 引数は 0 個でも、複数個でも設定できる。
 
 戻り値を設定したい場合は、**return**文を使って戻したい値を記載する。
 
-また、Javascript では**無名関数**という使用があり、変数に直接関数を代入することができる。
+この他にも、**無名関数** と呼ばれる方法で関数を定義する方法もあり、その方法でも利用することができるので、そちらのページも参照のこと。
 
-```
-var 変数名 = function(引数){
-    //処理
-};
-```
+実行例を以下に示す。
 
-呼び出すときは、`変数名(引数);`という形で利用できる。
-
-## メソッド
-
-Javascript では、オブジェクト型データのプロパティに定義した関数のことをメソッドと呼んでいる。
-
-```
-var 変数名 = {
-    (key名) : function(){
-        //メソッド
-    },
-
-    ・・・
+```javascript
+function Add(a, b) {
+  return a + b;
 }
+console.log(Add(1, 2));
+
+var Sub = new Function("a", "b", "return a-b");
+console.log(Sub(4, 3));
+
+var Mul = function (a, b) {
+  return a * b;
+};
+console.log(Mul(5, 6));
 ```
+
+実行結果
+
+```
+3
+1
+30
+```
+
+一方メソッドに関して、Javascript では、オブジェクト型データのプロパティに定義した関数のことをメソッドと呼んでいる。
 
 メソッドを使用するには、オブジェクト型の変数のメソッドが指定されているキーを呼び出せば良い。
 

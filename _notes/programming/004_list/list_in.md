@@ -2,8 +2,8 @@
 title: "指定した要素がリスト内にあるか調べる"
 date: "2019-10-27T03:35:30+09:00"
 excerpt: "指定した要素がリスト内にあるか調べる方法。"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-27T03:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -80,6 +80,31 @@ True
 >>> 10 in a
 False
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+Array.includes(要素);
+```
+
+ここは Array オブジェクトの**includes**メソッドを利用する。
+
+includes メソッドは、引数に指定した要素が Array オブジェクトにあるかを判別するメソッドである。
+
+実行例を以下に示す。
+
+```javascript
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let elm = 11;
+console.log(arr.includes(arr));
+```
+
+実行結果
+
+```
+false
 ```
 
 </div>

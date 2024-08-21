@@ -2,8 +2,8 @@
 title: "指定した要素のリスト内でのインデックスを調べる"
 date: "2019-10-27T08:35:30+09:00"
 excerpt: "指定した要素のリスト内でのインデックスを調べる方法"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-27T08:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -113,6 +113,29 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 ValueError: 3 is not in list
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+Array.indexOf(要素 [,検索開始位置])
+//末尾から数えたい時は
+Array.lastIndexOf(要素 [,検索開始位置])
+```
+
+Javascript では Array オブジェクトに**indexOf**メソッドがあり、これを利用すると指定した要素と同じ要素を先頭から探し出し、Array オブジェクトのどの位置にあるかを出力してくれる。（先頭からでなく、指定した位置から検索したい時は、第２引数にその位置を指定する。）
+
+先頭からではなく、末尾から検索したいときは、同じく Array オブジェクトの**lastIndexOf**メソッドを利用する。こちらも同じく指定した位置から検索したい時は、第２引数にその位置を指定する。
+
+例を以下に示す。
+
+```javascript
+let arr = ["a", "b", "c", "b", "a"];
+console.log(arr.indexOf("b")); // 1
+console.log(arr.indexOf("b", 2)); // 3
+console.log(arr.lastIndexOf("b")); // 3
+console.log(arr.lastIndexOf("b", 2)); // 1
 ```
 
 </div>
