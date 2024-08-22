@@ -172,6 +172,18 @@ AttributeError: 'Beverage' object has no attribute 'alcohol_content'
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
+```javascript
+var Parent = function () {
+  // 親オブジェクトのメソッド類設定など
+};
+
+var Child = function () {
+  // 子オブジェクトのメソッド類設定など
+};
+
+Child.prototype = new Parent();
+```
+
 Javascript ではコンストラクタを使って作られたオブジェクトを使った継承が行える。
 
 例えば以下のようなオブジェクトがあったとする。
@@ -196,7 +208,13 @@ var Student = function (name, grade) {
 Student.prototype = new Person();
 ```
 
-これにより、Student オブジェクトに Person オブジェクトが持つプロパティを持たせることができる。これが javascript での継承の方法である。この後の例を以下に示す。
+これは、Student オブジェクトのプロトタイプに Person オブジェクトのインスタンスをセットしている。
+
+これにより、Student オブジェクトのインスタンスから、 プロトタイプに設定した Person オブジェクトのインスタンスを探らせることで、Person オブジェクトが持つメソッド類を持たせることができる。
+
+javascript においてこのような、プロトタイプにインスタンスを設定することで、設定したインスタンスのメソッド類をあたかも受け継ぐような設定をすることができる。
+
+オブジェクトのメソッド類を呼び出した時、プロトタイプに設定したインスタンスを延々と探しに行って、最終的には Object.prototype まで探しにいく。このようなプロトタイプの連なりを**プロトタイプチェーン**と呼び、これが所謂 javascript での継承の方法でもある。この後の例を以下に示す。
 
 ```javascript
 var mary = new Student("Mary", 1);
