@@ -227,4 +227,47 @@ console.log(mary.introduce());
 My name is Mary
 ```
 
+## プロトタイプチェーンは動的に変更できるが、インスタンスのは生成した時点で固定
+
+また、javascript のプロトタイプチェーンによる継承は、Java などと違い静的ではないため、いつ何時でもプロトタイプチェーンは変えられてしまう。
+
+例えば前述の例に続いて、Japanese クラスを定義し、以下のような処理を考えてみる。
+
+```javascript
+var Japanese = function (name) {
+  this.name = name;
+  this.introduce = function () {
+    console.log("こんにちは！私の名前は " + this.name + "です。");
+  };
+};
+
+Student.prototype = new Person();
+var s1 = new Student("Mary");
+console.log(s1.introduce());
+
+Student.prototype = new Japanese();
+var s2 = new Student("John");
+console.log(s2.introduce());
+
+console.log(s1.introduce());
+```
+
+ここで最後の s1.introduce()の挙動を考えてみよう。
+
+s1 は Student オブジェクトのインスタンスで、プロトタイプに Person のインスタンスを設定しており、この時の s1.introduce()は Person オブジェクトのが利用される。
+
+次に Student オブジェクトのプロトタイプに Japanese のインスタンスが設定され、その後に s2 を設定している。s2 の Student インスタンスではプロトタイプが Japanese なので、s2.introduce()は Japanese が利用される。
+
+この時 Student オブジェクトのプロトタイプが Japanese だから、その後の s1.introduce()は JApanese のが使われるのか？
+
+と思うかもしれないが、実はプロトタイプチェーンは **インスタンスが生成された時点で固定され、その後の変更に関わらず保存される** という仕様があるため、最後の s1.introduce()も Person オブジェクトのが利用される。
+
+実行結果
+
+```
+My name is Mary
+こんにちは！私の名前は Johnです。
+My name is Mary
+```
+
 </div>
