@@ -2,8 +2,8 @@
 title: "フィールド(クラス変数・インスタンス変数)"
 date: "2019-10-29T01:37:30+09:00"
 excerpt: "クラス変数・インスタンス変数について"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-29T01:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -140,6 +140,62 @@ lexus
 >>> print(c2.owner)
 kaki-kukeko
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+var NewClass = function () {
+  // 定義など。ここに定義したメンバーはインスタンスプロパティ/メソッド (インスタンス変数)
+  this.name = "instance name";
+};
+
+// 静的プロパティ/メソッド (直接クラス名を指定して利用する)
+NewClass.name = "static name";
+```
+
+javascript では、コンストラクタ内で**this**キーワードを利用することで、インスタンスのプロパティを設定できる。
+
+またプロパティに関数オブジェクトを設定することもでき、関数オブジェクトが設定されたプロパティはメソッドとみなされる。
+
+ちなみに、作成したインスタンスにプロパティを後で定義することもできる。
+
+この定義した新しいプロパティは、当然だが定義したインスタンス内でしか使えないので注意。
+
+また、**静的プロパティ/メソッド** を定義することもできる。
+
+これは、`オブジェクト名.プロパティ名 = 値` なる形式で定義することができる。
+
+静的プロパティ/メソッドは、インスタンスを生成しなくてもオブジェクトから直接呼び出せるプロパティ/メソッドのことであるが、**インスタンスからは呼び出せない**点が前述のクラス変数の考え方とは違うので注意すること。
+
+実行例を以下に示す。
+
+```javascript
+var Member = function (name) {
+  this.name = name;
+
+  this.getName = function () {
+    return this.name;
+  };
+};
+Member.country = "Japan";
+
+var m1 = new Member("Takao");
+
+console.log(m1.name); // 'Takao'
+console.log(m1.getName()); // 'Takao'
+
+m1.sayHello = function () {
+  return "Hello! World!";
+};
+
+console.log(m1.sayHello()); // 'Hello! World!'
+
+console.log(Member.country);
+
+var m2 = new Member("Kotone");
+console.log(m2.sayHello()); // エラー。定義されていないので
 ```
 
 </div>

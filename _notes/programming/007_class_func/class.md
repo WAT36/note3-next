@@ -39,51 +39,22 @@ Python でのクラスを定義するときの記法は上記の通り。
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
+var NewClass = function () {
+  // 定義など
+};
 
+// インスタンス作成
+var c1 = new NewClass();
 ```
 
 javascript では「クラス」というのはなく、「プロトタイプ（ひな形）」という概念がある。
 
 **プロトタイプ**とは、「あるオブジェクトの元となるオブジェクト」のこと。javascript では、クラスの代わりにこのプロトタイプを利用して、オブジェクトを生成していく。
 
-まず、javascript では以下のような形で、クラスのような雛形の定義とインスタンスの作成を行う。
+まず、javascript では上記のような形で、クラスのような雛形の定義とインスタンスの作成を行う。
 
 javascript では、関数(Function オブジェクト)にクラスとしての役割を与えている。
 
 この関数に引数を設定し、関数内で引数を利用した処理を定義することで、コンストラクターとしての意味も設定できる。
-
-**this**キーワードを利用することで、インスタンスのプロパティを設定することもできる。
-
-またプロパティに関数オブジェクトを設定することもでき、関数オブジェクトが設定されたプロパティはメソッドとみなされる。
-
-ちなみに javascript(プロトタイプベースのオブジェクト指向)では、作成したインスタンスにプロパティを後で定義することもできる。
-
-この定義した新しいプロパティは、当然だが定義したインスタンス内でしか使えないので注意。
-
-実行例を以下に示す。
-
-```javascript
-var Member = function (name) {
-  this.name = name;
-
-  this.getName = function () {
-    return this.name;
-  };
-};
-
-var m1 = new Member("Takao");
-
-console.log(m1.name); // 'Takao'
-console.log(m1.getName()); // 'Takao'
-
-m1.sayHello = function () {
-  return "Hello! World!";
-};
-
-console.log(m1.sayHello()); // 'Hello! World!'
-
-var m2 = new Member("Kotone");
-console.log(m2.sayHello()); // エラー。定義されていないので
-```
 
 </div>
