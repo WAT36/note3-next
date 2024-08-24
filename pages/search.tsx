@@ -34,8 +34,9 @@ export default function SearchResult() {
         <Container>
           <Intro title={"記事検索"} />
           <Bio admin={ADMINISTRATOR} />
+          {/**TODO 初期表示時に初期検索が行われないようにする */}
           <InstantSearch searchClient={searchClient} indexName={indexName}>
-            {/* <Configure hitsPerPage={5} /> */}
+            <Configure hitsPerPage={5} />
             <SearchBox
               placeholder={"検索"}
               classNames={{
@@ -43,6 +44,7 @@ export default function SearchResult() {
                 submitIcon: "mx-1",
                 resetIcon: "mx-1",
               }}
+              resetIconComponent={({ classNames }) => <></>}
             />
             <Hits hitComponent={Hit} />
           </InstantSearch>
