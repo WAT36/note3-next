@@ -76,6 +76,11 @@ for (let i = 0; i < files.length; i++) {
     .replace("../../_notes", "/notes")
     .replace("../../_posts", "/posts");
 
+  // _index.md の場合は登録しない(スキップ)
+  if (fileSlug.endsWith("_index.md")) {
+    continue;
+  }
+
   // レコード群にデータを追加する
   records.push({
     title,
