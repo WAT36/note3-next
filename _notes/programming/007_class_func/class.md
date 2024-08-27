@@ -39,22 +39,11 @@ Python でのクラスを定義するときの記法は上記の通り。
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-var NewClass = function () {
-  // 定義など
-};
-
-// インスタンス作成
-var c1 = new NewClass();
+class クラス名 {
+  // コンストラクタ、メソッド定義など
+}
 ```
 
-javascript では「クラス」というのはなく、「プロトタイプ（ひな形）」という概念がある。
-
-**プロトタイプ**とは、「あるオブジェクトの元となるオブジェクト」のこと。javascript では、クラスの代わりにこのプロトタイプを利用して、オブジェクトを生成していく。
-
-まず、javascript では上記のような形で、クラスのような雛形の定義とインスタンスの作成を行う。
-
-javascript では、関数(Function オブジェクト)にクラスとしての役割を与えている。
-
-この関数に引数を設定し、関数内で引数を利用した処理を定義することで、コンストラクターとしての意味も設定できる。
+javascript でのクラスを定義するときの記法は上記の通り。
 
 </div>
