@@ -173,18 +173,29 @@ AttributeError: 'Beverage' object has no attribute 'alcohol_content'
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
+// クラス
+class 子クラス extends 親クラス {
+  // クラス定義
+}
+
+// プロトタイプベースのオブジェクト
+//// 親オブジェクト
 var Parent = function () {
   // 親オブジェクトのメソッド類設定など
 };
 
+//// 子オブジェクト
 var Child = function () {
   // 子オブジェクトのメソッド類設定など
 };
 
+//// 子オブジェクトに親オブジェクトを継承
 Child.prototype = new Parent();
 ```
 
-Javascript ではコンストラクタを使って作られたオブジェクトを使った継承が行える。
+Javascript においては、クラスの場合は他言語と同様に **extends** キーワードを利用して継承が行える。
+
+プロトタイプベースのオブジェクトの場合では、コンストラクタを使って作られたオブジェクトを使った継承が行える。
 
 例えば以下のようなオブジェクトがあったとする。
 
