@@ -195,6 +195,46 @@ Child.prototype = new Parent();
 
 Javascript においては、クラスの場合は他言語と同様に **extends** キーワードを利用して継承が行える。
 
+クラスの場合は継承した時に、親クラスで定義されているメソッド類を子クラスで同じ名前で再定義することができる。これを**オーバーライド**と呼ぶ。
+
+子クラスから親クラスのメソッド類を参照したい場合は**super**キーワードを使用する。
+
+```javascript
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  introduce() {
+    console.log("My name is " + this.name);
+  }
+}
+
+class Student extends Person {
+  constructor(name, grade) {
+    super(name);
+    this.grade = grade;
+  }
+
+  introduce() {
+    super.introduce();
+    console.log("and my grade is " + this.grade);
+  }
+}
+
+var john = new Student("john", 1);
+console.log(john.name, john.grade);
+john.introduce();
+```
+
+実行結果
+
+```
+john 1
+My name is john
+and my grade is 1
+```
+
 プロトタイプベースのオブジェクトの場合では、コンストラクタを使って作られたオブジェクトを使った継承が行える。
 
 例えば以下のようなオブジェクトがあったとする。
