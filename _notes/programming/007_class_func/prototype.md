@@ -1,6 +1,6 @@
 ---
-title: "prototypeプロパティ"
-excerpt: "prototypeプロパティ(javascript)について"
+title: "プロトタイプ(javascript)"
+excerpt: "プロトタイプとprototypeプロパティ(javascript)について"
 coverImage: ""
 date: "2024-08-20T22:10:14.000Z"
 updatedAt: "2024-08-20T22:10:14.000Z"
@@ -14,7 +14,7 @@ ogImage:
 mode: programming
 ---
 
-javascript の prototype プロパティについてを示す。
+javascript の 概念の１つであるプロトタイプと、prototype プロパティについてを示す。
 
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
@@ -32,9 +32,22 @@ Person.prototype = {
     return this.name;
   },
 };
+
+// インスタンス作成
+var p1 = new Person();
 ```
 
-javascript では、オブジェクトに**prototype**というプロパティがある。
+javascript では「プロトタイプ（ひな形）」という概念がある。
+
+**プロトタイプ**とは、「あるオブジェクトの元となるオブジェクト」のこと。javascript ではこのプロトタイプを利用することでも、オブジェクトを生成できる。
+
+まず、javascript では上記のような形で、クラスのような雛形の定義とインスタンスの作成を行う。
+
+javascript では、関数(Function オブジェクト)にクラスとしての役割を与えている。
+
+この関数に引数を設定し、関数内で引数を利用した処理を定義することで、コンストラクターとしての意味も設定できる。
+
+また、javascript では、オブジェクトに**prototype**というプロパティがある。
 
 javascript で、コンストラクタからインスタンスを生成するとき、コンストラクタでメソッドを定義していると、作成されるインスタンスにメソッドの実体も作成される。
 
