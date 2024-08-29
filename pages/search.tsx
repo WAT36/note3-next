@@ -67,6 +67,7 @@ export default function SearchResult() {
               }}
               resetIconComponent={({ classNames }) => <></>}
             />
+            {/**TODO ここは別コンポーネント化する */}
             <div className="w-full flex flex-wrap">
               <span className="py-4">{"タグ："}</span>
               {tagList.length > 0
