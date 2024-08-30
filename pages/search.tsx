@@ -5,13 +5,6 @@ import Intro from "../components/ui-elements/intro/Intro";
 import Layout from "../components/ui-pages/layout/Layout";
 import { ADMINISTRATOR } from "../lib/constants";
 import algoliasearch from "algoliasearch/lite";
-import {
-  Configure,
-  Hits,
-  Index,
-  InstantSearch,
-  SearchBox,
-} from "react-instantsearch";
 import { useEffect, useState } from "react";
 
 const searchClient = algoliasearch(
@@ -21,7 +14,17 @@ const searchClient = algoliasearch(
 const indexName = process.env.NEXT_PUBLIC_INDEX_NAME || "";
 const index = searchClient.initIndex(indexName);
 
-function Hit({ hit }) {
+type HitType = {
+  title: string;
+  path: string;
+  excerpt: string;
+};
+
+type HitProps = {
+  hit: HitType;
+};
+
+function Hit({ hit }: HitProps) {
   return (
     <div className="my-4">
       <Link
@@ -36,8 +39,10 @@ function Hit({ hit }) {
 }
 
 export default function SearchResult() {
+  const [articles, setArticles] = useState<HitType[]>([]);
   const [tagList, setTagList] = useState<string[]>([]);
   useEffect(() => {
+    // タグリスト取得
     index.searchForFacetValues("_tags", "").then(({ facetHits }) => {
       setTagList(
         facetHits.map((hit) => {
@@ -47,37 +52,80 @@ export default function SearchResult() {
     });
   }, []);
 
+  const searchByQuery = async (query) => {
+    index.search(query).then(({ hits }) => {
+      setArticles(
+        hits.slice(0, 5).map((h) => {
+          return {
+            title: h.title,
+            path: h.path,
+            excerpt: h.excerpt,
+          };
+        })
+      );
+    });
+  };
+
+  const searchByTag = async (tagName) => {
+    index
+      .search("", {
+        filters: "_tags:" + tagName,
+      })
+      .then(({ hits }) => {
+        setArticles(
+          hits.slice(0, 5).map((h) => {
+            return {
+              title: h.title,
+              path: h.path,
+              excerpt: h.excerpt,
+            };
+          })
+        );
+      });
+  };
+
   return (
     <>
       <Layout>
         <Container>
           <Intro title={"記事検索"} />
           <Bio admin={ADMINISTRATOR} />
-          {/**TODO 初期表示時に初期検索が行われないようにする */}
-          {/**TODO 検索結果0軒の時の表示どうすれば良いのか？ */}
-          <InstantSearch searchClient={searchClient} indexName={indexName}>
-            <Index indexName={indexName}>{/* Widgets */}</Index>
-            <Configure hitsPerPage={5} />
-            <SearchBox
-              placeholder={"検索"}
-              classNames={{
-                input: "text-black border border-black",
-                submitIcon: "mx-1",
-                resetIcon: "mx-1",
-              }}
-              resetIconComponent={({ classNames }) => <></>}
-            />
+          <>
+            <div>
+              <input
+                type="text"
+                size={25}
+                placeholder="キーワード検索"
+                onChange={async (e) => {
+                  await searchByQuery(e.target.value);
+                }}
+              />
+              <input type="submit" value="検索" />
+            </div>
             {/**TODO ここは別コンポーネント化する */}
             <div className="w-full flex flex-wrap">
-              <span className="py-4">{"タグ："}</span>
-              {tagList.length > 0
-                ? tagList.map((tag) => {
-                    return <span className="p-4 border-blue-500">{tag}</span>;
-                  })
-                : ""}
+              <span className="my-4">{"タグ："}</span>
+              {tagList.length > 0 ? (
+                tagList.map((tag) => {
+                  return (
+                    <span
+                      className="m-4 underline cursor-pointer"
+                      onClick={async () => {
+                        await searchByTag(tag);
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  );
+                })
+              ) : (
+                <></>
+              )}
             </div>
-            <Hits hitComponent={Hit} />
-          </InstantSearch>
+            {articles.map((h) => {
+              return <Hit hit={h} />;
+            })}
+          </>
         </Container>
       </Layout>
     </>
