@@ -94,13 +94,13 @@ export default function SearchResult() {
             <div>
               <input
                 type="text"
+                className="text-black"
                 size={25}
                 placeholder="キーワード検索"
                 onChange={async (e) => {
                   await searchByQuery(e.target.value);
                 }}
               />
-              <input type="submit" value="検索" />
             </div>
             {/**TODO ここは別コンポーネント化する */}
             <div className="w-full flex flex-wrap">
