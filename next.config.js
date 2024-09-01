@@ -5,6 +5,7 @@ const nextConfig = {
   },
   trailingSlash: true,
   experimental: { esmExternals: true },
+  output: "export",
 };
 
 export default nextConfig;
