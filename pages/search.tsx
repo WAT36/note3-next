@@ -53,7 +53,7 @@ export default function SearchResult() {
   }, []);
 
   const searchByQuery = async (query) => {
-    index.search(query).then(({ hits }) => {
+    index.search<HitType>(query).then(({ hits }) => {
       setArticles(
         hits.slice(0, 5).map((h) => {
           return {
@@ -68,7 +68,7 @@ export default function SearchResult() {
 
   const searchByTag = async (tagName) => {
     index
-      .search("", {
+      .search<HitType>("", {
         filters: "_tags:" + tagName,
       })
       .then(({ hits }) => {
