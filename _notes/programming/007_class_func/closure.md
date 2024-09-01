@@ -1,17 +1,16 @@
 ---
-title: 'クロージャ'
-excerpt: ''
-coverImage: ''
-date: '2024-08-04T22:30:23.000Z'
-updatedAt: '2024-08-04T22:30:23.000Z'
+title: "クロージャ"
+excerpt: ""
+coverImage: ""
+date: "2024-08-04T22:30:23.000Z"
+updatedAt: "2024-08-04T22:30:23.000Z"
 tag: ["Javascript"]
 programming: ["Javascript"]
-tag: []
 author:
   name: Tatsuroh Wakasugi
-  picture: '/assets/blog/authors/WAT.jpg'
+  picture: "/assets/blog/authors/WAT.jpg"
 ogImage:
-  url: ''
+  url: ""
 mode: programming
 ---
 
@@ -20,12 +19,12 @@ javascript の**クロージャ**についてを述べる。
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-function 関数名(引数){
-  var 変数名
+function 関数名(引数) {
+  var 変数名;
 
-  return funnction(){
-    return 変数名
-  }
+  return function () {
+    return 変数名;
+  };
 }
 ```
 
