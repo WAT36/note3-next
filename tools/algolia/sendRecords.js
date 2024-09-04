@@ -1,8 +1,12 @@
-const fs = require("fs");
-const path = require("path");
-const algoliasearch = require("algoliasearch");
-const ENV_PATH = path.join(__dirname, "../../.env.local");
-require("dotenv").config({ path: ENV_PATH });
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import algoliasearch from "algoliasearch";
+import * as dotenv from "dotenv";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const ENV_PATH = path.join(__dirname, "../../.env");
+dotenv.config({ path: ENV_PATH });
 
 // mdファイルリストを読み込む
 const listFiles = (dir) =>
@@ -72,11 +76,16 @@ for (let i = 0; i < files.length; i++) {
     .replace("../../_notes", "/notes")
     .replace("../../_posts", "/posts");
 
+  // _index.md の場合は登録しない(スキップ)
+  if (fileSlug.endsWith("_index.md")) {
+    continue;
+  }
+
   // レコード群にデータを追加する
   records.push({
     title,
     excerpt,
-    tags,
+    _tags: tags,
     path: fileSlug.replace(".md", ""),
     objectID: fileSlug,
   });

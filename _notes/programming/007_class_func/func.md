@@ -102,4 +102,30 @@ console.log(Mul(5, 6));
 
 メソッドを使用するには、オブジェクト型の変数のメソッドが指定されているキーを呼び出せば良い。
 
+# (応用)call/apply メソッド
+
+関数オブジェクトには**call**メソッドと**apply**メソッドと呼ばれるものがある。これは、関数オブジェクト内のプロパティを引数に指定したオブジェクトのプロパティに置き換えるというものである。
+
+call,apply メソッドの違いは、関数に渡す引数の指定方法だけである。call は１個ずつだが、apply は配列形式で指定する。
+
+以下に例を示す。
+
+```javascript
+function hello(arg1, arg2) {
+  console.log(`${this.data},${arg1},${arg2}`);
+}
+
+var obj = { data: "obj." };
+
+hello.call(obj, "xxx", "yyy");
+hello.apply(obj, ["xxx", "yyy"]);
+```
+
+実行例
+
+```
+obj.,xxx,yyy
+obj.,xxx,yyy
+```
+
 </div>

@@ -1,9 +1,9 @@
 ---
-title: "クラスの定義"
+title: "クラス(プロトタイプ)"
 date: "2019-10-29T00:37:30+09:00"
-excerpt: "クラスの定義について"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+excerpt: "クラス(javascriptはプロトタイプ)の定義について"
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-29T00:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -34,5 +34,16 @@ class クラス名:
 ```
 
 Python でのクラスを定義するときの記法は上記の通り。
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+class クラス名 {
+  // コンストラクタ、メソッド定義など
+}
+```
+
+javascript でのクラスを定義するときの記法は上記の通り。
 
 </div>

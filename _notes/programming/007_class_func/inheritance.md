@@ -172,7 +172,70 @@ AttributeError: 'Beverage' object has no attribute 'alcohol_content'
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-Javascript ではコンストラクタを使って作られたオブジェクトを使った継承が行える。
+```javascript
+// クラス
+class 子クラス extends 親クラス {
+  // クラス定義
+}
+
+// プロトタイプベースのオブジェクト
+//// 親オブジェクト
+var Parent = function () {
+  // 親オブジェクトのメソッド類設定など
+};
+
+//// 子オブジェクト
+var Child = function () {
+  // 子オブジェクトのメソッド類設定など
+};
+
+//// 子オブジェクトに親オブジェクトを継承
+Child.prototype = new Parent();
+```
+
+Javascript においては、クラスの場合は他言語と同様に **extends** キーワードを利用して継承が行える。
+
+クラスの場合は継承した時に、親クラスで定義されているメソッド類を子クラスで同じ名前で再定義することができる。これを**オーバーライド**と呼ぶ。
+
+子クラスから親クラスのメソッド類を参照したい場合は**super**キーワードを使用する。
+
+```javascript
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  introduce() {
+    console.log("My name is " + this.name);
+  }
+}
+
+class Student extends Person {
+  constructor(name, grade) {
+    super(name);
+    this.grade = grade;
+  }
+
+  introduce() {
+    super.introduce();
+    console.log("and my grade is " + this.grade);
+  }
+}
+
+var john = new Student("john", 1);
+console.log(john.name, john.grade);
+john.introduce();
+```
+
+実行結果
+
+```
+john 1
+My name is john
+and my grade is 1
+```
+
+プロトタイプベースのオブジェクトの場合では、コンストラクタを使って作られたオブジェクトを使った継承が行える。
 
 例えば以下のようなオブジェクトがあったとする。
 
@@ -196,7 +259,13 @@ var Student = function (name, grade) {
 Student.prototype = new Person();
 ```
 
-これにより、Student オブジェクトに Person オブジェクトが持つプロパティを持たせることができる。これが javascript での継承の方法である。この後の例を以下に示す。
+これは、Student オブジェクトのプロトタイプに Person オブジェクトのインスタンスをセットしている。
+
+これにより、Student オブジェクトのインスタンスから、 プロトタイプに設定した Person オブジェクトのインスタンスを探らせることで、Person オブジェクトが持つメソッド類を持たせることができる。
+
+javascript においてこのような、プロトタイプにインスタンスを設定することで、設定したインスタンスのメソッド類をあたかも受け継ぐような設定をすることができる。
+
+オブジェクトのメソッド類を呼び出した時、プロトタイプに設定したインスタンスを延々と探しに行って、最終的には Object.prototype まで探しにいく。このようなプロトタイプの連なりを**プロトタイプチェーン**と呼び、これが所謂 javascript での継承の方法でもある。この後の例を以下に示す。
 
 ```javascript
 var mary = new Student("Mary", 1);
@@ -206,6 +275,49 @@ console.log(mary.introduce());
 実行結果
 
 ```
+My name is Mary
+```
+
+## プロトタイプチェーンは動的に変更できるが、インスタンスのは生成した時点で固定
+
+また、javascript のプロトタイプチェーンによる継承は、Java などと違い静的ではないため、いつ何時でもプロトタイプチェーンは変えられてしまう。
+
+例えば前述の例に続いて、Japanese クラスを定義し、以下のような処理を考えてみる。
+
+```javascript
+var Japanese = function (name) {
+  this.name = name;
+  this.introduce = function () {
+    console.log("こんにちは！私の名前は " + this.name + "です。");
+  };
+};
+
+Student.prototype = new Person();
+var s1 = new Student("Mary");
+console.log(s1.introduce());
+
+Student.prototype = new Japanese();
+var s2 = new Student("John");
+console.log(s2.introduce());
+
+console.log(s1.introduce());
+```
+
+ここで最後の s1.introduce()の挙動を考えてみよう。
+
+s1 は Student オブジェクトのインスタンスで、プロトタイプに Person のインスタンスを設定しており、この時の s1.introduce()は Person オブジェクトのが利用される。
+
+次に Student オブジェクトのプロトタイプに Japanese のインスタンスが設定され、その後に s2 を設定している。s2 の Student インスタンスではプロトタイプが Japanese なので、s2.introduce()は Japanese が利用される。
+
+この時 Student オブジェクトのプロトタイプが Japanese だから、その後の s1.introduce()は JApanese のが使われるのか？
+
+と思うかもしれないが、実はプロトタイプチェーンは **インスタンスが生成された時点で固定され、その後の変更に関わらず保存される** という仕様があるため、最後の s1.introduce()も Person オブジェクトのが利用される。
+
+実行結果
+
+```
+My name is Mary
+こんにちは！私の名前は Johnです。
 My name is Mary
 ```
 
