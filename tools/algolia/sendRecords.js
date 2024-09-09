@@ -71,6 +71,26 @@ for (let i = 0; i < files.length; i++) {
           .split(",")
       : "";
 
+  // 日時抜き出し
+  extractedData = data.match(/date:.*\n/);
+  const date =
+    extractedData && extractedData.length > 0
+      ? extractedData[0]
+          .replace("date:", "")
+          .replaceAll(/(\"|\')/g, "")
+          .trim()
+      : undefined;
+
+  // 画像ファイル名抜き出し
+  extractedData = data.match(/coverImage:.*\n/);
+  const coverImage =
+    extractedData && extractedData.length > 0
+      ? extractedData[0]
+          .replace("coverImage:", "")
+          .replaceAll(/(\"|\')/g, "")
+          .trim()
+      : undefined;
+
   // ファイルパス　レコード用に書き換え
   const fileSlug = filepath
     .replace("../../_notes", "/notes")
@@ -85,6 +105,8 @@ for (let i = 0; i < files.length; i++) {
   records.push({
     title,
     excerpt,
+    date,
+    coverImage,
     _tags: tags,
     path: fileSlug.replace(".md", ""),
     objectID: fileSlug,
