@@ -109,6 +109,7 @@ for (let i = 0; i < files.length; i++) {
     coverImage,
     _tags: tags,
     path: fileSlug.replace(".md", ""),
+    isPost: fileSlug.includes("/posts"), //ブログ用記事か判別するための属性
     objectID: fileSlug,
   });
 }
