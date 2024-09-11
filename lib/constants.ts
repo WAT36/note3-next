@@ -60,3 +60,8 @@ export const DIR_NAME = {
 };
 
 export const PROGRAMMING_LANGUAGE_NAME = ["java", "python", "javascript"];
+
+export const AUTHOR = {
+  name: "Tatsuroh Wakasugi",
+  picture: "/assets/blog/authors/WAT.jpg",
+};
