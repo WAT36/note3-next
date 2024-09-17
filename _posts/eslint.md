@@ -27,3 +27,45 @@ ESLint は、Node.js で主に利用されているリントツールである�
 | Python | pylint,black |
 | CSS    | stylelint    |
 | Go     | golint       |
+
+# 導入方法
+
+まずは Node.js のプロジェクト用のディレクトリを作る。移動して Node.js プロジェクトを作る
+
+```bash
+mkdir lint_test
+cd lint_test
+
+npm init
+```
+
+Node.js プロジェクトを作ると package.json が作られる。
+
+ここで、以下コマンドを実行すると、eslint の初期設定が行われ、インストールされる。
+
+```bash
+npm init @eslint/config@latest
+```
+
+実行するといくつか選択肢を聞かれるので、各々の環境に応じて選択する。
+
+以下はその例である。
+
+```bash
+npm init @eslint/config@latest
+@eslint/create-config: v1.3.1
+
+✔ How would you like to use ESLint? · problems
+✔ What type of modules does your project use? · esm
+✔ Which framework does your project use? · react
+✔ Does your project use TypeScript? · typescript
+✔ Where does your code run? · browser
+The config that you've selected requires the following dependencies:
+
+eslint, globals, @eslint/js, typescript-eslint, eslint-plugin-react
+✔ Would you like to install them now? · No / Yes
+✔ Which package manager do you want to use? · npm
+☕️Installing...
+```
+
+すると、eslint.config.js（または eslint.config.mjs）が作られる。
