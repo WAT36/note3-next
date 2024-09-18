@@ -69,3 +69,53 @@ eslint, globals, @eslint/js, typescript-eslint, eslint-plugin-react
 ```
 
 すると、eslint.config.js（または eslint.config.mjs）が作られる。
+
+# 設定方法
+
+eslint.config.js の中身を設定する。以下にはその例を記載する。
+
+```bash
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import tseslint from "typescript-eslint";
+import pluginReact from "eslint-plugin-react";
+
+export default [
+  {
+    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+    rules: {
+      "no-unused-vars": "error",
+    },
+  },
+  { languageOptions: { globals: globals.browser } },
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  pluginReact.configs.flat.recommended,
+];
+
+```
+
+この例だと、`no-unused-vars`では宣言されているがどこにも利用されていない、不要な変数があった場合に error として出力する。また、eslint 実行時にファイルの指定がなかった場合には、files: の後に書かれているファイル名に一致するものが確認対象となる。
+
+この状態で、以下のようなコマンドを実行すると、指定したファイルに対し解析を行う。
+
+```bash
+npx eslint (ファイルのパス)
+```
+
+また、package.json に以下のようなコマンドを定義しておくと
+
+```bash
+"scripts": {
+   "lint": "eslint src/",
+   "lint:fix": "eslint --fix src/"
+}
+```
+
+以下のコマンドを実行するだけで、src 以下全ての(config ファイルの files:で指定した内容に合致した)ファイルに対し解析が行える。
+
+```bash
+npm run lint
+```
+
+なお、上記の `lint:fix` のような、fix オプションをつけて実行すると、指摘箇所を自動で修正してくれる。
