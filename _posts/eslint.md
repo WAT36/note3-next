@@ -119,3 +119,14 @@ npm run lint
 ```
 
 なお、上記の `lint:fix` のような、fix オプションをつけて実行すると、指摘箇所を自動で修正してくれる。
+
+# ルールについて
+
+ESLint で設定できるルールについては、例で挙げた `no-unused-vars` 以外にも多種多様ある。
+
+代表的なルールに関しては公式ページのルール一覧[^2]で紹介されており、設定推奨なものには ✅ がついているので、各々の環境に応じて設定してみよう。
+
+---
+
+[^1]: [ESLint(公式ページ)](https://eslint.org/)
+[^2]: [Rules Reference - ESLint - Pluggable JavaScript Linter](https://eslint.org/docs/latest/rules/)
