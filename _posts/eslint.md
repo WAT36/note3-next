@@ -28,6 +28,15 @@ ESLint は、Node.js で主に利用されているリントツールである�
 | CSS    | stylelint    |
 | Go     | golint       |
 
+# 環境情報
+
+今回は以下の環境で確認している。
+
+```bash
+Node.js: v18.18.0
+eslint: v9.10.0
+```
+
 # 導入方法
 
 まずは Node.js のプロジェクト用のディレクトリを作る。移動して Node.js プロジェクトを作る
