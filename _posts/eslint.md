@@ -61,7 +61,7 @@ npm init @eslint/config
 以下はその例である。
 
 ```bash
-npm init @eslint/config@latest
+npm init @eslint/config
 @eslint/create-config: v1.3.1
 
 ✔ How would you like to use ESLint? · problems
