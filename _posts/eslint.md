@@ -1,7 +1,7 @@
 ---
 title: "ESLintを導入してみた"
 excerpt: "リントツールについて、ESLintの導入・設定・利用方法"
-coverImage: "/assets/posts/eslint/eslint-logo-color.png"
+coverImage: "/assets/posts/eslint/eslint_logo.png"
 date: "2024-09-12T22:01:56.000Z"
 updatedAt: "2024-09-12T22:01:56.000Z"
 tag: ["Node.js"]
