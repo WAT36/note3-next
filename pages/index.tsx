@@ -2,19 +2,17 @@ import Container from "../components/ui-elements/container/Container";
 import HeroPost from "../components/ui-parts/hero-post/HeroPost";
 import Intro from "../components/ui-elements/intro/Intro";
 import Layout from "../components/ui-pages/layout/Layout";
-import { getAllPosts } from "../lib/api";
 import Head from "next/head";
-import { ADMINISTRATOR, TITLE } from "../lib/constants";
-import Post from "../interfaces/post";
+import { ADMINISTRATOR, AUTHOR, TITLE } from "../lib/constants";
 import { Bio } from "../components/ui-elements/bio/Bio";
+import { getNewestPost, getRandomPost, HitType } from "../lib/algolia";
 
 type Props = {
-  allPosts: Post[];
+  newestPost: HitType;
+  randomPost: HitType;
 };
 
-export default function Index({ allPosts }: Props) {
-  const heroPost = allPosts[0];
-  const morePosts = allPosts.slice(1);
+export default function Index({ newestPost, randomPost }: Props) {
   return (
     <>
       <Layout>
@@ -33,16 +31,30 @@ export default function Index({ allPosts }: Props) {
             <p>まあ、よろしく</p>
           </div>
           <h3 className="text-6xl font-bold my-4 tracking-tighter leading-tight md:pr-8">
+            New Posts
+          </h3>
+          {newestPost && (
+            <HeroPost
+              title={newestPost.title}
+              coverImage={newestPost.coverImage}
+              date={newestPost.date}
+              author={AUTHOR}
+              slug={newestPost.path.replace("/posts", "")}
+              excerpt={newestPost.excerpt}
+            />
+          )}
+
+          <h3 className="text-6xl font-bold my-4 tracking-tighter leading-tight md:pr-8">
             Posts Pick Up
           </h3>
-          {heroPost && (
+          {randomPost && (
             <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
+              title={randomPost.title}
+              coverImage={randomPost.coverImage}
+              date={randomPost.date}
+              author={AUTHOR}
+              slug={randomPost.path.replace("/posts", "")}
+              excerpt={randomPost.excerpt}
             />
           )}
         </Container>
@@ -52,17 +64,12 @@ export default function Index({ allPosts }: Props) {
 }
 
 export const getStaticProps = async (context) => {
-  const allPosts = getAllPosts([
-    "title",
-    "date",
-    "slug",
-    "author",
-    "coverImage",
-    "excerpt",
-  ]);
+  const newestPost = await getNewestPost();
+  const randomPost = await getRandomPost();
   return {
     props: {
-      allPosts,
+      newestPost,
+      randomPost,
     },
   };
 };
