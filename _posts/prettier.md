@@ -1,7 +1,7 @@
 ---
 title: "Prettierを導入してみた"
 excerpt: "コードフォーマッターについて、Prettierの導入・設定・利用方法"
-coverImage: ""
+coverImage: "/assets/posts/prettier/prettier-dark.png"
 date: "2024-09-24T22:59:51.000Z"
 updatedAt: "2024-09-24T22:59:51.000Z"
 tag: []
