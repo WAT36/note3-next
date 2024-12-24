@@ -16,9 +16,9 @@ ogImage:
 
 # Prettier とは
 
-Prettier[^1] は、ソースコードを自動的に整形して、定められたコーディングスタイルやフォーマット規則に従うようにするコードフォーマッターツールである。
+Prettier[^1]は、定められたコーディングスタイルやフォーマット規則に従うようにソースコードを自動的に整形する・修正するコードフォーマッターツールである。
 
-prettier では Node.js の代表的なコードフォーマッターとして挙げられている。また Node.js だけでなく、Typescript,HTML,CSS,JSON ファイルに対してもフォーマットを行える。他言語でのコードフォーマッターは調べたところ以下のようなものがある。
+JavaScript、TypeScript、CSS、HTML、JSON など、様々な言語やファイル形式に対応しており、チーム開発でのコードスタイルの統一に大きく貢献できる。他言語でのコードフォーマッターは調べたところ以下のようなものがある。
 
 | 言語   | ツール名 |
 | ------ | -------- |
@@ -28,11 +28,12 @@ prettier では Node.js の代表的なコードフォーマッターとして�
 
 # リントツールとの違い
 
-前述のリントツールとやることが似ている？ように見えるが、公式ページに違いが書いてあったため引用する[^2]。
+前述のリントツール(ESLint)とやることが似ているように見えるが、Prettier 始めとするコードフォーマッターとリントツールは、異なる目的を持っているので以下に記載する。
 
-リントツールは、コードを解析してコード内のエラー、潜在的なバグ、不正な構文、非効率なパターンなどを検出するツールである。
+- **ESLint**: コードの品質チェックを行う。潜在的なバグ、ベストプラクティス違反、非推奨機能の使用などを検出する。コーディングスタイルのルールも設定可能であるが、主目的はコード品質の向上にある。
+- **Prettier**: コードの見た目（フォーマット）のみを扱う。インデント、改行、空白、最大行長などの整形を自動で行える。設定項目は少なく、チーム内での統一が容易である。
 
-prettier 等のコードフォーマッターは、ルール・規約に基づきインデントやスペース、改行等を揃えることでコードの**見た目やスタイルを整える**ためのツールである。
+実際の開発では、Prettier と ESLint を併用することが一般的である。
 
 言い換えれば、コードフォーマッターはコードを整形するための、リントツールはバグを検出するために利用するツールである。
 
@@ -74,9 +75,7 @@ npm install --save-dev --save-exact prettier
 
 細かい説明は省略するが、
 
-設定できる値は以下の公式ページを参照のこと。
-
-https://prettier.io/docs/en/options
+設定できる値は公式ページ[^2]の詳細説明を参照のこと。
 
 .prettierignore は prettier を実行する際に対象としないファイルを書き記しておくファイルである。
 
@@ -89,24 +88,83 @@ node_modules
 
 # 実行
 
-まずは prettier を適用したいファイルを用意する。
-
-ここでは例として以下のファイル index.js を利用する。
+例えば以下のファイル src/index.js に対し prettier を適用してみよう。
 
 ```js
-var foo = { bar: "bar string", baz: 11 };
-console.log(foo);
+const calculateTotal = (items) => {
+  let total = 0;
+  for (const item of items) {
+    total += item.price * item.quantity;
+  }
+  return total;
+};
+
+const userInfo = {
+  name: "John",
+  age: 30,
+  email: "john@example.com",
+  preferences: {
+    theme: "dark",
+    notifications: true,
+  },
+};
 ```
 
-このファイルに対し、prettier を実行するには以下のコマンドを実行する。
+コマンドラインから実行するには以下の方法で行う。
 
 ```bash
-npx prettier --write index.js
+# 特定のファイルの整形
+npx prettier --write src/index.js
+
+# ディレクトリ内のすべての対応ファイルを整形
+npx prettier --write "src/**/*"
 ```
 
-すると以下のようにファイルが整形される。（—write オプションを使うことで上書き保存される）
+prettier を適用した後のファイルは以下のようになる。（例。適用ルールによって異なる）
+
+```js
+const calculateTotal = (items) => {
+  let total = 0;
+  for (const item of items) {
+    total += item.price * item.quantity;
+  }
+  return total;
+};
+
+const userInfo = {
+  name: "John",
+  age: 30,
+  email: "john@example.com",
+  preferences: {
+    theme: "dark",
+    notifications: true,
+  },
+};
+```
+
+また、実行には package.json に以下のスクリプトを追加すると便利。
+
+```json
+{
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
+  }
+}
+```
+
+このようにする事で、`npm run format`と実行すると src 以下の対象全ファイルに対し prettier を実行できる。
+
+## まとめ
+
+Prettier の導入により、以下のメリットが得られる。
+
+- コードフォーマットの自動化による開発効率の向上
+- チーム内でのコードスタイルの統一
+- レビュー時のスタイル指摘の削減
+
+初期設定は少し手間がかかるが、一度導入すれば、その後の開発効率は大きく向上します。特にチーム開発において、Prettier の導入は、コードの一貫性を保つための強力な武器となるでしょう。
 
 ---
 
 [^1]: [Prettier(公式ページ)](https://prettier.io/)
-[^2]: [](https://prettier.io/docs/en/comparison)
+[^2]: [Options](https://prettier.io/docs/en/options)
