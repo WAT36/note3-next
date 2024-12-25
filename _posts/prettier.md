@@ -154,7 +154,7 @@ const userInfo = {
 
 このようにする事で、`npm run format`と実行すると src 以下の対象全ファイルに対し prettier を実行できる。
 
-## まとめ
+# まとめ
 
 Prettier の導入により、以下のメリットが得られる。
 
