@@ -17,3 +17,41 @@ ogImage:
 プログラミングを長くやってはいるが、未だに変数名の命名に関しては得意とは思えない。
 
 そのため本記事で今一度、実践的なネーミングのテクニックと具体例をまとめてみようと思う。
+
+# 基本原則
+
+## 1. 明確な意図を示す
+
+まず、その変数が何をやっているか・何の役割を持っているかが分かるようにします。
+
+良い例と悪い例を比較してみましょう。
+
+```javascript
+// 悪い例
+const d = new Date();
+const n = ["Tokyo", "Osaka", "Fukuoka"];
+const x = user.points * 1.1;
+
+// 良い例
+const currentDate = new Date();
+const cityNames = ["Tokyo", "Osaka", "Fukuoka"];
+const calculatedPoints = user.points * 1.1;
+```
+
+## 2. 一貫性のある命名規則
+
+各言語のコミュニティで一般的に使用される規則に従いましょう。
+
+```javascript
+// JavaScript/TypeScript
+const userName = "John"; // キャメルケース（変数）
+function calculateTotal() {} // キャメルケース（関数）
+class UserProfile {} // パスカルケース（クラス）
+```
+
+```python
+# Python
+user_name = "John"               # スネークケース（変数）
+def calculate_total():           # スネークケース（関数）
+class UserProfile:               # パスカルケース（クラス）
+```
