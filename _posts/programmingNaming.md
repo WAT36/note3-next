@@ -22,8 +22,6 @@ ogImage:
 
 ## 1. 明確な意図を示す
 
-まず、その変数が何をやっているか・何の役割を持っているかが分かるようにします。
-
 良い例と悪い例を比較してみましょう。
 
 ```javascript
@@ -54,4 +52,43 @@ class UserProfile {} // パスカルケース（クラス）
 user_name = "John"               # スネークケース（変数）
 def calculate_total():           # スネークケース（関数）
 class UserProfile:               # パスカルケース（クラス）
+```
+
+# 具体的な命名テクニック
+
+## 1. 目的や役割を明確に
+
+```javascript
+// 悪い例
+function process() {}
+function handle() {}
+function doIt() {}
+
+// 良い例
+function processPayment() {}
+function handleError() {}
+function validateUserInput() {}
+```
+
+## 2. 省略は慎重に
+
+```javascript
+// 悪い例
+const pos = { x: 0, y: 0 };
+const val = 42;
+const arr = [1, 2, 3];
+
+// 良い例
+const position = { x: 0, y: 0 };
+const value = 42;
+const numbers = [1, 2, 3];
+```
+
+## 3. 具体的な単位や型を含める
+
+```javascript
+const ageInYears = 25;
+const priceInYen = 1000;
+const delayInMilliseconds = 3000;
+const userResponseAsJson = JSON.stringify(response);
 ```
