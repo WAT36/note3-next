@@ -12,15 +12,11 @@ ogImage:
   url: ""
 ---
 
-プログラミングにおいて、変数や関数の命名は非常に重要である。適切な名前付けは、コードの可読性を高め、保守性を向上させる一方で、不適切な名前付けは他の開発者（そして数ヶ月後の自分自身）にとって大きな混乱を招く原因となる。
+プログラミングにおいて、変数や関数の命名は非常に重要です。適切な名前付けは、コードの可読性を高め、保守性を向上させる一方で、不適切な名前付けは他の開発者（そして数ヶ月後の自分自身）にとって大きな混乱を招く原因となります。
 
-プログラミングを長くやってはいるが、未だに変数名の命名に関しては得意とは思えない。
+プログラミングを長くやってはいるが、未だに変数名の命名に関しては得意とは思えないため、本記事で今一度、実践的なネーミングのテクニックをまとめてみる。
 
-そのため本記事で今一度、実践的なネーミングのテクニックと具体例をまとめてみようと思う。
-
-# 基本原則
-
-## 1. 明確な意図を示す
+# 1. 明確な意図を示し、何が入っているかを表す名前にする
 
 良い例と悪い例を比較してみましょう。
 
@@ -36,9 +32,13 @@ const cityNames = ["Tokyo", "Osaka", "Fukuoka"];
 const calculatedPoints = user.points * 1.1;
 ```
 
-## 2. 一貫性のある命名規則
+データの中身が一目で分かる名前を付けることで、後から見返したときに「これは何のデータだっけ？」と悩まなくて済みます。
 
-各言語のコミュニティで一般的に使用される規則に従いましょう。
+抽象的すぎる名前は逆に分かりにくくなるため、避けた方が無難です。
+
+# 2. 一貫性のある命名規則
+
+各言語のコミュニティで一般的に使用される規則に従いましょう。以下に一例を記載します。
 
 ```javascript
 // JavaScript/TypeScript
@@ -49,46 +49,75 @@ class UserProfile {} // パスカルケース（クラス）
 
 ```python
 # Python
-user_name = "John"               # スネークケース（変数）
-def calculate_total():           # スネークケース（関数）
-class UserProfile:               # パスカルケース（クラス）
+user_name = "John"     # スネークケース（変数）
+def calculate_total(): # スネークケース（関数）
+class UserProfile:     # パスカルケース（クラス）
 ```
 
-# 具体的な命名テクニック
+# 3. 省略は慎重に
 
-## 1. 目的や役割を明確に
+少し長くなっても、分かりやすい名前を付けることをおすすめします。
 
 ```javascript
-// 悪い例
-function process() {}
-function handle() {}
-function doIt() {}
+// 良くない例（意味が分かりにくい）
+let num = 42;
+let str = "こんにちは";
+let btn = document.getElementById("button");
+const usrPrf = {};
+const calcTtl = () => {};
+const frmtStr = "";
 
 // 良い例
-function processPayment() {}
-function handleError() {}
-function validateUserInput() {}
+let count = 42;
+let message = "こんにちは";
+let submitButton = document.getElementById("button");
+const userProfile = {};
+const calculateTotal = () => {};
+const formattedString = "";
 ```
 
-## 2. 省略は慎重に
+# 4. 関数名は「動詞 + 名詞」で付ける
+
+関数は何らかの処理を行うので、「動詞 + 名詞」の形で名前を付けると分かりやすくなります。
 
 ```javascript
-// 悪い例
-const pos = { x: 0, y: 0 };
-const val = 42;
-const arr = [1, 2, 3];
+// 良くない例
+function user() {}
+function data() {}
 
 // 良い例
-const position = { x: 0, y: 0 };
-const value = 42;
-const numbers = [1, 2, 3];
+function getUserData() {} // ユーザーデータを取得する
+function calculateTotal() {} // 合計を計算する
+function sendEmail() {} // メールを送信する
 ```
 
-## 3. 具体的な単位や型を含める
+結果が true/false を返す関数は、is、has、can などで始めると分かりやすくなります。
 
 ```javascript
-const ageInYears = 25;
-const priceInYen = 1000;
-const delayInMilliseconds = 3000;
-const userResponseAsJson = JSON.stringify(response);
+// 年齢が20歳以上かチェックする
+function isAdult(age) {
+  return age >= 20;
+}
+
+// メールアドレスを持っているかチェックする
+function hasEmail(user) {
+  return user.email !== undefined;
+}
+
+// 編集できる権限があるかチェックする
+function canEdit(user) {
+  return user.role === "editor";
+}
 ```
+
+# 実践のためのチェックリスト
+
+命名時に以下の質問に「はい」と答えられるか確認しましょう：
+
+- この名前は他の開発者が見ても理解できるか？
+- 6 ヶ月後の自分が見ても理解できるか？
+- チーム内の命名規則に従っているか？
+- 略語を使用する場合、一般的に理解できるものか？
+- その名前は正確に役割や目的を表しているか？
+
+良いネーミングは、一朝一夕には身につきません。しかし、これらの原則を意識しながら継続的に実践することで、徐々に改善していくことができます。コードレビューでフィードバックをもらうことも、ネーミングスキル向上の良い機会となります。
