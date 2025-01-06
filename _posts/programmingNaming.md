@@ -1,7 +1,7 @@
 ---
 title: "プログラミングのネーミングのコツについてまとめる"
 excerpt: ""
-coverImage: ""
+coverImage: "/assets/posts/programmingNaming/name.png"
 date: "2024-12-26T21:36:41.000Z"
 updatedAt: "2024-12-26T21:36:41.000Z"
 tag: []
