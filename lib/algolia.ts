@@ -53,13 +53,13 @@ export const getNewestPost = async () => {
     .then(({ hits }) => {
       return hits;
     });
-  return hit.length > 0 ? hit[0] : undefined;
+  return hit.length > 0 ? hit[0] : null;
 };
 
 // ブログ記事をランダム取得
 export const getRandomPost = async () => {
   const nbHits = await getAllPostsCount();
-  const randomPageNum = Math.floor(Math.random() * nbHits)
+  const randomPageNum = Math.floor(Math.random() * nbHits);
   // TODO 記事が一個もない時の対処法
   const hit = await index
     .search<HitType>("", {
@@ -70,5 +70,5 @@ export const getRandomPost = async () => {
     .then(({ hits }) => {
       return hits;
     });
-  return hit.length > 0 ? hit[0] : undefined;
+  return hit.length > 0 ? hit[0] : null;
 };
