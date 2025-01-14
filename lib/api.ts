@@ -4,6 +4,7 @@ import matter from "gray-matter";
 
 const postsDirectory = join(process.cwd(), "_posts");
 
+// _postsフォルダ以下全ファイルのpath取得
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory);
 }
@@ -42,6 +43,7 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   return items;
 }
 
+// postsトップページに表示する記事の詳細情報を取得
 export function getAllPosts(fields: string[] = []) {
   const slugs = getPostSlugs();
   const posts = slugs
