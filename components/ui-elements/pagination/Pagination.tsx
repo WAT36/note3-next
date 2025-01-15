@@ -1,20 +1,10 @@
 type Props = {
   pageNum: number;
-  postTotal: number;
+  minPageNum: number;
+  maxPageNum: number;
 };
 
-const Pagination = ({ pageNum, postTotal }: Props) => {
-  // 表示する最大・最小ページ番号
-  let minPageNum = pageNum - 2 > 0 ? pageNum - 2 : 1;
-  let maxPageNum =
-    minPageNum === 1
-      ? Math.min(5, Math.ceil(postTotal / 5))
-      : pageNum + 2 < Math.ceil(postTotal / 5)
-      ? pageNum + 2
-      : Math.ceil(postTotal / 5);
-  if (maxPageNum - minPageNum < 5) {
-    minPageNum = 1;
-  }
+const Pagination = ({ pageNum, minPageNum, maxPageNum }: Props) => {
   const displayPage = [];
   for (let i = minPageNum; i <= maxPageNum; i++) {
     displayPage.push(i);
@@ -56,7 +46,7 @@ const Pagination = ({ pageNum, postTotal }: Props) => {
           </li>
         );
       })}
-      {pageNum !== Math.ceil(postTotal / 5) && (
+      {pageNum !== maxPageNum && (
         <li className="ml-3">
           <a
             className="flex justify-center items-center flex-wrap w-11 h-11 bg-white border-solid border-2 border-black font-bold transition-all text-black"
