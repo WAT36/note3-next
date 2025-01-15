@@ -44,6 +44,11 @@ const MoreStories = ({ posts, pageNum }: Props) => {
             />
           ))}
       </div>
+      <Pagination
+        pageNum={pageNumAdjusted}
+        minPageNum={minPageNum}
+        maxPageNum={maxPageNum}
+      />
     </section>
   );
 };
