@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Script from "next/script";
 import { CMS_NAME, HOME_OG_IMAGE_URL } from "../../../lib/constants";
 import { GA_ID, GTAG_ID } from "../../../lib/gtag";
 
@@ -8,7 +9,7 @@ export const Meta = () => {
       {process.env.NEXT_PUBLIC_APP_ENV === "prd" ? (
         <>
           {/* <!-- Google Tag Manager --> */}
-          <script
+          <Script
             dangerouslySetInnerHTML={{
               __html: `
             (function (w, d, s, l, i) {
@@ -78,16 +79,16 @@ export const Meta = () => {
         href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css"
         media="(prefers-color-scheme: dark)"
       />
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script>
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></Script>
+      <Script>hljs.highlightAll();</Script>
       {process.env.NEXT_PUBLIC_APP_ENV === "prd" ? (
         <>
           {/* Google tag (gtag.js) */}
-          <script
+          <Script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           />
-          <script
+          <Script
             dangerouslySetInnerHTML={{
               __html: `
             window.dataLayer = window.dataLayer || [];
