@@ -29,7 +29,7 @@ const MoreStories = ({ posts, pageNum }: Props) => {
         minPageNum={minPageNum}
         maxPageNum={maxPageNum}
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32">
+      <div className="mb-32">
         {posts
           .slice((pageNumAdjusted - 1) * 5, pageNumAdjusted * 5)
           .map((post) => (
