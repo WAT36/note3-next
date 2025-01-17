@@ -21,5 +21,6 @@ type Story = StoryObj<typeof meta>;
 export const Main: Story = {
   args: {
     posts: [],
+    pageNum: 1,
   },
 };

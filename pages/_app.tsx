@@ -1,6 +1,7 @@
 import { AppProps } from "next/app";
 import "../styles/index.css";
-import { RecoilRoot } from "recoil";
+import { RecoilRoot, RecoilEnv } from "recoil";
+RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (

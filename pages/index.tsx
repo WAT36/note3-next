@@ -17,7 +17,7 @@ export default function Index({ newestPost, randomPost }: Props) {
     <>
       <Layout>
         <Head>
-          <title> {TITLE} </title>
+          <title>{TITLE}</title>
         </Head>
         <Container>
           <Intro title={TITLE} />

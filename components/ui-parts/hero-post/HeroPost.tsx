@@ -30,8 +30,8 @@ const HeroPost = ({
         <div>
           <h3 className="mb-4 text-4xl lg:text-5xl leading-tight">
             <Link
-              as={`/posts/${slug}${process.env.NEXT_PUBLIC_URL_END}`}
-              href={`/posts/[slug]${process.env.NEXT_PUBLIC_URL_END}`}
+              as={`/posts${slug}${process.env.NEXT_PUBLIC_URL_END}`}
+              href={`/posts[slug]${process.env.NEXT_PUBLIC_URL_END}`}
               className="hover:underline"
             >
               {title}
