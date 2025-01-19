@@ -1,6 +1,6 @@
 ---
 title: "ファイル・フォルダの見やすい構成・整理方法について"
-excerpt: ""
+excerpt: "ファイルやフォルダを見やすく整理するためのコツや、効率的なディレクトリ構成の作り方について"
 coverImage: "/assets/posts/arrangeFile/example.png"
 date: "2025-01-08T22:40:22.000Z"
 updatedAt: "2025-01-08T22:40:22.000Z"
