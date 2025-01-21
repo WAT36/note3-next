@@ -41,21 +41,21 @@ for (let i = 0; i < files.length; i++) {
   // それで１個１個jsonレコード作る
 
   // タイトル抜き出し
-  let extractedData = data.match(/excerpt:.*\n/);
+  let extractedData = data.match(/title:.*\n/);
   const title =
     extractedData && extractedData.length > 0
       ? extractedData[0]
-          .replace("excerpt:", "")
+          .replace("title:", "")
           .replaceAll(/(\"|\')/g, "")
           .trim()
       : "";
 
   // 概要抜き出し
-  extractedData = data.match(/title:.*\n/);
+  extractedData = data.match(/excerpt:.*\n/);
   const excerpt =
     extractedData && extractedData.length > 0
       ? extractedData[0]
-          .replace("title:", "")
+          .replace("excerpt:", "")
           .replaceAll(/(\"|\')/g, "")
           .trim()
       : "";
