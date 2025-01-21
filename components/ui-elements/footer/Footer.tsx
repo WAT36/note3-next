@@ -3,7 +3,7 @@ import Container from "../container/Container";
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral-50 border-t border-neutral-200 dark:bg-slate-900">
+    <footer className="bg-gray-400 text-white border-t border-neutral-200 dark:bg-slate-900">
       <Container>
         <div className="py-4 flex flex-row justify-center block lg:hidden items-center">
           <BarLinkGroup />
