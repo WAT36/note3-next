@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-400 text-white border-t border-neutral-200 dark:bg-slate-900">
       <Container>
-        <div className="py-4 flex flex-row justify-center block lg:hidden items-center">
+        <div className="py-4 flex flex-row flex-wrap justify-center block lg:hidden items-center">
           <BarLinkGroup />
         </div>
         <div className="py-4 flex flex-col lg:flex-row items-center">
