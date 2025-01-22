@@ -17,12 +17,6 @@ const BarLinkGroup = () => {
       </Link>
       <Link
         className="font-bold no-underline text-xl mx-3 text-white"
-        href={"/notes" + process.env.NEXT_PUBLIC_URL_END}
-      >
-        Notes
-      </Link>
-      <Link
-        className="font-bold no-underline text-xl mx-3 text-white"
         href={"/about" + process.env.NEXT_PUBLIC_URL_END}
       >
         About
