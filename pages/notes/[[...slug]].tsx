@@ -15,10 +15,16 @@ type Props = {
   subPageLinks?: SubPageLink[];
 };
 
-export default function Note({ note, subPageLinks }: Props) {
+const Note = ({ note, subPageLinks }: Props) => {
   const router = useRouter();
+  const { query } = router;
   if (!router.isFallback && !note?.slug) {
     return <ErrorPage statusCode={404} />;
+  } else if (
+    !query ||
+    query.validationToken !== process.env.NEXT_PUBLIC_NOTES_TOKEN
+  ) {
+    return <ErrorPage statusCode={403} />;
   }
 
   useEffect(() => {
@@ -54,7 +60,7 @@ export default function Note({ note, subPageLinks }: Props) {
   ) : (
     <NotePage note={note} />
   );
-}
+};
 
 // getStaticPathsの返り値、各文書のファイルパス(catch-all dynamic routingのためstring[])
 type Params = {
@@ -187,3 +193,5 @@ export async function getStaticPaths() {
   };
   // pathsのぞれぞれの要素に対して、getStaticPropsが呼ばれる
 }
+
+export default Note;

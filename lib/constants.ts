@@ -1,6 +1,7 @@
 import { join } from "path";
 
 import { Administrator } from "../interfaces/author";
+import { ParsedUrlQuery } from "querystring";
 
 export const EXAMPLE_PATH = "blog-starter";
 export const CMS_NAME = "Markdown";
@@ -64,4 +65,10 @@ export const PROGRAMMING_LANGUAGE_NAME = ["java", "python", "javascript"];
 export const AUTHOR = {
   name: "Tatsuroh Wakasugi",
   picture: "/assets/blog/authors/WAT.jpg",
+};
+
+export const LINK_QUERY_PARAM = (query: ParsedUrlQuery) => {
+  return {
+    validationToken: query.validationToken,
+  };
 };
