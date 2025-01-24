@@ -19,7 +19,7 @@ const PostHeader = ({ title, coverImage, date, author }: Props) => {
         <Avatar name={author.name} picture={author.picture} />
       </div>
       {coverImage && (
-        <div className="mb-8 md:mb-16 sm:mx-0">
+        <div className="mb-8 md:mb-16 flex justify-center">
           <CoverImage title={title} src={coverImage} />
         </div>
       )}
