@@ -43,33 +43,41 @@ export default function SearchResult() {
   const [tagList, setTagList] = useState<string[]>([]);
   useEffect(() => {
     // タグリスト取得
-    index.searchForFacetValues("_tags", "").then(({ facetHits }) => {
-      setTagList(
-        facetHits.map((hit) => {
-          return hit.value;
-        })
-      );
-    });
+    index
+      .searchForFacetValues("_tags", "", {
+        filters: "isPost:true",
+      })
+      .then(({ facetHits }) => {
+        setTagList(
+          facetHits.map((hit) => {
+            return hit.value;
+          })
+        );
+      });
   }, []);
 
   const searchByQuery = async (query) => {
-    index.search<HitType>(query).then(({ hits }) => {
-      setArticles(
-        hits.slice(0, 5).map((h) => {
-          return {
-            title: h.title,
-            path: h.path,
-            excerpt: h.excerpt,
-          };
-        })
-      );
-    });
+    index
+      .search<HitType>(query, {
+        filters: "isPost:true",
+      })
+      .then(({ hits }) => {
+        setArticles(
+          hits.slice(0, 5).map((h) => {
+            return {
+              title: h.title,
+              path: h.path,
+              excerpt: h.excerpt,
+            };
+          })
+        );
+      });
   };
 
   const searchByTag = async (tagName) => {
     index
       .search<HitType>("", {
-        filters: "_tags:" + tagName,
+        filters: "isPost:true AND _tags:" + tagName,
       })
       .then(({ hits }) => {
         setArticles(
