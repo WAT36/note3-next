@@ -6,6 +6,7 @@ import Layout from "../components/ui-pages/layout/Layout";
 import { ADMINISTRATOR } from "../lib/constants";
 import algoliasearch from "algoliasearch/lite";
 import { useEffect, useState } from "react";
+import DateFormatter from "../components/ui-elements/date-formatter/DateFormatter";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_APP_ID || "",
@@ -15,25 +16,30 @@ const indexName = process.env.NEXT_PUBLIC_INDEX_NAME || "";
 const index = searchClient.initIndex(indexName);
 
 type HitType = {
+  slug: string;
   title: string;
-  path: string;
   excerpt: string;
+  date: string;
 };
 
 type HitProps = {
   hit: HitType;
 };
 
+// TODO 別ファイルに置きたい・デザイン変えたい
 function Hit({ hit }: HitProps) {
   return (
-    <div className="my-4">
-      <Link
-        className="font-bold text-xl m-4 text-blue-900"
-        href={hit.path + process.env.NEXT_PUBLIC_URL_END}
-      >
-        {hit.title}
-      </Link>
-      <p className="m-4 w-full">{hit.excerpt || "　"}</p>
+    <div className="mb-12">
+      <h3 className="text-3xl mb-3 leading-snug">
+        <Link
+          as={`/posts/${hit.slug}${process.env.NEXT_PUBLIC_URL_END}`}
+          href={`/posts/[slug]${process.env.NEXT_PUBLIC_URL_END}`}
+          className="underline"
+        >
+          {hit.title}
+        </Link>
+      </h3>
+      <p className="text-lg leading-relaxed mb-4">{hit.excerpt}</p>
     </div>
   );
 }
@@ -43,41 +49,51 @@ export default function SearchResult() {
   const [tagList, setTagList] = useState<string[]>([]);
   useEffect(() => {
     // タグリスト取得
-    index.searchForFacetValues("_tags", "").then(({ facetHits }) => {
-      setTagList(
-        facetHits.map((hit) => {
-          return hit.value;
-        })
-      );
-    });
+    index
+      .searchForFacetValues("_tags", "", {
+        filters: "isPost:true",
+      })
+      .then(({ facetHits }) => {
+        setTagList(
+          facetHits.map((hit) => {
+            return hit.value;
+          })
+        );
+      });
   }, []);
 
   const searchByQuery = async (query) => {
-    index.search<HitType>(query).then(({ hits }) => {
-      setArticles(
-        hits.slice(0, 5).map((h) => {
-          return {
-            title: h.title,
-            path: h.path,
-            excerpt: h.excerpt,
-          };
-        })
-      );
-    });
-  };
-
-  const searchByTag = async (tagName) => {
     index
-      .search<HitType>("", {
-        filters: "_tags:" + tagName,
+      .search<HitType>(query, {
+        filters: "isPost:true",
       })
       .then(({ hits }) => {
         setArticles(
           hits.slice(0, 5).map((h) => {
             return {
               title: h.title,
-              path: h.path,
+              slug: h.slug,
               excerpt: h.excerpt,
+              date: h.date,
+            };
+          })
+        );
+      });
+  };
+
+  const searchByTag = async (tagName) => {
+    index
+      .search<HitType>("", {
+        filters: "isPost:true AND _tags:" + tagName,
+      })
+      .then(({ hits }) => {
+        setArticles(
+          hits.slice(0, 5).map((h) => {
+            return {
+              title: h.title,
+              slug: h.slug,
+              excerpt: h.excerpt,
+              date: h.date,
             };
           })
         );
