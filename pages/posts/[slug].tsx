@@ -10,7 +10,7 @@ import Head from "next/head";
 import { TITLE } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import type PostType from "../../interfaces/post";
-import OutlineBar from "../../components/ui-elements/outlineBar/OutlineBar";
+import { OutlineBar } from "../../components/ui-elements/outlineBar/OutlineBar";
 import { JSDOM } from "jsdom";
 
 type Props = {

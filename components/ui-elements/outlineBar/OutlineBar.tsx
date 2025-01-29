@@ -30,7 +30,7 @@ function extractHeadings(html: string): TagData[] {
   return headings;
 }
 
-const OutlineBar = ({ content }: Props) => {
+export const OutlineBar = ({ content }: Props) => {
   const headings = extractHeadings(content);
   return (
     <div className="hidden lg:block w-72 h-screen sticky top-0 border-l border-black dark:border-white mb-32 pl-4">
@@ -51,5 +51,3 @@ const OutlineBar = ({ content }: Props) => {
     </div>
   );
 };
-
-export default OutlineBar;
