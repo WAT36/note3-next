@@ -3,7 +3,7 @@ import Header from "../../ui-parts/header/Header";
 import { Meta } from "../../ui-elements/meta/Meta";
 import SubHeader from "../../ui-parts/subheader/SubHeader";
 import { CSSProperties } from "react";
-import { GTAG_ID } from "../../../lib/gtag";
+import { ADSENSE_CLIENT_ID, GTAG_ID } from "../../../lib/gtag";
 
 type Props = {
   preview?: boolean;
@@ -16,6 +16,9 @@ const gtagNoscriptStyle: CSSProperties = {
   visibility: "hidden",
 };
 const gtagUrl = "https://www.googletagmanager.com/ns.html?id=" + GTAG_ID;
+const adsenseUrl =
+  "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" +
+  ADSENSE_CLIENT_ID;
 
 const Layout = ({ preview, children, canChangeProgrammingLanguage }: Props) => {
   return (
@@ -33,6 +36,9 @@ const Layout = ({ preview, children, canChangeProgrammingLanguage }: Props) => {
             ></iframe>
           </noscript>
           {/* <!-- End Google Tag Manager (noscript) --> */}
+          {/* <!-- Google Adsense--> */}
+          <script async src={adsenseUrl} crossOrigin="anonymous"></script>
+          {/* <!-- End Google Adsense--> */}
         </>
       ) : (
         <></>
