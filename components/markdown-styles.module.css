@@ -88,3 +88,7 @@
   @apply bg-white border-2 box-border font-sans text-sm overflow-hidden py-px text-center;
   zoom: 1;
 }
+
+.markdown pre {
+  @apply overflow-x-auto;
+}
