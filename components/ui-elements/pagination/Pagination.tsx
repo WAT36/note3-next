@@ -16,7 +16,9 @@ const Pagination = ({ pageNum, minPageNum, maxPageNum }: Props) => {
         <li className="ml-3">
           <a
             className="flex justify-center items-center flex-wrap w-11 h-11 bg-white border-solid border-2 border-black font-bold transition-all text-black"
-            href={`/posts/?pageNum=${pageNum - 1}`}
+            href={`/posts${process.env.NEXT_PUBLIC_URL_END}?pageNum=${
+              pageNum - 1
+            }`}
           >
             <span>{"<<"}</span>
           </a>
@@ -38,7 +40,7 @@ const Pagination = ({ pageNum, minPageNum, maxPageNum }: Props) => {
                 className={
                   "flex justify-center items-center flex-wrap w-11 h-11 border-solid border-2 border-black font-bold transition-all bg-white text-black "
                 }
-                href={`/posts/?pageNum=${value}`}
+                href={`/posts${process.env.NEXT_PUBLIC_URL_END}?pageNum=${value}`}
               >
                 <span>{value}</span>
               </a>
@@ -50,7 +52,9 @@ const Pagination = ({ pageNum, minPageNum, maxPageNum }: Props) => {
         <li className="ml-3">
           <a
             className="flex justify-center items-center flex-wrap w-11 h-11 bg-white border-solid border-2 border-black font-bold transition-all text-black"
-            href={`/posts/?pageNum=${pageNum + 1}`}
+            href={`/posts${process.env.NEXT_PUBLIC_URL_END}?pageNum=${
+              pageNum + 1
+            }`}
           >
             <span>{">>"}</span>
           </a>
