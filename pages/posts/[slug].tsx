@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Container from "../../components/ui-elements/container/Container";
 import PostBody from "../../components/ui-elements/post-body/PostBody";
-import Header from "../../components/ui-parts/header/Header";
 import PostHeader from "../../components/ui-parts/post-header/PostHeader";
 import Layout from "../../components/ui-pages/layout/Layout";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
@@ -11,6 +10,8 @@ import Head from "next/head";
 import { TITLE } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import type PostType from "../../interfaces/post";
+import { OutlineBar } from "../../components/ui-elements/outlineBar/OutlineBar";
+import { JSDOM } from "jsdom";
 
 type Props = {
   post: PostType;
@@ -30,26 +31,53 @@ export default function Post({ post, morePosts, preview }: Props) {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article className="mb-32">
-              <Head>
-                <title>
-                  {post.title} | {TITLE}
-                </title>
-                <meta property="og:image" content={post.ogImage.url} />
-              </Head>
-              <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
-              />
-              <PostBody content={post.content} />
-            </article>
+            <div className="flex min-h-screen">
+              <article className="mb-32 flex-grow overflow-y-auto">
+                <Head>
+                  <title>
+                    {post.title} | {TITLE}
+                  </title>
+                  <meta property="og:image" content={post.ogImage.url} />
+                </Head>
+                <PostHeader
+                  title={post.title}
+                  coverImage={post.coverImage}
+                  date={post.date}
+                  author={post.author}
+                />
+                <PostBody content={post.content} />
+              </article>
+              <OutlineBar content={post.content} />
+            </div>
           </>
         )}
       </Container>
     </Layout>
   );
+}
+
+// TODO 関数は別ファイルに入れたい
+function addIdsToHeadings(html: string): string {
+  // DOMParserでHTML文字列を解析
+  const dom = new JSDOM(html);
+  const doc = dom.window.document;
+
+  if (!doc.body) {
+    throw new Error("Invalid HTML input");
+  }
+
+  // h1～h6要素をすべて取得
+  const headings = doc.body.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+  // カウンタでIDを割り振る
+  headings.forEach((heading, index) => {
+    if (!heading.id) {
+      heading.id = `heading-${index + 1}`;
+    }
+  });
+
+  // 最終的にHTML文字列を返す
+  return doc.body.innerHTML;
 }
 
 type Params = {
@@ -68,7 +96,7 @@ export async function getStaticProps({ params }: Params) {
     "ogImage",
     "coverImage",
   ]);
-  const content = await markdownToHtml(post.content || "");
+  const content = addIdsToHeadings(await markdownToHtml(post.content || ""));
 
   return {
     props: {

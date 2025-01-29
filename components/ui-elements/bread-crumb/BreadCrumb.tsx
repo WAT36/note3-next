@@ -8,8 +8,13 @@ export const BreadCrumb: NextPage = () => {
 
   // pathを「/」で分解
   const paths = decodeURI(router.asPath).substring(1).split("/");
-  // 末尾がindex.htmlだった場合それは削除
-  if (paths.slice(-1)[0] === "index.html" || paths.slice(-1)[0] === "") {
+  // 末尾がindex.html・クエリパラメータ類だった場合それは削除
+  if (
+    paths.slice(-1)[0].startsWith("index.html") ||
+    paths.slice(-1)[0] === "" ||
+    paths.slice(-1)[0].startsWith("#") ||
+    paths.slice(-1)[0].startsWith("?")
+  ) {
     paths.pop();
   }
 
@@ -18,6 +23,8 @@ export const BreadCrumb: NextPage = () => {
   for (let i = 0; i < paths.length; i++) {
     roots.push(roots[i] + "/" + paths[i]);
   }
+  console.log(`roots:${roots}`);
+  console.log(`paths:${paths}`);
 
   if (roots.slice(-1)[0] !== "/" && roots.slice(-1)[0] !== "") {
     // トップページ以外
