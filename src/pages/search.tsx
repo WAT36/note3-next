@@ -6,7 +6,6 @@ import Layout from "../components/ui-pages/layout/Layout";
 import { ADMINISTRATOR } from "../lib/constants";
 import algoliasearch from "algoliasearch/lite";
 import { useEffect, useState } from "react";
-import DateFormatter from "../components/ui-elements/date-formatter/DateFormatter";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_APP_ID || "",
@@ -16,7 +15,7 @@ const indexName = process.env.NEXT_PUBLIC_INDEX_NAME || "";
 const index = searchClient.initIndex(indexName);
 
 type HitType = {
-  slug: string;
+  path: string;
   title: string;
   excerpt: string;
   date: string;
@@ -32,7 +31,7 @@ function Hit({ hit }: HitProps) {
     <div className="mb-12">
       <h3 className="text-3xl mb-3 leading-snug">
         <Link
-          as={`/posts/${hit.slug}${process.env.NEXT_PUBLIC_URL_END}`}
+          as={`/posts/${hit.path}${process.env.NEXT_PUBLIC_URL_END}`}
           href={`/posts/[slug]${process.env.NEXT_PUBLIC_URL_END}`}
           className="underline"
         >
@@ -72,7 +71,7 @@ export default function SearchResult() {
           hits.slice(0, 5).map((h) => {
             return {
               title: h.title,
-              slug: h.slug,
+              path: h.path.replace("/posts/", ""),
               excerpt: h.excerpt,
               date: h.date,
             };
@@ -87,11 +86,12 @@ export default function SearchResult() {
         filters: "isPost:true AND _tags:" + tagName,
       })
       .then(({ hits }) => {
+        console.log(hits);
         setArticles(
           hits.slice(0, 5).map((h) => {
             return {
               title: h.title,
-              slug: h.slug,
+              path: h.path.replace("/posts/", ""),
               excerpt: h.excerpt,
               date: h.date,
             };

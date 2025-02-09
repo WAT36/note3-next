@@ -1,5 +1,5 @@
 const tailwindCssConfig = {
-  content: ["./components/**/*.{ts,tsx}", "./pages/**/*.tsx"],
+  content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
