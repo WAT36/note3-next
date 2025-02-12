@@ -1,10 +1,14 @@
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useSearchParams } from "next/navigation";
 import { DIR_NAME } from "../../../lib/constants";
 
 export const BreadCrumb: NextPage = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const queryString = searchParams.toString();
+  const queryWithPrefix = queryString ? `?${queryString}` : "";
 
   // pathを「/」で分解
   const paths = decodeURI(router.asPath).substring(1).split("/");
@@ -23,8 +27,6 @@ export const BreadCrumb: NextPage = () => {
   for (let i = 0; i < paths.length; i++) {
     roots.push(roots[i] + "/" + paths[i]);
   }
-  console.log(`roots:${roots}`);
-  console.log(`paths:${paths}`);
 
   if (roots.slice(-1)[0] !== "/" && roots.slice(-1)[0] !== "") {
     // トップページ以外
@@ -36,7 +38,14 @@ export const BreadCrumb: NextPage = () => {
           <>
             {/* サブページのリンク */}
             {" > "}
-            <Link href={roots[i + 1] + process.env.NEXT_PUBLIC_URL_END} key={i}>
+            <Link
+              href={
+                roots[i + 1] +
+                process.env.NEXT_PUBLIC_URL_END +
+                (roots[i + 1].includes("/notes") ? queryWithPrefix : "") // /notes以下のページにいる場合はクエリパラメータ保持
+              }
+              key={i}
+            >
               {DIR_NAME[x] || (i === paths.length - 1 ? `(本記事)` : x)}
             </Link>
           </>
