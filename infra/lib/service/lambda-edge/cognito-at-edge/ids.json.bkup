@@ -1,4 +1,4 @@
-// ファイル名ids.jsonに変更し 以下の値を書き換えて利用する
+// ファイル名ids.jsonに変更し 以下の値を書き換えて利用する。
 {
     "REGION": "region",
     "USERPOOL_ID": "userPool.userPoolId",

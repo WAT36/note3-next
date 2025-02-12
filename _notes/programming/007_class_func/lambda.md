@@ -2,8 +2,8 @@
 title: "ラムダ式（無名関数）"
 date: "2019-10-29T08:37:30+09:00"
 excerpt: "ラムダ式（無名関数）について"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-29T08:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -16,6 +16,11 @@ mode: programming
 ラムダ式（無名関数）についてを述べる。
 
 <div class="note_content_by_programming_language" id="note_content_Java">
+
+```java
+import java.util.function.Function;
+Function<引数の型,返り値の型> 変数名 = (引数) -> { 処理 };
+```
 
 Java では簡易的なメソッドを実装する方法としてラムダ式というのがある。
 
@@ -76,7 +81,9 @@ none() Lambda:implemented.
 
 Python ではキーワード**lambda**を使って定義することで無名関数が書ける。
 
-`lambda (引数): (返す値、式)`
+```python
+lambda (引数): (処理・返り値)
+```
 
 引数は何個でも設定できる。  
 特徴としては lambda の式は変数に格納することができる。  
@@ -97,5 +104,24 @@ Python ではキーワード**lambda**を使って定義することで無名関
 -100
 >>>
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+var 変数名 = function([引数1[,引数2]]){
+    //関数内の処理
+}
+// または(アロー関数)
+var 変数名 = ([引数1[,引数2]]) => {
+    //関数内の処理
+}
+```
+
+また、Javascript では**無名関数(匿名関数)**という仕様があり、変数に直接関数を代入することができる。
+
+呼び出すときは、`変数名(引数);`という形で利用できる。
+
+関数リテラルの時は、**アロー関数** と呼ばれる表記法でも定義できる。アロー関数は `(引数..) => { 関数の処理.. }` のような表記で書くことができる。
 
 </div>

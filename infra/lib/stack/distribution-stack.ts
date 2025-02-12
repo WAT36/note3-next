@@ -63,12 +63,15 @@ export class DistributionStack extends cdk.Stack {
           cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
           viewerProtocolPolicy:
             cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-          edgeLambdas: [
-            {
-              functionVersion: edgeLambda.currentVersion,
-              eventType: cloudfront.LambdaEdgeEventType.VIEWER_REQUEST,
-            },
-          ],
+          edgeLambdas:
+            props.env === "prd"
+              ? []
+              : [
+                  {
+                    functionVersion: edgeLambda.currentVersion,
+                    eventType: cloudfront.LambdaEdgeEventType.VIEWER_REQUEST,
+                  },
+                ],
         },
         domainNames: [process.env.FRONT_DOMAIN_NAME || ""],
         certificate: props.frontCertificate,
@@ -83,7 +86,7 @@ export class DistributionStack extends cdk.Stack {
       `${props.env}Note3OriginAccessControl`,
       {
         originAccessControlConfig: {
-          name: "Note3OriginAccessControlForContentsBucket",
+          name: `${props.env}Note3OriginAccessControlForContentsBucket`,
           originAccessControlOriginType: "s3",
           signingBehavior: "always",
           signingProtocol: "sigv4",

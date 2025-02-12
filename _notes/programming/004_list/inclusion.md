@@ -2,8 +2,8 @@
 title: "リストから条件に合う要素のみを取得した新しいリストを作成する"
 date: "2019-10-27T06:35:30+09:00"
 excerpt: "リストから条件に合う要素のみを取得した新しいリストを作成する"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-27T06:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -14,6 +14,10 @@ mode: programming
 リストから条件に合う要素のみを取得した新しいリストを作成する方法を示す。
 
 <div class="note_content_by_programming_language" id="note_content_Java">
+
+```java
+// (記事参照)
+```
 
 Java ではリストの要素を１個１個見ていって、条件に合っていたら別リストにその要素を追加させていけば、そのリストが条件に合う要素のみを格納したリストになる。  
 （単純だが、もっといい方法が無いか模索中）
@@ -55,11 +59,12 @@ class Main{
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python では**リスト内包表記**という方法を用いる。  
-リストの中でイテラブルオブジェクトの要素を条件に従い取り出す形で定義すると、イテラブルオブジェクトの要素の中で指定した条件に合う要素だけが残ったリストを返してくれる。  
-表記例は以下の通り。
+```python
+[要素 for 要素 in リスト(イテラブルオブジェクト) if 条件]
+```
 
-`[要素 for 要素 in イテラブルオブジェクト if 条件]`
+Python では**リスト内包表記**という方法を用いる。  
+リストの中でイテラブルオブジェクトの要素を条件に従い取り出す形で定義すると、イテラブルオブジェクトの要素の中で指定した条件に合う要素だけが残ったリストを返してくれる。
 
 使用例を以下に示す。
 
@@ -72,6 +77,35 @@ Python では**リスト内包表記**という方法を用いる。
 >>> [s for s in a if len(s) >= 3]
 ['ccc', 'dddd']
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+Array.filter((value, index, array) => {
+  // 条件式。要素valueが条件に合えばtrue,合わなければfalseを返す式を置く。
+});
+```
+
+javascript には Array オブジェクトに**filter**メソッドがある。これは、Array オブジェクト内の要素を１個１個見ていき、指定した条件に合う要素だけを残すメソッドである。
+
+利用するには filter メソッドの引数に関数を入力する。この関数は、引数に value,index,array をおく。value は要素、index はインデックス, array は元の Array オブジェクトを指す。(利用しない場合、index,array は書かなくても良い。)それに応じて、式で value 等に対して条件に合致するなら true を、しない場合は false を返すような処理を作成する。実行後、true が返された要素のみで作られた Array オブジェクトが返される。
+
+実行例を以下に見せる。これは、Array オブジェクト中にある奇数の要素のみを取り出すものである。
+
+```javascript
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let odds = arr.filter((value) => {
+  return value % 2 !== 0;
+});
+console.log(odds);
+```
+
+実行結果
+
+```
+[1, 3, 5, 7, 9]
 ```
 
 </div>

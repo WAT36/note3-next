@@ -1,8 +1,12 @@
-const fs = require("fs");
-const path = require("path");
-const algoliasearch = require("algoliasearch");
-const ENV_PATH = path.join(__dirname, "../../.env.local");
-require("dotenv").config({ path: ENV_PATH });
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import algoliasearch from "algoliasearch";
+import * as dotenv from "dotenv";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const ENV_PATH = path.join(__dirname, "../../.env");
+dotenv.config({ path: ENV_PATH });
 
 // mdファイルリストを読み込む
 const listFiles = (dir) =>
@@ -37,21 +41,21 @@ for (let i = 0; i < files.length; i++) {
   // それで１個１個jsonレコード作る
 
   // タイトル抜き出し
-  let extractedData = data.match(/excerpt:.*\n/);
+  let extractedData = data.match(/title:.*\n/);
   const title =
     extractedData && extractedData.length > 0
       ? extractedData[0]
-          .replace("excerpt:", "")
+          .replace("title:", "")
           .replaceAll(/(\"|\')/g, "")
           .trim()
       : "";
 
   // 概要抜き出し
-  extractedData = data.match(/title:.*\n/);
+  extractedData = data.match(/excerpt:.*\n/);
   const excerpt =
     extractedData && extractedData.length > 0
       ? extractedData[0]
-          .replace("title:", "")
+          .replace("excerpt:", "")
           .replaceAll(/(\"|\')/g, "")
           .trim()
       : "";
@@ -67,17 +71,45 @@ for (let i = 0; i < files.length; i++) {
           .split(",")
       : "";
 
+  // 日時抜き出し
+  extractedData = data.match(/date:.*\n/);
+  const date =
+    extractedData && extractedData.length > 0
+      ? extractedData[0]
+          .replace("date:", "")
+          .replaceAll(/(\"|\')/g, "")
+          .trim()
+      : undefined;
+
+  // 画像ファイル名抜き出し
+  extractedData = data.match(/coverImage:.*\n/);
+  const coverImage =
+    extractedData && extractedData.length > 0
+      ? extractedData[0]
+          .replace("coverImage:", "")
+          .replaceAll(/(\"|\')/g, "")
+          .trim()
+      : undefined;
+
   // ファイルパス　レコード用に書き換え
   const fileSlug = filepath
     .replace("../../_notes", "/notes")
     .replace("../../_posts", "/posts");
 
+  // _index.md の場合は登録しない(スキップ)
+  if (fileSlug.endsWith("_index.md")) {
+    continue;
+  }
+
   // レコード群にデータを追加する
   records.push({
     title,
     excerpt,
-    tags,
+    date,
+    coverImage,
+    _tags: tags,
     path: fileSlug.replace(".md", ""),
+    isPost: fileSlug.includes("/posts"), //ブログ用記事か判別するための属性
     objectID: fileSlug,
   });
 }

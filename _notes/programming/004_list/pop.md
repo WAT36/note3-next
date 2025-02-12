@@ -2,8 +2,8 @@
 title: "リストの指定したインデックスの要素を削除する"
 date: "2019-10-27T00:35:30+09:00"
 excerpt: "リストの指定したインデックスの要素を削除する方法。"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-27T00:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -14,6 +14,10 @@ mode: programming
 リストの指定した位置の要素を削除する方法についてを示す。
 
 <div class="note_content_by_programming_language" id="note_content_Java">
+
+```java
+リスト.remove(削除する位置) // インプレースで処理
+```
 
 Java では List クラスにリストの指定した位置（インデックス）の要素を削除するメソッド **remove()** がある。  
 `E remove(int index)`  
@@ -57,6 +61,12 @@ class Main{
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
+```python
+リスト.pop(削除する位置)
+# または
+del リスト[削除する位置]
+```
+
 Python での方法は次の 2 つがある。
 
 - リストの関数 **pop()** を利用する。
@@ -86,6 +96,50 @@ del 文は リスト[インデックス] の形で入力を行い、実行する
 >>> a
 [1, 7, 6, 5, 3, 2]
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+Array.splice(削除する位置, 1);
+// 先頭の要素を削除したい場合は以下も可
+Array.shift();
+// 末尾の要素を削除したい場合は以下も可
+Array.pop();
+```
+
+javascript で Array オブジェクト中の指定した位置の要素を削除したい時は、基本的には**splice**メソッドを使う。
+
+splice メソッドは、指定した位置から指定した数の文だけの要素を、指定した要素に置き換えるメソッドである。
+
+ここでは、指定した位置から 1 個分(=指定した位置のみ)を、要素無しに置き換えているので、指定した位置の要素が削除されることになる。
+
+また、Array オブジェクトの先頭または末尾の要素を削除したい場合は、それぞれ**shift**、**pop**メソッドがあるので、こちらを使った方が良い。
+
+shift,pop メソッドは、実行するとそれぞれ Array オブジェクトの先頭、末尾の要素が返ってくる。その後元の Array オブジェクトは先頭、末尾の要素が削除された状態になる。
+
+例を以下に示す。
+
+```javascript
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+arr.splice(4, 1);
+console.log(arr);
+
+arr.shift();
+console.log(arr);
+
+arr.pop();
+console.log(arr);
+```
+
+実行結果
+
+```
+[1, 2, 3, 4, 6, 7, 8, 9, 10]
+[2, 3, 4, 6, 7, 8, 9, 10]
+[2, 3, 4, 6, 7, 8, 9]
 ```
 
 </div>

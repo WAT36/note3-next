@@ -2,8 +2,8 @@
 title: "リストが空であるか判別する"
 date: "2019-10-27T11:35:30+09:00"
 excerpt: "リストが空であるか判別する方法"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-27T11:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -14,6 +14,10 @@ mode: programming
 リストが空（＝要素が何も入っていない状態）であるか判別する方法についてを示す。
 
 <div class="note_content_by_programming_language" id="note_content_Java">
+
+```java
+リスト.isEmpty()
+```
 
 Java では List クラスにリストが空であるかを判別するメソッド **isEmpty()** がある。  
 `boolean isEmpty()`
@@ -50,6 +54,10 @@ false
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
+```python
+len(リスト) == 0
+```
+
 Python にはリストが空であるかを判別するための関数は無い。  
 リストが空であるかを判別するには、以下の方法を利用するなどしてみる。
 
@@ -79,6 +87,28 @@ False
 >>> bool(b)     #空でないリストをboolで変換する
 True
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+Array.length === 0;
+```
+
+ここでは Array オブジェクトの長さが 0 であるかを判別することで空であるかを判定する。
+
+以下に例を示す。
+
+```javascript
+let arr = [];
+console.log(`arrは空${arr.length === 0 ? "です" : "でない"}`);
+```
+
+実行結果
+
+```
+arrは空です
 ```
 
 </div>

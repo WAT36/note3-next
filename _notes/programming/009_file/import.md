@@ -15,6 +15,10 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+import パッケージ名;
+```
+
 Java では**import**文があり、これを利用することで他のプログラムを利用することができる。  
 利用するには、import の後に利用したいクラス名をパッケージ名を含めて記載する。  
 ただし、自分と同じパッケージに属している他クラスは import 文無しでも利用できるので、import 文は主に外部パッケージにあるクラスに対し利用する。
@@ -84,6 +88,12 @@ class Main{
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+import モジュール名
+# 及び
+from モジュール名 import 変数(関数)名
+```
 
 Python にも**import**文があり、これを利用することで他のプログラム(モジュール)を利用することができる。
 

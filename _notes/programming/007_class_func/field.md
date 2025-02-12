@@ -2,8 +2,8 @@
 title: "フィールド(クラス変数・インスタンス変数)"
 date: "2019-10-29T01:37:30+09:00"
 excerpt: "クラス変数・インスタンス変数について"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript"]
+programming: ["Java", "Python", "Javascript"]
 updatedAt: "2019-10-29T01:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -18,19 +18,19 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java でのフィールド変数定義方法は以下の通り。
-
-```
+```java
 class クラス名{
 
     //フィールド変数
-    [static] (フィールド変数１　定義)
-    [static] (フィールド変数２　定義)
+    [static] (フィールド変数１の定義)
+    [static] (フィールド変数２の定義)
     ・・・
 
     //文
 }
 ```
+
+Java でのフィールド変数定義方法は以下の通り。
 
 クラス変数にしたい時は変数の前に**static**をつける。  
 static をつけない場合はインスタンス変数となる。  
@@ -96,6 +96,11 @@ carname :lexus
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
+```python
+class クラス名:
+  クラス変数 = 値
+```
+
 Python にもクラス変数とインスタンス変数がある。  
 クラス変数はクラス内、各関数外に定義し、クラス、インスタンスオブジェクトから参照することができる。  
 インスタンス変数は、後述するがクラスの**init**関数で定義する。ここで定義した変数はインスタンスからしか参照できない。
@@ -136,5 +141,136 @@ lexus
 kaki-kukeko
 >>>
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+// クラス
+class クラス名 {
+  constructor([引数]) {
+    this.property1 = 値1;
+    this.property2 = 値2;
+    //...
+  }
+
+  // 静的プロパティ
+  static property3 = 値3;
+}
+
+// オブジェクト
+var クラス名2 = function () {
+  // 定義など。ここに定義したメンバーはインスタンスプロパティ/メソッド (インスタンス変数)
+  this.name = "instance name";
+};
+
+// 静的プロパティ/メソッド (直接クラス名を指定して利用する)
+クラス名2.name = "static name";
+```
+
+javascript では、コンストラクタ内で**this**キーワードを利用することで、インスタンスのプロパティを設定できる。
+
+またプロパティに関数オブジェクトを設定することもでき、関数オブジェクトが設定されたプロパティはメソッドとみなされる。
+
+また、**静的プロパティ/メソッド** を定義することもできる。
+
+これは、クラスの場合`static プロパティ/メソッド名 = 値` で、プロトタイプのオブジェクトベースの場合は`オブジェクト名.プロパティ名 = 値`のような形式で定義することができる。
+
+静的プロパティ/メソッドは、インスタンスを生成しなくてもオブジェクトから直接呼び出せるプロパティ/メソッドのことであるが、**インスタンスからは呼び出せない**点が前述のクラス変数の考え方とは違うので注意すること。
+
+実行例を以下に示す。
+
+```javascript
+// クラス
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  getName() {
+    return this.name;
+  }
+
+  static country = "Japan";
+}
+
+var john = new Person("john");
+
+console.log(john.getName()); // 'Takao'
+console.log(john.country); // undefined(インスタンスから読んでいるため)
+console.log(Person.country); // 'Japan'
+
+// プロトタイプベースのオブジェクト
+var Member = function (name) {
+  this.name = name;
+
+  this.getName = function () {
+    return this.name;
+  };
+};
+Member.country = "Japan";
+
+var m1 = new Member("Takao");
+
+console.log(m1.name); // 'Takao'
+console.log(m1.getName()); // 'Takao'
+
+m1.sayHello = function () {
+  return "Hello! World!";
+};
+
+console.log(m1.sayHello()); // 'Hello! World!'
+
+console.log(Member.country); // 'Japan'
+
+var m2 = new Member("Kotone");
+console.log(m2.sayHello()); // エラー。定義されていないので
+```
+
+## プライベートメンバー
+
+インスタンスプロパティ/メソッドは基本 this キーワードで定義し、これはオブジェクト内外から自由にアクセスできるものになっている。このようなプロパティ/メソッドを**パブリックメンバー**という。
+
+これに対して、オブジェクト内部のメソッドからのみ呼び出すことができるプロパティ/メソッドのことを**プライベートメンバー**と呼ぶ。
+
+プライベートメンバーを定義するにはどうすれば良いか。
+
+それはオブジェクトのコンストラクタ内で this キーワードではなく、var キーワードを利用して定義するのである。
+
+そのようにすると、基本オブジェクト外からはアクセスできない。以下に例を示す。
+
+```javascript
+var Member = function () {
+  var _name;
+
+  this.getName = function () {
+    return _name;
+  };
+  this.setName = function (name) {
+    _name = name;
+  };
+};
+
+var m1 = new Member();
+m1._name = "Takao";
+console.log(m1.getName()); // undefined
+
+m1.setName("Takao");
+console.log(m1.getName()); // 'Takao'
+```
+
+この例では、まず最初にインスタンス m1 のプロパティ\_name に直接値を代入しているが、うまく設定できてないことがわかる。
+
+次の行で、setName メソッドを使って定義することで、プロパティ\_name に値を設定できていることもわかるだろう。
+
+このように設定することで、プライベートメンバーを定義できる。
+
+また、プライベートメンバーにアクセスできるメソッドのことを**特権メソッド**とも呼び、この例では getName,setName が該当する。
+
+## (補足) アクセサーメソッド
+
+またこの例のような、プロパティはプライベートメンバー化し、プライベートメンバーにアクセスするためのメソッドを用意することは多々ある。このようなメソッドを**アクセサーメソッド**という。
+
+プライベートメンバーを参照するメソッド(この例だと getName)を**ゲッターメソッド**、プライベートメンバーを設定するメソッド(この例だと setName)を**セッターメソッド**と呼ぶ。
 
 </div>

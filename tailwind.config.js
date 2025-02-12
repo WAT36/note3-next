@@ -1,6 +1,5 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./components/**/*.tsx", "./pages/**/*.tsx"],
+const tailwindCssConfig = {
+  content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -34,3 +33,5 @@ module.exports = {
   plugins: [],
   darkMode: "media",
 };
+
+export default tailwindCssConfig;

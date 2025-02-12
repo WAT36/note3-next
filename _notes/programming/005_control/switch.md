@@ -16,9 +16,7 @@ switch 文は一つの式の結果から多くの処理に分岐させたいと�
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
-Java での switch 文での記法は以下の通り。
-
-```
+```java
 switch (式) {
     case 定数１:
         //式の結果が定数１に一致したときはここの処理が実行
@@ -33,6 +31,8 @@ switch (式) {
         break;
 }
 ```
+
+Java での switch 文での記法は上記の通り。
 
 case,default 後の処理の最後には必ず**break**を書く。書かないとその後ろの case 文の処理も実行してしまう。
 
@@ -74,6 +74,10 @@ $ java Main
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
+```python
+# (なし)
+```
+
 Python には**switch 文が存在しない**。
 
 そのため if-else などで条件分岐を実装する。
@@ -81,9 +85,7 @@ Python には**switch 文が存在しない**。
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-Javascript には**switch 文**が存在し、利用法は Java と同じである。
-
-```
+```javascript
 switch (式) {
     case 定数１:
         //式の結果が定数１に一致したときはここの処理が実行
@@ -98,5 +100,7 @@ switch (式) {
         break;
 }
 ```
+
+Javascript には**switch 文**が存在し、利用法は Java と同じで、上記の通り。
 
 </div>

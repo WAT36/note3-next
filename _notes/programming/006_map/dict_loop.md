@@ -15,6 +15,12 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+for(Map.Entry<キーの型,値の型> e : m.entrySet()){
+  // 処理
+}
+```
+
 Java で Map にループを掛けるには、Map のメソッドである **entrySet()** を利用して Map 内の全てのキー・値の組み合わせを取得し、それを拡張 for 文などでループさせる。
 
 ```
@@ -54,6 +60,11 @@ key3 val3
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+for k,v in m.items():
+    #処理文
+```
 
 Python で辞書にループをかけるには、for 文のループに辞書の **items()** 関数を使いループすると行える。  
 items 関数は辞書にあるキーと値の組み合わせを全て取得する関数である。  

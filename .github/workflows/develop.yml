@@ -1,3 +1,4 @@
+# memo インフラ構築はここではしない。事前にローカルからやっておく
 name: Build React on S3(develop)
 on:
   push:
@@ -27,7 +28,7 @@ jobs:
         run: npm install
 
       - name: Build and Export
-        run: npm run export
+        run: npm run build
 
       - name: Deploy  # S3にデプロイ 
         run: 

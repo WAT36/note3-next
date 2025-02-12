@@ -17,6 +17,15 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+class クラス名{
+  // コンストラクタ
+  クラス名(引数) {
+    // 処理文
+  }
+}
+```
+
 Java では、クラス内でそのクラス名と同じ名前のメソッドを定義した時、それがコンストラクタになる。  
 引数を変えれば、多重定義（オーバーロード）でいくらでも定義できる。  
 ただし、コンストラクタを定義したら、インスタンス生成時に設定する引数はそのコンストラクタと同じでなければならない。  
@@ -61,6 +70,12 @@ Car2:carrola 200-2020 kaki-kukeko
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
+```python
+class クラス名:
+  def __init__(self,引数):
+    # 処理文
+```
+
 Python では　**\_\_init()\_\_** という関数がクラスのコンストラクタの役目を果たす。  
 クラスのインスタンス生成後、真っ先にこの関数\_\_init\_\_が実行される。  
 大体はインスタンス変数を設定するために利用されることが多い。そのときは\_\_init\_\_の引数に、変数に設定したい値に加えて**self**を追加することを忘れずに行う。
@@ -88,15 +103,49 @@ Python では　**\_\_init()\_\_** という関数がクラスのコンストラ
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-Javascript でのコンストラクタは Java や Python のそれとは対象が微妙に異なる。
+```javascript
+// クラス
+class クラス名 {
+  // コンストラクタ
+  constructor([引数]) {
+    // コンストラクタ定義
+  }
+}
 
-まず、Javascript には Java のクラスのといったデータ構造はないため、これに対するコンストラクタではない。
+// オブジェクト
+var オブジェクト名 = function (name) {
+  // 関数の文を定義(インスタンスを生成すると実行される、実質コンストラクタ)
+};
+```
 
-しかし、Javascript では関数がクラスのようなデータ構造を表せることがあり、コンストラクタとはこれに対してのコンストラクタである。
+javascript ではクラスの場合、コンストラクタの定義は**constructor**の名前を使って行う。
 
-これを利用すると、関数の中身で指定されたプロパティを持ったオブジェクトが生成される。
+constructor の名前の関数がそのクラスのコンストラクタとして扱われる。
 
-例えば以下の関数があったとする。
+実行例を以下に示す。
+
+```javascript
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+var john = new Person("john");
+console.log(john.name);
+```
+
+実行結果
+
+```
+john
+```
+
+プロトタイプベースのオブジェクトの場合は、function()内に記述された文が、インスタンス生成時に実行され、実質コンストラクタ的な役割を果たす。
+
+**this**キーワードを利用してプロパティを定義すると、関数の中身で指定されたプロパティを持ったオブジェクトが生成される。
+
+例えば以下の定義があるとする。
 
 ```javascript
 var Person = function (name) {
@@ -107,7 +156,7 @@ var Person = function (name) {
 この関数を、**new**キーワードを用いて別の変数に格納すると、変数にはオブジェクト型のデータが格納される。
 
 ```javascript
-var john = Person("john");
+var john = new Person("john");
 console.log(john.name);
 ```
 
@@ -128,7 +177,5 @@ var Person = function (name) {
 ```
 
 new を追加することによって、関数をオブジェクトとして表すことが可能になる。
-
-javascript では、この new で指定された関数のことを**コンストラクタ**と呼んでいる。また、コンストラクタにより生成されたオブジェクトを**インスタンス**と呼ぶ。
 
 </div>

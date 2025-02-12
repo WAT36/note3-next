@@ -1,0 +1,94 @@
+.markdown {
+  @apply text-lg leading-relaxed;
+}
+
+.markdown p {
+  @apply block my-4
+}
+
+.markdown ul {
+  @apply block list-image-none list-outside list-disc my-4 pl-10;
+}
+
+.markdown ol {
+  @apply block list-image-none list-outside list-decimal my-4 pl-10;
+}
+
+.markdown blockquote {
+  @apply block my-4 mx-10;
+}
+
+.markdown h1 {
+  @apply block text-3xl font-bold my-4;
+  page-break-after: avoid;
+}
+
+.markdown h2 {
+  @apply block text-2xl font-bold my-4;
+  page-break-after: avoid;
+}
+
+.markdown h3 {
+  @apply block text-xl font-bold my-4;
+  page-break-after: avoid;
+}
+
+.markdown table {
+  @apply border-solid border border-black border-spacing-1 box-border table;
+}
+
+.markdown tbody {
+  @apply box-border table-row-group align-middle;
+}
+
+.markdown td {
+  @apply border-solid border border-black m-3 table-cell p-px align-middle;
+}
+
+.markdown tfoot {
+  @apply box-border table-footer-group align-middle
+}
+
+.markdown th {
+  @apply border-solid border border-black m-3 table-cell font-bold p-0.5 text-center align-middle;
+  zoom: 1;
+}
+
+.markdown tr {
+  @apply box-border table-row align-middle;
+  zoom: 1;
+}
+
+.markdown a {
+  @apply text-sky-600 underline;
+}
+
+
+.markdown input {
+  @apply bg-white border-2 font-sans text-sm overflow-hidden p-px;
+}
+
+.markdown em {
+  @apply italic;
+}
+
+.markdown strong {
+  @apply font-bold;
+}
+
+.markdown blockquote {
+  @apply block mx-4 my-10;
+}
+
+.markdown textarea {
+  @apply bg-white border font-mono text-sm overflow-x-hidden overflow-y-scroll p-0.5 whitespace-pre-wrap;
+}
+
+.markdown button {
+  @apply bg-white border-2 box-border font-sans text-sm overflow-hidden py-px text-center;
+  zoom: 1;
+}
+
+.markdown pre {
+  @apply overflow-x-auto;
+}

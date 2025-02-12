@@ -15,6 +15,10 @@ mode: programming
 
 <div class="note_content_by_programming_language" id="note_content_Java">
 
+```java
+m.put("キー名",値);
+```
+
 Java では Map クラスに **put()** というメソッドがあり、引数にキー・値を指定すると、その Map 内にキー・値が入る。  
 `V put(K key, V value)`  
 既に同じキーがあった場合は上書きされて入る。
@@ -48,6 +52,10 @@ class Main{
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
+```python
+m["キー名"] = 値
+```
+
 Python では以下のような記法で辞書にキー・値を追加できる。
 
 `辞書[キー] = 値`
@@ -75,17 +83,28 @@ Python では以下のような記法で辞書にキー・値を追加できる�
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-Javascript において、連想配列にデータを追加する方法は普通の配列と同じようにすれば良い。
-添字には任意の文字列を指定する。
+```javascript
+Map.set(キー, 値);
+```
+
+Javascript において、Map オブジェクトにデータを追加するには、Map オブジェクトの**set**メソッドを利用する。
+引数にはキーと値を入力する。
 
 例を以下に示す。
 
 ```javascript
-var temperature = new Array();
+let temperature = new Map();
 
-temperature["Tokyo"] = 20;
-temperature["Sapporo"] = 15;
-temperature["Naha"] = 25;
+temperature.set("Tokyo", 20);
+temperature.set("Sapporo", 15);
+temperature.set("Naha", 25);
+console.log(temperature);
+```
+
+実行結果
+
+```
+{'Tokyo' => 20, 'Sapporo' => 15, 'Naha' => 25}
 ```
 
 </div>

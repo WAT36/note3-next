@@ -17,14 +17,8 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-class Main{
-    public static void main(String args[]){
-        String s = "apple,banana,cherry,durian";
-        System.out.println(s.contains("banana"));
-
-        System.out.println(s.contains("grape"));
-    }
-}
+// 文字列1に文字列2が含まれているか確認する
+"文字列１".contains("文字列２")
 ```
 
 Java で文字列中にある文字列が含まれているかを確認するには String のメソッドである **contains()** を利用する。
@@ -32,6 +26,14 @@ Java で文字列中にある文字列が含まれているかを確認するに
 `public boolean contains(String s)`
 
 呼び出し元の文字列中に引数に指定した文字列が含まれていれば true、そうでない場合は false を返す。
+
+使用例
+
+```java
+String s = "apple,banana,cherry,durian";
+System.out.println(s.contains("banana"));
+System.out.println(s.contains("grape"));
+```
 
 実行結果
 
@@ -44,6 +46,11 @@ false
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+# 文字列1に文字列2が含まれているか確認する
+"文字列２" in "文字列１"
+```
 
 python で文字列中にある文字列が含まれているかを確認するには **in** 演算子を使う。
 
@@ -67,12 +74,13 @@ False
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-```
-(元の文字列).includes(検索する文字列 [,位置])
+```javascript
+// 文字列1に文字列2が含まれているか確認する
+"文字列１".includes("文字列２");
 
 // 指定文字列で始まるか終わるかを判別したい場合は以下も可
-(元の文字列).startsWith(検索する文字列 [,位置])
-(元の文字列).endsWith(検索する文字列 [,位置])
+"文字列１".startsWith("文字列２");
+"文字列１".endsWith("文字列２");
 ```
 
 Javascript では **String.includes()** メソッドで判別が行える。利用方法は上記の通り。

@@ -2,8 +2,8 @@
 title: "正規表現"
 date: "2019-11-01T07:37:30+09:00"
 excerpt: "正規表現について"
-tag: ["Python"]
-programming: ["Python"]
+tag: ["Python", "Javascript"]
+programming: ["Python", "Javascript"]
 updatedAt: "2019-11-01T07:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -18,6 +18,25 @@ mode: programming
 ちなみに正規表現の文法についてはここでは割愛する。
 
 <div class="note_content_by_programming_language" id="note_content_Python">
+
+```python
+import re
+
+pattern = re.compile(r'正規表現', flags=0)
+
+match = re.search(pattern,"文字列")     #文字列で正規表現に最初にマッチした部分を返す
+match = re.match(pattern,"文字列")      #文字列の先頭が正規表現にマッチしていたらそれを返す
+match = re.fullmatch(pattern,"文字列")  #文字列全体が正規表現にマッチしていたらそれを返す
+match = re.findall(pattern,"文字列")    #文字列中で正規表現にマッチしているものをリストにして全て返す
+
+match.start() # マッチした文字列の文字列中での最初のインデックスを返す
+match.end()   # マッチした文字列の文字列中での最後のインデックスを返す
+match.span()  # マッチした文字列が文字列中でどこからどこまでのインデックスなのかを返す
+match.group() # マッチした文字列を返す
+
+re.sub(r'正規表現','置換後文字列',"文字列") #文字列中で正規表現にマッチしているものを置換後文字列に置き換えて返す
+
+```
 
 Python では正規表現を扱う**re**モジュールがある。
 この中には色々関数があり、これらを利用して文字列パターンの抽出や検索を行う。
@@ -137,6 +156,64 @@ None
 >>> re.sub(r'aa','A',s)
 'Aabbbcccdddeeefff'
 >>>
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```javascript
+var re = new RegExp('正規表現','オプション')
+var re = /正規表現/オプション
+
+"文字列".match(re) // 正規表現リテラル及びRegExpオブジェクトを入力し検索
+```
+
+javascript で正規表現を解析し、文字列検索をするための機能を提供するのが**RegExp**オブジェクトである。生成するにはコンストラクターの RegExp()を使うか、正規表現を/で囲んだ表現(正規表現リテラル)で表す。
+
+オプション は正規表現の挙動を示すパラメータで、以下の値を指定できる。
+
+| オプション | 意味                                                                       |
+| :--------- | :------------------------------------------------------------------------- |
+| g          | 文字列全体に対してマッチするか(無指定の場合は１度マッチした時点で処理終了) |
+| i          | 大文字小文字を区別するか                                                   |
+| m          | 複数行に対応するか                                                         |
+| u          | Unicode 対応                                                               |
+
+文字列に対し正規表現で検索を行うには、String.match メソッドを利用する。
+
+```javascript
+String.match(正規表現);
+```
+
+これにより、検索対象の文字列に対し、指定した正規表現を使って検索を行い、合致した部分を Array で返す。
+
+他、正規表現関連で利用できるメソッドは以下の通り。
+
+| メソッド                       | 概要                                                                     |
+| :----------------------------- | :----------------------------------------------------------------------- |
+| String.search(pattern)         | 文字列(String)で正規表現 pattern に最初に一致する位置を返す              |
+| String.replace(pattern,rep)    | 文字列(String)で正規表現 pattern に一致した箇所を文字列 rep に置き換える |
+| String.split(pattern [,limit]) | 文字列(String)で正規表現 pattern に一致した箇所で分割する                |
+| regexp.test(str)               | 正規表現リテラル regexp が文字列 str にマッチするか判定する              |
+
+例をいくつか示す。
+
+```javascript
+var p = "2022-02-02 10:12:32";
+var q = "集合時間は10:00です。";
+console.log(q.search(new RegExp(/\d/, "g")));
+console.log(q.replace(/\d\d:\d\d/g, "12:00"));
+console.log(p.split(/[- :]/g));
+console.log(/\d\d:\d\d/g.test(q));
+```
+
+実行結果
+
+```
+5
+集合時間は12:00です。
+['2022', '02', '02', '10', '12', '32']
+true
 ```
 
 </div>
