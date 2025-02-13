@@ -1,7 +1,7 @@
 ---
 title: "このブログにKaTeXを導入してみた"
 excerpt: "Webサイトで数式を美しく表示できるKaTeXの特徴と導入方法について"
-coverImage: ""
+coverImage: "/assets/posts/katex/katex.png"
 date: "2025-02-05T20:19:46.000Z"
 updatedAt: "2025-02-05T20:19:46.000Z"
 tag: []
@@ -114,8 +114,6 @@ katex.render("c = \\pm\\sqrt{a^2 + b^2}", element, {
 x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 ```
 
-↓
-
 （表記例）
 
 $$
@@ -128,7 +126,7 @@ $$
 e^{ix} = \cos x + i\sin x
 ```
 
-↓
+（表記例）
 
 $$
 e^{ix} = \cos x + i\sin x
@@ -140,7 +138,7 @@ $$
 f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
 ```
 
-↓
+（表記例）
 
 $$
 f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
