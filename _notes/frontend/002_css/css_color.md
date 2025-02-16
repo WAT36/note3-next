@@ -1,27 +1,27 @@
 ---
 title: "CSSでの色"
 date: "2019-11-05T20:38:30.000Z"
-excerpt: 'CSSでの色の設定について'
+excerpt: "CSSでの色の設定について"
 tag: ["CSS"]
-updatedAt: '2023-03-03T20:07:33.000Z'
+updatedAt: "2023-03-03T20:07:33.000Z"
 author:
   name: Tatsuroh Wakasugi
-  picture: '/assets/blog/authors/WAT.jpg'
+  picture: "/assets/blog/authors/WAT.jpg"
 ---
 
-CSSで色を利用する方法について。
-# CSSでの色の表現
+CSS で色を利用する方法について。
 
-CSSでの色の表現について述べる。
+# CSS での色の表現
 
+CSS での色の表現について述べる。
 
-## 16進数の値
+## 16 進数の値
 
-方法の一つとして、#(シャープ)と16進数6桁の値で色を表現する方法がある。
+方法の一つとして、#(シャープ)と 16 進数 6 桁の値で色を表現する方法がある。
 
-6桁の内、上2桁をR(赤),中2桁をG(緑),下2桁をB(青)として、それぞれ0x00~0xff(255)の値で表現する。
+6 桁の内、上 2 桁を R(赤),中 2 桁を G(緑),下 2 桁を B(青)として、それぞれ 0x00~0xff(255)の値で表現する。
 
-例えば、RGB値が10進数で0,0,255の場合は、
+例えば、RGB 値が 10 進数で 0,0,255 の場合は、
 
 ```
 #0000ff
@@ -29,13 +29,11 @@ CSSでの色の表現について述べる。
 
 と示すことができる。
 
-
 ## 色を示すキーワード
 
-16進数による数値でなくとも、基本的な色を使いたい場合はその色を示すキーワードを指定することで、その色を使用できる。
+16 進数による数値でなくとも、基本的な色を使いたい場合はその色を示すキーワードを指定することで、その色を使用できる。
 
 キーワードの例は以下のとおり。
-
 
 <table>
     <tr>
@@ -90,48 +88,30 @@ CSSでの色の表現について述べる。
     </tr>
 </table>
 
-
 ## rgb(),rgba() による指定
 
-rgb(),rgba()という関数形式の書式を利用すると、RGBの値を10進数のまま指定できる。
+rgb(),rgba()という関数形式の書式を利用すると、RGB の値を 10 進数のまま指定できる。
 
-rgb()は、r、g、bの値(範囲は0~255)をそれぞれ引数として入力して利用する。
+rgb()は、r、g、b の値(範囲は 0~255)をそれぞれ引数として入力して利用する。
 
-rgba()は、rgb（）に加え不透明度を表すalphaの値(範囲は0.0~1.0)も引数として指定できるようにした関数である。
+rgba()は、rgb（）に加え不透明度を表す alpha の値(範囲は 0.0~1.0)も引数として指定できるようにした関数である。
 
-使用例
+例
 
-```
-<table>
-    <tr>
-        <td style="background-color:rgb(255,0,0)">　　</td>
-    </tr>
-    <tr>
-        <td style="background-color:rgba(255,0,0,0.5)">　　</td>
-    </tr>
-</table>
-```
-
-表示例
-
-<hr>
-<table>
-    <tr>
-        <td style="background-color:rgb(255,0,0)">　　</td>
-    </tr>
-    <tr>
-        <td style="background-color:rgba(255,0,0,0.5)">　　</td>
-    </tr>
-</table>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="bNGdXXd" data-pen-title="CSS-color" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/bNGdXXd">
+  CSS-color</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## hsl(),hsla()による指定
 
 rgb()と違い、hue(色相),saturation(彩度),lightness(明度)の組み合わせで色を表現する **hsl()** でも色を指定できる。
 
-h(色相)は0~359,s(彩度),l(明度)は0%~100%の範囲で値を指定する。
+h(色相)は 0~359,s(彩度),l(明度)は 0%~100%の範囲で値を指定する。
 
-これに加え、不透明度を表すalphaの値(範囲は0.0~1.0)も引数として指定できるようにしたものが **hsla()** である。
+これに加え、不透明度を表す alpha の値(範囲は 0.0~1.0)も引数として指定できるようにしたものが **hsla()** である。
 
 使用例
 
@@ -159,14 +139,13 @@ h(色相)は0~359,s(彩度),l(明度)は0%~100%の範囲で値を指定する。
 </table>
 <hr>
 
+# CSS での色の設定
 
-# CSSでの色の設定
+ここで設定した色の HTML 文書への適用方法を述べる。
 
-ここで設定した色のHTML文書への適用方法を述べる。
+## color プロパティ
 
-## colorプロパティ
-
-colorプロパティは、要素内容の文字色を設定するプロパティである。全ての要素で利用可能である。
+color プロパティは、要素内容の文字色を設定するプロパティである。全ての要素で利用可能である。
 
 使用例
 
@@ -184,12 +163,11 @@ colorプロパティは、要素内容の文字色を設定するプロパティ
 <p style="color:blue" >ここは青です。</p>
 <hr>
 
+## opacity プロパティ
 
-## opacityプロパティ
+opacity プロパティは、要素内容の文字の不透明度を設定するプロパティである。
 
-opacityプロパティは、要素内容の文字の不透明度を設定するプロパティである。
-
-設定する値は、0.0 (透明) から1.0 (不透明) である。
+設定する値は、0.0 (透明) から 1.0 (不透明) である。
 
 使用例
 
