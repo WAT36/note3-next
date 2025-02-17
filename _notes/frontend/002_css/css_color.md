@@ -130,21 +130,14 @@ h(色相)は 0~359,s(彩度),l(明度)は 0%~100%の範囲で値を指定する�
 
 color プロパティは、要素内容の文字色を設定するプロパティである。全ての要素で利用可能である。
 
-使用例
+例
 
-```
-<p style="color:red"  >ここは赤です。</p>
-<p style="color:green">ここは緑です。</p>
-<p style="color:blue" >ここは青です。</p>
-```
-
-表示例
-
-<hr>
-<p style="color:red"  >ここは赤です。</p>
-<p style="color:green">ここは緑です。</p>
-<p style="color:blue" >ここは青です。</p>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="xbxwdgz" data-pen-title="CSS-color-text" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/xbxwdgz">
+  CSS-color-text</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## opacity プロパティ
 
