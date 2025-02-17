@@ -113,31 +113,14 @@ h(色相)は 0~359,s(彩度),l(明度)は 0%~100%の範囲で値を指定する�
 
 これに加え、不透明度を表す alpha の値(範囲は 0.0~1.0)も引数として指定できるようにしたものが **hsla()** である。
 
-使用例
+例
 
-```
-<table>
-    <tr>
-        <td style="background-color:hsl(180,50%,50%)">　　</td>
-    </tr>
-    <tr>
-        <td style="background-color:hsla(180,50%,50%,0.5)">　　</td>
-    </tr>
-</table>
-```
-
-表示例
-
-<hr>
-<table>
-    <tr>
-        <td style="background-color:hsl(180,50%,50%)">　　</td>
-    </tr>
-    <tr>
-        <td style="background-color:hsla(180,50%,50%,0.5)">　　</td>
-    </tr>
-</table>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="zxYvwoR" data-pen-title="CSS-color-hsl" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/zxYvwoR">
+  CSS-color-hsl</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # CSS での色の設定
 
