@@ -3,12 +3,17 @@
 @tailwind utilities;
 
 @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #000;
-      color: #fff;
-    }
+  body {
+    background-color: #000;
+    color: #fff;
+  }
 }
 
 article {
   width: 80%;
+}
+
+/* codepen */
+.cp_embed_wrapper {
+  margin-bottom: 48px;
 }
