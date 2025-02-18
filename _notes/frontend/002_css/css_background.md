@@ -32,26 +32,14 @@ background-image プロパティは、背景に画像を表示させるプロパ
 
 CSS で利用するには、body 要素に適用させる。
 
-使用例を以下に示す。
+例を以下に示す。
 
-```
-<div style="background-image: url(/front-end/img_small.jpg)">
-background<br>
-image<br>
-の<br>
-テスト<br>
-</div>
-```
-
-表示例
-
-<div style="background-image: url('/assets/note/frontend/css/img_small.jpg')">
-background<br>
-image<br>
-の<br>
-テスト<br>
-</div>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="RNwWOJJ" data-pen-title="css-background-image" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/RNwWOJJ">
+  css-background-image</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # background-clip プロパティ
 
