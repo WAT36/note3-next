@@ -77,48 +77,12 @@ background-repeat プロパティは、背景画像を繰り返して表示さ�
 
 使用例
 
-```
-<style type="text/css">
-    div.repeat {
-        background-image: url(/assets/note/frontend/css/img_small.jpg);
-        background-repeat: repeat-x;
-    }
-
-    h4.repeat {
-        color:greenyellow
-    }
-</style>
-<div class="repeat" width="500" height="400">
-    <h4 class="repeat">background-repeatのサンプル</h1>
-    <p>１行目</p>
-    <p>２行目</p>
-    <p>３行目</p>
-    <p>４行目</p>
-    <p>５行目</p>
-</div>
-```
-
-表示例
-
-<style type="text/css">
-    div.repeat {
-        background-image: url(/assets/note/frontend/css/img_small.jpg);
-        background-repeat: repeat-x;
-    }
-
-    h4.repeat {
-        color:greenyellow
-    }
-</style>
-<div class="repeat" width="500" height="400">
-    <h4 class="repeat">background-repeatのサンプル</h1>
-    <p>１行目</p>
-    <p>２行目</p>
-    <p>３行目</p>
-    <p>４行目</p>
-    <p>５行目</p>
-</div>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="KwKdYGw" data-pen-title="css-background-repeat" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/KwKdYGw">
+  css-background-repeat</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # background-size プロパティ
 
