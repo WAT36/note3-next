@@ -120,34 +120,12 @@ background-origin プロパティは、ボックスにおいて画像を表示�
 
 使用例
 
-```
-<style type="text/css">
-    div.origin {
-        width:300px; height:200px; padding:10px;
-        border:dashed 3px black;
-        color:white;
-        background-image:url(/assets/note/frontend/css/img_small.jpg);
-        background-origin:content-box;
-    }
-</style>
-<div class="origin" width="400" height="300">
-</div>
-```
-
-表示例
-
-<style type="text/css">
-    div.origin {
-        width:300px; height:200px; padding:10px;
-        border:dashed 3px black; 
-        color:white;
-        background-image:url(/assets/note/frontend/css/img_small.jpg);
-        background-origin:content-box;
-    }
-</style>
-<div class="origin" width="400" height="300">
-</div>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="bNGVJzP" data-pen-title="css-background-origin" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/bNGVJzP">
+  css-background-origin</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # background-position プロパティ
 
