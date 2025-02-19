@@ -144,50 +144,12 @@ background-position プロパティは、背景に画像を表示させる位置
 
 使用例
 
-```
-<style type="text/css">
-    div.position {
-        background-image: url(/assets/note/frontend/css/img_small.jpg);
-        background-repeat: no-repeat;
-        background-position: 100% 100%;
-    }
-
-    h4.position {
-        color:black
-    }
-</style>
-<div class="position" width="500" height="400" src="/assets/note/frontend/css/img_small.jpg">
-    <h4 class="position">background-positionのサンプル</h1>
-    <p>１行目</p>
-    <p>２行目</p>
-    <p>３行目</p>
-    <p>４行目</p>
-    <p>５行目</p>
-</div>
-```
-
-表示例
-
-<style type="text/css">
-    div.position {
-        background-image: url(/assets/note/frontend/css/img_small.jpg);
-        background-repeat: no-repeat;
-        background-position: 100% 100%;
-    }
-
-    h4.position {
-        color:black
-    }
-</style>
-<div class="position" width="500" height="400" src="/assets/note/frontend/css/img_small.jpg">
-    <h4 class="position">background-positionのサンプル</h1>
-    <p>１行目</p>
-    <p>２行目</p>
-    <p>３行目</p>
-    <p>４行目</p>
-    <p>５行目</p>
-</div>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="ZYEQXWB" data-pen-title="css-background-position" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/ZYEQXWB">
+  css-background-position</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # background-attachment プロパティ
 
