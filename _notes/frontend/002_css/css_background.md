@@ -179,43 +179,9 @@ background プロパティは、これまでに出てきた背景関連のプロ
 
 使用例
 
-```
-<style type="text/css">
-    div.all {
-        background: gray url(/assets/note/frontend/css/img_small.jpg) no-repeat fixed center;
-    }
-
-    h4.all {
-        color:greenyellow
-    }
-</style>
-<div class="all" width="500" height="400" src="/assets/note/frontend/css/img_small.jpg">
-    <h4 class="all">background-attachmentのサンプル</h1>
-    <p>１行目</p>
-    <p>２行目</p>
-    <p>３行目</p>
-    <p>４行目</p>
-    <p>５行目</p>
-</div>
-```
-
-表示例
-
-<style type="text/css">
-    div.all {
-        background: gray url(/assets/note/frontend/css/img_small.jpg) no-repeat fixed center;
-    }
-
-    h4.all {
-        color:greenyellow
-    }
-</style>
-<div class="all" width="500" height="400" src="/assets/note/frontend/css/img_small.jpg">
-    <h4 class="all">background-attachmentのサンプル</h1>
-    <p>１行目</p>
-    <p>２行目</p>
-    <p>３行目</p>
-    <p>４行目</p>
-    <p>５行目</p>
-</div>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="WbNrZpv" data-pen-title="css-background" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/WbNrZpv">
+  css-background</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
