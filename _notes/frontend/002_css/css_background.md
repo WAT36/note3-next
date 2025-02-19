@@ -164,48 +164,12 @@ background-attachment プロパティは、ページをスクロールしたと�
 
 使用例
 
-```
-<style type="text/css">
-    div.attachment {
-        background-image: url(/assets/note/frontend/css/img_small.jpg);
-        background-attachment: fixed;
-    }
-
-    h4.attachment {
-        color:greenyellow
-    }
-</style>
-<div class="attachment" width="500" height="200" src="/assets/note/frontend/css/img_small.jpg" scrolling="yes">
-    <h4 class="attachment">background-attachmentのサンプル</h1>
-    <p>１行目</p>
-    <p>２行目</p>
-    <p>３行目</p>
-    <p>４行目</p>
-    <p>５行目</p>
-</div>
-```
-
-表示例
-
-<style type="text/css">
-    div.attachment {
-        background-image: url(/assets/note/frontend/css/img_small.jpg);
-        background-attachment: fixed;
-    }
-
-    h4.attachment {
-        color:greenyellow
-    }
-</style>
-<div class="attachment" width="500" height="200" src="/assets/note/frontend/css/img_small.jpg" scrolling="yes">
-    <h4 class="attachment">background-attachmentのサンプル</h1>
-    <p>１行目</p>
-    <p>２行目</p>
-    <p>３行目</p>
-    <p>４行目</p>
-    <p>５行目</p>
-</div>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="dPyGVXK" data-pen-title="css-background-attachment" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/dPyGVXK">
+  css-background-attachment</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # background プロパティ
 
