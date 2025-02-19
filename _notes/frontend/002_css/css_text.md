@@ -53,14 +53,12 @@ text-decoration 系のプロパティは、文字に下線・上線・取消線�
 
 使用例
 
-```
-<p>テキストに<span style="text-decoration:underline;">下線</span>を付けてみる</p>
-```
-
-表示例
-
-<p>テキストに<span style="text-decoration:underline;">下線</span>を付けてみる</p>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="mydVBmo" data-pen-title="css-text-decoration" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/mydVBmo">
+  css-text-decoration</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # word-break プロパティ
 
