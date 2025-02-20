@@ -141,19 +141,12 @@ text-align プロパティは、要素の行揃えを設定するプロパティ
 
 使用例
 
-```
-<p style="text-align:left"   >あいうえおかきくけこさしすせそ</p>
-<p style="text-align:right"  >あいうえおかきくけこさしすせそ</p>
-<p style="text-align:center" >あいうえおかきくけこさしすせそ</p>
-```
-
-表示例
-
-<hr>
-<p style="text-align:left"   >あいうえおかきくけこさしすせそ</p>
-<p style="text-align:right"  >あいうえおかきくけこさしすせそ</p>
-<p style="text-align:center" >あいうえおかきくけこさしすせそ</p>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="EaxKVvO" data-pen-title="css-text-align" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/EaxKVvO">
+  css-text-align</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # vertical-align プロパティ
 
