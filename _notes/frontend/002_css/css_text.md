@@ -165,26 +165,12 @@ vertical-align プロパティは、行の中での文字の縦方向の揃え�
 
 使用例
 
-```
-<div>
-<span style="font-size:30px">a</span>
-<span style="font-size:10px;vertical-align:baseline">bcde</span>
-<span style="font-size:10px;vertical-align:top">fghi</span>
-<span style="font-size:10px;vertical-align:middle">jklm</span>
-<span style="font-size:10px;vertical-align:bottom">nopq</span>
-</div>
-```
-
-表示例
-
-<div>
-<span style="font-size:30px">a</span>
-<span style="font-size:10px;vertical-align:baseline">bcde</span>
-<span style="font-size:10px;vertical-align:top">fghi</span>
-<span style="font-size:10px;vertical-align:middle">jklm</span>
-<span style="font-size:10px;vertical-align:bottom">nopq</span>
-</div>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="xbxVwXB" data-pen-title="css-vertical-align" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/xbxVwXB">
+  css-vertical-align</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # line-height プロパティ
 
