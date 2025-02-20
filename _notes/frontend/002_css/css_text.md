@@ -119,17 +119,12 @@ white-space プロパティは、「連続する空白文字を１つにまと�
 
 使用例
 
-```
-<p style="white-space:normal"  >  あ    い  う  え  お  か  き  く  け  こ  </p>
-<p style="white-space:pre-wrap">  あ    い  う  え  お  か  き  く  け  こ  </p>
-```
-
-表示例
-
-<hr>
-<p style="white-space:normal"  >  あ    い  う  え  お  か  き  く  け  こ  </p>
-<p style="white-space:pre-wrap">  あ    い  う  え  お  か  き  く  け  こ  </p>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="jEOqbwG" data-pen-title="css-white-spaces" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/jEOqbwG">
+  css-white-spaces</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # text-align プロパティ
 
