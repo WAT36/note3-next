@@ -303,15 +303,9 @@ unicode-bidi プロパティは、Unicode の文字表記の方向を上書き�
 
 使用例
 
-```
-<p style="direction:ltr">How are you?<p>
-<p style="direction:rtl">I do my best.<p>
-<p style="direction:rtl;unicode-bidi:bidi-override">I will pass html5 proffesinal certification examination.<p>
-```
-
-表示例
-
-<p style="direction:ltr">How are you?<p>
-<p style="direction:rtl">I do my best.<p>
-<p style="direction:rtl;unicode-bidi:bidi-override">I will pass html5 proffesinal certification examination.<p>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="VYwaRRY" data-pen-title="css-unicode-bidi" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/VYwaRRY">
+  css-unicode-bidi</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
