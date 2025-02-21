@@ -72,18 +72,12 @@ font-size プロパティは、フォントサイズを設定するプロパテ�
 
 使用例
 
-```
-<p style="font-size:xx-small;">xx-small</p>
-<p style="font-size:medium;">medium</p>
-<p style="font-size:xx-large;">xx-large</p>
-```
-
-表示例
-
-<p style="font-size:xx-small;">xx-small</p>
-<p style="font-size:medium;">medium</p>
-<p style="font-size:xx-large;">xx-large</p>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="gbOryLR" data-pen-title="css-font-size" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/gbOryLR">
+  css-font-size</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # font-weight プロパティ
 
