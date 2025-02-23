@@ -93,29 +93,12 @@ padding 関連のプロパティに設定する値は以下の通り。
 
 使用例
 
-```
-<hr>
-<p style="background-color: #66ff99; padding: 10px;">パディング上下左右10px</p>
-<hr>
-<p style="background-color: #66ff99; padding: 10px 20px;">パディング上下10px、左右20px</p>
-<hr>
-<p style="background-color: #66ff99; padding: 10px 20px 30px;">パディング上10px、左右20px、下30px</p>
-<hr>
-<p style="background-color: #66ff99; padding: 10px 20px 30px 40px;">パディング上10px、右20px、下30px、左40px</p>
-<hr>
-```
-
-表示例
-
-<hr>
-<p style="background-color: #66ff99; padding: 10px;">パディング上下左右10px</p>
-<hr>
-<p style="background-color: #66ff99; padding: 10px 20px;">パディング上下10px、左右20px</p>
-<hr>
-<p style="background-color: #66ff99; padding: 10px 20px 30px;">パディング上10px、左右20px、下30px</p>
-<hr>
-<p style="background-color: #66ff99; padding: 10px 20px 30px 40px;">パディング上10px、右20px、下30px、左40px</p>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="VYwjzXK" data-pen-title="css-box-padding" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/VYwjzXK">
+  css-box-padding</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # ボーダー関連のプロパティ
 
