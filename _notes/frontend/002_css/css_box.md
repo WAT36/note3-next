@@ -131,34 +131,12 @@ padding 関連のプロパティに設定する値は以下の通り。
 
 使用例
 
-```html
-<table style="border-style:double dotted dashed groove">
-  <tr>
-    <td>border-style</td>
-  </tr>
-</table>
-<br />
-<table style="border-style:double; border-width:thin medium thick">
-  <tr>
-    <td>border-width</td>
-  </tr>
-</table>
-```
-
-表示例
-
-<table style="border-style:double dotted dashed groove">
-    <tr>
-        <td>border-style</td>
-    </tr>
-</table>
-<br>
-<table style="border-style:double; border-width:thin medium thick">
-    <tr>
-        <td>border-width</td>
-    </tr>
-</table>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="zxYBXBe" data-pen-title="css-box-border" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/zxYBXBe">
+  css-box-border</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # ボックス関連のプロパティ
 
