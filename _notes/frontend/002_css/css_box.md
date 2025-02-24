@@ -216,36 +216,12 @@ float プロパティは、ボックスを左または右に寄せて配置し�
 
 使用例
 
-```
-<img src="/assets/note/frontend/css/img_small.jpg" style="float:left">
-<p style="background-color: #66ff99;">p要素ボックス左</p>
-<p style="background-color: #66ff99;">←左に画像</p>
-<br>
-<br>
-<br>
-<img src="/assets/note/frontend/css/img_small.jpg" style="float:right">
-<p style="background-color: #66ff99;">p要素ボックス右</p>
-<p style="background-color: #66ff99;">右に画像→</p>
-<br>
-<br>
-<br>
-```
-
-表示例
-
-<img src="/assets/note/frontend/css/img_small.jpg" style="float:left">
-<p style="background-color: #66ff99;">p要素ボックス左</p>
-<p style="background-color: #66ff99;">←左に画像</p>
-<br>
-<br>
-<br>
-<img src="/assets/note/frontend/css/img_small.jpg" style="float:right">
-<p style="background-color: #66ff99;">p要素ボックス右</p>
-<p style="background-color: #66ff99;">右に画像→</p>
-<br>
-<br>
-<br>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="vEYKMpX" data-pen-title="css-float" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/vEYKMpX">
+  css-float</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## clear プロパティ
 
