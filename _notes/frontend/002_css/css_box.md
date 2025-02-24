@@ -195,50 +195,12 @@ border-radius プロパティは、ボックスの角を丸くするプロパテ
 
 使用例
 
-```html
-<p style="background-color: #66ff99; height:50px; box-shadow:10px">p 右10px</p>
-<br />
-<p style="background-color: #66ff99; height:50px; box-shadow:10px 10px">
-  p 右下10px
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="azbZxJr" data-pen-title="css-box-shadow" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/azbZxJr">
+  css-box-shadow</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-<br />
-<p style="background-color: #66ff99; height:50px; box-shadow:10px 10px 10px">
-  p 右下10px, ぼかし10px
-</p>
-<br />
-<p
-  style="background-color: #66ff99; height:50px; box-shadow:10px 10px 10px 10px"
->
-  p 右下10px, ぼかし10px, 四方10px
-</p>
-<br />
-<p
-  style="background-color: #66ff99; height:50px; box-shadow:10px 10px 10px 10px #663399"
->
-  p 右下10px, ぼかし10px, 四方10px
-</p>
-<br />
-<p
-  style="background-color: #66ff99; height:50px; box-shadow:10px 10px 10px 10px inset"
->
-  p 右下10px, ぼかし10px, 四方10px
-</p>
-```
-
-表示例
-
-<p style="background-color: #66ff99; height:50px; box-shadow:10px">p 右10px</p>
-<br>
-<p style="background-color: #66ff99; height:50px; box-shadow:10px 10px">p 右下10px</p>
-<br>
-<p style="background-color: #66ff99; height:50px; box-shadow:10px 10px 10px">p 右下10px, ぼかし10px</p>
-<br>
-<p style="background-color: #66ff99; height:50px; box-shadow:10px 10px 10px 10px">p 右下10px, ぼかし10px, 四方10px</p>
-<br>
-<p style="background-color: #66ff99; height:50px; box-shadow:10px 10px 10px 10px #663399">p 右下10px, ぼかし10px, 四方10px</p>
-<br>
-<p style="background-color: #66ff99; height:50px; box-shadow:10px 10px 10px 10px inset">p 右下10px, ぼかし10px, 四方10px</p>
-<hr>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## float プロパティ
 
