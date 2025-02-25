@@ -238,28 +238,12 @@ clear プロパティは、float プロパティで寄せられたボックス�
 
 使用例
 
-```
-<img src="/assets/note/frontend/css/img_small.jpg" style="float:left">
-<p style="background-color: #66ff99">p要素ボックス右<br>←左に画像</p>
-<p style="clear:none">clearを指定しないと後続の要素も回り込みます</p>
-<br>
-<br>
-<img src="/assets/note/frontend/css/img_small.jpg" style="float:left">
-<p style="background-color: #66ff99">p要素ボックス右<br>←左に画像</p>
-<p style="clear:left">clearを指定すると後続の要素は回り込みません</p>
-```
-
-表示例
-
-<img src="/assets/note/frontend/css/img_small.jpg" style="float:left">
-<p style="background-color: #66ff99">p要素ボックス右<br>←左に画像</p>
-<p style="clear:none">clearを指定しないと後続の要素も回り込みます</p>
-<br>
-<br>
-<img src="/assets/note/frontend/css/img_small.jpg" style="float:left">
-<p style="background-color: #66ff99">p要素ボックス右<br>←左に画像</p>
-<p style="clear:left">clearを指定すると後続の要素は回り込みません</p>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="NPWRwXG" data-pen-title="css-clear" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/NPWRwXG">
+  css-clear</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## display プロパティ
 
