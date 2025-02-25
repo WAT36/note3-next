@@ -294,60 +294,12 @@ visiblity プロパティは、ボックスが透明になったかのように�
 
 使用例
 
-```
-<p>下に画像３個、２個目をhiddenさせる</p>
-<img src="/assets/note/frontend/css/img_small.jpg" style="display:inline">
-<img src="/assets/note/frontend/css/img_small.jpg" style="display:inline; visibility:hidden">
-<img src="/assets/note/frontend/css/img_small.jpg" style="display:inline">
-<br>
-<br>
-<p>表</p>
-<table style="border:none;">
-    <tr>
-        <td style="border:none;">0,0</td>
-        <td style="border:none; visibility:collapse">1,0</td>
-        <td style="border:none;">2,0</td>
-    </tr>
-    <tr>
-        <td style="border:none; visibility:collapse">0,1</td>
-        <td style="border:none;">1,1</td>
-        <td style="border:none; visibility:collapse">2,1</td>
-    </tr>
-    <tr>
-        <td style="border:none;">0,2</td>
-        <td style="border:none; visibility:collapse">1,2</td>
-        <td style="border:none;">2,2</td>
-    </tr>
-</table>
-```
-
-表示例
-
-<p>下に画像３個、２個目をhiddenさせる</p>
-<img src="/assets/note/frontend/css/img_small.jpg" style="display:inline">
-<img src="/assets/note/frontend/css/img_small.jpg" style="display:inline; visibility:hidden">
-<img src="/assets/note/frontend/css/img_small.jpg" style="display:inline">
-<br>
-<br>
-<p>表</p>
-<table style="border:none;">
-    <tr>
-        <td style="border:none;">0,0</td>
-        <td style="border:none; visibility:collapse">1,0</td>
-        <td style="border:none;">2,0</td>
-    </tr>
-    <tr>
-        <td style="border:none; visibility:collapse">0,1</td>
-        <td style="border:none;">1,1</td>
-        <td style="border:none; visibility:collapse">2,1</td>
-    </tr>
-    <tr>
-        <td style="border:none;">0,2</td>
-        <td style="border:none; visibility:collapse">1,2</td>
-        <td style="border:none;">2,2</td>
-    </tr>
-</table>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="emYdeME" data-pen-title="css-visibility" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/emYdeME">
+  css-visibility</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## overflow プロパティ
 
