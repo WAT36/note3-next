@@ -102,91 +102,12 @@ transition-duration プロパティは、トランジションをどれほどの
 
 使用例(css)
 
-```html
-<style type="text/css">
-  div.duration {
-    border-style: double;
-    height: 100px;
-    width: 100px;
-    padding: 0px;
-    margin: 0px;
-  }
-
-  p.duration-sample1 {
-    background-color: red;
-    width: 100px;
-    height: 100px;
-    padding: 0px;
-    margin: 0px;
-    transition-property: transform;
-    transition-duration: 5s;
-  }
-
-  p.duration-sample1:hover {
-    transform: rotate(360deg);
-  }
-
-  p.duration-sample2 {
-    background-color: red;
-    width: 100px;
-    height: 100px;
-    padding: 0px;
-    margin: 0px;
-    transition-property: background-color;
-    transition-duration: 5s;
-  }
-
-  p.duration-sample2:active {
-    background-color: yellow;
-  }
-</style>
-<div class="duration">
-  <p class="duration-sample1">カーソル乗せると一回転！</p>
-</div>
-<br />
-<div class="duration">
-  <p class="duration-sample2">クリックしたままで色変化！</p>
-</div>
-```
-
-表示例
-
-<style type="text/css">
-div.duration {
-    border-style: double; height: 100px; width: 100px; 
-    padding: 0px; margin:0px
-}
-
-p.duration-sample1 {
-    background-color:red; width:100px; height:100px; 
-    padding:0px; margin:0px; 
-    transition-property: transform;
-    transition-duration: 5s;
-}
-
-p.duration-sample1:hover{
-    transform:rotate(360deg);
-}
-
-p.duration-sample2 {
-    background-color:red; width:100px; height:100px; 
-    padding:0px; margin:0px; 
-    transition-property: background-color;
-    transition-duration: 5s;
-}
-
-p.duration-sample2:active{
-    background-color:yellow;
-}
-</style>
-<div class="duration">
-<p class="duration-sample1">カーソル乗せると一回転！</p>
-</div>
-<br>
-<div class="duration">
-    <p class="duration-sample2">クリックしたままで色変化！</p>
-</div>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="PwobPbL" data-pen-title="css-transition-property-duration" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/PwobPbL">
+  css-transition-property-duration</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## transition-timing-function プロパティ
 
