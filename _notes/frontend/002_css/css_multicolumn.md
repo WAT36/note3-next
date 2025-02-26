@@ -34,28 +34,12 @@ column-width プロパティは、段の幅を指定するプロパティであ�
 
 使用例
 
-```
-<p style="background-color: #66ff99; width:700px; height:300px; column-width: 100px;">
-祇園精舍の鐘の声、諸行無常の響きあり。
-娑羅双樹の花の色、盛者必衰の理をあらはす。
-おごれる人も久しからず、ただ春の夜の夢のごとし。
-猛き者もつひには滅びぬ、ひとへに風の前の塵に同じ。
-遠く異朝をとぶらへば、秦の趙高、漢の王莽、梁の朱忌、唐の祿山、これらは皆旧主先皇の政にも従はず、樂しみをきはめ、諌めをも思ひ入れず、天下の乱れん事を悟らずして、民間の愁ふるところを知らざつしかば、久しからずして、亡じにし者どもなり。
-近く本朝をうかがふに、承平の将門、天慶の純友、康和の義親、平治の信頼、これらはおごれる心も猛き事も、皆とりどりにこそありしかども、ま近くは、六波羅の入道前太政大臣平朝臣清盛公と申しし人のありさま、伝えへ承るこそ、心もことばも及ばれね。
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="raNMEoY" data-pen-title="css-column-width" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/raNMEoY">
+  css-column-width</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-```
-
-表示例
-
-<p style="background-color: #66ff99; width:700px; height:300px; column-width: 100px;">
-祇園精舍の鐘の声、諸行無常の響きあり。
-娑羅双樹の花の色、盛者必衰の理をあらはす。
-おごれる人も久しからず、ただ春の夜の夢のごとし。
-猛き者もつひには滅びぬ、ひとへに風の前の塵に同じ。
-遠く異朝をとぶらへば、秦の趙高、漢の王莽、梁の朱忌、唐の祿山、これらは皆旧主先皇の政にも従はず、樂しみをきはめ、諌めをも思ひ入れず、天下の乱れん事を悟らずして、民間の愁ふるところを知らざつしかば、久しからずして、亡じにし者どもなり。
-近く本朝をうかがふに、承平の将門、天慶の純友、康和の義親、平治の信頼、これらはおごれる心も猛き事も、皆とりどりにこそありしかども、ま近くは、六波羅の入道前太政大臣平朝臣清盛公と申しし人のありさま、伝えへ承るこそ、心もことばも及ばれね。
-</p>
-<hr>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # columns プロパティ
 
