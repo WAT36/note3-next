@@ -69,28 +69,12 @@ transform-origin プロパティは、transform プロパティでボックス�
 
 使用例
 
-```
-<div style="border-style: double; height: 100px; width: 100px; padding: 0px; margin:0px">
-<p style="background-color:red; width:95px; height:95px; padding:0px; margin:0px; transform:rotate(45deg);">center center(デフォルト)を中心に45度回転</p>
-</div>
-<br>
-<br>
-<div style="border-style: double; height: 100px; width: 100px; padding: 0px; margin:0px">
-<p style="background-color:red; width:95px; height:95px; padding:0px; margin:0px; transform:rotate(45deg); transform-origin:right bottom;">right bottom(右下)を中心に45度回転</p>
-</div>
-```
-
-表示例
-
-<div style="border-style: double; height: 100px; width: 100px; padding: 0px; margin:0px">
-<p style="background-color:red; width:95px; height:95px; padding:0px; margin:0px; transform:rotate(45deg);">center center(デフォルト)を中心に45度回転</p>
-</div>
-<br>
-<br>
-<div style="border-style: double; height: 100px; width: 100px; padding: 0px; margin:0px">
-<p style="background-color:red; width:95px; height:95px; padding:0px; margin:0px; transform:rotate(45deg); transform-origin:right bottom;">right bottom(右下)を中心に45度回転</p>
-</div>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="MYWbayy" data-pen-title="css-transform-origin" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/MYWbayy">
+  css-transform-origin</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # トランジション
 
