@@ -125,87 +125,12 @@ transition-timing-function プロパティは、トランジションの速度�
 
 使用例
 
-```html
-<style type="text/css">
-  div.timing {
-    border-style: double;
-    height: 100px;
-    width: 100px;
-    padding: 0px;
-    margin: 0px;
-  }
-
-  p.timing1 {
-    background-color: red;
-    width: 100px;
-    height: 100px;
-    padding: 0px;
-    margin: 0px;
-    transition-property: transform;
-    transition-duration: 5s;
-    transition-timing-function: ease;
-  }
-
-  p.timing2 {
-    background-color: red;
-    width: 100px;
-    height: 100px;
-    padding: 0px;
-    margin: 0px;
-    transition-property: transform;
-    transition-duration: 5s;
-    transition-timing-function: linear;
-  }
-
-  p[class^="timing"]:hover {
-    transform: rotate(360deg);
-  }
-</style>
-<div class="timing">
-  <p class="timing1">カーソル乗せると一回転！(ease)</p>
-</div>
-<br />
-<div class="timing">
-  <p class="timing2">カーソル乗せると一回転！(linear)</p>
-</div>
-```
-
-表示例
-
-<style type="text/css">
-div.timing {
-    border-style: double; height: 100px; width: 100px; 
-    padding: 0px; margin:0px
-}
-
-p.timing1 {
-    background-color:red; width:100px; height:100px; 
-    padding:0px; margin:0px; 
-    transition-property: transform;
-    transition-duration: 5s;
-    transition-timing-function: ease;
-}
-
-p.timing2 {
-    background-color:red; width:100px; height:100px; 
-    padding:0px; margin:0px; 
-    transition-property: transform;
-    transition-duration: 5s;
-    transition-timing-function: linear;
-}
-
-p[class^="timing"]:hover{
-    transform:rotate(360deg);
-}
-</style>
-<div class="timing">
-<p class="timing1">カーソル乗せると一回転！(ease)</p>
-</div>
-<br>
-<div class="timing">
-<p class="timing2">カーソル乗せると一回転！(linear)</p>
-</div>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="YPzpyZj" data-pen-title="css-transition-timing-function" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/YPzpyZj">
+  css-transition-timing-function</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## transition-delay プロパティ
 
