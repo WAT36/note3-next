@@ -60,24 +60,12 @@ column-gap プロパティは、段の間隔を設定するプロパティであ
 
 使用例
 
-```
-<p style="background-color: #66ff99; width:700px; height:100px; overflow:hidden; column-count:2; column-gap:100px">
-祇園精舍の鐘の声、諸行無常の響きあり。
-娑羅双樹の花の色、盛者必衰の理をあらはす。
-おごれる人も久しからず、ただ春の夜の夢のごとし。
-猛き者もつひには滅びぬ、ひとへに風の前の塵に同じ。
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="azbmevR" data-pen-title="css-column-gap" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/azbmevR">
+  css-column-gap</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-```
-
-表示例
-
-<p style="background-color: #66ff99; width:700px; height:100px; overflow:hidden; column-count:2; column-gap:100px">
-祇園精舍の鐘の声、諸行無常の響きあり。
-娑羅双樹の花の色、盛者必衰の理をあらはす。
-おごれる人も久しからず、ただ春の夜の夢のごとし。
-猛き者もつひには滅びぬ、ひとへに風の前の塵に同じ。
-</p>
-<hr>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # column-rule プロパティ
 
