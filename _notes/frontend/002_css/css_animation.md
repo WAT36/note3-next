@@ -232,88 +232,12 @@ animation-timing-function プロパティは、トランジションの時と同
 
 使用例
 
-```html
-<style type="text/css">
-  @keyframes key1 {
-    0% {
-      transform: translate(0px, 0px);
-    }
-
-    25% {
-      transform: translate(200px, 0px) rotate(90deg);
-    }
-
-    50% {
-      transform: translate(200px, 200px) rotate(180deg);
-    }
-
-    75% {
-      transform: translate(0px, 200px) rotate(270deg);
-    }
-
-    100% {
-      transform: translate(0px, 0px) rotate(360deg);
-    }
-  }
-
-  p.timing-function {
-    width: 100px;
-    height: 100px;
-    padding: 0px;
-    margin: 0px;
-    background-color: red;
-    animation-name: key1;
-    animation-duration: 30s;
-    animation-timing-function: linear;
-  }
-</style>
-<p class="timing-function">一回転！（一回のみ）</p>
-```
-
-表示例
-
-<style type="text/css">
-@keyframes key1 {
-    0%{
-        transform: translate(0px,0px);
-    }
-
-    25%{
-        transform: translate(200px,0px) rotate(90deg);
-    }
-
-    50%{
-        transform: translate(200px,200px) rotate(180deg);
-    }
-
-    75%{
-        transform: translate(0px,200px) rotate(270deg);
-    }
-
-    100%{
-        transform: translate(0px,0px) rotate(360deg);
-    }
-}
-
-p.timing-function {
-    width:100px; height:100px; 
-    padding:0px; margin:0px; 
-    background-color:red; 
-    animation-name: key1; 
-    animation-duration: 30s; 
-    animation-timing-function: linear;
-}
-
-</style>
-<p class="timing-function">一回転！（一回のみ）</p>
-
-<style type="text/css">
-    p.after-animation-space {
-        height:200px;
-    }
-</style>
-<p class="after-animation-space"></p>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="xbxRJBW" data-pen-title="css-animation-timing-function" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/xbxRJBW">
+  css-animation-timing-function</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## animation-delay プロパティ
 
