@@ -140,85 +140,12 @@ transition-delay プロパティは、トランジションの開始を遅らせ
 
 使用例
 
-```html
-<style type="text/css">
-  div.delay {
-    border-style: double;
-    height: 100px;
-    width: 100px;
-    padding: 0px;
-    margin: 0px;
-  }
-
-  p.delay1 {
-    background-color: red;
-    width: 100px;
-    height: 100px;
-    padding: 0px;
-    margin: 0px;
-    transition-property: transform;
-    transition-duration: 5s;
-  }
-
-  p.delay2 {
-    background-color: red;
-    width: 100px;
-    height: 100px;
-    padding: 0px;
-    margin: 0px;
-    transition-property: transform;
-    transition-duration: 5s;
-    transition-delay: 3s;
-  }
-
-  p[class^="delay"]:hover {
-    transform: rotate(360deg);
-  }
-</style>
-<div class="delay">
-  <p class="delay1">カーソル乗せると一回転！</p>
-</div>
-<br />
-<div class="delay">
-  <p class="delay2">カーソル乗せると３秒後に一回転！</p>
-</div>
-```
-
-表示例
-
-<style type="text/css">
-div.delay {
-    border-style: double; height: 100px; width: 100px; 
-    padding: 0px; margin:0px
-}
-
-p.delay1 {
-    background-color:red; width:100px; height:100px; 
-    padding:0px; margin:0px; 
-    transition-property: transform;
-    transition-duration: 5s;
-}
-
-p.delay2 {
-    background-color:red; width:100px; height:100px; 
-    padding:0px; margin:0px; 
-    transition-property: transform;
-    transition-duration: 5s;
-    transition-delay: 3s;
-}
-
-p[class^="delay"]:hover{
-    transform:rotate(360deg);
-}
-</style>
-<div class="delay">
-<p class="delay1">カーソル乗せると一回転！</p>
-</div>
-<br>
-<div class="delay">
-    <p class="delay2">カーソル乗せると３秒後に一回転！</p>
-</div>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="PwobByr" data-pen-title="css-transition-delay" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/PwobByr">
+  css-transition-delay</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## transition プロパティ
 
