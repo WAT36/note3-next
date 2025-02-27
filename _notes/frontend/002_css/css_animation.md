@@ -155,39 +155,12 @@ transition プロパティは、これまでの transition 関連のプロパテ
 
 使用例
 
-```html
-<style type="text/css">
-  p.transition {
-    background-color: red;
-    width: 100px;
-    height: 100px;
-    padding: 0px;
-    margin: 0px;
-    transition: transform 5s linear;
-  }
-
-  p.transition:hover {
-    transform: rotate(360deg);
-  }
-</style>
-<p class="transition">カーソル乗せると一回転！(linear)</p>
-```
-
-表示例
-
-<style type="text/css">
-p.transition {
-    background-color:red; width:100px; height:100px; 
-    padding:0px; margin:0px; 
-    transition: transform 5s linear;
-}
-
-p.transition:hover{
-    transform:rotate(360deg);
-}
-</style>
-<p class="transition">カーソル乗せると一回転！(linear)</p>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="dPyOjQq" data-pen-title="css-transition" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/dPyOjQq">
+  css-transition</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # アニメーション
 
