@@ -178,7 +178,7 @@ CSS のアニメーションでは、いつのタイミングでどのような�
 
 その後にまた中括弧{}を書いて囲み、その中に動作させる内容を記載させる、と言う書式である。
 
-```
+```css
 @keyframe (キーフレームの名前) {
 
     0% {
@@ -209,85 +209,12 @@ animation-duration プロパティは、アニメーションの再生時間を�
 
 使用例
 
-```html
-<style type="text/css">
-  @keyframes key1 {
-    0% {
-      background-color: red;
-    }
-
-    20% {
-      background-color: yellow;
-    }
-
-    40% {
-      background-color: green;
-    }
-
-    60% {
-      background-color: blue;
-    }
-
-    80% {
-      background-color: purple;
-    }
-
-    100% {
-      background-color: red;
-    }
-  }
-
-  p.animation-duration {
-    width: 100px;
-    height: 100px;
-    padding: 0px;
-    margin: 0px;
-    animation-name: key1;
-    animation-duration: 30s;
-  }
-</style>
-<p class="animation-duration">色変化！（一回のみ）</p>
-```
-
-表示例
-
-<style type="text/css">
-@keyframes key1 {
-    0%{
-        background-color:red; 
-    }
-
-    20%{
-        background-color:yellow; 
-    }
-
-    40%{
-        background-color:green; 
-    }
-
-    60%{
-        background-color:blue; 
-    }
-
-    80%{
-        background-color:purple; 
-    }
-
-    100%{
-        background-color:red; 
-    }
-}
-
-p.animation-duration {
-    width:100px; height:100px; 
-    padding:0px; margin:0px; 
-    animation-name: key1; 
-    animation-duration: 30s; 
-}
-</style>
-<p class="animation-duration">色変化！（一回のみ）</p>
-<p class="after-animation-space"></p>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="WbNoKPQ" data-pen-title="css-animation-duration" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/WbNoKPQ">
+  css-animation-duration</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## animation-timing-function プロパティ
 
