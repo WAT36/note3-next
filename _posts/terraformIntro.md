@@ -29,3 +29,30 @@ Terraform の主な特徴として、以下の 3 つが挙げられます：
 3. べき等性の保証
    Terraform は「べき等性」を保証する強力な状態管理機能を備えています。
    Terraform は現在の状態と理想の状態を比較し、必要な変更のみを実行します。これにより、安全で予測可能なインフラ変更が可能になります。
+
+# 環境構築
+
+Terraform を使用するための環境構築を行っていきましょう。必要なツールをインストールします。
+
+## Terraform のインストール
+
+macOS の場合では、homebrew を利用して以下のようにインストールします。
+
+```bash
+brew install terraform
+```
+
+他 OS の場合はここでは割愛しますが、公式ページのインストール[^2]の欄にありますのでそちらをご参考ください。
+
+インストール後、次のコマンドで正しくインストールされたか確認します：
+
+```bash
+terraform --version
+```
+
+バージョンが出力されればインストールは行えています。
+
+---
+
+[^1]: [Terraform(公式ページ)](https://www.terraform.io/)
+[^2]: [Install Terraform(公式ページ)](https://developer.hashicorp.com/terraform/install)
