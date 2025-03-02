@@ -327,105 +327,12 @@ animation-fill-mode プロパティは、animation-delay プロパティによ�
 
 使用例
 
-```html
-<style type="text/css">
-  @keyframes key1 {
-    0% {
-      background-color: black;
-      color: white;
-      transform: translate(0px, 0px);
-    }
-
-    25% {
-      background-color: red;
-      color: white;
-      transform: translate(200px, 0px) rotate(90deg);
-    }
-
-    50% {
-      background-color: yellow;
-      color: white;
-      transform: translate(200px, 200px) rotate(180deg);
-    }
-
-    75% {
-      background-color: green;
-      color: white;
-      transform: translate(0px, 200px) rotate(270deg);
-    }
-
-    100% {
-      background-color: white;
-      color: black;
-      transform: translate(0px, 0px) rotate(360deg);
-    }
-  }
-
-  p.fill-mode {
-    width: 100px;
-    height: 100px;
-    padding: 0px;
-    margin: 0px;
-    animation-name: key1;
-    animation-duration: 10s;
-    animation-timing-function: linear;
-    animation-delay: 10s;
-    animation-fill-mode: both;
-  }
-</style>
-<p class="fill-mode">10秒後に開始・最後は白ボックスのまま</p>
-```
-
-表示例
-
-<style type="text/css">
-
-@keyframes key1 {
-    0%{
-        background-color: black;
-        color: white;
-        transform: translate(0px,0px);
-    }
-
-    25%{
-        background-color: red;
-        color: white;
-        transform: translate(200px,0px) rotate(90deg);
-    }
-
-    50%{
-        background-color: yellow;
-        color: white;
-        transform: translate(200px,200px) rotate(180deg);
-    }
-
-    75%{
-        background-color: green;
-        color: white;
-        transform: translate(0px,200px) rotate(270deg);
-    }
-
-    100%{
-        background-color: white;
-        color: black;
-        transform: translate(0px,0px) rotate(360deg);
-    }
-}
-
-p.fill-mode {
-    width:100px; height:100px; 
-    padding:0px; margin:0px; 
-    animation-name: key1; 
-    animation-duration: 10s; 
-    animation-timing-function: linear;
-    animation-delay: 10s;
-    animation-fill-mode: both;
-}
-
-</style>
-<p class="fill-mode">10秒後に開始・最後は白ボックスのまま</p>
-<p class="after-animation-space"></p>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="PwoWrWa" data-pen-title="animation-fill-mode" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/PwoWrWa">
+  animation-fill-mode</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## animation プロパティ
 
