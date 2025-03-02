@@ -342,83 +342,9 @@ animation プロパティは、これまでのアニメーション関連のプ�
 
 使用例
 
-```html
-<style type="text/css">
-  @keyframes key1 {
-    0% {
-      background-color: white;
-      transform: translate(0px, 0px);
-    }
-
-    25% {
-      background-color: red;
-      transform: translate(200px, 0px) rotate(90deg);
-    }
-
-    50% {
-      background-color: yellow;
-      transform: translate(200px, 200px) rotate(180deg);
-    }
-
-    75% {
-      background-color: green;
-      transform: translate(0px, 200px) rotate(270deg);
-    }
-
-    100% {
-      background-color: white;
-      transform: translate(0px, 0px) rotate(360deg);
-    }
-  }
-
-  p.animation {
-    width: 100px;
-    height: 100px;
-    padding: 0px;
-    margin: 0px;
-    animation: key1 10s linear 10s infinite;
-  }
-</style>
-<p class="animation">10秒後に開始して無限に一回転</p>
-```
-
-表示例
-
-<style type="text/css">
-
-@keyframes key1 {
-    0%{
-        background-color: white;
-        transform: translate(0px,0px);
-    }
-
-    25%{
-        background-color: red;
-        transform: translate(200px,0px) rotate(90deg);
-    }
-
-    50%{
-        background-color: yellow;
-        transform: translate(200px,200px) rotate(180deg);
-    }
-
-    75%{
-        background-color: green;
-        transform: translate(0px,200px) rotate(270deg);
-    }
-
-    100%{
-        background-color: white;
-        transform: translate(0px,0px) rotate(360deg);
-    }
-}
-
-p.animation {
-    width:100px; height:100px; 
-    padding:0px; margin:0px; 
-    animation: key1 10s linear 10s infinite;
-}
-</style>
-<p class="animation">10秒後に開始して無限に一回転</p>
-<p class="after-animation-space"></p>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="LEYxKWy" data-pen-title="css-animation" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/LEYxKWy">
+  css-animation</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
