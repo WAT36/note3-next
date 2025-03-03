@@ -66,30 +66,12 @@ radial-gradient(at 中心の位置,中心の色,外側の色)
 
 使用例
 
-```html
-<style type="text/css">
-  p.radial-gradient {
-    width: 300px;
-    height: 300px;
-    padding: 0px;
-    margin: 0px;
-    background-image: radial-gradient(at bottom, blue, red);
-  }
-</style>
-<p class="radial-gradient">radial-gradientの例</p>
-```
-
-表示例
-
-<style type="text/css">
-p.radial-gradient {
-    width:300px; height:300px; 
-    padding:0px; margin:0px;
-    background-image:radial-gradient(at bottom,blue,red);
-}
-</style>
-<p class="radial-gradient">radial-gradientの例</p>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="KwKWaZj" data-pen-title="css-radial-gradient" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/KwKWaZj">
+  css-radial-gradient</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # リスト関連のプロパティ
 
