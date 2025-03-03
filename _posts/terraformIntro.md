@@ -58,6 +58,17 @@ terraform --version
 
 なお、Terraform で AWS リソースを作成するには、CDK と同じく AWS CLI やアカウントの設定が必要なので注意すること。そちらの設定は以前の CDK の記事に記載しているので、そちらを参照ください。設定してない人は事前に設定まで済ませておいてください。
 
+## Terraform プロジェクトの作成と初期化
+
+### 1. プロジェクトの準備
+
+まず、作業用のディレクトリを作成します。
+
+```bash
+mkdir terraform-aws-practice
+cd terraform-aws-practice
+```
+
 ---
 
 [^1]: [Terraform(公式ページ)](https://www.terraform.io/)
