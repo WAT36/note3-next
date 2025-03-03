@@ -101,34 +101,12 @@ list-style-type プロパティは、リストの行頭記号の種類を設定�
 
 使用例
 
-```html
-<ul style="list-style-type:circle">
-  <li>その１</li>
-  <li>その２</li>
-  <li>その３</li>
-</ul>
-<br />
-<ul style="list-style-type:lower-greek">
-  <li>その１</li>
-  <li>その２</li>
-  <li>その３</li>
-</ul>
-```
-
-表示例
-
-<ul style="list-style-type:circle">
-<li>その１</li>
-<li>その２</li>
-<li>その３</li>
-</ul>
-<br>
-<ul style="list-style-type:lower-greek">
-<li>その１</li>
-<li>その２</li>
-<li>その３</li>
-</ul>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="XJWMpEd" data-pen-title="css-list-style-type" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/XJWMpEd">
+  css-list-style-type</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## list-style-image プロパティ
 
