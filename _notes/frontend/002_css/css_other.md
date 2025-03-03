@@ -154,21 +154,12 @@ list-style プロパティは、前述の list-style 系のプロパティの値
 
 使用例
 
-```html
-<ul style="list-style:lower-greek inside">
-  <li>その１</li>
-  <li>その２</li>
-  <li>その３</li>
-</ul>
-```
-
-表示例
-
-<ul style="list-style:lower-greek inside">
-<li>その１</li>
-<li>その２</li>
-<li>その３</li>
-</ul>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="XJWMaee" data-pen-title="css-list-style" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/XJWMaee">
+  css-list-style</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # テーブル関連のプロパティ
 
