@@ -203,36 +203,12 @@ border-spacing プロパティは、テーブルにおいて隣接するセル�
 
 使用例
 
-```html
-<table style="border-collapse: separate;border-spacing: 2px">
-  <caption>
-    separate 2px
-  </caption>
-  <tr>
-    <td style="border: solid 1px;">0,0</td>
-    <td style="border: solid 1px;">1,0</td>
-  </tr>
-  <tr>
-    <td style="border: solid 1px;">0,1</td>
-    <td style="border: solid 1px;">1,1</td>
-  </tr>
-</table>
-```
-
-表示例
-
-<table style="border-collapse: separate;border-spacing: 2px">
-    <caption>separate 2px</caption>
-    <tr>
-        <td style="border: solid 1px;">0,0</td>
-        <td style="border: solid 1px;">1,0</td>
-    </tr>
-    <tr>
-        <td style="border: solid 1px;">0,1</td>
-        <td style="border: solid 1px;">1,1</td>
-    </tr>
-</table>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="xbxqLYj" data-pen-title="css-border-spacing" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/xbxqLYj">
+  css-border-spacing</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## empty-cells プロパティ
 
