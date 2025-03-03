@@ -218,38 +218,12 @@ empty-cells プロパティは、テーブルのセルが空白の時にボー�
 
 使用例
 
-```html
-<table
-  style="border-collapse: separate;border-spacing: 2px; empty-cells: show;"
->
-  <caption>
-    separate 2px
-  </caption>
-  <tr>
-    <td style="border: solid 1px;">0,0</td>
-    <td style="border: solid 1px;"></td>
-  </tr>
-  <tr>
-    <td style="border: solid 1px;"></td>
-    <td style="border: solid 1px;">1,1</td>
-  </tr>
-</table>
-```
-
-表示例
-
-<table style="border-collapse: separate;border-spacing: 2px; empty-cells: show;">
-    <caption>separate 2px</caption>
-    <tr>
-        <td style="border: solid 1px;">0,0</td>
-        <td style="border: solid 1px;"></td>
-    </tr>
-    <tr>
-        <td style="border: solid 1px;"></td>
-        <td style="border: solid 1px;">1,1</td>
-    </tr>
-</table>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="KwKWvoN" data-pen-title="css-empty-cells" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/KwKWvoN">
+  css-empty-cells</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # 内容を追加するプロパティ
 
