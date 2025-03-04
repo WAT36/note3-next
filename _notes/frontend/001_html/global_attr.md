@@ -74,20 +74,14 @@ dir 属性は、要素のテキストを表示する方向を定義する属性�
 
 要素をドラッグして範囲選択すると、選択した時の方向が異なる。
 
-(入力例)
+(使用例)
 
-```
-<h3 dir="ltr">日本語</h3>
-
-<h3 dir="rtl">アラビア語</h3>
-```
-
-(出力例)
-
-<h3 dir="ltr">日本語</h3>
-
-<h3 dir="rtl">アラビア語</h3>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="jEOBjRg" data-pen-title="html-dir" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/jEOBjRg">
+  html-dir</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # tabindex 属性
 
