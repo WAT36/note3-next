@@ -248,24 +248,12 @@ content プロパティでは、擬似要素:before、:after を利用して要�
 
 使用例
 
-```html
-<style type="text/css">
-  p.content::before {
-    content: "「contentプロパティで挿入された文字です」";
-  }
-</style>
-<p class="content">ここはp要素の内容です</p>
-```
-
-表示例
-
-<style type="text/css">
-p.content::before {
-    content:"「contentプロパティで挿入された文字です」";
-}
-</style>
-<p class="content">ここはp要素の内容です</p>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="wBvJLQR" data-pen-title="css-content" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/wBvJLQR">
+  css-content</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## quotes プロパティ
 
