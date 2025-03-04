@@ -263,26 +263,12 @@ quotes プロパティは、q 要素または content プロパティで引用�
 
 使用例
 
-```html
-<style type="text/css">
-  q.quotes {
-    quotes: "->->" "<-<-";
-  }
-</style>
-<q class="quotes">ここはq要素で囲まれています</q>
-```
-
-表示例
-
-<style type="text/css">
-q.quotes {
-    quotes:"->->" "<-<-";
-}
-</style>
-
-<q class="quotes">ここは q 要素で囲まれています</q>
-
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="JojWQwW" data-pen-title="css-quotes" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/JojWQwW">
+  css-quotes</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## counter-reset プロパティ
 
