@@ -58,9 +58,7 @@ terraform --version
 
 なお、Terraform で AWS リソースを作成するには、CDK と同じく AWS CLI やアカウントの設定が必要なので注意すること。そちらの設定は以前の CDK の記事に記載しているので、そちらを参照ください。設定してない人は事前に設定まで済ませておいてください。
 
-## Terraform プロジェクトの作成と初期化
-
-### 1. プロジェクトの準備
+## 1. プロジェクトの準備
 
 まず、作業用のディレクトリを作成します。
 
@@ -68,6 +66,40 @@ terraform --version
 mkdir terraform-aws-practice
 cd terraform-aws-practice
 ```
+
+## 2. Terraform の初期化
+
+最初に、設定ファイル `main.tf` を作ります。
+
+```bash
+touch main.tf
+```
+
+このファイルを開いて、AWS S3 バケットを作成する Terraform コードを書きます。
+
+```hcl
+provider "aws" {
+  region = "ap-northeast-1"  # 利用したいAWSリージョン
+}
+
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "my-unique-bucket-name-12345"  # グローバルに一意な名前を指定
+  acl    = "private"  # バケットのアクセス制御（private, public-read など）
+
+  tags = {
+    Name        = "MyS3Bucket"
+    Environment = "Dev"
+  }
+}
+
+```
+
+**ポイント**
+
+- `provider "aws"` で AWS プロバイダーを指定
+- `aws_s3_bucket` リソースを定義し、`bucket` でバケット名を指定
+- `acl` でアクセス制御を設定（デフォルトは `"private"`）
+- `tags` でタグを設定（任意）
 
 ---
 
