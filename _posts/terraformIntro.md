@@ -101,6 +101,144 @@ resource "aws_s3_bucket" "my_bucket" {
 - `acl` でアクセス制御を設定（デフォルトは `"private"`）
 - `tags` でタグを設定（任意）
 
+## **3. Terraform の初期設定**
+
+Terraform の初期設定を行います。
+
+```bash
+terraform init
+```
+
+このコマンドは以下の処理を行います：
+
+- 必要なプロバイダーのダウンロード
+  `provider "aws"` などで指定された**プロバイダーのプラグイン** をダウンロードし、`.terraform/` ディレクトリに保存します。HashiCorp の Terraform Registry からプロバイダープラグインをダウンロードします。
+  Terraform が使用する**プラグインのバージョンを固定** するための `terraform.lock.hcl` を作成します。
+  これにより、異なる環境（例: チーム開発）でも**同じバージョンのプラグイン**を使うことが保証されます。
+- バックエンドの初期化
+  `backend "s3"` や `backend "remote"` が設定されている場合、そのストレージの接続を初期化します。
+  例: S3 バックエンドを使う場合`terraform init` を実行すると、リモートバックエンドの設定が有効化され、ローカルの `terraform.tfstate` ではなく S3 上に保存されるようになります。
+
+```hcl
+terraform {
+  backend "s3" {
+    bucket = "my-terraform-state-bucket"
+    key    = "terraform.tfstate"
+    region = "us-east-1"
+  }
+}
+
+```
+
+`terraform init` を実行すると、Terraform Registry から `terraform-aws-modules/s3-bucket/aws` のバージョン `3.3.0` が `.terraform/modules/` にダウンロードされます。
+
+- 作業ディレクトリの準備
+  `.terraform/` というフォルダを作成し、プロバイダーのプラグインや設定情報を格納します。**これを GitHub にアップロードする必要はありません**（`.gitignore` に追加推奨）。
+
+## **4. 設定の確認**
+
+次に、`main.tf`により作成されるリソースを確認します。
+
+```bash
+terraform plan
+```
+
+このコマンドにより、現在の `.tf` ファイル（例: `main.tf`）の内容を解析し、どのリソースを作成・変更・削除する必要があるかを判定します。
+
+その後、**現在の状態 (`terraform.tfstate`)** と **コード (`.tf` ファイル)** を比較し、**どのリソースが変更されるかを決定** します。
+
+変更がなければ `"No changes. Your infrastructure matches the configuration."` と表示されます。
+
+初回の場合、問題なければ以下のような出力が得られるはずです。
+
+```bash
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_s3_bucket.my_bucket will be created
+  + resource "aws_s3_bucket" "my_bucket" {
+      + acceleration_status         = (known after apply)
+      + acl                         = "private"
+      + arn                         = (known after apply)
+      + bucket                      = "my-terraformm-testbucket"
+      + bucket_domain_name          = (known after apply)
+      + bucket_prefix               = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + object_lock_enabled         = (known after apply)
+      + policy                      = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + tags                        = {
+          + "Environment" = "Dev"
+          + "Name"        = "MyS3Bucket"
+        }
+      + tags_all                    = {
+          + "Environment" = "Dev"
+          + "Name"        = "MyS3Bucket"
+        }
+      + website_domain              = (known after apply)
+      + website_endpoint            = (known after apply)
+    }
+
+```
+
+## **5. リソース作成**
+
+実際に S3 バケットを作成します。
+
+```bash
+terraform apply -auto-approve
+```
+
+→ `-auto-approve` を付けると確認なしで適用。
+
+`terraform apply`コマンドでは、現在の `.tf` ファイル（例: `main.tf`）の内容をもとにリソースの作成を行います。
+
+（厳密には、作成前に先述の`terraform plan`コマンドを実行して現状との差分を確認し、その結果を出力してリソースの作成を行うかの選択を求められます。それでも OK な場合にリソースが作成されます。—auto-approve オプションをつけることでこの選択は求められずにリソース作成が行われます。）
+
+また、変更が完了すると `terraform.tfstate` ファイルが更新され、Terraform が管理するリソースの最新情報が保存される。
+
+これにより、次回の `terraform plan` 実行時に、新しい `terraform.tfstate` と `.tf` の差分が比較される。
+
+## **6. 作成したリソースの確認**
+
+作成された S3 バケットを確認。
+
+```bash
+aws s3 ls
+```
+
+問題なければ、S3 バケットが作成されているはずです！
+
+## **7: バケットを削除（不要になった場合）**
+
+Terraform で作成した S3 バケットを削除するには、以下を実行します。
+
+```bash
+terraform destroy -auto-approve
+```
+
+`terraform destroy` は `terraform plan` を内部的に実行し、Terraform が管理するすべてのリソースを削除する計画を作成します。
+
+デフォルトでは、削除前に確認メッセージが表示されますが、同じく-auto-approve オプションをつけると確認なしで削除が行われます。
+
+完了すると、`terraform.tfstate` からリソース情報が削除される。
+
+# おわりに
+
+今回は Terraform を導入し、簡単な例として AWS に S3 バケットを作ってみた。
+
+これ以外にも Terraform では多彩な AWS のリソースを作成可能だし、AWS 以外のクラウドに対してもリソース作成が可能である。
+
+今回は簡単な例でそこまでの例を出せてはないが、今後 Terraform の方にも慣れてリソース作成にをやってみたいと思う。
+
+また、もっと進んだ応用例も引き続きこちらに書いていきたいと考えている。
+
 ---
 
 [^1]: [Terraform(公式ページ)](https://www.terraform.io/)
