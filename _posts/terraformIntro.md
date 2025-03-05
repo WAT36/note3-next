@@ -18,45 +18,45 @@ ogImage:
 
 # Terraform とは
 
-Terraform[^1]は、HashiCorp 社が開発したオープンソースのインフラストラクチャ管理ツールです。クラウドリソースをコードで定義し、自動的に構築できる「Infrastructure as Code（IaC）」を実現します。
+Terraform[^1]は、HashiCorp 社が開発したオープンソースのインフラストラクチャ管理ツールである。クラウドリソースをコードで定義し、自動的に構築できる「Infrastructure as Code（IaC）」を実現する。
 
-Terraform の主な特徴として、以下の 3 つが挙げられます：
+Terraform の主な特徴として、以下の 3 つが挙げられる。
 
 1. 複数のプロバイダーに対応
-   AWS だけでなく、GCP、Azure、その他多くのクラウドプロバイダーに対応しています。マルチクラウド環境でも同じ書き方でインフラを定義できます。
+   AWS だけでなく、GCP、Azure、その他多くのクラウドプロバイダーに対応しており、マルチクラウド環境でも同じ書き方でインフラを定義することが可能です。
 2. HCL（HashiCorp Configuration Language）
-   Terraform は独自の設定言語である HCL を使用します。JSON に似た書き方ですが、より人間が読みやすい形式で、変数やモジュールなどの機能も備えています。
+   Terraform は独自の設定言語である HCL を使用する。JSON に似た書き方ですが、より人間が読みやすい形式で、変数やモジュールなどの機能も備えている。
 3. べき等性の保証
-   Terraform は「べき等性」を保証する強力な状態管理機能を備えています。
-   Terraform は現在の状態と理想の状態を比較し、必要な変更のみを実行します。これにより、安全で予測可能なインフラ変更が可能になります。
+   Terraform は「べき等性」を保証する強力な状態管理機能を備えている。
+   Terraform は現在の状態と理想の状態を比較し、必要な変更のみを実行する。これにより、安全で予測可能なインフラ変更が可能となる。
 
 # 環境構築
 
-Terraform を使用するための環境構築を行っていきましょう。必要なツールをインストールします。
+Terraform を使用するための環境構築を行ってみる。必要なツールをインストールします。
 
 ## Terraform のインストール
 
-macOS の場合では、homebrew を利用して以下のようにインストールします。
+macOS の場合では、homebrew を利用して以下のようにインストールする。
 
 ```bash
 brew install terraform
 ```
 
-他 OS の場合はここでは割愛しますが、公式ページのインストール[^2]の欄にありますのでそちらをご参考ください。
+他 OS の場合はここでは割愛するが、公式ページのインストール[^2]の欄にあるのでそちらをご参考ください。
 
-インストール後、次のコマンドで正しくインストールされたか確認します：
+インストール後、次のコマンドで正しくインストールされたか確認します。
 
 ```bash
 terraform --version
 ```
 
-バージョンが出力されればインストールは行えています。
+バージョンが出力されれば、インストールは行えています。
 
-# 実践ハンズオン：Terraform で AWS リソースを作成する
+# 実践ハンズオン：Terraform で AWS S3 バケットを作成する
 
-準備が整ったところで、今回は実際に Terraform を使って AWS リソースを作成していきましょう。今回は基本的な S3 バケットと EC2 インスタンスの作成を通じて、Terraform の使い方を学びます。
+準備が整ったところで、今回は実際に Terraform を使って AWS リソースを作成してみましょう。今回は基本的な S3 バケットの作成を通じて、Terraform の使い方を学びます。
 
-なお、Terraform で AWS リソースを作成するには、CDK と同じく AWS CLI やアカウントの設定が必要なので注意すること。そちらの設定は以前の CDK の記事に記載しているので、そちらを参照ください。設定してない人は事前に設定まで済ませておいてください。
+なお、Terraform で AWS リソースを作成するには、CDK と同じく AWS CLI やアカウントの設定が必要なので注意。そちらの設定は以前の CDK の記事に記載しているので、そちらを参照ください。設定してない人は事前に設定のこと。
 
 ## 1. プロジェクトの準備
 
@@ -67,9 +67,11 @@ mkdir terraform-aws-practice
 cd terraform-aws-practice
 ```
 
+ディレクトリ名は何でも構いません。
+
 ## 2. Terraform の初期化
 
-最初に、設定ファイル `main.tf` を作ります。
+作業用ディレクトリに移動した後、最初に設定ファイル `main.tf` を作ります。
 
 ```bash
 touch main.tf
@@ -101,9 +103,9 @@ resource "aws_s3_bucket" "my_bucket" {
 - `acl` でアクセス制御を設定（デフォルトは `"private"`）
 - `tags` でタグを設定（任意）
 
-## **3. Terraform の初期設定**
+## 3. Terraform の初期設定
 
-Terraform の初期設定を行います。
+main.tf を作成後に、Terraform の初期設定を行います。
 
 ```bash
 terraform init
@@ -117,7 +119,8 @@ terraform init
   これにより、異なる環境（例: チーム開発）でも**同じバージョンのプラグイン**を使うことが保証されます。
 - バックエンドの初期化
   `backend "s3"` や `backend "remote"` が設定されている場合、そのストレージの接続を初期化します。
-  例: S3 バックエンドを使う場合`terraform init` を実行すると、リモートバックエンドの設定が有効化され、ローカルの `terraform.tfstate` ではなく S3 上に保存されるようになります。
+
+例: S3 バックエンドを使う場合`terraform init` を実行すると、リモートバックエンドの設定が有効化され、ローカルの `terraform.tfstate` ではなく S3 上に保存されるようになります。
 
 ```hcl
 terraform {
@@ -127,10 +130,9 @@ terraform {
     region = "us-east-1"
   }
 }
-
 ```
 
-`terraform init` を実行すると、Terraform Registry から `terraform-aws-modules/s3-bucket/aws` のバージョン `3.3.0` が `.terraform/modules/` にダウンロードされます。
+`terraform init` を実行すると、Terraform Registry から `terraform-aws-modules/s3-bucket/aws` が `.terraform/modules/` にダウンロードされます。
 
 - 作業ディレクトリの準備
   `.terraform/` というフォルダを作成し、プロバイダーのプラグインや設定情報を格納します。**これを GitHub にアップロードする必要はありません**（`.gitignore` に追加推奨）。
@@ -147,7 +149,7 @@ terraform plan
 
 その後、**現在の状態 (`terraform.tfstate`)** と **コード (`.tf` ファイル)** を比較し、**どのリソースが変更されるかを決定** します。
 
-変更がなければ `"No changes. Your infrastructure matches the configuration."` と表示されます。
+変更がない場合は `"No changes. Your infrastructure matches the configuration."` と表示されます。
 
 初回の場合、問題なければ以下のような出力が得られるはずです。
 
@@ -201,13 +203,13 @@ terraform apply -auto-approve
 
 （厳密には、作成前に先述の`terraform plan`コマンドを実行して現状との差分を確認し、その結果を出力してリソースの作成を行うかの選択を求められます。それでも OK な場合にリソースが作成されます。—auto-approve オプションをつけることでこの選択は求められずにリソース作成が行われます。）
 
-また、変更が完了すると `terraform.tfstate` ファイルが更新され、Terraform が管理するリソースの最新情報が保存される。
+また、変更が完了すると `terraform.tfstate` ファイルが更新され、Terraform が管理するリソースの最新情報が保存されます。
 
-これにより、次回の `terraform plan` 実行時に、新しい `terraform.tfstate` と `.tf` の差分が比較される。
+これにより、次回の `terraform plan` 実行時に、新しい `terraform.tfstate` と `.tf` の差分が比較されます。
 
 ## **6. 作成したリソースの確認**
 
-作成された S3 バケットを確認。
+作成された S3 バケットを確認します。
 
 ```bash
 aws s3 ls
@@ -227,15 +229,15 @@ terraform destroy -auto-approve
 
 デフォルトでは、削除前に確認メッセージが表示されますが、同じく-auto-approve オプションをつけると確認なしで削除が行われます。
 
-完了すると、`terraform.tfstate` からリソース情報が削除される。
+完了すると、`terraform.tfstate` からリソース情報が削除されます。
 
 # おわりに
 
-今回は Terraform を導入し、簡単な例として AWS に S3 バケットを作ってみた。
+今回は Terraform を導入し、簡単な例として AWS に S3 バケットを作ってみました。
 
-これ以外にも Terraform では多彩な AWS のリソースを作成可能だし、AWS 以外のクラウドに対してもリソース作成が可能である。
+これ以外にも Terraform では多彩な AWS のリソースを作成可能ですし、AWS 以外のクラウドに対してもリソース作成が可能です。
 
-今回は簡単な例でそこまでの例を出せてはないが、今後 Terraform の方にも慣れてリソース作成にをやってみたいと思う。
+今回は簡単な例でそこまでの例を出せてはいませんが、今後 Terraform の方にも慣れてリソース作成にをやってみたいと思う。
 
 また、もっと進んだ応用例も引き続きこちらに書いていきたいと考えている。
 
