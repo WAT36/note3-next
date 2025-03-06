@@ -1,7 +1,7 @@
 ---
 title: "Terraformを始めてみた"
 excerpt: ""
-coverImage: ""
+coverImage: "/assets/posts/terraformIntro/terraformLogo.png"
 date: "2025-02-22T12:53:29.000Z"
 updatedAt: "2025-02-22T12:53:29.000Z"
 tag: []
