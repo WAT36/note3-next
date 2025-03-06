@@ -1,5 +1,5 @@
 ---
-title: "Terraformを始めてみた"
+title: "TerraformでAWSリソースを作成する"
 excerpt: ""
 coverImage: "/assets/posts/terraformIntro/terraformLogo.png"
 date: "2025-02-22T12:53:29.000Z"
@@ -23,7 +23,7 @@ Terraform[^1]は、HashiCorp 社が開発したオープンソースのインフ
 Terraform の主な特徴として、以下の 3 つが挙げられる。
 
 1. 複数のプロバイダーに対応
-   AWS だけでなく、GCP、Azure、その他多くのクラウドプロバイダーに対応しており、マルチクラウド環境でも同じ書き方でインフラを定義することが可能です。
+   AWS だけでなく、GCP、Azure、その他多くのクラウドプロバイダーに対応しており、マルチクラウド環境でも同じ書き方でインフラを定義することが可能。
 2. HCL（HashiCorp Configuration Language）
    Terraform は独自の設定言語である HCL を使用する。JSON に似た書き方ですが、より人間が読みやすい形式で、変数やモジュールなどの機能も備えている。
 3. べき等性の保証
@@ -32,7 +32,7 @@ Terraform の主な特徴として、以下の 3 つが挙げられる。
 
 # 環境構築
 
-Terraform を使用するための環境構築を行ってみる。必要なツールをインストールします。
+Terraform を使用するための環境構築を行ってみる。
 
 ## Terraform のインストール
 
@@ -56,7 +56,7 @@ terraform --version
 
 準備が整ったところで、今回は実際に Terraform を使って AWS リソースを作成してみましょう。今回は基本的な S3 バケットの作成を通じて、Terraform の使い方を学びます。
 
-なお、Terraform で AWS リソースを作成するには、CDK と同じく AWS CLI やアカウントの設定が必要なので注意。そちらの設定は以前の CDK の記事に記載しているので、そちらを参照ください。設定してない人は事前に設定のこと。
+なお、Terraform で AWS リソースを作成するには、CDK と同じく AWS CLI やアカウントの設定が必要なので注意。設定方法は以前の CDK の記事に記載しているので、そちらを参照ください。設定してない人は事前に設定のこと。
 
 ## 1. プロジェクトの準備
 
@@ -93,7 +93,6 @@ resource "aws_s3_bucket" "my_bucket" {
     Environment = "Dev"
   }
 }
-
 ```
 
 **ポイント**
@@ -118,7 +117,9 @@ terraform init
   Terraform が使用する**プラグインのバージョンを固定** するための `terraform.lock.hcl` を作成します。
   これにより、異なる環境（例: チーム開発）でも**同じバージョンのプラグイン**を使うことが保証されます。
 - バックエンドの初期化
-  `backend "s3"` や `backend "remote"` が設定されている場合、そのストレージの接続を初期化します。
+  後述しますが、terraform では現在デプロイされているリソースの情報を保存・管理に`terraform.tfstate`というファイルを利用しています。
+  デフォルトではローカル環境(`local`)に保存しますが、クラウドなどリモート環境に保存することもできます。
+  例えば`backend "s3"` や `backend "remote"` が設定されている場合、そのストレージの接続を初期化します。
 
 例: S3 バックエンドを使う場合`terraform init` を実行すると、リモートバックエンドの設定が有効化され、ローカルの `terraform.tfstate` ではなく S3 上に保存されるようになります。
 
@@ -132,7 +133,7 @@ terraform {
 }
 ```
 
-`terraform init` を実行すると、Terraform Registry から `terraform-aws-modules/s3-bucket/aws` が `.terraform/modules/` にダウンロードされます。
+これで`terraform init` を実行すると、Terraform Registry から `terraform-aws-modules/s3-bucket/aws` が `.terraform/modules/` にダウンロードされます。
 
 - 作業ディレクトリの準備
   `.terraform/` というフォルダを作成し、プロバイダーのプラグインや設定情報を格納します。**これを GitHub にアップロードする必要はありません**（`.gitignore` に追加推奨）。
@@ -203,7 +204,9 @@ terraform apply -auto-approve
 
 （厳密には、作成前に先述の`terraform plan`コマンドを実行して現状との差分を確認し、その結果を出力してリソースの作成を行うかの選択を求められます。それでも OK な場合にリソースが作成されます。—auto-approve オプションをつけることでこの選択は求められずにリソース作成が行われます。）
 
-また、変更が完了すると `terraform.tfstate` ファイルが更新され、Terraform が管理するリソースの最新情報が保存されます。
+また、変更が完了すると `terraform.tfstate` ファイルが更新（ない場合は作成）され、Terraform が管理するリソースの最新情報が保存されます。
+
+（この`terraform.tfstate`ファイルも、**GitHub にアップロードする必要はありません**（`.gitignore` に追加推奨）。）
 
 これにより、次回の `terraform plan` 実行時に、新しい `terraform.tfstate` と `.tf` の差分が比較されます。
 
@@ -237,7 +240,7 @@ terraform destroy -auto-approve
 
 これ以外にも Terraform では多彩な AWS のリソースを作成可能ですし、AWS 以外のクラウドに対してもリソース作成が可能です。
 
-今回は簡単な例でそこまでの例を出せてはいませんが、今後 Terraform の方にも慣れてリソース作成にをやってみたいと思う。
+今回は簡単な例でそこまでの例を出せてはいませんが、今後 Terraform の方にも慣れていきたく思う。
 
 また、もっと進んだ応用例も引き続きこちらに書いていきたいと考えている。
 
