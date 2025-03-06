@@ -71,22 +71,12 @@ blockquote 要素は、その部分が引用してきた要素であることを
 
 引用元を示したいときは cite 属性(及び cite 要素)を利用して示す。
 
-```
-<blockquote>
-<p>引用文１</p>
-<p>引用文２</p>
-<p>引用文３</p>
-</blockquote>
-```
-
-表示例
-
-<blockquote>
-<p>引用文１</p>
-<p>引用文２</p>
-<p>引用文３</p>
-</blockquote>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="wBvevey" data-pen-title="html-blockquote" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/wBvevey">
+  html-blockquote</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # q 要素
 
