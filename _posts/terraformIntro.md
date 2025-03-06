@@ -121,7 +121,7 @@ terraform init
   デフォルトではローカル環境(`local`)に保存しますが、クラウドなどリモート環境に保存することもできます。
   例えば`backend "s3"` や `backend "remote"` が設定されている場合、そのストレージの接続を初期化します。
 
-例: S3 バックエンドを使う場合`terraform init` を実行すると、リモートバックエンドの設定が有効化され、ローカルの `terraform.tfstate` ではなく S3 上に保存されるようになります。
+例: 以下のような設定値で `terraform init` を実行すると、リモートバックエンドの設定が有効化され、ローカルの `terraform.tfstate` ではなく S3 上に保存されるようになります。
 
 ```hcl
 terraform {
@@ -132,8 +132,6 @@ terraform {
   }
 }
 ```
-
-これで`terraform init` を実行すると、Terraform Registry から `terraform-aws-modules/s3-bucket/aws` が `.terraform/modules/` にダウンロードされます。
 
 - 作業ディレクトリの準備
   `.terraform/` というフォルダを作成し、プロバイダーのプラグインや設定情報を格納します。**これを GitHub にアップロードする必要はありません**（`.gitignore` に追加推奨）。
@@ -198,7 +196,7 @@ Terraform will perform the following actions:
 terraform apply -auto-approve
 ```
 
-→ `-auto-approve` を付けると確認なしで適用。
+→ `-auto-approve` を付けると確認なしで適用されます。（本番環境など重要なリソースを扱うときは誤操作リスクが高まるので、注意してご利用ください）
 
 `terraform apply`コマンドでは、現在の `.tf` ファイル（例: `main.tf`）の内容をもとにリソースの作成を行います。
 
@@ -234,15 +232,28 @@ terraform destroy -auto-approve
 
 完了すると、`terraform.tfstate` からリソース情報が削除されます。
 
+## 補足：.gitignore
+
+これまで手順の中でも何個か出て言及しましたが、Terraform の設定・実行で作成されるファイルの中には機密情報が含まれるものもあるため、git などを利用して管理する場合はこれらを git 等のリポジトリに push しないようにする必要があります。
+
+そのためには.gitignore ファイルに git の管理から除くファイルを記載しておくのが便利です。
+
+参考までに、Terraform を利用する上での.gitignore ファイルの例を以下に記載しておきます。
+
+```
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
+```
+
 # おわりに
 
 今回は Terraform を導入し、簡単な例として AWS に S3 バケットを作ってみました。
 
 これ以外にも Terraform では多彩な AWS のリソースを作成可能ですし、AWS 以外のクラウドに対してもリソース作成が可能です。
 
-今回は簡単な例でそこまでの例を出せてはいませんが、今後 Terraform の方にも慣れていきたく思う。
-
-また、もっと進んだ応用例も引き続きこちらに書いていきたいと考えている。
+今回は簡単な例でそこまでの例を出せてはいませんが、今後 Terraform の方にも慣れていきたく思います。ゆくゆくは別の例も今後載せていきたいです。
 
 ---
 
