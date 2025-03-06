@@ -89,29 +89,14 @@ tabindex 属性は、Tab キーを押した時のフォーカスの移動順序�
 
 1 以上の値を指定した場合はその値の順番通りに移動し、０を指定した場合は要素が出現する順番通りに移動する。
 
-(入力例)
+(使用例、Tab を押すと数字の順番通りに移動する)
 
-```
-３：<input type="text" tabindex="3">
-<br>
-１：<input type="text" tabindex="1">
-<br>
-２：<input type="text" tabindex="2">
-<br>
-４：<input type="text" tabindex="4">
-```
-
-(出力例、Tab を押すと数字の順番通りに移動する)
-
-３：<input type="text" tabindex="3">
-<br>
-１：<input type="text" tabindex="1">
-<br>
-２：<input type="text" tabindex="2">
-<br>
-４：<input type="text" tabindex="4">
-
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="RNwgwrG" data-pen-title="html-tabindex" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/RNwgwrG">
+  html-tabindex</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # dropzone 属性
 
