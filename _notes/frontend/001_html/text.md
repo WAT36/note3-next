@@ -56,16 +56,12 @@ strong 要素は重要性、重大性、緊急性が高いテキストを示す�
 
 ブラウザにもよるが strong 要素で囲まれた部分は通常太字になって表示される。しかし、ただ太字にするためにこの要素を使うのはやめた方が良い。
 
-```
-<p>左方向は通行可能</p>
-<p>右方向は<strong>立入禁止</strong></p>
-```
-
-表示例
-
-<p>左方向は通行可能</p>
-<p>右方向は<strong>立入禁止</strong></p>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="gbOROWR" data-pen-title="html-strong" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/gbOROWR">
+  html-strong</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # blockquote 要素
 
