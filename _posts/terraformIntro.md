@@ -18,14 +18,14 @@ ogImage:
 
 # Terraform とは
 
-Terraform[^1]は、HashiCorp 社が開発したオープンソースのインフラストラクチャ管理ツールである。クラウドリソースをコードで定義し、自動的に構築できる「Infrastructure as Code（IaC）」を実現する。
+Terraform[^1]は、HashiCorp 社が開発したオープンソースのインフラストラクチャ管理ツールである。クラウドリソースをコードで定義し、自動的に構築できる「Infrastructure as Code (IaC)」を実現する。
 
 Terraform の主な特徴として、以下の 3 つが挙げられる。
 
 1. 複数のプロバイダーに対応
    AWS だけでなく、GCP、Azure、その他多くのクラウドプロバイダーに対応しており、マルチクラウド環境でも同じ書き方でインフラを定義することが可能。
-2. HCL（HashiCorp Configuration Language）
-   Terraform は独自の設定言語である HCL を使用する。JSON に似た書き方ですが、より人間が読みやすい形式で、変数やモジュールなどの機能も備えている。
+2. HCL(HashiCorp Configuration Language)
+   Terraform は独自の設定言語である HCL を使用する。JSON に似た書き方だが、より人間が読みやすい形式で、変数やモジュールなどの機能も備えている。
 3. べき等性の保証
    Terraform は「べき等性」を保証する強力な状態管理機能を備えている。
    Terraform は現在の状態と理想の状態を比較し、必要な変更のみを実行する。これにより、安全で予測可能なインフラ変更が可能となる。
@@ -56,7 +56,7 @@ terraform --version
 
 準備が整ったところで、今回は実際に Terraform を使って AWS リソースを作成してみましょう。今回は基本的な S3 バケットの作成を通じて、Terraform の使い方を学びます。
 
-なお、Terraform で AWS リソースを作成するには、CDK と同じく AWS CLI やアカウントの設定が必要なので注意。設定方法は以前の CDK の記事に記載しているので、そちらを参照ください。設定してない人は事前に設定のこと。
+なお、Terraform で AWS リソースを作成するには、CDK と同じく AWS CLI やアカウントの設定が必要なので注意しましょう。設定方法は以前の CDK の記事に記載しているので、そちらを参照してください。
 
 ## 1. プロジェクトの準備
 
@@ -86,7 +86,7 @@ provider "aws" {
 
 resource "aws_s3_bucket" "my_bucket" {
   bucket = "my-unique-bucket-name-12345"  # グローバルに一意な名前を指定
-  acl    = "private"  # バケットのアクセス制御（private, public-read など）
+  acl    = "private"  # バケットのアクセス制御(private, public-read など)
 
   tags = {
     Name        = "MyS3Bucket"
@@ -99,8 +99,8 @@ resource "aws_s3_bucket" "my_bucket" {
 
 - `provider "aws"` で AWS プロバイダーを指定
 - `aws_s3_bucket` リソースを定義し、`bucket` でバケット名を指定
-- `acl` でアクセス制御を設定（デフォルトは `"private"`）
-- `tags` でタグを設定（任意）
+- `acl` でアクセス制御を設定(デフォルトは `"private"`)
+- `tags` でタグを設定(任意)
 
 ## 3. Terraform の初期設定
 
@@ -115,7 +115,7 @@ terraform init
 - 必要なプロバイダーのダウンロード
   `provider "aws"` などで指定された**プロバイダーのプラグイン** をダウンロードし、`.terraform/` ディレクトリに保存します。HashiCorp の Terraform Registry からプロバイダープラグインをダウンロードします。
   Terraform が使用する**プラグインのバージョンを固定** するための `terraform.lock.hcl` を作成します。
-  これにより、異なる環境（例: チーム開発）でも**同じバージョンのプラグイン**を使うことが保証されます。
+  これにより、異なる環境(例: チーム開発)でも**同じバージョンのプラグイン**を使うことが保証されます。
 - バックエンドの初期化
   後述しますが、terraform では現在デプロイされているリソースの情報を保存・管理に`terraform.tfstate`というファイルを利用しています。
   デフォルトではローカル環境(`local`)に保存しますが、クラウドなどリモート環境に保存することもできます。
@@ -134,7 +134,7 @@ terraform {
 ```
 
 - 作業ディレクトリの準備
-  `.terraform/` というフォルダを作成し、プロバイダーのプラグインや設定情報を格納します。**これを GitHub にアップロードする必要はありません**（`.gitignore` に追加推奨）。
+  `.terraform/` というフォルダを作成し、プロバイダーのプラグインや設定情報を格納します。**これを GitHub にアップロードする必要はありません** (`.gitignore` に追加推奨)。
 
 ## **4. 設定の確認**
 
@@ -144,7 +144,7 @@ terraform {
 terraform plan
 ```
 
-このコマンドにより、現在の `.tf` ファイル（例: `main.tf`）の内容を解析し、どのリソースを作成・変更・削除する必要があるかを判定します。
+このコマンドにより、現在の `.tf` ファイル(例: `main.tf`)の内容を解析し、どのリソースを作成・変更・削除する必要があるかを判定します。
 
 その後、**現在の状態 (`terraform.tfstate`)** と **コード (`.tf` ファイル)** を比較し、**どのリソースが変更されるかを決定** します。
 
@@ -163,7 +163,7 @@ Terraform will perform the following actions:
       + acceleration_status         = (known after apply)
       + acl                         = "private"
       + arn                         = (known after apply)
-      + bucket                      = "my-terraformm-testbucket"
+      + bucket                      = "my-terraform-testbucket"
       + bucket_domain_name          = (known after apply)
       + bucket_prefix               = (known after apply)
       + bucket_regional_domain_name = (known after apply)
@@ -196,15 +196,15 @@ Terraform will perform the following actions:
 terraform apply -auto-approve
 ```
 
-→ `-auto-approve` を付けると確認なしで適用されます。（本番環境など重要なリソースを扱うときは誤操作リスクが高まるので、注意してご利用ください）
+→ `-auto-approve` を付けると確認なしで適用されます。(本番環境など重要なリソースを扱うときは誤操作リスクが高まるので、注意してご利用ください)
 
-`terraform apply`コマンドでは、現在の `.tf` ファイル（例: `main.tf`）の内容をもとにリソースの作成を行います。
+`terraform apply`コマンドでは、現在の `.tf` ファイル(例: `main.tf`)の内容をもとにリソースの作成を行います。
 
-（厳密には、作成前に先述の`terraform plan`コマンドを実行して現状との差分を確認し、その結果を出力してリソースの作成を行うかの選択を求められます。それでも OK な場合にリソースが作成されます。—auto-approve オプションをつけることでこの選択は求められずにリソース作成が行われます。）
+(厳密には、作成前に先述の`terraform plan`コマンドを実行して現状との差分を確認し、その結果を出力してリソースの作成を行うかの選択を求められます。それでも OK な場合にリソースが作成されます。—auto-approve オプションをつけることでこの選択は求められずにリソース作成が行われます。)
 
-また、変更が完了すると `terraform.tfstate` ファイルが更新（ない場合は作成）され、Terraform が管理するリソースの最新情報が保存されます。
+また、変更が完了すると `terraform.tfstate` ファイルが更新(ない場合は作成)され、Terraform が管理するリソースの最新情報が保存されます。
 
-（この`terraform.tfstate`ファイルも、**GitHub にアップロードする必要はありません**（`.gitignore` に追加推奨）。）
+(この`terraform.tfstate`ファイルも、**GitHub にアップロードする必要はありません**(`.gitignore` に追加推奨)。)
 
 これにより、次回の `terraform plan` 実行時に、新しい `terraform.tfstate` と `.tf` の差分が比較されます。
 
@@ -218,7 +218,7 @@ aws s3 ls
 
 問題なければ、S3 バケットが作成されているはずです！
 
-## **7: バケットを削除（不要になった場合）**
+## **7: バケットを削除(不要になった場合)**
 
 Terraform で作成した S3 バケットを削除するには、以下を実行します。
 
@@ -253,7 +253,7 @@ terraform.tfstate.backup
 
 これ以外にも Terraform では多彩な AWS のリソースを作成可能ですし、AWS 以外のクラウドに対してもリソース作成が可能です。
 
-今回は簡単な例でそこまでの例を出せてはいませんが、今後 Terraform の方にも慣れていきたく思います。ゆくゆくは別の例も今後載せていきたいです。
+今回は簡単な例でそこまでの例を出せてはいませんが、今後 Terraform の方にも慣れていきたく、またゆくゆくは別の例も載せていければと思っています。
 
 ---
 
