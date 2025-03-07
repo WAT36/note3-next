@@ -127,20 +127,14 @@ small 要素は注釈・注記のような、欄外に示すような細かい�
 
 例としては著作権(Copyright)や免責事項など。
 
-```
-<p>
-    以上である。
-    <small>©️ 2020 Tatsuroh Wakasugi.</small>
-</p>
-```
+使用例
 
-表示例
-
-<p>
-    以上である。
-    <small>©️ 2020 Tatsuroh Wakasugi.</small>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="vEYZjYe" data-pen-title="html-small" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/vEYZjYe">
+  html-small</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-<hr>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # data 要素
 
