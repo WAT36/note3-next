@@ -112,18 +112,14 @@ cite 要素は、引用元や参照先を示すための要素である。
 
 mark 要素はある部分を目立たせたいときに使用する要素である。マーカーで線を引くようなもの。
 
-```
-<p>
-645年、中大兄皇子が<mark>大化の改新</mark>を行った。
-</p>
-```
+使用例
 
-表示例
-
-<p>
-645年、中大兄皇子が<mark>大化の改新</mark>を行った。
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="raNwvBN" data-pen-title="html-mark" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/raNwvBN">
+  html-mark</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-<hr>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # small 要素
 
