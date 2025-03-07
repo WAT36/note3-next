@@ -170,18 +170,14 @@ time 要素は、日時など時刻に関する data 要素である。時刻に
 
 abbr 要素は、それが略語であることを示す要素である。略してない、正式名も示したいときは title 属性を使用する。
 
-```
-<p>
-    <abbr title="転職活動">転活</abbr>をいつから始めようか・・
-</p>
-```
+使用例
 
-表示例
-
-<p>
-    <abbr title="転職活動">転活</abbr>をいつから始めようか・・
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="Pwojeqe" data-pen-title="html-abbr" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/Pwojeqe">
+  html-abbr</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-<hr>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # dfn 要素
 
