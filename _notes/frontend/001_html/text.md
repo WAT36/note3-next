@@ -99,18 +99,14 @@ blockquote 要素と同じく、引用元を示したいときは cite 属性(�
 
 cite 要素は、引用元や参照先を示すための要素である。
 
-```
-<p>
-<cite>太宰治『ダス・ゲマイネ』</cite>の冒頭は<q>「恋をしたのだ。そんなことは、全く初めてであった。」</q>だ。
-</p>
-```
+使用例
 
-表示例
-
-<p>
-<cite>太宰治『ダス・ゲマイネ』</cite>の冒頭は<q>「恋をしたのだ。そんなことは、全く初めてであった。」</q>だ。
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="azbwYed" data-pen-title="html-cite" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/azbwYed">
+  html-cite</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-<hr>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # mark 要素
 
