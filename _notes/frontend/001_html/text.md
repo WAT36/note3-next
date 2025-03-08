@@ -282,16 +282,14 @@ bdi 要素は、要素内の文字表記のアルゴリズム(方向)を、ブ�
 
 pre 要素はその内容の部分が既に整形済み(タブ・スペースなどで整えている)であることを示す要素である。この要素の内容は入力されている通りにそのまま表示される（タブ・スペースなどは弾かれない）
 
-```
-<p>タブ３つ"            "、スペース３つ"   "</p>
-<p><pre>タブ３つ"           "、スペース３つ"   "</pre></p>
-```
+例記載
 
-表示例
-
-<p>タブ３つ"            "、スペース３つ"   "</p>
-<p><pre>タブ３つ"           "、スペース３つ"   "</pre></p>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="jEOLOWa" data-pen-title="html-pre" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/jEOLOWa">
+  html-pre</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # code 要素
 
