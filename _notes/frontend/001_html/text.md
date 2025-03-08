@@ -254,18 +254,14 @@ u 要素はスペルミスなどの通知をする際に使用する。デフォ
 
 bdo 要素は、要素内の文字表記の方向を上書きする要素である。表記の方向は dir 属性を使って指定する。(必ず指定する)
 
-```
-<p>
-bdo要素を使って、「<bdo dir="rtl">文字列の表記の方向を右から左</bdo>」へ指定することができる。
-</p>
-```
+使用例
 
-表示例
-
-<p>
-bdo要素を使って、「<bdo dir="rtl">文字列の表記の方向を右から左</bdo>」へ指定することができる。
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="pvoroja" data-pen-title="html-bdo" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/pvoroja">
+  html-bdo</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-<hr>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # bdi 要素
 
