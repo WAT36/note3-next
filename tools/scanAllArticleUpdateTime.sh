@@ -35,8 +35,8 @@ git log --diff-filter=A --name-status --pretty=format: $(git rev-parse @{push}).
     file_time=$(grep 'updatedAt:' "$file" | grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.000Z')
 
     # YYYY-MM-DD の部分だけを抽出
-    mod_day=$(echo "$mod_time" | cut -d ' ' -f 1)
-    file_day=$(echo "$file_time" | cut -d ' ' -f 1)
+    mod_day=$(echo "$mod_time" | cut -d 'T' -f 1)
+    file_day=$(echo "$file_time" | cut -d 'T' -f 1)
 
     # .mdファイルの更新時刻更新
     if [[ "$file_time" = "" ]]; then
@@ -59,8 +59,8 @@ git log --diff-filter=CMRT --name-status --pretty=format: $(git rev-parse @{push
     file_time=$(grep 'updatedAt:' "$file" | grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.000Z')
 
     # YYYY-MM-DD の部分だけを抽出
-    mod_day=$(echo "$mod_time" | cut -d ' ' -f 1)
-    file_day=$(echo "$file_time" | cut -d ' ' -f 1)
+    mod_day=$(echo "$mod_time" | cut -d 'T' -f 1)
+    file_day=$(echo "$file_time" | cut -d 'T' -f 1)
     echo $mod_day
     echo $file_day
 
