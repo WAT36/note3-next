@@ -46,9 +46,7 @@ git log --diff-filter=A --name-status --pretty=format: $(git rev-parse @{push}).
         # 作成時刻、更新時刻を更新
         sed -i '' "s/date:.*/date: '${mod_time}'/g" $file
         sed -i '' "s/updatedAt:.*/updatedAt: '${mod_time}'/g" $file
-        echo $count
         ((count++))
-        echo $count
     fi
 done
 
@@ -70,16 +68,12 @@ git log --diff-filter=CMRT --name-status --pretty=format: $(git rev-parse @{push
         echo -e "updatedAt none. $file"
     elif [[ "$mod_day" != "$file_day" ]]; then
         sed -i '' "s/updatedAt:.*/updatedAt: '${mod_time}'/g" $file
-        echo $count
         ((count++))
-        echo $count
     fi
 done
 
 # Git に追加 & コミット & プッシュ
 git add .
-echo $count
-git commit -m "Update updatedAt: $count files."
-echo $count
+git commit -m "Update updatedAt files."
 
 cd $PWD
