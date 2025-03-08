@@ -213,18 +213,14 @@ i 要素も特に意味合いを持つことは無いが、表示として他と
 
 他と区別させたい時の意味がしっかりある場合には、i 要素ではなくそれに応じた適切な要素を利用すること。例えば強調なら em 要素、定義に関することなら dfn 要素など。
 
-```
-<p>
-<i>i要素</i>は表示として他と区別させたい時に利用する。
-</p>
-```
+使用例
 
-表示例
-
-<p>
-<i>i要素</i>は表示として他と区別させたい時に利用する。
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="gbORyvd" data-pen-title="html-i" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/gbORyvd">
+  html-i</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-<hr>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # s 要素
 
