@@ -226,18 +226,14 @@ i 要素も特に意味合いを持つことは無いが、表示として他と
 
 s 要素は、既に使われていない、古い情報となった部分を表すための要素である。
 
-```
-<p>
-s要素は、<s>既に使われていない情報となった部分</s>を表すための要素である。
-</p>
-```
+例記載
 
-表示例
-
-<p>
-s要素は、<s>既に使われていない情報となった部分</s>を表すための要素である。
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="mydwgxj" data-pen-title="html-s" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/mydwgxj">
+  html-s</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-<hr>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # u 要素
 
