@@ -241,18 +241,14 @@ u 要素はスペルミスなどの通知をする際に使用する。デフォ
 
 他の意味を持つ場合には、u 要素ではなくそれに応じた適切な要素を利用すること。
 
-```
-<p>
-u要素は、<u>spelu misu</u>を表すための要素である。
-</p>
-```
+使用例
 
-表示例
-
-<p>
-u要素は、<u>spelu misu</u>を表すための要素である。
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="EaxXJLZ" data-pen-title="html-u" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/EaxXJLZ">
+  html-u</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-<hr>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # bdo 要素
 
