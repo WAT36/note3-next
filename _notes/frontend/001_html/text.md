@@ -198,18 +198,14 @@ b 要素は特に意味合いを持つことは無いが、表示として目立
 
 目立たせたい時の意味がしっかりある場合には、b 要素ではなくそれに応じた適切な要素を利用すること。例えば強調なら em 要素、緊急・重要性が高い内容なら strong 要素、一部分を目立たせたいなら mark 要素など。
 
-```
-<p>
-<b>b要素</b>は表示として目立たせたい時に利用する。
-</p>
-```
+使用例
 
-表示例
-
-<p>
-<b>b要素</b>は表示として目立たせたい時に利用する。
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="raNwbJe" data-pen-title="html-b" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/raNwbJe">
+  html-b</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-<hr>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # i 要素
 
