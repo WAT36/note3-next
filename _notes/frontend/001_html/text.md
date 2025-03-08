@@ -269,20 +269,14 @@ bdi 要素は、要素内の文字表記のアルゴリズム(方向)を、ブ�
 
 入力フォームなどから入力した文字を挿入するときなどに利用する。
 
-```
-<ul>
-    <li><bdi>リスト</bdi></li>
-    <li><bdi>قائمة</bdi></li>
-</ul>
-```
+使用例
 
-表示例
-
-<ul>
-    <li><bdi>リスト</bdi></li>
-    <li><bdi>قائمة</bdi></li>
-</ul>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="VYwzwew" data-pen-title="html-bdi" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/VYwzwew">
+  html-bdi</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # pre 要素
 
