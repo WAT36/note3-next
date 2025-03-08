@@ -78,6 +78,8 @@ done
 
 # Git に追加 & コミット & プッシュ
 git add .
+echo $count
 git commit -m "Update updatedAt: $count files."
+echo $count
 
 cd $PWD
