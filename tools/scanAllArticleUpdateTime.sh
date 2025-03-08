@@ -61,6 +61,8 @@ git log --diff-filter=CMRT --name-status --pretty=format: $(git rev-parse @{push
     # YYYY-MM-DD の部分だけを抽出
     mod_day=$(echo "$mod_time" | cut -d ' ' -f 1)
     file_day=$(echo "$file_time" | cut -d ' ' -f 1)
+    echo $mod_day
+    echo $file_day
 
     # .mdファイルの更新時刻更新
     if [[ "$file_time" = "" ]]; then
