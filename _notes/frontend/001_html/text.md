@@ -308,15 +308,14 @@ code 要素は、その部分はソースコードであることを示す要素
 
 kbd 要素は、その部分がユーザーが入力する内容であることを示す要素である。具体的にはキー名を指定する。
 
-```
-次に<kbd>Shift</kbd>キーを押してください。
-```
+例記載
 
-表示例
-
-次に<kbd>Shift</kbd>キーを押してください。
-
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="raNzNWQ" data-pen-title="html-kbd" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/raNzNWQ">
+  html-kbd</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # samp 要素
 
