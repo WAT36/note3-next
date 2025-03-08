@@ -183,18 +183,14 @@ abbr 要素は、それが略語であることを示す要素である。略し
 
 dfn 要素は、それが定義の対象となっていることを示す要素である。他の文中に何かの定義についての説明がされている時、どれをその定義の説明の対象としているかを示すために用いる。
 
-```
-<p>
-    今日は<dfn>昭和の日</dfn>で、昭和天皇の誕生日である4月29日にあてられている日本の国民の祝日である。
-</p>
-```
+使用例
 
-表示例
-
-<p>
-    今日は<dfn>昭和の日</dfn>で、昭和天皇の誕生日である4月29日にあてられている日本の国民の祝日である。
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="azbwxEp" data-pen-title="html-dfn" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/azbwxEp">
+  html-dfn</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-<hr>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # b 要素
 
