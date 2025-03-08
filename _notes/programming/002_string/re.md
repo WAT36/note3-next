@@ -17,6 +17,13 @@ mode: programming
 
 ちなみに正規表現の文法についてはここでは割愛する。
 
+<div class="note_content_by_programming_language" id="note_content_Java">
+
+```java
+// 作成中...;
+```
+
+</div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
