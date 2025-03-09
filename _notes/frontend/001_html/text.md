@@ -347,18 +347,14 @@ var 要素は、それが数式やプログラム内などの変数であるこ�
 
 sup 要素は、上付き文字であることを示す要素である。
 
-```
-<p>
-    <var>y</var> = 2<var>x</var><sup>2</sup>+1
-</p>
-```
+使用例
 
-表示例
-
-<p>
-    <var>y</var> = 2<var>x</var><sup>2</sup>+1
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="NPWvbOR" data-pen-title="html-sup" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/NPWvbOR">
+  html-sup</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-<hr>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # sub 要素
 
