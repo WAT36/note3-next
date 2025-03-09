@@ -373,27 +373,14 @@ sub 要素は、下付き文字であることを示す要素である。
 
 br 要素は、改行を表す空要素である。１つ書くたびに１回改行されて表示される。
 
-```
-１１１
-２２２
-３３３
+使用例
 
-１１１<br>
-２２２<br>
-３３３<br>
-```
-
-表示例
-
-１１１
-２２２
-３３３
-
-１１１<br>
-２２２<br>
-３３３<br>
-
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="ogNeYQm" data-pen-title="html-br" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/ogNeYQm">
+  html-br</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # wbr 要素
 
