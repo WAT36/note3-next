@@ -321,18 +321,14 @@ kbd 要素は、その部分がユーザーが入力する内容であること�
 
 samp 要素は、それがプログラムから出力されたもの、またはそのサンプルであることを示す要素である。
 
-```
-<samp>
-ダウンロードしています・・
-</samp>
-```
+例記載
 
-表示例
-
-<samp>
-ダウンロードしています・・
-</samp>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="EaxvNRL" data-pen-title="html-samp" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/EaxvNRL">
+  html-samp</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # var 要素
 
