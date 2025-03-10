@@ -11,6 +11,13 @@ const nextConfig = {
   trailingSlash: true,
   experimental: { esmExternals: true },
   output: "export",
+
+  async exportPathMap() {
+    return {
+      "/": { page: "/" },
+      "/rss.xml": { page: "/rss.xml" },
+    };
+  },
 };
 
 export default nextConfig;
