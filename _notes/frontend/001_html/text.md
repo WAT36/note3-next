@@ -388,17 +388,14 @@ wbr 要素は、英文のテキストをその箇所で折り返して表示さ�
 
 通常、英文や URL などの半角英字で書かれた文は、途中で改行されないようにブラウザが調整して表示してくれるが、この wbr 要素を使うとその箇所で改行されて表示してくれる。
 
-```
-This is aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
-That is aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<wbr>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
-```
+使用例
 
-表示例
-
-This is aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
-That is aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<wbr>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
-
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="NPWvExp" data-pen-title="html-wbr" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/NPWvExp">
+  html-wbr</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # ins 要素
 
