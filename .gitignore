@@ -41,3 +41,6 @@ next-env.d.ts
 
 # algolia
 filelist.txt
+
+#rss
+rss.xml
