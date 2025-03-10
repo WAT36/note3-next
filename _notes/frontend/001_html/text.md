@@ -401,16 +401,14 @@ wbr 要素は、英文のテキストをその箇所で折り返して表示さ�
 
 ins 要素は、文章に追加された部分であることを示す要素である。
 
-```
-<p>締め切りは木曜日 午後5:00です。</p>
-<ins><p>(追記) 金曜日 午後5:00まで延長します</p></ins>
-```
+使用例
 
-表示例
-
-<p>締め切りは木曜日 午後5:00です。</p>
-<ins><p>(追記) 金曜日 午後5:00まで延長します</p></ins>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="GgRvwZp" data-pen-title="html-ins" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/GgRvwZp">
+  html-ins</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # del 要素
 
