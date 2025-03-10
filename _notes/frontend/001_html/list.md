@@ -34,24 +34,14 @@ ol 要素は、連番付きリストを作成するための要素である。�
 | start    | 連番の開始番号                            |
 | reversed | リストの番号を逆順にする                  |
 
-```
-<p>サーバー再起動手順</p>
-<ol>
-    <li>rootユーザにログインする</li>
-    <li>サーバーを停止する</li>
-    <li>サーバーを起動する</li>
-</ol>
-```
+例記載
 
-表示例
-
-<p>サーバー再起動手順</p>
-<ol>
-    <li>rootユーザにログインする</li>
-    <li>サーバーを停止する</li>
-    <li>サーバーを起動する</li>
-</ol>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="LEYjXRo" data-pen-title="html-ol" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/LEYjXRo">
+  html-ol</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## li 要素
 
