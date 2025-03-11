@@ -55,27 +55,11 @@ ul 要素は箇条書き、ol 要素は連番と決まっていたが、**dl 要
 
 dl 要素で書いたリストは、**dt 要素**で項目名を指定し、その後**dd 要素**でその具体的な内容を指定する。
 
-```
-<p>試験時間</p>
-<dl>
-    <dt>国語</dt>
-    <dd>9:00~10:30</dd>
-    <dt>数学</dt>
-    <dd>10:45~12:15</dd>
-    <dt>英語</dt>
-    <dd>13:30~15:00</dd>
-</dl>
-```
+使用例
 
-表示例
-
-<p>試験時間</p>
-<dl>
-    <dt>国語</dt>
-    <dd>9:00~10:30</dd>
-    <dt>数学</dt>
-    <dd>10:45~12:15</dd>
-    <dt>英語</dt>
-    <dd>13:30~15:00</dd>
-</dl>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="QwWqvpW" data-pen-title="html-dldddt" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/QwWqvpW">
+  html-dldddt</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
