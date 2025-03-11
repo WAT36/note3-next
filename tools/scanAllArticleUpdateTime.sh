@@ -73,7 +73,7 @@ git log --diff-filter=CMRT --name-status --pretty=format: $(git rev-parse @{push
 done
 
 # Git に追加 & コミット & プッシュ
-git add .
+git add *.md
 git commit -m "Update updatedAt files."
 
 cd $PWD
