@@ -1,4 +1,7 @@
 import algoliasearch from "algoliasearch/lite";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_APP_ID || "",
@@ -28,6 +31,14 @@ export const getAllArticleCount = async () => {
       return nbHits;
     });
   return nbHits;
+};
+
+// 全記事を取得(RSS用)
+export const getAllArticle = async () => {
+  const hits = await index.search("", {}).then(({ hits }) => {
+    return hits;
+  });
+  return hits;
 };
 
 // ブログ用記事本数を取得
