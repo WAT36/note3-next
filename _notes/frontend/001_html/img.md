@@ -76,14 +76,12 @@ video 要素は、動画を再生するための要素である。
 
 例を以下に示す。
 
-```
-<video src="/assets/note/frontend/html/img/IMG_3279.MOV.mp4" controls muted width="500" height="200" ></video>
-```
-
-実行例
-<video src="/assets/note/frontend/html/img/IMG_3279.MOV.mp4" controls muted width="500" height="200" ></video>
-
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="gbOGWQN" data-pen-title="htlm-video" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/gbOGWQN">
+  htlm-video</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 (ちなみにこの動画は私が学生時代に研究室の窓から外の吹雪を撮ったものである)
 
