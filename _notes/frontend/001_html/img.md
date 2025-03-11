@@ -51,22 +51,12 @@ source 要素は、picture 要素・video 要素・audio 要素の子要素と�
 
 使用例
 
-```
-<picture>
-    <source media="(min-width: 200em)" srcset="/assets/note/frontend/html/img/img3.jpg" title="img3.jpg">
-    <source media="(min-width: 100em)" srcset="/assets/note/frontend/html/img/img2.jpg" title="img2.jpg">
-    <img src="/assets/note/frontend/html/img/img.jpg" width="100" height="100" alt="宗谷岬、青空">
-</picture>
-```
-
-実行例（表示する画面により表示される画像が分かれる）
-
-<picture>
-    <source media="(min-width: 200em)" srcset="/assets/note/frontend/html/img/img3.jpg" title="img3.jpg">
-    <source media="(min-width: 100em)" srcset="/assets/note/frontend/html/img/img2.jpg" title="img2.jpg">
-    <img src="/assets/note/frontend/html/img/img.jpg" width="100" height="100" alt="宗谷岬、青空">
-</picture>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="VYwMbQG" data-pen-title="html-picture" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/VYwMbQG">
+  html-picture</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # video 要素
 
