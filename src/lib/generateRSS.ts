@@ -124,8 +124,14 @@ export async function generateRSSFeed() {
 
         feed.addItem({
           title,
-          id: siteUrl + fileSlug.replace(".md", ""),
-          link: siteUrl + fileSlug.replace(".md", ""),
+          id:
+            siteUrl +
+            fileSlug.replace(".md", "") +
+            process.env.NEXT_PUBLIC_URL_END,
+          link:
+            siteUrl +
+            fileSlug.replace(".md", "") +
+            process.env.NEXT_PUBLIC_URL_END,
           date: new Date(date),
           description: excerpt,
         });
