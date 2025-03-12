@@ -132,36 +132,26 @@ track 要素は video 要素や audio 要素の子要素として利用する要
 | chapters     | 映像のチャプターのタイトル、操作により一覧を表示               |
 | metadata     | スクリプトから利用する事を想定したメタデータ                   |
 
-先程の動画ファイルを利用して実行例を示す。
+先程の動画ファイルを利用して実行例を示す。（使用環境により、表示されない場合もあります・・）
 
-```
-<video src="/assets/note/frontend/html/img/IMG_3279.MOV.mp4" controls muted width="500" height="200" >
-    <track default kind="captions"
-           srclang="ja"
-           src="/assets/note/frontend/html/img/track.vtt">
-</video>
-```
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="emYGwze" data-pen-title="html-track" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/emYGwze">
+  html-track</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ちなみに字幕として利用する vtt ファイル(track.vtt)は以下の通り。
 
 ```
 WEBVTT
 
-00:00:00.000 --> 00:00:15.000
-これは字幕です。15秒まで表示されます。
+00:00:00.000 --> 00:00:10.000
+これは字幕です。10秒まで表示されます。
 
-00:00:15.000 --> 00:00:30.000
+00:00:10.000 --> 00:00:15.000
 雪が降ってます。
 ```
-
-表示例（使用環境により、表示されない場合もあります・・）
-
-<video src="/assets/note/frontend/html/img/IMG_3279.MOV.mp4" controls muted width="500" height="200" >
-    <track default kind="captions"
-           srclang="ja"
-           src="/assets/note/frontend/html/img/track.vtt">
-</video>
-<hr>
 
 # embed 要素
 
