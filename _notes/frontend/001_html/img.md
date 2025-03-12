@@ -197,26 +197,14 @@ area 要素は、イメージマップにおいて指定した領域を指定し
 | poly    | 多角形   | 各座標を x 座標、y 座標の順に指定                       |
 | default | 画像全体 | (指定しない)                                            |
 
-使用例
+使用例（画像の上半分がこのブログのトップ、下半分は私の Github へのリンク）
 
-```
-<img src="/assets/note/frontend/html/img/area.png" usemap="#top" width="100" height="100">
-
-<map name="top">
-    <area href="https://wat-notes.com/" shape="rect" coords="0,0,100,50"></area>
-    <area href="https://github.com/WAT36" shape="rect" coords="0,50,100,100"></area>
-</map>
-```
-
-表示例（画像の上半分がこのブログのトップ、下半分は私の Github へのリンク）
-
-<img src="/assets/note/frontend/html/img/area.png" usemap="#top" width="100" height="100">
-
-<map name="top">
-    <area href="https://wat-notes.com/" shape="rect" coords="0,0,100,50"></area>
-    <area href="https://github.com/WAT36" shape="rect" coords="0,50,100,100"></area>
-</map>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="gbOGNoa" data-pen-title="html-area" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/gbOGNoa">
+  html-area</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # object 要素
 
