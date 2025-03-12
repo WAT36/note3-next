@@ -111,15 +111,12 @@ textarea 要素は、複数行のテキスト入力フィールドとなる要�
 
 使用例
 
-```
-入力：<textarea cols="20" rows="5" autocomplete="on" maxlength="80" placeholder="20文字/行 5列まで、最大80文字"></textarea>
-```
-
-表示例
-
-入力：<textarea cols="20" rows="5" autocomplete="on" maxlength="80" placeholder="20文字/行 5列まで、最大80文字"></textarea>
-
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="NPWaZBj" data-pen-title="html-textarea" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/NPWaZBj">
+  html-textarea</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # button 要素
 
