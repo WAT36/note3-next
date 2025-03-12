@@ -12,6 +12,8 @@ import markdownToHtml from "../../lib/markdownToHtml";
 import type PostType from "../../interfaces/post";
 import { OutlineBar } from "../../components/ui-elements/outlineBar/OutlineBar";
 import { JSDOM } from "jsdom";
+import hljs from "highlight.js";
+import { useEffect } from "react";
 
 type Props = {
   post: PostType;
@@ -24,6 +26,11 @@ export default function Post({ post, morePosts, preview }: Props) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
+
   return (
     <Layout preview={preview}>
       <Container>
