@@ -329,51 +329,12 @@ fieldset 要素は、form に関する要素をグループ化するための要
 
 使用例
 
-```
-<form id="ticket">
-<fieldset form="ticket">
-<p>
-乗車駅→降車駅<br>
-<input type="text" width="10">
-→
-<input type="text" width="10">
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="YPzEaYb" data-pen-title="html-fieldset" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/YPzEaYb">
+  html-fieldset</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-大人：
-<label><input type="radio" name="adult" id="zero">０人</label>
-<label><input type="radio" name="adult" id="one">１人</label>
-<label><input type="radio" name="adult" id="two">２人</label>
-<br>
-小人：
-<label><input type="radio" name="child" id="zero">０人</label>
-<label><input type="radio" name="child" id="one">１人</label>
-<label><input type="radio" name="child" id="two">２人</label>
-</fieldset>
-</form>
-```
-
-表示例
-
-<hr>
-<form id="ticket">
-<fieldset form="ticket">
-<p>
-乗車駅→降車駅<br>
-<input type="text" width="10">
-→
-<input type="text" width="10">
-</p>
-大人：
-<label><input type="radio" name="adult" id="zero">０人</label>
-<label><input type="radio" name="adult" id="one">１人</label>
-<label><input type="radio" name="adult" id="two">２人</label>
-<br>
-小人：
-<label><input type="radio" name="child" id="zero">０人</label>
-<label><input type="radio" name="child" id="one">１人</label>
-<label><input type="radio" name="child" id="two">２人</label>
-</fieldset>
-</form>
-<hr>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## legend 要素
 
