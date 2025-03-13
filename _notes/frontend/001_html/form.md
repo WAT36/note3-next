@@ -136,34 +136,12 @@ button 要素は、ボタンを表示させる要素である。要素内の内�
 
 使用例
 
-```
-<form id="button">
-<textarea cols="20" rows="4" placeholder="何か書いてresetボタンを押すと？" form="button"></textarea>
-
-<button type="button" name="test" form="button">
-buttonテスト
-</button>
-
-<button type="reset" name="resettest" form="button">
-resetテスト
-</button>
-</form>
-```
-
-表示例
-
-<form id="button">
-<textarea cols="20" rows="4" placeholder="何か書いてresetボタンを押すと？" form="button"></textarea>
-
-<button type="button" name="test" form="button">
-buttonテスト
-</button>
-
-<button type="reset" name="resettest" form="button">
-resetテスト
-</button>
-</form>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="pvodpRZ" data-pen-title="html-button" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/pvodpRZ">
+  html-button</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## select 要素
 
