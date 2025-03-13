@@ -273,22 +273,12 @@ output 要素は、計算式の計算結果、またはユーザーの操作結�
 
 使用例
 
-```
-<form oninput="result.value=a.valueAsNumber+b.valueAsNumber">
-	<input name="a" value="20" type="number"> +
-	<input name="b" value="30" type="number"> =
-	<output for="a b" name="result"></output>
-</form>
-```
-
-表示例
-
-<form oninput="result.value=a.valueAsNumber+b.valueAsNumber">
-	<input name="a" value="20" type="number"> +
-	<input name="b" value="30" type="number"> =
-	<output for="a b" name="result"></output>	
-</form>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="qEBVoPQ" data-pen-title="html-output" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/qEBVoPQ">
+  html-output</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## keygen 要素
 
