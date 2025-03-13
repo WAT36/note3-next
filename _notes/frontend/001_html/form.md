@@ -309,20 +309,12 @@ label 要素は、その要素内容をフォームの部品と紐づけるた�
 
 使用例
 
-```
-<form>
-<label for="yes"><input type="radio" name="ans" id="yes">はい</label>
-<label for="no"><input type="radio" name="ans" id="no">いいえ</label>
-</form>
-```
-
-表示例
-
-<form>
-<label for="yes"><input type="radio" name="ans" id="yes">はい</label>
-<label for="no"><input type="radio" name="ans" id="no">いいえ</label>
-</form>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="VYwrXrN" data-pen-title="html-label" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/VYwrXrN">
+  html-label</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## fieldset 要素
 
