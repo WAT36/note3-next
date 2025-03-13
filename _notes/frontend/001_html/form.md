@@ -178,22 +178,12 @@ option 要素は、前述の select 要素または datalist 要素の選択肢�
 
 前述の select 要素を使って、例を示す。
 
-```
-<select>
-    <option selected >選択肢その１</option>
-    <option label="ラベルに書いた選択肢その２">選択肢その２</option>
-    <option>選択肢その３</option>
-</select>
-```
-
-表示例
-
-<select>
-    <option selected >選択肢その１</option>
-    <option label="ラベルに書いた選択肢その２">選択肢その２</option>
-    <option>選択肢その３</option>
-</select>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="NPWwXpX" data-pen-title="html-select" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/NPWwXpX">
+  html-select</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## optgroup 要素
 
