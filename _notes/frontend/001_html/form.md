@@ -193,24 +193,12 @@ optgroup 要素は、select 要素内の option 要素をグループ化して�
 
 使用例
 
-```
-<select>
-    <optgroup label="選択肢">
-        <option selected >選択肢その１</option>
-        <option label="ラベルに書いた選択肢その２">選択肢その２</option>
-        <option>選択肢その３</option>
-</select>
-```
-
-表示例
-
-<select>
-    <optgroup label="選択肢">
-        <option selected >選択肢その１</option>
-        <option label="ラベルに書いた選択肢その２">選択肢その２</option>
-        <option>選択肢その３</option>
-</select>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="xbxPpdK" data-pen-title="html-optgroup" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/xbxPpdK">
+  html-optgroup</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## datalist 要素
 
