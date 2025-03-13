@@ -210,28 +210,12 @@ datalist 要素と input 要素を関連付けるには、datalist 要素の id 
 
 使用例
 
-```
-<p>行きたい場所は?
-<input type="text" list="place">
-    <datalist id="place">
-        <option>東京</option>
-        <option>横浜</option>
-        <option>京都</option>
-    </datalist>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="OPJOzmj" data-pen-title="html-datalist" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/OPJOzmj">
+  html-datalist</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-```
-
-表示例
-
-<p>行きたい場所は?
-<input type="text" list="place">
-    <datalist id="place">
-        <option>東京</option>
-        <option>横浜</option>
-        <option>京都</option>
-    </datalist>
-</p>
-<hr>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## meter 要素
 
