@@ -81,54 +81,12 @@ tbody 要素(table body の略)は、表の本体の部分をグループ化し�
 
 使用例を以下に示す。
 
-```
-<table>
-    <thead>
-        <tr>
-            <th>0,0</th>
-            <th>0,1</th>
-            <th>0,2</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1,0</td>
-            <td>1,1</td>
-            <td>1,2</td>
-        </tr>
-    </tbody>
-    <tr>
-        <td>2,0</td>
-        <td>2,1</td>
-        <td>2,2</td>
-    </tr>
-</table>
-```
-
-表示例
-
-<table>
-    <thead>
-        <tr>
-            <th>0,0</th>
-            <th>0,1</th>
-            <th>0,2</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1,0</td>
-            <td>1,1</td>
-            <td>1,2</td>
-        </tr>
-    </tbody>
-    <tr>
-        <td>2,0</td>
-        <td>2,1</td>
-        <td>2,2</td>
-    </tr>
-</table>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="LEYeLpd" data-pen-title="html-tbody" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/LEYeLpd">
+  html-tbody</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## tfoot 要素
 
