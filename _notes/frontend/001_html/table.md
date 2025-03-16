@@ -107,60 +107,12 @@ caption 要素は、表のキャプション(タイトル)を示すための要�
 
 使用例
 
-```
-<table>
-    <caption>行列のインデックス</caption>
-    <thead>
-        <tr>
-            <th>0,0</th>
-            <th>0,1</th>
-            <th>0,2</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1,0</td>
-            <td>1,1</td>
-            <td>1,2</td>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td>2,0</td>
-            <td>2,1</td>
-            <td>2,2</td>
-        </tr>
-    </tfoot>
-</table>
-```
-
-表示例
-
-<table>
-    <caption>行列のインデックス</caption>
-    <thead>
-        <tr>
-            <th>0,0</th>
-            <th>0,1</th>
-            <th>0,2</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1,0</td>
-            <td>1,1</td>
-            <td>1,2</td>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td>2,0</td>
-            <td>2,1</td>
-            <td>2,2</td>
-        </tr>
-    </tfoot>
-</table>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="JojMwGx" data-pen-title="html-caption" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/JojMwGx">
+  html-caption</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## colgroup 要素
 
