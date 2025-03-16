@@ -137,67 +137,9 @@ col 要素は、**span 属性のない**colgroup 要素によって表された�
 
 使用例
 
-```
-<table>
-    <caption>行列のインデックス</caption>
-    <colgroup>
-        <col span="1" width="50">
-        <col span="1" width="100">
-    </colgroup>
-    <colgroup span="1" width="200">
-    <thead>
-        <tr>
-            <th>0,0</th>
-            <th>0,1</th>
-            <th>0,2</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1,0</td>
-            <td>1,1</td>
-            <td>1,2</td>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td>2,0</td>
-            <td>2,1</td>
-            <td>2,2</td>
-        </tr>
-    </tfoot>
-</table>
-```
-
-表示例
-
-<table>
-    <caption>行列のインデックス</caption>
-    <colgroup>
-        <col span="1" width="50">
-        <col span="1" width="100">
-    </colgroup>
-    <colgroup span="1" width="200">
-    <thead>
-        <tr>
-            <th>0,0</th>
-            <th>0,1</th>
-            <th>0,2</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1,0</td>
-            <td>1,1</td>
-            <td>1,2</td>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td>2,0</td>
-            <td>2,1</td>
-            <td>2,2</td>
-        </tr>
-    </tfoot>
-</table>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="MYWrZyQ" data-pen-title="html-col" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/MYWrZyQ">
+  html-col</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
