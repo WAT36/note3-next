@@ -58,20 +58,12 @@ figcaption 要素は、figure 要素で示したコンテンツにキャプシ�
 
 使用例
 
-```
-<figure id="fig">
-    <figcaption>宗谷岬の交差点</figcaption>
-    <img src="/assets/note/frontend/html/img/img.jpg" width="100" height="100" alt="宗谷岬、青空">
-</figure>
-```
-
-表示例
-
-<figure id="fig">
-    <figcaption>宗谷岬の交差点</figcaption>
-    <img src="/assets/note/frontend/html/img/img.jpg" width="100" height="100" alt="宗谷岬、青空">
-</figure>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="pvoaNWY" data-pen-title="html-figcaption" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/pvoaNWY">
+  html-figcaption</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # details 要素
 
