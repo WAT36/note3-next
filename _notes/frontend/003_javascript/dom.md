@@ -20,34 +20,16 @@ DOM ツリーとは、HTML や XML の構成をツリー状に表現したもの
 
 例えば、以下のような HTML があったとする。
 
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>タイトル</title>
-  </head>
-
-  <body>
-    <h1>見出し1</h1>
-    <div id="main">
-      <p>Hello!</p>
-      <p>World!</p>
-    </div>
-  </body>
-</html>
-```
-
-表示例
-
-<hr>
-<iframe width="400" height="300" src="/js_sample_pages/dom_sample.html">
-</iframe>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="LEYQbMy" data-pen-title="js-dom-sample" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/LEYQbMy">
+  js-dom-sample</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 これを DOM ツリーで書き表すと以下のようになる。
 
-<img src="/img/front-end/dom.png" width=100%>
+<img src="/assets/note/frontend/js/dom.png" width=100%>
 
 また、この DOM ツリー内の各要素を**ノード**と言う。
 
