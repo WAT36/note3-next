@@ -69,6 +69,8 @@ npm install highlight.js
 
 Next.js の`_app.js(x)`（Typescript の場合は`_app.ts(x)`）ファイルにスタイルシートをインポートします。
 
+（Next.js のバージョンによっては読み込み先が変わる可能性があるので、適宜置き換えてください。）
+
 ```jsx
 import "highlight.js/styles/github.css"; // githubテーマを使用する場合
 import "../styles/globals.css";
