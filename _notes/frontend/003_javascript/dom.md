@@ -45,20 +45,16 @@ Javascript から、要素の ID 名を使ってノードを取得する方法�
 document.getElementById("ID名");
 ```
 
-実際に実行してみよう。先程のサンプルページをブラウザで開き、Javascript コンソールを起動して入力・適用すると以下のようになる。
+実際に確認してみよう。先程のサンプルページにおいて、Javascript で getElementById を利用して取得した結果は以下のようになる。（Javascript コンソールが表示できないため、結果を HTML 側に書き込んで確認しています）
 
-```
-> var main = document.getElementById('main')
-< undefined
-> console.log(main)
-[Log] <div id="main">
-<p>Hello!</p>
-<p>World!</p>
-</div>
-< undefined
-```
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="zxYRoQB" data-pen-title="js-getElementById" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/zxYRoQB">
+  js-getElementById</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
-最後の console.log において、id が'main'の要素を取得し表示している。
+HTML 側最後の箇所において、取得結果を表示している。
 
 ### タグ名での取得
 
