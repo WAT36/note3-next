@@ -30,12 +30,11 @@ highlight.js[^1]は、Web ページ上のコードに構文ハイライトを適
 
 **導入前**:
 
-```
+```plaintext
 function hello() {
   console.log("Hello, World!");
   return true;
 }
-
 ```
 
 **導入後**:
