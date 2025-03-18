@@ -233,25 +233,14 @@ DOM で取得した要素の操作方法について述べる。
 
 取得した要素の内部の情報を変更するのも、**innerText**を使うことで行える。
 
-```javascript
-var target = document.getElementById("main").firstElementChild;
+例を以下に記載する。HTML コード内では"Hello!"になっているが、Javascript により"テキストを変更しました"と変えられて表示されている。
 
-//要素の内部の情報(テキスト)を変更する
-target.innerText = "テキストを変更しました";
-```
-
-使用例
-
-```
-> var target = document.getElementById('main').firstElementChild;
-< undefined
-> target.innerText = 'テキストが変更されました'
-< "テキストが変更されました"
-```
-
-適用後の画面(スクショ)
-
-<img src="/img/front-end/dom_changed.png">
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="PwoQgNw" data-pen-title="js-innerText2" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/PwoQgNw">
+  js-innerText2</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ### 要素の削除
 
