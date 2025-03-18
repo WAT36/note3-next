@@ -112,13 +112,12 @@ Javascript で取得したノードの親要素を取得するには、**parentN
 
 例で示した HTML において、取得した要素の内部の情報は、**innerText**を使うことで取得できる。
 
-```javascript
-var target = document.getElementById("main").firstElementChild;
-
-//要素の内部の情報(テキスト)を取得
-var text = target.innerText;
-console.log(text);
-```
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="mydXgeN" data-pen-title="js-innerText" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/mydXgeN">
+  js-innerText</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ### フォームの取得
 
