@@ -45,7 +45,8 @@ Javascript から、要素の ID 名を使ってノードを取得する方法�
 document.getElementById("ID名");
 ```
 
-実際に確認してみよう。先程のサンプルページにおいて、Javascript で getElementById を利用して取得した結果は以下のようになる。（Javascript コンソールが表示できないため、結果を HTML 側に書き込んで確認しています）
+実際に確認してみよう。先程のサンプルページにおいて、Javascript で getElementById を利用して取得した結果は以下のようになる。
+（表示に使用している CODEPEN というライブラリでは、現状このページで Javascript のコンソール出力を確認できないため、確認したい方は右上の「EDIT ON CODEPEN」>左下の「Console」を見て確認してください。）
 
 <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="zxYRoQB" data-pen-title="js-getElementById" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
   <span>See the Pen <a href="https://codepen.io/wat36/pen/zxYRoQB">
@@ -98,53 +99,14 @@ Javascript で取得したノードの親要素を取得するには、**parentN
 
 子要素を取得する方法はいくつかある。
 
-子要素のうち最初の要素を取得するには**firstChild**、最後の要素は**lastChild**、子要素を全て配列として取得するには**childNodes**を利用する。
+子要素のうち最初の要素を取得するには**firstElementChild**、最後の要素は**lastElementChild**、子要素を全て配列として取得するには**childNodes**を利用する。
 
-```javascript
-//例、ID名で取得
-var id = document.getElementById("ID名");
-
-//子要素のうち最初の要素を取得
-var first = id.firstChild;
-
-//子要素のうち最後の要素を取得
-var last = id.lastChild;
-
-//子要素を全て配列として取得
-var child = id.childNodes;
-```
-
-使用例
-
-```
-> var id = document.getElementById('main');
-< undefined
-> var first = id.firstChild;
-< undefined
-> console.log(first)
-[Log] #text "
-        "
-< undefined
-> var last = id.lastChild;
-< undefined
-> console.log(last);
-[Log] #text "
-    "
-< undefined
-> var child = id.childNodes;
-< undefined
-> console.log(child)
-[Log] NodeList (5)
-0 #text " "
-1
-<p>Hello!</p>
-2 #text " "
-3
-<p>World!</p>
-4 #text " "
-
-< undefined
-```
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="EaxQMjg" data-pen-title="js-childNode" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/EaxQMjg">
+  js-childNode</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ### 要素の情報の取得
 
