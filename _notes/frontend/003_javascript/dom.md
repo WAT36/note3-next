@@ -75,7 +75,7 @@ document.getElementsByTagName("タグ名");
 
 ### クラス名で取得
 
-同様に、要素のクラス名を使ってノードを取得する方法は以下の通り。
+同様に、要素のクラス名を使ってノードを取得する方法は以下の通り。例は同じなので割愛する。
 
 ```javascript
 document.getElementsByClassName("クラス名");
@@ -87,32 +87,12 @@ Javascript で取得したノードの親要素を取得するには、**parentN
 
 先程の'ID 名で取得'で取得したノードの親要素を取得する例を以下に示す。
 
-```javascript
-//ID名で取得
-var id = document.getElementById("ID名");
-
-//親要素の取得
-var parent = id.parentNode;
-```
-
-使用例
-
-```
-> var id = document.getElementById('main')
-< undefined
-> var parent = id.parentNode
-< undefined
-> console.log(parent)
-[Log] <body>
-<h1>見出し1</h1>
-<div id="main">
-<p>Hello!</p>
-<p>World!</p>
-</div>
-</body>
-
-< undefined
-```
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="raNJPXO" data-pen-title="js-parentNode" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/raNJPXO">
+  js-parentNode</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ### 子要素の取得
 
