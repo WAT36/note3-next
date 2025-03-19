@@ -1,7 +1,7 @@
 ---
 title: "このブログにhilight.jsを導入してみた"
 excerpt: "記事中のコードを美しく表示するhighlight.jsの紹介と導入方法について"
-coverImage: ""
+coverImage: "/assets/posts/highlightjs/highlight.png"
 date: "2025-03-13T23:05:56.000Z"
 updatedAt: "2025-03-13T23:05:56.000Z"
 tag: []
