@@ -244,11 +244,11 @@ DOM で取得した要素の操作方法について述べる。
 
 ### 要素の削除
 
-取得した要素を削除したいときは**removeChild()**メソッドを利用する。
+取得した要素を削除したいときは **removeChild()** メソッドを利用する。
 
 ただし、removeChild()メソッドは、その名の通り消したい要素の親要素で利用する。消したい要素から呼び出すのではないので注意。
 
-親要素を呼び出したい時は、**parentNode**を利用する。
+親要素を呼び出したい時は、 **parentNode** を利用する。
 
 使用例。removeChild()で"main"内の最初の要素 Hello!が削除されて表示される。
 
@@ -263,9 +263,9 @@ DOM で取得した要素の操作方法について述べる。
 
 要素を追加したい時は、<u>要素の作成</u>と<u>要素の挿入</u>の２ステップが必要になる。
 
-要素の作成には、**createElement('タグ名')**を利用する。
+要素の作成には、 **createElement('タグ名')** を利用する。
 
-その後、要素を挿入するには**appendChild(子要素)**を利用する。
+その後、要素を挿入するには **appendChild(子要素)** を利用する。
 
 このメソッドは、その名の通り、呼び出した要素の子要素を追加するメソッドである。
 
@@ -282,31 +282,14 @@ DOM で取得した要素の操作方法について述べる。
 
 セレクタ API と言うメソッドを使って要素を取得する方法がある。
 
-例としては、**querySelector()**メソッドや**querySelectorAll()**メソッドを使う。querySelector メソッドを使うと、該当する要素のうち最初の要素のみを取得し、qurySelectorAll メソッドは該当する要素を全て取得する。
+例としては、 **querySelector()** メソッドや **querySelectorAll()** メソッドを使う。querySelector メソッドを使うと、該当する要素のうち最初の要素のみを取得し、qurySelectorAll メソッドは該当する要素を全て取得する。
 
-```javascript
-var target = document.querySelectorAll("p");
-
-//要素を変更する
-for (var i = 0, l = target.length; i < l; i++) {
-  target[i].style.color = "red";
-}
-```
-
-使用例
-
-```
-> var target = document.querySelectorAll('p');
-< undefined
-> for(var i=0,l=target.length;i<l;i++){
-    target[i].style.color='red';
-}
-< "red"
-```
-
-適用後の画面(スクショ)
-
-<img src="/img/front-end/dom_changed4.png">
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="RNwMLeg" data-pen-title="js-querySelectorAll" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/RNwMLeg">
+  js-querySelectorAll</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ### その他の DOM を操作するメソッド
 
