@@ -321,62 +321,12 @@ Javascript の**イベント**についてを記す。
 
 サンプルコードを以下に示す。
 
-javascript
-
-```javascript
-function dragHandler(event) {
-  //動作結果を表示するオブジェクトを取得
-  var p = document.getElementById("status");
-
-  //ドラッグするデータの識別子をDataTransferオブジェクトにセット
-  event.dataTransfer.setData("text", "ドラッグされました！");
-
-  //動作結果を表示
-  p.innerHTML = "ドラッグされました！";
-}
-
-function dropHandler(event) {
-  var p = document.getElementById("status");
-  textdata = event.dataTransfer.getData("text");
-  p.innerHTML = textdata + " → ドロップされました！";
-  event.preventDefault();
-}
-```
-
-html
-
-```html
-<div id="from" draggable="true" ondragstart="dragHandler(event);">
-  <p>この要素を下にドラッグして・・</p>
-</div>
-<br />
-<div id="to" ondragover="event.preventDefault();" ondrop="dropHandler(event);">
-  <p>ここにドロップしてみよう！</p>
-</div>
-<br />
-<div>
-  <p id="status">まだドラッグ&ドロップされてません</p>
-</div>
-```
-
-表示例
-
-<hr>
-<hr>
-<div id="from" draggable="true" ondragstart="dragHandler(event);">
-<p>この要素を下にドラッグして・・</p>
-</div>
-<br>
-<div id="to" ondragover="event.preventDefault();" ondrop="dropHandler(event);">
-<p>ここにドロップしてみよう！</p>
-</div>
-<br>
-<div>
-<p id="status">まだドラッグ&ドロップされてません</p>
-</div>
-<script type="text/javascript" src="/js_sample_pages/event_sample.js"></script>
-<hr>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="mydxBZq" data-pen-title="js-dragdropevent" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/mydxBZq">
+  js-dragdropevent</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # イベントリスナ
 
