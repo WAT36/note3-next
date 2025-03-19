@@ -68,7 +68,7 @@ npm install highlight.js
 
 Next.js の`_app.js(x)`（Typescript の場合は`_app.ts(x)`）ファイルにスタイルシートをインポートします。
 
-（Next.js のバージョンによっては読み込み先が変わる可能性があるので、適宜置き換えてください。）
+（Next.js のバージョンによってはファイルが変わる可能性があるので、適宜置き換えてください。）
 
 ```jsx
 import "highlight.js/styles/github.css"; // githubテーマを使用する場合
@@ -114,6 +114,26 @@ export default CodeBlock;
 ```
 
 これにより、該当の箇所に highlight.js が適用されるはずです。
+
+### オプション：特定の言語だけ使用する場合
+
+全ての言語を含めると、バンドルサイズが大きくなります。特定の言語のみを使用する場合は以下のように指定できます。
+
+```javascript
+import hljs from "highlight.js/lib/core";
+import javascript from "highlight.js/lib/languages/javascript";
+import python from "highlight.js/lib/languages/python";
+import css from "highlight.js/lib/languages/css";
+
+// 使用する言語の登録
+hljs.registerLanguage("javascript", javascript);
+hljs.registerLanguage("python", python);
+hljs.registerLanguage("css", css);
+```
+
+この方法により、使用するライブラリの軽量化が図れます。
+
+---
 
 highlight.js を導入することで、Next.js ブログのコードスニペットは見やすく、プロフェッショナルな印象になります。この記事で紹介した方法を参考に、ぜひご自身のブログに実装してみてください！
 
