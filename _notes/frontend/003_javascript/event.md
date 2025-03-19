@@ -20,33 +20,12 @@ Javascript の**イベント**についてを記す。
 
 例として、以下のようなコードを記載する。
 
-html
-
-```html
-<p id="target">ここにカーソルを持ってくると・・</p>
-```
-
-javascript
-
-```javascript
-window.onload = function () {
-  var target = document.getElementById("target");
-
-  target.addEventListener("mousemove", function () {
-    this.innerText = "ここにカーソルを持ってくると・・　→　赤くなる！";
-    this.style.color = "red";
-  });
-};
-```
-
-表示例
-
----
-
-<p id="target">ここにカーソルを持ってくると・・</p>
-<script type="text/javascript" src="/js_sample_pages/event_sample.js"></script>
-
----
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="gbOeGyv" data-pen-title="js-event" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/gbOeGyv">
+  js-event</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 上記のテキストの上にカーソルを持ってくると、指定したイベントが発動してテキストの内容と色が変化する。
 
