@@ -269,31 +269,14 @@ DOM で取得した要素の操作方法について述べる。
 
 このメソッドは、その名の通り、呼び出した要素の子要素を追加するメソッドである。
 
-```javascript
-var target = document.createElement("p");
-target.innerText = "追加された要素";
+使用例を以下に示す。appendChild()で末尾に新しい要素が追加される。
 
-//要素を挿入する
-var main = document.getElementById("main");
-main.appendChild(target);
-```
-
-使用例
-
-```
-> var target = document.createElement('p');
-< undefined
-> target.innerText = '追加された要素';
-< "追加された要素"
-> var main = document.getElementById('main');
-< undefined
-> main.appendChild(target);
-< <p>追加された要素</p>
-```
-
-適用後の画面(スクショ)
-
-<img src="/img/front-end/dom_changed3.png">
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="ByarwJJ" data-pen-title="js-createElement" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/ByarwJJ">
+  js-createElement</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ### セレクタ API
 
