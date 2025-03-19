@@ -250,25 +250,14 @@ DOM で取得した要素の操作方法について述べる。
 
 親要素を呼び出したい時は、**parentNode**を利用する。
 
-```javascript
-var target = document.getElementById("main").firstElementChild;
+使用例。removeChild()で"main"内の最初の要素 Hello!が削除されて表示される。
 
-//要素を削除する
-target.parentNode.removeChild(target);
-```
-
-使用例
-
-```
-> var target = document.getElementById('main').firstElementChild;
-< undefined
-> target.parentNode.removeChild(target);
-< <p>Hello!</p>
-```
-
-適用後の画面(スクショ)
-
-<img src="/img/front-end/dom_changed2.png">
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="JojLrro" data-pen-title="js-removeChild" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/JojLrro">
+  js-removeChild</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ### 要素の追加
 
