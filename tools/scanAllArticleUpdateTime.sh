@@ -72,8 +72,18 @@ git log --diff-filter=CMRT --name-status --pretty=format: $(git rev-parse @{push
     fi
 done
 
-# Git に追加 & コミット & プッシュ
-git add *.md
-git commit -m "Update updatedAt files."
+# git status でワーキングツリーの変更を取得
+status=$(git status --porcelain)
+
+# 変更があるかチェック（ステージされていないファイルがあるかどうか）
+if [[ -n "$status" ]]; then
+    git add *.md
+    git commit -m "Update updatedAt files.(更新ファイルの日付を更新しました。再プッシュしてください。)"
+    cd $PWD
+    exit 1
+else
+    echo "変更はありません。"
+fi
 
 cd $PWD
+exit 0
