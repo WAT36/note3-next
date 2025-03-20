@@ -380,47 +380,22 @@ Javascript の**イベント**についてを記す。
 
 図に示すと以下の通り。まずは DOM ツリーの一番上から探して行き、
 
-<img src="/img/front-end/event_ignition.png">
+<img src="/assets/note/frontend/js/event_ignition.png">
 
 該当のイベントが発火すると、その場所から上へと辿って行き(伝播)、途上でイベントがあった場合はそれも走る。
 
-<img src="/img/front-end/event_propagation.png">
+<img src="/assets/note/frontend/js/event_propagation.png">
 
-このような、イベントの伝播をさせたくない場合は、javascript の addEventListener での処理関数の引数に**event**を指定し、さらに処理内容に**event.stopPropagation()**を追加させる。これにより、伝播をストップできる。
+このような、イベントの伝播をさせたくない場合は、javascript の addEventListener での処理関数の引数に**event**を指定し、さらに処理内容に **event.stopPropagation()** を追加させる。これにより、伝播をストップできる。
 
-javascript 例（main->main3,target->target3 と変更）
+使用例を以下に示す。
 
-```javascript
-window.onload = function () {
-  var target = document.getElementById("target3");
-
-  target.addEventListener("mousemove", function (event) {
-    this.innerText =
-      "このp要素(target)にカーソルを持ってくると・・　→　赤くなる！";
-    this.style.color = "red";
-    event.stopPropagation(); //伝播をストップさせる。
-  });
-
-  var main = document.getElementById("main3");
-
-  main.addEventListener("mousemove", function () {
-    this.innerText = "このp要素にカーソルを置くと・・・・　→　青くなる！";
-    this.style.color = "blue";
-  });
-};
-```
-
-表示例
-
----
-
-<div id="main3">
-    <p>このp要素にカーソルを置くと・・・・</p>
-    <p id="target3">このp要素(target)にカーソルを持ってくると・・</p>
-</div>
-<script type="text/javascript" src="/js_sample_pages/event_sample.js"></script>
-
----
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="xbxWywN" data-pen-title="js-event-fire" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/xbxWywN">
+  js-event-fire</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # カスタムイベント
 
