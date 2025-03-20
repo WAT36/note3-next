@@ -359,47 +359,12 @@ Javascript の**イベント**についてを記す。
 
 今度は以下のような例を考えてみる。
 
-html
-
-```html
-<div id="main2">
-  <p>このp要素にカーソルを置くと・・・・</p>
-  <p id="target2">このp要素(target)にカーソルを持ってくると・・</p>
-</div>
-```
-
-javascript（main->main2,target->target2 と変更）
-
-```javascript
-window.onload = function () {
-  var target = document.getElementById("target2");
-
-  target.addEventListener("mousemove", function () {
-    this.innerText =
-      "このp要素(target)にカーソルを持ってくると・・　→　赤くなる！";
-    this.style.color = "red";
-  });
-
-  var main = document.getElementById("main2");
-
-  main.addEventListener("mousemove", function () {
-    this.innerText = "このp要素にカーソルを置くと・・・・　→　青くなる！";
-    this.style.color = "blue";
-  });
-};
-```
-
-表示例
-
----
-
-<div id="main2">
-    <p>このp要素にカーソルを置くと・・・・</p>
-    <p id="target2">このp要素(target)にカーソルを持ってくると・・</p>
-</div>
-<script type="text/javascript" src="/js_sample_pages/event_sample.js"></script>
-
----
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="xbxWywN" data-pen-title="js-event-fire" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/xbxWywN">
+  js-event-fire</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 この例では、id="main"の中に id="target"の要素があり、またその両方にイベントが設定されている。
 
