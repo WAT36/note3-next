@@ -406,7 +406,7 @@ Javascript の**イベント**についてを記す。
 - Event コンストラクタでイベントオブジェクトを生成
 - イベントリスナを登録した要素オブジェクトの dispatchEvent()でイベントを発生させる
 
-**dispatchEvent()**は、任意にイベントを発生するメソッドである。
+**dispatchEvent()** は、任意にイベントを発生するメソッドである。
 
 ```
 要素.dispatchEvent(イベントオブジェクト)
@@ -414,56 +414,9 @@ Javascript の**イベント**についてを記す。
 
 例えば先程の例において、カスタムイベントを適用してみよう。下の例では、指定した要素がドラッグされると、テキストが「ドラッグされました」と変わるが、ここではウィンドウがロードされると同時にドラッグイベントが発生し、実際にドラッグしなくても処理が実行される。それにより、自動で「ドラッグされました」に変わる。
 
-javascript
-
-```javascript
-window.onload = function () {
-  //イベントリスナ登録(dragHandlerと同じ)
-  document.getElementById("from3").addEventListener(
-    "drag",
-    function () {
-      //動作対象のオブジェクトを取得
-      var p = document.getElementById("status3");
-
-      //ドラッグするデータの識別子をDataTransferオブジェクトにセット
-      event.dataTransfer.setData("text", "ドラッグされました！");
-
-      //動作結果を表示
-      p.innerHTML = "ドラッグされました！";
-    },
-    false
-  );
-
-  //ドラッグイベントの作成
-  var customEvent = new Event("drag");
-
-  //イベント発生
-  document.getElementById("from3").dispatchEvent(customEvent);
-};
-```
-
-html
-
-```html
-<div id="from3" draggable="true">
-  <p>この要素をドラッグすると・・</p>
-</div>
-<br />
-<div>
-  <p id="status3">まだドラッグされてません</p>
-</div>
-```
-
-表示例
-
-<hr>
-<hr>
-<div id="from3" draggable="true">
-<p>この要素をドラッグすると・・</p>
-</div>
-<br>
-<div>
-<p id="status3">まだドラッグされてません</p>
-</div>
-<hr>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="jEOzeyz" data-pen-title="js-custom-event" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/jEOzeyz">
+  js-custom-event</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
