@@ -68,50 +68,14 @@ ogImage:
 
 例えばウィンドウの縦横の長さを表示するプログラムを作ってみる。
 
-javascript
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="xbxWyjb" data-pen-title="js-window" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/xbxWyjb">
+  js-window</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
-```javascript
-window.onload = function () {
-  var h = document.getElementById("height");
-  h.innerText = window.innerHeight + "px";
-
-  var l = document.getElementById("length");
-  l.innerText = window.innerWidth + "px";
-};
-
-window.onresize = function () {
-  var h = document.getElementById("height");
-  h.innerText = window.innerHeight + "px";
-
-  var l = document.getElementById("length");
-  l.innerText = window.innerWidth + "px";
-};
-```
-
-html
-
-```html
-<div>ウィンドウの高さ</div>
-<div id="height">x px</div>
-<br />
-<div>ウィンドウの幅</div>
-<div id="length">x px</div>
-```
-
-表示例
-
-<hr>
-<hr>
-<div>ウィンドウの高さ</div>
-<div id="height">x px</div>
-<br>
-<div>ウィンドウの幅</div>
-<div id="length">x px</div>
-<script type="text/javascript" src="/js_sample_pages/window_sample.js"></script>
-<hr>
-<hr>
-
-上記は、ウィンドウの大きさを変えると値が変化する。
+上記は、ウィンドウ(codepen)の大きさを変えると値が変化する。
 
 # 主なメソッド
 
