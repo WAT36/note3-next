@@ -332,7 +332,7 @@ Javascript の**イベント**についてを記す。
 
 先程の例でもあったように、イベントハンドラでは処理を 1 つしか定義できない。複数定義するにはどうすれば良いか。
 
-ここで、**addEventListener()**を利用すると、1 つのイベントに複数の処理を登録できる。
+ここで、 **addEventListener()** を利用すると、1 つのイベントに複数の処理を登録できる。
 
 ```
 要素.addEventListener(イベント名,イベントリスナ,伝播の可否)
@@ -340,81 +340,12 @@ Javascript の**イベント**についてを記す。
 
 先述したドラッグ&ドロップの例をイベントリスナで実装してみよう。以下のようになる。
 
-javascript
-
-```javascript
-window.onload = function () {
-  addHandler();
-};
-
-function dragHandler2(event) {
-  //動作結果を表示するオブジェクトを取得
-  var p = document.getElementById("status2");
-
-  //ドラッグするデータの識別子をDataTransferオブジェクトにセット
-  event.dataTransfer.setData("text", "ドラッグされました！");
-
-  //動作結果を表示
-  p.innerHTML = "ドラッグされました！";
-}
-
-function dropHandler2(event) {
-  var p = document.getElementById("status2");
-  textdata = event.dataTransfer.getData("text");
-  p.innerHTML = textdata + " → ドロップされました！";
-  event.preventDefault();
-}
-
-//追加処理、テキストを緑色に変更
-function dropHandler2_2(event) {
-  var p = document.getElementById("status2");
-  p.style.color = "green";
-}
-
-//イベントリスナを追加する
-function addHandler() {
-  var to2 = document.getElementById("to2");
-  to2.addEventListener("drop", dropHandler2_2, false);
-}
-```
-
-html
-
-```html
-<div id="from2" draggable="true" ondragstart="dragHandler2(event);">
-  <p>この要素を下にドラッグして・・</p>
-</div>
-<br />
-<div
-  id="to2"
-  ondragover="event.preventDefault();"
-  ondrop="dropHandler2(event);"
->
-  <p>ここにドロップしてみよう！</p>
-</div>
-<br />
-<div>
-  <p id="status2">まだドラッグ&ドロップされてません</p>
-</div>
-```
-
-表示例
-
-<hr>
-<hr>
-<div id="from2" draggable="true" ondragstart="dragHandler2(event);">
-<p>この要素を下にドラッグして・・</p>
-</div>
-<br>
-<div id="to2" ondragover="event.preventDefault();" ondrop="dropHandler2(event);">
-<p>ここにドロップしてみよう！</p>
-</div>
-<br>
-<div>
-<p id="status2">まだドラッグ&ドロップされてません</p>
-</div>
-<hr>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="NPWYOqv" data-pen-title="js-addEventListener" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/NPWYOqv">
+  js-addEventListener</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 ## イベントリスナの削除
 
