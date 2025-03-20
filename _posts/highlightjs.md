@@ -1,5 +1,5 @@
 ---
-title: "このブログにhilight.jsを導入してみた"
+title: "このブログにhighlight.jsを導入してみた"
 excerpt: "記事中のコードを美しく表示するhighlight.jsの紹介と導入方法について"
 coverImage: "/assets/posts/highlightjs/highlight.png"
 date: "2025-03-13T23:05:56.000Z"
@@ -133,9 +133,7 @@ hljs.registerLanguage("css", css);
 
 この方法により、使用するライブラリの軽量化が図れます。
 
----
-
-highlight.js を導入することで、Next.js ブログのコードスニペットは見やすく、プロフェッショナルな印象になります。この記事で紹介した方法を参考に、ぜひご自身のブログに実装してみてください！
+highlight.js を導入することで、ブログのコードスニペットは見やすく、プロフェッショナルな印象になると実感したため、今後も活用していきたい。
 
 ---
 
