@@ -9,6 +9,7 @@ import { getNoteUnderDirSlugs } from "../../lib/fileSystem";
 import { useEffect, useState } from "react";
 import NotePage from "../../components/ui-pages/pages/note-page/NotePage";
 import NoteDirPage from "../../components/ui-pages/pages/notedir-page/NoteDirPage";
+import hljs from "highlight.js";
 
 type Props = {
   note: NoteType;
@@ -26,6 +27,10 @@ const Note = ({ note, subPageLinks }: Props) => {
   ) {
     return <ErrorPage statusCode={403} />;
   }
+
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
 
   useEffect(() => {
     const jsClass = "md_link_js";

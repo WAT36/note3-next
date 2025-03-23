@@ -69,18 +69,6 @@ export const Meta = () => {
       />
       <meta property="og:image" content={HOME_OG_IMAGE_URL} />
 
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
-        media="(prefers-color-scheme: light)"
-      />
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css"
-        media="(prefers-color-scheme: dark)"
-      />
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></Script>
-      <Script>hljs.highlightAll();</Script>
       {process.env.NEXT_PUBLIC_APP_ENV === "prd" ? (
         <>
           {/* Google tag (gtag.js) */}
