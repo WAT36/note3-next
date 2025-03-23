@@ -114,7 +114,7 @@ WebSocket の主な API は以下の通り。
 
 WebSocket の接続確立におけるこれら API の利用を示した図を以下に記載する。
 
-<img src="/img/front-end/websocket.png" width=50%>
+<img src="/assets/note/frontend/js/websocket.png" width=100%>
 
 # XMLHttpRequest
 
@@ -209,7 +209,7 @@ XMLHttpRequest の API は以下の通り。
 
 XMLHttpRequest の API の一連の流れを示した図を以下に記載する。
 
-<img src="/img/front-end/xmlhttprequest.png" width=50%>
+<img src="/assets/note/frontend/js/xmlhttprequest.png" width=100%>
 
 # Server-Sent Events
 
@@ -287,4 +287,4 @@ API 類は以下の通り。
 
 Server-Sent Events の API の一連の流れを示した図を以下に記載する。
 
-<img src="/img/front-end/serversentevent.png" width=50%>
+<img src="/assets/note/frontend/js/serversentevent.png" width=100%>
