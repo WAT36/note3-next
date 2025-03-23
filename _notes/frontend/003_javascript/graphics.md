@@ -243,27 +243,9 @@ SVG は、XML タグを使用して描画を行う。そのために使われる
 
 使用例を以下に示す。
 
-html
-
-```html
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-  <circle
-    cx="100"
-    cy="100"
-    r="30"
-    stroke="black"
-    stroke-width="3"
-    fill="blue"
-  ></circle>
-</svg>
-```
-
-表示例
-
-<hr>
-<hr>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-    <circle cx="100" cy="100" r="30" stroke="black" stroke-width="3" fill="blue"></circle>
-</svg>
-<hr>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="KwKeVoM" data-pen-title="js-svg" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/KwKeVoM">
+  js-svg</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
