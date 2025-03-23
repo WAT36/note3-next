@@ -211,69 +211,9 @@ error で返る値は以下の通り。
 
 試しに、これらのイベントハンドラを利用した例を以下に示してみよう。現在の動画ファイルの状態を表示する図を以下に記載する。
 
-HTML
-
-```html
-<video
-  id="video"
-  src="/img/front-end/IMG_3279.MOV.mp4"
-  controls
-  muted
-  width="500"
-  height="200"
-></video>
-<br />
-現在の動画の状態：
-<p id="state">()</p>
-<script type="text/javascript" src="/js_sample_pages/media_sample.js"></script>
-```
-
-Javascript
-
-```javascript
-window.onload = function () {
-  var v = document.getElementById("video");
-  var s = document.getElementById("state");
-
-  v.onplay = function () {
-    s.innerText = "再生中";
-  };
-
-  v.onplaying = function () {
-    s.innerText = "再生中";
-  };
-
-  v.ontimeupdate = function () {
-    s.innerText = "再生中";
-  };
-
-  v.onpause = function () {
-    s.innerText = "中断";
-  };
-
-  v.onwaiting = function () {
-    s.innerHTML = "ロード中";
-  };
-
-  v.onended = function () {
-    s.innerHTML = "再生終了";
-  };
-
-  v.onerror = function () {
-    s.innerHTML = "エラー発生";
-  };
-
-  v.onabort = function () {
-    s.innerHTML = "停止";
-  };
-};
-```
-
-表示例
-
-<hr>
-<video id="video" src="/img/front-end/IMG_3279.MOV.mp4" controls muted width="500" height="200" ></video>
-<br>
-現在の動画の状態：<p id="state"></p>
-<script type="text/javascript" src="/js_sample_pages/media_sample.js"></script>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="emYKJrR" data-pen-title="js-img" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/emYKJrR">
+  js-img</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
