@@ -188,19 +188,15 @@ console オブジェクトの主なメソッドを以下に記載する。
 </table>
 
 例えば、以下のプログラムをブラウザ上のコンソールで実行してみる。
+（表示に使用している CODEPEN というライブラリでは、現状このページで Javascript のコンソール出力を確認できないため、確認したい方は右上の「EDIT ON CODEPEN」>左下の「Console」を見て確認してください。）
 
-```javascript
-var x = 1;
-var y = 2;
-var z = 2;
-console.assert(x == y);
-console.assert(z == y);
-console.debug("デバッグメッセージ");
-console.error("エラ〜メッセージ");
-console.info("infoメッセージ");
-console.warn("警告メッセージ");
-```
+<p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="GgRGoZw" data-pen-title="js-console" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/GgRGoZw">
+  js-console</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
-コンソール上での実行結果（使用ブラウザ：Safari）
+上記のコンソール上での実行結果
 
-![console](/img/front-end/console_test.png)
+![console](/assets/note/frontend/js/console.png)
