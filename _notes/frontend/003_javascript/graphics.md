@@ -201,89 +201,12 @@ javascript では、まず canvas 要素を取得して、その後に getContex
 
 色々使った例を以下に示す。
 
-html
-
-```html
-<canvas id="sample2" width="400" height="200"></canvas>
-```
-
-Javascript
-
-```javascript
-//canvas要素取得
-var canvas2 = document.getElementById("sample2");
-//2d用　コンテキストオブジェクト取得
-var context2 = canvas2.getContext("2d");
-
-//円を描画
-context2.beginPath();
-context2.strokeStyle = "red";
-context2.fillStyle = "yellow";
-context2.arc(30, 30, 20, 0, Math.PI * 2, false);
-context2.stroke();
-context2.fill();
-
-//四角形を描画
-context2.beginPath();
-context2.strokeStyle = "blue";
-context2.fillStyle = "green";
-context2.rect(10, 120, 40, 40);
-context2.stroke();
-
-//線
-context2.beginPath();
-context2.lineWidth = 1;
-context2.moveTo(200, 120);
-context2.lineTo(250, 120);
-context2.stroke();
-context2.beginPath();
-context2.lineWidth = 5;
-context2.moveTo(200, 140);
-context2.lineTo(250, 140);
-context2.stroke();
-context2.lineWidth = 10;
-context2.moveTo(200, 160);
-context2.lineTo(250, 160);
-context2.stroke();
-
-//円弧
-context2.beginPath();
-context2.lineWidth = 1;
-context2.arc(200, 20, 30, Math.PI / 4, (Math.PI * 3) / 4, false);
-context2.stroke();
-
-//テキスト
-context2.beginPath();
-context2.strokeStyle = "black";
-context2.fillStyle = "black";
-context2.strokeText("Text", 300, 40);
-context2.fillText("Text", 300, 60);
-
-//テキスト(フォント、文字サイズ)
-context2.beginPath();
-context2.font = "bold 20px sans-serif";
-context2.fillText("Text", 300, 100);
-context2.font = "italic 20px sans-serif";
-context2.fillText("Text", 300, 120);
-
-//テキスト(シャドー)
-context2.beginPath();
-context2.font = "bold 20px sans-serif";
-context2.shadowColor = "red";
-context2.shadowBlur = 3;
-context2.shadowOffsetX = 3;
-context2.shadowOffsetY = 3;
-context2.fillText("Text", 300, 140);
-```
-
-表示例
-
-<hr>
-<hr>
-<canvas id="sample2" width="400" height="200"></canvas>
-<script type="text/javascript" src="/js_sample_pages/graphics_sample.js"></script>
-<hr>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="PwoaZQr" data-pen-title="js-canvas-example" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/PwoaZQr">
+  js-canvas-example</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # SVG
 
