@@ -24,6 +24,17 @@ cd ${APP_DIR}
 # ルートディレクトリへ移動
 cd ../
 
+# 更新mdファイルがある場合は最終更新日時コンポーネントを更新する
+if [[ -n "$(git log --diff-filter=ACMRT --name-status --pretty=format: $(git rev-parse @{push})..HEAD | awk '$1 != "D" {print $NF}' | grep -E '.md$')" ]]; then
+    # 変更があるときだけ処理する
+    # 現在日時を YYYY/MM/DD 形式で取得
+    today=$(date "+%Y/%m/%d")
+    # LastUpdatedDate.tsx の該当部分を書き換え（直接上書き）
+    sed -i.bak "s/Last Updated: [0-9]\{4\}\/[0-9]\{2\}\/[0-9]\{2\}/Last Updated: $today/" ./components/ui-elements/lastUpdatedDate/LastUpdatedDate.tsx
+    # git add
+    git add ./components/ui-elements/lastUpdatedDate/LastUpdatedDate.tsx
+fi
+
 # 前回のgit pushから変更のあった全ての `.md` ファイルを検索して処理
 # 追加した.mdファイルに対し date,updatedAtを更新
 count=0
