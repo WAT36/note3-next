@@ -157,27 +157,11 @@ ogImage:
 
 javascript
 
-```javascript
-window.onload = function () {
-  var t = document.getElementById("time");
-  var interval = window.setInterval(function () {
-    var nowDate = new Date();
-    t.innerHTML = nowDate.toLocaleTimeString();
-  }, 1000);
-};
-```
-
-html
-
-```html
-<p>現在時刻</p>
-<p id="time">XX:XX:XX</p>
-```
-
-表示例
-
-<p>現在時刻</p>
-<p id="time">XX:XX:XX</p>
-<script type="text/javascript" src="/js_sample_pages/window_sample.js"></script>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="qEBKbbV" data-pen-title="js-timer" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/qEBKbbV">
+  js-timer</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 上記は１秒毎に現在時刻を取得して更新するプログラムになる。１秒毎に現在時刻を取得する仕組みをタイマー処理(setInterval)で表現している。
