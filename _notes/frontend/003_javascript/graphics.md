@@ -20,37 +20,12 @@ Canvas を利用すると、Javascript でブラウザ上に図を描画する�
 
 Canvas を利用するには、HTML で canvas 要素を用意する。
 
-html
-
-```html
-<canvas id="sample" width="100" height="100"></canvas>
-```
-
-Javascript から、この canvas 要素を参照し、図の描画を行う。
-
-Javascript のサンプルコードを以下に示す。
-
-```javascript
-//canvas要素取得
-var canvas = document.getElementById("sample");
-//2d用　コンテキストオブジェクト取得
-var context = canvas.getContext("2d");
-
-//円を描画
-context.beginPath();
-context.fillStyle = "red";
-context.arc(30, 30, 20, 0, Math.PI * 2, false);
-context.stroke();
-```
-
-表示例
-
-<hr>
-<hr>
-<canvas id="sample" width="100" height="100"></canvas>
-<script type="text/javascript" src="/js_sample_pages/graphics_sample.js"></script>
-<hr>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="js" data-slug-hash="bNGKEgX" data-pen-title="js-canvas2d" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/bNGKEgX">
+  js-canvas2d</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 javascript では、まず canvas 要素を取得して、その後に getContext()関数で'2d'を指定する事で 2d 用のコンテキストオブジェクトを取得する。
 
