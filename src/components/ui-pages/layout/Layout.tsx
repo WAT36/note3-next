@@ -3,7 +3,8 @@ import Header from "../../ui-parts/header/Header";
 import { Meta } from "../../ui-elements/meta/Meta";
 import SubHeader from "../../ui-parts/subheader/SubHeader";
 import { CSSProperties } from "react";
-import { ADSENSE_CLIENT_ID, GTAG_ID } from "../../../lib/gtag";
+import { ADSENSE_CLIENT_ID, GA_ID, GTAG_ID } from "../../../lib/gtag";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 type Props = {
   preview?: boolean;
@@ -48,6 +49,7 @@ const Layout = ({ preview, children, canChangeProgrammingLanguage }: Props) => {
         <SubHeader
           canChangeProgrammingLanguage={canChangeProgrammingLanguage}
         />
+        <GoogleAnalytics gaId={GA_ID} />
         <main>{children}</main>
       </div>
       <Footer />
