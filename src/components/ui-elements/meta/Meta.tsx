@@ -68,29 +68,6 @@ export const Meta = () => {
         content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
       />
       <meta property="og:image" content={HOME_OG_IMAGE_URL} />
-
-      {process.env.NEXT_PUBLIC_APP_ENV === "prd" ? (
-        <>
-          {/* Google tag (gtag.js) */}
-          <Script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          />
-          <Script
-            dangerouslySetInnerHTML={{
-              __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_ID}', {
-              page_path: window.location.pathname,
-            });`,
-            }}
-          />
-        </>
-      ) : (
-        <></>
-      )}
     </Head>
   );
 };
