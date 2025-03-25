@@ -14,8 +14,6 @@ ogImage:
 
 ブラウザに関する API について。
 
-なお、ここではサンプルは一部割愛致します（ブラウザ遷移を伴ってしまうため・・・）
-
 # History API
 
 History API は、ブラウザの履歴を提供するための API である。また、ブラウザの戻る・進むボタンの様なページを遷移するためのイベントもここで行える。
@@ -124,6 +122,10 @@ Location API は、画面の URL に関する操作を行う API である。
         <td style="border:none;">password</td>
         <td style="border:none;">パスワード</td>
     </tr>
+    <tr>
+        <td style="border:none;">origin</td>
+        <td style="border:none;">オリジン</td>
+    </tr>
 </table>
 
 <table style="border:none;">
@@ -136,6 +138,10 @@ Location API は、画面の URL に関する操作を行う API である。
         <td style="border:none;">指定したページをロードする</td>
     </tr>
     <tr>
+        <td style="border:none;">replace()</td>
+        <td style="border:none;">現在のページを履歴から削除し、指定したページをロードする</td>
+    </tr>
+    <tr>
         <td style="border:none;">reload()</td>
         <td style="border:none;">現在のページをリロードする</td>
     </tr>
@@ -144,6 +150,15 @@ Location API は、画面の URL に関する操作を行う API である。
         <td style="border:none;">現在のページのURL全体を返す</td>
     </tr>
 </table>
+
+使用例を以下に示す。（利用している Codepen の情報が表示されます）
+
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="KwKBqge" data-pen-title="js-location" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/KwKBqge">
+  js-location</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # ブラウザの開発ツールによるテスト
 
