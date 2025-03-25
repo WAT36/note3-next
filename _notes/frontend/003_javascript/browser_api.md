@@ -54,9 +54,24 @@ History API は、ブラウザの履歴を提供するための API である。
         <td style="border:none;">forward()</td>
         <td style="border:none;">1つ後のページへ遷移する</td>
     </tr>
+    <tr>
+        <td style="border:none;">pushState()</td>
+        <td style="border:none;">履歴に新しいページを追加する</td>
+    </tr>
+    <tr>
+        <td style="border:none;">forward()</td>
+        <td style="border:none;">履歴の現在のページの情報を書き換える</td>
+    </tr>
 </table>
 
-これらを Javascript 上で利用することで、ページの遷移も行える。
+例を以下に示す。この例では、ボタンを押すと pushState()で色の情報を履歴に追加する。これにより、ボタンを押して色を変化させた後にブラウザの戻る・進むボタンを押すことで色が変化するようになる。
+
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="dPyjWLb" data-pen-title="js-history" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/dPyjWLb">
+  js-history</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # Location API
 
