@@ -6,7 +6,7 @@ import { NOTES_DIR, PROGRAMMING_LANGUAGE_NAME } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import type NoteType from "../../interfaces/note";
 import { getNoteUnderDirSlugs } from "../../lib/fileSystem";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import NotePage from "../../components/ui-pages/pages/note-page/NotePage";
 import NoteDirPage from "../../components/ui-pages/pages/notedir-page/NoteDirPage";
 import hljs from "highlight.js";
@@ -57,6 +57,19 @@ const Note = ({ note, subPageLinks }: Props) => {
       }
     }
   }, [router.isReady, router.asPath]);
+
+  // フロントエンド CodePen用(ローカル)
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+    const script = document.createElement("script");
+    script.src = "https://cpwebassets.codepen.io/assets/embed/ei.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+  if (!isClient) {
+    return null; // サーバーサイドでは何も表示しない
+  }
 
   return router.isFallback ? (
     <PostTitle>Loading…</PostTitle>
