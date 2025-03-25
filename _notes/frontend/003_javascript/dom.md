@@ -2,8 +2,8 @@
 title: "DOM"
 excerpt: ""
 coverImage: ""
-date: '2025-03-25T23:16:20.000Z'
-updatedAt: '2025-03-25T23:16:20.000Z'
+date: "2025-03-25T23:40:20.000Z"
+updatedAt: "2025-03-25T23:40:20.000Z"
 tag: []
 author:
   name: Tatsuroh Wakasugi
