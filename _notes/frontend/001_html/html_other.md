@@ -3,7 +3,7 @@ title: "その他の要素"
 date: "2019-11-04T23:38:30.000Z"
 excerpt: "ここで述べられていない、その他のHTML要素について"
 tag: ["HTML"]
-updatedAt: "2023-02-23T11:24:26.000Z"
+updatedAt: '2025-03-25T23:16:20.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

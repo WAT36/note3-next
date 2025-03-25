@@ -2,8 +2,8 @@
 title: "通信(Javascript)"
 excerpt: ""
 coverImage: ""
-date: "2025-03-23T18:25:48.000Z"
-updatedAt: "2025-03-23T18:25:48.000Z"
+date: '2025-03-25T23:16:20.000Z'
+updatedAt: '2025-03-25T23:16:20.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi

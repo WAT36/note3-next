@@ -3,7 +3,7 @@ title: "リスト"
 date: "2019-11-04T22:34:30.000Z"
 excerpt: "HTMLでのリストについて"
 tag: ["HTML"]
-updatedAt: "2023-02-17T23:18:26.000Z"
+updatedAt: '2025-03-25T23:16:20.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

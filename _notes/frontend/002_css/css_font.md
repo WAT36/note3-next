@@ -3,7 +3,7 @@ title: "CSSでのフォント"
 date: "2019-11-05T23:38:30.000Z"
 excerpt: "CSSでのフォントの設定について"
 tag: ["CSS"]
-updatedAt: "2023-03-06T08:35:42.000Z"
+updatedAt: '2025-03-25T23:16:20.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

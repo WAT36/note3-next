@@ -2,8 +2,8 @@
 title: "ストレージ(JavaScript)"
 excerpt: ""
 coverImage: ""
-date: "2025-03-23T12:01:13.000Z"
-updatedAt: "2025-03-23T12:01:13.000Z"
+date: '2025-03-25T23:16:20.000Z'
+updatedAt: '2025-03-25T23:16:20.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi

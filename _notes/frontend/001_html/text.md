@@ -3,7 +3,7 @@ title: "テキスト"
 date: "2019-11-04T21:34:30.000Z"
 excerpt: "HTMLでのテキストについて"
 tag: ["HTML"]
-updatedAt: "2023-02-16T08:46:06.000Z"
+updatedAt: '2025-03-25T23:16:20.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

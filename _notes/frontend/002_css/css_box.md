@@ -3,7 +3,7 @@ title: "CSSでのボックス"
 date: "2019-11-05T23:39:30.000Z"
 excerpt: "CSSでのボックスの設定について"
 tag: ["CSS"]
-updatedAt: "2023-03-07T00:21:20.000Z"
+updatedAt: '2025-03-25T23:16:20.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

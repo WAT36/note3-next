@@ -3,7 +3,7 @@ title: "セクション"
 date: "2019-11-04T20:34:30.000Z"
 excerpt: "HTMLのセクションについて"
 tag: ["HTML"]
-updatedAt: "2023-02-15T08:45:22.000Z"
+updatedAt: '2025-03-25T23:16:20.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

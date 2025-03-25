@@ -3,7 +3,7 @@ title: "マルチカラム"
 date: "2019-11-05T23:40:30.000Z"
 excerpt: "CSSでのマルチカラムの設定について"
 tag: ["CSS"]
-updatedAt: "2023-03-08T22:23:47.000Z"
+updatedAt: '2025-03-25T23:16:20.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

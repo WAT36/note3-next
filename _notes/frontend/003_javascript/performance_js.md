@@ -2,8 +2,8 @@
 title: "パフォーマンス系API(Javascript)"
 excerpt: ""
 coverImage: ""
-date: "2025-03-23T19:04:55.000Z"
-updatedAt: "2025-03-23T19:04:55.000Z"
+date: '2025-03-25T23:16:20.000Z'
+updatedAt: '2025-03-25T23:16:20.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi

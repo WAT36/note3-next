@@ -3,7 +3,7 @@ title: "アニメーション"
 date: "2019-11-05T23:41:30.000Z"
 excerpt: "CSSでのアニメーションの設定について"
 tag: ["CSS"]
-updatedAt: "2023-03-09T22:56:41.000Z"
+updatedAt: '2025-03-25T23:16:20.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

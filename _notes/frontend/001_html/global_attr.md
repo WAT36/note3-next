@@ -3,7 +3,7 @@ title: "グローバル属性"
 date: "2019-11-04T19:34:30.000Z"
 excerpt: "HTMLファイルの大まかな構成について"
 tag: ["HTML"]
-updatedAt: "2023-02-09T23:15:39.000Z"
+updatedAt: '2025-03-25T23:16:20.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

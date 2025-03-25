@@ -3,7 +3,7 @@ title: "ルビ"
 date: "2019-11-04T23:34:30.000Z"
 excerpt: "HTMLでのルビについて"
 tag: ["HTML"]
-updatedAt: "2023-02-18T12:07:04.000Z"
+updatedAt: '2025-03-25T23:16:20.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

@@ -3,7 +3,7 @@ title: "その他"
 date: "2019-11-05T23:42:30.000Z"
 excerpt: "CSSその他の設定について"
 tag: ["CSS"]
-updatedAt: "2023-03-10T21:07:35.000Z"
+updatedAt: '2025-03-25T23:16:20.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

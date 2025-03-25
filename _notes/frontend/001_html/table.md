@@ -3,7 +3,7 @@ title: "テーブル(表)"
 date: "2019-11-04T23:37:30.000Z"
 excerpt: "HTMLでのテーブル(表)について"
 tag: ["HTML"]
-updatedAt: "2023-02-21T08:40:39.000Z"
+updatedAt: '2025-03-25T23:16:20.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

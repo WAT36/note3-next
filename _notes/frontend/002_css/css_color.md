@@ -3,7 +3,7 @@ title: "CSSでの色"
 date: "2019-11-05T20:38:30.000Z"
 excerpt: "CSSでの色の設定について"
 tag: ["CSS"]
-updatedAt: "2023-03-03T20:07:33.000Z"
+updatedAt: '2025-03-25T23:16:20.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
