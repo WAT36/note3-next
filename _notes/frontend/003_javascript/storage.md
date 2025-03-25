@@ -95,3 +95,14 @@ Web Storage で定義されているストレージには次の 2 種類あり�
         <td style="border:none;">変更のあったStorageオブジェクト</td>
     </tr>
 </table>
+
+使用例を以下に示す。
+
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="wBvxjrO" data-pen-title="js-webstorage" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/wBvxjrO">
+  js-webstorage</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+この例では、値を入力して保存ボタンを押すと、入力内容がローカルストレージに保存される。その後にブラウザを更新したり別ページに遷移して戻っても、その値が保持されて表示される。
