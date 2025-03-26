@@ -106,3 +106,47 @@ Web Storage で定義されているストレージには次の 2 種類あり�
 <script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 この例では、値を入力して保存ボタンを押すと、入力内容がローカルストレージに保存される。その後にブラウザを更新したり別ページに遷移して戻っても、その値が保持されて表示される。
+
+# Indexed Database API
+
+Indexed Database API とは、ブラウザ内に構造化されたデータ（オブジェクト）を保存・検索できるローカルデータベースである。
+
+Web storage とは異なり、データベースとして扱う事ができます。また Web Storage よりも高機能かつ大容量で、Web アプリでオフライン保存や検索機能を使いたいときに役立つ。
+
+リレーショナルデータベースの「テーブル」に相当するのが「オブジェクトストア」で、キーバリュー型で格納されている「オブジェクト」がリレーショナルデータベースの「レコード」に相当します。
+
+基本的にキーはオブジェクトを指定して取得する際に使用し、インデックスは特定範囲のオブジェクトをまとめて取得する際に使用します。データベースを利用するために IndexedDB オブジェクトを利用します。
+
+IndexedDB オブジェクトは IDBEnvironment のプロパティに定義されています。IDBEnvironment は Window オブジェクトに実装されているので、そこから利用します。
+
+<table style="border:none;">
+    <tr>
+        <th style="border:none;">プロパティ名</td>
+        <th style="border:none;">意味</td>
+    </tr>
+    <tr>
+        <td style="border:none;">indexedDB</td>
+        <td style="border:none;">データベースを生成/削除するためのIDBFactory型のオブジェクト</td>
+    </tr>
+</table>
+
+indexedDB は IDBFactory 型のオブジェクトです。IDBFactory の API を示します。
+
+<table style="border:none;">
+    <tr>
+        <th style="border:none;">メソッド</td>
+        <th style="border:none;">意味</td>
+    </tr>
+    <tr>
+        <td style="border:none;">open()</td>
+        <td style="border:none;">データベースを開く</td>
+    </tr>
+    <tr>
+        <td style="border:none;">deleteDatabase()</td>
+        <td style="border:none;">データベースを削除する</td>
+    </tr>
+    <tr>
+        <td style="border:none;">cmp()</td>
+        <td style="border:none;">２つのキー値を比較する</td>
+    </tr>
+</table>
