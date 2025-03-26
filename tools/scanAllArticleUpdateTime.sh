@@ -37,7 +37,6 @@ fi
 
 # 前回のgit pushから変更のあった全ての `.md` ファイルを検索して処理
 # 追加した.mdファイルに対し date,updatedAtを更新
-count=0
 git log --diff-filter=A --name-status --pretty=format: $(git rev-parse @{push})..HEAD | awk '$1 != "D" {print $NF}' | grep -E '.md$' | sort | uniq | while read -r file; do
     # 更新時刻を取得（フォーマット: YYYY-MM-DD HH:MM:SS）
     mod_time=$(get_mod_time "$file")
@@ -57,7 +56,7 @@ git log --diff-filter=A --name-status --pretty=format: $(git rev-parse @{push}).
         # 作成時刻、更新時刻を更新
         sed -i '' "s/date:.*/date: '${mod_time}'/g" $file
         sed -i '' "s/updatedAt:.*/updatedAt: '${mod_time}'/g" $file
-        ((count++))
+        git add $file
     fi
 done
 
@@ -79,7 +78,7 @@ git log --diff-filter=CMRT --name-status --pretty=format: $(git rev-parse @{push
         echo -e "updatedAt none. $file"
     elif [[ "$mod_day" != "$file_day" ]]; then
         sed -i '' "s/updatedAt:.*/updatedAt: '${mod_time}'/g" $file
-        ((count++))
+        git add $file
     fi
 done
 
@@ -88,7 +87,6 @@ status=$(git status --porcelain)
 
 # 変更があるかチェック（ステージされていないファイルがあるかどうか）
 if [[ -n "$status" ]]; then
-    git add *.md
     git commit -m "Update updatedAt files.(更新ファイルの日付を更新しました。再プッシュしてください。)"
     cd $PWD
     exit 1
