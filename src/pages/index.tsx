@@ -6,6 +6,7 @@ import Head from "next/head";
 import { ADMINISTRATOR, AUTHOR, TITLE } from "../lib/constants";
 import { Bio } from "../components/ui-elements/bio/Bio";
 import { getNewestPost, getRandomPost, HitType } from "../lib/algolia";
+import LastUpdatedDate from "../components/ui-elements/lastUpdatedDate/LastUpdatedDate";
 
 type Props = {
   newestPost: HitType;
@@ -30,6 +31,7 @@ export default function Index({ newestPost, randomPost }: Props) {
             <p>このページはNext.jsを使って作成しております。</p>
             <p>まあ、よろしく</p>
           </div>
+          {/** TODO この辺別コンポーネント作って分けたい New PostとかはHeroPostにまとめられないか？ */}
           <h3 className="text-6xl font-bold my-4 tracking-tighter leading-tight md:pr-8">
             New Posts
           </h3>
@@ -57,6 +59,7 @@ export default function Index({ newestPost, randomPost }: Props) {
               excerpt={randomPost.excerpt}
             />
           )}
+          <LastUpdatedDate />
         </Container>
       </Layout>
     </>

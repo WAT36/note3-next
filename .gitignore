@@ -44,3 +44,6 @@ filelist.txt
 
 #rss
 rss.xml
+
+# .bak
+*.bak

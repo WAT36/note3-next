@@ -1,107 +1,65 @@
 ---
 title: "リスト"
 date: "2019-11-04T22:34:30.000Z"
-excerpt: 'HTMLでのリストについて'
+excerpt: "HTMLでのリストについて"
 tag: ["HTML"]
-updatedAt: '2023-02-17T23:18:26.000Z'
+updatedAt: '2025-03-25T23:16:20.000Z'
 author:
   name: Tatsuroh Wakasugi
-  picture: '/assets/blog/authors/WAT.jpg'
+  picture: "/assets/blog/authors/WAT.jpg"
 ---
 
-HTML文書にリストを記載するための要素についてをここでは述べる。
+HTML 文書にリストを記載するための要素についてをここでは述べる。
 
+## ul 要素
 
-## ul要素
+ul 要素は、箇条書きリストを作成するための要素である。一つの箇条書きリストを ul 要素で表し、リスト内の項目一つを **li 要素** で表す。
 
-ul要素は、箇条書きリストを作成するための要素である。一つの箇条書きリストをul要素で表し、リスト内の項目一つを **li要素** で表す。
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="QwWMJEg" data-pen-title="html-ul" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/QwWMJEg">
+  html-ul</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
-```
-<p>やることリスト</p>
-<ul>
-    <li>部屋の掃除</li>
-    <li>ゴミ出し</li>
-    <li>ジョギング</li>
-</ul>
-```
+## ol 要素
 
-表示例
-
-<p>やることリスト</p>
-<ul>
-    <li>部屋の掃除</li>
-    <li>ゴミ出し</li>
-    <li>ジョギング</li>
-</ul>
-<hr>
-
-
-## ol要素
-
-ol要素は、連番付きリストを作成するための要素である。リストのひとかたまりをol要素で表し、リスト内の項目一つを **li要素** で表す。
+ol 要素は、連番付きリストを作成するための要素である。リストのひとかたまりを ol 要素で表し、リスト内の項目一つを **li 要素** で表す。
 
 指定できる属性は以下の通り。
 
-|属性名|意味|
-|:---|:---|
-|type|行頭の数字の種類(値は"1","a","A","i","I")|
-|start|連番の開始番号|
-|reversed|リストの番号を逆順にする|
+| 属性名   | 意味                                      |
+| :------- | :---------------------------------------- |
+| type     | 行頭の数字の種類(値は"1","a","A","i","I") |
+| start    | 連番の開始番号                            |
+| reversed | リストの番号を逆順にする                  |
 
+例記載
 
-```
-<p>サーバー再起動手順</p>
-<ol>
-    <li>rootユーザにログインする</li>
-    <li>サーバーを停止する</li>
-    <li>サーバーを起動する</li>
-</ol>
-```
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="LEYjXRo" data-pen-title="html-ol" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/LEYjXRo">
+  html-ol</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
-表示例
+## li 要素
 
-<p>サーバー再起動手順</p>
-<ol>
-    <li>rootユーザにログインする</li>
-    <li>サーバーを停止する</li>
-    <li>サーバーを起動する</li>
-</ol>
-<hr>
+前述の ul,ol 要素のところで出てきてはいるが、li 要素は ul,ol 要素によるリストの各項目を示す時に用いる要素である。
 
-## li要素
+使用例・表示例は ul,ol 要素を参照。
 
-前述のul,ol要素のところで出てきてはいるが、li要素はul,ol要素によるリストの各項目を示す時に用いる要素である。
+## dl 要素・dt 要素・dd 要素
 
-使用例・表示例はul,ol要素を参照。
+ul 要素は箇条書き、ol 要素は連番と決まっていたが、**dl 要素**(description list)はリストの項目の種類を自分で指定できる要素である。記号である必要はなく、具体的な名前を入れても良い。
 
+dl 要素で書いたリストは、**dt 要素**で項目名を指定し、その後**dd 要素**でその具体的な内容を指定する。
 
-## dl要素・dt要素・dd要素
+使用例
 
-ul要素は箇条書き、ol要素は連番と決まっていたが、**dl要素**(description list)はリストの項目の種類を自分で指定できる要素である。記号である必要はなく、具体的な名前を入れても良い。
-
-dl要素で書いたリストは、**dt要素**で項目名を指定し、その後**dd要素**でその具体的な内容を指定する。
-
-```
-<p>試験時間</p>
-<dl>
-    <dt>国語</dt>
-    <dd>9:00~10:30</dd>
-    <dt>数学</dt>
-    <dd>10:45~12:15</dd>
-    <dt>英語</dt>
-    <dd>13:30~15:00</dd>
-</dl>
-```
-
-表示例
-
-<p>試験時間</p>
-<dl>
-    <dt>国語</dt>
-    <dd>9:00~10:30</dd>
-    <dt>数学</dt>
-    <dd>10:45~12:15</dd>
-    <dt>英語</dt>
-    <dd>13:30~15:00</dd>
-</dl>
-<hr>
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="QwWqvpW" data-pen-title="html-dldddt" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/QwWqvpW">
+  html-dldddt</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
