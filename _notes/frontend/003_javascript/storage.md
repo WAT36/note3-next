@@ -159,3 +159,30 @@ indexedDB は IDBFactory 型のオブジェクトです。IDBFactory の API を
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+# File API
+
+File API とは、ブラウザ上でユーザーのファイルを扱うための API です。ローカルのファイルを選んでもらって、読み込んだり、内容を表示したりできるようになります。
+
+File API では、ブラウザ上でユーザがフォームから選択したファイルや、ユーザがドラッグ&ドロップしたファイルを扱う事ができます。
+
+File API で扱うオブジェクトは以下のようなものがあります。
+
+<table style="border:none;">
+    <tr>
+        <th style="border:none;">オブジェクト名</td>
+        <th style="border:none;">役割</td>
+    </tr>
+    <tr>
+        <td style="border:none;">File</td>
+        <td style="border:none;">実際に選ばれたファイルを表す</td>
+    </tr>
+    <tr>
+        <td style="border:none;">FileList</td>
+        <td style="border:none;">ファイルが複数選ばれたときの配列っぽいリスト</td>
+    </tr>
+    <tr>
+        <td style="border:none;">FileReader</td>
+        <td style="border:none;">ファイルの中身（テキスト、画像など）を読み込むため</td>
+    </tr>
+</table>
