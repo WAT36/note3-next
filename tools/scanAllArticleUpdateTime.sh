@@ -30,7 +30,7 @@ if [[ -n "$(git log --diff-filter=ACMRT --name-status --pretty=format: $(git rev
     # 現在日時を YYYY/MM/DD 形式で取得
     today=$(date "+%Y/%m/%d")
     # LastUpdatedDate.tsx の該当部分を書き換え（直接上書き）
-    sed -i.bak "s/Last Updated: [0-9]\{4\}\/[0-9]\{2\}\/[0-9]\{2\}/Last Updated: $today/" ./components/ui-elements/lastUpdatedDate/LastUpdatedDate.tsx
+    sed -i.bak "s/Last Updated: [0-9]\{4\}\/[0-9]\{2\}\/[0-9]\{2\}/Last Updated: $today/" ./src/components/ui-elements/lastUpdatedDate/LastUpdatedDate.tsx
     # git add
     git add ./components/ui-elements/lastUpdatedDate/LastUpdatedDate.tsx
 fi
