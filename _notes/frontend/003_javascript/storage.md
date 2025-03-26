@@ -150,3 +150,12 @@ indexedDB は IDBFactory 型のオブジェクトです。IDBFactory の API を
         <td style="border:none;">２つのキー値を比較する</td>
     </tr>
 </table>
+
+以下に使用例を記載する。
+
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="pvoZmvb" data-pen-title="js-indexed-database" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/pvoZmvb">
+  js-indexed-database</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
