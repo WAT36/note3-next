@@ -222,3 +222,54 @@ new ArrayBuffer(length);
 <script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 この例では、new ArrayBuffer(1) で 1 バイト（8 ビット）の空のバッファを確保し、そこに入力した数値（１バイトの最高値である 255 以内）を格納して、表示しています。
+
+## TypedArray
+
+TypedArray は型付配列とも呼ばれ、バイナリーデータの領域を配列の形で操作するための型付きの配列になります。
+
+利用には、後述するバイト境界やエンディアンを考慮する必要があります。
+
+TypedArray のオブジェクトを以下に示します。
+
+<table style="border:none;">
+    <tr>
+        <th style="border:none;">配列名</td>
+        <th style="border:none;">説明</td>
+    </tr>
+    <tr>
+        <td style="border:none;">Uint8Array()</td>
+        <td style="border:none;">符号なし８ビット整数</td>
+    </tr>
+    <tr>
+        <td style="border:none;">Uint8ClampedArray()</td>
+        <td style="border:none;">入力値を0から255の間に揃える(0以下の数値を0,255以上の数値を255に)</td>
+    </tr>
+    <tr>
+        <td style="border:none;">Uint16Array()</td>
+        <td style="border:none;">符号なし１６ビット整数</td>
+    </tr>
+    <tr>
+        <td style="border:none;">Uint32Array()</td>
+        <td style="border:none;">符号なし３２ビット整数</td>
+    </tr>
+    <tr>
+        <td style="border:none;">Int8Array()</td>
+        <td style="border:none;">符号付き８ビット整数</td>
+    </tr>
+    <tr>
+        <td style="border:none;">Int16Array()</td>
+        <td style="border:none;">符号付き１６ビット整数</td>
+    </tr>
+    <tr>
+        <td style="border:none;">Int32Array()</td>
+        <td style="border:none;">符号付き３２ビット整数</td>
+    </tr>
+    <tr>
+        <td style="border:none;">Float32Array()</td>
+        <td style="border:none;">３２ビット浮動小数点数</td>
+    </tr>
+    <tr>
+        <td style="border:none;">Float64Array()</td>
+        <td style="border:none;">６４ビット浮動小数点数</td>
+    </tr>
+</table>
