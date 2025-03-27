@@ -3,7 +3,7 @@ title: "ストレージ(JavaScript)"
 excerpt: ""
 coverImage: ""
 date: "2025-03-25T23:46:20.000Z"
-updatedAt: '2025-03-26T23:13:36.000Z'
+updatedAt: "2025-03-26T23:13:36.000Z"
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -193,3 +193,21 @@ File API で扱うオブジェクトは以下のようなものがあります�
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+# バイナリーデータ
+
+Javascript では、画像、音声、動画などを扱うときに**バイナリーデータ**と呼ばれるデータ形式を利用します。
+
+バイナリデータは 0 と 1 で構成された生データであり、ファイルやメモリの内容をそのまま格納したものです。
+
+以下に、Javascript でバイナリーデータを扱うためのオブジェクトやインターフェースについてをいくつか記載します。
+
+## ArrayBuffer
+
+ArrayBuffer は、JavaScript でバイナリデータをメモリ上に格納するためのオブジェクトです。
+
+```javascript
+new ArrayBuffer(length);
+```
+
+引数 length には、メモリ上に確保する領域のサイズをバイトで指定します。
