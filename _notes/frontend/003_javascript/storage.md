@@ -211,3 +211,14 @@ new ArrayBuffer(length);
 ```
 
 引数 length には、メモリ上に確保する領域のサイズをバイトで指定します。
+
+使用例を以下に記載します。
+
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="GgRXOrq" data-pen-title="js-arraybuffer" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/GgRXOrq">
+  js-arraybuffer</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+この例では、new ArrayBuffer(1) で 1 バイト（8 ビット）の空のバッファを確保し、そこに入力した数値（１バイトの最高値である 255 以内）を格納して、表示しています。
