@@ -227,6 +227,12 @@ new ArrayBuffer(length);
 
 TypedArray は型付配列とも呼ばれ、バイナリーデータの領域を配列の形で操作するための型付きの配列になります。
 
+```javascript
+new <型付配列のオブジェクト名>(length)
+```
+
+length には配列の要素の数を指定します。
+
 利用には、後述するバイト境界やエンディアンを考慮する必要があります。
 
 TypedArray のオブジェクトを以下に示します。
@@ -273,3 +279,14 @@ TypedArray のオブジェクトを以下に示します。
         <td style="border:none;">６４ビット浮動小数点数</td>
     </tr>
 </table>
+
+使用例を以下に示します。
+
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="JojaOxo" data-pen-title="js-typedarray" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/JojaOxo">
+  js-typedarray</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+この例では、数値を Uint8Array 配列に読み取らせ、表示させています。
