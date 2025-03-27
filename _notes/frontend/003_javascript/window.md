@@ -3,7 +3,7 @@ title: "ウィンドウ"
 excerpt: ""
 coverImage: ""
 date: "2025-03-25T23:42:20.000Z"
-updatedAt: "2025-03-25T23:42:20.000Z"
+updatedAt: '2025-03-26T22:13:23.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi

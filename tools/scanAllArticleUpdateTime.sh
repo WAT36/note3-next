@@ -28,16 +28,15 @@ cd ../
 if [[ -n "$(git log --diff-filter=ACMRT --name-status --pretty=format: $(git rev-parse @{push})..HEAD | awk '$1 != "D" {print $NF}' | grep -E '.md$')" ]]; then
     # 変更があるときだけ処理する
     # 現在日時を YYYY/MM/DD 形式で取得
-    today=$(date "+%Y/%m/%d")
+    today=$(date "+%Y-%m-%d")
     # LastUpdatedDate.tsx の該当部分を書き換え（直接上書き）
-    sed -i.bak "s/Last Updated: [0-9]\{4\}\/[0-9]\{2\}\/[0-9]\{2\}/Last Updated: $today/" ./components/ui-elements/lastUpdatedDate/LastUpdatedDate.tsx
+    sed -i "" "s/Last Updated: [0-9]\{4\}\-[0-9]\{2\}\-[0-9]\{2\}/Last Updated: $today/" src/components/ui-elements/lastUpdatedDate/LastUpdatedDate.tsx
     # git add
-    git add ./components/ui-elements/lastUpdatedDate/LastUpdatedDate.tsx
+    git add src/components/ui-elements/lastUpdatedDate/LastUpdatedDate.tsx
 fi
 
 # 前回のgit pushから変更のあった全ての `.md` ファイルを検索して処理
 # 追加した.mdファイルに対し date,updatedAtを更新
-count=0
 git log --diff-filter=A --name-status --pretty=format: $(git rev-parse @{push})..HEAD | awk '$1 != "D" {print $NF}' | grep -E '.md$' | sort | uniq | while read -r file; do
     # 更新時刻を取得（フォーマット: YYYY-MM-DD HH:MM:SS）
     mod_time=$(get_mod_time "$file")
@@ -57,7 +56,7 @@ git log --diff-filter=A --name-status --pretty=format: $(git rev-parse @{push}).
         # 作成時刻、更新時刻を更新
         sed -i '' "s/date:.*/date: '${mod_time}'/g" $file
         sed -i '' "s/updatedAt:.*/updatedAt: '${mod_time}'/g" $file
-        ((count++))
+        git add $file
     fi
 done
 
@@ -79,7 +78,7 @@ git log --diff-filter=CMRT --name-status --pretty=format: $(git rev-parse @{push
         echo -e "updatedAt none. $file"
     elif [[ "$mod_day" != "$file_day" ]]; then
         sed -i '' "s/updatedAt:.*/updatedAt: '${mod_time}'/g" $file
-        ((count++))
+        git add $file
     fi
 done
 
@@ -88,7 +87,6 @@ status=$(git status --porcelain)
 
 # 変更があるかチェック（ステージされていないファイルがあるかどうか）
 if [[ -n "$status" ]]; then
-    git add *.md
     git commit -m "Update updatedAt files.(更新ファイルの日付を更新しました。再プッシュしてください。)"
     cd $PWD
     exit 1
