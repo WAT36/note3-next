@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# 現在のブランチ名を取得
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+# 現在のブランチが develop 以外なら更新は行わない（終了）
+if [[ "$current_branch" != "develop" ]]; then
+    echo "現在のブランチは '$current_branch' です。'develop' ブランチでないため処理を終了します。"
+    exit 0 # スクリプト終了（エラーコード 0）
+fi
+
 # 関数定義
 # OSに応じたstatコマンドのフォーマットを選択
 if stat --version &>/dev/null; then
