@@ -290,3 +290,76 @@ TypedArray のオブジェクトを以下に示します。
 <script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 この例では、数値を Uint8Array 配列に読み取らせ、表示させています。
+
+### バイト境界
+
+TypedArray（型付き配列） がデータを格納・読み取る際に、メモリ上でのデータの配置が特定のバイト単位で揃っている必要があります。
+
+TypedArray は特定のバイトサイズ（1, 2, 4, 8 バイトなど）でデータを格納するので、データはそのサイズの倍数でアライメント（整列）される必要があります。
+
+例えば Uint16Array 等は要素のサイズが２バイトなので２の倍数、Uint32Array は要素のサイズが 4 倍となので４の倍数のアドレスに要素を配置する必要があります。
+
+以下は、TypedArray のバイト境界ルールです。
+
+<table style="border:none;">
+    <tr>
+        <th style="border:none;">TypedArray</td>
+        <th style="border:none;">バイトサイズ</td>
+        <th style="border:none;">バイト境界</td>
+    </tr>
+    <tr>
+        <td style="border:none;">Int8Array / Uint8Array</td>
+        <td style="border:none;">1バイト</td>
+        <td style="border:none;">1バイト</td>
+    </tr>
+    <tr>
+        <td style="border:none;">Int16Array / Uint16Array</td>
+        <td style="border:none;">2バイト</td>
+        <td style="border:none;">2バイト</td>
+    </tr>
+    <tr>
+        <td style="border:none;">Int32Array / Uint32Array</td>
+        <td style="border:none;">4バイト</td>
+        <td style="border:none;">4バイト</td>
+    </tr>
+    <tr>
+        <td style="border:none;">Float32Array</td>
+        <td style="border:none;">4バイト</td>
+        <td style="border:none;">4バイト</td>
+    </tr>
+    <tr>
+        <td style="border:none;">Float64Array</td>
+        <td style="border:none;">8バイト</td>
+        <td style="border:none;">8バイト</td>
+    </tr>
+</table>
+
+以下に一例を記載します（エラーになる例もあるので直書きにしています）
+
+```javascript
+/***
+ * 正しい例
+ */
+let buffer = new ArrayBuffer(8); // 8バイトのバッファを作成
+let int32View = new Int32Array(buffer, 0, 2); // 4バイト境界で開始
+
+int32View[0] = 42;
+int32View[1] = 100;
+
+console.log(int32View[0]); // 42
+console.log(int32View[1]); // 100
+```
+
+この場合、Int32Array は 4 バイト単位 でデータを読み書きしているので、問題なく動作します。
+
+```javascript
+/**
+ * エラーになる例
+ */
+buffer = new ArrayBuffer(8);
+int32View = new Int32Array(buffer, 1, 2); // 1バイトずれた位置で開始
+
+// Error: Uncaught RangeError: Start offset of Int32Array should be a multiple of 4.
+```
+
+Int32Array は 4 バイト境界 に揃えられる必要があるため、1 バイトずれた位置から開始しようとすると RangeError が発生します。
