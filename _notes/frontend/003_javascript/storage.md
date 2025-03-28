@@ -391,3 +391,69 @@ int32View = new Int32Array(buffer, 1, 2); // 1バイトずれた位置で開始
 ```
 
 Int32Array は 4 バイト境界 に揃えられる必要があるため、1 バイトずれた位置から開始しようとすると RangeError が発生します。
+
+## DataView
+
+TypedArray では同じ型の配列のみですが、DataView では異なる型を含める事ができます。構文は以下となります。
+
+```javascript
+new DataView(buffer [, byteOffset [, byteLength]])
+```
+
+| パラメータ | 説明                                                     |
+| :--------- | :------------------------------------------------------- |
+| buffer     | バイナリデータを格納した ArrayBuffer                     |
+| byteOffset | 読み書き開始位置のバイトオフセット（デフォルトは 0）     |
+| byteLength | DataView の長さ（省略時は buffer.byteLength 全体を使用） |
+
+DataView の特徴としては以下があります。
+
+|:---|:---|
+|バイナリデータの読み書き|ArrayBuffer 内のデータを任意の型で読み書きできる|
+|エンディアン制御|ビッグエンディアン / リトルエンディアンの制御が可能|
+|型の柔軟性|8 ビット、16 ビット、32 ビット、64 ビットの整数や浮動小数点数をサポート|
+|オフセット指定|バイト単位で任意の位置から読み書き可能|
+|高度なバイナリ操作|画像、音声、動画、ファイル解析、通信プロトコル解析などに応用可能|
+
+また、DataView の主なメソッドを以下に示します。
+
+| メソッド               | バイト数 | 説明                                                                          |
+| :--------------------- | :------- | :---------------------------------------------------------------------------- |
+| getInt8(byteOffset)    | 1        | DataView の先頭から指定されたバイト数の位置で 8 ビット符号付き整数を読み取る  |
+| getUint8(byteOffset)   | 1        | DataView の先頭から指定されたバイト数の位置で 8 ビット符号なし整数を読み取る  |
+| getInt16(byteOffset)   | 2        | DataView の先頭から指定されたバイト数の位置で 16 ビット符号付き整数を読み取る |
+| getUint16(byteOffset)  | 2        | DataView の先頭から指定されたバイト数の位置で 16 ビット符号なし整数を読み取る |
+| getInt32(byteOffset)   | 4        | DataView の先頭から指定されたバイト数の位置で 32 ビット符号付き整数を読み取る |
+| getUint32(byteOffset)  | 4        | DataView の先頭から指定されたバイト数の位置で 32 ビット符号なし整数を読み取る |
+| getFloat32(byteOffset) | 4        | DataView の先頭から指定されたバイト数の位置で 32 ビット浮動小数点を読み取る   |
+| getFloat64(byteOffset) | 8        | DataView の先頭から指定されたバイト数の位置で 64 ビット浮動小数点を読み取る   |
+
+| メソッド                      | バイト数 | 説明                                                                          |
+| :---------------------------- | :------- | :---------------------------------------------------------------------------- |
+| setInt8(byteOffset, value)    | 1        | DataView の先頭から指定されたバイト数の位置で 8 ビット符号付き整数を書き込む  |
+| setUint8(byteOffset, value)   | 1        | DataView の先頭から指定されたバイト数の位置で 8 ビット符号なし整数を書き込む  |
+| setInt16(byteOffset, value)   | 2        | DataView の先頭から指定されたバイト数の位置で 16 ビット符号付き整数を書き込む |
+| setUint16(byteOffset, value)  | 2        | DataView の先頭から指定されたバイト数の位置で 16 ビット符号なし整数を書き込む |
+| setInt32(byteOffset, value)   | 4        | DataView の先頭から指定されたバイト数の位置で 32 ビット符号付き整数を書き込む |
+| setUint32(byteOffset, value)  | 4        | DataView の先頭から指定されたバイト数の位置で 32 ビット符号なし整数を書き込む |
+| setFloat32(byteOffset, value) | 4        | DataView の先頭から指定されたバイト数の位置で 32 ビット浮動小数点を書き込む   |
+| setFloat64(byteOffset, value) | 8        | DataView の先頭から指定されたバイト数の位置で 64 ビット浮動小数点を書き込む   |
+
+以下に簡単な使用例を記載します。
+
+```javascript
+const buffer = new ArrayBuffer(8); // 8バイトのバッファ
+const view = new DataView(buffer);
+
+// データを書き込み
+view.setInt8(0, 127); // 8ビット整数
+view.setUint8(1, 255); // 8ビット符号なし整数
+view.setInt16(2, 0x1234, true); // 16ビット整数（リトルエンディアン）
+view.setFloat32(4, 3.14, false); // 32ビット浮動小数点（ビッグエンディアン）
+
+// データを読み取り
+console.log(view.getInt8(0)); // 127
+console.log(view.getUint8(1)); // 255
+console.log(view.getInt16(2, true)); // 4660 (0x1234)
+console.log(view.getFloat32(4, false)); // 3.14
+```
