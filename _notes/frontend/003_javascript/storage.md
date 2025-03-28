@@ -291,6 +291,34 @@ TypedArray のオブジェクトを以下に示します。
 
 この例では、数値を Uint8Array 配列に読み取らせ、表示させています。
 
+### エンディアン
+
+エンディアンとは、複数バイトで表現されるデータ（数値など）を、メモリ上にどう配置するかの順序 を指します。
+
+**ビッグエンディアン** とは最上位バイトから順にバイトが格納されます。
+
+**リトルエンディアン** とは最上位バイトから順にバイトが格納されます。
+
+CPU によっては最下位バイトから読んだ方が処理が速くなるため、リトルエンディアンで配置されます。
+
+以下に、システムがビッグエンディアンかリトルエンディアンかを判定するコードを記載します。
+
+```javascript
+// システムのエンディアンを確認
+function getSystemEndianness() {
+  const buffer = new ArrayBuffer(4);
+  const uint32View = new Uint32Array(buffer);
+  const uint8View = new Uint8Array(buffer);
+
+  uint32View[0] = 0x12345678;
+
+  // ビッグエンディアンの場合は 0x12 が先頭
+  return uint8View[0] === 0x12 ? "Big Endian" : "Little Endian";
+}
+
+console.log(getSystemEndianness()); // 通常は "Little Endian"
+```
+
 ### バイト境界
 
 TypedArray（型付き配列） がデータを格納・読み取る際に、メモリ上でのデータの配置が特定のバイト単位で揃っている必要があります。
