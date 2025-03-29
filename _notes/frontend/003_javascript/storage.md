@@ -489,3 +489,24 @@ const bufferBlob = new Blob([buffer], { type: "application/octet-stream" });
 console.log(bufferBlob.size); // 8
 console.log(bufferBlob.type); // application/octet-stream
 ```
+
+### Blob URL
+
+Blob URL とは、Blob オブジェクトから 一時的な URL を生成する仕組みです。URL のスキームは"blob"となります。
+
+ページがリロードされるまで有効となり、 `URL.createObjectURL()` で作成できます。
+
+使用例を以下に記載します。
+
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="JojmWQN" data-pen-title="js-bloburl" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/JojmWQN">
+  js-bloburl</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+この例では、入力したテキストを使って、Blob URL を生成し、この URL からテキストファイルをダウンロードできます。
+
+Blob URL は、ページがリロードされるまで メモリを消費 し続けるため、解放しないとメモリリーク につながる可能性があります。
+
+気になる場合は、適切なタイミングで `URL.revokeObjectURL()` を呼び、URL を解放しましょう。
