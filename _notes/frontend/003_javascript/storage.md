@@ -457,3 +457,35 @@ console.log(view.getUint8(1)); // 255
 console.log(view.getInt16(2, true)); // 4660 (0x1234)
 console.log(view.getFloat32(4, false)); // 3.14
 ```
+
+## Blob
+
+Blob とは Binary Large OBject の略で、これも JavaScript で バイナリデータを格納・操作するためのオブジェクト です。
+
+通常は、画像、音声、動画、テキストファイル、JSON、HTML などのバイナリデータ を扱う際に使用されます。
+
+```javascript
+new Blob([data], { type: mimeType });
+```
+
+| パラメータ | 説明                                                 |
+| :--------- | :--------------------------------------------------- |
+| data       | 配列でバイナリデータ・文字列・ArrayBuffer などを指定 |
+| type       | MIME タイプを指定（例: image/png, application/json） |
+
+簡単な Blob オブジェクトを作成する例を以下に記載します。
+
+```javascript
+// テキストデータを Blob に格納
+const textBlob = new Blob(["Hello, Blob!"], { type: "text/plain" });
+console.log(textBlob.size); // 12
+console.log(textBlob.type); // text/plain
+```
+
+```javascript
+// ArrayBuffer データを Blob に格納
+const buffer = new ArrayBuffer(8);
+const bufferBlob = new Blob([buffer], { type: "application/octet-stream" });
+console.log(bufferBlob.size); // 8
+console.log(bufferBlob.type); // application/octet-stream
+```
