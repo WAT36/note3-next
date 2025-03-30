@@ -1,7 +1,7 @@
 ---
 title: "Go言語に入門してみた"
 excerpt: ""
-coverImage: ""
+coverImage: "/assets/posts/startGo/goLogo.png"
 date: "2025-03-29T04:30:25.000Z"
 updatedAt: "2025-03-29T04:30:25.000Z"
 tag: []
