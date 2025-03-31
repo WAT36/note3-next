@@ -116,6 +116,76 @@ WebSocket の接続確立におけるこれら API の利用を示した図を�
 
 <img src="/assets/note/frontend/js/websocket.png" width=100%>
 
+## サンプル
+
+例として、Websocket を使った簡単な例を示してみる。
+
+なお、通信が必要なのでこれとは別にローカルで受信用のサーバーも立てておくことを前提とする。
+
+先に、受信用のサーバーを Node.js で立てるサンプルコードを記載する。
+
+### 必要なモジュールのインストール
+
+まずは、Node.js プロジェクトを立ち上げ、必要なモジュール`ws`をインストールする。
+
+```bash
+npm init -y
+npm install ws
+```
+
+### サーバーを立ち上げる
+
+以下にサーバーのサンプルコードを記載する。
+
+```javascript
+// WebSocket モジュールを import
+import { WebSocketServer } from "ws";
+
+// ポート 3000 で WebSocket サーバーを起動
+const wss = new WebSocketServer({ port: 3000 });
+
+// クライアントが接続した時の処理
+wss.on("connection", (ws) => {
+  console.log("クライアントが接続しました。");
+
+  // クライアントからメッセージを受信
+  ws.on("message", (message) => {
+    console.log(message);
+
+    // すべてのクライアントにメッセージをブロードキャスト
+    wss.clients.forEach((client) => {
+      if (client.readyState === WebSocket.OPEN) {
+        client.send(message);
+      }
+    });
+  });
+
+  // クライアントが切断した時の処理
+  ws.on("close", () => {
+    console.log("クライアントが切断しました。");
+  });
+});
+```
+
+次に、サーバーを起動する。
+
+```bash
+node server.js
+```
+
+### クライアント（フロントエンド）から送信して確認する
+
+サーバーを立ち上げた状態で、画面側から通信して確認してみましょう。
+
+以下の例を確認ください。サーバー側で `ws://localhost:3000` が起動していれば、チャットアプリのような通信が行えるはずです。
+
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="OPJaXRV" data-pen-title="js-websocket" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/OPJaXRV">
+  js-websocket</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
+
 # XMLHttpRequest
 
 XMLHttpRequest は、Javascript から呼び出し可能な HTTP 通信を提供する API である。
