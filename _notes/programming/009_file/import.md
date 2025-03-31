@@ -2,8 +2,8 @@
 title: "外部ファイルのインポート"
 date: "2019-10-31T02:37:30+09:00"
 excerpt: "外部ファイルのインポートについて"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Go"]
+programming: ["Java", "Python", "Go"]
 updatedAt: "2019-10-31T02:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -156,5 +156,36 @@ Traceback (most recent call last):
 NameError: name 'b' is not defined
 >>>
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+import "パッケージ名"
+
+// 複数の場合
+import (
+    "パッケージ名1"
+    "パッケージ名2"
+)
+
+// エイリアス(別名)をつけたい場合
+import (
+    f "fmt"  // fmt を f で使用
+    m "math" // math を m で使用
+)
+```
+
+`import` は、他のパッケージの機能（関数・型・変数）を利用するために読み込む構文 です。
+
+利用法は上記のとおりで、複数指定するときはかっこ()を使います。
+
+注意としては、
+
+- import で 相対パス（../ や ./）は使用できない
+- import したパッケージを使用しないとコンパイルエラー になる
+- 同一パッケージを複数回 import するとエラーになる
+
+があるので気をつけましょう。
 
 </div>
