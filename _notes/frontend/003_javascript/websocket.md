@@ -190,6 +190,8 @@ node server.js
 
 XMLHttpRequest は、Javascript から呼び出し可能な HTTP 通信を提供する API である。
 
+もともとは XML データをやり取りするために作られたが、現在は JSON や HTML、テキストなども扱える。
+
 これにより、スクリプトが HTTP 通信を行うことが可能になり、画面遷移を伴わずに、HTTP リクエストを送信することができる。
 
 この技術を利用したものを Ajax と呼ぶこともあり、Single Page Application の実現にも利用される。
@@ -280,6 +282,15 @@ XMLHttpRequest の API は以下の通り。
 XMLHttpRequest の API の一連の流れを示した図を以下に記載する。
 
 <img src="/assets/note/frontend/js/xmlhttprequest.png" width=100%>
+
+以下に一例を示す。ここでは、サーバーとして JSONPlaceholder を利用している。JSONPlaceholder とは、テスト等のために提供される無料の REST API サービスである。
+
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="XJWoWPq" data-pen-title="js-xmlhttprequest" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/XJWoWPq">
+  js-xmlhttprequest</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 # Server-Sent Events
 
