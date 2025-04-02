@@ -54,3 +54,22 @@ Web Worker の使用例を以下に記載する。なおここで利用してい
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+# High Resolution Time API
+
+High Resolution Time API とは、ミリ秒以下の分解能を持つ時刻を扱うための API である。
+
+通常の Date.now() よりも 精度が高く（サブミリ秒）、一貫したタイミング が測定可能であり、パフォーマンス計測やベンチマーク、アニメーションタイミング、ゲーム開発などに活用される。
+
+利用するには、`performance.now()` メソッドを利用する。
+
+このメソッドにより`DOMHighResTimeStamp`型が返される。これはナノ秒精度の時刻印タイムスタンプを表す。
+
+以下に、その使用例を示す。ここでは、素数を数える処理の時間を計測して表示している。
+
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="LEYMoeW" data-pen-title="ja-highresolutiontime-api" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/LEYMoeW">
+  ja-highresolutiontime-api</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
