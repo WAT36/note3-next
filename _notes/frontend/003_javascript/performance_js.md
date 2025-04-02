@@ -95,6 +95,15 @@ Page Visibility API は、ユーザーが ページを見ているか・見て�
 | :--------------- | :------------------------------------------- |
 | visibilitychange | ドキュメントの可視性が変化した場合に発火する |
 
+以下に使用例を記載する、実際の表示ではわかりにくいかとは思うが、ページ非表示時には hidden となる。
+
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="azbPgdy" data-pen-title="js-page-visibility" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/azbPgdy">
+  js-page-visibility</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
+
 # Service Worker
 
 ... 作成中
