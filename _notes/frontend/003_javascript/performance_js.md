@@ -104,6 +104,44 @@ Page Visibility API は、ユーザーが ページを見ているか・見て�
 </p>
 <script async src="https://public.codepenassets.com/embed/index.js"></script>
 
+# Navigation Timing
+
+Navigation Timing とは、Web ページの読み込みにかかる詳細な時間（タイミング）をミリ秒単位で測定できる JavaScript の API です。
+
+ページの表示までにかかるネットワーク・レンダリング・リソース取得などの詳細な遅延、DNS における名前解決などの各所要時間の計測を分析可能になります。
+
+簡単な利用例とプロパティを以下に示します。
+
+```javascript
+const navEntry = performance.getEntriesByType("navigation")[0];
+
+console.log("ナビゲーション開始から応答完了:", navEntry.responseEnd);
+console.log("DOMContentLoaded:", navEntry.domContentLoadedEventEnd);
+console.log("ページロード完了:", navEntry.loadEventEnd);
+```
+
+ここで navEntry は以下のような詳細なプロパティを持ちます。
+
+| プロパティ名                | 説明                                              |
+| :-------------------------- | :------------------------------------------------ |
+| startTime                   | ナビゲーション開始時刻（常に 0）                  |
+| redirectStart / redirectEnd | リダイレクトのタイミング                          |
+| domainLookupStart / End     | DNS ルックアップのタイミング                      |
+| connectStart / End          | TCP 接続のタイミング                              |
+| requestStart / responseEnd  | リクエスト送信〜応答完了のタイミング              |
+| domInteractive              | DOM が初期化されたタイミング（スクリプト実行可）  |
+| domContentLoadedEventEnd    | DOMContentLoaded イベントの完了時間               |
+| loadEventEnd                | ページ全体の読み込み完了時刻（画像や CSS も含む） |
+
+以下に Navigation Timing の利用例を記載します。
+
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="zxYbmzQ" data-pen-title="js-navigation-timing" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/wat36/pen/zxYbmzQ">
+  js-navigation-timing</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
+
 # Service Worker
 
 ... 作成中
