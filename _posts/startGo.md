@@ -2,8 +2,8 @@
 title: "Go言語に入門してみた"
 excerpt: ""
 coverImage: "/assets/posts/startGo/goLogo.png"
-date: "2025-03-29T04:30:25.000Z"
-updatedAt: "2025-03-29T04:30:25.000Z"
+date: '2025-04-08T20:35:09.000Z'
+updatedAt: '2025-04-08T20:35:09.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
