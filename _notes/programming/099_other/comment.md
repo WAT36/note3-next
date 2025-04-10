@@ -2,8 +2,8 @@
 title: "コメントアウト"
 date: "2019-11-01T04:37:30+09:00"
 excerpt: "コメントアウトについて"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-11-01T04:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -68,5 +68,18 @@ Javascript でのコメントの仕方は上記の通り。
  * (コードの説明を載せる)
  */
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+//  (コメント)
+
+/*
+ (コメント)
+ */
+```
+
+Go の場合も Java と同じである。
 
 </div>
