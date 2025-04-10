@@ -1,14 +1,14 @@
 name: Build React on S3(prd)
 on:
   push:
-      branches:
-        - main
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@main  # リポジトリをチェックアウト
+        uses: actions/checkout@main # リポジトリをチェックアウト
 
       - name: "set aws credential"
         uses: aws-actions/configure-aws-credentials@v1
@@ -29,10 +29,11 @@ jobs:
       - name: Build and Export
         run: npm run build
 
-      - name: Deploy  # S3にデプロイ 
-        run: 
-          aws s3 sync --region ap-northeast-1 ./out s3://prd-wat-note3-bucket --delete
+      - name: Deploy # S3にデプロイ
+        run: aws s3 sync --region ap-northeast-1 ./out s3://prd-wat-note3-bucket --delete
 
-      - name: Send Data to algolia  # Algoliaにデータ送信
-        run: 
-          cd tools/algolia && node sendRecords.js
+      - name: Send Data to algolia # Algoliaにデータ送信
+        run: cd tools/algolia && node sendRecords.js
+
+      - name: Send Data to chromatic # Chromaticにデータ送信
+        run: npm run chromatic
