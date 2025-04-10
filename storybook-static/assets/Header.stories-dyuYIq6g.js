@@ -1,0 +1,3 @@
+import{H as a}from"./Header-Dmh63Owk.js";import"./jsx-runtime-PiJMfoGl.js";import"./jsx-runtime-BFFKb4md.js";import"./index-CGK2Dwi3.js";import"./link-co_09vmz.js";import"./_commonjsHelpers-D6-XlEtG.js";import"./add-base-path-CPKosFUQ.js";import"./constants-BdejMs2_.js";import"./__vite-browser-external-DVYdme3K.js";import"./BarLinkGroup-CgsyJPnl.js";const H={title:"Molecules/Header",component:a,parameters:{layout:"centered"},tags:["autodocs"]},r={args:{}};var e,o,t;r.parameters={...r.parameters,docs:{...(e=r.parameters)==null?void 0:e.docs,source:{originalSource:`{
+  args: {}
+}`,...(t=(o=r.parameters)==null?void 0:o.docs)==null?void 0:t.source}}};const M=["Main"];export{r as Main,M as __namedExportsOrder,H as default};

@@ -1,0 +1,1 @@
+import{j as e}from"./jsx-runtime-PiJMfoGl.js";const o=({children:t})=>e.jsx("h1",{className:"text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left",children:t});o.__docgenInfo={description:"",methods:[],displayName:"PostTitle",props:{children:{required:!1,tsType:{name:"ReactNode"},description:""}}};export{o as P};
