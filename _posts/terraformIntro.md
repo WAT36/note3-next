@@ -3,7 +3,7 @@ title: "Terraform入門：AWSにS3バケットを構築してみる"
 excerpt: "Terraformの基本を、AWS S3バケット作成を通じて学ぶ入門記事"
 coverImage: "/assets/posts/terraformIntro/terraformLogo.png"
 date: "2025-03-09T00:54:29.000Z"
-updatedAt: '2025-03-09T04:24:48.000Z'
+updatedAt: "2025-03-09T04:24:48.000Z"
 tag: ["Terraform", "IaC", "AWS"]
 author:
   name: Tatsuroh Wakasugi
@@ -79,7 +79,7 @@ touch main.tf
 
 このファイルを開いて、AWS S3 バケットを作成する Terraform コードを書きます。
 
-```hcl
+```
 provider "aws" {
   region = "ap-northeast-1"  # 利用したいAWSリージョン
 }
@@ -123,7 +123,7 @@ terraform init
 
 例: 以下のような設定値で `terraform init` を実行すると、リモートバックエンドの設定が有効化され、ローカルの `terraform.tfstate` ではなく S3 上に保存されるようになります。
 
-```hcl
+```
 terraform {
   backend "s3" {
     bucket = "my-terraform-state-bucket"
