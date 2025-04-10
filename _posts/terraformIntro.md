@@ -152,7 +152,7 @@ terraform plan
 
 初回の場合、問題なければ以下のような出力が得られるはずです。
 
-```bash
+```
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
 
