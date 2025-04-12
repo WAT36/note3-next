@@ -34,6 +34,3 @@ jobs:
 
       - name: Send Data to algolia # Algoliaにデータ送信
         run: cd tools/algolia && node sendRecords.js
-
-      - name: Send Data to chromatic # Chromaticにデータ送信
-        run: npm run chromatic
