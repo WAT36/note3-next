@@ -30,6 +30,35 @@ Terraform の主な特徴として、以下の 3 つが挙げられる。
    Terraform は「べき等性」を保証する強力な状態管理機能を備えている。
    Terraform は現在の状態と理想の状態を比較し、必要な変更のみを実行する。これにより、安全で予測可能なインフラ変更が可能となる。
 
+# 環境構築
+
+Terraform を使用するための環境構築を行ってみる。
+
+## Terraform のインストール
+
+macOS の場合では、homebrew を利用して以下のようにインストールする。
+
+```bash
+brew install terraform
+```
+
+他 OS の場合はここでは割愛するが、公式ページのインストール[^2]の欄にあるのでそちらをご参考のこと。
+
+インストール後、次のコマンドで正しくインストールされたか確認します。
+
+```bash
+terraform --version
+```
+
+バージョンが出力されれば、インストールは行えています。
+
+# 実践ハンズオン：Terraform で AWS S3 バケットを作成する
+
+準備が整ったところで、今回は実際に Terraform を使って AWS リソースを作成してみましょう。今回は基本的な S3 バケットの作成を通じて、Terraform の使い方を学びます。
+
+なお、Terraform で AWS リソースを作成するには、CDK と同じく AWS CLI やアカウントの設定が必要なので注意しましょう。設定方法は以前の CDK の記事に記載しているので、そちらを参照してください。
+
 ---
 
 [^1]: [Terraform(公式ページ)](https://www.terraform.io/)
+[^2]: [Install Terraform(公式ページ)](https://developer.hashicorp.com/terraform/install)
