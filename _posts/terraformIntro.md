@@ -79,7 +79,7 @@ touch main.tf
 
 このファイルを開いて、AWS S3 バケットを作成する Terraform コードを書きます。
 
-```
+```plaintext
 provider "aws" {
   region = "ap-northeast-1"  # 利用したいAWSリージョン
 }
