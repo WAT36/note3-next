@@ -58,6 +58,84 @@ terraform --version
 
 なお、Terraform で AWS リソースを作成するには、CDK と同じく AWS CLI やアカウントの設定が必要なので注意しましょう。設定方法は以前の CDK の記事に記載しているので、そちらを参照してください。
 
+## 1. プロジェクトの準備
+
+まず、作業用のディレクトリを作成します。
+
+```bash
+mkdir terraform-aws-practice
+cd terraform-aws-practice
+```
+
+ディレクトリ名は何でも構いません。
+
+## 2. Terraform の初期化
+
+作業用ディレクトリに移動した後、最初に設定ファイル `main.tf` を作ります。
+
+```bash
+touch main.tf
+```
+
+このファイルを開いて、AWS S3 バケットを作成する Terraform コードを書きます。
+
+```
+provider "aws" {
+  region = "ap-northeast-1"  # 利用したいAWSリージョン
+}
+
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "my-unique-bucket-name-12345"  # グローバルに一意な名前を指定
+  acl    = "private"  # バケットのアクセス制御(private, public-read など)
+
+  tags = {
+    Name        = "MyS3Bucket"
+    Environment = "Dev"
+  }
+}
+```
+
+**ポイント**
+
+- `provider "aws"` で AWS プロバイダーを指定
+- `aws_s3_bucket` リソースを定義し、`bucket` でバケット名を指定
+- `acl` でアクセス制御を設定(デフォルトは `"private"`)
+- `tags` でタグを設定(任意)
+
+## 3. Terraform の初期設定
+
+main.tf を作成後に、Terraform の初期設定を行います。
+
+```bash
+terraform init
+```
+
+このコマンドは以下の処理を行います：
+
+- 必要なプロバイダーのダウンロード  
+  `provider "aws"` などで指定された**プロバイダーのプラグイン** をダウンロードし、`.terraform/` ディレクトリに保存します。HashiCorp の Terraform Registry からプロバイダープラグインをダウンロードします。
+  Terraform が使用する**プラグインのバージョンを固定** するための `terraform.lock.hcl` を作成します。
+  これにより、異なる環境(例: チーム開発)でも**同じバージョンのプラグイン**を使うことが保証されます。
+- バックエンドの初期化  
+  後述しますが、terraform では現在デプロイされているリソースの情報を保存・管理に`terraform.tfstate`というファイルを利用しています。
+  デフォルトではローカル環境(`local`)に保存しますが、クラウドなどリモート環境に保存することもできます。
+  例えば`backend "s3"` や `backend "remote"` が設定されている場合、そのストレージの接続を初期化します。
+
+例: 以下のような設定値で `terraform init` を実行すると、リモートバックエンドの設定が有効化され、ローカルの `terraform.tfstate` ではなく S3 上に保存されるようになります。
+
+```
+terraform {
+  backend "s3" {
+    bucket = "my-terraform-state-bucket"
+    key    = "terraform.tfstate"
+    region = "ap-northeast-1"
+  }
+}
+```
+
+- 作業ディレクトリの準備  
+  `.terraform/` というフォルダを作成し、プロバイダーのプラグインや設定情報を格納します。**これを GitHub にアップロードする必要はありません** (`.gitignore` に追加推奨)。
+
 ---
 
 [^1]: [Terraform(公式ページ)](https://www.terraform.io/)
