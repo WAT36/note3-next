@@ -69,6 +69,14 @@ cd terraform-aws-practice
 
 ディレクトリ名は何でも構いません。
 
+## 2. Terraform の初期化
+
+作業用ディレクトリに移動した後、最初に設定ファイル `main.tf` を作ります。
+
+```bash
+touch main.tf
+```
+
 ---
 
 [^1]: [Terraform(公式ページ)](https://www.terraform.io/)
