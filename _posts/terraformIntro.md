@@ -77,6 +77,24 @@ cd terraform-aws-practice
 touch main.tf
 ```
 
+このファイルを開いて、AWS S3 バケットを作成する Terraform コードを書きます。
+
+```
+provider "aws" {
+  region = "ap-northeast-1"  # 利用したいAWSリージョン
+}
+
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "my-unique-bucket-name-12345"  # グローバルに一意な名前を指定
+  acl    = "private"  # バケットのアクセス制御(private, public-read など)
+
+  tags = {
+    Name        = "MyS3Bucket"
+    Environment = "Dev"
+  }
+}
+```
+
 ---
 
 [^1]: [Terraform(公式ページ)](https://www.terraform.io/)
