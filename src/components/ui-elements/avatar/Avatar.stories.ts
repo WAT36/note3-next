@@ -21,6 +21,6 @@ type Story = StoryObj<typeof meta>;
 export const Main: Story = {
   args: {
     name: "Tatsuroh Wakasugi",
-    picture: "/blog/authors/WAT.jpg",
+    picture: "/assets/blog/authors/WAT.jpg",
   },
 };
