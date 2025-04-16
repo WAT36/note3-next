@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Intro from "./Intro";
+import LastUpdatedDate from "./LastUpdatedDate";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: "Atom/Intro",
-  component: Intro,
+  title: "Atom/LastUpdatedDate",
+  component: LastUpdatedDate,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: "centered",
@@ -19,14 +19,12 @@ const meta = {
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ["autodocs"],
-} satisfies Meta<typeof Intro>;
+} satisfies Meta<typeof LastUpdatedDate>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Main: Story = {
-  args: {
-    title: "Intro test",
-  },
+  args: {},
 };
