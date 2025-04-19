@@ -2,8 +2,8 @@
 title: "配列・リスト"
 date: "2019-10-18T19:35:30+09:00"
 excerpt: "配列及びリストを定義する方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-18T19:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -115,5 +115,19 @@ Array オブジェクトへの値の代入及び取得は、Java と同じよう
 Arrayオブジェクト名[インデックス] = 値;
 変数 = Arrayオブジェクト名[インデックス];
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+// [要素数]型名{初期値}
+a := [5]int{1,2,3,4,5}
+```
+
+Go では配列で、型は **[要素数]型名** になる。その後に **{}** で囲ったブロックに要素の初期値を指定することができる。
+
+初期値を指定しない場合は、型ごとに決まった値が入る様になる。
+
+配列内の要素を参照するには、同様に[n]の形式で要素のインデックスを整数で指定します。
 
 </div>
