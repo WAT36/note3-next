@@ -2,8 +2,8 @@
 title: "比較演算子"
 date: "2019-10-16T21:35:30+09:00"
 excerpt: "数値の比較をする方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-16T21:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -73,5 +73,22 @@ console.log(Number(100) == 100);
 console.log(String(100) == 100);
 console.log("100" == 100);
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+a := 0;
+b := 1;
+
+a < b; //   未満
+a <= b; //  以下
+a > b; //   より大きい
+a >= b; //  以上
+a == b; //  等しい
+a != b; //  等しくない
+```
+
+Go での主な比較演算子は上の通り。
 
 </div>
