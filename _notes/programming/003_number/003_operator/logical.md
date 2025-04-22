@@ -2,8 +2,8 @@
 title: "論理演算子"
 date: "2024-04-17T00:32:18.000Z"
 excerpt: "論理演算・ビット演算(AND,OR,XOR)を利用する方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2024-04-17T00:32:18.000Z"
 author:
   name: Tatsuroh Wakasugi
@@ -171,10 +171,10 @@ Javascript での論理演算子は以下の通り。
 
 |     | 論理演算 | ビット演算 |
 | :-: | :------: | :--------: |
-| AND |   and    |     &      |
-| OR  |    or    |     ｜     |
+| AND |    &&    |     &      |
+| OR  |   ｜｜   |     ｜     |
 | XOR |  (なし)  |     ^      |
-| NOT |   not    |     ~      |
+| NOT |    !     |     ~      |
 
 Javascript の論理演算では XOR は存在しない（私調べですが、もしあったらコメントお願いします。。）
 
@@ -206,6 +206,77 @@ console.log(~c);
 > 7
 > 6
 > -4
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+var a = true;
+var b = false;
+var c = 0;
+var d = 1;
+
+// 論理演算
+a && b; //AND
+a || b; // OR
+!a; //NOT
+
+// ビット演算
+c & d; //AND
+c | d; // OR
+c ^ d; //XOR
+^c; //NOT
+c &^ d // AND NOT
+```
+
+Go での論理演算子は以下の通り。
+
+|     | 論理演算 | ビット演算 |
+| :-: | :------: | :--------: |
+| AND |    &&    |     &      |
+| OR  |   ｜｜   |     ｜     |
+| XOR |  (なし)  |     ^      |
+| NOT |    !     |     ^      |
+
+またこれとは別に、**AND NOT**という演算もあり、演算子は **&^** を用いて表す。
+
+X &^ Y は X AND (NOT Y)という２つのビット演算をまとめた短縮系に該当する。
+
+この演算は **ビットクリア演算** とも呼ばれる。用途としては、特定のビットを無効化することでよく使われると思う。意味合いとしては、「Y が 1 のビットを X から除去する」と見るとわかりやすいと思う。
+
+またビットクリア演算は、可換ではない（X と Y を入れ替えると答えが変わる）ので注意。
+
+以下に主な使用例を示す。
+
+```go
+a := true
+b := false
+c := 3
+d := 5
+
+fmt.Println(a && b)
+fmt.Println(a || b)
+fmt.Println(!a)
+
+fmt.Println(c & d)
+fmt.Println(c | d)
+fmt.Println(c ^ d)
+fmt.Println(^c)
+fmt.Println(c &^ d)
+```
+
+実行結果
+
+```
+false
+true
+false
+1
+7
+6
+-4
+2
 ```
 
 </div>
