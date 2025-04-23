@@ -2,8 +2,8 @@
 title: "関数(メソッド)の定義"
 date: "2019-10-29T04:37:30+09:00"
 excerpt: "関数(メソッド)の定義について"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-29T04:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -127,5 +127,19 @@ hello.apply(obj, ["xxx", "yyy"]);
 obj.,xxx,yyy
 obj.,xxx,yyy
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+func 関数名(引数) 返り値の型 {
+  // 処理文
+  return 返り値
+}
+```
+
+Go では**関数**と言う名で呼ばれる。定義方法は上記の通り。
+
+java と同じく、関数には返り値の型が必要で、return で返される値もそれと同じ型である必要があるので注意する。
 
 </div>
