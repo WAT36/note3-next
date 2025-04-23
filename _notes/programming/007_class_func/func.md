@@ -155,4 +155,13 @@ func minus(x,y int) int {
 }
 ```
 
+また、返り値は持たなくても OK である。
+
+```go
+func hello() {
+  fmt.Println("Hello!World!")
+  return
+}
+```
+
 </div>
