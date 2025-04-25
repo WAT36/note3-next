@@ -1,8 +1,7 @@
 import { existsSync, readFileSync, statSync } from "fs";
 import { join } from "path";
 import matter from "gray-matter";
-import { NOTES_DIR } from "./constants";
-import { getNoteUnderDirSlugs, isDirectory } from "./fileSystem";
+import { getNoteUnderDirSlugs, isDirectory, NOTES_DIR } from "./fileSystem";
 
 // 記事のパス(string[])から
 export function getNoteBySlug(slug: string[], fields: string[] = []) {
