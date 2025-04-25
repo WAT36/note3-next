@@ -47,3 +47,6 @@ rss.xml
 
 # .bak
 *.bak
+
+*storybook.log
+storybook-static/

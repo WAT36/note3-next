@@ -1,6 +1,8 @@
 import { existsSync, readdirSync, statSync } from "fs";
 import path from "path";
-import { NOTES_DIR } from "./constants";
+
+// _notesフォルダの場所(constant.tsに置くとstorybookでエラー起きるのでここに配置する)
+export const NOTES_DIR = path.join(process.cwd(), "_notes");
 
 // 指定slugがディレクトリかmdファイルであるか判定
 export function isDirectory(path: string) {

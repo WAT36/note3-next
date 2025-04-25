@@ -1,4 +1,4 @@
-import { join } from "path";
+import path from "path";
 
 import { Administrator } from "../interfaces/author";
 import { ParsedUrlQuery } from "querystring";
@@ -14,8 +14,6 @@ export const ADMINISTRATOR: Administrator = {
   nickname: "WAT",
 };
 export const ALT_IMAGE = "/assets/blog/altImage.png";
-
-export const NOTES_DIR = join(process.cwd(), "_notes");
 
 export const DIR_NAME = {
   posts: "Blog Posts",

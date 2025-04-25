@@ -1,17 +1,15 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { useSearchParams } from "next/navigation";
 import { DIR_NAME } from "../../../lib/constants";
+import { getPath } from "../../../lib/path";
 
-export const BreadCrumb: NextPage = () => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const queryString = searchParams.toString();
-  const queryWithPrefix = queryString ? `?${queryString}` : "";
+type Props = {
+  getNowPath: () => string;
+};
 
+export const BreadCrumb: NextPage = ({ getNowPath = getPath }: Props) => {
   // pathを「/」で分解
-  const paths = decodeURI(router.asPath).substring(1).split("/");
+  const paths = getNowPath().substring(1).split("/");
   // 末尾がindex.html・クエリパラメータ類だった場合それは削除
   if (
     paths.slice(-1)[0].startsWith("index.html") ||
@@ -20,6 +18,17 @@ export const BreadCrumb: NextPage = () => {
     paths.slice(-1)[0].startsWith("?")
   ) {
     paths.pop();
+  }
+
+  // クエリパラメータ取得・削除
+  const queryParam =
+    paths.length > 0 && paths.slice(-1)[0].includes("?")
+      ? paths.slice(-1)[0].substring(paths.slice(-1)[0].indexOf("?"))
+      : "";
+  if (paths.length > 0 && paths.slice(-1)[0].includes("?")) {
+    paths[paths.length - 1] = paths
+      .slice(-1)[0]
+      .substring(0, paths.slice(-1)[0].indexOf("?"));
   }
 
   // リンク先アドレスの取得
@@ -42,7 +51,7 @@ export const BreadCrumb: NextPage = () => {
               href={
                 roots[i + 1] +
                 process.env.NEXT_PUBLIC_URL_END +
-                (roots[i + 1].includes("/notes") ? queryWithPrefix : "") // /notes以下のページにいる場合はクエリパラメータ保持
+                (roots[i + 1].includes("/notes") ? queryParam : "") // /notes以下のページにいる場合はクエリパラメータ保持
               }
               key={i}
             >
