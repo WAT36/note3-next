@@ -2,8 +2,8 @@
 title: "定数"
 date: "2019-11-01T02:37:30+09:00"
 excerpt: "定数について"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-11-01T02:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -45,7 +45,7 @@ Python には定数という仕様は存在しない。
 const 定数名 = 値;
 ```
 
-Javascript では **const** 命令を用いて変数を宣言する。
+Javascript では **const** 命令を用いて定数を宣言する。
 
 記法は上記のとおり。
 
@@ -54,5 +54,14 @@ Javascript では **const** 命令を用いて変数を宣言する。
 ```Javascript
 const A = 10
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+const 定数名 = 値;
+```
+
+Go も同じく **const** を用いて定数を宣言できる。
 
 </div>
