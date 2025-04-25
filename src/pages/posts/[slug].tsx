@@ -14,6 +14,7 @@ import { OutlineBar } from "../../components/ui-elements/outlineBar/OutlineBar";
 import { JSDOM } from "jsdom";
 import hljs from "highlight.js";
 import { useEffect } from "react";
+import { extractHeadings } from "../../lib/html";
 
 type Props = {
   post: PostType;
@@ -54,7 +55,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                 />
                 <PostBody content={post.content} />
               </article>
-              <OutlineBar content={post.content} />
+              <OutlineBar headings={extractHeadings(post.content)} />
             </div>
           </>
         )}

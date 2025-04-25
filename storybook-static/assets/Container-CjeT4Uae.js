@@ -1,0 +1,1 @@
+import{j as t}from"./jsx-runtime-PiJMfoGl.js";const a=({children:e})=>t.jsx("div",{className:"container mx-auto px-5",children:e});a.__docgenInfo={description:"",methods:[],displayName:"Container",props:{children:{required:!1,tsType:{name:"ReactReactNode",raw:"React.ReactNode"},description:""}}};export{a as C};

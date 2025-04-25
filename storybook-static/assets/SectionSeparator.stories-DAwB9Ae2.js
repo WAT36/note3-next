@@ -1,0 +1,3 @@
+import{j as s}from"./jsx-runtime-PiJMfoGl.js";import"./jsx-runtime-BFFKb4md.js";import"./index-CGK2Dwi3.js";const a=()=>s.jsx("hr",{className:"border-neutral-200 mt-28 mb-24"});a.__docgenInfo={description:"",methods:[],displayName:"SectionSeparator"};const p={title:"Atom/SectionSeparator",component:a,parameters:{layout:"fullscreen"},tags:["autodocs"]},r={args:{}};var e,t,o;r.parameters={...r.parameters,docs:{...(e=r.parameters)==null?void 0:e.docs,source:{originalSource:`{
+  args: {}
+}`,...(o=(t=r.parameters)==null?void 0:t.docs)==null?void 0:o.source}}};const i=["Main"];export{r as Main,i as __namedExportsOrder,p as default};

@@ -1,0 +1,3 @@
+import{B as e}from"./BarLinkGroup-CgsyJPnl.js";import"./jsx-runtime-PiJMfoGl.js";import"./jsx-runtime-BFFKb4md.js";import"./index-CGK2Dwi3.js";import"./link-co_09vmz.js";import"./_commonjsHelpers-D6-XlEtG.js";import"./add-base-path-CPKosFUQ.js";const u={title:"Atom/BarLinkGroup",component:e,parameters:{layout:"centered"},tags:["autodocs"]},r={args:{}};var o,t,a;r.parameters={...r.parameters,docs:{...(o=r.parameters)==null?void 0:o.docs,source:{originalSource:`{
+  args: {}
+}`,...(a=(t=r.parameters)==null?void 0:t.docs)==null?void 0:a.source}}};const g=["Main"];export{r as Main,g as __namedExportsOrder,u as default};
