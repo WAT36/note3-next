@@ -30,7 +30,7 @@ type Story = StoryObj<typeof meta>;
 export const Main: Story = {
   args: {
     note: {
-      slug: "/notes/sample",
+      slug: "/notes/samples",
       title: "note-title",
       date: "2000-01-01",
       coverImage: "",
