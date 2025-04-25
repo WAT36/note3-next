@@ -9,6 +9,13 @@ const meta = {
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: "centered",
+    backgrounds: {
+      default: "white",
+      values: [
+        { name: "black", value: "#000000" },
+        { name: "white", value: "#ffffff" },
+      ],
+    },
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ["autodocs"],
@@ -21,6 +28,6 @@ type Story = StoryObj<typeof meta>;
 export const Main: Story = {
   args: {
     title: "Cover Image Title",
-    src: "/blog/authors/WAT.jpg",
+    src: "/assets/blog/altImage.png",
   },
 };

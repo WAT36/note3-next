@@ -9,6 +9,13 @@ const meta = {
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: "centered",
+    backgrounds: {
+      default: "black",
+      values: [
+        { name: "black", value: "#000000" },
+        { name: "white", value: "#ffffff" },
+      ],
+    },
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ["autodocs"],
@@ -20,6 +27,11 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Main: Story = {
   args: {
-    content: "<h1>あああ</h1><h2>いいい</h2><h3>ううう</h3><h1>えええ</h1>",
+    headings: [
+      { tag: "h1", id: "aaa", content: "あああ" },
+      { tag: "h2", id: "iii", content: "いいい" },
+      { tag: "h3", id: "uuu", content: "ううう" },
+      { tag: "h1", id: "eee", content: "えええ" },
+    ],
   },
 };
