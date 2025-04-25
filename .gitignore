@@ -49,3 +49,4 @@ rss.xml
 *.bak
 
 *storybook.log
+storybook-static/

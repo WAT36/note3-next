@@ -1,3 +1,0 @@
-import{F as a}from"./Footer-wAr7x01j.js";import"./jsx-runtime-PiJMfoGl.js";import"./jsx-runtime-BFFKb4md.js";import"./index-CGK2Dwi3.js";import"./BarLinkGroup-CgsyJPnl.js";import"./link-co_09vmz.js";import"./_commonjsHelpers-D6-XlEtG.js";import"./add-base-path-CPKosFUQ.js";import"./Container-CjeT4Uae.js";const g={title:"Atom/Footer",component:a,parameters:{layout:"fullscreen"},tags:["autodocs"]},r={args:{}};var o,t,e;r.parameters={...r.parameters,docs:{...(o=r.parameters)==null?void 0:o.docs,source:{originalSource:`{
-  args: {}
-}`,...(e=(t=r.parameters)==null?void 0:t.docs)==null?void 0:e.source}}};const f=["Main"];export{r as Main,f as __namedExportsOrder,g as default};
