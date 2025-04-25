@@ -21,10 +21,11 @@ export const BreadCrumb: NextPage = ({ getNowPath = getPath }: Props) => {
   }
 
   // クエリパラメータ取得・削除
-  const queryParam = paths.slice(-1)[0].includes("?")
-    ? paths.slice(-1)[0].substring(paths.slice(-1)[0].indexOf("?"))
-    : "";
-  if (paths.slice(-1)[0].includes("?")) {
+  const queryParam =
+    paths.length > 0 && paths.slice(-1)[0].includes("?")
+      ? paths.slice(-1)[0].substring(paths.slice(-1)[0].indexOf("?"))
+      : "";
+  if (paths.length > 0 && paths.slice(-1)[0].includes("?")) {
     paths[paths.length - 1] = paths
       .slice(-1)[0]
       .substring(0, paths.slice(-1)[0].indexOf("?"));
