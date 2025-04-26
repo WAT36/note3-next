@@ -1,14 +1,23 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import SubHeader from "./SubHeader";
+import { RecoilRoot } from "recoil";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
   title: "Molecules/SubHeader",
   component: SubHeader,
+  decorators: [(story) => <RecoilRoot>{story()} </RecoilRoot>],
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: "centered",
+    backgrounds: {
+      default: "black",
+      values: [
+        { name: "black", value: "#000000" },
+        { name: "white", value: "#ffffff" },
+      ],
+    },
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ["autodocs"],
@@ -19,5 +28,5 @@ type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Main: Story = {
-  args: {},
+  args: { canChangeProgrammingLanguage: true },
 };
