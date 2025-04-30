@@ -63,6 +63,12 @@ export const Meta = () => {
         integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
         crossOrigin="anonymous"
       />
+      <Script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></Script>
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css"
+      />
       <meta
         name="description"
         content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
