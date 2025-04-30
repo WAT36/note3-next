@@ -1,4 +1,4 @@
-import { join } from "path";
+import path from "path";
 
 import { Administrator } from "../interfaces/author";
 import { ParsedUrlQuery } from "querystring";
@@ -8,13 +8,12 @@ export const CMS_NAME = "Markdown";
 export const HOME_OG_IMAGE_URL =
   "https://og-image.vercel.app/Next.js%20Blog%20Starter%20Example.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg";
 export const TITLE = "WAT Note(III).";
+export const DESCRIPTION = "業務や趣味で得た技術的知見を記録する個人ブログ。";
 export const ADMINISTRATOR: Administrator = {
   name: "Tatsuroh Wakasugi",
   nickname: "WAT",
 };
 export const ALT_IMAGE = "/assets/blog/altImage.png";
-
-export const NOTES_DIR = join(process.cwd(), "_notes");
 
 export const DIR_NAME = {
   posts: "Blog Posts",

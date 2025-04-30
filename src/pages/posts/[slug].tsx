@@ -4,7 +4,7 @@ import Container from "../../components/ui-elements/container/Container";
 import PostBody from "../../components/ui-elements/post-body/PostBody";
 import PostHeader from "../../components/ui-parts/post-header/PostHeader";
 import Layout from "../../components/ui-pages/layout/Layout";
-import { getPostBySlug, getAllPosts } from "../../lib/api";
+import { getPostBySlug, getAllPosts } from "../../lib/fileSystem";
 import PostTitle from "../../components/ui-elements/post-title/PostTitle";
 import Head from "next/head";
 import { TITLE } from "../../lib/constants";
@@ -12,6 +12,9 @@ import markdownToHtml from "../../lib/markdownToHtml";
 import type PostType from "../../interfaces/post";
 import { OutlineBar } from "../../components/ui-elements/outlineBar/OutlineBar";
 import { JSDOM } from "jsdom";
+import hljs from "highlight.js";
+import { useEffect } from "react";
+import { extractHeadings } from "../../lib/html";
 
 type Props = {
   post: PostType;
@@ -24,6 +27,11 @@ export default function Post({ post, morePosts, preview }: Props) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
+
   return (
     <Layout preview={preview}>
       <Container>
@@ -47,7 +55,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                 />
                 <PostBody content={post.content} />
               </article>
-              <OutlineBar content={post.content} />
+              <OutlineBar headings={extractHeadings(post.content)} />
             </div>
           </>
         )}

@@ -41,3 +41,12 @@ next-env.d.ts
 
 # algolia
 filelist.txt
+
+#rss
+rss.xml
+
+# .bak
+*.bak
+
+*storybook.log
+storybook-static/

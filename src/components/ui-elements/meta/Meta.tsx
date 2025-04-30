@@ -68,47 +68,6 @@ export const Meta = () => {
         content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
       />
       <meta property="og:image" content={HOME_OG_IMAGE_URL} />
-
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
-        media="(prefers-color-scheme: light)"
-      />
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css"
-        media="(prefers-color-scheme: dark)"
-      />
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></Script>
-      <Script>hljs.highlightAll();</Script>
-      <Script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></Script>
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css"
-      />
-      {process.env.NEXT_PUBLIC_APP_ENV === "prd" ? (
-        <>
-          {/* Google tag (gtag.js) */}
-          <Script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          />
-          <Script
-            dangerouslySetInnerHTML={{
-              __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_ID}', {
-              page_path: window.location.pathname,
-            });`,
-            }}
-          />
-        </>
-      ) : (
-        <></>
-      )}
     </Head>
   );
 };

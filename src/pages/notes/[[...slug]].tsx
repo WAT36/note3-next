@@ -2,13 +2,14 @@ import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import { getNoteBySlug, getAllNotes } from "../../lib/notesApi";
 import PostTitle from "../../components/ui-elements/post-title/PostTitle";
-import { NOTES_DIR, PROGRAMMING_LANGUAGE_NAME } from "../../lib/constants";
+import { PROGRAMMING_LANGUAGE_NAME } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import type NoteType from "../../interfaces/note";
-import { getNoteUnderDirSlugs } from "../../lib/fileSystem";
-import { useEffect } from "react";
+import { getNoteUnderDirSlugs, NOTES_DIR } from "../../lib/fileSystem";
+import { useEffect, useState } from "react";
 import NotePage from "../../components/ui-pages/pages/note-page/NotePage";
 import NoteDirPage from "../../components/ui-pages/pages/notedir-page/NoteDirPage";
+import hljs from "highlight.js";
 
 type Props = {
   note: NoteType;
@@ -26,6 +27,10 @@ const Note = ({ note, subPageLinks }: Props) => {
   ) {
     return <ErrorPage statusCode={403} />;
   }
+
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
 
   useEffect(() => {
     const jsClass = "md_link_js";
@@ -52,6 +57,19 @@ const Note = ({ note, subPageLinks }: Props) => {
       }
     }
   }, [router.isReady, router.asPath]);
+
+  // フロントエンド CodePen用(ローカル)
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+    const script = document.createElement("script");
+    script.src = "https://cpwebassets.codepen.io/assets/embed/ei.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+  if (!isClient) {
+    return null; // サーバーサイドでは何も表示しない
+  }
 
   return router.isFallback ? (
     <PostTitle>Loading…</PostTitle>
@@ -116,6 +134,7 @@ export async function getStaticProps({ params }: Params) {
         if (!slug.isDir && noteConfig["draft"]) {
           return null;
         }
+
         const programmingAbst = {};
         if (noteConfig["mode"] === "programming") {
           for (let i = 0; i < PROGRAMMING_LANGUAGE_NAME.length; i++) {
