@@ -2,8 +2,8 @@
 title: "for文"
 date: "2019-10-27T16:36:30+09:00"
 excerpt: "for文について"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-27T16:36:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -157,6 +157,25 @@ suzuki:80点
 apple
 orange
 banana
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+for 初期化式;条件式;変化式 {
+  // 処理文
+}
+```
+
+Go での for 文の利用方法は上記の通り。
+
+なお初期化式等は省略することもでき、全部省略した場合は無限ループとなる。
+
+```go
+for i := 0; i < 10; i++ {
+  // 変数iの値が0から9までの間で繰り返し
+}
 ```
 
 </div>
