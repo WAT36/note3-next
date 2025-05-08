@@ -166,6 +166,11 @@ banana
 for 初期化式;条件式;変化式 {
   // 処理文
 }
+
+// 範囲節
+for 配列のインデックス, 配列の要素 := range 配列 {
+  // 処理文(配列の要素を頭から順にループ)
+}
 ```
 
 Go での for 文の利用方法は上記の通り。
@@ -176,6 +181,30 @@ Go での for 文の利用方法は上記の通り。
 for i := 0; i < 10; i++ {
   // 変数iの値が0から9までの間で繰り返し
 }
+```
+
+# 範囲節(range)
+
+範囲節(range)を使ってループする方法もある。
+
+上記にあるような、range を使って、配列内の要素を順にループすることができる。
+
+例を以下に記載する。
+
+```go
+fruits := [3]string{"Apple","Banana","Cherry"}
+
+for i,s := range fruits {
+  fmt.Printf("fruits[%d]=%s\n",i,s)
+}
+```
+
+実行結果
+
+```
+fruits[0]=Apple
+fruits[1]=Banana
+fruits[2]=Cherry
 ```
 
 </div>
