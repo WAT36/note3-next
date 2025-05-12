@@ -1,7 +1,7 @@
 ---
 title: "(小ネタ)SRフリップフロップ回路をWebで図示してみた"
 excerpt: ""
-coverImage: ""
+coverImage: "/assets/posts/srFlipFlop/srFlipFlop.png"
 date: "2025-05-11T18:58:49.000Z"
 updatedAt: "2025-05-11T18:58:49.000Z"
 tag: []
