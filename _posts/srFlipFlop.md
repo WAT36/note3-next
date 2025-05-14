@@ -16,7 +16,7 @@ ogImage:
 
 HTML,CSS,Javascript 等を駆使し Web 上で図を作れたので、ここに載せてみた。
 
-<p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="myywpEZ" data-pen-title="Flip-Flop" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+<p class="codepen" data-height="550" data-default-tab="result" data-slug-hash="myywpEZ" data-pen-title="Flip-Flop" data-user="wat36" style="height: 550px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
   <span>See the Pen <a href="https://codepen.io/wat36/pen/myywpEZ">
   Flip-Flop</a> by WAT (<a href="https://codepen.io/wat36">@wat36</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
