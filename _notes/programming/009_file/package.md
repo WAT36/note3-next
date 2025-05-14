@@ -56,4 +56,42 @@ Go では主に 2 種類のパッケージが存在します。
 - 関数変数名が大文字で始まる場合、パッケージ外部からアクセス可能
 - 関数変数名が小文字で始まる場合、パッケージ内でのみアクセス可能
 
+# init 関数
+
+Go のパッケージには、特殊な関数**init**を定義することができます。
+
+init 関数を定義すると、main 関数よりも前に実行されます。何らかの初期処理をさせたいときに有用です。
+
+init 関数は、引数・戻り値なしで定義します。（追加するとエラーになります。）
+
+また、init 関数は複数定義しても OK です。その場合は定義した順番に実行されます。
+
+```go
+func init() {
+	fmt.Println("Starting myapp...")
+}
+
+func init() {
+	fmt.Println("Starting myapp2...")
+}
+
+func init() {
+	fmt.Println("Starting myapp3...")
+}
+
+// go run main.go
+func main() {
+	fmt.Println("main")
+}
+```
+
+実行結果
+
+```
+Starting myapp...
+Starting myapp2...
+Starting myapp3...
+main
+```
+
 </div>
