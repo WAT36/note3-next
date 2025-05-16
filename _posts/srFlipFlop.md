@@ -14,7 +14,7 @@ ogImage:
 
 情報系学生であった時に講義で出たがイメージがイマイチよくつかなかった「フリップフロップ回路」。
 
-HTML,CSS,Javascript 等を駆使し Web 上で図を作れたので、ここに載せてみた。
+今は Web の知識があり回路図を再現できたので、ここに載せてみた。
 
 <p class="codepen" data-height="550" data-default-tab="result" data-slug-hash="myywpEZ" data-pen-title="Flip-Flop" data-user="wat36" style="height: 550px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
   <span>See the Pen <a href="https://codepen.io/wat36/pen/myywpEZ">
@@ -42,3 +42,5 @@ HTML,CSS,Javascript 等を駆使し Web 上で図を作れたので、ここに�
 - Q⁽ⁿ⁾: 現在の状態（前の出力）
 - ×: 変化なし（保持）
 - 不定: 両方 1 や 0 などで定義できない矛盾状態（ゲート種類により異なる）
+
+当時こんなのあれば良かったなあと、作った後で思った
