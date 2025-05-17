@@ -3,7 +3,7 @@
 }
 
 .markdown p {
-  @apply block my-4
+  @apply block my-4;
 }
 
 .markdown ul {
@@ -34,7 +34,7 @@
 }
 
 .markdown table {
-  @apply border-solid border border-black border-spacing-1 box-border table;
+  @apply border-solid border border-black border-spacing-1 box-border table p-1;
 }
 
 .markdown tbody {
@@ -42,11 +42,11 @@
 }
 
 .markdown td {
-  @apply border-solid border border-black m-3 table-cell p-px align-middle;
+  @apply border-solid border border-black m-3 table-cell p-px align-middle p-1;
 }
 
 .markdown tfoot {
-  @apply box-border table-footer-group align-middle
+  @apply box-border table-footer-group align-middle;
 }
 
 .markdown th {
@@ -62,7 +62,6 @@
 .markdown a {
   @apply text-sky-600 underline;
 }
-
 
 .markdown input {
   @apply bg-white border-2 font-sans text-sm overflow-hidden p-px;

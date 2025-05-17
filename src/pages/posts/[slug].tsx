@@ -4,7 +4,7 @@ import Container from "../../components/ui-elements/container/Container";
 import PostBody from "../../components/ui-elements/post-body/PostBody";
 import PostHeader from "../../components/ui-parts/post-header/PostHeader";
 import Layout from "../../components/ui-pages/layout/Layout";
-import { getPostBySlug, getAllPosts } from "../../lib/api";
+import { getPostBySlug, getAllPosts } from "../../lib/fileSystem";
 import PostTitle from "../../components/ui-elements/post-title/PostTitle";
 import Head from "next/head";
 import { TITLE } from "../../lib/constants";
