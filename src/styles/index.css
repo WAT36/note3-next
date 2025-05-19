@@ -7,6 +7,14 @@
     background-color: #000;
     color: #fff;
   }
+
+  table {
+    border: white 2px solid !important;
+  }
+
+  td {
+    border: white 2px solid !important;
+  }
 }
 
 article {

@@ -1,7 +1,7 @@
 import Layout from "../../components/ui-pages/layout/Layout";
 import Container from "../../components/ui-elements/container/Container";
 import Post from "../../interfaces/post";
-import { getAllPosts } from "../../lib/api";
+import { getAllPosts } from "../../lib/fileSystem";
 import Intro from "../../components/ui-elements/intro/Intro";
 import { Bio } from "../../components/ui-elements/bio/Bio";
 import { ADMINISTRATOR } from "../../lib/constants";
