@@ -2,8 +2,8 @@
 title: "辞書(Map)"
 date: "2019-10-28T00:36:30+09:00"
 excerpt: "辞書(Map)について"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-28T00:36:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -73,5 +73,23 @@ let m = new Map();
 Javascript では**Map オブジェクト**と呼ばれるものが該当する。
 
 宣言するには、`new Map();`と言う形で行う。これで Map オブジェクトが作成される。
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+m := make(map[キー型名]値型名)
+```
+
+Go では参照型の１つで**マップ**というものがある。これが Go での Map のようなデータ構造である。
+
+Go のマップを表す型は、**map[キー型名]値型名**で表す。生成には make 関数を使って行う。
+
+```go
+m := make(map[int]string)
+
+m[1] = "one"
+m[10] = "ten"
+```
 
 </div>
