@@ -2,8 +2,8 @@
 title: "可変長引数の関数"
 date: "2019-10-29T06:37:30+09:00"
 excerpt: "可変長引数の関数について"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-29T06:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -141,5 +141,21 @@ Error,引数が数値ではありません：a
 "私が一番好きなものはmelonです"
 "その他：lemon,apple,banana"
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+func 関数名(...引数) 返り値の型 {
+  // 処理文
+  return 返り値
+}
+```
+
+上記で **...引数**という定義が、関数での可変長引数となる。
+
+これにより、可変長引数の部分が全てスライスに入る。
+
+また、可変長引数の後ろに別の引数を定義することは禁止されている（エラーとなる）。可変長引数は必ず最後に定義する、
 
 </div>
