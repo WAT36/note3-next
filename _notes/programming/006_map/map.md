@@ -78,7 +78,7 @@ Javascript では**Map オブジェクト**と呼ばれるものが該当する�
 <div class="note_content_by_programming_language" id="note_content_Go">
 
 ```go
-m := make(map[キー型名]値型名)
+m := make(map[キー型名]値型名){キー:値,,,}
 ```
 
 Go では参照型の１つで**マップ**というものがある。これが Go での Map のようなデータ構造である。
@@ -86,7 +86,7 @@ Go では参照型の１つで**マップ**というものがある。これが 
 Go のマップを表す型は、**map[キー型名]値型名**で表す。生成には make 関数を使って行う。
 
 ```go
-m := make(map[int]string)
+m := make(map[int]string){0:"zero"}
 
 m[1] = "one"
 m[10] = "ten"
