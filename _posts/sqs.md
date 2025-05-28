@@ -1,5 +1,5 @@
 ---
-title: "AWS SQSを利用してみた"
+title: "Amazon SQSを利用してみた"
 excerpt: "AWS SQSの概要紹介と利用法"
 coverImage: "/assets/posts/sqs/SQS.png"
 date: "2025-05-25T13:33:43.000Z"
@@ -12,11 +12,12 @@ ogImage:
   url: ""
 ---
 
-AWS 資格をいくつか取得してきたものの、実際使ったことないサービスは結構ある状態だったため、今回は学習の一環として、メッセージキューサービスの AWS SQS（Simple Queue Service）を実際に使ってみることにした。
+AWS 資格をいくつか取得してきたものの、実際使ったことないサービスは結構ある状態だったため、今回は学習の一環として、メッセージキューサービスの Amazon SQS（Simple Queue Service）を実際に使ってみることにした。
 
 # SQS とは
 
-SQS（Simple Queue Service）は、AWS が提供するフルマネージドなメッセージキューサービスである。
+SQS（Simple Queue Service）[^1]は、AWS が提供するフルマネージドなメッセージキューサービスである。
+
 メッセージキューとは、アプリケーション間でメッセージを非同期に送受信するための仕組みである。例えるなら「郵便ポスト」のようなもので、送信者はメッセージを投函し、受信者は都合の良いタイミングでメッセージを取り出すことができる。
 
 また、以下のような特徴がある。
@@ -227,3 +228,9 @@ Received message: Hello from TypeScript!
 Message deleted.
 $
 ```
+
+細かい諸機能の利用までは行かなかったが、SQS を実際に手を動かして確認することで、より深い理解につながったため、他の AWS サービスの実践も続けて試してみたいと思っている。
+
+---
+
+[^1]: [Amazon SQS(公式ページ)](https://aws.amazon.com/jp/sqs/)
