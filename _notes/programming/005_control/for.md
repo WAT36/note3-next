@@ -225,4 +225,28 @@ for i,r := range "ABC" {
 [2] -> 67
 ```
 
+また、チャネルにも利用することができる。
+
+利用すると、チャネルからひたすら受信し続ける事を行う。
+
+```go
+ch := make(chan int,3)
+ch <- 1
+ch <- 2
+ch <- 3
+
+for i := range ch {
+  fmt.Println(i)
+}
+```
+
+実行結果
+
+```
+1
+2
+3
+fatal error: all goroutinnes are asleep - deadlock!
+```
+
 </div>
