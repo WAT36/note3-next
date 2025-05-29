@@ -20,6 +20,8 @@ SQS（Simple Queue Service）[^1]は、AWS が提供するフルマネージド�
 
 メッセージキューとは、アプリケーション間でメッセージを非同期に送受信するための仕組みである。例えるなら「郵便ポスト」のようなもので、送信者はメッセージを投函し、受信者は都合の良いタイミングでメッセージを取り出すことができる。
 
+![](/assets/posts/sqs/queue.png)
+
 また、以下のような特徴がある。
 
 - **フルマネージド**: サーバーの管理が不要
@@ -79,6 +81,7 @@ AWS マネジメントコンソールから画面を操作して作る方法も�
 ```plaintext
 # 標準キューの作成
 resource "aws_sqs_queue" "sample_queue" {
+  # キューの名前
   name = "sample-queue"
 
   # メッセージ保持期間（秒）
@@ -95,17 +98,6 @@ resource "aws_sqs_queue" "sample_queue" {
 
   # ロングポーリング待機時間（秒）
   receive_wait_time_seconds = 20
-
-  # Dead Letter Queue設定
-  redrive_policy = jsonencode({
-    deadLetterTargetArn = aws_sqs_queue.dlq.arn
-    maxReceiveCount     = 3
-  })
-
-  tags = {
-    Environment = "test"
-    Purpose     = "learning"
-  }
 }
 ```
 
