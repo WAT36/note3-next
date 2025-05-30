@@ -4,6 +4,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && tsx src/lib/generateRSS.ts",
+    "test:vrt": "playwright test",
+    "test:vrt-report": "playwright show-report",
     "start": "next start",
     "typecheck": "tsc",
     "storybook": "storybook dev -p 6006",
