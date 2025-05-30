@@ -3,7 +3,7 @@ title: "Algoliaを利用しこのブログに全文検索を行えるように�
 excerpt: "全文検索サービス「Algolia」の導入と利用"
 coverImage: "/assets/posts/algolia/algoliaLogo.png"
 date: "2023-10-04T23:01:58.000Z"
-updatedAt: "2023-10-04T23:01:58.000Z"
+updatedAt: '2025-05-30T22:39:37.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -114,7 +114,7 @@ Algolia のダッシュボードからデータを入力する方法もありま
 
 インデックスに登録する検索データ（レコードと呼ばれる）は以下のような形式です（公式ページ[^2]からの引用）。
 
-```
+```plaintext
 {
   "title": "Blackberry and blueberry pie",
   "description": "A delicious pie recipe that combines blueberries and blackberries.",
