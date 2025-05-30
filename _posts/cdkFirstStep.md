@@ -72,7 +72,7 @@ AWS CLI とは自分のコマンドライン上から、AWS のサービスや�
 インストールするには下記のような、curl を利用してインストールする。
 ​
 
-```
+```bash
 $ curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
 $ sudo installer -pkg ./AWSCLIV2.pkg -target /
 ```
@@ -80,7 +80,7 @@ $ sudo installer -pkg ./AWSCLIV2.pkg -target /
 ​
 実行後、AWS CLI がインストールされたことを aws コマンドを実行する事で確認する。
 
-```
+```bash
 $ aws --version
 ```
 
@@ -130,7 +130,7 @@ credentials ファイルの中身は以下のようにする。XX にはダウ�
 
 複数のアカウントのデータを設定したい場合は、default の部分を他のユーザ名にして登録する。
 
-```
+```plaintext
 [default]
 aws_access_key_id=XXXXXXXXXXXXXXXXXXXX
 aws_secret_access_key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -229,7 +229,7 @@ $ npx cdk init app --language typescript
 
 デフォルトでは app が使用される。
 
-```
+```plaintext
 Available templates:
 * app: Template for a CDK Application
    └─ cdk init app --language=typescript
@@ -320,7 +320,7 @@ export class CdkTestStack extends cdk.Stack {
 
 スタック名は bin/cdk-test.ts 内で'CdkTestStack'としているので、それを利用します。
 
-```
+```bash
 $ cdk deploy CdkTestStack
 ```
 

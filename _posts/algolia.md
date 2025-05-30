@@ -114,7 +114,7 @@ Algolia のダッシュボードからデータを入力する方法もありま
 
 インデックスに登録する検索データ（レコードと呼ばれる）は以下のような形式です（公式ページ[^2]からの引用）。
 
-```
+```plaintext
 {
   "title": "Blackberry and blueberry pie",
   "description": "A delicious pie recipe that combines blueberries and blackberries.",

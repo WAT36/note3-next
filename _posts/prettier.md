@@ -81,7 +81,7 @@ npm install --save-dev --save-exact prettier
 
 例えばこの.prettierignore と node_modules はフォーマット対象から外すなどする。
 
-```
+```plaintext
 .prettierignore
 node_modules
 ```
