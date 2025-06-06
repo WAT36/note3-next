@@ -12,7 +12,6 @@ test("posts page test", async ({ page }) => {
   });
 });
 
-//test("posts all article page test", async ({}) => {
 test.describe("posts all article page test", () => {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
