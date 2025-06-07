@@ -1,5 +1,5 @@
 ---
-title: "Langchainを使ってチャットボットを作る"
+title: "LangChainを使って簡単なQAシステムを作ってみた"
 excerpt: ""
 coverImage: ""
 date: "2025-06-06T20:23:29.000Z"
