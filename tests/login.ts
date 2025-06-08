@@ -9,6 +9,7 @@ type LoginTestProps = {
 export const doLogin = async (props: LoginTestProps) => {
   const { page, pageUrl } = props;
   await page.goto(pageUrl, {
+    timeout: 30000,
     waitUntil: "domcontentloaded",
   });
 
