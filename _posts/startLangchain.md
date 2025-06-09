@@ -1,6 +1,6 @@
 ---
 title: "LangChainを使って簡単なチャットシステムを作ってみた"
-excerpt: ""
+excerpt: "PythonでLangChain・OpenAI APIを利用してチャットシステムを作るハンズオン"
 coverImage: "/assets/posts/startLangchain/langchain.png"
 date: "2025-06-06T20:23:29.000Z"
 updatedAt: "2025-06-06T20:23:29.000Z"
