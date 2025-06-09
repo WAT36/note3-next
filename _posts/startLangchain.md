@@ -1,7 +1,7 @@
 ---
 title: "LangChainを使って簡単なチャットシステムを作ってみた"
 excerpt: ""
-coverImage: ""
+coverImage: "/assets/posts/startLangchain/langchain.png"
 date: "2025-06-06T20:23:29.000Z"
 updatedAt: "2025-06-06T20:23:29.000Z"
 tag: ["生成AI", "Python"]
