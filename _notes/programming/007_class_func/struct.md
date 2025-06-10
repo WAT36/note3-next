@@ -142,4 +142,39 @@ func NewPoint(x int, y int) *Point {
 }
 ```
 
+# タグ
+
+構造体には**タグ**という、フィールドにメタ情報を付与する機能がある。以下に例を示す。
+
+```go
+import (
+	"fmt"
+	"reflect"
+)
+
+type Point struct {
+	X int "X座標"
+	Y int "Y座標"
+}
+
+func Tag() {
+	p := Point{X: 1, Y: 2}
+
+	t := reflect.TypeOf(p)
+	for i := 0; i < t.NumField(); i++ {
+		f := t.Field(i)
+		fmt.Println(f.Name, f.Tag)
+	}
+}
+```
+
+実行結果
+
+```
+X X座標
+Y Y座標
+```
+
+reflect パッケージの機能を使い、Point 型のフィールド名とタグ名を取り出せています。このように、タグはコード中で定義された構造体のフィールドに、メタ情報を付与します。
+
 </div>
