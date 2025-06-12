@@ -17,7 +17,9 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Go">
 
 ```go
-
+type 型名 interface {
+  // 定義
+}
 ```
 
 Go の「インターフェース（interface）」とは、複数の型に共通するメソッドの集合を抽象的に定義するものです。
@@ -35,5 +37,29 @@ type error interface {
 Go では、エラーが発生する可能性がある関数やメソッドの戻り値として、この error 型がよく使われます。
 
 この error 型では、文字列を返すメソッド Error のみが定義されています。
+
+error インターフェースを実装した型を定義してみましょう。ここでは構造体 MyError 型を定義して error インターフェースが要求する Error() string をメソッドのシグネチャ通りに定義します。
+
+これだけでインターフェースの実装は完了になります。
+
+```go
+/*独自のエラーを定義*/
+type MyError struct {
+  Message string
+  ErrCode int
+}
+
+/*errorインターフェースのメソッドを実装*/
+func (e *MyError) Error() string {
+  return e.Message
+}
+
+func RaiseError() error {
+  return &MyError{Message: "エラーが発生しました", ErrCode: 1234}
+}
+
+err := RaiseError()
+err.Error() // === "エラーが発生しました"
+```
 
 </div>
