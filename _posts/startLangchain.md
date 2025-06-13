@@ -2,8 +2,8 @@
 title: "LangChainを使って簡単なチャットシステムを作ってみた"
 excerpt: "PythonでLangChain・OpenAI APIを利用してチャットシステムを作るハンズオン"
 coverImage: "/assets/posts/startLangchain/langchain.png"
-date: "2025-06-06T20:23:29.000Z"
-updatedAt: "2025-06-06T20:23:29.000Z"
+date: '2025-06-14T00:26:35.000Z'
+updatedAt: '2025-06-14T00:26:35.000Z'
 tag: ["生成AI", "Python"]
 author:
   name: Tatsuroh Wakasugi
