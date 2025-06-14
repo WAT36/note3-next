@@ -3,7 +3,7 @@ title: "ブラウザ関連API"
 excerpt: ""
 coverImage: ""
 date: "2025-03-25T23:43:20.000Z"
-updatedAt: "2025-03-26T22:13:23.000Z"
+updatedAt: '2025-06-14T18:50:51.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi

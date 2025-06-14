@@ -3,7 +3,7 @@ title: "動画・音声(JavaScript)"
 excerpt: ""
 coverImage: ""
 date: "2025-03-25T23:45:20.000Z"
-updatedAt: "2025-03-25T23:45:20.000Z"
+updatedAt: '2025-06-14T18:50:51.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
