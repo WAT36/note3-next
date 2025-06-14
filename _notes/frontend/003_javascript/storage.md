@@ -3,7 +3,7 @@ title: "ストレージ(JavaScript)"
 excerpt: ""
 coverImage: ""
 date: "2025-03-25T23:46:20.000Z"
-updatedAt: '2025-04-06T15:09:35.000Z'
+updatedAt: "2025-04-06T15:09:35.000Z"
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -183,9 +183,70 @@ File API で扱うオブジェクトは以下のようなものがあります�
     </tr>
     <tr>
         <td style="border:none;">FileReader</td>
-        <td style="border:none;">ファイルの中身（テキスト、画像など）を読み込むため</td>
+        <td style="border:none;">ファイルの中身（テキスト、画像など）を読み込むためのオブジェクト</td>
     </tr>
 </table>
+
+File については以下の通り。
+
+| プロパティ       | 説明                           |
+| :--------------- | :----------------------------- |
+| name             | ファイル名                     |
+| lastModifiedDate | ファイルが最後に修正された日時 |
+
+なお File は**Blob**を継承している。Blob については以下の通り。
+
+| プロパティ | 説明                              |
+| :--------- | :-------------------------------- |
+| size       | Blob オブジェクトのバイト数       |
+| type       | Blob オブジェクトのメディアタイプ |
+
+| メソッド | 説明                                                 |
+| :------- | :--------------------------------------------------- |
+| slice()  | 指定したバイトレンジの新しい Blob オブジェクトを返す |
+| close()  | Blob オブジェクトの利用を終了する                    |
+
+また FileList については以下の通り。
+
+| プロパティ | 説明               |
+| :--------- | :----------------- |
+| length     | 含まれるファイル数 |
+
+| メソッド | 説明                                     |
+| :------- | :--------------------------------------- |
+| item()   | 指定された番目の File オブジェクトを返す |
+
+FileReader については以下の通り。
+
+| プロパティ | 説明                                                             |
+| :--------- | :--------------------------------------------------------------- |
+| readyState | 以下の表に示す状態                                               |
+| result     | ファイルの内容を読み込んだメソッドに合わせた型で表す             |
+| error      | ファイルの読み込みで発生したエラーに関する DOMError オブジェクト |
+
+| 定数    | 説明                                                                       |
+| :------ | :------------------------------------------------------------------------- |
+| EMPTY   | FileReader オブジェクトが生成されて、まだデータを読み込んでいない状態      |
+| LOADING | ファイルのデータを読み込んでいる状態                                       |
+| EMPTY   | ファイルのデータをメモリ上にロードし終わったか、途中でエラーが発生した状態 |
+
+| メソッド            | 説明                                |
+| :------------------ | :---------------------------------- |
+| readAsArrayBuffer() | データを ArrayBuffer として読み込む |
+| readAsText()        | データをテキストとして読み込む      |
+| readAsDataURL()     | データを DataURL として読み込む     |
+| abort()             | データの読み込みを中断する          |
+
+| イベントハンドラ | 説明                                                     |
+| :--------------- | :------------------------------------------------------- |
+| onloadstart      | 読み込みが開始した時に呼ばれる                           |
+| onprogress       | blob を読み込んでいる時に呼ばれる                        |
+| onload           | 読み込みが正常に終了した時に呼ばれる                     |
+| onabort          | 読み込みが中断された時に呼ばれる                         |
+| onerror          | 読み込みが失敗した時に呼ばれる                           |
+| onloadend        | 成功か失敗に関わらず読み込みが正常に終了した時に呼ばれる |
+
+以下に例を記載する。
 
 <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="zxYLQWj" data-pen-title="js-file-api" data-user="wat36" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
   <span>See the Pen <a href="https://codepen.io/wat36/pen/zxYLQWj">
