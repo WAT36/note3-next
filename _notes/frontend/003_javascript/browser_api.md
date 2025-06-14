@@ -48,79 +48,26 @@ Location API は、画面の URL に関する操作を行う API である。
 
 主なプロパティ及びメソッドは以下の通り。
 
-<table style="border:none;">
-    <tr>
-        <th style="border:none;">プロパティ名</td>
-        <th style="border:none;">意味</td>
-    </tr>
-    <tr>
-        <td style="border:none;">href</td>
-        <td style="border:none;">URL全体</td>
-    </tr>
-    <tr>
-        <td style="border:none;">protocol</td>
-        <td style="border:none;">URLのプロトコル</td>
-    </tr>
-    <tr>
-        <td style="border:none;">host</td>
-        <td style="border:none;">URLのホストとポート番号</td>
-    </tr>
-    <tr>
-        <td style="border:none;">hostname</td>
-        <td style="border:none;">URLのドメイン</td>
-    </tr>
-    <tr>
-        <td style="border:none;">port</td>
-        <td style="border:none;">URLのポート番号</td>
-    </tr>
-    <tr>
-        <td style="border:none;">pathname</td>
-        <td style="border:none;">URLのパス</td>
-    </tr>
-    <tr>
-        <td style="border:none;">search</td>
-        <td style="border:none;">URLのクエリ</td>
-    </tr>
-    <tr>
-        <td style="border:none;">hash</td>
-        <td style="border:none;">URLのフラグメント識別子</td>
-    </tr>
-    <tr>
-        <td style="border:none;">username</td>
-        <td style="border:none;">ユーザ名</td>
-    </tr>
-    <tr>
-        <td style="border:none;">password</td>
-        <td style="border:none;">パスワード</td>
-    </tr>
-    <tr>
-        <td style="border:none;">origin</td>
-        <td style="border:none;">オリジン</td>
-    </tr>
-</table>
+| プロパティ名 | 意味                     |
+| :----------- | :----------------------- |
+| href         | URL 全体                 |
+| protocol     | URL のプロトコル         |
+| host         | URL のホストとポート番号 |
+| hostname     | URL のドメイン           |
+| port         | URL のポート番号         |
+| pathname     | URL のパス               |
+| search       | URL のクエリ             |
+| hash         | URL のフラグメント識別子 |
+| username     | ユーザ名                 |
+| password     | パスワード               |
+| origin       | オリジン                 |
 
-<table style="border:none;">
-    <tr>
-        <th style="border:none;">メソッド</td>
-        <th style="border:none;">意味</td>
-    </tr>
-    <tr>
-        <td style="border:none;">assign()</td>
-        <td style="border:none;">指定したページをロードする</td>
-    </tr>
-    <tr>
-        <td style="border:none;">replace()</td>
-        <td style="border:none;">現在のページを履歴から削除し、指定したページをロードする</td>
-    </tr>
-    <tr>
-        <td style="border:none;">reload()</td>
-        <td style="border:none;">現在のページをリロードする</td>
-    </tr>
-    <tr>
-        <td style="border:none;">toString()</td>
-        <td style="border:none;">現在のページのURL全体を返す</td>
-    </tr>
-</table>
+| メソッド   | 意味                                                     |
+| :--------- | :------------------------------------------------------- |
+| assign()   | 指定したページをロードする                               |
+| replace()  | 現在のページを履歴から削除し、指定したページをロードする |
+| reload()   | 現在のページをリロードする                               |
+| toString() | 現在のページの URL 全体を返す                            |
 
 使用例を以下に示す。（利用している Codepen の情報が表示されます）
 
