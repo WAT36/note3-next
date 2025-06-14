@@ -66,7 +66,7 @@ export default function Index({ newestPost, randomPost }: Props) {
   );
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   const newestPost = await getNewestPost();
   const randomPost = await getRandomPost();
   return {
