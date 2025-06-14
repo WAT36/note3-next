@@ -2,8 +2,8 @@
 title: "LangChainを使って簡単なチャットシステムを作ってみた"
 excerpt: "PythonでLangChain・OpenAI APIを利用してチャットシステムを作るハンズオン"
 coverImage: "/assets/posts/startLangchain/langchain.png"
-date: '2025-06-14T00:26:35.000Z'
-updatedAt: '2025-06-14T00:26:35.000Z'
+date: "2025-06-14T00:26:35.000Z"
+updatedAt: "2025-06-14T00:26:35.000Z"
 tag: ["生成AI", "Python"]
 author:
   name: Tatsuroh Wakasugi
@@ -87,8 +87,7 @@ cd langchain-test
 python3 -m venv venv
 ```
 
-- これで `venv/`ディレクトリが作成され、ここにパッケージがインストールされるようになる。
-- Node.js で言えば、`node_modules`に相当。
+これで `venv/`ディレクトリが作成され、ここにパッケージがインストールされるようになる。（Node.js で言えば、`node_modules`に相当。）
 
 次に、仮想環境を有効化する。
 
