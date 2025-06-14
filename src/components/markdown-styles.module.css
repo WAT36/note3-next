@@ -34,7 +34,7 @@
 }
 
 .markdown table {
-  @apply border-solid border border-black border-spacing-1 box-border table p-1;
+  @apply border-solid border border-black border-spacing-1 box-border table p-1 m-2;
 }
 
 .markdown tbody {

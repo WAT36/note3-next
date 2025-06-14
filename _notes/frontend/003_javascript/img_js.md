@@ -3,7 +3,7 @@ title: "動画・音声(JavaScript)"
 excerpt: ""
 coverImage: ""
 date: "2025-03-25T23:45:20.000Z"
-updatedAt: "2025-03-25T23:45:20.000Z"
+updatedAt: '2025-06-14T18:50:51.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -20,192 +20,67 @@ ogImage:
 
 Javascript で、動画、音声を扱う時に利用する主なプロパティは以下の通り。
 
-<table style="border:none;">
-    <tr>
-        <th style="border:none;">プロパティ名</td>
-        <th style="border:none;">意味</td>
-    </tr>
-    <tr>
-        <td style="border:none;">readyState</td>
-        <td style="border:none;">メディア要素の準備状態、詳細は別表</td>
-    </tr>
-    <tr>
-        <td style="border:none;">networkState</td>
-        <td style="border:none;">ネットワークの状態。詳細は別表</td>
-    </tr>
-    <tr>
-        <td style="border:none;">error</td>
-        <td style="border:none;">エラーの状態。詳細は別表</td>
-    </tr>
-    <tr>
-        <td style="border:none;">paused</td>
-        <td style="border:none;">再生が中断されている場合はtrueを返す。そうでない場合はfalse</td>
-    </tr>
-    <tr>
-        <td style="border:none;">ended</td>
-        <td style="border:none;">再生が完了した場合はtrue、そうでない場合はfalseを返す</td>
-    </tr>
-    <tr>
-        <td style="border:none;">duration</td>
-        <td style="border:none;">再生時間の長さ(秒)を返す</td>
-    </tr>
-    <tr>
-        <td style="border:none;">currentTime</td>
-        <td style="border:none;">現在の再生位置(秒)を返す</td>
-    </tr>
-</table>
+| プロパティ名 | 意味                                                           |
+| :----------- | :------------------------------------------------------------- |
+| readyState   | メディア要素の準備状態、詳細は別表                             |
+| networkState | ネットワークの状態。詳細は別表                                 |
+| error        | エラーの状態。詳細は別表                                       |
+| paused       | 再生が中断されている場合は true を返す。そうでない場合は false |
+| ended        | 再生が完了した場合は true、そうでない場合は false を返す       |
+| duration     | 再生時間の長さ(秒)を返す                                       |
+| currentTime  | 現在の再生位置(秒)を返す                                       |
 
 うち、readyState で返る値は以下の通り。
 
-<table style="border:none;">
-    <tr>
-        <th style="border:none;">状態名</td>
-        <th style="border:none;">数値</td>
-        <th style="border:none;">意味</td>
-    </tr>
-    <tr>
-        <td style="border:none;">HAVE_NOTHING</td>
-        <td style="border:none;">0</td>
-        <td style="border:none;">利用可能でない状態</td>
-    </tr>
-    <tr>
-        <td style="border:none;">HAVE_METADATA</td>
-        <td style="border:none;">1</td>
-        <td style="border:none;">メディアリソースに関する情報が取得済みである状態</td>
-    </tr>
-    <tr>
-        <td style="border:none;">HAVE_CURRENT_DATA</td>
-        <td style="border:none;">2</td>
-        <td style="border:none;">現在の再生位置に対応するデータが利用可能</td>
-    </tr>
-    <tr>
-        <td style="border:none;">HAVE_FUTURE_DATA</td>
-        <td style="border:none;">3</td>
-        <td style="border:none;">現在の再生位置及びその後に対応するデータが利用可能</td>
-    </tr>
-</table>
+| 状態名            | 数値 | 意味                                               |
+| :---------------- | :--- | :------------------------------------------------- |
+| HAVE_NOTHING      | 0    | 利用可能でない状態                                 |
+| HAVE_METADATA     | 1    | メディアリソースに関する情報が取得済みである状態   |
+| HAVE_CURRENT_DATA | 2    | 現在の再生位置に対応するデータが利用可能           |
+| HAVE_FUTURE_DATA  | 3    | 現在の再生位置及びその後に対応するデータが利用可能 |
 
 また、networkState で返る値は以下の通り。
 
-<table style="border:none;">
-    <tr>
-        <th style="border:none;">状態名</td>
-        <th style="border:none;">数値</td>
-        <th style="border:none;">意味</td>
-    </tr>
-    <tr>
-        <td style="border:none;">NETWORK_EMPTY</td>
-        <td style="border:none;">0</td>
-        <td style="border:none;">初期化されていない状態</td>
-    </tr>
-    <tr>
-        <td style="border:none;">NETWORK_IDLE</td>
-        <td style="border:none;">1</td>
-        <td style="border:none;">一時停止された時など、ネットワークを利用していない状態</td>
-    </tr>
-    <tr>
-        <td style="border:none;">NETOWRK_LOADING</td>
-        <td style="border:none;">2</td>
-        <td style="border:none;">データをダウンロード中の状態</td>
-    </tr>
-    <tr>
-        <td style="border:none;">NETWORK_NO_SOURCE</td>
-        <td style="border:none;">3</td>
-        <td style="border:none;">利用するリソースが見つかってない</td>
-    </tr>
-</table>
+| 状態名            | 数値 | 意味                                                   |
+| :---------------- | :--- | :----------------------------------------------------- |
+| NETWORK_EMPTY     | 0    | 初期化されていない状態                                 |
+| NETWORK_IDLE      | 1    | 一時停止された時など、ネットワークを利用していない状態 |
+| NETOWRK_LOADING   | 2    | データをダウンロード中の状態                           |
+| NETWORK_NO_SOURCE | 3    | 利用するリソースが見つかってない                       |
 
 error で返る値は以下の通り。
 
-<table style="border:none;">
-    <tr>
-        <th style="border:none;">状態名</td>
-        <th style="border:none;">数値</td>
-        <th style="border:none;">意味</td>
-    </tr>
-    <tr>
-        <td style="border:none;">MEDIA_ERR_ABORTED</td>
-        <td style="border:none;">1</td>
-        <td style="border:none;">リソースのフェッチがユーザにより中止された時</td>
-    </tr>
-    <tr>
-        <td style="border:none;">MEDIA_ERR_NETWORK</td>
-        <td style="border:none;">2</td>
-        <td style="border:none;">リソースのフェッチがネットワークエラーにより中止された時</td>
-    </tr>
-    <tr>
-        <td style="border:none;">MEDIA_ERR_DECODE</td>
-        <td style="border:none;">3</td>
-        <td style="border:none;">リソースのデコード中にエラーが発生した時</td>
-    </tr>
-    <tr>
-        <td style="border:none;">MEDIA_ERR_SRC_NOT_SUPPORTED</td>
-        <td style="border:none;">4</td>
-        <td style="border:none;">src属性に指定されたリソースが不適切</td>
-    </tr>
-</table>
+| 状態名                      | 数値 | 意味                                                     |
+| :-------------------------- | :--- | :------------------------------------------------------- |
+| MEDIA_ERR_ABORTED           | 1    | リソースのフェッチがユーザにより中止された時             |
+| MEDIA_ERR_NETWORK           | 2    | リソースのフェッチがネットワークエラーにより中止された時 |
+| MEDIA_ERR_DECODE            | 3    | リソースのデコード中にエラーが発生した時                 |
+| MEDIA_ERR_SRC_NOT_SUPPORTED | 4    | src 属性に指定されたリソースが不適切                     |
 
 <hr>
 
 次に、audio,video 要素で利用できるメソッドを述べる。以下の通り。
 
-<table style="border:none;">
-    <tr>
-        <th style="border:none;">メソッド</td>
-        <th style="border:none;">意味</td>
-    </tr>
-    <tr>
-        <td style="border:none;">load()</td>
-        <td style="border:none;">該当の要素をリセットし、リソースをロードする</td>
-    </tr>
-    <tr>
-        <td style="border:none;">play()</td>
-        <td style="border:none;">再生を開始する。再生が完了している場合は最初から再生する</td>
-    </tr>
-    <tr>
-        <td style="border:none;">pause()</td>
-        <td style="border:none;">再生を中断する</td>
-    </tr>
-</table>
+| メソッド | 意味                                                     |
+| :------- | :------------------------------------------------------- |
+| load()   | 該当の要素をリセットし、リソースをロードする             |
+| play()   | 再生を開始する。再生が完了している場合は最初から再生する |
+| pause()  | 再生を中断する                                           |
 
 <hr>
 
 また、audio,video 要素で利用できる主なイベントハンドラは以下の通り。
 
-<table style="border:none;">
-    <tr>
-        <th style="border:none;">イベントハンドラ</td>
-        <th style="border:none;">意味</td>
-    </tr>
-    <tr>
-        <td style="border:none;">onplay</td>
-        <td style="border:none;">再生が開始された時</td>
-    </tr>
-    <tr>
-        <td style="border:none;">onplaying</td>
-        <td style="border:none;">中断していた再生が再度再生可能となった時</td>
-    </tr>
-    <tr>
-        <td style="border:none;">ontimeupdate</td>
-        <td style="border:none;">現在の再生位置が変化した時</td>
-    </tr>
-    <tr>
-        <td style="border:none;">onpause</td>
-        <td style="border:none;">再生が中断された時</td>
-    </tr>
-    <tr>
-        <td style="border:none;">onwaiting</td>
-        <td style="border:none;">データの受信を待っている時</td>
-    </tr>
-    <tr>
-        <td style="border:none;">onended</td>
-        <td style="border:none;">再生が完了した時</td>
-    </tr>
-    <tr>
-        <td style="border:none;">onerror</td>
-        <td style="border:none;">再生中にエラーが発生した時</td>
-    </tr>
-</table>
+| イベントハンドラ | 意味                                                     |
+| :--------------- | :------------------------------------------------------- |
+| onplay           | 再生が開始された時                                       |
+| onplaying        | 中断していた再生が再度再生可能となった時                 |
+| ontimeupdate     | 現在の再生位置が変化した時                               |
+| onpause          | 再生が中断された時                                       |
+| onwaiting        | データの受信を待っている時                               |
+| onended          | 再生が完了した時                                         |
+| onerror          | 再生中にエラーが発生した時                               |
+| onabort          | 再生がエラー以外の原因で停止した場合に発行されるイベント |
 
 <hr>
 

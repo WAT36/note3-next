@@ -27,6 +27,9 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Send Data to algolia # Algoliaにデータ送信
+        run: cd tools/algolia && node sendRecords.js
+
       - name: Build and Export
         run: npm run build
 
@@ -35,9 +38,6 @@ jobs:
 
       - name: Deploy # S3にデプロイ
         run: aws s3 sync --region ap-northeast-1 ./out s3://dev-wat-note3-bucket --delete
-
-      - name: Send Data to algolia # Algoliaにデータ送信
-        run: cd tools/algolia && node sendRecords.js
 
       # Cloudfront キャッシュ削除
       - name: Invalidate CloudFront cache
