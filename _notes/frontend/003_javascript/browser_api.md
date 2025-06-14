@@ -3,7 +3,7 @@ title: "ブラウザ関連API"
 excerpt: ""
 coverImage: ""
 date: "2025-03-25T23:43:20.000Z"
-updatedAt: '2025-03-26T22:13:23.000Z'
+updatedAt: "2025-03-26T22:13:23.000Z"
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -20,47 +20,18 @@ History API は、ブラウザの履歴を提供するための API である。
 
 主なプロパティ及びメソッドは以下の通り。
 
-<table style="border:none;">
-    <tr>
-        <th style="border:none;">プロパティ名</td>
-        <th style="border:none;">意味</td>
-    </tr>
-    <tr>
-        <td style="border:none;">length</td>
-        <td style="border:none;">履歴の数</td>
-    </tr>
-    <tr>
-        <td style="border:none;">state</td>
-        <td style="border:none;">最後に設定された状態</td>
-    </tr>
-</table>
+| プロパティ名 | 意味                 |
+| :----------- | :------------------- |
+| length       | 履歴の数             |
+| state        | 最後に設定された状態 |
 
-<table style="border:none;">
-    <tr>
-        <th style="border:none;">メソッド</td>
-        <th style="border:none;">意味</td>
-    </tr>
-    <tr>
-        <td style="border:none;">go()</td>
-        <td style="border:none;">履歴において指定した番目のページへ遷移する</td>
-    </tr>
-    <tr>
-        <td style="border:none;">back()</td>
-        <td style="border:none;">1つ前のページへ遷移する</td>
-    </tr>
-    <tr>
-        <td style="border:none;">forward()</td>
-        <td style="border:none;">1つ後のページへ遷移する</td>
-    </tr>
-    <tr>
-        <td style="border:none;">pushState()</td>
-        <td style="border:none;">履歴に新しいページを追加する</td>
-    </tr>
-    <tr>
-        <td style="border:none;">forward()</td>
-        <td style="border:none;">履歴の現在のページの情報を書き換える</td>
-    </tr>
-</table>
+| メソッド       | 意味                                       |
+| :------------- | :----------------------------------------- |
+| go()           | 履歴において指定した番目のページへ遷移する |
+| back()         | 1 つ前のページへ遷移する                   |
+| forward()      | 1 つ後のページへ遷移する                   |
+| pushState()    | 履歴に新しいページを追加する               |
+| replaceState() | 履歴の現在のページの情報を書き換える       |
 
 例を以下に示す。この例では、ボタンを押すと pushState()で色の情報を履歴に追加する。これにより、ボタンを押して色を変化させた後にブラウザの戻る・進むボタンを押すことで色が変化するようになる。
 
