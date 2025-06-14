@@ -3,7 +3,7 @@ title: "通信(Javascript)"
 excerpt: ""
 coverImage: ""
 date: "2025-03-25T23:47:20.000Z"
-updatedAt: '2025-04-06T15:09:35.000Z'
+updatedAt: "2025-04-06T15:09:35.000Z"
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -30,87 +30,32 @@ WebSocket(url);
 
 WebSocket の主な API は以下の通り。
 
-<table style="border:none;">
-    <tr>
-        <th style="border:none;">プロパティ名</td>
-        <th style="border:none;">意味</td>
-    </tr>
-    <tr>
-        <td style="border:none;">url</td>
-        <td style="border:none;">接続先のURL</td>
-    </tr>
-    <tr>
-        <td style="border:none;">readyState</td>
-        <td style="border:none;">現在の接続状態</td>
-    </tr>
-    <tr>
-        <td style="border:none;">bufferedAmount</td>
-        <td style="border:none;">WebSocketオブジェクト内にあるデータのサイズを示す。0の時、プログラムから送信指示があったデータはネットワークに送信されている状態。</td>
-    </tr>
-</table>
+| プロパティ名   | 意味                                                                                                                                 |
+| :------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| url            | 接続先の URL                                                                                                                         |
+| readyState     | 現在の接続状態                                                                                                                       |
+| bufferedAmount | WebSocket オブジェクト内にあるデータのサイズを示す。0 の時、プログラムから送信指示があったデータはネットワークに送信されている状態。 |
 
-<table style="border:none;">
-    <tr>
-        <th style="border:none;">メソッド名</td>
-        <th style="border:none;">意味</td>
-    </tr>
-    <tr>
-        <td style="border:none;">send()</td>
-        <td style="border:none;">サーバにデータを送信する</td>
-    </tr>
-    <tr>
-        <td style="border:none;">close()</td>
-        <td style="border:none;">サーバとの接続を切断する</td>
-    </tr>
-</table>
+| メソッド名 | 意味                     |
+| :--------- | :----------------------- |
+| send()     | サーバにデータを送信する |
+| close()    | サーバとの接続を切断する |
 
-<table style="border:none;">
-    <tr>
-        <th style="border:none;">イベントハンドラ名</td>
-        <th style="border:none;">意味</td>
-    </tr>
-    <tr>
-        <td style="border:none;">onopen</td>
-        <td style="border:none;">サーバとの接続確立が成功した時</td>
-    </tr>
-    <tr>
-        <td style="border:none;">onmessage</td>
-        <td style="border:none;">サーバから新しいメッセージが届いた時</td>
-    </tr>
-    <tr>
-        <td style="border:none;">onclose</td>
-        <td style="border:none;">サーバとの接続がクローズした時</td>
-    </tr>
-    <tr>
-        <td style="border:none;">onerror</td>
-        <td style="border:none;">エラーが発生した時</td>
-    </tr>
-</table>
+| イベントハンドラ名 | 意味                                 |
+| :----------------- | :----------------------------------- |
+| onopen             | サーバとの接続確立が成功した時       |
+| onmessage          | サーバから新しいメッセージが届いた時 |
+| onclose            | サーバとの接続がクローズした時       |
+| onerror            | エラーが発生した時                   |
 
 また、readyState プロパティで得られる値は以下の通り。
 
-<table style="border:none;">
-    <tr>
-        <th style="border:none;">値</td>
-        <th style="border:none;">意味</td>
-    </tr>
-    <tr>
-        <td style="border:none;">CONNECTING</td>
-        <td style="border:none;">接続中</td>
-    </tr>
-    <tr>
-        <td style="border:none;">OPEN</td>
-        <td style="border:none;">接続確立済みでサーバとの通信が可能な状態</td>
-    </tr>
-    <tr>
-        <td style="border:none;">CLOSING</td>
-        <td style="border:none;">接続切断中</td>
-    </tr>
-    <tr>
-        <td style="border:none;">CLOSED</td>
-        <td style="border:none;">接続切断済み</td>
-    </tr>
-</table>
+| 値         | 意味                                     |
+| :--------- | :--------------------------------------- |
+| CONNECTING | 接続中                                   |
+| OPEN       | 接続確立済みでサーバとの通信が可能な状態 |
+| CLOSING    | 接続切断中                               |
+| CLOSED     | 接続切断済み                             |
 
 WebSocket の接続確立におけるこれら API の利用を示した図を以下に記載する。
 
