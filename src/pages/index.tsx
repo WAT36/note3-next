@@ -7,13 +7,23 @@ import { ADMINISTRATOR, AUTHOR, TITLE } from "../lib/constants";
 import { Bio } from "../components/ui-elements/bio/Bio";
 import { getNewestPost, getRandomPost, HitType } from "../lib/algolia";
 import LastUpdatedDate from "../components/ui-elements/lastUpdatedDate/LastUpdatedDate";
+import { useEffect, useState } from "react";
 
-type Props = {
-  newestPost: HitType;
-  randomPost: HitType;
-};
+export default function Index() {
+  const [newestPost, setNewestPost] = useState<HitType>(null);
+  const [randomPost, setRandomPost] = useState<HitType>(null);
 
-export default function Index({ newestPost, randomPost }: Props) {
+  useEffect(() => {
+    Promise.all([
+      (async () => {
+        setNewestPost(await getNewestPost());
+      })(),
+      (async () => {
+        setRandomPost(await getRandomPost());
+      })(),
+    ]);
+  }, []);
+
   return (
     <>
       <Layout>
@@ -65,14 +75,3 @@ export default function Index({ newestPost, randomPost }: Props) {
     </>
   );
 }
-
-export const getServerSideProps = async (context) => {
-  const newestPost = await getNewestPost();
-  const randomPost = await getRandomPost();
-  return {
-    props: {
-      newestPost,
-      randomPost,
-    },
-  };
-};
