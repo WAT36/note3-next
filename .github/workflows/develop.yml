@@ -24,11 +24,11 @@ jobs:
           cut -d= -f2 .env  | xargs -I arg echo ::add-mask::arg
           cat .env >> "$GITHUB_ENV"
 
-      - name: Send Data to algolia # Algoliaにデータ送信
-        run: cd tools/algolia && node sendRecords.js
-
       - name: Install Dependencies
         run: npm install
+
+      - name: Send Data to algolia # Algoliaにデータ送信
+        run: cd tools/algolia && node sendRecords.js
 
       - name: Build and Export
         run: npm run build
