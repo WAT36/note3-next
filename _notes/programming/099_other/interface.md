@@ -18,13 +18,52 @@ mode: programming
 
 ```go
 type 型名 interface {
-  // 定義
+  // 定義。抽象メソッドなどをかく
+}
+
+type 構造体名 struct {}
+
+func (引数 構造体名) 抽象メソッド名 {
+  // 処理などの定義
+}
+// これにより構造体がinterfaceを実装することになる
+```
+
+Go の「インターフェース（interface）」とは、複数の型に共通するメソッドの集合を抽象的に定義するものになる。
+
+オブジェクト指向言語における「インターフェース型」や「抽象クラス」に近い概念です。
+
+例として以下を示します。
+
+```go
+type Animal interface {
+    Speak()
+}
+
+type Dog struct{}
+
+func (d Dog) Speak() {
+    fmt.Println("Woof!")
+}
+
+// 使い方
+func MakeItSpeak(a Animal) {
+    a.Speak()
+}
+
+func main() {
+    var a Animal = Dog{} // OK！
+    a.Speak()            // → Woof!
 }
 ```
 
-Go の「インターフェース（interface）」とは、複数の型に共通するメソッドの集合を抽象的に定義するものです。
+使い方としては以下のような形になります。
 
-オブジェクト指向言語における「インターフェース型」や「抽象クラス」に近い概念です。
+- Dog に「Animal を実装します」とは書いていない
+
+- Speak() メソッドがある＝自動的に Animal を満たす！
+
+- interface 型に代入して使う
 
 Go での例として、代表的なインターフェース「error」を見てみます。
 
