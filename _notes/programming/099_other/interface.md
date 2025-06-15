@@ -101,4 +101,45 @@ err := RaiseError()
 err.Error() // === "エラーが発生しました"
 ```
 
+これでできることとしては、異なる型に共通の性質を付与できることです。
+
+以下に例を出します。
+
+```go
+// インターフェース
+type Stringify interface {
+  ToString() string
+}
+
+type Person struct {
+  Name string
+  Age int
+}
+
+func (p *Person) ToString() string {
+  return fmt.Sprintf("%s(%d)",p.Name,p.Age)
+}
+
+type Car struct {
+  Number string
+  Model string
+}
+
+func (c *Car) ToString() string {
+  return fmt.Sprintf("[%s] %s",c.Number,c.Model)
+}
+
+person := &Person{Name: "Taro", Age: 21}
+fmt.Println(person.ToString())
+car := &Car{Number: "08-10", Model: "AX-32"}
+fmt.Println(car.ToString())
+```
+
+実行結果
+
+```
+Taro(21)
+[08-10] AX-32
+```
+
 </div>
