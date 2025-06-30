@@ -1,9 +1,8 @@
 ---
 title: "クロージャ"
 excerpt: ""
-coverImage: ""
 date: "2024-08-04T22:30:23.000Z"
-updatedAt: '2025-06-30T20:44:30.000Z'
+updatedAt: "2025-06-30T20:44:30.000Z"
 tag: ["Javascript", "Go"]
 programming: ["Javascript", "Go"]
 author:

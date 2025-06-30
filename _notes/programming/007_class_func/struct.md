@@ -1,16 +1,16 @@
 ---
-title: '構造体'
-excerpt: ''
+title: "構造体"
+excerpt: ""
 tag: ["Go"]
 programming: ["Go"]
-date: '2025-06-30T20:44:30.000Z'
-updatedAt: '2025-06-30T20:44:30.000Z'
-tag: []
+date: "2025-06-30T20:44:30.000Z"
+updatedAt: "2025-06-30T20:44:30.000Z"
 author:
   name: Tatsuroh Wakasugi
-  picture: '/assets/blog/authors/WAT.jpg'
+  picture: "/assets/blog/authors/WAT.jpg"
 ogImage:
-  url: ''
+  url: ""
+mode: programming
 ---
 
 構造体についてを記載する。

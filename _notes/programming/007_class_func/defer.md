@@ -1,15 +1,16 @@
 ---
 title: "defer文(Go)"
 excerpt: "golangのdefer文について"
-coverImage: ""
-date: '2025-06-30T20:44:30.000Z'
-updatedAt: '2025-06-30T20:44:30.000Z'
-tag: []
+date: "2025-06-30T20:44:30.000Z"
+updatedAt: "2025-06-30T20:44:30.000Z"
+tag: ["Javascript", "Go"]
+programming: ["Javascript", "Go"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
 ogImage:
   url: ""
+mode: programming
 ---
 
 <div class="note_content_by_programming_language" id="note_content_Go">
