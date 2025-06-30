@@ -2,8 +2,8 @@
 title: "Null"
 date: "2019-11-01T05:37:30+09:00"
 excerpt: "Nullについて"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Go"]
+programming: ["Java", "Python", "Go"]
 updatedAt: "2019-11-01T05:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -90,5 +90,14 @@ Traceback (most recent call last):
 TypeError: 'NoneType' object is not subscriptable
 >>> #Noneの関数・属性を呼び出すとエラー
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Python">
+
+```go
+nil
+```
+
+Go では **nil** が null の様な値としてある。
 
 </div>

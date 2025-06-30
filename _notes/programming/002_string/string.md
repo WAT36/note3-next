@@ -2,8 +2,8 @@
 title: "文字列を宣言する"
 date: "2019-10-17T22:05:28.000Z"
 excerpt: "1文字からその文字の文字コード（アスキーコード）を取得する"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-17T22:05:28.000Z"
 author:
   name: Tatsuroh Wakasugi
@@ -80,6 +80,23 @@ Javascript でも、シングルクォート('')、ダブルクォート("")を�
 // 変数名、値は任意
 var s1 = "Hello! World!";
 var s2 = "Hello! World!";
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+Go では、ダブルクォート("")を利用して文字列(string 型)を宣言する。
+
+また、バッククォート(``)を利用することで、改行を含む複数行の文字列を宣言することができる。これを**RAW 文字列リテラル**という。
+
+```go
+// 変数名、値は任意
+s1 := "Hello! World!"
+s2 := `
+  複数行の
+  Hello!
+  World!
+`
 ```
 
 </div>

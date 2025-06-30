@@ -2,8 +2,8 @@
 title: "関数(メソッド)の定義"
 date: "2019-10-29T04:37:30+09:00"
 excerpt: "関数(メソッド)の定義について"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-29T04:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -127,5 +127,89 @@ hello.apply(obj, ["xxx", "yyy"]);
 obj.,xxx,yyy
 obj.,xxx,yyy
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+func 関数名(引数) 返り値の型 {
+  // 処理文
+  return 返り値
+}
+```
+
+Go では**関数**と言う名で呼ばれる。定義方法は上記の通り。
+
+java と同じく、関数には返り値の型が必要で、return で返される値もそれと同じ型である必要があるので注意する。
+
+引数にも型を書いてやる必要があるので注意する。引数の型が連続して同じ場合は省略することもできるが、なるべく明示的に書いた方が良い。
+
+```go
+func plus(x int,y int) int {
+  return x + y
+}
+
+// 引数の型は連続して同じ場合省略可
+func minus(x,y int) int {
+  return x - y
+}
+```
+
+また、返り値は持たなくても OK である。
+
+```go
+func hello() {
+  fmt.Println("Hello!World!")
+  return
+}
+```
+
+また、Go の関数の特徴の一つとして、**複数の返り値を返す**ことができるという点がある。以下に例を示す。
+
+```go
+func div(x int,y int) (int,int) {
+  q := a / b // 商
+  r := a % b // 余り
+  return q,r
+}
+
+q,r := div(19,2)
+```
+
+return で複数の値を指定することで、指定した値を全て返すことができる。
+
+また、それに応じて関数の返り値の型もそれぞれ指定しなければならない。その際、かっこ()で囲んでやる必要があるので注意。
+
+また、複数返り値を設定してその一部だけを変数に割り当てたい時は、いらない返り値を **\_** に割り当てることで、返り値の一部を破棄することができる。
+
+```go
+// 先ほどの続き、qだけ取ってきたいとき
+q,_ := div(19,2)
+```
+
+また、関数は短縮して表すこともできる。以下をまずご覧いただきたい。
+
+```go
+func doSomething() (a int) {
+  return
+}
+
+fmt.Println(doSomething()) // => 0
+```
+
+この関数 doSomething は何も return していない様に見えるが、最終的には 0 が返される。なぜなのか？
+
+この関数だが、よく見ると戻り値に変数名"a"が付随している。また int 型を返すはずが、return で何も返されてないのにコンパイルエラーは発生していない。
+
+実はこの関数は、以下の短縮形である。
+
+```go
+func doSomething() int {
+  var a int
+  return a
+}
+```
+
+この様な形の関数は、上記のような形で短縮して表すことが可能になる。
 
 </div>

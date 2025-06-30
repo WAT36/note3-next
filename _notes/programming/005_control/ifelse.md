@@ -2,8 +2,8 @@
 title: "if-else文"
 date: "2019-10-27T15:36:30+09:00"
 excerpt: "if-elseについて"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-27T15:36:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -108,12 +108,42 @@ if (条件式1) {
 }
 ```
 
-Javascript での記法は以下のとおり。
+Javascript での記法は上記のとおり。
 
 なお、Javascript では、条件式のところに**数値または文字列**及びその値が入った変数を設定することもできる。
 
 数値を設定した場合は、値が 0 の場合 false とみなし、それ以外の値は全て true とみなされる。
 
 文字列の場合は、空文字('')の場合 false とみなされ、それ以外の値の場合は全て true とみなされる。
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+if 条件式1 {
+
+} else if 条件式2 {
+
+} else {
+
+}
+
+// 簡易文付きif
+if 簡易文; 条件式 {
+
+}
+```
+
+Go での記法は上記の通り。
+
+また Go では、簡易文付き if という記法も存在する。
+
+簡易文とは、式や代入文や暗黙の変数定義など、複雑な構造を持たない単一の文のことを指す。以下に例を示す。
+
+```go
+if x,y := 1, 2;x<y {
+  fmt.Printf("s(%d) is less than y(%d)\n",x,y)
+}
+```
 
 </div>

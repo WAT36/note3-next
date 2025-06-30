@@ -2,8 +2,8 @@
 title: "辞書(Map)のループ"
 date: "2019-10-28T09:36:30+09:00"
 excerpt: "辞書(Map)のループの方法について"
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Go"]
+programming: ["Java", "Python", "Go"]
 updatedAt: "2019-10-28T09:36:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -70,12 +70,27 @@ Python で辞書にループをかけるには、for 文のループに辞書の
 items 関数は辞書にあるキーと値の組み合わせを全て取得する関数である。  
 これを利用し、以下のように行うと辞書のループが行える。
 
-```
+```python
 for k,v in 辞書.items():
     //kにはキー、vには値が入る
     //処理文
 ```
 
 キーだけを取り出したい時は keys()、値のみで行いたい時は values()関数を利用する。
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Python">
+
+```go
+for k,v := range マップ {
+  // 処理(kはキー,vは値として使える)
+}
+```
+
+スライスでのループでもあったが、範囲節の for はマップでも行える。
+
+書き方はスライスの時とほぼ同じで、変数 k にはキーの値が、変数 v には要素の値がそれぞれ代入される。
+
+ただしこの時、キーの順序は決まっておらず保証されないことに注意する。
 
 </div>
