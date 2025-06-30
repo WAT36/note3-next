@@ -34,7 +34,7 @@ jobs:
         run: npm run build
 
       - name: build Storybook
-        run: npm run build-storybook && mkdir -p out/storybook && cp -r storybook-static/* out/storybook/
+        run: rm -rf storybook-static && npm run build-storybook && mkdir -p out/storybook && cp -r storybook-static/* out/storybook/
 
       - name: Deploy # S3にデプロイ
         run: aws s3 sync --region ap-northeast-1 ./out s3://dev-wat-note3-bucket --delete
