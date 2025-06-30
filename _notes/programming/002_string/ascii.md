@@ -2,9 +2,9 @@
 title: "文字コード（アスキーコード）を取得する"
 date: "2019-10-12T21:43:32.000Z"
 excerpt: "1文字からその文字の文字コード（アスキーコード）を取得する"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
-updatedAt: "2024-03-17T22:30:50.000Z"
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
+updatedAt: '2025-06-30T20:44:30.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -122,5 +122,30 @@ console.log(s.charCodeAt(2));
 98
 99
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+r := 'a'
+
+fmt.Printf("%v",r) // 97
+```
+
+Go には **rune**　型というデータ型があります。
+
+これは 1 文字を 1 Unicode コードポイントで表す型で、実体は int32 型と同じですが、用途としては文字の Unicode ポイントとして利用されます。
+
+利用例は以下です。
+
+```go
+var ch rune = 'あ'       // シングルクォートで囲むと rune 型になる
+fmt.Println(ch)         // → 12354（Unicodeコードポイント）
+fmt.Printf("%c\n", ch)  // → あ（文字として出力）
+```
+
+文字をシングルクォートで囲んだ場合、rune リテラルとして扱われます。
+
+'あ'は Unicode で 12354 と扱われるため、12354 が出力されます。
 
 </div>

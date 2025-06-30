@@ -2,8 +2,8 @@
 title: "ジェネレータ関数"
 date: "2019-10-29T07:37:30+09:00"
 excerpt: "ジェネレータ関数について"
-tag: ["Javascript"]
-programming: ["Javascript"]
+tag: ["Javascript", "Go"]
+programming: ["Javascript", "Go"]
 updatedAt: "2019-10-29T07:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -60,5 +60,14 @@ generator 2回目スタート
 generator 3回目スタート
 3
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```go
+// クロージャ の章を参照
+```
+
+Go にはジェネレータの機能は備わってないが、**クロージャ**(別記事参照)を使うことで、ジェネレータのような機能を実装することはできる。
 
 </div>

@@ -2,8 +2,8 @@
 title: "配列・リストの長さ"
 date: "2019-10-22T19:35:30+09:00"
 excerpt: "配列・リストの長さ(要素数)を調べる方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-22T19:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -78,6 +78,22 @@ Javascript も Java と同じく Array オブジェクトに**length**という�
 ```javascript
 > [1,2,3,4,5].length
 > 5
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+len(配列またはスライス)
+```
+
+Go では組み込み関数**len**を利用して、要素数を確認できる。
+
+配列、スライスどちらにも利用できる。
+
+```go
+s := make([]int, 10)
+fmt.Println(len(s))  // 10
 ```
 
 </div>

@@ -2,8 +2,8 @@
 title: "for文"
 date: "2019-10-27T16:36:30+09:00"
 excerpt: "for文について"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-27T16:36:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -157,6 +157,96 @@ suzuki:80点
 apple
 orange
 banana
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+for 初期化式;条件式;変化式 {
+  // 処理文
+}
+
+// 範囲節
+for 配列のインデックス, 配列の要素 := range 配列 {
+  // 処理文(配列の要素を頭から順にループ)
+}
+```
+
+Go での for 文の利用方法は上記の通り。
+
+なお初期化式等は省略することもでき、全部省略した場合は無限ループとなる。
+
+```go
+for i := 0; i < 10; i++ {
+  // 変数iの値が0から9までの間で繰り返し
+}
+```
+
+# 範囲節(range)
+
+範囲節(range)を使ってループする方法もある。
+
+上記にあるような、range を使って、配列内の要素を順にループすることができる。
+
+例を以下に記載する。
+
+```go
+fruits := [3]string{"Apple","Banana","Cherry"}
+
+for i,s := range fruits {
+  fmt.Printf("fruits[%d]=%s\n",i,s)
+}
+```
+
+実行結果
+
+```
+fruits[0]=Apple
+fruits[1]=Banana
+fruits[2]=Cherry
+```
+
+なお、配列ではなく文字列を使うこともできる。
+
+しかしその場合、文字列をループしたときに出る値は１文字分の rune 型になるので注意。
+
+```go
+for i,r := range "ABC" {
+  fmt.Printf("[%d] -> %d\n",i,r)
+}
+```
+
+実行結果
+
+```
+[0] -> 65
+[1] -> 66
+[2] -> 67
+```
+
+また、チャネルにも利用することができる。
+
+利用すると、チャネルからひたすら受信し続ける事を行う。
+
+```go
+ch := make(chan int,3)
+ch <- 1
+ch <- 2
+ch <- 3
+
+for i := range ch {
+  fmt.Println(i)
+}
+```
+
+実行結果
+
+```
+1
+2
+3
+fatal error: all goroutinnes are asleep - deadlock!
 ```
 
 </div>

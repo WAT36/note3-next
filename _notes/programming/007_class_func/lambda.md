@@ -2,8 +2,8 @@
 title: "ラムダ式（無名関数）"
 date: "2019-10-29T08:37:30+09:00"
 excerpt: "ラムダ式（無名関数）について"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-29T08:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -123,5 +123,18 @@ var 変数名 = ([引数1[,引数2]]) => {
 呼び出すときは、`変数名(引数);`という形で利用できる。
 
 関数リテラルの時は、**アロー関数** と呼ばれる表記法でも定義できる。アロー関数は `(引数..) => { 関数の処理.. }` のような表記で書くことができる。
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+func(引数) 返り値型 {
+    //関数内の処理
+}
+```
+
+Go でも**無名関数** があり、上記の様な記法で定義できる。
+
+呼び出すときは、`関数名(引数);`という形で利用できる。
 
 </div>
