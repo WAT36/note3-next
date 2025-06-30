@@ -2,8 +2,8 @@
 title: "defer文(Go)"
 excerpt: "golangのdefer文について"
 coverImage: ""
-date: "2025-05-09T23:54:01.000Z"
-updatedAt: "2025-05-09T23:54:01.000Z"
+date: '2025-06-30T20:44:30.000Z'
+updatedAt: '2025-06-30T20:44:30.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi

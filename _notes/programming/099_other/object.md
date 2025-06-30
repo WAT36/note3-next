@@ -3,7 +3,7 @@ title: "Objectオブジェクト"
 excerpt: "全ての型・オブジェクトの大元"
 coverImage: ""
 date: "2024-07-16T23:59:06.000Z"
-updatedAt: "2024-07-16T23:59:06.000Z"
+updatedAt: '2025-06-30T20:44:30.000Z'
 tag: ["Javascript", "Go"]
 programming: ["Javascript", "Go"]
 author:

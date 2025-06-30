@@ -3,8 +3,8 @@ title: 'インターフェース'
 excerpt: ''
 tag: ["Go"]
 programming: ["Go"]
-date: '2025-06-11T20:39:58.000Z'
-updatedAt: '2025-06-11T20:39:58.000Z'
+date: '2025-06-30T20:44:30.000Z'
+updatedAt: '2025-06-30T20:44:30.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi

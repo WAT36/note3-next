@@ -2,8 +2,8 @@
 title: "Cursorを使ってみる"
 excerpt: "AI統合エディタ「Cursor」を実際に使用した体験記"
 coverImage: "/assets/posts/startCursor/cursorDownload.png"
-date: "2025-06-19T23:34:27.000Z"
-updatedAt: "2025-06-19T23:34:27.000Z"
+date: '2025-06-30T20:44:07.000Z'
+updatedAt: '2025-06-30T20:44:07.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi

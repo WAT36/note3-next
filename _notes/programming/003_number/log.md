@@ -4,7 +4,7 @@ date: "2019-10-16T19:19:30.000Z"
 excerpt: "対数を計算する方法。"
 tag: ["Java", "Python", "Javascript"]
 programming: ["Java", "Python", "Javascript"]
-updatedAt: "2019-10-16T19:19:30.000Z"
+updatedAt: '2025-06-16T08:22:45.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

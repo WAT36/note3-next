@@ -3,8 +3,8 @@ title: '構造体'
 excerpt: ''
 tag: ["Go"]
 programming: ["Go"]
-date: '2025-06-04T21:44:07.000Z'
-updatedAt: '2025-06-04T21:44:07.000Z'
+date: '2025-06-30T20:44:30.000Z'
+updatedAt: '2025-06-30T20:44:30.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi

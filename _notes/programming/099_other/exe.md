@@ -2,8 +2,8 @@
 title: "コードのビルドと実行方法"
 excerpt: ""
 coverImage: ""
-date: "2025-03-29T23:03:20.000Z"
-updatedAt: "2025-03-29T23:03:20.000Z"
+date: '2025-06-30T20:44:30.000Z'
+updatedAt: '2025-06-30T20:44:30.000Z'
 tag: ["Go"]
 programming: ["Go"]
 author:

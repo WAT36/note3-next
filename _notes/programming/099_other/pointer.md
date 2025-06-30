@@ -3,8 +3,8 @@ title: "ポインタ"
 excerpt: ""
 tag: ["Go"]
 programming: ["Go"]
-date: "2025-05-28T20:41:38.000Z"
-updatedAt: "2025-05-28T20:41:38.000Z"
+date: '2025-06-30T20:44:30.000Z'
+updatedAt: '2025-06-30T20:44:30.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
