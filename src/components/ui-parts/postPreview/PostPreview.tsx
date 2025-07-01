@@ -22,9 +22,9 @@ const PostPreview = ({
   slug,
 }: Props) => {
   return (
-    <div className="my-10 flex">
+    <div className="my-10 flex flex-col items-center md:flex-row md:items-start">
       <CoverImage slug={slug} title={title} src={coverImage} />
-      <div>
+      <div className="mt-6 md:mt-0 md:ml-6 w-full md:w-auto text-center md:text-left flex flex-col items-center md:items-start">
         <h3 className="text-3xl mb-3 leading-snug">
           <Link
             as={`/posts/${slug}${process.env.NEXT_PUBLIC_URL_END}`}

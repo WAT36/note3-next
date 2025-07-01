@@ -1,4 +1,4 @@
-import PostPreview from "../post-preview/PostPreview";
+import PostPreview from "../postPreview/PostPreview";
 import type Post from "../../../interfaces/post";
 import Pagination from "../../ui-elements/pagination/Pagination";
 

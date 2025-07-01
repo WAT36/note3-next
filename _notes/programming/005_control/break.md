@@ -2,8 +2,8 @@
 title: "break文"
 date: "2019-10-27T18:36:30+09:00"
 excerpt: "break文について"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-27T18:36:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -179,5 +179,17 @@ for (var i = 0; i < 10; i++) {
 4
 5
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+break
+```
+
+Go においても break 文の使い方は同じである。  
+途中で中断したい for,while などのループの中に設定する。
+
+(例は他と同じなので略)
 
 </div>

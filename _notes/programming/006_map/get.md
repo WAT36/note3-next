@@ -2,8 +2,8 @@
 title: "辞書(Map)からキーを指定して値を取得"
 date: "2019-10-28T02:36:30+09:00"
 excerpt: "辞書(Map)からキーを指定して値を取得する方法ついて"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-28T02:36:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -129,5 +129,23 @@ console.log(temperature.get("Naha"));
 20
 25
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+マップ[キー]
+
+// マップに該当キーがない場合はvalueに型の初期値(0,""など)、okにfalseが入る
+value,ok = マップ[キー]
+```
+
+Go でも単純にマップが入っている変数に[キー]の形で指定すれば値を取り出せる。
+
+ただし、マップに指定したキーがない場合、Go ではエラーにならず、各型の初期値(int なら 0、string なら""など)が返されるので、注意。
+
+キーがないか判別したい場合は、上記の ok のように値を返すときに２つの変数を指定する。１つ目の変数には各型の初期値が入るが、２つ目の変数にはキーがあれば true に、ない場合は false が返される。
+
+このように２つ目の変数を使用することで、マップの要素への参照が成功したのかどうかを明確にすることができる。
 
 </div>

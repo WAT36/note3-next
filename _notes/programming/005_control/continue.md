@@ -2,8 +2,8 @@
 title: "continue文"
 date: "2019-10-27T19:36:30+09:00"
 excerpt: "continue文について"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-27T19:36:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -134,5 +134,17 @@ for (var i = 0; i < 10; i++) {
 3
 4
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+continue
+```
+
+Go においても continue 文の使い方は同じである。  
+設定したい for,while ループの中に設定する。
+
+(使用例は他と同じなので略)
 
 </div>

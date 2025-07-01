@@ -2,9 +2,9 @@
 title: "標準出力"
 date: "2019-10-12T17:19:30.000Z"
 excerpt: ""
-tag: ["Java", "Python", "Node.js"]
-programming: ["Java", "Python", "Node.js"]
-updatedAt: "2019-10-12T17:19:30.000Z"
+tag: ["Java", "Python", "Node.js", "Go"]
+programming: ["Java", "Python", "Node.js", "Go"]
+updatedAt: '2025-06-30T20:44:30.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -53,5 +53,31 @@ console.log(変数もしくは値);
 
 Javascript 及び Node.js では、**console.log()** 関数を利用する。
 引数には出力したい値及び変数を入力する。
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, World!")
+    fmt.Printf("フォーマット文字列", 値1, 値2, ...)
+}
+```
+
+Go（Golang）で コンソール出力（標準出力）を行う方法 は、標準ライブラリの fmt パッケージ を利用して行う方法です。
+
+`import "fmt"`はフォーマット付きの出力を行う標準ライブラリです。fmt は "format" の略になります。
+
+fmt の **Println()** 関数を利用することで、コンソール出力を行います。
+
+なお出力した時に改行したくない時は、 **fmt.Print()** 関数を使います。
+
+また、**Printf()** 関数を利用することでも出力できます。
+
+利用するには、フォーマット文字列内に % で始まるプレースホルダ を書き、後ろの引数に対応させて出力します。
 
 </div>

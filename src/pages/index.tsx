@@ -1,5 +1,5 @@
 import Container from "../components/ui-elements/container/Container";
-import HeroPost from "../components/ui-parts/hero-post/HeroPost";
+import HeroPost from "../components/ui-parts/heroPost/HeroPost";
 import Intro from "../components/ui-elements/intro/Intro";
 import Layout from "../components/ui-pages/layout/Layout";
 import Head from "next/head";

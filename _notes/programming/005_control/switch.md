@@ -2,8 +2,8 @@
 title: "switch文"
 date: "2019-10-27T20:36:30+09:00"
 excerpt: "switch文について"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-27T20:36:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -102,5 +102,72 @@ switch (式) {
 ```
 
 Javascript には**switch 文**が存在し、利用法は Java と同じで、上記の通り。
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+switch [簡易文;] 式 {
+case 定数１:
+  //式の結果が定数１に一致したときはここの処理が実行
+case 定数２:
+  //式の結果が定数１に一致したときはここの処理が実行
+  fallthrough  // フォールスルーさせたいときは記載
+・・・
+・・・
+default:
+  //どのcaseにも一致しなかった場合はこの処理が実行
+}
+
+// または
+
+switch {
+case 式１:
+  //式１が真ならここの処理が実行
+case 式２:
+  //式２が真ならここの処理が実行
+・・・
+・・・
+default:
+  //どのcaseにも一致しなかった場合はこの処理が実行
+}
+```
+
+Go での switch 文の記法は主に 2 通りあり、上記の通り。
+
+なお、Go では他言語にはある case 文末の **break** は不要となる。
+
+他言語では break 文がない場合次の case 文の処理に行ってしまう**フォールスルー(fall through)**という動作があったが、Go では通常このような動作は発生しない。
+
+しかし、このフォールスルーを Go でさせたい場合は、case 文の末尾に**fallthrough**を記載する。すると、case 文が終わると次の case 文の処理に行くようになる。
+
+```go
+switch s := "A"; s {
+case "A":
+  s += "B"
+  fallthrough
+case "B":
+  s += "C"
+  fallthrough
+default:
+  s += "Z"
+}
+fmt.Println(s) // "ABCZ"
+```
+
+また、Go では case 文に式を書くこともできる。
+
+その場合は switch 文の式は不要で、if 文のような処理が行える。
+
+```go
+n := 4
+switch {
+case n < 0:
+  fmt.Println("0 < n")
+case n >= 0 && n < 5:
+  fmt.Println("0 <= n < 5")
+}
+// "0 <= n < 5"
+```
 
 </div>

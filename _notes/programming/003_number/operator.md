@@ -2,8 +2,8 @@
 title: "演算子"
 date: "2019-10-16T21:35:30+09:00"
 excerpt: "演算子について。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-16T21:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -253,10 +253,10 @@ Javascript での論理演算子は以下の通り。
 
 |     | 論理演算 | ビット演算 |
 | :-: | :------: | :--------: |
-| AND |   and    |     &      |
-| OR  |    or    |     ｜     |
+| AND |    &&    |     &      |
+| OR  |   ｜｜   |     ｜     |
 | XOR |  (なし)  |     ^      |
-| NOT |   not    |     ~      |
+| NOT |    !     |     ~      |
 
 Javascript の論理演算では XOR は存在しない（私調べですが、もしあったらコメントお願いします。。）
 
@@ -267,5 +267,62 @@ Javascript の論理演算では XOR は存在しない（私調べですが、�
 Javascript でも Java と同じく三項演算子 "**?**" が実装されている。利用法も同じである。
 
 条件式 c が true なら a、false なら b を実行する。
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+a := 0;
+b := 1;
+c := true;
+d := false;
+
+// 比較演算子
+a < b; //   未満
+a <= b; //  以下
+a > b; //   より大きい
+a >= b; //  以上
+
+// 等価演算子
+a == b; //  等しい
+a != b; //  等しくない
+
+// 論理演算
+a && b; //AND
+a || b; // OR
+!a; //NOT
+
+// ビット演算
+c & d; //AND
+c | d; // OR
+c ^ d; //XOR
+^c; //NOT
+c &^ d // AND NOT
+```
+
+# 比較・等価演算子
+
+Go での主な比較演算子は上記の通り。
+
+<hr>
+
+# 論理・ビット演算
+
+Go での論理演算子は以下の通り。
+
+|     | 論理演算 | ビット演算 |
+| :-: | :------: | :--------: |
+| AND |    &&    |     &      |
+| OR  |   ｜｜   |     ｜     |
+| XOR |  (なし)  |     ^      |
+| NOT |    !     |     ^      |
+
+またこれとは別に、**AND NOT**という演算もあり、演算子は **&^** を用いて表す。
+
+X &^ Y は X AND (NOT Y)という２つのビット演算をまとめた短縮系に該当する。
+
+この演算は **ビットクリア演算** とも呼ばれる。用途としては、特定のビットを無効化することでよく使われると思う。意味合いとしては、「Y が 1 のビットを X から除去する」と見るとわかりやすいと思う。
+
+またビットクリア演算は、可換ではない（X と Y を入れ替えると答えが変わる）ので注意。
 
 </div>
