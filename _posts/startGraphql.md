@@ -1,7 +1,7 @@
 ---
 title: "GraphQLについて(その１) ~基本とREST APIとの違いについて~"
 excerpt: "GraphQLについての調査と紹介"
-coverImage: "/assets/posts/startGo/goLogo.png"
+coverImage: "/assets/posts/startGraphQL/GraphQLLogo.png"
 date: "2025-06-24T22:35:35.000Z"
 updatedAt: "2025-06-24T22:35:35.000Z"
 tag: ["GraphQL", "API"]
@@ -16,9 +16,9 @@ GraphQL がよくわかっていなかったため、簡単な実践を兼ねて
 
 調べてみると長くなってしまったため、紹介編（本記事）と実践編（次記事）に分けて記載する。
 
-# GraphQL とは何か
+# GraphQL とは
 
-GraphQL は、API のためのクエリ言語であり、既存のデータに対してクエリを実行するためのランタイムです。2012 年に Facebook で開発され、2015 年にオープンソース化されました。
+GraphQL[^1] は、API のためのクエリ言語であり、既存のデータに対してクエリを実行するためのランタイムである。2012 年に Facebook で開発され、2015 年にオープンソース化されました。
 
 # GraphQL の特徴
 
@@ -30,7 +30,7 @@ REST API では複数のエンドポイントが必要ですが、GraphQL は通
 
 ## 2. 柔軟なデータ取得
 
-クライアントが必要なデータのみを指定して取得できます。これにより、Over-fetching や Under-fetching の問題を解決します。
+クライアントが必要なデータのみを指定して取得できます。これにより、Over-fetching や Under-fetching の問題（後述）を解決します。
 
 ## 3. 強力な型システム
 
@@ -38,7 +38,7 @@ GraphQL は強い型システムを持ち、スキーマによって API の構�
 
 ## 4. 自己文書化
 
-スキーマ自体が API のドキュメントとして機能し、GraphiQL や GraphQL Playground などのツールで簡単に探索できます。
+スキーマ自体が API のドキュメントとして機能し、GraphiQL[^2] などのツールで簡単に探索できます。
 
 ## 5. バージョニング不要
 
@@ -66,9 +66,9 @@ GraphQL は強い型システムを持ち、スキーマによって API の構�
 
 ブログサイトで「ユーザー情報と、そのユーザーの最新 3 件の投稿タイトルだけ」が欲しいケースをそれぞれ考えてみましょう。
 
-### REST API の場合（複数回のリクエストが必要）
+- REST API の場合（複数回のリクエストが必要）
 
-```jsx
+```typescript
 // 1回目：ユーザー情報を取得
 const userResponse = await fetch("/api/users/123");
 const user = await userResponse.json();
@@ -88,9 +88,9 @@ const result = {
 };
 ```
 
-### GraphQL の場合（1 回のリクエストで完了）
+- GraphQL の場合（1 回のリクエストで完了）
 
-```jsx
+```typescript
 // 1回のリクエストで必要なデータのみ取得
 const response = await fetch("/graphql", {
   method: "POST",
@@ -124,13 +124,11 @@ const result = await response.json();
 // → 最初から必要なデータのみ！
 ```
 
-## よくある問題を例で説明
-
 ### 1. Over-fetching（必要以上のデータ取得）
 
-**REST API の問題：**
+- REST API の問題
 
-```jsx
+```typescript
 // ユーザー名だけ欲しいのに...
 GET /api/users/123
 // 返ってくるデータ
@@ -145,7 +143,7 @@ GET /api/users/123
 }
 ```
 
-**GraphQL の解決：**
+- GraphQL の解決
 
 ```graphql
 {
@@ -158,7 +156,7 @@ GET /api/users/123
 
 ### 2. Under-fetching（データが足りない）
 
-**REST API の問題：**
+- REST API の問題
 
 ```jsx
 // ユーザー一覧を取得
@@ -168,7 +166,7 @@ GET / api / users / 1 / posts / count; // 田中太郎の投稿数
 GET / api / users / 2 / posts / count; // 佐藤花子の投稿数// → ユーザーが100人いたら、101回のリクエストが必要！
 ```
 
-**GraphQL の解決：**
+- GraphQL の解決
 
 ```graphql
 {
@@ -181,7 +179,7 @@ GET / api / users / 2 / posts / count; // 佐藤花子の投稿数// → ユー�
 
 ## エンドポイントの違い
 
-**REST API**：機能ごとに複数の URL
+- REST API：機能ごとに複数の URL
 
 ```plaintext
 GET    /api/users           # ユーザー一覧
@@ -193,7 +191,7 @@ DELETE /api/posts/456       # 投稿削除
 GET    /api/comments        # コメント一覧
 ```
 
-**GraphQL**：すべて単一の URL
+- GraphQL：すべて単一の URL
 
 ```plaintext
 POST /graphql  # すべての操作をここで実行
@@ -201,7 +199,7 @@ POST /graphql  # すべての操作をここで実行
 
 ## リクエスト・レスポンスの違い
 
-**REST API**：HTTP メソッドで操作を区別
+- REST API：HTTP メソッドで操作を区別
 
 ```jsx
 // データ取得
@@ -219,7 +217,7 @@ PUT /api/users/123
 DELETE /api/users/123
 ```
 
-**GraphQL**：すべて POST リクエスト、操作はクエリで指定
+- GraphQL：すべて POST リクエスト、操作はクエリで指定
 
 ```jsx
 // データ取得（Query）
@@ -239,7 +237,6 @@ POST /graphql
 {
   "query": "mutation { updateUser(id: 123, name: \"更新されたユーザー\") { id name } }"
 }
-
 ```
 
 ## 主な違いの比較表
@@ -263,7 +260,7 @@ GraphQL は以下の 3 つの主要な操作を提供します。これらは、
 
 Query はデータベースからデータを取得する操作です。（SQL の SELECT のようなもの）
 
-**具体例**:
+- 具体例
 
 ```graphql
 # ユーザー情報を取得
@@ -275,7 +272,7 @@ Query はデータベースからデータを取得する操作です。（SQL �
 }
 ```
 
-**REST API との比較**:
+- REST API との比較
 
 ```jsx
 // REST APIの場合
@@ -288,7 +285,7 @@ POST /graphql
 }
 ```
 
-**ポイント**:
+- ポイント
 
 - 読み取り専用の操作
 - 必要なフィールドのみを指定可能
@@ -298,7 +295,7 @@ POST /graphql
 
 Mutation はデータの作成、更新、削除を行う操作です。（SQL の INSERT/UPDATE/DELETE のようなもの）
 
-**具体例**:
+- 具体例
 
 ```graphql
 # 新しいユーザーを作成
@@ -328,7 +325,7 @@ mutation {
 }
 ```
 
-**REST API との比較**:
+- REST API との比較
 
 ```jsx
 // REST APIの場合
@@ -341,17 +338,17 @@ POST /graphql
 }
 ```
 
-**ポイント**:
+- ポイント
 
-- データを変更する操作
-- 作成・更新・削除すべてを mutation で表現
-- 変更後のデータを即座に取得可能
+  - データを変更する操作
+  - 作成・更新・削除すべてを mutation で表現
+  - 変更後のデータを即座に取得可能
 
 ## Subscription（サブスクリプション）
 
 Subscription はデータの変更をリアルタイムで監視・受信する操作です。（WebSocket のようなもの）
 
-**具体例**:
+- 具体例
 
 ```graphql
 # 新しいメッセージが投稿されたときに通知を受け取る
@@ -377,14 +374,14 @@ subscription {
 }
 ```
 
-**使用場面**:
+- 使用場面
 
-- チャットアプリケーション（新しいメッセージの通知）
-- 株価情報（リアルタイム価格更新）
-- ゲーム（他プレイヤーの行動通知）
-- SNS（新しい投稿やいいねの通知）
+  - チャットアプリケーション（新しいメッセージの通知）
+  - 株価情報（リアルタイム価格更新）
+  - ゲーム（他プレイヤーの行動通知）
+  - SNS（新しい投稿やいいねの通知）
 
-**REST API との比較**:
+- REST API との比較
 
 ```jsx
 // REST APIの場合（ポーリング方式）
@@ -414,33 +411,41 @@ subscription.subscribe({
 });
 ```
 
-**ポイント**:
+- ポイント
 
-- サーバーからクライアントへのプッシュ通知
-- WebSocket や Server-Sent Events を内部で使用
-- ポーリング不要でリアルタイム通信が可能
+  - サーバーからクライアントへのプッシュ通知
+  - WebSocket や Server-Sent Events を内部で使用
+  - ポーリング不要でリアルタイム通信が可能
 
 ### 3 つの操作の使い分け
 
-|操作|用途|HTTP メソッド相当|使用例|
-|Query|データ取得|GET|ユーザー一覧表示、商品詳細表示|
-|Mutation|データ変更|POST/PUT/DELETE|ユーザー登録、投稿作成、削除|
-|Subscription|リアルタイム受信|WebSocket|チャット、通知、ライブ更新|
+| 操作         | 用途             | HTTP メソッド相当 | 使用例                         |
+| :----------- | :--------------- | :---------------- | :----------------------------- |
+| Query        | データ取得       | GET               | ユーザー一覧表示、商品詳細表示 |
+| Mutation     | データ変更       | POST/PUT/DELETE   | ユーザー登録、投稿作成、削除   |
+| Subscription | リアルタイム受信 | WebSocket         | チャット、通知、ライブ更新     |
 
 ## GraphQL のメリット・デメリット
 
 ### メリット
 
-1. **効率的なデータ取得**: 必要なデータのみを取得
-2. **開発効率の向上**: フロントエンドとバックエンドの並行開発が容易
-3. **強力な開発ツール**: GraphiQL、Apollo Client 等の豊富なエコシステム
-4. **型安全性**: TypeScript との相性が良い
+- **効率的なデータ取得**: 必要なデータのみを取得
+- **開発効率の向上**: フロントエンドとバックエンドの並行開発が容易
+- **強力な開発ツール**: GraphiQL、Apollo Client 等の豊富なエコシステム
+- **型安全性**: TypeScript との相性が良い
 
 ### デメリット
 
-1. **学習コスト**: 新しい概念の習得が必要
-2. **キャッシュの複雑さ**: HTTP キャッシュが使いにくい
-3. **セキュリティ**: 複雑なクエリによる DoS 攻撃のリスク
-4. **ファイルアップロード**: 標準的な仕様がない
+- **学習コスト**: 新しい概念の習得が必要
+- **キャッシュの複雑さ**: HTTP キャッシュが使いにくい
+- **セキュリティ**: 複雑なクエリによる DoS 攻撃のリスク
+- **ファイルアップロード**: 標準的な仕様がない
 
 ---
+
+とりあえずは特徴を調べて書いてみた。次の記事では実践として簡単なハンズオンを書いてみたいと思う。
+
+---
+
+[^1]: [GraphQL(公式サイト)](https://graphql.org/)
+[^2]: [GraphiQL](https://github.com/skevy/graphiql-app)
