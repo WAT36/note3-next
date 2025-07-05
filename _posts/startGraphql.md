@@ -2,8 +2,8 @@
 title: "GraphQLについて(その１) ~基本とREST APIとの違いについて~"
 excerpt: "GraphQLについての調査と紹介"
 coverImage: "/assets/posts/startGraphQL/GraphQLLogo.png"
-date: '2025-07-05T08:24:43.000Z'
-updatedAt: '2025-07-05T08:24:43.000Z'
+date: "2025-07-05T08:24:43.000Z"
+updatedAt: "2025-07-05T08:24:43.000Z"
 tag: ["GraphQL", "API"]
 author:
   name: Tatsuroh Wakasugi
@@ -428,7 +428,7 @@ subscription.subscribe({
   - WebSocket や Server-Sent Events を内部で使用
   - ポーリング不要でリアルタイム通信が可能
 
-### 3 つの操作の使い分け
+## 3 つの操作の使い分け
 
 | 操作         | 用途             | HTTP メソッド相当 | 使用例                         |
 | :----------- | :--------------- | :---------------- | :----------------------------- |
@@ -438,14 +438,14 @@ subscription.subscribe({
 
 # GraphQL のメリット・デメリット
 
-## メリット
+- メリット
 
 - **効率的なデータ取得**: 必要なデータのみを取得
 - **開発効率の向上**: フロントエンドとバックエンドの並行開発が容易
 - **強力な開発ツール**: GraphiQL、Apollo Client 等の豊富なエコシステム
 - **型安全性**: TypeScript との相性が良い
 
-## デメリット
+- デメリット
 
 - **学習コスト**: 新しい概念の習得が必要
 - **キャッシュの複雑さ**: HTTP キャッシュが使いにくい
