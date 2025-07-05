@@ -2,8 +2,8 @@
 title: "リストに要素を加える"
 date: "2019-10-23T19:35:30+09:00"
 excerpt: "リストに要素を加える方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-23T19:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -120,6 +120,25 @@ arr.unshift(0);
 console.log(arr); // [0, 1, 2, 3, 4, 5, 6]
 arr.splice(2, 0, "new", "added");
 console.log(arr); // [0, 1, 'new', 'added', 2, 3, 4, 5, 6]
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
+
+```go
+append(スライス,要素[何個でも可])
+```
+
+Go ではスライスに対し、関数**append**を使ってスライスの末尾に要素を追加することができる。
+
+追加する要素は何個でも指定できる。
+
+なお、append 関数を使う場合は、必ず:=か=による変数の代入が必要であるので注意。
+
+```go
+s := []int{1,2,3}
+s = append(s,4,5,6)
+fmt.Println(s) //[1,2,3,4,5,6]
 ```
 
 </div>

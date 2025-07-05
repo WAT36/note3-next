@@ -1,14 +1,14 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import { getNoteBySlug, getAllNotes } from "../../lib/notesApi";
-import PostTitle from "../../components/ui-elements/post-title/PostTitle";
+import PostTitle from "../../components/ui-elements/postTitle/PostTitle";
 import { PROGRAMMING_LANGUAGE_NAME } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import type NoteType from "../../interfaces/note";
 import { getNoteUnderDirSlugs, NOTES_DIR } from "../../lib/fileSystem";
 import { useEffect, useState } from "react";
-import NotePage from "../../components/ui-pages/pages/note-page/NotePage";
-import NoteDirPage from "../../components/ui-pages/pages/notedir-page/NoteDirPage";
+import NotePage from "../../components/ui-pages/pages/notePage/NotePage";
+import NoteDirPage from "../../components/ui-pages/pages/notedirPage/NoteDirPage";
 import hljs from "highlight.js";
 
 type Props = {

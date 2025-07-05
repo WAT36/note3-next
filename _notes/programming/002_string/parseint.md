@@ -4,7 +4,7 @@ date: "2019-10-12T20:02:08.000Z"
 excerpt: "文字列を数値型データに変換する方法。"
 tag: ["Java", "Python", "Javascript"]
 programming: ["Java", "Python", "Javascript"]
-updatedAt: "2019-10-12T20:02:08.000Z"
+updatedAt: '2025-07-05T08:24:37.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -59,12 +59,15 @@ Exception in thread "main" java.lang.NumberFormatException: For input string: "A
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-int("文字列") # 整数値
+int("文字列")
+int("文字列",x) # x進数に変換
 ```
 
 Python で数値の文字列を数値リテラルに変換したい時は組み込み関数の **int()** を利用する。
 
 数値リテラルに変換できないような文字列を入力したときは、例外`ValueError`を返す。
+
+また第２引数 x を指定することで x 進数の値に変換できる。デフォルトでは 10 である。
 
 以下に使用例を示す。
 

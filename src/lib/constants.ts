@@ -47,10 +47,6 @@ export const DIR_NAME = {
   "201_math": "数学系",
   "301_procon": "競プロテク",
 
-  "001_log": "対数",
-  "002_round": "四捨五入",
-  "003_operator": "演算子",
-
   "1021_supervised_learning": "教師あり学習",
   "1022_unsupervised_learning": "教師なし学習",
   "1023_deep_learning": "深層学習(ディープラーニング)",

@@ -2,8 +2,8 @@
 title: "辞書(Map)から要素削除"
 date: "2019-10-28T03:36:30+09:00"
 excerpt: "辞書(Map)から要素削除する方法ついて"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-28T03:36:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -161,5 +161,16 @@ console.log(temperature.get("Tokyo"));
 20
 undefined
 ```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+delete(マップ,キー)
+```
+
+Go ではマップから任意の要素を取り除くのに関数**delete**を利用する。引数には、マップと該当のキーの値を入力する。
+
+与えたキーの値に該当する要素があれば、それをマップ内から除去する。該当する要素が存在しなければ、特に何も処理は行われない。
 
 </div>

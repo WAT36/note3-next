@@ -2,8 +2,8 @@
 title: "定数"
 date: "2019-11-01T02:37:30+09:00"
 excerpt: "定数について"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-11-01T02:37:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -45,7 +45,7 @@ Python には定数という仕様は存在しない。
 const 定数名 = 値;
 ```
 
-Javascript では **const** 命令を用いて変数を宣言する。
+Javascript では **const** 命令を用いて定数を宣言する。
 
 記法は上記のとおり。
 
@@ -53,6 +53,51 @@ Javascript では **const** 命令を用いて変数を宣言する。
 
 ```Javascript
 const A = 10
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+const 定数名 = 値;
+
+const (
+  定数名1 = 値1
+  定数名2 = 値2
+  定数名3 = 値3
+  //  値2,3を省略すると、定数2,3には値1が入る
+)
+
+// おまけ iota
+const (
+  A = iota // 0
+  B        // 1
+  C        // 2
+)
+```
+
+Go も同じく **const** を用いて定数を宣言できる。
+
+()で囲むことで、一度に複数定義することもできる。
+
+なお値を省略すると、直前で宣言されている値が入る。上記の場合だと値 2,3 を省略すると、定数 2,3 には値 1 が入るようになる。
+
+型を与えたい場合は、定数名の後に型を書くことで明示的に型あり定数を定義できる。
+
+# iota
+
+連続した定数（定数列）を定義したい時は、**iota** 識別子を利用することもできる。
+
+iota は 0 から始まり、利用されるたびに 1 ずつ増分していくという性質がある。
+
+iota は const(定数宣言)の中でのみ使える識別子である。以下に使用例を示す。
+
+```go
+const (
+  A = iota // 0
+  B        // 1
+  C        // 2
+)
 ```
 
 </div>

@@ -5,7 +5,7 @@ import { getAllPosts } from "../../lib/fileSystem";
 import Intro from "../../components/ui-elements/intro/Intro";
 import { Bio } from "../../components/ui-elements/bio/Bio";
 import { ADMINISTRATOR } from "../../lib/constants";
-import MoreStories from "../../components/ui-parts/more-stories/MoreStories";
+import MoreStories from "../../components/ui-parts/moreStories/MoreStories";
 import { useRouter } from "next/router";
 
 type Props = {
