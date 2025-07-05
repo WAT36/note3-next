@@ -22,7 +22,7 @@ const HeroPost = ({
   slug,
 }: Props) => {
   return (
-    <section className="md:flex md:gap-x-16 lg:gap-x-8">
+    <section className="flex flex-col items-center md:flex-row md:gap-x-16 lg:gap-x-8 md:items-start">
       <div className="mb-8 md:mb-16">
         <CoverImage title={title} src={coverImage} slug={slug} />
       </div>

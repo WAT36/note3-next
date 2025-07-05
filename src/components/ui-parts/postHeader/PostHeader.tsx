@@ -1,7 +1,7 @@
 import Avatar from "../../ui-elements/avatar/Avatar";
 import DateFormatter from "../../ui-elements/date-formatter/DateFormatter";
 import CoverImage from "../../ui-elements/cover-image/CoverImage";
-import PostTitle from "../../ui-elements/post-title/PostTitle";
+import PostTitle from "../../ui-elements/postTitle/PostTitle";
 import type Author from "../../../interfaces/author";
 
 type Props = {
