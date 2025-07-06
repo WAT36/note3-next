@@ -16,11 +16,11 @@ ogImage:
 
 今回は、GraphQL を実際に使うハンズオンを利用し、実践する。
 
-GraphQL を使うために、今回は AWS AppSync を使ってみる。
+GraphQL を使うために、今回は AWS AppSync を利用してみる。
 
 # AWS AppSync とは
 
-AWS AppSync は完全マネージドの GraphQL サービスで、インフラ管理が不要です。リクエスト課金（最初の 12 か月は毎月 25 万クエリまで無料）があり、低トラフィックならほぼコストゼロで運用可能です。
+AWS AppSync[^1] は完全マネージドの GraphQL サービスで、インフラ管理が不要です。リクエスト課金（最初の 12 か月は毎月 25 万クエリまで無料）があり、低トラフィックならほぼコストゼロで運用可能になります。
 
 # Terraform で構築する
 
@@ -45,7 +45,7 @@ graphql-appsync-tutorial/
 
 ## GraphQL スキーマ定義
 
-`terraform/schema/schema.graphql`を作成します
+まずは`terraform/schema/schema.graphql`を作成します。これは今回の GraphQL で利用する型定義（スキーマ定義）です。
 
 ```graphql
 type User {
@@ -105,7 +105,7 @@ schema {
 
 ## Terraform 設定
 
-`terraform/variables.tf`を作成：
+`terraform/variables.tf`を作成し、リージョンやプロジェクト名などを設定します。
 
 ```hcl
 variable "region" {
@@ -122,7 +122,9 @@ variable "project_name" {
 
 ```
 
-`terraform/main.tf`を作成：
+`terraform/main.tf`を作成します。
+
+ここで、AppSync に加え、今回は入力したデータを保持しておくための DynamoDB の作成を行います。
 
 ```hcl
 terraform {
@@ -344,7 +346,7 @@ resource "aws_appsync_resolver" "create_post" {
 
 ```
 
-`terraform/outputs.tf`を作成：
+最後に`terraform/outputs.tf`を作成します。先ほど作成した AppSync のエンドポイント、キー等を取り出します。
 
 ```hcl
 output "graphql_endpoint" {
@@ -366,6 +368,8 @@ output "api_id" {
 
 ## AWS リソースのデプロイ
 
+一連のリソースを作成する terraform のコードを作成したところで、実際にこれらをデプロイします。
+
 ```bash
 cd terraform
 terraform init
@@ -373,7 +377,7 @@ terraform plan
 terraform apply
 ```
 
-デプロイ完了後、出力される値を確認
+デプロイ完了後、出力される値を確認します。後の通信に必要になるので出力値を書き留めてください。またこの値は外部に漏らさないようにしてください。
 
 ```bash
 terraform output graphql_endpoint
@@ -382,7 +386,7 @@ terraform output api_key
 
 ### クエリとミューテーションの準備
 
-`queries/queries.graphql`を作成します
+まずはクエリ用のファイルとして、`queries/queries.graphql`を作成します。
 
 ```graphql
 # ユーザー一覧取得
@@ -417,7 +421,7 @@ query ListPosts {
 }
 ```
 
-`queries/mutations.graphql`を作成します
+次にミューテーション用のファイルとして、`queries/mutations.graphql`を作成します
 
 ```graphql
 # ユーザー作成
@@ -444,7 +448,9 @@ mutation CreatePost($input: CreatePostInput!) {
 
 ## API 動作確認
 
-AWS コンソールから確認もできますが、今回は API ということで curl コマンドで確認してみます。
+AWS コンソールから実行確認もできますが、今回は API ということで curl コマンドで確認してみます。
+
+環境変数の値は各自の値に置き換えて実行してください。
 
 ```bash
 # 環境変数設定（terraform outputの値を使用）
@@ -481,6 +487,8 @@ curl -X POST \
 
 1. ユーザーを作成
 
+上記、送るデータの部分を以下に置き換えて実施してみてください。
+
 ```graphql
 mutation {
   createUser(input: { name: "田中太郎", email: "tanaka@example.com" }) {
@@ -493,6 +501,8 @@ mutation {
 ```
 
 2. 作成されたユーザーの ID をコピーして投稿を作成
+
+ユーザー作成を実施すると ID が返ってくるので、その値を使い投稿作成をやってみてください。
 
 ```graphql
 mutation {
@@ -514,6 +524,8 @@ mutation {
 
 3. データを確認
 
+以下のデータを送ると、これまで作成されたユーザーのデータが返ってきます。
+
 ```graphql
 query {
   listUsers {
@@ -527,7 +539,7 @@ query {
 
 ## リソースの削除
 
-学習が終わったら、AWS の課金を避けるためにリソースを削除しましょう
+学習が終わったら、AWS の課金を避けるためにリソースを削除しましょう。
 
 ```bash
 cd terraform
@@ -536,4 +548,10 @@ terraform destroy
 
 ---
 
-今回は AppSync を使って GraphQL を実践してみた。今後 API を選定する時があれば、候補に入れて考えてみたいですね。
+今回は AppSync を使って GraphQL を実践してみました。
+
+今後 API を選定する時があれば、候補に入れて考えてみたいですね。
+
+---
+
+[^1]: [AWS AppSync（公式ページ）](https://aws.amazon.com/jp/appsync/)
