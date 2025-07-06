@@ -52,6 +52,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                   coverImage={post.coverImage}
                   date={post.date}
                   author={post.author}
+                  tag={post.tag}
                 />
                 <PostBody content={post.content} />
               </article>
@@ -103,6 +104,7 @@ export async function getStaticProps({ params }: Params) {
     "content",
     "ogImage",
     "coverImage",
+    "tag",
   ]);
   const content = addIdsToHeadings(await markdownToHtml(post.content || ""));
 
