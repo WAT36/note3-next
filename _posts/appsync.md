@@ -12,15 +12,15 @@ ogImage:
   url: ""
 ---
 
-前回の記事では GraphQL の特徴等についてを記載した。
+前回の記事では、 GraphQL の特徴等についてを記載しました。
 
-今回は、GraphQL を実際に使うハンズオンを利用し、実践する。
+今回は、GraphQL を実際に使うハンズオンを利用し、実践してみましょう。
 
-GraphQL を使うために、今回は AWS AppSync を利用してみる。
+GraphQL を使うために、今回は AWS AppSync を利用します。
 
 # AWS AppSync とは
 
-AWS AppSync[^1] は完全マネージドの GraphQL サービスで、インフラ管理が不要です。リクエスト課金（最初の 12 か月は毎月 25 万クエリまで無料）があり、低トラフィックならほぼコストゼロで運用可能になります。
+AWS AppSync[^1] は完全マネージドの GraphQL サービスで、インフラ管理が不要です。リクエスト量により課金はありますが、低トラフィックならほぼコストゼロで運用可能になります。
 
 # Terraform で構築する
 
@@ -45,7 +45,9 @@ graphql-appsync-tutorial/
 
 ## GraphQL スキーマ定義
 
-まずは`terraform/schema/schema.graphql`を作成します。これは今回の GraphQL で利用する型定義（スキーマ定義）です。
+まずは`terraform/schema/schema.graphql`を作成します。
+
+これは今回の GraphQL で利用する型定義（スキーマ定義）です。
 
 ```graphql
 type User {
@@ -105,7 +107,7 @@ schema {
 
 ## Terraform 設定
 
-`terraform/variables.tf`を作成し、リージョンやプロジェクト名などを設定します。
+次に`terraform/variables.tf`を作成し、リージョンやプロジェクト名などを設定します。
 
 ```hcl
 variable "region" {
@@ -117,14 +119,14 @@ variable "region" {
 variable "project_name" {
   description = "Project name for resource naming"
   type        = string
-  default     = "graphql-tutorial"
+  default     = "graphql-tutorial"  # プロジェクト名。各自置き換えること
 }
 
 ```
 
 `terraform/main.tf`を作成します。
 
-ここで、AppSync に加え、今回は入力したデータを保持しておくための DynamoDB の作成を行います。
+ここでは AppSync に加え、入力したデータを保持しておくための DynamoDB の作成を行います。
 
 ```hcl
 terraform {
@@ -384,7 +386,7 @@ terraform output graphql_endpoint
 terraform output api_key
 ```
 
-### クエリとミューテーションの準備
+## クエリとミューテーションの準備
 
 まずはクエリ用のファイルとして、`queries/queries.graphql`を作成します。
 
