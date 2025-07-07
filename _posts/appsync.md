@@ -177,6 +177,7 @@ resource "aws_dynamodb_table" "posts" {
   global_secondary_index {
     name     = "AuthorIndex"
     hash_key = "authorId"
+    projection_type    = "ALL"
   }
 
   tags = {
@@ -198,7 +199,7 @@ resource "aws_appsync_graphql_api" "main" {
 # API Key
 resource "aws_appsync_api_key" "main" {
   api_id  = aws_appsync_graphql_api.main.id
-  expires = timeadd(timestamp(), "365d")
+  expires = timeadd(timestamp(), "8760h")
 }
 
 # IAM Role for AppSync
@@ -301,6 +302,58 @@ resource "aws_appsync_resolver" "list_users" {
   response_template = "#if($ctx.error)$util.error($ctx.error.message, $ctx.error.type)#end$util.toJson($ctx.result.items)"
 }
 
+resource "aws_appsync_resolver" "get_post" {
+  api_id      = aws_appsync_graphql_api.main.id
+  field       = "getPost"
+  type        = "Query"
+  data_source = aws_appsync_datasource.posts.name
+
+  request_template = jsonencode({
+    version = "2018-05-29"
+    operation = "GetItem"
+    key = {
+      id = { S = "$ctx.args.id" }
+    }
+  })
+
+  response_template = "#if($ctx.error)$util.error($ctx.error.message, $ctx.error.type)#end$util.toJson($ctx.result)"
+}
+
+resource "aws_appsync_resolver" "list_posts" {
+  api_id      = aws_appsync_graphql_api.main.id
+  field       = "listPosts"
+  type        = "Query"
+  data_source = aws_appsync_datasource.posts.name
+
+  request_template = jsonencode({
+    version = "2018-05-29"
+    operation = "Scan"
+  })
+
+  response_template = "#if($ctx.error)$util.error($ctx.error.message, $ctx.error.type)#end$util.toJson($ctx.result.items)"
+}
+
+resource "aws_appsync_resolver" "get_posts_by_user" {
+  api_id      = aws_appsync_graphql_api.main.id
+  field       = "getPostsByUser"
+  type        = "Query"
+  data_source = aws_appsync_datasource.posts.name
+
+  request_template = jsonencode({
+    version = "2018-05-29"
+    operation = "Query"
+    index = "AuthorIndex"
+    query = {
+      expression = "authorId = :authorId"
+      expressionValues = {
+        ":authorId" = { S = "$ctx.args.userId" }
+      }
+    }
+  })
+
+  response_template = "#if($ctx.error)$util.error($ctx.error.message, $ctx.error.type)#end$util.toJson($ctx.result.items)"
+}
+
 resource "aws_appsync_resolver" "create_user" {
   api_id      = aws_appsync_graphql_api.main.id
   field       = "createUser"
@@ -317,6 +370,51 @@ resource "aws_appsync_resolver" "create_user" {
       name = { S = "$ctx.args.input.name" }
       email = { S = "$ctx.args.input.email" }
       createdAt = { S = "$util.time.nowISO8601()" }
+    }
+  })
+
+  response_template = "#if($ctx.error)$util.error($ctx.error.message, $ctx.error.type)#end$util.toJson($ctx.result)"
+}
+
+resource "aws_appsync_resolver" "update_user" {
+  api_id      = aws_appsync_graphql_api.main.id
+  field       = "updateUser"
+  type        = "Mutation"
+  data_source = aws_appsync_datasource.users.name
+
+  request_template = jsonencode({
+    version = "2018-05-29"
+    operation = "UpdateItem"
+    key = {
+      id = { S = "$ctx.args.input.id" }
+    }
+    update = {
+      expression = "SET #name = :name, #email = :email"
+      expressionNames = {
+        "#name" = "name"
+        "#email" = "email"
+      }
+      expressionValues = {
+        ":name" = { S = "$util.defaultIfNull($ctx.args.input.name, $ctx.source.name)" }
+        ":email" = { S = "$util.defaultIfNull($ctx.args.input.email, $ctx.source.email)" }
+      }
+    }
+  })
+
+  response_template = "#if($ctx.error)$util.error($ctx.error.message, $ctx.error.type)#end$util.toJson($ctx.result)"
+}
+
+resource "aws_appsync_resolver" "delete_user" {
+  api_id      = aws_appsync_graphql_api.main.id
+  field       = "deleteUser"
+  type        = "Mutation"
+  data_source = aws_appsync_datasource.users.name
+
+  request_template = jsonencode({
+    version = "2018-05-29"
+    operation = "DeleteItem"
+    key = {
+      id = { S = "$ctx.args.id" }
     }
   })
 
@@ -423,7 +521,7 @@ query ListPosts {
 }
 ```
 
-次にミューテーション用のファイルとして、`queries/mutations.graphql`を作成します
+次にミューテーション用のファイルとして、`queries/mutations.graphql`を作成します。
 
 ```graphql
 # ユーザー作成
@@ -453,6 +551,8 @@ mutation CreatePost($input: CreatePostInput!) {
 AWS コンソールから実行確認もできますが、今回は API ということで curl コマンドで確認してみます。
 
 環境変数の値は各自の値に置き換えて実行してください。
+
+送るデータには、先ほど作成したクエリ・ミューテーションファイルの型定義をコピーし、値を置き換えて利用してください。
 
 ```bash
 # 環境変数設定（terraform outputの値を使用）
