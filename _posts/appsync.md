@@ -47,7 +47,7 @@ graphql-appsync-tutorial/
 
 まずは`terraform/schema/schema.graphql`を作成します。
 
-これは今回の GraphQL で利用する型定義（スキーマ定義）です。
+このファイルは、今回の GraphQL で利用する型定義（スキーマ定義）になります。
 
 ```graphql
 type User {
@@ -109,6 +109,8 @@ schema {
 
 次に`terraform/variables.tf`を作成し、リージョンやプロジェクト名などを設定します。
 
+以下のようになりますが、リージョン名・プロジェクト名は適宜置き換えてください。
+
 ```hcl
 variable "region" {
   description = "AWS region"
@@ -124,7 +126,7 @@ variable "project_name" {
 
 ```
 
-`terraform/main.tf`を作成します。
+次に`terraform/main.tf`を作成します。
 
 ここでは AppSync に加え、入力したデータを保持しておくための DynamoDB の作成を行います。
 
