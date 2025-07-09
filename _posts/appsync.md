@@ -448,7 +448,7 @@ resource "aws_appsync_resolver" "create_post" {
 
 ```
 
-最後に`terraform/outputs.tf`を作成します。先ほど作成した AppSync のエンドポイント、キー等を取り出します。
+最後に`terraform/outputs.tf`を作成します。これにより先ほど作成した AppSync のエンドポイント、キー等を取り出します。
 
 ```hcl
 output "graphql_endpoint" {
