@@ -3,15 +3,18 @@ import DateFormatter from "../../ui-elements/date-formatter/DateFormatter";
 import CoverImage from "../../ui-elements/cover-image/CoverImage";
 import PostTitle from "../../ui-elements/postTitle/PostTitle";
 import type Author from "../../../interfaces/author";
+import { Tag } from "../../ui-elements/tag/Tag";
 
 type Props = {
   title: string;
   coverImage: string;
   date: string;
   author: Author;
+  tag?: string[];
 };
 
-const PostHeader = ({ title, coverImage, date, author }: Props) => {
+const PostHeader = ({ title, coverImage, date, author, tag }: Props) => {
+  console.log("note tags:", JSON.stringify(tag));
   return (
     <>
       <PostTitle>{title}</PostTitle>
@@ -30,6 +33,7 @@ const PostHeader = ({ title, coverImage, date, author }: Props) => {
         <div className="mb-6 text-lg">
           <DateFormatter dateString={date} />
         </div>
+        <div className="">{tag && tag.map((t) => <Tag tagName={t} />)}</div>
       </div>
     </>
   );

@@ -34,6 +34,7 @@ const NotePage = ({ note }: Props) => {
             coverImage={note.coverImage}
             date={note.date}
             author={note.author}
+            tag={note.tag}
           />
           <PostBody content={note.content} />
         </article>

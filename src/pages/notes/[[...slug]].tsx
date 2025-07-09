@@ -108,6 +108,7 @@ export async function getStaticProps({ params }: Params) {
     "ogImage",
     "coverImage",
     "mode",
+    "tag",
   ]);
   // MarkdownコンテンツをHTMLに変換（ディレクトリの場合_index.mdを、記事の場合***.mdを読む）
   const content = await markdownToHtml(

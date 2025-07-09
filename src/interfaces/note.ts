@@ -15,6 +15,7 @@ type NoteType = {
   ogImage: {
     url: string;
   };
+  tag?: string[];
   content: string;
   isDir?: boolean;
 };
