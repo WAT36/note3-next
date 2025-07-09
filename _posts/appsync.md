@@ -2,8 +2,8 @@
 title: "GraphQLについて(その２) ~AWS AppSyncによる実践~"
 excerpt: "AWS AppSyncを利用してGraphQLを立てるハンズオン"
 coverImage: "/assets/posts/appsync/appsync.png"
-date: '2025-07-09T08:28:04.000Z'
-updatedAt: '2025-07-09T08:28:04.000Z'
+date: "2025-07-09T08:28:04.000Z"
+updatedAt: "2025-07-09T08:28:04.000Z"
 tag: ["AWS", "API", "GraphQL"]
 author:
   name: Tatsuroh Wakasugi
@@ -604,6 +604,21 @@ mutation {
 }
 ```
 
+以下の値が返ってくるかと思います。
+
+```json
+{
+  "data": {
+    "createUser": {
+      "id": "de7b8b56-5eeb-4aee-80dc-4fdfe82503aa",
+      "name": "田中太郎",
+      "email": "tanaka@example.com",
+      "createdAt": "2025-07-09T14:12:18.683Z"
+    }
+  }
+}
+```
+
 2. 作成されたユーザーの ID をコピーして投稿を作成
 
 ユーザー作成を実施すると ID が返ってくるので、その値を使い投稿作成をやってみてください。
@@ -614,7 +629,7 @@ mutation {
     input: {
       title: "GraphQL学習日記"
       content: "AWS AppSyncでGraphQLを学んでいます！"
-      authorId: "ここに上で作成したユーザーのIDを入力"
+      authorId: "(ここに上で作成したユーザーのIDを入力)"
     }
   ) {
     id
@@ -622,6 +637,22 @@ mutation {
     content
     authorId
     createdAt
+  }
+}
+```
+
+実行すると以下の値が返ってくるかと思います。
+
+```json
+{
+  "data": {
+    "createPost": {
+      "id": "e14ed556-3d50-44eb-95a9-a9116cd6ecaa",
+      "title": "GraphQL学習日記",
+      "content": "AWS AppSyncでGraphQLを学んでいます！",
+      "authorId": "de7b8b56-5eeb-4aee-80dc-4fdfe82503aa",
+      "createdAt": "2025-07-09T14:27:02.905Z"
+    }
   }
 }
 ```
@@ -637,6 +668,23 @@ query {
     name
     email
     createdAt
+  }
+}
+```
+
+以下の値が返ってくるかと思います。
+
+```json
+{
+  "data": {
+    "listUsers": [
+      {
+        "id": "de7b8b56-5eeb-4aee-80dc-4fdfe82503aa",
+        "name": "田中太郎",
+        "email": "tanaka@example.com",
+        "createdAt": "2025-07-09T14:12:18.683Z"
+      }
+    ]
   }
 }
 ```
