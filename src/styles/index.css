@@ -17,13 +17,13 @@
   }
 
   .postTag {
-    color: black;
-    background: white;
-    border-color: black;
+    color: black !important;
+    background: white !important;
+    border-color: black !important;
   }
 
   .postTag:before {
-    background: black;
+    background: black !important;
   }
 }
 
