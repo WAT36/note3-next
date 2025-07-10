@@ -17,16 +17,16 @@ const PostHeader = ({ title, coverImage, date, author, tag }: Props) => {
   console.log("note tags:", JSON.stringify(tag));
   return (
     <>
-      <PostTitle>{title}</PostTitle>
-      <div className="hidden md:block md:mb-12">
-        <Avatar name={author.name} picture={author.picture} />
-      </div>
-      {coverImage && (
-        <div className="mb-8 md:mb-16 flex justify-center">
-          <CoverImage title={title} src={coverImage} />
-        </div>
-      )}
       <div className="max-w-2xl mx-auto">
+        <PostTitle>{title}</PostTitle>
+        <div className="hidden md:block md:mb-12">
+          <Avatar name={author.name} picture={author.picture} />
+        </div>
+        {coverImage && (
+          <div className="mb-8 md:mb-16 flex justify-center">
+            <CoverImage title={title} src={coverImage} />
+          </div>
+        )}
         <div className="block md:hidden mb-6">
           <Avatar name={author.name} picture={author.picture} />
         </div>
