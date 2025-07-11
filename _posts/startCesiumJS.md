@@ -438,7 +438,7 @@ async function threeDCesium() {
 threeDCesium();
 ```
 
-同様に実行して表示すると、東京と横浜が結ばれた状態で表示されます。
+同様に実行して表示すると、3D で表示されます。
 
 ![](/assets/posts/startCesiumJS/threeDCesiumJS.png)
 
