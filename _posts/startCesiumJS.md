@@ -255,6 +255,8 @@ npm run dev
 
 ブラウザで http://localhost:3000 にアクセスすると、3D 地球儀が表示されます。
 
+![](/assets/posts/startCesiumJS/initCesiumJS.png)
+
 ---
 
 [^1]: [CesiumJS（公式ページ）](https://cesium.com/platform/cesiumjs/)
