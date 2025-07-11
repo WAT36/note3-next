@@ -537,5 +537,11 @@ interactiveCesium();
 
 ---
 
+今回は CesiumJS を使い、本格的な 3D 地球儀アプリケーションを操作する例を４つ出してみました。
+
+これ以外にもまだ機能は満載なので、もう少し試してみたいですね。
+
+---
+
 [^1]: [CesiumJS（公式ページ）](https://cesium.com/platform/cesiumjs/)
 [^2]: [Cesium ion](<[https://ion.cesium.com/](https://ion.cesium.com/signin)>)
