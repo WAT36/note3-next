@@ -1,7 +1,7 @@
 ---
-title: "CesiumJSを使ってみる"
-excerpt: ""
-coverImage: ""
+title: "CesiumJSで地図を表示する"
+excerpt: "CesiumJSを使って地図を表示するハンズオン"
+coverImage: "/assets/posts/startCesiumJS/CesiumLogo.png"
 date: "2025-07-11T22:40:12.000Z"
 updatedAt: "2025-07-11T22:40:12.000Z"
 tag: ["地理情報", "Javascript"]
@@ -22,6 +22,8 @@ CesiumJS[^1]は、WebGL 技術を使用してブラウザ上で 3D 地球儀や�
 
 ## 主な特徴
 
+主な特徴としては以下などがあります。
+
 - **高性能な 3D 描画**: WebGL を活用した滑らかな 3D 描画
 - **豊富な地図データ**: 衛星画像、地形データ、建物の 3D モデルなど
 - **時系列データ対応**: 時間軸に沿ったアニメーション表示
@@ -30,7 +32,19 @@ CesiumJS[^1]は、WebGL 技術を使用してブラウザ上で 3D 地球儀や�
 
 # 環境構築
 
-## 1. プロジェクトの初期化
+## Cesium Ion アクセストークンの取得
+
+CesiumJS を使用するには、Cesium ion のアカウントが必要になります。
+
+まずは、Cesium ion[^2]でアカウントを作成し、ログインします。
+
+![](/assets/posts/startCesiumJS/CesiumIon.png)
+
+ダッシュボードから「Access Tokens」を選択、デフォルトトークンをコピーする（他の操作を行いたい場合は、その権限を持つトークン作成します。）
+
+![](/assets/posts/startCesiumJS/CesiumIonToken.png)
+
+## プロジェクトの初期化
 
 ```bash
 # 新しいプロジェクトディレクトリを作成
@@ -41,7 +55,7 @@ cd cesium-tutorial
 npm init -y
 ```
 
-## 2. 必要なパッケージのインストール
+## 必要なパッケージのインストール
 
 ```bash
 # CesiumJSをインストール
@@ -54,7 +68,7 @@ npm install -D typescript @types/cesium
 npm install -D vite
 ```
 
-## 3. TypeScript 設定ファイルの作成
+## TypeScript 設定ファイルの作成
 
 プロジェクトルートに tsconfig.json を作成します。
 
@@ -81,7 +95,7 @@ npm install -D vite
 }
 ```
 
-## 4. Vite 設定ファイルの作成
+## Vite 設定ファイルの作成
 
 プロジェクトルートに `vite.config.ts` を作成します。
 
@@ -148,9 +162,11 @@ export default defineConfig({
 
 # ハンズオン 1: 基本的な地球儀の表示
 
-## 1. HTML ファイルの作成
+まずは、単純に地図データを表示させてみましょう。
 
-プロジェクトルートに index.html を作成します。
+## HTML ファイルの作成
+
+プロジェクトルートに `index.html` を作成します。
 
 ```html
 <!DOCTYPE html>
@@ -183,7 +199,7 @@ export default defineConfig({
 </html>
 ```
 
-## 2. TypeScript ファイルの作成
+## TypeScript ファイルの作成
 
 src/main.ts を作成します。
 
@@ -235,7 +251,7 @@ async function initCesium() {
 initCesium();
 ```
 
-## 3. package.json にスクリプトを追加
+## package.json にスクリプトを追加
 
 ```json
 {
@@ -247,7 +263,7 @@ initCesium();
 }
 ```
 
-## 4. 開発サーバーの起動
+## 開発サーバーの起動
 
 ```bash
 npm run dev
