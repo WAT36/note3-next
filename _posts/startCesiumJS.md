@@ -40,7 +40,7 @@ CesiumJS を使用するには、Cesium ion のアカウントが必要になり
 
 ![](/assets/posts/startCesiumJS/CesiumIon.png)
 
-ダッシュボードから「Access Tokens」を選択、デフォルトトークンをコピーする（他の操作を行いたい場合は、その権限を持つトークン作成します。）
+ダッシュボードから「Access Tokens」を選択、デフォルトトークンをコピーする（他の操作を行いたい場合は、その権限を持つトークンを作成します。）
 
 ![](/assets/posts/startCesiumJS/CesiumIonToken.png)
 
@@ -160,6 +160,8 @@ export default defineConfig({
 });
 ```
 
+---
+
 # ハンズオン 1: 基本的な地球儀の表示
 
 まずは、単純に地図データを表示させてみましょう。
@@ -253,7 +255,19 @@ initCesium();
 }
 ```
 
+## .env ファイルにトークンを設定
+
+.env ファイルを作成し、前述の Cesium ion で設定したトークンを設定します。以下のように設定してください。
+
+```plaintext
+VITE_CESIUM_ION_ACCESS_TOKEN=eyJ....(トークンの値を設定する)
+```
+
+また git 等を使ってコード管理している場合は、この.env ファイルは上げないように`.gitignore`ファイルに書くようにして下さい。
+
 ## 開発サーバーの起動
+
+以上の設定が済んだら以下のコマンドで起動します。
 
 ```bash
 npm run dev
@@ -263,9 +277,11 @@ npm run dev
 
 ![](/assets/posts/startCesiumJS/initCesiumJS.png)
 
+---
+
 # ハンズオン 2: マーカーとポリゴンの追加
 
-地球儀にマーカーやポリゴンを追加してみましょう。
+次に、地図にマーカーやポリゴンを追加してみましょう。
 
 main.ts を以下のように変えてみます。
 
@@ -320,7 +336,7 @@ async function markCesium() {
     },
   });
 
-  // 横浜の位置にビルボードを追加
+  // 横浜の位置にマーカーを追加
   viewer.entities.add({
     position: Cartesian3.fromDegrees(139.6226, 35.466),
     billboard: {
@@ -380,7 +396,9 @@ markCesium();
 
 ![](/assets/posts/startCesiumJS/markCesiumJS.png)
 
-## ハンズオン 3: 3D モデルの表示
+---
+
+# ハンズオン 3: 3D モデルの表示
 
 次は、3D 表示を行ってみます。
 
@@ -448,7 +466,9 @@ threeDCesium();
 
 ![](/assets/posts/startCesiumJS/threeDCesiumJS.png)
 
-## ハンズオン 4: インタラクティブ機能の追加
+---
+
+# ハンズオン 4: インタラクティブ機能の追加
 
 画面へのクリック動作で、先ほどのマーカーを打ち込めるようにしてみます。
 
