@@ -2,8 +2,8 @@
 title: "CesiumJSで地図を表示する"
 excerpt: "CesiumJSを使って地球儀や地図を表示するハンズオン"
 coverImage: "/assets/posts/startCesiumJS/CesiumLogo.png"
-date: "2025-07-11T22:40:12.000Z"
-updatedAt: "2025-07-11T22:40:12.000Z"
+date: '2025-07-16T00:02:56.000Z'
+updatedAt: '2025-07-16T00:02:56.000Z'
 tag: ["地理情報", "Javascript"]
 author:
   name: Tatsuroh Wakasugi
