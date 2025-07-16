@@ -2,8 +2,8 @@
 title: "CesiumJSで地図を表示する"
 excerpt: "CesiumJSを使って地球儀や地図を表示するハンズオン"
 coverImage: "/assets/posts/startCesiumJS/CesiumLogo.png"
-date: '2025-07-16T00:02:56.000Z'
-updatedAt: '2025-07-16T00:02:56.000Z'
+date: "2025-07-16T00:02:56.000Z"
+updatedAt: "2025-07-16T00:02:56.000Z"
 tag: ["地理情報", "Javascript"]
 author:
   name: Tatsuroh Wakasugi
@@ -42,9 +42,7 @@ CesiumJS を使用するには、Cesium ion のアカウントが必要になり
 
 ![](/assets/posts/startCesiumJS/CesiumIon.png)
 
-ダッシュボードから「Access Tokens」を選択、
-
-今回は表示のみなのでデフォルトトークンをコピーして利用します（他の操作を行いたい場合は、その権限を持つトークンを作成して下さい。管理には気をつけて下さい。）
+ログインしたらダッシュボードから「Access Tokens」を選択し、今回は表示のみなのでデフォルトトークンをコピーして利用します（他の操作を行いたい場合は、その権限を持つトークンを作成して下さい。ただしトークンは外部に漏らさないように管理して下さい。）
 
 ![](/assets/posts/startCesiumJS/CesiumIonToken.png)
 
