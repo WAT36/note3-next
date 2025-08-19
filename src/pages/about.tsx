@@ -101,9 +101,9 @@ export default function About() {
                 <AboutList title={"AWS Cloud Practitioner"} />
                 <AboutList title={"AWS Solution Architect Professional"} />
                 <AboutList title={"AWS Developer Associate"} />
-                <AboutList title={"HTML5プロフェッショナル認定試験 レベル1"} />
                 <AboutList title={"TOEIC 720"} />
                 <AboutList title={"JSTQB Foundation Level"} />
+                <AboutList title={"HTML5プロフェッショナル認定試験 レベル2"} />
                 <AboutList title={"普通自動車第一種免許"} />
               </>
             }
