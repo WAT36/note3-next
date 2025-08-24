@@ -1,31 +1,42 @@
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { programmingLanguageState } from "../../../atoms/ProgrammingLanguage";
+import { useState } from "react";
 import { PROGRAMMING_LANGUAGE_NAME } from "../../../lib/constants";
 
 const ProgrammingLanguageSelector = () => {
-  // ステートとして利用する
-  const [programmingLanguage] = useRecoilState(programmingLanguageState);
-  // Recoilの Atoms を呼び出して定義
-  const setProgrammingLanguage = useSetRecoilState(programmingLanguageState);
+  // localStorageから初期値を取得、デフォルトは最初の言語
+  const [programmingLanguage, setProgrammingLanguage] = useState(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("programmingLanguage");
+      return saved
+        ? { language: saved }
+        : { language: PROGRAMMING_LANGUAGE_NAME[0] };
+    }
+    return { language: PROGRAMMING_LANGUAGE_NAME[0] };
+  });
+
+  // 言語が変更されたときにlocalStorageに保存
+  const handleLanguageChange = (newLanguage: string) => {
+    setProgrammingLanguage({ language: newLanguage });
+    if (typeof window !== "undefined") {
+      localStorage.setItem("programmingLanguage", newLanguage);
+    }
+  };
+
   return (
     <div className="inline-block float-right mx-3 my-4">
       <select
         id="programmingLanguageSelector"
         className="text-black"
         name="programmingLanguage"
+        value={programmingLanguage.language}
         onChange={(e) => {
-          setProgrammingLanguage({ language: e.target.value });
+          handleLanguageChange(e.target.value);
         }}
       >
-        {PROGRAMMING_LANGUAGE_NAME.map((pl) => {
-          return programmingLanguage.language === pl ? (
-            <option selected value={pl}>
-              {pl}
-            </option>
-          ) : (
-            <option value={pl}>{pl}</option>
-          );
-        })}
+        {PROGRAMMING_LANGUAGE_NAME.map((pl) => (
+          <option key={pl} value={pl}>
+            {pl}
+          </option>
+        ))}
       </select>
     </div>
   );
