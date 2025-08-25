@@ -51,7 +51,7 @@ article {
   border-radius: 100vh 0 0 100vh;
   background: black;
   border-color: white;
-  margin-right: 1rem;
+  margin: 0.25rem 1rem 0.25rem 0;
 }
 
 .postTag:before {

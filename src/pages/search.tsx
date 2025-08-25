@@ -6,6 +6,7 @@ import Layout from "../components/ui-pages/layout/Layout";
 import { ADMINISTRATOR } from "../lib/constants";
 import algoliasearch from "algoliasearch/lite";
 import { useEffect, useState } from "react";
+import { Tag } from "../components/ui-elements/tag/Tag";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_APP_ID || "",
@@ -119,19 +120,18 @@ export default function SearchResult() {
               />
             </div>
             {/**TODO ここは別コンポーネント化する */}
-            <div className="w-full flex flex-wrap">
-              <span className="my-4">{"タグ："}</span>
+            <div className="w-full flex flex-wrap my-4">
+              <span className="flex items-center">{"タグ："}</span>
               {tagList.length > 0 ? (
                 tagList.map((tag) => {
                   return (
-                    <span
-                      className="m-4 underline cursor-pointer"
+                    <Tag
+                      tagName={tag}
                       onClick={async () => {
                         await searchByTag(tag);
                       }}
-                    >
-                      {tag}
-                    </span>
+                      pointerAble={true}
+                    />
                   );
                 })
               ) : (
