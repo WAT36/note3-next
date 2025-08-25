@@ -42,6 +42,7 @@ export const Main: Story = {
           url: "/assets/blog/authors/WAT.jpg",
         },
         content: "content test",
+        tag: [],
       },
       {
         slug: "",
@@ -57,6 +58,7 @@ export const Main: Story = {
           url: "/assets/blog/authors/WAT.jpg",
         },
         content: "content test2",
+        tag: [],
       },
     ],
     pageNum: 2,

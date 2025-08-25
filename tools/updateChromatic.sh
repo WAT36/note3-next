@@ -7,7 +7,7 @@ if [ -n "$CHANGED_FILES" ]; then
     echo "✅ 追加・変更・削除された .stories.ts* ファイルがあります:"
     echo "$CHANGED_FILES"
     npm run chromatic
-    exit 1
+    exit 0
 else
     echo "✅ .stories.ts* ファイルに変更はありません。"
     exit 0

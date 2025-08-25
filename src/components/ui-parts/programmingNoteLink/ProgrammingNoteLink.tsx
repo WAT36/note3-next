@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useRecoilState } from "recoil";
 import { programmingLanguageState } from "../../../atoms/ProgrammingLanguage";
+import { useRouter } from "next/router";
+import { LINK_QUERY_PARAM } from "../../../lib/constants";
 
 type Props = {
   slug: string;
@@ -9,6 +11,8 @@ type Props = {
 };
 
 const ProgrammingNoteLink = ({ slug, name, abst }: Props) => {
+  const router = useRouter();
+  const { query } = router;
   // ステートとして利用する
   const [programmingLanguage] = useRecoilState(programmingLanguageState);
 
@@ -17,7 +21,10 @@ const ProgrammingNoteLink = ({ slug, name, abst }: Props) => {
       <div className="w-2/6 inline-block">
         <Link
           className="underline text-green-400"
-          href={slug + process.env.NEXT_PUBLIC_URL_END}
+          href={{
+            pathname: slug + process.env.NEXT_PUBLIC_URL_END,
+            query: LINK_QUERY_PARAM(query),
+          }}
         >
           {name}
         </Link>

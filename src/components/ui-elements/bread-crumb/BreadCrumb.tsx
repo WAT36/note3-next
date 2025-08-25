@@ -1,13 +1,13 @@
 import { NextPage } from "next";
 import Link from "next/link";
 import { DIR_NAME } from "../../../lib/constants";
-import { getPath } from "../../../lib/path";
+import { usePath } from "../../../hooks/usePath";
 
 type Props = {
   getNowPath: () => string;
 };
 
-export const BreadCrumb: NextPage = ({ getNowPath = getPath }: Props) => {
+export const BreadCrumb: NextPage = ({ getNowPath = usePath }: Props) => {
   // pathを「/」で分解
   const paths = getNowPath().substring(1).split("/");
   // 末尾がindex.html・クエリパラメータ類だった場合それは削除
