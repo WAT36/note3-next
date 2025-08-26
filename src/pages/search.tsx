@@ -111,7 +111,7 @@ export default function SearchResult() {
             <div>
               <input
                 type="text"
-                className="text-black"
+                className="text-black border border-black"
                 size={25}
                 placeholder="キーワード検索"
                 onChange={async (e) => {
