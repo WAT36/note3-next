@@ -22,7 +22,7 @@ IT 系の技術職において、中途面接でよく聞かれるのがシス�
 
 # Dify とは何か？
 
-Dify[^1]は、オープンソースの AI アプリ開発プラットフォームです。Backend as Service（BaaS）と LLMOps（Large Language Model Operations）の理念を融合し、開発者だけでなく、プログラミングが得意でない方でも直感的に AI アプリケーションを構築できるツールです。
+Dify[^1]は、オープンソースの AI アプリ開発プラットフォームです。Backend as Service（BaaS）と LLMOps（Large Language Model Operations）の理念を融合し、開発者だけでなく、プログラミングが得意でない人でも直感的に AI アプリケーションを構築できるツールです。
 
 簡単に言うと、「ノーコードで ChatGPT のような AI アプリを作れるツール」と考えてください。
 
@@ -63,6 +63,8 @@ RAG（Retrieval-Augmented Generation）により、独自のデータベース�
 
 # Dify でできることの例
 
+例としてですが、以下のようなものを開発できます。
+
 1. **カスタムチャットボット**
 
 - 企業の社内 FAQ 対応
@@ -89,6 +91,8 @@ RAG（Retrieval-Augmented Generation）により、独自のデータベース�
 
 # 料金体系について
 
+料金体系については無料と有料の 2 種類あります。
+
 ## 無料プラン
 
 - 月 200 回の AI 呼び出し
@@ -101,12 +105,6 @@ RAG（Retrieval-Augmented Generation）により、独自のデータベース�
 - 優先サポート
 - 高度な機能の利用
 - チーム機能
-
-# セルフホスティング
-
-- 完全無料
-- 自社サーバーでの運用
-- カスタマイズ自由度が高い
 
 # 始める前に知っておきたいこと
 
