@@ -2,8 +2,8 @@
 title: "Difyでシステムデザイン面接対策用のAIチャットシステムを作ってみた"
 excerpt: "システムデザイン問題対策用のチャットシステムを作成する"
 coverImage: "/assets/posts/difySysDesignChat/logo.png"
-date: "2025-08-20T23:06:14.000Z"
-updatedAt: "2025-08-20T23:06:14.000Z"
+date: '2025-08-28T08:42:40.000Z'
+updatedAt: '2025-08-28T08:42:40.000Z'
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
