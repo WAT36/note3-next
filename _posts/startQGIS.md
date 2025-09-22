@@ -1,7 +1,7 @@
 ---
 title: "QGISを使ってみた"
 excerpt: "QGISを使って地理情報データを扱う簡単なハンズオン"
-coverImage: ""
+coverImage: "/assets/posts/startQGIS/qgis-icon.png"
 date: "2025-09-21T13:22:27.000Z"
 updatedAt: "2025-09-21T13:22:27.000Z"
 tag: ["地理情報"]
@@ -12,7 +12,7 @@ ogImage:
   url: ""
 ---
 
-地理情報を扱えるソフトウェアとして、今回は QGIS を使ってみたのでそれについてを書く。
+地理情報を扱えるソフトウェアとして、今回は QGIS を使ってみたのでそれについてを記載する。
 
 # QGIS とは
 
@@ -29,11 +29,11 @@ QGIS（Quantum GIS）[^1] は、以下のような特徴を持つ GIS ソフト�
 
 ## インストール手順
 
-QGIS のインストールは公式ページ[^1]から行う。
+QGIS のインストールは公式ページ[^1]から行います。
 
-以下は macOS での手順だが、Windows も同ページに Windows 用のインストーラがあるのでそちらを利用すること。
+以下は macOS での手順になるが、Windows も同ページに Windows 用のインストーラがあるのでそちらを利用して下さい。
 
-1. QGIS 公式サイト[^1] から「Download for macOS」を選択
+1. QGIS 公式ページ[^1] から「Download for macOS」を選択
 2. dmg ファイルをダウンロード
 
 ![](/assets/posts/startQGIS/download.png)
@@ -50,14 +50,24 @@ QGIS のインストールは公式ページ[^1]から行う。
 
 ## Natural Earth データの取得
 
-1.  Natural Earth 公式サイト[^2] にアクセスする
+1.  Natural Earth 公式サイト[^2] にアクセスします。
+
+![](/assets/posts/startQGIS/naturalEarthTop.png)
+
 2.  「Downloads」→「Cultural」→「Admin 0 - Countries」を選択（Culutual はスケールごとに分かれているが、好きなもので良い）
+
+![](/assets/posts/startQGIS/naturalEarthCultural.png)
+
 3.  「Download countries」をクリックして shape ファイルをダウンロードする
 
 ## 日本の行政界データ
 
 1.  国土数値情報ダウンロードサイト[^3]にアクセス
-2.  「行政区域」→「都道府県」を選択してダウンロード
+2.  「行政区域データ」→「国土数値情報ダウンロードサービスデータのダウンロード」を選択してダウンロード（種類っはどれでも良いですが、ここでは全国データを扱います。）
+
+![](/assets/posts/startQGIS/nlTop.png)
+
+![](/assets/posts/startQGIS/nlDownload.png)
 
 # 基本的なハンズオン
 
