@@ -2,8 +2,8 @@
 title: "QGISで地図を可視化する"
 excerpt: "QGISを使って地理情報データを扱う簡単なハンズオン"
 coverImage: "/assets/posts/startQGIS/qgis-icon.png"
-date: "2025-09-21T13:22:27.000Z"
-updatedAt: "2025-09-21T13:22:27.000Z"
+date: '2025-09-24T08:37:58.000Z'
+updatedAt: '2025-09-24T08:37:58.000Z'
 tag: ["地理情報"]
 author:
   name: Tatsuroh Wakasugi
