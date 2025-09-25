@@ -6,10 +6,14 @@ import { PROGRAMMING_LANGUAGE_NAME } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import type NoteType from "../../interfaces/note";
 import { getNoteUnderDirSlugs, NOTES_DIR } from "../../lib/fileSystem";
-import { useEffect, useState } from "react";
 import NotePage from "../../components/ui-pages/pages/notePage/NotePage";
 import NoteDirPage from "../../components/ui-pages/pages/notedirPage/NoteDirPage";
-import hljs from "highlight.js";
+import {
+  useClientOnly,
+  useCodepenEmbed,
+  useDynamicScriptsFromNote,
+  useHighlightJs,
+} from "../../hooks/notePage";
 
 type Props = {
   note: NoteType;
@@ -28,45 +32,13 @@ const Note = ({ note, subPageLinks }: Props) => {
     return <ErrorPage statusCode={403} />;
   }
 
-  useEffect(() => {
-    hljs.highlightAll();
-  }, []);
+  useHighlightJs();
 
-  useEffect(() => {
-    const jsClass = "md_link_js";
-    const jsClassElement = document.getElementsByClassName(jsClass);
-    if (jsClassElement.length > 0) {
-      Array.from(jsClassElement).forEach((v) => {
-        return v.remove();
-      });
-    }
-
-    if (note.link?.javascript) {
-      for (const jsPath of note.link?.javascript) {
-        const id = jsPath.split("/").pop().split(".").shift() + "_js";
-        if (!document.getElementById(id)) {
-          const body = document.getElementsByTagName("body")[0] as HTMLElement;
-          const scriptUrl = document.createElement("script");
-          scriptUrl.type = "text/javascript";
-          scriptUrl.src = jsPath;
-          scriptUrl.id = id;
-          scriptUrl.className = jsClass;
-          scriptUrl.defer = true;
-          body.appendChild(scriptUrl);
-        }
-      }
-    }
-  }, [router.isReady, router.asPath]);
+  useDynamicScriptsFromNote(note.link?.javascript ?? null);
 
   // フロントエンド CodePen用(ローカル)
-  const [isClient, setIsClient] = useState(false);
-  useEffect(() => {
-    setIsClient(true);
-    const script = document.createElement("script");
-    script.src = "https://cpwebassets.codepen.io/assets/embed/ei.js";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
+  useCodepenEmbed();
+  const isClient = useClientOnly();
   if (!isClient) {
     return null; // サーバーサイドでは何も表示しない
   }
