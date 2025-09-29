@@ -2,8 +2,8 @@
 title: "Devinを使ってみた"
 excerpt: "自律型ソフトウェアエンジニアリングAI「Devin」について"
 coverImage: "/assets/posts/startDevin/devinTop.png"
-date: "2025-09-23T15:29:24.000Z"
-updatedAt: "2025-09-23T15:29:24.000Z"
+date: '2025-09-30T00:13:09.000Z'
+updatedAt: '2025-09-30T00:13:09.000Z'
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
