@@ -1,63 +1,124 @@
-# A statically generated blog example using Next.js, Markdown, and TypeScript
+# WAT Note(III)
 
-This is the existing [blog-starter](https://github.com/vercel/next.js/tree/canary/examples/blog-starter) plus TypeScript.
+このリポジトリは、Next.js と TypeScript で構築した個人ブログです。Markdown をソースにした静的サイトとしてビルドし、CDN/オブジェクトストレージ環境にデプロイ可能な構成になっています。
+利用している技術スタックや設計方針、開発・テスト・デプロイの方法をまとめます。
 
-This example showcases Next.js's [Static Generation](https://nextjs.org/docs/basic-features/pages) feature using Markdown files as the data source.
+## 特徴 / Features
 
-The blog posts are stored in `/_posts` as Markdown files with front matter support. Adding a new Markdown file in there will create a new blog post.
+- **静的サイト生成 (SSG) と完全静的エクスポート**: `output: "export"` による静的書き出し。`trailingSlash: true` で GitHub Pages / CDN での配信に最適化。
+- **Markdown ベース**: 記事は `/_posts` の Markdown で管理。GFM、数式、シンタックスハイライト対応。
+- **検索**: Algolia + React InstantSearch によるクライアントサイド検索。
+- **デザイン**: Tailwind CSS によるユーティリティファーストなスタイリング。
+- **状態管理**: Recoil (一部 localstorage 利用) をポイントで採用。
+- **RSS 配信**: ビルド時に RSS を自動生成。
+- **ドキュメント/デザインレビュー**: Storybook + Chromatic で UI の可視化とレビュー。
+- **ビジュアルリグレッションテスト**: Playwright でスナップショット比較。
 
-To create the blog posts we use [`remark`](https://github.com/remarkjs/remark) and [`remark-html`](https://github.com/remarkjs/remark-html) to convert the Markdown files into an HTML string, and then send it down as a prop to the page. The metadata of every post is handled by [`gray-matter`](https://github.com/jonschlinkert/gray-matter) and also sent in props to the page.
+## 技術スタック / Tech Stack
 
-## Demo
+- **フレームワーク**: Next.js 14 (`next@^14.2.5`)
+- **言語**: TypeScript (`typescript@^4.9.x`)
+- **ビルド/ランタイム**: ESM、`tsx` によるビルド後スクリプト実行
+- **スタイル**: Tailwind CSS 3、PostCSS、Autoprefixer
+- **Markdown/HTML パイプライン**:
+  - `remark`, `remark-parse`, `remark-gfm`, `remark-html`, `remark-math`
+  - `rehype-katex`, `rehype-stringify`, `remark-rehype`, `unified`
+  - コードハイライト: `highlight.js`
+- **検索**: `algoliasearch`, `react-instantsearch`, `@algolia/client-search`
+- **状態管理**: `recoil`
+- **RSS**: `feed`（`src/lib/generateRSS.ts` をビルド後に実行）
+- **テスト**:
+  - E2E/VRT: Playwright (`@playwright/test`)
+  - Unit/DOM: Vitest (`vitest`, `@vitest/coverage-v8`, `@vitest/browser`) + `jsdom`
+- **ドキュメント/UI カタログ**: Storybook 8（`@storybook/experimental-nextjs-vite` 構成）+ Chromatic
+- **設定/その他**: `dotenv`, `gray-matter`（Front Matter 解析）
+- **インフラ（任意）**: AWS CDK (`aws-cdk-lib`, `constructs`) による IaC。`infra/` 参照。
 
-[https://next-blog-starter.vercel.app/](https://next-blog-starter.vercel.app/)
+## ディレクトリ構成（抜粋）
 
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/blog-starter)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/blog-starter&project-name=blog-starter&repository-name=blog-starter)
-
-### Related examples
-
-- [WordPress](/examples/cms-wordpress)
-- [DatoCMS](/examples/cms-datocms)
-- [Sanity](/examples/cms-sanity)
-- [TakeShape](/examples/cms-takeshape)
-- [Prismic](/examples/cms-prismic)
-- [Contentful](/examples/cms-contentful)
-- [Strapi](/examples/cms-strapi)
-- [Agility CMS](/examples/cms-agilitycms)
-- [Cosmic](/examples/cms-cosmic)
-- [ButterCMS](/examples/cms-buttercms)
-- [Storyblok](/examples/cms-storyblok)
-- [GraphCMS](/examples/cms-graphcms)
-- [Kontent](/examples/cms-kontent)
-- [Umbraco Heartcore](/examples/cms-umbraco-heartcore)
-- [Builder.io](/examples/cms-builder-io)
-- [TinaCMS](/examples/cms-tina/)
-- [Enterspeed](/examples/cms-enterspeed)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example blog-starter blog-starter-app
+```
+nextjs-blog/
+  _posts/            # 記事の Markdown
+  _notes/            # 補助用ノート等（任意）
+  public/            # 静的アセット
+  src/
+    pages/           # ルーティング（Next.js Pages）
+    components/      # UI コンポーネント
+    lib/             # RSS 生成などのユーティリティ
+    styles/          # グローバル/レイヤー別スタイル
+    hooks/           # カスタムフック
+    atoms/           # Recoil atoms/selectors
+    api/             # 取得・整形ロジック 等
+  tests/             # Playwright / Vitest テスト
+  .storybook/        # Storybook 設定
+  infra/             # CDK スタック（任意）
 ```
 
-```bash
-yarn create next-app --example blog-starter blog-starter-app
-```
+## セットアップ / Getting Started
 
 ```bash
-pnpm create next-app --example blog-starter blog-starter-app
+# 依存関係のインストール
+npm ci
+
+# 開発サーバ起動
+npm run dev
+# http://localhost:3000
 ```
 
-Your blog should be up and running on [http://localhost:3000](http://localhost:3000)! If it doesn't work, post on [GitHub discussions](https://github.com/vercel/next.js/discussions).
+## スクリプト / npm scripts
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+- `dev`: 開発サーバ起動 (Next.js)
+- `build`: 本番ビルド + RSS 生成（`tsx src/lib/generateRSS.ts`）
+- `start`: 静的書き出しでない場合のサーバ起動（基本は `out/` を配信）
+- `typecheck`: TypeScript 型チェック
+- `storybook`: Storybook 開発サーバ
+- `build-storybook`: Storybook 静的ビルド
+- `chromatic`: Chromatic へ Storybook をアップロード
+- `git:push`: `git push` 後に Chromatic を実行
+- `test:vrt`: Playwright によるスナップショット更新（VRT 基準更新）
+- `test:vrt-report`: Playwright レポート表示
 
-# Notes
+## Markdown / 数式 / ハイライト
 
-`blog-starter` uses [Tailwind CSS](https://tailwindcss.com) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3).
+- **GFM**: テーブル、チェックボックス等に対応（`remark-gfm`）
+- **数式**: `remark-math` + `rehype-katex` で \(\LaTeX\) 記法をサポート
+- **ハイライト**: `highlight.js` によるコードブロックのシンタックスハイライト
+
+## 検索（Algolia）
+
+- クライアント検索に `algoliasearch` + `react-instantsearch` を使用
+- インデクシング戦略は運用環境に合わせて設定し、必要に応じて Crawler や API 経由で同期
+
+## テスト / 品質保証
+
+- **VRT (Visual Regression Testing)**: Playwright のスナップショット（`test-snapshots/`）で視覚差分を検出
+  - 期待どおりの見た目変更時は `npm run test:vrt` でスナップショット更新
+  - 差分の可視化は `npm run test:vrt-report`
+- **Unit/DOM**: Vitest + jsdom によりロジックやコンポーネント単位のテストを実施
+- **Storybook + Chromatic**: コンポーネントの回帰や Visual Check を PR レビューに組み込み可能
+
+## ビルド/出力
+
+- `next.config.js`
+  - `output: "export"` で `out/` に完全静的出力
+  - `trailingSlash: true` で階層配信フレンドリー
+  - Node コアモジュールの `fs` などはブラウザバンドルから除外
+
+## デプロイ
+
+- 静的サイトとして `out/` を配信
+  - 例: GitHub Pages、CloudFront + S3、Vercel（Static Export）など
+- インフラをコード化する場合は `infra/` の AWS CDK を利用（任意）
+
+## コンテンツの追加
+
+1. `/_posts` に Markdown を追加（Front Matter 対応）
+2. ビルドで HTML 化・一覧へ反映、RSS も再生成
+
+## ライセンス
+
+- 本リポジトリのコードは個人利用を前提としています。再利用ポリシーは必要に応じて追記します。
+
+---
+
+質問・バグ報告・提案などは Issue または PR にてお気軽にお知らせください。

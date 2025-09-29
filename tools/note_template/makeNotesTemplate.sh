@@ -1,9 +1,30 @@
 #!/bin/bash
 
+# ヘルプ表示関数
+print_help() {
+  echo "Usage: $0 title [--post] [--help]"
+  echo
+  echo "説明:"
+  echo "  Next.js ブログのノート用テンプレート(.md)を作成します。"
+  echo
+  echo "引数:"
+  echo "  title        作成するファイル名(拡張子は自動で .md が付きます)"
+  echo
+  echo "オプション:"
+  echo "  --post       作成したファイルを '_posts' ディレクトリへ移動します"
+  echo "  -h, --help   このヘルプを表示します"
+}
+
 # 引数確認（第１引数：タイトル名）
 if [[ "$#" -lt 1 ]]; then
-  echo "Usage: $0 title [--post]"
+  echo "Usage: $0 title [--post] [--help]"
   exit 1
+fi
+
+# ヘルプ要求が最初の引数の場合
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+  print_help
+  exit 0
 fi
 
 filename=$1
@@ -14,6 +35,10 @@ while [[ "$#" -gt 0 ]]; do
   case "$1" in
   --post)
     post_option=true
+    ;;
+  -h|--help)
+    print_help
+    exit 0
     ;;
   *) ;;
   esac
