@@ -4,7 +4,7 @@ excerpt: "Webサイトで数式を美しく表示できるKaTeXの特徴と導�
 coverImage: "/assets/posts/katex/katex.png"
 date: "2025-02-15T12:37:04.000Z"
 updatedAt: "2025-02-15T12:37:04.000Z"
-tag: []
+tag: ["開発ツール"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

@@ -4,7 +4,7 @@ excerpt: "リントツールについて、ESLintの導入・設定・利用方�
 coverImage: "/assets/posts/eslint/eslint_logo.png"
 date: "2024-09-23T22:01:56.000Z"
 updatedAt: "2024-09-23T22:01:56.000Z"
-tag: ["Node.js"]
+tag: ["開発ツール"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

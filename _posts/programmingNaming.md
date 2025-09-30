@@ -4,7 +4,7 @@ excerpt: "コードの可読性と保守性を高めるための実践的なネ�
 coverImage: "/assets/posts/programmingNaming/name.png"
 date: "2024-12-26T21:36:41.000Z"
 updatedAt: "2024-12-26T21:36:41.000Z"
-tag: []
+tag: ["開発プロセス"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

@@ -4,7 +4,7 @@ excerpt: "Go言語の概要とインストールから、簡単なプログラ�
 coverImage: "/assets/posts/startGo/goLogo.png"
 date: "2025-04-08T20:35:09.000Z"
 updatedAt: "2025-04-08T20:35:09.000Z"
-tag: []
+tag: ["バックエンド"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

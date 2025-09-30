@@ -4,7 +4,7 @@ excerpt: ""
 coverImage: "/assets/posts/srFlipFlop/srFlipFlop.png"
 date: "2025-05-17T00:08:06.000Z"
 updatedAt: "2025-05-17T00:08:06.000Z"
-tag: []
+tag: ["その他"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

@@ -4,7 +4,7 @@ excerpt: "Githubにpushしたら自動でS3にデプロイされる"
 coverImage: "/assets/posts/s3GithubAction/github_actions.png"
 date: "2023-02-21T22:50:12.000Z"
 updatedAt: "2023-02-21T22:50:12.000Z"
-tag: ["AWS", "S3", "Github", "Github Action", "CI/CD", "Next.js"]
+tag: ["AWS", "CI/CD"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

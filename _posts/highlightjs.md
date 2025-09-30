@@ -2,9 +2,9 @@
 title: "このブログにhighlight.jsを導入してみた"
 excerpt: "記事中のコードを美しく表示するhighlight.jsの紹介と導入方法について"
 coverImage: "/assets/posts/highlightjs/highlight.png"
-date: '2025-03-20T11:07:37.000Z'
-updatedAt: '2025-03-20T11:07:37.000Z'
-tag: []
+date: "2025-03-20T11:07:37.000Z"
+updatedAt: "2025-03-20T11:07:37.000Z"
+tag: ["開発ツール"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

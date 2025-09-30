@@ -4,7 +4,7 @@ excerpt: "PlanetScaleDBからsupabaseへと変えてみた"
 coverImage: "/assets/posts/supabase/supabaseLogo.png"
 date: "2024-03-21T23:10:23.000Z"
 updatedAt: "2024-03-21T23:10:23.000Z"
-tag: []
+tag: ["データベース"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

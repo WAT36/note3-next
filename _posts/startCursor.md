@@ -4,7 +4,7 @@ excerpt: "AI統合エディタ「Cursor」を実際に使用した体験記"
 coverImage: "/assets/posts/startCursor/cursorDownload.png"
 date: "2025-06-30T20:44:07.000Z"
 updatedAt: "2025-06-30T20:44:07.000Z"
-tag: ["AI"]
+tag: ["AI", "開発ツール"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

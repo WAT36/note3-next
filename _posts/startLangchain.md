@@ -4,7 +4,7 @@ excerpt: "PythonでLangChain・OpenAI APIを利用してチャットシステム
 coverImage: "/assets/posts/startLangchain/langchain.png"
 date: "2025-06-14T00:26:35.000Z"
 updatedAt: "2025-06-14T00:26:35.000Z"
-tag: ["生成AI", "Python"]
+tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

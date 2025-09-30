@@ -3,8 +3,8 @@ title: "S3静的ホスティングサイト + Cognito認証"
 excerpt: "S3での静的Webホスティングで立てたサイトにCognitoによる認証を付ける"
 coverImage: "/assets/posts/s3HostingCognito/loginUI.png"
 date: "2023-02-16T22:29:57.000Z"
-updatedAt: '2025-05-30T22:39:37.000Z'
-tag: ["AWS", "S3", "Cognito"]
+updatedAt: "2025-05-30T22:39:37.000Z"
+tag: ["AWS"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

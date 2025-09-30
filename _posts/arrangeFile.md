@@ -4,7 +4,7 @@ excerpt: "ファイルやフォルダを見やすく整理するためのコツ�
 coverImage: "/assets/posts/arrangeFile/example.png"
 date: "2025-01-08T22:40:22.000Z"
 updatedAt: "2025-01-08T22:40:22.000Z"
-tag: []
+tag: ["開発プロセス"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

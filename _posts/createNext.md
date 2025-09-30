@@ -4,7 +4,7 @@ excerpt: "Next.jsプロジェクトの作成方法について"
 coverImage: "/assets/blog/firstPost/nextjs-logo.png"
 date: "2023-12-04T21:41:50.000Z"
 updatedAt: "2023-12-04T21:41:50.000Z"
-tag: []
+tag: ["フロントエンド"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

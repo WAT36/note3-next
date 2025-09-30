@@ -4,7 +4,7 @@ excerpt: "サーバレスDBサービス「PlanetScale」について"
 coverImage: "/assets/posts/planetScaleDB/planetscaleLogo.png"
 date: "2023-04-15T00:26:15.000Z"
 updatedAt: "2023-04-15T00:26:15.000Z"
-tag: ["DB", "サーバレス"]
+tag: ["データベース"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

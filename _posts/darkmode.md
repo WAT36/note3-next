@@ -4,7 +4,7 @@ excerpt: "CSSでダークモードを設定する方法"
 coverImage: "/assets/posts/darkmode/darkTitle.png"
 date: "2024-02-18T21:16:45.000Z"
 updatedAt: "2024-02-18T21:16:45.000Z"
-tag: []
+tag: ["フロントエンド"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

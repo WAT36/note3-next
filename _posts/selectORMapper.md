@@ -4,7 +4,7 @@ excerpt: "ORMapperと生SQLの使い分けにおける、効果的な活用場�
 coverImage: "/assets/posts/selectORMapper/ormapper.png"
 date: "2025-01-23T14:20:57.000Z"
 updatedAt: "2025-01-23T14:20:57.000Z"
-tag: []
+tag: ["データベース", "開発プロセス"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
