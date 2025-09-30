@@ -2,8 +2,8 @@
 title: "Devinを使ってみた"
 excerpt: "自律型ソフトウェアエンジニアリングAI「Devin」について"
 coverImage: "/assets/posts/startDevin/devinTop.png"
-date: '2025-09-30T00:13:09.000Z'
-updatedAt: '2025-09-30T00:13:09.000Z'
+date: "2025-09-30T00:13:09.000Z"
+updatedAt: "2025-09-30T00:13:09.000Z"
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
@@ -109,7 +109,7 @@ githubに新しいレポジトリを作り、そこにgolangを利用したToDo�
 
 自分の Github 上にあるレポジトリに対しての改修をさせることができます。
 
-```
+```plaintext
 このリポジトリにテストコードを追加してください。
 - カバレッジ80%以上を目指す
 - CI/CDパイプラインも設定してください
@@ -125,7 +125,7 @@ githubに新しいレポジトリを作り、そこにgolangを利用したToDo�
 
 また Issue が上がっている場合は、同様にその修正を依頼することもできます。
 
-```
+```plaintext
 このプロジェクトで発生している以下の問題を修正してください。
 - Issue #123: ログイン機能が正常に動作しない
 - Issue #124: レスポンシブデザインが崩れる
