@@ -11,7 +11,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "chromatic",
-    "git:push": "git push && chromatic"
+    "git:push": "git push && chromatic",
+    "test": "vitest run"
   },
   "dependencies": {
     "@algolia/client-search": "^4.20.0",
