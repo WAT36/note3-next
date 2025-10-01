@@ -3,7 +3,7 @@ title: "Prettierを導入してみた"
 excerpt: "コードフォーマッターについて、Prettierの導入・設定・利用方法"
 coverImage: "/assets/posts/prettier/prettier-dark.png"
 date: "2024-09-24T22:59:51.000Z"
-updatedAt: '2025-09-30T23:07:21.000Z'
+updatedAt: '2025-10-02T00:31:47.000Z'
 tag: ["開発ツール"]
 author:
   name: Tatsuroh Wakasugi

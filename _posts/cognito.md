@@ -3,7 +3,7 @@ title: "Cognito(AWS)について"
 excerpt: "AWSのCognitoについて"
 coverImage: "/assets/posts/cognito/cognitologo.png"
 date: "2023-02-10T22:16:12.000Z"
-updatedAt: '2025-09-30T23:05:59.000Z'
+updatedAt: '2025-10-02T00:31:47.000Z'
 tag: ["AWS"]
 author:
   name: Tatsuroh Wakasugi

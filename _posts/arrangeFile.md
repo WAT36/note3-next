@@ -3,7 +3,7 @@ title: "ファイル・フォルダの見やすい構成・整理方法につい
 excerpt: "ファイルやフォルダを見やすく整理するためのコツや、効率的なディレクトリ構成の作り方について"
 coverImage: "/assets/posts/arrangeFile/example.png"
 date: "2025-01-08T22:40:22.000Z"
-updatedAt: '2025-09-30T23:06:38.000Z'
+updatedAt: '2025-10-02T00:31:47.000Z'
 tag: ["開発プロセス"]
 author:
   name: Tatsuroh Wakasugi

@@ -3,7 +3,7 @@ title: "ドメインを取得してS3(静的Webホスティング)をHTTPS化す
 excerpt: "AWSでのドメイン取得方法・S3に立てたWebサイトをHTTPS化する手順"
 coverImage: "/assets/posts/s3Https/httpsProcess.png"
 date: "2023-02-14T23:03:11.000Z"
-updatedAt: '2025-09-30T23:06:20.000Z'
+updatedAt: '2025-10-02T00:31:48.000Z'
 tag: ["AWS"]
 author:
   name: Tatsuroh Wakasugi

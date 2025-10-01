@@ -3,7 +3,7 @@ title: "(小ネタ)SRフリップフロップ回路をWebで図示してみた"
 excerpt: ""
 coverImage: "/assets/posts/srFlipFlop/srFlipFlop.png"
 date: "2025-05-17T00:08:06.000Z"
-updatedAt: '2025-09-30T23:07:25.000Z'
+updatedAt: '2025-10-02T00:31:48.000Z'
 tag: ["その他"]
 author:
   name: Tatsuroh Wakasugi

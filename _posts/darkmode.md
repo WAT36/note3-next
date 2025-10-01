@@ -3,7 +3,7 @@ title: "Webページへのダークモードの設定方法"
 excerpt: "CSSでダークモードを設定する方法"
 coverImage: "/assets/posts/darkmode/darkTitle.png"
 date: "2024-02-18T21:16:45.000Z"
-updatedAt: '2025-09-30T23:05:42.000Z'
+updatedAt: '2025-10-02T00:31:47.000Z'
 tag: ["フロントエンド"]
 author:
   name: Tatsuroh Wakasugi

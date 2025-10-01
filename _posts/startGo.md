@@ -3,7 +3,7 @@ title: "Go言語に入門してみた"
 excerpt: "Go言語の概要とインストールから、簡単なプログラム実行までを解説。"
 coverImage: "/assets/posts/startGo/goLogo.png"
 date: "2025-04-08T20:35:09.000Z"
-updatedAt: '2025-09-30T23:07:04.000Z'
+updatedAt: '2025-10-02T00:31:48.000Z'
 tag: ["バックエンド"]
 author:
   name: Tatsuroh Wakasugi

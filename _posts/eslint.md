@@ -3,7 +3,7 @@ title: "ESLintを導入してみた"
 excerpt: "リントツールについて、ESLintの導入・設定・利用方法"
 coverImage: "/assets/posts/eslint/eslint_logo.png"
 date: "2024-09-23T22:01:56.000Z"
-updatedAt: '2025-09-30T23:06:31.000Z'
+updatedAt: '2025-10-02T00:31:47.000Z'
 tag: ["開発ツール"]
 author:
   name: Tatsuroh Wakasugi
