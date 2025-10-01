@@ -3,7 +3,7 @@ title: "CloudFormation(CDK)を導入してみた"
 excerpt: "CDKを導入したのでその方法を書く"
 coverImage: "/assets/posts/cdkFirstStep/cdkLogo.png"
 date: "2023-07-30T23:48:18.000Z"
-updatedAt: "2025-05-30T22:39:37.000Z"
+updatedAt: '2025-09-30T23:07:14.000Z'
 tag: ["AWS", "IaC"]
 author:
   name: Tatsuroh Wakasugi

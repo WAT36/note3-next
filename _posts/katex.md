@@ -3,7 +3,7 @@ title: "このブログにKaTeXを導入してみた"
 excerpt: "Webサイトで数式を美しく表示できるKaTeXの特徴と導入方法について"
 coverImage: "/assets/posts/katex/katex.png"
 date: "2025-02-15T12:37:04.000Z"
-updatedAt: "2025-02-15T12:37:04.000Z"
+updatedAt: '2025-09-30T23:06:53.000Z'
 tag: ["開発ツール"]
 author:
   name: Tatsuroh Wakasugi

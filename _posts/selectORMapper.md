@@ -3,7 +3,7 @@ title: "ORMapper活用の判断基準"
 excerpt: "ORMapperと生SQLの使い分けにおける、効果的な活用場面と注意点について"
 coverImage: "/assets/posts/selectORMapper/ormapper.png"
 date: "2025-01-23T14:20:57.000Z"
-updatedAt: "2025-01-23T14:20:57.000Z"
+updatedAt: '2025-09-30T23:06:50.000Z'
 tag: ["データベース", "開発プロセス"]
 author:
   name: Tatsuroh Wakasugi

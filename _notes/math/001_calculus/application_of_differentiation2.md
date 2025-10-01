@@ -2,8 +2,8 @@
 title: "微分の応用 - 関数の増減"
 excerpt: "関数の増減を調べる方法とそれに関する定理"
 coverImage: ""
-date: "2024-02-29T14:00:12.000Z"
-updatedAt: "2024-02-29T14:00:12.000Z"
+date: '2025-09-30T21:42:32.000Z'
+updatedAt: '2025-10-02T00:31:45.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi

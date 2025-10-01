@@ -2,8 +2,8 @@
 title: "微分の応用"
 excerpt: "接線、法線、媒介変数表示、陰関数"
 coverImage: ""
-date: "2024-02-22T20:34:23.000Z"
-updatedAt: "2024-02-22T20:34:23.000Z"
+date: '2025-09-30T21:42:32.000Z'
+updatedAt: '2025-10-02T00:31:45.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi

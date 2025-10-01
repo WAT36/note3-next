@@ -3,7 +3,7 @@ title: "(Javascript)axiosとFetchの使い分け"
 excerpt: "axiosとFetchの違いについて"
 coverImage: "/assets/posts/axiosFetch/axiosVsFetch.png"
 date: "2025-04-26T06:39:42.000Z"
-updatedAt: "2025-04-26T06:39:42.000Z"
+updatedAt: '2025-09-30T23:07:01.000Z'
 tag: ["フロントエンド", "API"]
 author:
   name: Tatsuroh Wakasugi

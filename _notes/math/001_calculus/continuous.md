@@ -2,8 +2,8 @@
 title: "連続関数、微分可能性"
 excerpt: "区間、関数の連続、微分可能について"
 coverImage: ""
-date: "2023-12-14T22:01:13.000Z"
-updatedAt: "2023-12-14T22:01:13.000Z"
+date: '2025-09-30T21:42:32.000Z'
+updatedAt: '2025-10-02T00:31:45.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi

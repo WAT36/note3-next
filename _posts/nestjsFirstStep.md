@@ -3,7 +3,7 @@ title: "NestJSに入門してみた"
 excerpt: "NestJSプロジェクトを作成し簡単なAPIを起動させてみた"
 coverImage: "/assets/posts/nestjsFirstStep/nestjsLogo.png"
 date: "2023-04-23T23:24:57.000Z"
-updatedAt: "2023-04-23T23:24:57.000Z"
+updatedAt: '2025-09-30T23:06:11.000Z'
 tag: ["バックエンド"]
 author:
   name: Tatsuroh Wakasugi

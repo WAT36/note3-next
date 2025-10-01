@@ -2,8 +2,8 @@
 title: "不定積分"
 excerpt: "不定積分について"
 coverImage: ""
-date: "2024-03-21T21:53:41.000Z"
-updatedAt: "2024-03-21T21:53:41.000Z"
+date: '2025-09-30T21:42:32.000Z'
+updatedAt: '2025-10-02T00:31:45.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi

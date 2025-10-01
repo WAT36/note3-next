@@ -3,7 +3,7 @@ title: "GraphQLについて(その２) ~AWS AppSyncによる実践~"
 excerpt: "AWS AppSyncを利用してGraphQLを立てるハンズオン"
 coverImage: "/assets/posts/appsync/appsync.png"
 date: "2025-07-09T08:28:04.000Z"
-updatedAt: "2025-07-10T08:28:15.000Z"
+updatedAt: '2025-09-30T23:07:40.000Z'
 tag: ["API", "AWS"]
 author:
   name: Tatsuroh Wakasugi

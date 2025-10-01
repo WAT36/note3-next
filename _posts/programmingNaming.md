@@ -3,7 +3,7 @@ title: "プログラミングのネーミングのコツについてまとめる
 excerpt: "コードの可読性と保守性を高めるための実践的なネーミングのコツをまとめる"
 coverImage: "/assets/posts/programmingNaming/name.png"
 date: "2024-12-26T21:36:41.000Z"
-updatedAt: "2024-12-26T21:36:41.000Z"
+updatedAt: '2025-09-30T23:06:42.000Z'
 tag: ["開発プロセス"]
 author:
   name: Tatsuroh Wakasugi
