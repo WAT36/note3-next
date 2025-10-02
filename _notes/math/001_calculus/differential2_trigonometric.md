@@ -2,8 +2,8 @@
 title: "微分の諸公式(2) - 三角関数"
 excerpt: "三角関数に関する微分の公式"
 coverImage: ""
-date: '2025-09-30T21:42:32.000Z'
-updatedAt: '2025-10-02T00:31:45.000Z'
+date: "2025-09-30T21:42:32.000Z"
+updatedAt: "2025-10-02T00:31:45.000Z"
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -98,7 +98,7 @@ $$
 ここで、$\lim_{x \rightarrow 0} \cos x  = 1$なので、はさみうちの原理により
 
 $$
-\lim_{x \rightarrow 0} \frac{\sin x}{x}  = 0
+\lim_{x \rightarrow 0} \frac{\sin x}{x}  = 1
 $$
 
 # 4. (sinx)’ = cosx
