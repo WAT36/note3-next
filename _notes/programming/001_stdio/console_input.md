@@ -2,8 +2,8 @@
 title: "コンソール入力"
 date: "2019-10-12T17:03:35.000Z"
 excerpt: ""
-tag: ["Java", "Python"]
-programming: ["Java", "Python"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-12T17:03:35.000Z"
 author:
   name: Tatsuroh Wakasugi
@@ -24,13 +24,8 @@ $ ./a.exe  (実行ファイル(またはプログラム))
 
 ```java
 import java.util.Scanner;
-public static void main(String args[]){
-  //Scannerのインスタンスを生成
-  Scanner sc = new Scanner(System.in);
-
-  //String型で１行読み込む
-  String s = sc.nextLine();
-}
+Scanner sc = new Scanner(System.in);
+String s = sc.nextLine();
 ```
 
 クラスはここでは Main.java とする
@@ -50,7 +45,7 @@ java でコンソールからの入力を扱うには **Scanner** クラスを�
 $ javac Main.java
 $ java Main
 10
-入力された値:10
+// s = "10"
 ```
 
 </div>
@@ -71,14 +66,62 @@ Python でコンソールからの入力を扱うには組み込み関数の **i
 ```
 $ python main.py
 10
-入力された値: 10
+# s = "10"
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-// 作成中。。。
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+rl.question("", (answer) => {});
+```
+
+JavaScript(Node.js)でコンソールからの入力を扱うには、**readline** モジュールを使用する。
+
+readline.createInterface() でインターフェースを作成し、rl.question() で入力を受け取る。
+コールバック関数の answer パラメータに入力値が文字列として渡される。
+
+実行例（上のファイルを main.js とする）
+
+```
+$ node main.js
+10
+// answer = "10"
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+package main
+import (
+    "fmt"
+    "bufio"
+    "os"
+)
+
+func main() {
+    reader := bufio.NewReader(os.Stdin)
+    input, _ := reader.ReadString('\n')
+}
+```
+
+Go 言語でコンソールからの入力を扱うには、**bufio** パッケージの NewReader を使用する。
+
+bufio.NewReader(os.Stdin) でリーダーを作成し、ReadString('\n') で改行文字まで読み込む。
+入力値は文字列として返される。
+
+実行例（上のファイルを main.go とする）
+
+```
+$ go run main.go
+10
+// input = "10\n"
 ```
 
 </div>
