@@ -2,8 +2,8 @@
 title: "標準エラー出力"
 date: "2019-10-12T17:25:47.000Z"
 excerpt: ""
-tag: ["Java", "Python", "Node.js"]
-programming: ["Java", "Python", "Node.js"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-12T17:25:47.000Z"
 author:
   name: Tatsuroh Wakasugi
@@ -16,38 +16,83 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-System.err.println(変数もしくは値);
+System.err.println("エラーメッセージ");
 ```
 
-クラスはここでは Main.java とする
+Java で標準エラー出力を扱うには、**System.err.println()** メソッドを使用する。
 
-基本標準出力と似ており、メソッドは **System.err.println()** を利用する。
+出力後改行したくない時は、**System.err.print()** を利用する。
+エラー情報は通常、例外処理時にエラーメッセージとして出力する。
 
-出力後改行したくない時は、同様に **System.err.print()** を利用する。
+実行例
 
-ただし、エラー出力は java の場合例外処理を受け取ったときに利用するため、そのときに出たエラーメッセージを出力するのが普通である。
+```
+$ javac Main.java
+$ java Main
+エラーメッセージ
+```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
 import sys
-print(x,file=sys.stderr) # xを画面にエラー出力する
+print("エラーメッセージ", file=sys.stderr)
 ```
 
-Python でエラー出力を扱うにはまず sys モジュールをインポートし、<br>
+Python で標準エラー出力を扱うには、sys モジュールをインポートし、
 print()の file パラメータに **sys.stderr** を指定する。
 
-</div>
-<div class="note_content_by_programming_language" id="note_content_Node.js">
+実行例
 
-```javascript
-console.error(変数もしくは値);
+```
+$ python main.py
+エラーメッセージ
 ```
 
-Javascript 及び Node.js では、同様に **console.error()** 関数を利用する。
-引数には出力したい値及び変数を入力する。
+</div>
+<div class="note_content_by_programming_language" id="note_content_Javascript">
 
-なお、Javascript では error 以外にも、警告情報としてコンソール画面に出力する **console.warn()** という関数もある。（テスト時などに利用できる）
+```javascript
+console.error("エラーメッセージ");
+```
+
+JavaScript(Node.js)で標準エラー出力を扱うには、**console.error()** 関数を使用する。
+
+警告情報を出力したい場合は、**console.warn()** 関数も利用できる。
+
+実行例
+
+```
+$ node main.js
+エラーメッセージ
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+package main
+import (
+    "fmt"
+    "os"
+)
+
+func main() {
+    fmt.Fprintln(os.Stderr, "エラーメッセージ")
+}
+```
+
+Go 言語で標準エラー出力を扱うには、**fmt.Fprintln()** 関数と **os.Stderr** を使用する。
+
+fmt.Fprintln(os.Stderr, 値) で標準エラー出力に値を出力する。
+出力後改行したくない時は、**fmt.Fprint()** を利用する。
+
+実行例（上のファイルを main.go とする）
+
+```
+$ go run main.go
+エラーメッセージ
+```
 
 </div>
