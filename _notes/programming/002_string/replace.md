@@ -2,8 +2,8 @@
 title: "文字列の置換"
 date: "2019-10-12T19:46:41.000Z"
 excerpt: "文字列を別の文字列に置換する"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2024-03-17T17:35:46.000Z"
 author:
   name: Tatsuroh Wakasugi
@@ -25,72 +25,85 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-"文字列".replace("文字列A","文字列B"); //文字列中の文字列Aを文字列Bに置換
+"Hello".replace("e", "a"); // "Hallo"
 ```
 
-java で文字列を置換したい時は **replace()** メソッドを使う。
+Java では String クラスの **replace()** メソッドで文字列を置換する。
 
-以下に使用例を示す。
+文字列自体は変更されないため、結果を変数に代入する必要がある。
+
+実行例
 
 ```java
 String s = "and";
-String t = s.replace("a","e");
-System.out.println(t); // end
+s = s.replace("a", "e"); // "end"
 ```
-
-上記例では"and"という文字列を replace メソッドで"a"を"e"に置換し、結果を表示している。結果として"end"という文字列が表示される。
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-"文字列".replace("文字列A","文字列B" [,count]) # 文字列中の文字列Aを(count個だけ)文字列Bに置換
+"Hello".replace("e", "a")  # "Hallo"
 ```
 
-Python では文字列型の str オブジェクトにメソッド **replace()** があり、これにより文字列中の文字を置換できる。
+Python では文字列型の **replace()** メソッドで文字列を置換する。
 
-これにより文字列中の old の部分を new に変換する。
+第 3 引数で置換回数を指定できる（省略時は全て置換）。
 
-また、オプション引数 count があり、指定すると先頭から count 個分の old のみを置換する。
-
-なお、文字列に old が無い場合は、置換されずにそのまま出力される。
-
-使用例を以下に示す。
+実行例
 
 ```python
 s = "and"
-t = s.replace("a","e")
-print(t)  # "end"
+s = s.replace("a", "e")  # "end"
 
 s = "andand"
-t = s.replace("a","e",1)
-print(t)  # "endand"
+s = s.replace("a", "e", 1)  # "endand"
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-"文字列".replace("文字列A", "文字列B"); //文字列中の文字列Aを文字列Bに置換
+"Hello".replace("e", "a"); // "Hallo"
 ```
 
-Javscript では文字列のメソッド **replace()** があり、これにより文字列中の文字を置換できる。
+JavaScript では文字列の **replace()** メソッドで文字列を置換する。
 
-置換対象の文字列 old は、文字列の他に正規表現の形でも入力できる。
+文字列を指定した場合は最初の一致のみ、正規表現の場合は全て置換する。
 
-文字列を入力した場合は最初の一致した箇所のみを置換し、正規表現の場合は一致した箇所全てを置換する。
-
-ただし、文字列自体が変換されるわけではないので、反映させたい場合は出力を元の変数に代入してやる必要がある。
-
-使用例を以下に示す。
+実行例
 
 ```javascript
-var s = "and and";
-var t = s.replace("a", "e");
-console.log(t); // "end and"
+let s = "and and";
+s = s.replace("a", "e"); // "end and"
+s = s.replace(/a/g, "e"); // "end end"
+```
 
-t = s.replace(/a/g, "e");
-console.log(t); // "end end"
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+package main
+import "strings"
+
+func main() {
+    s := "Hello"
+    result := strings.Replace(s, "e", "a", -1) // "Hallo"
+}
+```
+
+Go 言語では **strings** パッケージの **Replace()** 関数で文字列を置換する。
+
+第 4 引数で置換回数を指定する（-1 で全て置換）。
+
+実行例
+
+```go
+s := "and"
+s = strings.Replace(s, "a", "e", -1) // "end"
+
+s = "andand"
+s = strings.Replace(s, "a", "e", 1)   // "endand"
 ```
 
 </div>
