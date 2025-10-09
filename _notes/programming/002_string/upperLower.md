@@ -2,8 +2,8 @@
 title: "英字大文字・小文字に変換"
 date: "2019-10-11T20:32:45.000Z"
 excerpt: "英字文字列を全て英字大文字・小文字にする方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2024-03-17T17:19:18.000Z"
 author:
   name: Tatsuroh Wakasugi
@@ -18,72 +18,89 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-// 大文字に変換
-"文字列".toUpperCase();
-// 小文字に変換
-"文字列".toLowerCase();
+"Hello".toUpperCase(); // "HELLO"
+"Hello".toLowerCase(); // "hello"
 ```
 
-クラスはここでは Main.java とする
+Java では String クラスの **toUpperCase()** 及び **toLowerCase()** メソッドで文字列を大文字・小文字に変換する。
 
-Java では String クラスに **toUpperCase()** 及び **toLowerCase()** というメソッドがあり、これにより文字列を全て英大文字・小文字に変換して表示してくれる。
+文字列自体は変更されないため、結果を変数に代入する必要がある。
 
-ただし、文字列自体が変換されるわけではないので、反映させたい場合は出力を元の変数に代入してやる必要がある。以下に例を示す。
+実行例
 
 ```java
 String s = "aAa";
-// 文字列を大文字にする
-s = s.toUpperCase();
-System.out.println(s); // "AAA"
-// 文字列を小文字にする
-s = s.toLowerCase();
-System.out.println(s); // "aaa"
+s = s.toUpperCase(); // "AAA"
+s = s.toLowerCase(); // "aaa"
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-# 大文字に変換
-"文字列".upper()
-# 小文字に変換
-"文字列".lower()
+"Hello".upper()   # "HELLO"
+"Hello".lower()   # "hello"
 ```
 
-Python は文字列型の str オブジェクトにメソッド **upper()** 及び **lower()** があり、これにより文字列を全て大文字・小文字にできる。
+Python では文字列型の **upper()** 及び **lower()** メソッドで文字列を大文字・小文字に変換する。
 
-ただし、これも文字列自体が変換されるわけではないので、反映させたい場合は出力を元の変数に代入してやる必要がある。
-以下に例を示す。
+文字列自体は変更されないため、結果を変数に代入する必要がある。
+
+実行例
 
 ```python
 s = "aAa"
-s = s.upper()
-print(s) # "AAA"
-s = s.lower()
-print(s) # "aaa"
+s = s.upper()  # "AAA"
+s = s.lower()  # "aaa"
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-// 大文字に変換
-"文字列".toUpperCase();
-// 小文字に変換
-"文字列".toLowerCase();
+"Hello".toUpperCase(); // "HELLO"
+"Hello".toLowerCase(); // "hello"
 ```
 
-Javascript ではメソッド **toUpperCase()** 及び**toLowerCase()** により文字列を全て大文字・小文字にできる。
+JavaScript では文字列の **toUpperCase()** 及び **toLowerCase()** メソッドで文字列を大文字・小文字に変換する。
 
-ただし、これも文字列自体が変換されるわけではないので、反映させたい場合は出力を元の変数に代入してやる必要がある。
-以下に例を示す。
+文字列自体は変更されないため、結果を変数に代入する必要がある。
+
+実行例
 
 ```javascript
-var s = "aAa";
-s = s.toUpperCase();
-console.log(s); // "AAA"
-s = s.toLowerCase();
-console.log(s); // "aaa"
+let s = "aAa";
+s = s.toUpperCase(); // "AAA"
+s = s.toLowerCase(); // "aaa"
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+package main
+import (
+    "strings"
+    "fmt"
+)
+
+func main() {
+    s := "Hello"
+    upper := strings.ToUpper(s) // "HELLO"
+    lower := strings.ToLower(s) // "hello"
+}
+```
+
+Go 言語では **strings** パッケージの **ToUpper()** 及び **ToLower()** 関数で文字列を大文字・小文字に変換する。
+
+これらの関数は新しい文字列を返すため、結果を変数に代入する必要がある。
+
+実行例
+
+```go
+s := "aAa"
+s = strings.ToUpper(s) // "AAA"
+s = strings.ToLower(s) // "aaa"
 ```
 
 </div>
