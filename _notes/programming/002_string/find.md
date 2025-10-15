@@ -2,8 +2,8 @@
 title: "文字列2が文字列1の何文字目から始まるかを確認する"
 date: "2019-10-15T20:19:30.000Z"
 excerpt: "文字列中にある文字列が含まれているときにその位置を確認する"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-15T20:19:30.000Z"
 author:
   name: Tatsuroh Wakasugi
@@ -18,124 +18,83 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-"文字列１".indexOf("文字列２" [,開始位置])
+"Hello".indexOf("ell"); // 1
 ```
 
-`public int indexOf(String str)`
+Java では String の **indexOf()** メソッドで文字列の位置を取得する。
 
-Java では String のメソッドである **indexOf()** を利用する。
+見つからない場合は `-1` を返す。第 2 引数で開始位置を指定可能。
 
-このメソッドは、文字列内で指定された部分文字列が最初に出現する位置のインデックスを返す。
-
-文字列の途中の位置から検索したい場合は下記のメソッドを利用する。
-
-`public int indexOf(String str, int fromIndex)`
-
-このメソッドは文字列の fromIndex 番目以降の文字列で部分文字列が最初に出現する位置のインデックスを返す。
-
-ちなみに部分文字列が存在しない場合は-1 を返す。
+実行例
 
 ```java
-class Main{
-    public static void main(String args[]){
-        String s = "apple,banana,cherry,durian";
-        System.out.println(s.indexOf("banana"));
-
-        System.out.println(s.indexOf("banana",10));
-    }
-}
-```
-
-```
-$ javac Main.java
-$ java Main
-6
--1
+String s = "apple,banana,cherry";
+int pos = s.indexOf("banana"); // 6
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-"文字列１".find("文字列２" [,開始位置])
-
-# 文字列の末尾から検索
-"文字列１".rfind("文字列２")
+"Hello".find("ell")    # 1
+"Hello".rfind("l")     # 3
 ```
 
-python では文字列 str の関数**find**関数を使う。
+Python では文字列の **find()** メソッドで文字列の位置を取得する。
 
-`str.find(sub[, start[, end]])`
+**rfind()** で右から検索も可能。見つからない場合は `-1` を返す。
 
-sub には検索したい部分文字列を入力する。
-
-実行結果には、str の中で sub が最初に現れる位置のインデックスが返される。
-
-存在しない場合には-1 が返る。
-
-str の指定した範囲内だけで検索したい場合には、引数 start,end に値を指定して実行する。
+実行例
 
 ```python
->>> s = "apple,banana,cherry"
->>>
->>> s.find("banana")
-6
->>>
->>> s.find("banana",10)
--1
->>>
-```
-
-また、文字列を右から検索する関数**rfind**もある。
-
-```python
->>> s.rfind("banana")
-6
->>>
->>> s.find("a")
-0
->>> s.rfind("a")
-11
->>>
+s = "apple,banana,cherry"
+pos = s.find("banana")  # 6
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-"文字列１".indexOf("文字列２" [,開始位置])
-
-// 文字列の末尾から検索
-"文字列１".lastIndexOf("文字列２")
+"Hello".indexOf("ell"); // 1
+"Hello".lastIndexOf("l"); // 3
 ```
 
-javascript では文字列 String の関数 **indexOf()** または **lastIndexOf()** 関数を使う。
+JavaScript では文字列の **indexOf()** メソッドで文字列の位置を取得する。
 
-`String.indexOf(serachvalue[, fromIndex])`
+**lastIndexOf()** で右から検索も可能。見つからない場合は `-1` を返す。
 
-`String.lastIndexOf(serachvalue[, fromIndex])`
-
-indexOf 関数は文字列前方から検索を行い、lastIndexOf 関数は文字列後方から検索を行う。
-
-searchvalue には文字列中で検索したい文字列を入力する。
-
-実行結果には、String の中で searchvalue が最初に現れる位置のインデックスが返される。
-
-存在しない場合には-1 が返る。
-
-String の指定した位置からの範囲内だけで検索したい場合には、引数 fromIndex に値を指定して実行する。
+実行例
 
 ```javascript
 let s = "apple,banana,cherry";
-console.log(s.indexOf("banana"));
-console.log(s.indexOf("banana", 10));
+let pos = s.indexOf("banana"); // 6
 ```
 
-実行結果
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
 
+```go
+package main
+import (
+    "strings"
+    "fmt"
+)
+
+func main() {
+    s := "Hello"
+    pos := strings.Index(s, "ell") // 1
+}
 ```
-6
--1
+
+Go 言語では **strings** パッケージの **Index()** 関数で文字列の位置を取得する。
+
+見つからない場合は `-1` を返す。**LastIndex()** で右から検索も可能。
+
+実行例
+
+```go
+s := "apple,banana,cherry"
+pos := strings.Index(s, "banana") // 6
 ```
 
 </div>
