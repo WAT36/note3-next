@@ -2,8 +2,8 @@
 title: "リストの全要素の合計値"
 date: "2019-10-25T19:35:30+09:00"
 excerpt: "リストの全要素の合計値を取得する方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-25T19:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -17,71 +17,108 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-// 作成中・・
+List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+int sum = list.stream().mapToInt(Integer::intValue).sum();  // 15
+```
+
+Java 8 以降では**Stream API**を使用してリストの要素を合計できる。
+
+- `stream()`: リストを Stream に変換
+- `mapToInt()`: 各要素を int 型に変換
+- `sum()`: 合計値を計算
+
+```java
+List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+int sum = list.stream()
+              .mapToInt(Integer::intValue)
+              .sum();
+System.out.println(sum);  // 15
+
+// ラムダ式を使った方法
+int sum2 = list.stream()
+               .reduce(0, Integer::sum);
+System.out.println(sum2); // 15
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-sum(リスト)
+arr = [1, 2, 3, 4, 5]
+total = sum(arr)  # 15
 ```
 
-Python では組み込み関数として **sum()** という関数があり、引数として受け取ったイテラブルな値（リストなど）の全要素の合計値を算出してくれる。  
-文字列など、計算が行えない値が入っていた場合はエラーになる。
+Python では組み込み関数**sum()**でリストの全要素の合計値を計算できる。
 
 ```python
->>> a=[1,2,3,4,5,6,7,8,9,10]
->>> sum(a)
-55
->>>
->>> b=['a','bb','ccc','dddd','eeeee']
->>> sum(b)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: unsupported operand type(s) for +: 'int' and 'str'
->>>
+arr = [1, 2, 3, 4, 5]
+total = sum(arr)
+print(total)  # 15
+
+# 初期値を指定することもできる
+total_with_initial = sum(arr, 10)
+print(total_with_initial)  # 25 (15 + 10)
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-Array.reduce((a, b) => a + b, 0);
+let arr = [1, 2, 3, 4, 5];
+let sum = arr.reduce((a, b) => a + b, 0); // 15
 ```
 
-javascript の Array オブジェクトには、要素の合計値を求める専用のメソッドはないため、Array オブジェクトのメソッドである**reduce**を利用して求める。
+JavaScript では**reduce()**メソッドで配列の全要素の合計値を計算できる。
 
-```
-Array.reduce(func,initialValue)
-```
-
-reduce メソッドは、Array オブジェクトの要素を順に見ていき、指定した関数 func の処理を行わせる。この関数 func は、第一引数に前の要素に関数を適用した際の実行結果(accumulator)を、第二引数に Array オブジェクトの要素(currentValue)を取り、何らかの処理を行わせた結果を出力させる。その結果が、さらに次の要素に処理するときの実行結果として使われる。Array オブジェクトの最初の要素を見るときに使われる前の要素の実行結果として、reduce メソッドの第二引数に初期値(innitialValue)を設定する。最終的には、全ての要素に対して処理が終わった時の計算結果が出力される。
+`reduce()`は配列の各要素に対して関数を適用し、単一の値にまとめる。
 
 ```javascript
-Array.reduce((accumulator, currentValue) => {
-  return; // 何らかの処理
-}, initialValue);
-```
-
-このとき、initialValue を 0 とし、関数には現在の要素に前の要素での実行結果を足し合わせていくようにさせると、最終的に全要素の合計値が出力されるようになる。
-
-```javascript
-Array.reduce((accumulator, currentValue) => {
-  return accumulator + currentValue;
-}, initialValue);
-```
-
-実行例を以下に示す。
-
-```javascript
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let result = arr.reduce((accumulator, currentValue) => {
+let arr = [1, 2, 3, 4, 5];
+let sum = arr.reduce((accumulator, currentValue) => {
   return accumulator + currentValue;
 }, 0);
+console.log(sum); // 15
 
-console.log(result);
-// 55
+// より簡潔な書き方
+let sum2 = arr.reduce((a, b) => a + b, 0);
+console.log(sum2); // 15
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+slice := []int{1, 2, 3, 4, 5}
+sum := 0
+for _, v := range slice {
+    sum += v
+}
+// sum = 15
+```
+
+Go ではループを使用してスライスの全要素の合計値を計算する。
+
+標準ライブラリには合計を計算する関数がないため、`for range`ループで各要素を加算する。
+
+```go
+slice := []int{1, 2, 3, 4, 5}
+sum := 0
+for _, v := range slice {
+    sum += v
+}
+fmt.Println(sum)  // 15
+
+// 関数として定義する場合
+func sumSlice(nums []int) int {
+    total := 0
+    for _, num := range nums {
+        total += num
+    }
+    return total
+}
+
+result := sumSlice([]int{1, 2, 3, 4, 5})
+fmt.Println(result)  // 15
 ```
 
 </div>
