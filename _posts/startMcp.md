@@ -64,9 +64,9 @@ AI アプリケーション（Claude Desktop、Cursor、ChatGPT など）が MCP
 
 という体験をします。
 
----
+## 前提
 
-## 🧩 前提
+---
 
 - Node.js（v18 以上）
 - npm または pnpm
@@ -152,7 +152,7 @@ app.post("/mcp", async (req, res) => {
   await transport.handleRequest(req, res, req.body);
 });
 
-const port = parseInt(process.env.PORT || "3000", 10);
+const port = parseInt(process.env.PORT || "3001", 10);
 app
   .listen(port, () => {
     console.log(`✅ MCP server running at http://localhost:${port}/mcp`);
@@ -186,10 +186,10 @@ npx ts-node server.ts
 2. 右上の「作成する」をクリック
 3. フォームを埋めて完成する。今回はたとえば以下を入力：
 
-   ```plaintext
-   Name: Local Date Server
-   URL: http://localhost:3001
-   ```
+```plaintext
+Name: Local Date Server
+URL: http://localhost:3001
+```
 
 4. 「Connect」を押す
 
