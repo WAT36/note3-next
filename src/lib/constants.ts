@@ -31,6 +31,7 @@ export const DIR_NAME = {
   "004_webTech": "その他のWeb関連技術",
 
   "001_calculus": "微分・積分",
+  "002_linear_algebra": "線形代数",
 
   "001_stdio": "標準入力・出力",
   "002_string": "文字列",
