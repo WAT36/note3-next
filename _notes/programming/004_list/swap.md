@@ -2,8 +2,8 @@
 title: "リスト内の指定した２要素を入れ替える"
 date: "2019-10-27T04:35:30+09:00"
 excerpt: "リスト内の指定した２要素を入れ替える方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-27T04:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -16,100 +16,104 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-import java.util.Collections;
-Collections.swap(リスト,a,b) //リストのa番目の要素とb番目の要素を入れ替える
+List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+Collections.swap(list, 0, 2);  // インデックス0と2を入れ替え
 ```
 
-Java は List の親クラスである Collections クラスに **swap()** メソッドがあるので、これを利用する。  
-`public static void swap(List<?> list,int i,int j)`  
-使用例を以下に示す。
+Java では**Collections.swap()**で指定した 2 つのインデックスの要素を入れ替える（破壊的）。
+
+`Collections.swap(list, i, j)`でインデックス`i`と`j`の要素を交換する。
 
 ```java
-import java.util.Collections;
-import java.util.ArrayList;
-import java.util.List;
-class Main{
+List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+System.out.println(list);  // [1, 2, 3, 4, 5]
 
-  //List println
-  public static void listprint(String name,List<Integer> l){
-    System.out.print(name + ": ");
-    for(int i=0;i<l.size();i++){
-      System.out.print(l.get(i) + " ");
-    }
-    System.out.println();
-  }
+Collections.swap(list, 0, 2);  // インデックス0と2を入れ替え
+System.out.println(list);      // [3, 2, 1, 4, 5]
 
-  public static void main(String args[]){
-    List<Integer> a = new ArrayList<Integer>();
-    a.add(1);
-    a.add(3);
-    a.add(100);
-    a.add(0);
-    listprint("a", a);
-
-    Collections.swap(a,0,2);
-
-    listprint("a", a);
-
-  }
-}
-```
-
-実行結果
-
-```
-> java Main
-a: 1 3 100 0
-a: 100 3 1 0
+Collections.swap(list, 1, 4);  // インデックス1と4を入れ替え
+System.out.println(list);      // [3, 5, 1, 4, 2]
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-#（リストの a 番目、b 番目の要素の入れ替え）
-リスト[a],リスト[b] = リスト[b],リスト[a]
+my_list = [1, 2, 3, 4, 5]
+my_list[0], my_list[2] = my_list[2], my_list[0]  # インデックス0と2を入れ替え
 ```
 
-Python ではリストの 2 要素の交換に関しての関数は特に無いが、上記のように書くことで要素の入れ替えが行える。
+Python では**多重代入**で指定した 2 つのインデックスの要素を入れ替える（破壊的）。
 
-使用例を以下に示す。
+`list[i], list[j] = list[j], list[i]`でインデックス`i`と`j`の要素を交換する。
 
 ```python
->>> a=[1,9,8,7,6,5,3,2]
->>> a
-[1, 9, 8, 7, 6, 5, 3, 2]
->>>
->>> a[0],a[2] = a[2],a[0]
->>>
->>> a
-[8, 9, 1, 7, 6, 5, 3, 2]
->>>
+my_list = [1, 2, 3, 4, 5]
+print(my_list)  # [1, 2, 3, 4, 5]
+
+my_list[0], my_list[2] = my_list[2], my_list[0]  # インデックス0と2を入れ替え
+print(my_list)  # [3, 2, 1, 4, 5]
+
+my_list[1], my_list[4] = my_list[4], my_list[1]  # インデックス1と4を入れ替え
+print(my_list)  # [3, 5, 1, 4, 2]
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-[array[i], array[j]] = [array[j], array[i]];
+let arr = [1, 2, 3, 4, 5];
+[arr[0], arr[2]] = [arr[2], arr[0]]; // インデックス0と2を入れ替え
 ```
 
-詳しくは後述するが、ここでは**分割代入**と言う手法を用いる。
+JavaScript では**分割代入**で指定した 2 つのインデックスの要素を入れ替える（破壊的）。
 
-上記のように、Array オブジェクト内の２要素を互いの場所へ分割代入させることで要素を入れ替えられる。
-
-使用例を以下に示す。
+`[arr[i], arr[j]] = [arr[j], arr[i]]`でインデックス`i`と`j`の要素を交換する。
 
 ```javascript
-let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-[arr[2], arr[8]] = [arr[8], arr[2]];
-console.log(arr);
+let arr = [1, 2, 3, 4, 5];
+console.log(arr); // [1, 2, 3, 4, 5]
+
+[arr[0], arr[2]] = [arr[2], arr[0]]; // インデックス0と2を入れ替え
+console.log(arr); // [3, 2, 1, 4, 5]
+
+[arr[1], arr[4]] = [arr[4], arr[1]]; // インデックス1と4を入れ替え
+console.log(arr); // [3, 5, 1, 4, 2]
+
+// 従来の方法（一時変数を使う）
+let arr2 = [1, 2, 3, 4, 5];
+let temp = arr2[0];
+arr2[0] = arr2[2];
+arr2[2] = temp;
+console.log(arr2); // [3, 2, 1, 4, 5]
 ```
 
-実行結果
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
 
+```go
+slice := []int{1, 2, 3, 4, 5}
+slice[0], slice[2] = slice[2], slice[0]  // インデックス0と2を入れ替え
 ```
-[0, 1, 8, 3, 4, 5, 6, 7, 2, 9]
+
+Go では**多重代入**で指定した 2 つのインデックスの要素を入れ替える（破壊的）。
+
+`slice[i], slice[j] = slice[j], slice[i]`でインデックス`i`と`j`の要素を交換する。
+
+```go
+slice := []int{1, 2, 3, 4, 5}
+fmt.Println(slice)  // [1 2 3 4 5]
+
+slice[0], slice[2] = slice[2], slice[0]  // インデックス0と2を入れ替え
+fmt.Println(slice)  // [3 2 1 4 5]
+
+slice[1], slice[4] = slice[4], slice[1]  // インデックス1と4を入れ替え
+fmt.Println(slice)  // [3 5 1 4 2]
+
+// 配列でも同様
+arr := [5]int{1, 2, 3, 4, 5}
+arr[0], arr[2] = arr[2], arr[0]
+fmt.Println(arr)  // [3 2 1 4 5]
 ```
 
 </div>
