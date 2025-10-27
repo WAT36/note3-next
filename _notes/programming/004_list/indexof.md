@@ -2,8 +2,8 @@
 title: "指定した要素のリスト内でのインデックスを調べる"
 date: "2019-10-27T08:35:30+09:00"
 excerpt: "指定した要素のリスト内でのインデックスを調べる方法"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-27T08:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -16,126 +16,278 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-リスト.indexOf(要素)
-//末尾から数えたい時は
-リスト.lastIndexOf(要素)
+int index = list.indexOf("要素");
 ```
 
-Java では List クラスにある **indexOf()** というメソッドで、要素があるインデックスを取得することができる。
+Java では**indexOf()**で指定した要素の最初のインデックスを取得できる。
 
-`int indexOf(Object o)`
-
-なお、リスト内に指定した要素が複数入っていた場合は、一番最初にある要素のインデックスを返す。  
-指定した要素がリスト内にない場合は、-1 を返す。
-
-また、リストで後ろの方から検索を行う **lastIndexOf()** というメソッドもある。
-
-`int lastIndexOf(Object o)`
-
-indexOf とは逆に、リスト内に指定した要素が複数入っていた場合は、一番最後にある要素のインデックスを返す。
-
-実行例を下記に示す。
+要素が複数ある場合は最初のインデックスを返す。見つからない場合は`-1`を返す。
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
-class Main{
+import java.util.*;
 
-  //List println
-  public static void listprint(String name,List<Integer> l){
-    System.out.print(name + ": ");
-    for(int i=0;i<l.size();i++){
-      System.out.print(l.get(i) + " ");
-    }
-    System.out.println();
-  }
+List<String> list = Arrays.asList("a", "b", "c", "b", "a");
+System.out.println(list); // [a, b, c, b, a]
 
-  public static void main(String args[]){
-    List<Integer> l = new ArrayList<Integer>();
-    l.add(1);
-    l.add(3);
-    l.add(100);
-    l.add(0);
-    l.add(3);
+// 先頭から検索
+int index1 = list.indexOf("b");
+System.out.println(index1); // 1
 
-    listprint("l", l);
+// 要素が見つからない場合
+int index2 = list.indexOf("z");
+System.out.println(index2); // -1
 
-    System.out.println("index of \'1\': " + l.indexOf(1));
-    System.out.println("index of \'3\': " + l.indexOf(3));
-    System.out.println("index of \'5\': " + l.indexOf(5));
+// 末尾から検索
+int index3 = list.lastIndexOf("b");
+System.out.println(index3); // 3
 
-    System.out.println("last index of \'1\': " + l.lastIndexOf(1));
-    System.out.println("last index of \'3\': " + l.lastIndexOf(3));
-    System.out.println("last index of \'5\': " + l.lastIndexOf(5));
-  }
+int index4 = list.lastIndexOf("a");
+System.out.println(index4); // 4
+```
+
+**見つからない場合のチェック**:
+
+```java
+List<String> list = Arrays.asList("a", "b", "c");
+int index = list.indexOf("z");
+
+if (index == -1) {
+    System.out.println("要素が見つかりません");
+} else {
+    System.out.println("インデックス: " + index);
 }
-```
-
-実行結果
-
-```
-> java Main
-l: 1 3 100 0 3
-index of '1': 0
-index of '3': 1
-index of '5': -1
-last index of '1': 0
-last index of '3': 4
-last index of '5': -1
+// 要素が見つかりません
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-リスト.index(値)
+index = my_list.index("要素")
 ```
 
-Python ではリストの関数に **index()** というのがあり、引数に指定した要素のリスト内でのインデックスを返してくれる。  
-`list.index(x[, start[, end]])`  
-指定した要素 x がリスト内に複数ある場合は、リスト内の最初の要素のインデックスを返す。  
-リストの指定した範囲内のみで調べたい場合は、引数 start,end に値を設定して行うと、指定した範囲内で行える。  
-指定した要素 x がリスト内に無い場合 ValueError が返される。
+Python では**index()**で指定した要素の最初のインデックスを取得できる。
+
+要素が複数ある場合は最初のインデックスを返す。見つからない場合は`ValueError`が発生する。
 
 ```python
->>> a=[1,3,100,0,3]
->>>
->>> a.index(1)      #a全体で1を探索
-0
->>> a.index(3)      #a全体で3を探索
-1
->>> a.index(3,1)    #a[1]以降で3を探索
-1
->>> a.index(3,2)    #a[2]以降で3を探索
-4
->>> a.index(3,5)    #a[5]以降で3を探索 -> 無いのでエラー
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-ValueError: 3 is not in list
->>>
+my_list = ["a", "b", "c", "b", "a"]
+print(my_list)  # ['a', 'b', 'c', 'b', 'a']
+
+# 先頭から検索
+index1 = my_list.index("b")
+print(index1)  # 1
+
+# 指定位置から検索（第2引数: 開始位置）
+index2 = my_list.index("b", 2)  # インデックス2以降で検索
+print(index2)  # 3
+
+# 範囲指定検索（第2引数: 開始位置、第3引数: 終了位置）
+index3 = my_list.index("a", 0, 3)  # インデックス0〜3の範囲で検索
+print(index3)  # 0
+```
+
+**見つからない場合のエラーハンドリング**:
+
+```python
+my_list = ["a", "b", "c"]
+
+try:
+    index = my_list.index("z")
+    print("インデックス:", index)
+except ValueError:
+    print("要素が見つかりません")
+# 要素が見つかりません
+```
+
+**末尾から検索する方法**:
+
+Python には`lastIndexOf()`がないため、リストを逆順にして検索する。
+
+```python
+my_list = ["a", "b", "c", "b", "a"]
+
+# 末尾からのインデックスを取得
+reversed_index = my_list[::-1].index("b")
+last_index = len(my_list) - 1 - reversed_index
+print(last_index)  # 3
+
+# または、inを使った方法
+def last_index_of(lst, value):
+    for i in range(len(lst) - 1, -1, -1):
+        if lst[i] == value:
+            return i
+    raise ValueError(f"{value} is not in list")
+
+print(last_index_of(my_list, "b"))  # 3
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-Array.indexOf(要素 [,検索開始位置])
-//末尾から数えたい時は
-Array.lastIndexOf(要素 [,検索開始位置])
+let index = arr.indexOf("要素");
 ```
 
-Javascript では Array オブジェクトに**indexOf**メソッドがあり、これを利用すると指定した要素と同じ要素を先頭から探し出し、Array オブジェクトのどの位置にあるかを出力してくれる。（先頭からでなく、指定した位置から検索したい時は、第２引数にその位置を指定する。）
+JavaScript では**indexOf()**で指定した要素の最初のインデックスを取得できる。
 
-先頭からではなく、末尾から検索したいときは、同じく Array オブジェクトの**lastIndexOf**メソッドを利用する。こちらも同じく指定した位置から検索したい時は、第２引数にその位置を指定する。
-
-例を以下に示す。
+要素が複数ある場合は最初のインデックスを返す。見つからない場合は`-1`を返す。
 
 ```javascript
 let arr = ["a", "b", "c", "b", "a"];
-console.log(arr.indexOf("b")); // 1
-console.log(arr.indexOf("b", 2)); // 3
-console.log(arr.lastIndexOf("b")); // 3
-console.log(arr.lastIndexOf("b", 2)); // 1
+console.log(arr); // ['a', 'b', 'c', 'b', 'a']
+
+// 先頭から検索
+let index1 = arr.indexOf("b");
+console.log(index1); // 1
+
+// 指定位置から検索（第2引数: 開始位置）
+let index2 = arr.indexOf("b", 2); // インデックス2以降で検索
+console.log(index2); // 3
+
+// 要素が見つからない場合
+let index3 = arr.indexOf("z");
+console.log(index3); // -1
+
+// 末尾から検索
+let index4 = arr.lastIndexOf("b");
+console.log(index4); // 3
+
+let index5 = arr.lastIndexOf("a");
+console.log(index5); // 4
+
+// 末尾から検索（第2引数: 検索開始位置）
+let index6 = arr.lastIndexOf("b", 2); // インデックス2から後ろ向きに検索
+console.log(index6); // 1
+```
+
+**見つからない場合のチェック**:
+
+```javascript
+let arr = ["a", "b", "c"];
+let index = arr.indexOf("z");
+
+if (index === -1) {
+  console.log("要素が見つかりません");
+} else {
+  console.log("インデックス:", index);
+}
+// 要素が見つかりません
+```
+
+**includes()を使った存在確認**:
+
+インデックスが不要で、要素の存在のみを確認したい場合は`includes()`が便利。
+
+```javascript
+let arr = ["a", "b", "c"];
+console.log(arr.includes("b")); // true
+console.log(arr.includes("z")); // false
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+index := slices.Index(slice, "要素")
+```
+
+Go では**slices.Index()**（Go 1.21+）で指定した要素の最初のインデックスを取得できる。
+
+要素が複数ある場合は最初のインデックスを返す。見つからない場合は`-1`を返す。
+
+```go
+import (
+    "fmt"
+    "slices"
+)
+
+slice := []string{"a", "b", "c", "b", "a"}
+fmt.Println(slice) // [a b c b a]
+
+// 先頭から検索
+index1 := slices.Index(slice, "b")
+fmt.Println(index1) // 1
+
+// 要素が見つからない場合
+index2 := slices.Index(slice, "z")
+fmt.Println(index2) // -1
+```
+
+**Go 1.21 未満の場合（ループで実装）**:
+
+```go
+func indexOf(slice []string, target string) int {
+    for i, v := range slice {
+        if v == target {
+            return i
+        }
+    }
+    return -1
+}
+
+slice := []string{"a", "b", "c", "b", "a"}
+index := indexOf(slice, "b")
+fmt.Println(index) // 1
+```
+
+**末尾から検索する方法**:
+
+```go
+func lastIndexOf(slice []string, target string) int {
+    for i := len(slice) - 1; i >= 0; i-- {
+        if slice[i] == target {
+            return i
+        }
+    }
+    return -1
+}
+
+slice := []string{"a", "b", "c", "b", "a"}
+lastIndex := lastIndexOf(slice, "b")
+fmt.Println(lastIndex) // 3
+```
+
+**見つからない場合のチェック**:
+
+```go
+slice := []string{"a", "b", "c"}
+index := slices.Index(slice, "z")
+
+if index == -1 {
+    fmt.Println("要素が見つかりません")
+} else {
+    fmt.Printf("インデックス: %d\n", index)
+}
+// 要素が見つかりません
+```
+
+**slices.Contains()を使った存在確認（Go 1.21+）**:
+
+インデックスが不要で、要素の存在のみを確認したい場合は`slices.Contains()`が便利。
+
+```go
+slice := []string{"a", "b", "c"}
+fmt.Println(slices.Contains(slice, "b")) // true
+fmt.Println(slices.Contains(slice, "z")) // false
+```
+
+**数値スライスの例**:
+
+```go
+numbers := []int{1, 2, 3, 2, 1}
+index := slices.Index(numbers, 2)
+fmt.Println(index) // 1
+
+lastIndex := func(slice []int, target int) int {
+    for i := len(slice) - 1; i >= 0; i-- {
+        if slice[i] == target {
+            return i
+        }
+    }
+    return -1
+}(numbers, 2)
+fmt.Println(lastIndex) // 3
 ```
 
 </div>
