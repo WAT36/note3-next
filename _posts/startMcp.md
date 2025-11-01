@@ -56,11 +56,11 @@ AI アプリケーション（Claude Desktop、Cursor、ChatGPT など）が MCP
 
 クライアントとサーバーが共通の「言語」で話すためのルールです。これにより、異なる開発者が作ったサーバーでも、どのクライアントからでも使えるようになります。
 
-# ハンズオン：最小の MCP サーバーを作って ChatGPT とつなげる
+# ハンズオン：最小の MCP サーバーを作って Cursor から利用する
 
 あなたのローカル PC で
 
-> 「ChatGPT から、MCP サーバーを通じてローカルの API を呼び出す」
+> 「Cursor からローカルの MCP サーバー（stdio 方式）を使う」
 
 という体験をします。
 
@@ -70,8 +70,7 @@ AI アプリケーション（Claude Desktop、Cursor、ChatGPT など）が MCP
 
 - Node.js（v18 以上）
 - npm または pnpm
-- ChatGPT (GPT-4-turbo 以上, MCP 対応版)
-  - ※ChatGPT Desktop アプリ or Web 版（MCP 接続対応環境）
+- Cursor
 
 ---
 
@@ -81,8 +80,37 @@ AI アプリケーション（Claude Desktop、Cursor、ChatGPT など）が MCP
 mkdir mcp-demo
 cd mcp-demo
 npm init -y
-npm install express zod @modelcontextprotocol/sdk
-npm install --save-dev @types/express
+npm i @modelcontextprotocol/sdk zod
+npm i -D typescript tsx @types/node
+npx tsc --init
+```
+
+tsconfig.json は以下の通りです（要点のみ記載）
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "dist"
+  },
+  "include": ["server.ts"]
+}
+```
+
+package.json の scripts を以下の通り定義します。
+
+```json
+{
+  "scripts": {
+    "dev": "tsx server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  }
+}
 ```
 
 ## ステップ 2. MCP サーバーファイルを作成
@@ -91,31 +119,27 @@ npm install --save-dev @types/express
 
 このサーバーは**「今日の日付を返すだけ」**という超シンプルな MCP サーバーです。
 
+McpServer と stdio トランスポート（StdioServerTransport）で、入力なしのツール current_date を 1 つだけ公開します。
+
 ```typescript
 // server.ts
-import express from "express";
 import { z } from "zod";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 
-// 1) MCPサーバー本体
 const server = new McpServer({
-  name: "date-info-server",
+  name: "local-date-server",
   version: "1.0.0",
 });
 
-// 2) ツール登録（今日の日付を返すだけ）
+// 入力なし→現在日時を返す最小ツール
 server.registerTool(
   "current_date",
   {
     title: "Current Date Tool",
-    description: "Return current date/time and weekday in ja-JP",
-    inputSchema: {}, // 入力なし
-    outputSchema: {
-      // 返却の構造化出力（任意）
-      now: z.string(),
-      weekday: z.string(),
-    },
+    description: "Return current date/time and weekday (ja-JP)",
+    inputSchema: {},
+    outputSchema: { now: z.string(), weekday: z.string() },
   },
   async () => {
     const d = new Date();
@@ -124,95 +148,74 @@ server.registerTool(
       weekday: d.toLocaleDateString("ja-JP", { weekday: "long" }),
     };
     return {
-      // LLM向けのテキスト応答
       content: [{ type: "text", text: JSON.stringify(output) }],
-      // 構造化データ（Apps/Inspector等が利用）
       structuredContent: output,
     };
   }
 );
 
-// 3) HTTPエンドポイント（/mcp にJSON-RPCを出す）
-const app = express();
-app.use(express.json());
-
-app.post("/mcp", async (req, res) => {
-  // リクエスト毎にTransportを作成するのが推奨
-  const transport = new StreamableHTTPServerTransport({
-    sessionIdGenerator: undefined,
-    enableJsonResponse: true,
-  });
-
-  res.on("close", () => transport.close());
-
-  // サーバーをトランスポートへ接続
+// === stdio で待ち受け（Cursor などがサブプロセスとして起動）===
+async function main() {
+  const transport = new StdioServerTransport();
   await server.connect(transport);
-
-  // リクエスト処理（JSON-RPC）
-  await transport.handleRequest(req, res, req.body);
+}
+main().catch((e) => {
+  console.error("MCP server failed:", e);
+  process.exit(1);
 });
-
-const port = parseInt(process.env.PORT || "3001", 10);
-app
-  .listen(port, () => {
-    console.log(`✅ MCP server running at http://localhost:${port}/mcp`);
-  })
-  .on("error", (err) => {
-    console.error("Server error:", err);
-    process.exit(1);
-  });
 ```
 
 ## ステップ 3. 起動
 
-```bash
-npx ts-node server.ts
-#node server.js
-```
+作り終えたら、ローカルで動作するか確認します。
 
-起動すると
+とりあえず起動できれば OK です（実行自体は Cursor 側から行います）
 
 ```bash
-✅ MCP server running on http://localhost:3001
+npm run dev
 ```
 
-と出れば OK です。
+## ステップ 4. Cursor 側の設定
 
-## ステップ 4. ChatGPT 側で接続する
+Cursor は グローバル または プロジェクト単位で MCP サーバーを登録できます。
+ここではプロジェクト単位（.cursor/mcp.json）で設定します。UI から追加する場合のガイドも含め、多数の例が公開されています。
 
-### ChatGPT Desktop アプリを使っている場合
+プロジェクト直下にフォルダを作って設定ファイルを置きます。
 
-1. ChatGPT アプリの左下「⚙️ 設定 → アプリとコネクター → 高度な設定 → 開発者モード を有効化
-2. 右上の「作成する」をクリック
-3. フォームを埋めて完成する。今回はたとえば以下を入力：
-
-```plaintext
-Name: Local Date Server
-URL: http://localhost:3001
+```bash
+mkdir -p .cursor
 ```
 
-4. 「Connect」を押す
-
-接続成功すると、ChatGPT が自動で MCP サーバーのリソースを認識します。
-
----
-
-## ステップ 5. ChatGPT に話しかける
-
-ChatGPT に次のように入力します：
-
-> この MCP サーバーから現在の日付情報を取得して。
-
-すると、ChatGPT が MCP サーバーを通じてデータを取得し、
-
-以下のような結果を返すはずです。
+.cursor/mcp.json
 
 ```json
 {
-  "now": "2025-10-06T09:10:00.123Z",
-  "weekday": "月曜日"
+  "mcpServers": {
+    "local-date-server": {
+      "command": "node",
+      "args": ["node_modules/.bin/tsx", "server.ts"],
+      "transport": { "type": "stdio" },
+      "env": {}
+    }
+  }
 }
 ```
+
+開発中は npm run dev 用の tsx を直接呼んでも OK（ホットに近い体験）。
+
+本番運用寄りにするなら npm run build && npm start を先に実行し、node dist/server.js を指定。
+
+## ステップ 5. Cursor で利用する
+
+プロジェクトを Cursor で開く
+
+（必要なら）npm run build で dist/server.js を作成
+
+新しいチャットで、例：current_date ツールを実行して
+
+と指示すると、local-date-server が起動され、MCP ツールが呼ばれます。
+
+実行時には「Run Tool」ボタンの承認が求められることがあります。
 
 これであなたは **MCP サーバーを構築・連携・実行する体験**を完了しました！
 
