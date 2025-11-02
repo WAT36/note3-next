@@ -16,247 +16,865 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-for(初期化式;条件式;変化式){
-    //処理
+for (int i = 0; i < n; i++) { }
+```
+
+Java では`for`文を使って繰り返し処理を行う。
+
+**基本構文**:
+
+```java
+for (初期化式; 条件式; 変化式) {
+    // 処理
 }
 ```
 
-Java での記法は上記の通りで、フローは以下の通り。
+実行フロー:
 
-1. 初期化式を実行する。
-2. 条件式を実行し true なら 3,false なら 6 へ行く。
-3. for 文の中身の処理が実行される。
-4. 変化式が実行される。
-5. 2.に戻る
-6. 終了する
+1. 初期化式を実行
+2. 条件式を評価（`false`なら終了）
+3. ループ本体を実行
+4. 変化式を実行
+5. 2 に戻る
 
-for 文の中の初期化式、条件式、変化式はコロン(;)で区切る必要がある。区切られてない場合などはコンパイルエラーが発生する。
-また、初期化式、変化式は無くても良い。
-
-実行例を以下に示す。
+**基本的な例**:
 
 ```java
-class Main{
-  public static void main(String args[]){
+// 0から4まで
+for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}
+// 出力: 0 1 2 3 4
 
-    for(int i=0;i<5;i++){
+// 10から1まで（降順）
+for (int i = 10; i > 0; i--) {
+    System.out.println(i);
+}
+// 出力: 10 9 8 7 6 5 4 3 2 1
+
+// 2ずつ増加
+for (int i = 0; i < 10; i += 2) {
       System.out.println(i);
-    }
+}
+// 出力: 0 2 4 6 8
+```
 
-    int j=0;
-    for(;j<5;){
-      System.out.println(j);
-      j++;
+**拡張 for 文（for-each）**:
+
+配列やコレクションの全要素を反復処理する場合に便利。
+
+```java
+int[] numbers = {1, 2, 3, 4, 5};
+
+// 拡張for文
+for (int num : numbers) {
+    System.out.println(num);
+}
+// 出力: 1 2 3 4 5
+
+// リストの場合
+List<String> fruits = Arrays.asList("apple", "banana", "cherry");
+for (String fruit : fruits) {
+    System.out.println(fruit);
+}
+// 出力: apple banana cherry
+```
+
+**ネストした for 文**:
+
+```java
+// 九九の表
+for (int i = 1; i <= 9; i++) {
+    for (int j = 1; j <= 9; j++) {
+        System.out.print(i * j + "\t");
     }
+    System.out.println();
+}
+```
+
+**break と continue**:
+
+```java
+// break: ループを抜ける
+for (int i = 0; i < 10; i++) {
+    if (i == 5) {
+        break; // i が 5 でループ終了
+    }
+    System.out.println(i);
+}
+// 出力: 0 1 2 3 4
+
+// continue: 次の反復へ
+for (int i = 0; i < 5; i++) {
+    if (i == 2) {
+        continue; // i が 2 の時はスキップ
+    }
+    System.out.println(i);
+}
+// 出力: 0 1 3 4
+```
+
+**ラベル付き break/continue**:
+
+ネストしたループで外側のループを制御できる。
+
+```java
+outer:
+for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+        if (i == 1 && j == 1) {
+            break outer; // 外側のループを抜ける
+        }
+        System.out.println("i=" + i + ", j=" + j);
   }
 }
 ```
 
-実行結果
+**初期化式・変化式の省略**:
 
+```java
+// 初期化式を省略
+int i = 0;
+for (; i < 5; i++) {
+    System.out.println(i);
+}
+
+// 変化式を省略
+for (int j = 0; j < 5; ) {
+    System.out.println(j);
+    j++;
+}
+
+// 無限ループ（すべて省略）
+for (;;) {
+    // 無限ループ
+    break; // 抜けるにはbreakが必要
+}
 ```
-> java Main
-0
-1
-2
-3
-4
-0
-1
-2
-3
-4
+
+**複数の変数**:
+
+```java
+for (int i = 0, j = 10; i < j; i++, j--) {
+    System.out.println("i=" + i + ", j=" + j);
+}
+// 出力: i=0, j=10
+//      i=1, j=9
+//      ...
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-for 変数 in シーケンス値
-# for i in range(N)     # 0~N-1
-# for i in range(M,N)   # M~N-1
-# for i in range(M,N,L) # M~N-1 L個おき
-
-for 変数 in イテレータ
-for インデックス,変数 in enumerate(イテレータ)
-# for i in [1,2,3]
-# for i,n in [1,2,3]
+for i in range(n): ...
 ```
 
-Python にも for 文はあるが、Java の時とは違い初期値や条件は設定しない。  
-Python では、リストなどのシーケンス型の値を用いてループ処理を実装する。記法は上記の通り。
+Python では`for`文を使ってイテラブルオブジェクトの要素を反復処理する。
 
-上記のように書くことで、シーケンス値に入っている値が 1 回のループで頭から順番に 1 個ずつ取り出され、それを元に for 文の処理が実行される。Java の拡張 for 文と似たようなものである。
-
-**enumerate**関数を利用すると、リストなどイテレータの値に加えインデックスも同時に取り出してくれる。
+**基本構文**:
 
 ```python
->>> #0..5のシーケンス型データ作成
->>> range(5)
-range(0, 5)
->>>
->>> for i in range(5):
-...     print(i)
-...
-0
-1
-2
-3
-4
->>>
->>> #リストで0..5のデータ作成
->>> l = list(range(5))
->>> l
-[0, 1, 2, 3, 4]
->>>
->>> for i in l:
-...     print(i)
-...
-0
-1
-2
-3
-4
->>>
+for 変数 in イテラブル:
+    # 処理
+```
+
+イテラブルには`range()`、リスト、タプル、文字列などを指定できる。
+
+**range()を使った基本的な例**:
+
+```python
+# 0から4まで
+for i in range(5):
+    print(i)
+# 出力: 0 1 2 3 4
+
+# 1から5まで
+for i in range(1, 6):
+    print(i)
+# 出力: 1 2 3 4 5
+
+# 0から10まで2ずつ
+for i in range(0, 11, 2):
+    print(i)
+# 出力: 0 2 4 6 8 10
+
+# 10から1まで（降順）
+for i in range(10, 0, -1):
+    print(i)
+# 出力: 10 9 8 7 6 5 4 3 2 1
+```
+
+**リストやタプルの反復**:
+
+```python
+# リストの反復
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+# 出力: apple banana cherry
+
+# タプルの反復
+numbers = (1, 2, 3, 4, 5)
+for num in numbers:
+    print(num)
+# 出力: 1 2 3 4 5
+```
+
+**文字列の反復**:
+
+```python
+text = "Python"
+for char in text:
+    print(char)
+# 出力: P y t h o n
+```
+
+**enumerate()でインデックスと値を取得**:
+
+```python
+fruits = ["apple", "banana", "cherry"]
+
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")
+# 出力: 0: apple
+#      1: banana
+#      2: cherry
+
+# 開始インデックスを指定
+for index, fruit in enumerate(fruits, start=1):
+    print(f"{index}: {fruit}")
+# 出力: 1: apple
+#      2: banana
+#      3: cherry
+```
+
+**辞書の反復**:
+
+```python
+person = {"name": "Alice", "age": 30, "city": "Tokyo"}
+
+# キーのみ
+for key in person:
+    print(key)
+# 出力: name age city
+
+# 値のみ
+for value in person.values():
+    print(value)
+# 出力: Alice 30 Tokyo
+
+# キーと値
+for key, value in person.items():
+    print(f"{key}: {value}")
+# 出力: name: Alice
+#      age: 30
+#      city: Tokyo
+```
+
+**zip()で複数のイテラブルを同時に反復**:
+
+```python
+names = ["Alice", "Bob", "Charlie"]
+ages = [30, 25, 35]
+cities = ["Tokyo", "Osaka", "Kyoto"]
+
+for name, age, city in zip(names, ages, cities):
+    print(f"{name} ({age}) lives in {city}")
+# 出力: Alice (30) lives in Tokyo
+#      Bob (25) lives in Osaka
+#      Charlie (35) lives in Kyoto
+```
+
+**ネストした for 文**:
+
+```python
+# 九九の表
+for i in range(1, 10):
+    for j in range(1, 10):
+        print(f"{i * j:3}", end="")
+    print()
+```
+
+**break と continue**:
+
+```python
+# break: ループを抜ける
+for i in range(10):
+    if i == 5:
+        break
+    print(i)
+# 出力: 0 1 2 3 4
+
+# continue: 次の反復へ
+for i in range(5):
+    if i == 2:
+        continue
+    print(i)
+# 出力: 0 1 3 4
+```
+
+**else 節**:
+
+`for`文には`else`節を付けることができ、ループが正常終了した時（`break`で抜けなかった時）に実行される。
+
+```python
+for i in range(5):
+    if i == 10:  # 条件を満たさない
+        break
+    print(i)
+else:
+    print("ループが正常に終了しました")
+# 出力: 0 1 2 3 4
+#      ループが正常に終了しました
+
+# breakで抜けた場合はelse節は実行されない
+for i in range(10):
+    if i == 5:
+        break
+    print(i)
+else:
+    print("ループが正常に終了しました")  # 実行されない
+# 出力: 0 1 2 3 4
+```
+
+**リスト内包表記**:
+
+`for`文の代わりにリスト内包表記を使うとより簡潔に書ける。
+
+```python
+# for文
+squares = []
+for i in range(5):
+    squares.append(i ** 2)
+print(squares)  # [0, 1, 4, 9, 16]
+
+# リスト内包表記
+squares = [i ** 2 for i in range(5)]
+print(squares)  # [0, 1, 4, 9, 16]
+
+# 条件付き
+evens = [i for i in range(10) if i % 2 == 0]
+print(evens)  # [0, 2, 4, 6, 8]
+```
+
+**無限ループ**:
+
+Python の`for`文では無限ループを直接書けないが、`while True`を使う。
+
+```python
+# while Trueで無限ループ
+count = 0
+while True:
+    print(count)
+    count += 1
+    if count >= 5:
+        break
+# 出力: 0 1 2 3 4
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-for (初期化式; 条件式; 変化式) {
-  //処理
-}
-// 連想配列、配列等は以下形式も可能
-// for ( 仮変数 in 連想配列 ){...}
-// for ( 仮変数 of 配列(列挙可能なオブジェクト) ){...}
+for (let i = 0; i < n; i++) {}
 ```
 
-Javascript での for 文も、Java と記法・フロー共に同じである。
+JavaScript では`for`文を使って繰り返し処理を行う。
 
-応用として、連想配列は`for(... in ... ){}`、配列などの列挙可能なオブジェクトに関しては`for(... of ...){}`の形式も可能である。
-
-以下に例を示す。
+**基本構文**:
 
 ```javascript
-// for ... in ...
-var points = {
-  sato: 100,
-  yamada: 90,
-  suzuki: 80,
+for (初期化式; 条件式; 変化式) {
+  // 処理
+}
+```
+
+実行フローは Java と同じ。
+
+**基本的な例**:
+
+```javascript
+// 0から4まで
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+// 出力: 0 1 2 3 4
+
+// 10から1まで（降順）
+for (let i = 10; i > 0; i--) {
+  console.log(i);
+}
+// 出力: 10 9 8 7 6 5 4 3 2 1
+
+// 2ずつ増加
+for (let i = 0; i < 10; i += 2) {
+  console.log(i);
+}
+// 出力: 0 2 4 6 8
+```
+
+**for...of（配列の反復）**:
+
+配列やイテラブルオブジェクトの値を反復処理する。
+
+```javascript
+let fruits = ["apple", "banana", "cherry"];
+
+for (let fruit of fruits) {
+  console.log(fruit);
+}
+// 出力: apple banana cherry
+
+// 文字列の反復
+for (let char of "Hello") {
+  console.log(char);
+}
+// 出力: H e l l o
+```
+
+**for...in（オブジェクトのキーの反復）**:
+
+オブジェクトのキーを反復処理する。
+
+```javascript
+let person = {
+  name: "Alice",
+  age: 30,
+  city: "Tokyo",
 };
 
-for (var key in points) {
-  console.log(`${key}:${points[key]}点`);
+for (let key in person) {
+  console.log(`${key}: ${person[key]}`);
 }
+// 出力: name: Alice
+//      age: 30
+//      city: Tokyo
 
-// for ... of ...
-var fruits = ["apple", "orange", "banana"];
+// 配列にも使えるがインデックスが文字列になるので注意
+let arr = ["a", "b", "c"];
+for (let index in arr) {
+  console.log(typeof index, index); // string 0, string 1, string 2
+}
+```
 
-for (var value of fruits) {
+**entries()でインデックスと値を取得**:
+
+```javascript
+let fruits = ["apple", "banana", "cherry"];
+
+for (let [index, fruit] of fruits.entries()) {
+  console.log(`${index}: ${fruit}`);
+}
+// 出力: 0: apple
+//      1: banana
+//      2: cherry
+```
+
+**Object.keys/values/entries の反復**:
+
+```javascript
+let person = {
+  name: "Alice",
+  age: 30,
+  city: "Tokyo",
+};
+
+// キーのみ
+for (let key of Object.keys(person)) {
+  console.log(key);
+}
+// 出力: name age city
+
+// 値のみ
+for (let value of Object.values(person)) {
   console.log(value);
 }
+// 出力: Alice 30 Tokyo
+
+// キーと値
+for (let [key, value] of Object.entries(person)) {
+  console.log(`${key}: ${value}`);
+}
+// 出力: name: Alice
+//      age: 30
+//      city: Tokyo
 ```
 
-実行結果
+**ネストした for 文**:
 
+```javascript
+// 九九の表
+for (let i = 1; i <= 9; i++) {
+  let line = "";
+  for (let j = 1; j <= 9; j++) {
+    line += i * j + "\t";
+  }
+  console.log(line);
+}
 ```
-sato:100点
-yamada:90点
-suzuki:80点
-apple
-orange
-banana
+
+**break と continue**:
+
+```javascript
+// break: ループを抜ける
+for (let i = 0; i < 10; i++) {
+  if (i === 5) {
+    break;
+  }
+  console.log(i);
+}
+// 出力: 0 1 2 3 4
+
+// continue: 次の反復へ
+for (let i = 0; i < 5; i++) {
+  if (i === 2) {
+    continue;
+  }
+  console.log(i);
+}
+// 出力: 0 1 3 4
+```
+
+**ラベル付き break/continue**:
+
+```javascript
+outer: for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 3; j++) {
+    if (i === 1 && j === 1) {
+      break outer; // 外側のループを抜ける
+    }
+    console.log(`i=${i}, j=${j}`);
+  }
+}
+```
+
+**配列メソッド（forEach, map, filter）**:
+
+`for`文の代わりに配列メソッドを使うとより関数型プログラミング的に書ける。
+
+```javascript
+let numbers = [1, 2, 3, 4, 5];
+
+// forEach: 各要素に対して処理を実行
+numbers.forEach((num, index) => {
+  console.log(`${index}: ${num}`);
+});
+
+// map: 各要素を変換して新しい配列を作成
+let squares = numbers.map((num) => num ** 2);
+console.log(squares); // [1, 4, 9, 16, 25]
+
+// filter: 条件を満たす要素で新しい配列を作成
+let evens = numbers.filter((num) => num % 2 === 0);
+console.log(evens); // [2, 4]
+
+// reduce: 配列を畳み込む
+let sum = numbers.reduce((acc, num) => acc + num, 0);
+console.log(sum); // 15
+```
+
+**無限ループ**:
+
+```javascript
+// すべて省略
+for (;;) {
+  // 無限ループ
+  break; // 抜けるにはbreakが必要
+}
+
+// while (true) も使える
+let count = 0;
+while (true) {
+  console.log(count);
+  count++;
+  if (count >= 5) {
+    break;
+  }
+}
+// 出力: 0 1 2 3 4
+```
+
+**複数の変数**:
+
+```javascript
+for (let i = 0, j = 10; i < j; i++, j--) {
+  console.log(`i=${i}, j=${j}`);
+}
+// 出力: i=0, j=10
+//      i=1, j=9
+//      ...
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Go">
 
 ```go
-for 初期化式;条件式;変化式 {
-  // 処理文
-}
+for i := 0; i < n; i++ { }
+```
 
-// 範囲節
-for 配列のインデックス, 配列の要素 := range 配列 {
-  // 処理文(配列の要素を頭から順にループ)
+Go では`for`文のみがループ構文である（`while`文は存在しない）。
+
+**基本構文**:
+
+```go
+for 初期化式; 条件式; 変化式 {
+    // 処理
 }
 ```
 
-Go での for 文の利用方法は上記の通り。
+実行フローは Java と同じ。括弧は不要。
 
-なお初期化式等は省略することもでき、全部省略した場合は無限ループとなる。
+**基本的な例**:
 
 ```go
+import "fmt"
+
+// 0から4まで
+for i := 0; i < 5; i++ {
+    fmt.Println(i)
+}
+// 出力: 0 1 2 3 4
+
+// 10から1まで（降順）
+for i := 10; i > 0; i-- {
+    fmt.Println(i)
+}
+// 出力: 10 9 8 7 6 5 4 3 2 1
+
+// 2ずつ増加
+for i := 0; i < 10; i += 2 {
+    fmt.Println(i)
+}
+// 出力: 0 2 4 6 8
+```
+
+**range（配列・スライスの反復）**:
+
+`range`を使うと、配列やスライスのインデックスと値を取得できる。
+
+```go
+fruits := []string{"apple", "banana", "cherry"}
+
+// インデックスと値を両方取得
+for index, fruit := range fruits {
+    fmt.Printf("%d: %s\n", index, fruit)
+}
+// 出力: 0: apple
+//      1: banana
+//      2: cherry
+
+// 値のみ取得（インデックスを無視）
+for _, fruit := range fruits {
+    fmt.Println(fruit)
+}
+// 出力: apple banana cherry
+
+// インデックスのみ取得
+for index := range fruits {
+    fmt.Println(index)
+}
+// 出力: 0 1 2
+```
+
+**map の反復**:
+
+```go
+person := map[string]interface{}{
+    "name": "Alice",
+    "age":  30,
+    "city": "Tokyo",
+}
+
+// キーと値を取得
+for key, value := range person {
+    fmt.Printf("%s: %v\n", key, value)
+}
+// 出力: name: Alice
+//      age: 30
+//      city: Tokyo
+// （順序は保証されない）
+
+// キーのみ
+for key := range person {
+    fmt.Println(key)
+}
+```
+
+**文字列の反復（rune）**:
+
+```go
+// 文字列をrangeで反復すると、rune（Unicode文字）を取得
+text := "Hello, 世界"
+
+for index, runeValue := range text {
+    fmt.Printf("%d: %c (Unicode: %U)\n", index, runeValue, runeValue)
+}
+// 出力: 0: H (Unicode: U+0048)
+//      1: e (Unicode: U+0065)
+//      ...
+//      7: 世 (Unicode: U+4E16)
+//      10: 界 (Unicode: U+754C)
+```
+
+**条件のみの for（while のような使い方）**:
+
+```go
+// 条件式のみ（while文のような使い方）
+i := 0
+for i < 5 {
+    fmt.Println(i)
+    i++
+}
+// 出力: 0 1 2 3 4
+```
+
+**無限ループ**:
+
+```go
+// すべて省略で無限ループ
+count := 0
+for {
+    fmt.Println(count)
+    count++
+    if count >= 5 {
+        break
+    }
+}
+// 出力: 0 1 2 3 4
+```
+
+**ネストした for 文**:
+
+```go
+// 九九の表
+for i := 1; i <= 9; i++ {
+    for j := 1; j <= 9; j++ {
+        fmt.Printf("%3d", i*j)
+    }
+    fmt.Println()
+}
+```
+
+**break と continue**:
+
+```go
+// break: ループを抜ける
 for i := 0; i < 10; i++ {
-  // 変数iの値が0から9までの間で繰り返し
+    if i == 5 {
+        break
+    }
+    fmt.Println(i)
+}
+// 出力: 0 1 2 3 4
+
+// continue: 次の反復へ
+for i := 0; i < 5; i++ {
+    if i == 2 {
+        continue
+    }
+    fmt.Println(i)
+}
+// 出力: 0 1 3 4
+```
+
+**ラベル付き break/continue**:
+
+```go
+outer:
+for i := 0; i < 3; i++ {
+    for j := 0; j < 3; j++ {
+        if i == 1 && j == 1 {
+            break outer // 外側のループを抜ける
+        }
+        fmt.Printf("i=%d, j=%d\n", i, j)
+    }
 }
 ```
 
-# 範囲節(range)
+**簡易文付き for**:
 
-範囲節(range)を使ってループする方法もある。
-
-上記にあるような、range を使って、配列内の要素を順にループすることができる。
-
-例を以下に記載する。
+`for`文でも簡易文を使える。
 
 ```go
-fruits := [3]string{"Apple","Banana","Cherry"}
-
-for i,s := range fruits {
-  fmt.Printf("fruits[%d]=%s\n",i,s)
+// 簡易文でループ変数のスコープを制限
+for i, sum := 0, 0; i < 10; i++ {
+    sum += i
+    fmt.Println(sum)
 }
+// i と sum はここではスコープ外
 ```
 
-実行結果
+**チャネルの反復**:
 
-```
-fruits[0]=Apple
-fruits[1]=Banana
-fruits[2]=Cherry
-```
-
-なお、配列ではなく文字列を使うこともできる。
-
-しかしその場合、文字列をループしたときに出る値は１文字分の rune 型になるので注意。
+`range`をチャネルに使うと、チャネルが閉じるまで値を受信し続ける。
 
 ```go
-for i,r := range "ABC" {
-  fmt.Printf("[%d] -> %d\n",i,r)
-}
-```
+ch := make(chan int, 3)
 
-実行結果
-
-```
-[0] -> 65
-[1] -> 66
-[2] -> 67
-```
-
-また、チャネルにも利用することができる。
-
-利用すると、チャネルからひたすら受信し続ける事を行う。
-
-```go
-ch := make(chan int,3)
+// チャネルに送信
 ch <- 1
 ch <- 2
 ch <- 3
+close(ch) // チャネルを閉じる（重要）
 
-for i := range ch {
-  fmt.Println(i)
+// チャネルから受信
+for value := range ch {
+    fmt.Println(value)
 }
+// 出力: 1 2 3
+
+// closeしないとデッドロックが発生する
+ch2 := make(chan int)
+go func() {
+    for i := 0; i < 3; i++ {
+        ch2 <- i
+    }
+    close(ch2) // 必ず閉じる
+}()
+
+for value := range ch2 {
+    fmt.Println(value)
+}
+// 出力: 0 1 2
 ```
 
-実行結果
+**配列とスライスの違い**:
 
+```go
+// 配列
+array := [3]int{1, 2, 3}
+for i, v := range array {
+    fmt.Printf("%d: %d\n", i, v)
+}
+
+// スライス
+slice := []int{1, 2, 3}
+for i, v := range slice {
+    fmt.Printf("%d: %d\n", i, v)
+}
+
+// どちらも同じように使える
 ```
-1
-2
-3
-fatal error: all goroutinnes are asleep - deadlock!
+
+**range のコピー挙動**:
+
+`range`は配列の場合はコピーを作成するが、スライスの場合は参照を使う。
+
+```go
+// スライスの場合（推奨）
+slice := []int{1, 2, 3}
+for i, v := range slice {
+    slice[i] = v * 2 // スライス自体を変更できる
+}
+fmt.Println(slice) // [2 4 6]
+
+// 配列の場合（コピーされる）
+array := [3]int{1, 2, 3}
+for i, v := range array {
+    array[i] = v * 2 // これは動作するが注意が必要
+}
+fmt.Println(array) // [2 4 6]
 ```
 
 </div>
