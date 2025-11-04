@@ -48,3 +48,35 @@ o =
 
 
 $$
+
+# 単位行列
+
+正方行列で、対角成分が全て１で、他の成分が全て０である行列を**単位行列**といい、I で表す。
+
+$$
+
+I =
+
+\begin{bmatrix}
+1 & 0 & \cdots & 0 \\
+0 & 1 & \ddots & \vdots \\
+\vdots & \ddots & \ddots & \vdots \\
+
+0 &   \cdots & 0 & 1
+\end{bmatrix} \quad
+
+ (右辺は
+
+\begin{bmatrix}
+1 & \quad & O \\
+\quad & \ddots & \quad \\
+O & \quad & 1
+\end{bmatrix} \quad
+
+とも略記される)
+
+
+$$
+
+- 型を強調したいときは、n 次単位行列といい、$I_n$と書く。
+- 零行列と同様、単に I と表されている時、次数が違えば異なる単位行列である。
