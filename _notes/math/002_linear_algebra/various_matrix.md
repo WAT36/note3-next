@@ -128,3 +128,36 @@ I & (k = 0)
 $$
 
 と定める。特に、ある自然数 k に対して、$A^k = O$となる正方行列 A を**べき零行列**、$A^2 = A$を満たす正方行列 A を**べき等行列**という。
+
+# 転置行列
+
+m×n 行列 A の行と列をそっくり入れ替えてできる n×m を A の転置行列といい、${}^t\! A$で表す。すなわち、
+
+$$
+
+A=
+
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots  & a_{1n} \\
+a_{21} & a_{22} & \cdots  & a_{2n} \\
+
+\vdots & \vdots &  \quad &  \vdots \\
+a_{m1} & a_{m2} &   \cdots  & a_{mn}
+\end{bmatrix} \quad
+
+ならば、
+
+{}^t\! A =
+
+\begin{bmatrix}
+a_{11} & a_{21} & \cdots  & a_{m1} \\
+a_{12} & a_{22} & \cdots  & a_{m2} \\
+
+\vdots & \vdots &  \quad &  \vdots \\
+a_{1n} & a_{2n} &   \cdots  & a_{mn}
+\end{bmatrix} \quad
+
+
+$$
+
+特に、${}^t\! A$の$(i,j)$成分 = $A$の$(j,i)$成分である。
