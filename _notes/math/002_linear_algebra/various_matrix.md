@@ -208,3 +208,28 @@ ${}^t\! A  = - A$を満たす正方行列 A を**交代行列**という。
 A が対称行列ならば任意の i,j に対して$a_{ij} = a_{ji}$、
 
 A が交代行列ならば任意の i,j に対して$a_{ij} + a_{ji} = 0$
+
+# 三角行列
+
+対角成分より下（または上）にある成分が、全て０である正方行列、すなわち
+
+$$
+
+\begin{bmatrix}
+a_{11} & \cdots & a_{1n} \\
+\quad & \ddots & \vdots \\
+O &   \quad  & a_{nn}
+\end{bmatrix} \quad
+
+または
+
+\begin{bmatrix}
+a_{11} & \quad & O \\
+\vdots & \ddots & \quad \\
+a_{n1} & \cdots & a_{nn} \\
+\end{bmatrix} \quad
+
+
+$$
+
+を上三角行列（または下三角行列）という。
