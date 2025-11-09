@@ -1,6 +1,6 @@
 ---
 title: "MCPサーバーを立てる"
-excerpt: "MCPサーバーの紹介およびChatGPTに適用する方法"
+excerpt: "MCPサーバーの紹介およびCursorで利用する方法"
 coverImage: ""
 date: "2025-10-19T23:57:07.000Z"
 updatedAt: "2025-10-19T23:57:07.000Z"
@@ -16,9 +16,9 @@ ogImage:
 
 # MCP とは
 
-MCP（Model Context Protocol）は、AI アプリケーション（Cursor や ChatGPT など）を外部システムに接続するためのオープンソース標準プロトコルである。
+MCP（Model Context Protocol）は、AI アプリケーション（Cursor や ChatGPT など）を外部システムに接続するためのオープンソース標準プロトコルです。
 
-簡単に言うと、MCP は AI モデルのための標準化されたアプローチで、USB-C ケーブルがデバイスに対して果たす役割と同じようなものになる。
+簡単に言うと、MCP は AI モデルのための標準化されたアプローチで、USB-C ケーブルがデバイスに対して果たす役割と同じようなものになります。
 
 ## MCP でできること
 
@@ -72,7 +72,22 @@ AI アプリケーション（Cursor、ChatGPT など）が MCP サーバーと�
 
 ## プロジェクト作成
 
-今回の MCP サーバー用の Node.js プロジェクトを作成します。以下のコマンドを実行してください。
+今回の MCP サーバー用の Node.js プロジェクトを作成します。
+
+最初に記載しておきますが、今回作成するプロジェクトは以下のような構成になります。
+
+```plaintext
+mcp-demo
+├── .cursor/
+|   └── mcp.json
+├── node_modules/
+├── package-lock.json
+├── package.json
+├── server.ts
+└── tsconfig.json
+```
+
+まず、以下のコマンドを実行してください。
 
 ```bash
 mkdir mcp-demo
@@ -83,7 +98,7 @@ npm i -D typescript tsx @types/node
 npx tsc --init
 ```
 
-tsconfig.json は以下の通りです（要点のみ記載）
+tsconfig.json は、以下の通りに設定してください。（要点のみ記載）
 
 ```json
 {
@@ -113,9 +128,9 @@ package.json の scripts を以下の通り定義します。
 
 ## MCP サーバーファイルを作成
 
-サーバーファイルである server.ts を作ります。
+MCP サーバーのファイルである server.ts を作ります。
 
-このサーバーは **「今日の日付を返すだけ」** という超シンプルな MCP サーバーです。
+このサーバーは 「今日の日付を返すだけ」という超シンプルな MCP サーバーです。
 
 McpServer と stdio トランスポート（StdioServerTransport）で、入力なしのツール current_date を 1 つだけ公開します。
 
@@ -177,7 +192,7 @@ npm run dev
 
 Cursor は グローバル または プロジェクト単位で MCP サーバーを登録できます。
 
-ここではプロジェクト単位（.cursor/mcp.json）で設定します。UI から追加する場合のガイドも含め、多数の例が公開されています。
+ここではプロジェクト単位（.cursor/mcp.json）で設定します。
 
 プロジェクト直下にフォルダを作って設定ファイルを置きます。
 
@@ -185,7 +200,7 @@ Cursor は グローバル または プロジェクト単位で MCP サーバ�
 mkdir -p .cursor
 ```
 
-.cursor/mcp.json
+.cursor/mcp.json を以下のように作成します。
 
 ```json
 {
@@ -200,39 +215,32 @@ mkdir -p .cursor
 }
 ```
 
-開発中は npm run dev 用の tsx を直接呼んでも OK（ホットに近い体験）。
-
-本番運用寄りにするなら npm run build && npm start を先に実行し、node dist/server.js を指定。
-
 ## Cursor で利用する
 
-プロジェクトを Cursor で開く
+作成したプロジェクト mcp-demo を Cursor で開きます。
 
-新しいチャットで、例：current_date ツールを実行して
+右下または左下にある 「Settings」アイコン をクリックし、設定画面を開きます。
+
+検索バーに「MCP」または「Model Context Protocol」と入力します。
+
+作成したサーバー名が表示されるはずなので、OFF になっていたらチェックを ON にして下さい。
+
+![](/assets/posts/startMcp/checkMCPServer.png)
+
+新しいチャットで、例えば「current_date ツールを実行して」
 
 と指示すると、local-date-server が起動され、MCP ツールが呼ばれます。
 
-実行時には「Run Tool」ボタンの承認が求められることがあります。
+（実行時には「Run Tool」ボタンの承認が求められることがあります。）
 
-これであなたは **MCP サーバーを構築・連携・実行する体験**を完了しました！
+![](/assets/posts/startMcp/exeLocalDate.png)
+
+これであなたは MCP サーバーを構築・連携・実行する体験を完了しました！
 
 ---
 
-今回は簡単で基本的な例をお見せしましたが、
-
-応用として以下のような、自分の API を MCP 化していく拡張例などもございます。
-
-| 機能例                               | やること                                |
-| ------------------------------------ | --------------------------------------- |
-| GitHub API を呼びたい                | axios で GitHub REST API 呼び出しを実装 |
-| AWS のリソース一覧を取得したい       | AWS SDK を使って Lambda 一覧などを返す  |
-| DynamoDB の内容を ChatGPT に見せたい | DynamoDB から fetch して返す            |
-| Supabase/PostgreSQL 連携             | DB クエリを投げて結果を返す             |
-
-応用例などもやれたら今後やりたいですね。
+今回は簡単で基本的な例をお見せしましたが、外部サービスや外部の API との連携などもやれたら今後やりたいですね。
 
 また注意点として、MCP サーバーは LLM が直接 API キーを扱わないため安全ですが、
 
-**社内システムとつなぐ場合は認可設定を慎重に**しましょう。
-
-以上。
+社内システムとつなぐ場合は**認可設定を慎重に**しましょう。
