@@ -1,7 +1,7 @@
 ---
-title: "MCPサーバーを立てる"
+title: "ローカル環境でMCPサーバーを立てて利用する"
 excerpt: "MCPサーバーの紹介およびCursorで利用する方法"
-coverImage: ""
+coverImage: "/assets/posts/startMcp/mcpImage.png"
 date: "2025-10-19T23:57:07.000Z"
 updatedAt: "2025-10-19T23:57:07.000Z"
 tag: ["AI"]
