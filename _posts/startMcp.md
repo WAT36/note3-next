@@ -16,7 +16,7 @@ ogImage:
 
 # MCP とは
 
-MCP（Model Context Protocol）は、AI アプリケーション（Cursor や ChatGPT など）を外部システムに接続するためのオープンソース標準プロトコルです。
+MCP（Model Context Protocol）は、AI アプリケーション（Cursor や ChatGPT など）を外部システムに接続するためのプロトコルです。
 
 簡単に言うと、MCP は AI モデルのための標準化されたアプローチで、USB-C ケーブルがデバイスに対して果たす役割と同じようなものになります。
 
@@ -235,12 +235,84 @@ mkdir -p .cursor
 
 ![](/assets/posts/startMcp/exeLocalDate.png)
 
-これであなたは MCP サーバーを構築・連携・実行する体験を完了しました！
+出力されれば完了です！
+
+## ハンズオンでの全体構成
+
+今回行ったハンズオンでのシステム構成は以下の通りになります。
+
+![](/assets/posts/startMcp/localMcpFlow.png)
+
+ここでまず、Cursor ではあなたがチャットに「current_date ツールを実行して」と入力すると
+
+- Cursor 内の LLM（例: GPT-4）に解釈させる
+- LLM が Chat の文脈から「これは current_date ツールを呼ぶべき」と判断する
+- MCP サーバーに対して Model Context Protocol に従ってリクエスト送信
+
+をしています。
+
+今回 Cursor は「MCP クライアント」 の役割も担っています。
+
+次に、server.ts の中で実行されているのが MCP サーバーで、以下の３行が MCP サーバーの中核になります。
+
+```typescript
+const server = new McpServer({ name: "local-date-server", version: "1.0.0" });
+const transport = new StdioServerTransport();
+await server.connect(transport);
+```
+
+流れとしては以下のようになります。
+
+- registerTool() でツールを登録 ("current_date")
+- クライアント（Cursor）がリクエストを送信
+- McpServer がその JSON を受信・パース
+- 内部で current_date 関数を実行
+- JS の Date から現在時刻を生成
+- 結果を JSON 形式で stdout に返却
+
+また、MCP プロトコルとはここでは JSON-RPC 2.0 をベースにした通信プロトコルで、
+
+LLM クライアントと外部サービスをつなぐための標準化フォーマットになります。
+
+ざっくり書くとクライアントからサーバーには以下のようなフォーマットで送られ、
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "tools/call",
+  "params": {
+    "name": "current_date",
+    "arguments": {}
+  }
+}
+```
+
+サーバーからクライアントには以下のようなフォーマットで送られます。
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"now\":\"2025-11-01T12:00:00Z\",\"weekday\":\"土曜日\"}"
+      }
+    ],
+    "structuredContent": {
+      "now": "2025-11-01T12:00:00Z",
+      "weekday": "土曜日"
+    }
+  }
+}
+```
+
+このやり取りが、stdio 経由のストリーム（バイト列）で流れています。
 
 ---
 
-今回は簡単で基本的な例をお見せしましたが、外部サービスや外部の API との連携などもやれたら今後やりたいですね。
+今回は簡単で基本的な例をお見せしましたが、もう少し実用的な外部サービスや外部の API との連携などもやりたいと感じているので、今後広げて実践していきたいと感じている。
 
-また注意点として、MCP サーバーは LLM が直接 API キーを扱わないため安全ですが、
-
-社内システムとつなぐ場合は**認可設定を慎重に**しましょう。
+また注意点として、MCP サーバーは LLM が直接 API キーを扱わないため安全ですが、社内システムとつなぐ場合は**認可設定を慎重に**しましょう。
