@@ -13,168 +13,473 @@ ogImage:
 mode: programming
 ---
 
-構造体についてを記載する。
+構造体は、関連するデータをまとめて扱うためのデータ型。複数のフィールド（変数）を持ち、それらを 1 つの単位として扱える。
 
 <div class="note_content_by_programming_language" id="note_content_Go">
 
 ```go
-type 構造体名 struct {
-  X int // フィールドの定義。左は例
-  // ...
+type StructName struct {
+    FieldName Type
 }
-
-// フィールドの参照
-構造体型変数.フィールド名
 ```
 
-Go では構造体を定義するには一般的に type と組み合わせて新しい型を定義します。
+Go では`struct`キーワードで構造体を定義する。複数のフィールドをまとめて扱える。
 
-`struct { [フィールドの定義] }` という形で書きます。
-
-フィールドは何個でも定義する事ができます。
+**基本的な構造体**:
 
 ```go
+package main
+
+import "fmt"
+
 type Point struct {
-  X int
-  Y int
+    X int
+    Y int
+}
+
+func main() {
+    // ゼロ値で初期化
+    var p1 Point
+    fmt.Println(p1)  // {0 0}
+
+    // フィールドへのアクセス
+    p1.X = 10
+    p1.Y = 20
+    fmt.Println(p1.X, p1.Y)  // 10 20
 }
 ```
 
-構造体内のフィールドを参照したり値を代入したいときは、`構造体型変数.フィールド名`で参照できます。
+**構造体リテラル**:
+
+フィールドの初期値を指定して構造体を生成できる。
 
 ```go
-var pt Point
-pt.X // == 0
-pt.Y // == 0
+package main
 
-/*フィールドへの代入*/
-pt.X = 10
-pt.Y = 8
-```
+import "fmt"
 
-## 複合リテラル
-
-構造体では各フィールドの初期値を指定しつつ構造体を生成できる**複合リテラル**といった機能があります。
-
-`{}`で囲んだ中に各フィールドの初期値を列挙する事ができ、それぞれの値は構造体のフィールドが定義された順序に対応しています。
-
-```go
-pt := Point{1,2}
-pt.X // == 1
-pt.Y // == 2
-```
-
-## 無名フィールド
-
-高度な仕様ではあるが、Go の構造体には「無名フィールド」を定義する事ができる。
-
-フィールド名に「\_」を与えると、そのフィールドは無名フィールドになる。
-
-この無名フィールドにはフィールド名が存在しないので、参照や代入といった操作は不可能になる。同時に複合リテラルでの初期化も行えない。
-
-```go
-type T struct {
-  N uint
-  _ int16 // 無名フィールド
-  S string
-}
-```
-
-## 無名の構造体型
-
-構造体型の定義は主に type と組み合わせて利用するが、`struct { [フィールド定義] }` という構造体型そのものを型として利用する事も可能である。
-
-例えば以下のような関数の引数で定義する型などがある。
-
-```go
-func printStruct(s struct{X,Y int}){
-  fmt.Println(s)
-}
-```
-
-## 構造体とポインタ
-
-構造体は**値型**として扱われる。関数で構造体を引数として直接渡すとき、関数内でその構造体の値を変更しても、元の構造体と関数内での構造体は全く別物として扱われるので変更はされない。
-
-そのため、構造体を関数へ参照渡しするために必要になるのが「構造体型へのポインタ」である。以下に利用例を示す。
-
-```go
 type Point struct {
-  X,Y int
+    X int
+    Y int
 }
-p := Point{X:1,Y:2}
 
-func swap(p Point){
-  // X,Yの入れ替え、しかし値渡しなので元の構造体の値は変更されない
-  x,y := p.Y,p.X
-  p.X = x
-  p.Y = y
-}
-swap(p)
+func main() {
+    // フィールド名を指定
+    p1 := Point{X: 10, Y: 20}
+    fmt.Println(p1)  // {10 20}
 
-func swapP(p *Point){
-  // X,Yの入れ替え、ポインタを渡すことで参照先の値を変更、反映される
-  x,y := p.Y,p.X
-  p.X = x
-  p.Y = y
+    // 順序で指定（非推奨：フィールドの順序に依存）
+    p2 := Point{30, 40}
+    fmt.Println(p2)  // {30 40}
+
+    // 一部のフィールドのみ指定（残りはゼロ値）
+    p3 := Point{X: 50}
+    fmt.Println(p3)  // {50 0}
 }
-swapP(&p)　　　
 ```
 
-このように、構造他愛は主にポインタ型を経由して使用することがほとんどである。
+**構造体のポインタ**:
 
-## 構造体(型)のコンストラクタ
-
-Go には Java などオブジェクト指向プログラミング言語に見られる「コンストラクタ」機能はないが、慣例的に「型のコンストラクタ」と言うパターンを利用する。
-
-次の例では、構造体 Point 型とその初期化のための関数 NewPoint が定義されている。ここでもそうだが、型のコンストラクタを表す関数は「New」から始まる名前にするのが一般的であり、対象の型のポインタ型を返すのが望ましい。
+構造体は値型なので、関数に渡すとコピーされる。参照を渡すにはポインタを使う。
 
 ```go
+package main
+
+import "fmt"
+
 type Point struct {
-  X,Y int
+    X int
+    Y int
 }
 
-func NewPoint(x int, y int) *Point {
-  p := new(Point)
-  p.X = x
-  p.Y = y
-  return p
+// 値渡し（コピーが作られる）
+func swapValue(p Point) {
+    p.X, p.Y = p.Y, p.X
+    fmt.Println("関数内:", p)  // {20 10}
+}
+
+// ポインタ渡し（元の構造体を変更）
+func swapPointer(p *Point) {
+    p.X, p.Y = p.Y, p.X
+}
+
+func main() {
+    p := Point{X: 10, Y: 20}
+
+    swapValue(p)
+    fmt.Println("値渡し後:", p)  // {10 20}（変更されていない）
+
+    swapPointer(&p)
+    fmt.Println("ポインタ渡し後:", p)  // {20 10}（変更された）
 }
 ```
 
-# タグ
+**コンストラクタ関数**:
 
-構造体には**タグ**という、フィールドにメタ情報を付与する機能がある。以下に例を示す。
+Go にはコンストラクタがないが、`New`で始まる関数を使う慣例がある。
 
 ```go
+package main
+
+import "fmt"
+
+type Point struct {
+    X int
+    Y int
+}
+
+func NewPoint(x, y int) *Point {
+    return &Point{
+        X: x,
+        Y: y,
+    }
+}
+
+func main() {
+    p := NewPoint(10, 20)
+    fmt.Printf("%+v\n", p)  // &{X:10 Y:20}
+}
+```
+
+**メソッド**:
+
+構造体にメソッドを定義できる（レシーバー）。
+
+```go
+package main
+
 import (
-	"fmt"
-	"reflect"
+    "fmt"
+    "math"
 )
 
 type Point struct {
-	X int "X座標"
-	Y int "Y座標"
+    X int
+    Y int
 }
 
-func Tag() {
-	p := Point{X: 1, Y: 2}
+// 値レシーバー（読み取り専用）
+func (p Point) Distance() float64 {
+    return math.Sqrt(float64(p.X*p.X + p.Y*p.Y))
+}
 
-	t := reflect.TypeOf(p)
-	for i := 0; i < t.NumField(); i++ {
-		f := t.Field(i)
-		fmt.Println(f.Name, f.Tag)
-	}
+// ポインタレシーバー（変更可能）
+func (p *Point) Move(dx, dy int) {
+    p.X += dx
+    p.Y += dy
+}
+
+func main() {
+    p := Point{X: 3, Y: 4}
+
+    fmt.Println(p.Distance())  // 5
+
+    p.Move(1, 1)
+    fmt.Println(p)  // {4 5}
 }
 ```
 
-実行結果
+**構造体の埋め込み（Embedding）**:
 
-```
-X X座標
-Y Y座標
+他の構造体を埋め込んで、フィールドやメソッドを継承できる。
+
+```go
+package main
+
+import "fmt"
+
+type Person struct {
+    Name string
+    Age  int
+}
+
+func (p Person) Introduce() string {
+    return fmt.Sprintf("I'm %s, %d years old", p.Name, p.Age)
+}
+
+type Employee struct {
+    Person      // Person を埋め込み
+    EmployeeID  int
+    Department  string
+}
+
+func main() {
+    emp := Employee{
+        Person: Person{
+            Name: "Alice",
+            Age:  25,
+        },
+        EmployeeID: 1001,
+        Department: "Engineering",
+    }
+
+    // 埋め込まれた構造体のフィールドに直接アクセス
+    fmt.Println(emp.Name)        // Alice
+    fmt.Println(emp.Age)         // 25
+    fmt.Println(emp.EmployeeID)  // 1001
+
+    // 埋め込まれた構造体のメソッドも使える
+    fmt.Println(emp.Introduce())  // I'm Alice, 25 years old
+}
 ```
 
-reflect パッケージの機能を使い、Point 型のフィールド名とタグ名を取り出せています。このように、タグはコード中で定義された構造体のフィールドに、メタ情報を付与します。
+**匿名構造体**:
+
+一時的なデータ構造には匿名構造体を使える。
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    // 匿名構造体
+    point := struct {
+        X int
+        Y int
+    }{
+        X: 10,
+        Y: 20,
+    }
+
+    fmt.Println(point)  // {10 20}
+
+    // 関数の引数でも使える
+    printPoint := func(p struct{ X, Y int }) {
+        fmt.Printf("Point(%d, %d)\n", p.X, p.Y)
+    }
+
+    printPoint(point)  // Point(10, 20)
+}
+```
+
+**構造体のタグ**:
+
+フィールドにメタデータを付与できる。JSON や DB のマッピングに使われる。
+
+```go
+package main
+
+import (
+    "encoding/json"
+    "fmt"
+)
+
+type Person struct {
+    Name  string `json:"name"`
+    Age   int    `json:"age"`
+    Email string `json:"email,omitempty"`  // 空の場合は省略
+}
+
+func main() {
+    person := Person{
+        Name:  "Alice",
+        Age:   25,
+        Email: "alice@example.com",
+    }
+
+    // JSON にエンコード
+    jsonData, _ := json.Marshal(person)
+    fmt.Println(string(jsonData))
+    // {"name":"Alice","age":25,"email":"alice@example.com"}
+
+    // JSON からデコード
+    jsonStr := `{"name":"Bob","age":30}`
+    var p Person
+    json.Unmarshal([]byte(jsonStr), &p)
+    fmt.Printf("%+v\n", p)  // {Name:Bob Age:30 Email:}
+}
+```
+
+**よく使われるタグ**:
+
+```go
+type User struct {
+    ID        int    `json:"id" db:"id" validate:"required"`
+    Name      string `json:"name" db:"name" validate:"required,min=1,max=100"`
+    Email     string `json:"email" db:"email" validate:"required,email"`
+    CreatedAt string `json:"created_at,omitempty" db:"created_at"`
+}
+
+// json: JSON のキー名
+// db: データベースのカラム名
+// validate: バリデーションルール
+// omitempty: 空の場合は省略
+```
+
+**reflect パッケージでタグを取得**:
+
+```go
+package main
+
+import (
+    "fmt"
+    "reflect"
+)
+
+type Point struct {
+    X int `json:"x" description:"X座標"`
+    Y int `json:"y" description:"Y座標"`
+}
+
+func main() {
+    p := Point{X: 1, Y: 2}
+
+    t := reflect.TypeOf(p)
+    for i := 0; i < t.NumField(); i++ {
+        field := t.Field(i)
+        fmt.Printf("フィールド名: %s\n", field.Name)
+        fmt.Printf("  json: %s\n", field.Tag.Get("json"))
+        fmt.Printf("  description: %s\n", field.Tag.Get("description"))
+    }
+}
+
+// 出力:
+// フィールド名: X
+//   json: x
+//   description: X座標
+// フィールド名: Y
+//   json: y
+//   description: Y座標
+```
+
+**構造体の比較**:
+
+```go
+package main
+
+import "fmt"
+
+type Point struct {
+    X int
+    Y int
+}
+
+func main() {
+    p1 := Point{X: 10, Y: 20}
+    p2 := Point{X: 10, Y: 20}
+    p3 := Point{X: 30, Y: 40}
+
+    // 構造体の比較（すべてのフィールドが等しい場合に true）
+    fmt.Println(p1 == p2)  // true
+    fmt.Println(p1 == p3)  // false
+}
+```
+
+**注意点**:
+
+- スライスやマップを含む構造体は比較できない
+- ポインタを含む構造体は、ポインタのアドレスで比較される
+
+```go
+type Data struct {
+    Values []int
+}
+
+d1 := Data{Values: []int{1, 2, 3}}
+d2 := Data{Values: []int{1, 2, 3}}
+
+// コンパイルエラー: スライスを含む構造体は比較できない
+// fmt.Println(d1 == d2)
+```
+
+**ゼロ値**:
+
+構造体のゼロ値は、すべてのフィールドがそれぞれのゼロ値になったもの。
+
+```go
+package main
+
+import "fmt"
+
+type Person struct {
+    Name  string
+    Age   int
+    Email string
+}
+
+func main() {
+    var p Person
+    fmt.Printf("%+v\n", p)  // {Name: Age:0 Email:}
+
+    // フィールドのゼロ値:
+    // string: ""
+    // int: 0
+    // bool: false
+    // ポインタ: nil
+}
+```
+
+**実用例（設定の管理）**:
+
+```go
+package main
+
+import "fmt"
+
+type Config struct {
+    Host     string
+    Port     int
+    Debug    bool
+    MaxConns int
+}
+
+func NewConfig() *Config {
+    return &Config{
+        Host:     "localhost",
+        Port:     8080,
+        Debug:    false,
+        MaxConns: 100,
+    }
+}
+
+func main() {
+    config := NewConfig()
+    fmt.Printf("%+v\n", config)
+    // &{Host:localhost Port:8080 Debug:false MaxConns:100}
+}
+```
+
+**実用例（データベースのモデル）**:
+
+```go
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+type User struct {
+    ID        int       `json:"id" db:"id"`
+    Name      string    `json:"name" db:"name"`
+    Email     string    `json:"email" db:"email"`
+    CreatedAt time.Time `json:"created_at" db:"created_at"`
+    UpdatedAt time.Time `json:"updated_at" db:"updated_at"`
+}
+
+func NewUser(name, email string) *User {
+    now := time.Now()
+    return &User{
+        Name:      name,
+        Email:     email,
+        CreatedAt: now,
+        UpdatedAt: now,
+    }
+}
+
+func (u *User) UpdateName(name string) {
+    u.Name = name
+    u.UpdatedAt = time.Now()
+}
+
+func main() {
+    user := NewUser("Alice", "alice@example.com")
+    fmt.Printf("%+v\n", user)
+
+    user.UpdateName("Alice Smith")
+    fmt.Printf("%+v\n", user)
+}
+```
 
 </div>
