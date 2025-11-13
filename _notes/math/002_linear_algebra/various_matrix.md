@@ -334,3 +334,165 @@ $$
 と表す。このように、縦横に区切って行列 A をいくつかのブロックに分けることを A の**分割**という。
 
 また、分割で用いた各ブロックの行列$A_{11},A_{12},A_{21},A_{22}$を A の**小行列**という。
+
+## ベクトルの分割
+
+$A=[a_{ij}]$を m×n 行列とする。A の各列ベクトルを
+
+$$
+
+a_1 =
+
+\begin{bmatrix}
+a_{11}  \\
+a_{21}  \\
+\vdots \\
+a_{m1}
+\end{bmatrix} \quad
+
+,
+
+a_2 =
+
+\begin{bmatrix}
+a_{12}  \\
+a_{22}  \\
+\vdots \\
+a_{m2}
+\end{bmatrix} \quad
+
+,
+
+\cdots
+
+a_n =
+
+\begin{bmatrix}
+a_{1n}  \\
+a_{2n}  \\
+\vdots \\
+a_{mn}
+\end{bmatrix} \quad
+
+,
+
+
+$$
+
+とおく時、A の分割
+
+$$
+
+A=[a_1,a_2, \cdots , a_n]
+
+
+$$
+
+を A の列ベクトル分割という。
+
+同様に、A の行ベクトルをそれぞれ
+
+$$
+
+a’_1 =
+
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n}
+\end{bmatrix} \quad
+
+,
+
+a’_2 =
+
+\begin{bmatrix}
+a_{21} & a_{22} & \cdots & a_{2n}
+\end{bmatrix} \quad
+
+,
+
+\vdots
+
+a’_m =
+
+\begin{bmatrix}
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{bmatrix} \quad
+
+
+$$
+
+とおくとき、A の分割
+
+$$
+
+A =
+
+\begin{bmatrix}
+a’_{1}  \\
+a’_{2}  \\
+\vdots \\
+a’_{m}
+\end{bmatrix} \quad
+
+
+$$
+
+を A の行ベクトル分割という。
+
+特に単位行列において、
+
+$$
+
+e_1 =
+
+\begin{bmatrix}
+1  \\
+0  \\
+0  \\
+\vdots \\
+0
+\end{bmatrix} \quad
+
+,
+
+e_2 =
+
+\begin{bmatrix}
+0  \\
+1  \\
+0  \\
+\vdots \\
+0
+\end{bmatrix} \quad
+
+,
+
+\cdots
+
+e_n =
+
+\begin{bmatrix}
+0  \\
+0  \\
+0  \\
+\vdots \\
+1
+\end{bmatrix} \quad
+
+,
+
+
+$$
+
+とおく。このとき各$e_i$を**n 次基本ベクトル**という。
+
+このとき
+
+$$
+
+I = [e_1,e_2, \cdots, e_n]
+
+
+$$
+
+は単位行列 I の列ベクトル分割になる。
