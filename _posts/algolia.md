@@ -3,8 +3,8 @@ title: "Algoliaを利用しこのブログに全文検索を行えるように�
 excerpt: "全文検索サービス「Algolia」の導入と利用"
 coverImage: "/assets/posts/algolia/algoliaLogo.png"
 date: "2023-10-04T23:01:58.000Z"
-updatedAt: '2025-05-30T22:39:37.000Z'
-tag: []
+updatedAt: '2025-10-02T00:31:46.000Z'
+tag: ["開発ツール", "フロントエンド"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

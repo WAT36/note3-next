@@ -3,8 +3,8 @@ title: "GraphQLについて(その１) ~基本とREST APIとの違いについ�
 excerpt: "GraphQLについての調査と紹介"
 coverImage: "/assets/posts/startGraphQL/GraphQLLogo.png"
 date: "2025-07-05T08:24:43.000Z"
-updatedAt: "2025-07-05T08:24:43.000Z"
-tag: ["GraphQL", "API"]
+updatedAt: '2025-10-02T00:31:48.000Z'
+tag: ["API"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

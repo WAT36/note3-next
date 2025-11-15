@@ -22,12 +22,15 @@ export const DIR_NAME = {
   container: "コンテナ",
   frontend: "フロントエンド",
   programming: "プログラミング",
+  math: "数学",
   designPattern: "ソフトウェアデザインパターン",
 
   "001_html": "HTML",
   "002_css": "CSS",
   "003_javascript": "Javascript",
   "004_webTech": "その他のWeb関連技術",
+
+  "001_calculus": "微分・積分",
 
   "001_stdio": "標準入力・出力",
   "002_string": "文字列",

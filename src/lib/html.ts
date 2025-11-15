@@ -1,11 +1,5 @@
 import { JSDOM } from "jsdom";
-
-// TODO 型管理のファイルに移す？
-export type TagData = {
-  tag: string;
-  id: string;
-  content: string;
-};
+import type { TagData } from "../interfaces/html";
 
 // HTML文書の文字列から見出しタグを抜き出す関数
 export const extractHeadings = (html: string): TagData[] => {

@@ -1,4 +1,4 @@
-import { TagData } from "../../../lib/html";
+import { TagData } from "../../../interfaces/html";
 
 type Props = {
   headings: TagData[];
