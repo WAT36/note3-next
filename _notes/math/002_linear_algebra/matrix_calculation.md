@@ -23,10 +23,10 @@ ogImage:
 $A=[a_{ij}]$と$B=[b_{ij}]$が同じ$m×n$行列のとき、$(i,j)$成分が
 
 $$
-a_{ij} + b_{ij}.  (i = 1,2, \cdots , m; j = 1,2, \cdots , n)
+a_{ij} + b_{ij}  (i = 1,2, \cdots , m; j = 1,2, \cdots , n)
 $$
 
-である m×n 行列を A と B の和といい、A+B と書く。
+である $m×n$ 行列を $A$ と $B$ の和といい、$A+B$ と書く。
 
 $$
 A+B = [a_{ij}] + [b_{ij}] = [a_{ij} + b_{ij}]
