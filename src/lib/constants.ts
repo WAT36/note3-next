@@ -41,6 +41,8 @@ export const DIR_NAME = {
   "007_class_func": "クラス・関数(メソッド)",
   "008_exception": "例外処理",
   "009_file": "ファイル処理",
+  "010_variable": "変数・型",
+  "098_framework": "フレームワーク",
   "099_other": "その他",
   "101_data_process": "グラフ・データ処理",
   "102_machine_learning": "機械学習",
@@ -58,7 +60,7 @@ export const DIR_NAME = {
   "2022_probability": "確率・統計",
 };
 
-export const PROGRAMMING_LANGUAGE_NAME = ["java", "python", "javascript"];
+export const PROGRAMMING_LANGUAGE_NAME = ["java", "python", "javascript", "go"];
 
 export const AUTHOR = {
   name: "Tatsuroh Wakasugi",
