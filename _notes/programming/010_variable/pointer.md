@@ -3,8 +3,8 @@ title: "ポインタ・参照"
 excerpt: "ポインタ・参照について"
 tag: ["Go", "Java", "Python", "Javascript"]
 programming: ["Go", "Java", "Python", "Javascript"]
-date: "2025-06-30T20:44:30.000Z"
-updatedAt: "2025-06-30T20:44:30.000Z"
+date: '2025-11-24T22:13:44.000Z'
+updatedAt: '2025-11-24T22:13:44.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

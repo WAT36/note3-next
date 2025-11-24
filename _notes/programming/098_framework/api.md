@@ -4,8 +4,8 @@ excerpt: "各言語でREST APIサーバーを作成する方法"
 tag: ["Java", "Python", "Javascript", "Go"]
 programming: ["Java", "Python", "Javascript", "Go"]
 coverImage: ""
-date: "2025-10-10T11:55:12.000Z"
-updatedAt: "2025-10-10T11:55:12.000Z"
+date: '2025-11-24T22:13:44.000Z'
+updatedAt: '2025-11-24T22:13:44.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

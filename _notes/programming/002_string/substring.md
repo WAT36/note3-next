@@ -3,7 +3,7 @@ title: "文字列を切り出す"
 excerpt: "文字列のp文字目からq文字目を切り出して取得する方法"
 coverImage: ""
 date: "2024-06-24T20:17:32.000Z"
-updatedAt: "2024-06-24T20:17:32.000Z"
+updatedAt: '2025-11-24T22:13:44.000Z'
 tag: ["Java", "Python", "Javascript", "Go"]
 programming: ["Java", "Python", "Javascript", "Go"]
 author:

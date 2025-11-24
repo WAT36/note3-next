@@ -2,8 +2,8 @@
 title: "浅いコピー・深いコピー"
 excerpt: "変数の浅いコピー（シャローコピー）と深いコピー（ディープコピー）について"
 coverImage: ""
-date: "2025-11-03T14:25:43.000Z"
-updatedAt: "2025-11-03T14:25:43.000Z"
+date: '2025-11-24T22:13:44.000Z'
+updatedAt: '2025-11-24T22:13:44.000Z'
 tag: ["Go", "Java", "Python", "Javascript"]
 programming: ["Go", "Java", "Python", "Javascript"]
 author:
@@ -1382,7 +1382,7 @@ const original = {
   boolean: true,
   null: null,
   undefined: undefined, // 失われる
-  date: new Date(), // 文字列になる
+  date: '2025-11-24T22:13:44.000Z'
   regex: /test/, // 空オブジェクトになる
   func: () => {}, // 失われる
   symbol: Symbol("test"), // 失われる

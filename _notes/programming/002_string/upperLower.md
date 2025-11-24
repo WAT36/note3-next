@@ -4,7 +4,7 @@ date: "2019-10-11T20:32:45.000Z"
 excerpt: "英字文字列を全て英字大文字・小文字にする方法。"
 tag: ["Java", "Python", "Javascript", "Go"]
 programming: ["Java", "Python", "Javascript", "Go"]
-updatedAt: "2024-03-17T17:19:18.000Z"
+updatedAt: '2025-11-24T22:13:44.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

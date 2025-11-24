@@ -2,8 +2,8 @@
 title: "Object・基底クラス・汎用型"
 excerpt: "全ての型・オブジェクトの大元"
 coverImage: ""
-date: "2024-07-16T23:59:06.000Z"
-updatedAt: "2025-06-30T20:44:30.000Z"
+date: '2025-11-24T22:13:44.000Z'
+updatedAt: '2025-11-24T22:13:44.000Z'
 tag: ["Javascript", "Java", "Python", "Go"]
 programming: ["Javascript", "Java", "Python", "Go"]
 author:

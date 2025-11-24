@@ -4,7 +4,7 @@ date: "2019-10-14T20:19:29.000Z"
 excerpt: "文字列をある文字(位置)で分割する方法。"
 tag: ["Java", "Python", "Javascript", "Go"]
 programming: ["Java", "Python", "Javascript", "Go"]
-updatedAt: "2024-03-17T23:04:44.000Z"
+updatedAt: '2025-11-24T22:13:44.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

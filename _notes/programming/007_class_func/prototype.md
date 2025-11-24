@@ -3,7 +3,7 @@ title: "プロトタイプ(JavaScript)"
 excerpt: "プロトタイプとprototypeプロパティ(JavaScript)について"
 coverImage: ""
 date: "2024-08-20T22:10:14.000Z"
-updatedAt: "2024-08-20T22:10:14.000Z"
+updatedAt: '2025-11-24T22:13:44.000Z'
 tag: ["Javascript"]
 programming: ["Javascript"]
 author:

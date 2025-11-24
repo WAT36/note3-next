@@ -2,7 +2,7 @@
 title: "defer文とリソース管理"
 excerpt: "関数終了時の処理を保証する仕組み"
 date: "2025-06-30T20:44:30.000Z"
-updatedAt: "2025-06-30T20:44:30.000Z"
+updatedAt: '2025-11-24T22:13:44.000Z'
 tag: ["Go"]
 programming: ["Go"]
 author:

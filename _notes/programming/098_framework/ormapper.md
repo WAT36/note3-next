@@ -2,8 +2,8 @@
 title: "ORM（O/Rマッパー）でデータベース操作"
 excerpt: "ORM（O/Rマッパー）でデータベース操作について"
 coverImage: ""
-date: "2025-11-01T17:41:13.000Z"
-updatedAt: "2025-11-01T17:41:13.000Z"
+date: '2025-11-24T22:13:44.000Z'
+updatedAt: '2025-11-24T22:13:44.000Z'
 tag: ["Go", "Java", "Python", "Javascript"]
 programming: ["Go", "Java", "Python", "Javascript"]
 author:

@@ -4,7 +4,7 @@ date: "2019-10-14T19:58:19.000Z"
 excerpt: "文字列に別の文字列を追加する方法"
 tag: ["Java", "Python", "Javascript", "Go"]
 programming: ["Java", "Python", "Javascript", "Go"]
-updatedAt: "2024-03-17T22:39:43.000Z"
+updatedAt: '2025-11-24T22:13:44.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

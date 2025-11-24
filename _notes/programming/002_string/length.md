@@ -4,7 +4,7 @@ date: "2019-10-16T17:19:30.000Z"
 excerpt: "文字列の長さ（文字数）を調べる方法。"
 tag: ["Java", "Python", "Javascript", "Go"]
 programming: ["Java", "Python", "Javascript", "Go"]
-updatedAt: "2019-10-16T17:19:30.000Z"
+updatedAt: '2025-11-24T22:13:44.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
