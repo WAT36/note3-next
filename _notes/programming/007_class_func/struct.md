@@ -4,7 +4,7 @@ excerpt: ""
 tag: ["Go"]
 programming: ["Go"]
 date: "2025-06-30T20:44:30.000Z"
-updatedAt: '2025-11-24T22:13:44.000Z'
+updatedAt: '2025-11-25T00:12:04.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

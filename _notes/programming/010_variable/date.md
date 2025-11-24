@@ -2,8 +2,8 @@
 title: "日付/時刻型"
 excerpt: "日付/時刻データを扱いたい時"
 coverImage: ""
-date: '2025-11-24T22:13:44.000Z'
-updatedAt: '2025-11-24T22:13:44.000Z'
+date: '2025-11-25T00:12:01.000Z'
+updatedAt: '2025-11-25T00:12:01.000Z'
 tag: ["Javascript", "Java", "Python", "Go"]
 programming: ["Javascript", "Java", "Python", "Go"]
 author:

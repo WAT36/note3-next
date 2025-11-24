@@ -4,7 +4,7 @@ date: "2019-10-17T22:05:28.000Z"
 excerpt: "文字列を宣言する"
 tag: ["Java", "Python", "Javascript", "Go"]
 programming: ["Java", "Python", "Javascript", "Go"]
-updatedAt: '2025-11-24T22:13:44.000Z'
+updatedAt: '2025-11-25T00:12:02.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

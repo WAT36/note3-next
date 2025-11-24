@@ -4,7 +4,7 @@ excerpt: "文字列の中に変数の値、改行を入れたい時"
 tag: ["Java", "Python", "Javascript", "Go"]
 programming: ["Java", "Python", "Javascript", "Go"]
 date: "2024-06-08T18:47:45.000Z"
-updatedAt: '2025-11-24T22:13:44.000Z'
+updatedAt: '2025-11-25T00:12:02.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

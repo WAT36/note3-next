@@ -2,7 +2,7 @@
 title: "クロージャ"
 excerpt: ""
 date: "2024-08-04T22:30:23.000Z"
-updatedAt: '2025-11-24T22:13:44.000Z'
+updatedAt: '2025-11-25T00:12:04.000Z'
 tag: ["Java", "Python", "Javascript", "Go"]
 programming: ["Java", "Python", "Javascript", "Go"]
 author:
