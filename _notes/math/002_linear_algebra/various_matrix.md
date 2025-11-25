@@ -38,7 +38,7 @@ o =
 0 & 0 &   \cdots & 0
 \end{bmatrix} \quad
 
-または
+または \quad
 
 \begin{bmatrix}
 0  \\
