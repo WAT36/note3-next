@@ -16,43 +16,14 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-int a=0;
-int b=1;
-boolean c=true;
-boolean d=false;
+int a = 10, b = 5;
+boolean c = true;
 
-// 比較演算子
-a <  b // 未満
-a <= b // 以下
-a >  b // より大きい
-a >= b // 以上
-
-// 等価演算子
-a == b // 等しい
-a != b // 等しくない
-
-// インクリメント・デクリメント
-// 最後にインクリメント・デクリメントを実行する場合
-a++;
-a--;
-// 最初にインクリメント・デクリメントを実行する場合
-++a;
---a;
-
-// 論理演算
-c && d //AND
-c || d // OR
-c ^ d  //XOR
-!c     //NOT
-
-// ビット演算
-a & b //AND
-a | b // OR
-a ^ b //XOR
-~a    //NOT
-
-// 三項演算
-c ? a : b
+a + b; a - b; a * b; a / b; a % b; // 算術演算
+a == b; a != b; a < b; a > b;       // 比較演算
+a++; --a;                           // インクリメント
+c && false; c || false; !c;         // 論理演算
+c ? a : b;                          // 三項演算
 ```
 
 # 比較・等価演算子
@@ -96,38 +67,14 @@ Java では三項演算子 " **?** " が実装されている。 例えば上の
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-a=0
-b=1
-c=True
-d=False
+a, b = 10, 5
+c = True
 
-# 比較演算子
-a <  b # 未満
-a <= b # 以下
-a >  b # より大きい
-a >= b # 以上
-
-# 等価演算子
-a == b # 等しい
-a != b # 等しくない
-
-# インクリメント・デクリメント
-# ->専用演算子なし
-
-# 論理演算
-c and d # AND
-c or  d # OR
-c != d  # XOR
-not c   # NOT
-
-# ビット演算
-a & b # AND
-a | b # OR
-a ^ b # XOR
-~a    # NOT
-
-# 三項演算
-a  if  c  else  b
+a + b; a - b; a * b; a / b; a % b; a // b; a ** b  # 算術演算
+a == b; a != b; a < b; a > b; a <= b; a >= b       # 比較演算
+a += 1; a -= 1                                      # インクリメント
+c and False; c or False; not c                     # 論理演算
+a if c else b                                       # 三項演算
 ```
 
 # 比較・等価演算子
@@ -171,44 +118,28 @@ Python には三項演算子は実装されてはいない。
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-var a = 0;
-var b = 1;
-var c = true;
-var d = false;
+let a = 10,
+  b = 5;
+let c = true;
 
-// 比較演算子
-a < b; //   未満
-a <= b; //  以下
-a > b; //   より大きい
-a >= b; //  以上
-
-// 等価演算子
-a == b; //  等しい
-a != b; //  等しくない
-a === b; // 等しい(かつ型も等しい)
-a !== b; // 等しくない(あるいは型が等しくない)
-
-// インクリメント・デクリメント
-// 最後にインクリメント・デクリメントを実行する場合
+a + b;
+a - b;
+a * b;
+a / b;
+a % b;
+a ** b; // 算術演算
+a == b;
+a === b;
+a != b;
+a !== b;
+a < b;
+a > b; // 比較演算
 a++;
-a--;
-// 最初にインクリメント・デクリメントを実行する場合
-++a;
---a;
-
-// 論理演算
-c && d; //AND
-c || d; // OR
-!c; //NOT
-
-// ビット演算
-a & b; //AND
-a | b; // OR
-a ^ b; //XOR
-~a; //NOT
-
-// 三項演算
-c ? a : b;
+--a; // インクリメント
+c && false;
+c || false;
+!c; // 論理演算
+c ? a : b; // 三項演算
 ```
 
 # 比較・等価演算子
@@ -258,7 +189,7 @@ Javascript での論理演算子は以下の通り。
 | XOR |  (なし)  |     ^      |
 | NOT |    !     |     ~      |
 
-Javascript の論理演算では XOR は存在しない（私調べですが、もしあったらコメントお願いします。。）
+JavaScript の論理演算では XOR は存在しないが、ビット演算では `^` 演算子が使用できる。
 
 <hr>
 
@@ -272,32 +203,14 @@ Javascript でも Java と同じく三項演算子 "**?**" が実装されてい
 <div class="note_content_by_programming_language" id="note_content_Go">
 
 ```go
-a := 0;
-b := 1;
-c := true;
-d := false;
+a, b := 10, 5
+c := true
 
-// 比較演算子
-a < b; //   未満
-a <= b; //  以下
-a > b; //   より大きい
-a >= b; //  以上
-
-// 等価演算子
-a == b; //  等しい
-a != b; //  等しくない
-
-// 論理演算
-a && b; //AND
-a || b; // OR
-!a; //NOT
-
-// ビット演算
-c & d; //AND
-c | d; // OR
-c ^ d; //XOR
-^c; //NOT
-c &^ d // AND NOT
+a + b; a - b; a * b; a / b; a % b;        // 算術演算
+a == b; a != b; a < b; a > b; a <= b; a >= b // 比較演算
+a++; a--                                   // インクリメント
+c && false; c || false; !c                // 論理演算
+a & b; a | b; a ^ b; ^a; a &^ b           // ビット演算
 ```
 
 # 比較・等価演算子
@@ -321,7 +234,7 @@ Go での論理演算子は以下の通り。
 
 X &^ Y は X AND (NOT Y)という２つのビット演算をまとめた短縮系に該当する。
 
-この演算は **ビットクリア演算** とも呼ばれる。用途としては、特定のビットを無効化することでよく使われると思う。意味合いとしては、「Y が 1 のビットを X から除去する」と見るとわかりやすいと思う。
+この演算は **ビットクリア演算** とも呼ばれる。用途としては、特定のビットを無効化することでよく使われる。意味合いとしては、「Y が 1 のビットを X から除去する」と見るとわかりやすい。
 
 またビットクリア演算は、可換ではない（X と Y を入れ替えると答えが変わる）ので注意。
 

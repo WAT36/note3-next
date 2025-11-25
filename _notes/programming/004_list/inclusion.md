@@ -2,8 +2,8 @@
 title: "リストから条件に合う要素のみを取得した新しいリストを作成する"
 date: "2019-10-27T06:35:30+09:00"
 excerpt: "リストから条件に合う要素のみを取得した新しいリストを作成する"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-27T06:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -16,96 +16,164 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-// (記事参照)
+List<String> result = list.stream()
+    .filter(s -> s.length() >= 3)
+    .collect(Collectors.toList());
 ```
 
-Java ではリストの要素を１個１個見ていって、条件に合っていたら別リストにその要素を追加させていけば、そのリストが条件に合う要素のみを格納したリストになる。  
-（単純だが、もっといい方法が無いか模索中）
+Java では**Stream API**の**filter()**を使って条件に合う要素のみを取得できる。
 
-一例として、文字列のリストから３文字以上の要素のみを取り出したリストを作る例を示す。
+`filter()`にラムダ式で条件を指定し、`collect()`で新しいリストに変換する。
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
-class Main{
-  public static void main(String args[]){
+import java.util.*;
+import java.util.stream.*;
 
-    List<String> l = new ArrayList<>();
-    l.add("a");
-    l.add("bb");
-    l.add("ccc");
-    l.add("dddd");
-    System.out.println(l);
+List<String> list = Arrays.asList("a", "bb", "ccc", "dddd");
+System.out.println(list);  // [a, bb, ccc, dddd]
 
-    List<String> m = new ArrayList<>();
-    for(int i=0;i<l.size();i++){
-      if(l.get(i).length() >= 3){
-        m.add(l.get(i));
-      }
+// 3文字以上の要素のみを取得
+List<String> result = list.stream()
+    .filter(s -> s.length() >= 3)
+    .collect(Collectors.toList());
+System.out.println(result);  // [ccc, dddd]
+```
+
+**従来の方法（ループを使う）**:
+
+```java
+List<String> list = Arrays.asList("a", "bb", "ccc", "dddd");
+List<String> result = new ArrayList<>();
+for (String s : list) {
+    if (s.length() >= 3) {
+        result.add(s);
     }
-    System.out.println(m);
-  }
 }
-```
-
-実行結果
-
-```
-> java Main
-[a, bb, ccc, dddd]
-[ccc, dddd]
+System.out.println(result);  // [ccc, dddd]
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-[要素 for 要素 in リスト(イテラブルオブジェクト) if 条件]
+result = [s for s in my_list if len(s) >= 3]
 ```
 
-Python では**リスト内包表記**という方法を用いる。  
-リストの中でイテラブルオブジェクトの要素を条件に従い取り出す形で定義すると、イテラブルオブジェクトの要素の中で指定した条件に合う要素だけが残ったリストを返してくれる。
+Python では**リスト内包表記**で条件に合う要素のみを取得できる。
 
-使用例を以下に示す。
+`[要素 for 要素 in リスト if 条件]`の形式で記述する。
 
 ```python
->>> a=["a","bb","ccc","dddd"]
->>>
->>> a
-['a', 'bb', 'ccc', 'dddd']
->>>
->>> [s for s in a if len(s) >= 3]
-['ccc', 'dddd']
->>>
+my_list = ["a", "bb", "ccc", "dddd"]
+print(my_list)  # ['a', 'bb', 'ccc', 'dddd']
+
+# 3文字以上の要素のみを取得
+result = [s for s in my_list if len(s) >= 3]
+print(result)  # ['ccc', 'dddd']
+
+# 数値の例：奇数のみを取得
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+odds = [n for n in numbers if n % 2 == 1]
+print(odds)  # [1, 3, 5, 7, 9]
+```
+
+**filter()を使う方法**:
+
+```python
+my_list = ["a", "bb", "ccc", "dddd"]
+result = list(filter(lambda s: len(s) >= 3, my_list))
+print(result)  # ['ccc', 'dddd']
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-Array.filter((value, index, array) => {
-  // 条件式。要素valueが条件に合えばtrue,合わなければfalseを返す式を置く。
-});
+let result = arr.filter((s) => s.length >= 3);
 ```
 
-javascript には Array オブジェクトに**filter**メソッドがある。これは、Array オブジェクト内の要素を１個１個見ていき、指定した条件に合う要素だけを残すメソッドである。
+JavaScript では**filter()**で条件に合う要素のみを取得できる。
 
-利用するには filter メソッドの引数に関数を入力する。この関数は、引数に value,index,array をおく。value は要素、index はインデックス, array は元の Array オブジェクトを指す。(利用しない場合、index,array は書かなくても良い。)それに応じて、式で value 等に対して条件に合致するなら true を、しない場合は false を返すような処理を作成する。実行後、true が返された要素のみで作られた Array オブジェクトが返される。
-
-実行例を以下に見せる。これは、Array オブジェクト中にある奇数の要素のみを取り出すものである。
+`filter()`にコールバック関数を渡し、条件を満たす要素が`true`を返すようにする。
 
 ```javascript
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let odds = arr.filter((value) => {
-  return value % 2 !== 0;
-});
-console.log(odds);
+let arr = ["a", "bb", "ccc", "dddd"];
+console.log(arr); // ['a', 'bb', 'ccc', 'dddd']
+
+// 3文字以上の要素のみを取得
+let result = arr.filter((s) => s.length >= 3);
+console.log(result); // ['ccc', 'dddd']
+
+// 数値の例：奇数のみを取得
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let odds = numbers.filter((n) => n % 2 !== 0);
+console.log(odds); // [1, 3, 5, 7, 9]
 ```
 
-実行結果
+コールバック関数は`(要素, インデックス, 配列)`の 3 つの引数を受け取れるが、使用しない引数は省略できる。
 
+```javascript
+// インデックスも使う例：偶数インデックスの要素のみ取得
+let arr = ["a", "b", "c", "d", "e"];
+let result = arr.filter((value, index) => index % 2 === 0);
+console.log(result); // ['a', 'c', 'e']
 ```
-[1, 3, 5, 7, 9]
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+result := []string{}
+for _, s := range slice {
+    if len(s) >= 3 {
+        result = append(result, s)
+    }
+}
 ```
+
+Go では**for range**ループで条件に合う要素のみを新しいスライスに追加する。
+
+条件を満たす要素を`append()`で新しいスライスに追加していく。
+
+```go
+slice := []string{"a", "bb", "ccc", "dddd"}
+fmt.Println(slice)  // [a bb ccc dddd]
+
+// 3文字以上の要素のみを取得
+result := []string{}
+for _, s := range slice {
+    if len(s) >= 3 {
+        result = append(result, s)
+    }
+}
+fmt.Println(result)  // [ccc dddd]
+
+// 数値の例：奇数のみを取得
+numbers := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+odds := []int{}
+for _, n := range numbers {
+    if n%2 != 0 {
+        odds = append(odds, n)
+    }
+}
+fmt.Println(odds)  // [1 3 5 7 9]
+```
+
+**slices.DeleteFunc()を使う方法（Go 1.21+）**:
+
+元のスライスを破壊的に変更するが、より簡潔に書ける。
+
+```go
+import "slices"
+
+slice := []string{"a", "bb", "ccc", "dddd"}
+// 3文字未満の要素を削除（3文字以上を残す）
+result := slices.DeleteFunc(slice, func(s string) bool {
+    return len(s) < 3
+})
+fmt.Println(result)  // [ccc dddd]
+```
+
+注意：`slices.DeleteFunc()`は元のスライスを変更するため、元のスライスを保持したい場合は事前にコピーする必要がある。
 
 </div>

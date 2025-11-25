@@ -2,8 +2,8 @@
 title: "リストaにありリストbに入ってない要素のみを表示（差集合）"
 date: "2019-10-26T22:35:30+09:00"
 excerpt: "リスト2つの差集合をとる方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-26T22:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -17,105 +17,131 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-// リストaとリストbの差集合をとる
-import java.util.HashSet;
-import java.util.Set;
-
-リストa.removeAll(リストb); //リストaのうちリストbにもある要素は削除し他は残す
+List<Integer> listA = Arrays.asList(1, 2, 3, 4, 5);
+List<Integer> listB = Arrays.asList(4, 5, 6, 7, 8);
+listA.removeAll(listB);  // [1, 2, 3]
 ```
 
-Java では List クラスに **removeAll()** というメソッドがある。これは呼び出し元のリストに含まれている要素の内、引数に指定したリスト内に含まれている要素を削除し、他の要素は全て残すというメソッドである。  
-`boolean removeAll(Collection<?> c)`  
-このメソッドを活用することにより２つのリストの差集合をとることができる。ただし同じ値の要素が複数入っていた場合はその数だけ要素が残るということもあるので、重複している値を１つにするには **Set()** 等を使い重複を排除する。
+Java では**removeAll()**メソッドで 2 つのリストの差集合を取る（破壊的）。
 
-使用例を以下に示す。
+呼び出し元のリストから、引数に指定したリストに含まれる要素を削除する。
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
-class Main{
+List<Integer> listA = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+List<Integer> listB = Arrays.asList(4, 5, 6, 7, 8);
 
-  public static void main(String args[]){
-    List<Integer> l = new ArrayList<Integer>();
-    l.add(1);
-    l.add(3);
-    l.add(100);
-    l.add(0);
+listA.removeAll(listB);
+System.out.println(listA);  // [1, 2, 3]
 
-    List<Integer> m = new ArrayList<Integer>();
-    m.add(2);
-    m.add(4);
-    m.add(100);
-    m.add(0);
-
-    System.out.println("l  :" + l);
-    System.out.println("m  :" + m);
-
-    l.removeAll(m);
-
-    System.out.println("l-m:" + l);
-  }
-}
-```
-
-実行結果
-
-```
-> java Main
-l  :[1, 3, 100, 0]
-m  :[2, 4, 100, 0]
-l-m:[1, 3]
+// 非破壊的に差集合を取る場合（Stream API使用）
+List<Integer> original = Arrays.asList(1, 2, 3, 4, 5);
+List<Integer> other = Arrays.asList(4, 5, 6, 7, 8);
+List<Integer> difference = original.stream()
+    .filter(e -> !other.contains(e))
+    .collect(Collectors.toList());
+System.out.println(difference);  // [1, 2, 3]
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-# リストaとリストbの差集合をとる
-list(set(リストa) - set(リストb))
+list_a = [1, 2, 3, 4, 5]
+list_b = [4, 5, 6, 7, 8]
+result = list(set(list_a) - set(list_b))
 ```
 
-Python ではリストを set 型に変換し、その後 **-** 演算子を使うと、引かれた set にのみある要素のみが残る。  
-リストに戻したい時は、計算後の set を list()で変換してリストにする。
+Python では set 型に変換して**-**演算子で差集合を取る。
+
+1. 各リストを set に変換
+2. `-`演算子で差集合を計算
+3. `list()`でリストに戻す
 
 ```python
->>> a=[1,9,8,7,6,5,3,2]
->>> b=[2,3,4]
->>>
->>> a_minus_b=set(a)-set(b)
->>> a_minus_b
-{1, 5, 6, 7, 8, 9}
->>>
->>> list(a_minus_b)
-[1, 5, 6, 7, 8, 9]
->>>
+list_a = [1, 2, 3, 4, 5]
+list_b = [4, 5, 6, 7, 8]
+
+# 差集合を取る
+difference = set(list_a) - set(list_b)
+result = list(difference)
+print(result)  # [1, 2, 3]
+
+# 1行で書く場合
+result = list(set(list_a) - set(list_b))
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-//Array_a,Array_bの2つのArrayオブジェクトがあるとする
-Array_a.filter((value) => !Array_b.includes(value));
+let arrA = [1, 2, 3, 4, 5];
+let arrB = [4, 5, 6, 7, 8];
+let difference = arrA.filter((v) => !arrB.includes(v));
 ```
 
-2 つの Array オブジェクトに対し片方のみにある要素のみを取り出す(差集合)には、ここも専用のメソッドが見当たらない（あればお知らせください。。）ため、
-積集合と同様に Array オブジェクトの**filter**メソッドと**includes**メソッドを利用する。
+JavaScript では**filter()**と**includes()**を使用して差集合を取る。
 
-先ほどの積集合と逆で、includes メソッドで false が返ってくるときに true となるように、`!include`とすれば良い。
-
-実行例を以下に示す。
+`filter()`で配列 A の要素をフィルタリングし、配列 B に含まれない要素のみを残す。
 
 ```javascript
-let arrA = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let arrB = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-console.log(arrA.filter((value) => !arrB.includes(value)));
+let arrA = [1, 2, 3, 4, 5];
+let arrB = [4, 5, 6, 7, 8];
+
+// 差集合を取る
+let difference = arrA.filter((value) => !arrB.includes(value));
+console.log(difference); // [1, 2, 3]
+
+// Setを使った方法
+let setA = new Set(arrA);
+let setB = new Set(arrB);
+let differenceSet = [...setA].filter((v) => !setB.has(v));
+console.log(differenceSet); // [1, 2, 3]
 ```
 
-実行結果
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
 
+```go
+sliceA := []int{1, 2, 3, 4, 5}
+sliceB := []int{4, 5, 6, 7, 8}
+
+mapB := make(map[int]bool)
+for _, v := range sliceB {
+    mapB[v] = true
+}
+
+result := []int{}
+for _, v := range sliceA {
+    if !mapB[v] {
+        result = append(result, v)
+    }
+}
 ```
-[1, 2, 3, 4]
+
+Go では map を使用して 2 つのスライスの差集合を取る。
+
+1. スライス B の要素を map に格納
+2. スライス A の要素をループし、map に存在しないものだけを結果に追加
+
+```go
+sliceA := []int{1, 2, 3, 4, 5}
+sliceB := []int{4, 5, 6, 7, 8}
+
+// スライスBの要素をmapに格納
+mapB := make(map[int]bool)
+for _, v := range sliceB {
+    mapB[v] = true
+}
+
+// スライスAの要素のうち、mapに存在しないものを取得
+result := []int{}
+for _, v := range sliceA {
+    if !mapB[v] {
+        result = append(result, v)
+    }
+}
+
+fmt.Println(result)  // [1 2 3]
 ```
 
 </div>

@@ -2,8 +2,8 @@
 title: "多次元リスト(配列)である列をキーにしてソートする"
 date: "2019-10-27T07:35:30+09:00"
 excerpt: "多次元リスト(配列)である列をキーにしてソートする方法"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-27T07:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -18,103 +18,256 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-import java.util.Collections;
-// 例：リストlの１番目の項でソートしたい時
-Collections.sort(l,(x,y)->Integer.compare(x.get(1), y.get(1)));
+list.sort((x, y) -> Integer.compare(x.get(1), y.get(1)));
 ```
 
-Java では「リストのソート」の記事で述べた **Collections.sort()** メソッドを用いる。  
-違う点は、sort()メソッドにソートしたいリストだけでなく、リストをどのように順序付けるかを定義する **Comparator** を定義させる。
+Java では**list.sort()**または**Collections.sort()**に**Comparator**を渡して、ソートのキーとなる列を指定する。
 
-`public static <T> void sort(List<T> list,Comparator<? super T> c)`
-
-例えば、数値のリストの 1 番目の要素でソートさせたい時は、Comparator を以下のようにする。
-
-`(x,y) -> Integer.compare(x.get(1),y.get(1))`
-
-この例だと各要素(リスト)の 1 番目が降順になる用にソートされる。  
-使用例を以下に示す。
+Comparator にはラムダ式`(x, y) -> Integer.compare(x.get(インデックス), y.get(インデックス))`を使用する。
 
 ```java
-import java.util.Collections;
-import java.util.ArrayList;
-import java.util.List;
-class Main{
-  public static void main(String args[]){
+import java.util.*;
 
-    List<List<Integer>> l = new ArrayList<List<Integer>>();
-    for(int i=0;i<4;i++){
-      List<Integer> m = new ArrayList<>();
-      m.add(i);
-      m.add(i*-1);
-      l.add(m);
-    }
-    System.out.println("before sort:" + l);
+// [[名前, 年齢], ...]の形式のリスト
+List<List<Object>> people = Arrays.asList(
+    Arrays.asList("Alice", 30),
+    Arrays.asList("Bob", 25),
+    Arrays.asList("Charlie", 35)
+);
+System.out.println("ソート前: " + people);
+// [[Alice, 30], [Bob, 25], [Charlie, 35]]
 
-    Collections.sort(l,(x,y)->Integer.compare(x.get(1), y.get(1)));
-
-    System.out.println("after  sort:" + l);
-  }
-}
+// 1番目の要素（年齢）でソート
+people.sort((x, y) -> Integer.compare((Integer)x.get(1), (Integer)y.get(1)));
+System.out.println("ソート後: " + people);
+// [[Bob, 25], [Alice, 30], [Charlie, 35]]
 ```
 
-実行結果
+**数値のみの 2 次元リストの場合**:
 
-```
-> java Main
-before sort:[[0, 0], [1, -1], [2, -2], [3, -3]]
-after  sort:[[3, -3], [2, -2], [1, -1], [0, 0]]
+```java
+List<List<Integer>> matrix = Arrays.asList(
+    Arrays.asList(3, 1),
+    Arrays.asList(1, 2),
+    Arrays.asList(2, 3)
+);
+System.out.println("ソート前: " + matrix);
+// [[3, 1], [1, 2], [2, 3]]
+
+// 1番目の要素でソート
+matrix.sort((x, y) -> Integer.compare(x.get(1), y.get(1)));
+System.out.println("ソート後: " + matrix);
+// [[3, 1], [1, 2], [2, 3]]
+
+// 0番目の要素でソート
+matrix.sort((x, y) -> Integer.compare(x.get(0), y.get(0)));
+System.out.println("0番目でソート: " + matrix);
+// [[1, 2], [2, 3], [3, 1]]
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-# 例：リストlの１番目の項でソートしたい時
-リスト.sort(key=lambda x: x[1])
+my_list.sort(key=lambda x: x[1])
 ```
 
-Python ではリストの**sort()**関数に、引数**key**を指定する。
-key には 1 引数関数を指定し、各要素(リスト)の比較に用いたいインデックスの項を返すような関数を指定する
-例として、リストの 1 番目の要素でソートさせたい時は以下のようにする。
+Python では**sort()**または**sorted()**に**key**引数を指定して、ソートのキーとなる列を指定する。
 
-`リスト.sort(key=lambda x: x[1])`
-
-使用例を以下に示す。
+`key=lambda x: x[インデックス]`の形式でソートキーを指定する。
 
 ```python
->>> a=[[1,-1],[2,2],[3,-3],[4,4],[5,-5]]
->>> a
-[[1, -1], [2, 2], [3, -3], [4, 4], [5, -5]]
->>>
->>> a.sort(key=lambda x:x[1])
->>>
->>> a
-[[5, -5], [3, -3], [1, -1], [2, 2], [4, 4]]
->>>#リストの各要素(リスト)の1番目の要素でソートされる
+# [["名前", 年齢], ...]の形式のリスト
+people = [["Alice", 30], ["Bob", 25], ["Charlie", 35]]
+print("ソート前:", people)
+# [['Alice', 30], ['Bob', 25], ['Charlie', 35]]
+
+# 1番目の要素（年齢）でソート（破壊的）
+people.sort(key=lambda x: x[1])
+print("ソート後:", people)
+# [['Bob', 25], ['Alice', 30], ['Charlie', 35]]
+
+# sorted()を使う非破壊的な方法
+people = [["Alice", 30], ["Bob", 25], ["Charlie", 35]]
+sorted_people = sorted(people, key=lambda x: x[1])
+print("元のリスト:", people)  # [['Alice', 30], ['Bob', 25], ['Charlie', 35]]
+print("ソート済み:", sorted_people)  # [['Bob', 25], ['Alice', 30], ['Charlie', 35]]
+```
+
+**数値のみの 2 次元リストの場合**:
+
+```python
+matrix = [[3, 1], [1, 2], [2, 3]]
+print("ソート前:", matrix)  # [[3, 1], [1, 2], [2, 3]]
+
+# 1番目の要素でソート
+matrix.sort(key=lambda x: x[1])
+print("ソート後:", matrix)  # [[3, 1], [1, 2], [2, 3]]
+
+# 0番目の要素でソート
+matrix.sort(key=lambda x: x[0])
+print("0番目でソート:", matrix)  # [[1, 2], [2, 3], [3, 1]]
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-// 例、2*2 Arrayの２要素目でソートする
-let arr = [
-  [1, 4],
-  [2, 3],
-  [3, 2],
-];
 arr.sort((a, b) => a[1] - b[1]);
 ```
 
-ここでは sort メソッドを利用し、ソートで利用する関数でどこをソート対象にするかを定義する。
+JavaScript では**sort()**に比較関数を渡して、ソートのキーとなる列を指定する。
 
-上記の例では、2 つの要素からなる Array オブジェクトの Array オブジェクトにおいて、２要素目をキーにソートしたい時の例である。
+比較関数は`(a, b) => a[インデックス] - b[インデックス]`の形式で記述する。
 
-上記例を実行後、Array オブジェクトは以下になる。
+```javascript
+// [["名前", 年齢], ...]の形式の配列
+let people = [
+  ["Alice", 30],
+  ["Bob", 25],
+  ["Charlie", 35],
+];
+console.log("ソート前:", people);
+// [['Alice', 30], ['Bob', 25], ['Charlie', 35]]
 
+// 1番目の要素（年齢）でソート
+people.sort((a, b) => a[1] - b[1]);
+console.log("ソート後:", people);
+// [['Bob', 25], ['Alice', 30], ['Charlie', 35]]
 ```
-[[3, 2],[2, 3],[1, 4]]
+
+**数値のみの 2 次元配列の場合**:
+
+```javascript
+let matrix = [
+  [3, 1],
+  [1, 2],
+  [2, 3],
+];
+console.log("ソート前:", matrix); // [[3, 1], [1, 2], [2, 3]]
+
+// 1番目の要素でソート
+matrix.sort((a, b) => a[1] - b[1]);
+console.log("ソート後:", matrix); // [[3, 1], [1, 2], [2, 3]]
+
+// 0番目の要素でソート
+matrix.sort((a, b) => a[0] - b[0]);
+console.log("0番目でソート:", matrix); // [[1, 2], [2, 3], [3, 1]]
+```
+
+**文字列でソートする場合**:
+
+文字列の比較には`localeCompare()`を使用する。
+
+```javascript
+let people = [
+  ["Alice", 30],
+  ["Charlie", 25],
+  ["Bob", 35],
+];
+// 0番目の要素（名前）でソート
+people.sort((a, b) => a[0].localeCompare(b[0]));
+console.log(people); // [['Alice', 30], ['Bob', 35], ['Charlie', 25]]
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+sort.Slice(slice, func(i, j int) bool {
+    return slice[i][1] < slice[j][1]
+})
+```
+
+Go では**sort.Slice()**に比較関数を渡して、ソートのキーとなる列を指定する。
+
+比較関数で`slice[i][インデックス] < slice[j][インデックス]`を返すように記述する。
+
+```go
+import (
+    "fmt"
+    "sort"
+)
+
+// [][]interface{} の形式のスライス
+type Person struct {
+    Name string
+    Age  int
+}
+
+people := []Person{
+    {"Alice", 30},
+    {"Bob", 25},
+    {"Charlie", 35},
+}
+fmt.Println("ソート前:", people)
+// [{Alice 30} {Bob 25} {Charlie 35}]
+
+// Ageフィールドでソート
+sort.Slice(people, func(i, j int) bool {
+    return people[i].Age < people[j].Age
+})
+fmt.Println("ソート後:", people)
+// [{Bob 25} {Alice 30} {Charlie 35}]
+```
+
+**数値のみの 2 次元スライスの場合**:
+
+```go
+matrix := [][]int{
+    {3, 1},
+    {1, 2},
+    {2, 3},
+}
+fmt.Println("ソート前:", matrix) // [[3 1] [1 2] [2 3]]
+
+// 1番目の要素でソート
+sort.Slice(matrix, func(i, j int) bool {
+    return matrix[i][1] < matrix[j][1]
+})
+fmt.Println("ソート後:", matrix) // [[3 1] [1 2] [2 3]]
+
+// 0番目の要素でソート
+sort.Slice(matrix, func(i, j int) bool {
+    return matrix[i][0] < matrix[j][0]
+})
+fmt.Println("0番目でソート:", matrix) // [[1 2] [2 3] [3 1]]
+```
+
+**文字列でソートする場合**:
+
+```go
+type Person struct {
+    Name string
+    Age  int
+}
+
+people := []Person{
+    {"Alice", 30},
+    {"Charlie", 25},
+    {"Bob", 35},
+}
+
+// Nameフィールドでソート
+sort.Slice(people, func(i, j int) bool {
+    return people[i].Name < people[j].Name
+})
+fmt.Println(people)
+// [{Alice 30} {Bob 35} {Charlie 25}]
+```
+
+**降順でソートする場合**:
+
+比較関数の不等号を逆にする（`<` → `>`）。
+
+```go
+matrix := [][]int{{3, 1}, {1, 2}, {2, 3}}
+
+// 1番目の要素で降順ソート
+sort.Slice(matrix, func(i, j int) bool {
+    return matrix[i][1] > matrix[j][1]
+})
+fmt.Println(matrix) // [[2 3] [1 2] [3 1]]
 ```
 
 </div>

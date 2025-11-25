@@ -1,10 +1,10 @@
 ---
 title: "文字列を宣言する"
 date: "2019-10-17T22:05:28.000Z"
-excerpt: "1文字からその文字の文字コード（アスキーコード）を取得する"
+excerpt: "文字列を宣言する"
 tag: ["Java", "Python", "Javascript", "Go"]
 programming: ["Java", "Python", "Javascript", "Go"]
-updatedAt: '2025-06-30T20:44:30.000Z'
+updatedAt: '2025-11-25T00:12:02.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -16,87 +16,79 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-// 変数名、値は任意
-char c = 'c'; // 1文字のみ
-String s = "文字列" // 2文字以上も可能
+String s = "Hello";
+char c = 'A';
 ```
 
-Java で文字を扱うには、基本データ型であり 1 文字のみを扱える**char**型と、
+Java では **String** 型で文字列、**char** 型で 1 文字を宣言する。
 
-2 文字以上の文字列を扱える**String**型がある。（もう少し言うと StringBuilder 型というのもあるがここでは割愛する）
+ダブルクォートで文字列、シングルクォートで 1 文字を囲む。
 
-char 型の場合は 1 文字をシングルクォート('')で囲んで宣言する。char 型で 2 文字以上の文字を宣言するとコンパイルエラ
-ーとなる。
-
-String 型の場合は文字列をダブルクォート("")で囲んで宣言する。文字列は 0 文字から扱える。
-
-使用例
+実行例
 
 ```java
-class Main{
-    public static void main(String args[]){
-      char c = 'c';
-
-      System.out.println(c); // c
-
-      String s = "Words";
-
-      System.out.println(s); // Words
-    }
-}
+String s = "Hello";
+char c = 'A';
+System.out.println(s); // Hello
+System.out.println(c); // A
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
-Python では文字列を扱うには
-
 ```python
-# 変数名、値は任意
-s1 = "文字列"
-s2 = '文字列'
+s1 = "Hello"
+s2 = 'World'
 ```
 
-のようにする。
-Java とは違い、Python では文字列を宣言するときにはシングルクォート('')、ダブルクォート("")のどちらを利用しても
-よい。
+Python では **str** 型で文字列を宣言する。
+
+シングルクォートまたはダブルクォートで囲む。
+
+実行例
 
 ```python
->>> s = "a"
->>> print(s)
-a
->>> c = 'c'
->>> print(c)
-c
->>>
+s = "Hello"
+print(s)  # Hello
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
-Javascript でも、シングルクォート('')、ダブルクォート("")を利用して文字列を宣言する。
+```javascript
+let s1 = "Hello";
+let s2 = "World";
+```
+
+JavaScript では **string** 型で文字列を宣言する。
+
+シングルクォートまたはダブルクォートで囲む。
+
+実行例
 
 ```javascript
-// 変数名、値は任意
-var s1 = "Hello! World!";
-var s2 = "Hello! World!";
+let s = "Hello";
+console.log(s); // Hello
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Go">
 
-Go では、ダブルクォート("")を利用して文字列(string 型)を宣言する。
+```go
+s1 := "Hello"
+s2 := `複数行
+文字列`
+```
 
-また、バッククォート(``)を利用することで、改行を含む複数行の文字列を宣言することができる。これを**RAW 文字列リテラル**という。
+Go 言語では **string** 型で文字列を宣言する。
+
+ダブルクォートまたはバッククォート（RAW 文字列リテラル）で囲む。
+
+実行例
 
 ```go
-// 変数名、値は任意
-s1 := "Hello! World!"
-s2 := `
-  複数行の
-  Hello!
-  World!
-`
+s := "Hello"
+fmt.Println(s) // Hello
 ```
 
 </div>

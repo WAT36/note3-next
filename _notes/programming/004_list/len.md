@@ -16,84 +16,96 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-// 配列
-配列.length
+int[] arr = {1, 2, 3};
+List<Integer> list = Arrays.asList(1, 2, 3);
 
-// リスト
-リスト.size();
+arr.length;    // 3
+list.size();   // 3
 ```
 
-Java では 配列には**length** というプロパティがありこれが配列の長さを、  
-リストは List クラスに **size()** というメソッドがあり、これはリストに入っているデータの個数（＝リストの長さ）を返してくれる。  
-`int size()`  
-実行例を以下に示す。
+Java では配列には**length**プロパティ、リストには**size()**メソッドがある。
+
+- **配列**: `arr.length` で要素数を取得
+- **リスト**: `list.size()` で要素数を取得
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
-class Main{
-  public static void main(String args[]){
-    List<Integer> l = new ArrayList<Integer>();
-    l.add(1);
-    l.add(3);
+int[] arr = {1, 2, 3, 4, 5};
+System.out.println(arr.length);  // 5
 
-    System.out.println(l.size());
-  }
-}
-```
-
-実行結果
-
-```
-> java Main
-2
+List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3));
+System.out.println(list.size()); // 3
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-len(リスト)
+arr = [1, 2, 3]
+
+len(arr)  # 3
 ```
 
-Python では **len()** という関数があり、引数のリストの長さ（リスト内の要素の数）を返してくれる。
+Python では組み込み関数**len()**でリストの長さを取得する。
 
 ```python
->>> a=[1,2,3]
->>>
->>> len(a)
-3
->>>
+arr = [1, 2, 3, 4, 5]
+print(len(arr))  # 5
+
+# 多次元リストの場合
+matrix = [[1, 2], [3, 4], [5, 6]]
+print(len(matrix))     # 3（行数）
+print(len(matrix[0]))  # 2（列数）
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-Array.length;
+let arr = [1, 2, 3];
+
+arr.length; // 3
 ```
 
-Javascript も Java と同じく Array オブジェクトに**length**という属性がある。それが配列の長さを示している。
+JavaScript では Array オブジェクトの**length**プロパティで配列の長さを取得する。
 
 ```javascript
-> [1,2,3,4,5].length
-> 5
+let arr = [1, 2, 3, 4, 5];
+console.log(arr.length); // 5
+
+// 多次元配列の場合
+let matrix = [
+  [1, 2],
+  [3, 4],
+  [5, 6],
+];
+console.log(matrix.length); // 3（行数）
+console.log(matrix[0].length); // 2（列数）
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Go">
 
 ```go
-len(配列またはスライス)
+arr := []int{1, 2, 3}
+
+len(arr)  // 3
 ```
 
-Go では組み込み関数**len**を利用して、要素数を確認できる。
+Go では組み込み関数**len()**で配列・スライスの長さを取得する。
 
 配列、スライスどちらにも利用できる。
 
 ```go
-s := make([]int, 10)
-fmt.Println(len(s))  // 10
+arr := [5]int{1, 2, 3, 4, 5}
+fmt.Println(len(arr))  // 5
+
+slice := []int{1, 2, 3}
+fmt.Println(len(slice))  // 3
+
+// 多次元スライスの場合
+matrix := [][]int{{1, 2}, {3, 4}, {5, 6}}
+fmt.Println(len(matrix))     // 3（行数）
+fmt.Println(len(matrix[0]))  // 2（列数）
 ```
 
 </div>

@@ -2,9 +2,9 @@
 title: "数値型に変換する"
 date: "2019-10-12T20:02:08.000Z"
 excerpt: "文字列を数値型データに変換する方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
-updatedAt: '2025-07-05T08:24:37.000Z'
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
+updatedAt: '2025-11-25T00:12:02.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -20,105 +20,89 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-Integer.parseInt("文字列");
+Integer.parseInt("10"); // 10
 ```
 
-Java では各数値型のラッパークラスに **parsexxx(String s)** というメソッドがあり、これにより文字列を数値リテラルに変換してくれる。
+Java では各数値型のラッパークラスの **parseXxx()** メソッドで文字列を数値に変換する。
 
-int 型の場合は int のラッパークラス Integer に **parseInt** というメソッドがあり、そのメソッドに文字列を入力すると、対応する数値に変換してくれる。上記例では"1"という文字列を parseInt に入力すると、int 型(数値リテラル)の 1 が返る。
-
-数値リテラルに変換できないような文字列を入力すると`NumberFormatException`という例外エラーが発生する。
-
-他の数値型に変換したいときは、それぞれ対応するラッパークラスに parsexx メソッドがあるのでそれを活用する。
-
-以下に使用例を示す。
-
-```java
-String s = "10";
-int i = Integer.parseInt(s);
-System.out.println(i); // 10
-
-s = "AA";
-i = Integer.parseInt(s); // NumberFormatExceptionエラーが発生
-```
+変換できない文字列の場合は `NumberFormatException` が発生する。
 
 実行例
 
-```
-$ javac Main.java
-$ java Main
-10
-Exception in thread "main" java.lang.NumberFormatException: For input string: "AA"
-        at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
-        at java.lang.Integer.parseInt(Integer.java:580)
-        at java.lang.Integer.parseInt(Integer.java:615)
-        at Main.main(Main.java:10)
+```java
+String s = "10";
+int i = Integer.parseInt(s); // 10
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-int("文字列")
-int("文字列",x) # x進数に変換
+int("10")      # 10
+int("10", 16)  # 16進数で16
 ```
 
-Python で数値の文字列を数値リテラルに変換したい時は組み込み関数の **int()** を利用する。
+Python では組み込み関数の **int()** で文字列を数値に変換する。
 
-数値リテラルに変換できないような文字列を入力したときは、例外`ValueError`を返す。
+第 2 引数で基数を指定できる（デフォルトは 10）。
 
-また第２引数 x を指定することで x 進数の値に変換できる。デフォルトでは 10 である。
-
-以下に使用例を示す。
-
-```python
-s = "10"
-print(int(s)) # 10
-
-s="AA"
-print(int(s))
-```
+変換できない文字列の場合は `ValueError` が発生する。
 
 実行例
 
-```
-10
-Traceback (most recent call last):
-  File "main.py", line 4, in <module>
-    print(int(s))
-ValueError: invalid literal for int() with base 10: 'AA'
+```python
+s = "10"
+i = int(s)  # 10
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-Number("文字列");
-parseInt("文字列");
+Number("10"); // 10
+parseInt("10"); // 10
 ```
 
-Javascript で数値の文字列を数値型に変換したい時は、
+JavaScript では **Number()** 及び **parseInt()** 関数で文字列を数値に変換する。
 
-関数 **Number()** 、 **parseInt()** を利用する。
-以下に使用例を示す。
+`Number()` は浮動小数点数も変換、`parseInt()` は整数のみ変換する。
+
+実行例
 
 ```javascript
-var s = "1";
-console.log(s);
-
-//文字列->数値に変換
-console.log(Number(s));
-console.log(parseInt(s));
+let s = "10";
+let n = Number(s); // 10
+let i = parseInt(s); // 10
 ```
 
-実行結果
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
 
-```
-1
-1
-1
+```go
+package main
+import (
+    "strconv"
+    "fmt"
+)
+
+func main() {
+    i, _ := strconv.Atoi("10") // 10
+    f, _ := strconv.ParseFloat("10.5", 64) // 10.5
+}
 ```
 
-(ログだと区別つかんか・・)
+Go 言語では **strconv** パッケージの関数で文字列を数値に変換する。
+
+- `strconv.Atoi()`: 文字列を整数に変換
+- `strconv.ParseFloat()`: 文字列を浮動小数点数に変換
+
+変換できない文字列の場合はエラーが返される。
+
+実行例
+
+```go
+s := "10"
+i, err := strconv.Atoi(s) // i = 10, err = nil
+```
 
 </div>

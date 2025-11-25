@@ -2,9 +2,9 @@
 title: "指定文字列が含まれているかを確認する"
 date: "2019-10-15T19:27:48.000Z"
 excerpt: "文字列中にある文字列が含まれているかを確認する方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
-updatedAt: "2019-10-15T19:27:48.000Z"
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
+updatedAt: '2025-11-25T00:12:02.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -17,90 +17,83 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-// 文字列1に文字列2が含まれているか確認する
-"文字列１".contains("文字列２")
+"Hello".contains("ell"); // true
 ```
 
-Java で文字列中にある文字列が含まれているかを確認するには String のメソッドである **contains()** を利用する。
+Java では String の **contains()** メソッドで文字列の包含を確認する。
 
-`public boolean contains(String s)`
+含まれていれば `true`、そうでなければ `false` を返す。
 
-呼び出し元の文字列中に引数に指定した文字列が含まれていれば true、そうでない場合は false を返す。
-
-使用例
+実行例
 
 ```java
-String s = "apple,banana,cherry,durian";
-System.out.println(s.contains("banana"));
-System.out.println(s.contains("grape"));
-```
-
-実行結果
-
-```
-$ javac Main.java
-$ java Main
-true
-false
+String s = "apple,banana,cherry";
+boolean result = s.contains("banana"); // true
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-# 文字列1に文字列2が含まれているか確認する
-"文字列２" in "文字列１"
+"ell" in "Hello"  # True
 ```
 
-python で文字列中にある文字列が含まれているかを確認するには **in** 演算子を使う。
+Python では **in** 演算子で文字列の包含を確認する。
 
-文字列 A 中に文字列 B が含まれているか確認したい場合は以下のようにする。
+含まれていれば `True`、そうでなければ `False` を返す。
 
-`文字列B in 文字列A`
-
-含まれていると True、そうでない場合は False を返す。
+実行例
 
 ```python
->>> s = "apple,banana,cherry"
->>>
->>> "banana" in s
-True
->>>
->>> "grape" in s
-False
->>>
+s = "apple,banana,cherry"
+result = "banana" in s  # True
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-// 文字列1に文字列2が含まれているか確認する
-"文字列１".includes("文字列２");
-
-// 指定文字列で始まるか終わるかを判別したい場合は以下も可
-"文字列１".startsWith("文字列２");
-"文字列１".endsWith("文字列２");
+"Hello".includes("ell"); // true
+"Hello".startsWith("He"); // true
+"Hello".endsWith("lo"); // true
 ```
 
-Javascript では **String.includes()** メソッドで判別が行える。利用方法は上記の通り。
+JavaScript では **includes()** メソッドで文字列の包含を確認する。
 
-また、文字列が指定した文字列で始まるか、終わるかを判別したい場合は、 **String.startsWith()** と **String.endsWith()** も利用できる。
+**startsWith()** と **endsWith()** で開始・終了の確認も可能。
 
-この方法で、ある文字列に指定した文字列が含まれているかを判別でき、含まれていると true、そうでない場合は false を返す。
-
-実行結果
+実行例
 
 ```javascript
-var s = "apple,banana,cherry";
-
-console.log(s.includes("banana"));
-console.log(s.includes("durian"));
+let s = "apple,banana,cherry";
+let result = s.includes("banana"); // true
 ```
 
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+package main
+import (
+    "strings"
+    "fmt"
+)
+
+func main() {
+    s := "Hello"
+    result := strings.Contains(s, "ell") // true
+}
 ```
-true
-false
+
+Go 言語では **strings** パッケージの **Contains()** 関数で文字列の包含を確認する。
+
+**HasPrefix()** と **HasSuffix()** で開始・終了の確認も可能。
+
+実行例
+
+```go
+s := "apple,banana,cherry"
+result := strings.Contains(s, "banana") // true
 ```
 
 </div>

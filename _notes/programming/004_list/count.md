@@ -2,8 +2,8 @@
 title: "指定した要素がリスト内にいくつあるか調べる"
 date: "2019-10-27T02:35:30+09:00"
 excerpt: "指定した要素がリスト内にいくつあるか調べる方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-27T02:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -16,94 +16,139 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-// 作成中・・・
+List<String> list = Arrays.asList("a", "b", "a", "c", "a");
+long count = list.stream().filter(x -> x.equals("a")).count();
 ```
 
-Java では具体的なメソッドが(調べたところ)無いため、リストの要素を一個一個見ていって調べる。  
-（他に方法があるかもしれないので、後に要調査。）
+Java では**Stream API**の`filter()`と`count()`で指定した要素の個数を数える。
+
+Java 8 以降では Stream API を使うと簡潔に書ける。従来の for ループでも可能。
 
 ```java
-iimport java.util.ArrayList;
-import java.util.List;
-class Main{
-  public static void main(String args[]){
+List<String> list = Arrays.asList("a", "b", "a", "c", "a");
+System.out.println(list);  // [a, b, a, c, a]
 
-    List<String> l = new ArrayList<>();
-    l.add("a");
-    l.add("b");
-    l.add("c");
-    l.add("d");
-    l.add("a");
-    l.add("a");
+// Stream APIを使う方法（Java 8+）
+long count = list.stream()
+    .filter(x -> x.equals("a"))
+    .count();
+System.out.println(count);  // 3
 
-    System.out.println("l:" + l );
-
-    int count=0;
-    for(int i=0;i<l.size();i++){
-        if(l.get(i)=="a"){
-            count++;
-        }
+// 従来のforループを使う方法
+int count2 = 0;
+for (String s : list) {
+    if (s.equals("a")) {
+        count2++;
     }
-
-    System.out.println("a:" + count);
-  }
 }
-```
+System.out.println(count2);  // 3
 
-実行結果
-
-```
->java Main
-l:[a, b, c, d, a, a]
-a:3
+// Collections.frequency()を使う方法
+int count3 = Collections.frequency(list, "a");
+System.out.println(count3);  // 3
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-リスト.count(値)
+my_list = ["a", "b", "a", "c", "a"]
+count = my_list.count("a")
 ```
 
-Python ではリストの関数に **count()** があり、これは引数に指定した要素がリスト内にいくつあるかを返してくれる。
+Python では**count()**で指定した要素の個数を数える。
+
+リストのメソッド`count()`を使うと指定した値の出現回数を返す。
 
 ```python
->>> l=['a','b','c','d','a','a']
->>>
->>> l
-['a', 'b', 'c', 'd', 'a', 'a']
->>>
->>> l.count('a')
-3
->>>
+my_list = ["a", "b", "a", "c", "a"]
+print(my_list)  # ['a', 'b', 'a', 'c', 'a']
+
+count = my_list.count("a")
+print(count)  # 3
+
+# 数値のリストでも使える
+nums = [1, 2, 1, 3, 1, 4]
+count2 = nums.count(1)
+print(count2)  # 3
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-let count = 0;
-Array.forEach((value, index, array) => value === 指定要素 && count++);
+let arr = ["a", "b", "a", "c", "a"];
+let count = arr.filter((x) => x === "a").length;
 ```
 
-ここも専用のメソッドは見当たらないため、Array オブジェクトの**forEach**メソッドを利用する。
+JavaScript では**filter()**と`length`で指定した要素の個数を数える。
 
-forEach メソッドは、Array オブジェクト内の要素を順に見ていって処理するメソッドである。利用するには引数に関数を入力する。この関数は、引数に value,index,array をおく。value は要素、index はインデックス, array は元の Array オブジェクトを指す。(利用しない場合、index,array は書かなくても良い。)それに応じて、式で value,index,array 等を利用し、処理をさせる。
-
-これを利用し、まず最初に要素数を数える変数を宣言し、forEach メソッド内で要素 value が指定した値(または条件)に合致したときに その変数を 1 増やすような式を書けば良い。
-
-実行例を以下に見せる。これは、Array オブジェクト中にある 2 をカウントし出力するものである。
-
-実行例を以下に示す。
+`filter()`で条件に一致する要素を抽出し、その配列の`length`を取得する。
 
 ```javascript
-let count = 0;
-let arr = [1, 1, 1, 1, 2, 2, 2, 2, 2, 2];
-let result = arr.forEach((value) => {
-  return value === 2 && count++;
-});
-console.log(count);
-// 6
+let arr = ["a", "b", "a", "c", "a"];
+console.log(arr); // ['a', 'b', 'a', 'c', 'a']
+
+// filter()とlengthを使う方法
+let count = arr.filter((x) => x === "a").length;
+console.log(count); // 3
+
+// reduce()を使う方法
+let count2 = arr.reduce((acc, x) => (x === "a" ? acc + 1 : acc), 0);
+console.log(count2); // 3
+
+// forループを使う方法
+let count3 = 0;
+for (let x of arr) {
+  if (x === "a") count3++;
+}
+console.log(count3); // 3
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+slice := []string{"a", "b", "a", "c", "a"}
+count := 0
+for _, v := range slice {
+    if v == "a" {
+        count++
+    }
+}
+```
+
+Go では**for range**ループで要素を調べ、カウンタをインクリメントする。
+
+標準ライブラリには専用の関数がないため、ループで数える。
+
+```go
+slice := []string{"a", "b", "a", "c", "a"}
+fmt.Println(slice)  // [a b a c a]
+
+// for rangeを使う方法
+count := 0
+for _, v := range slice {
+    if v == "a" {
+        count++
+    }
+}
+fmt.Println(count)  // 3
+
+// 関数として定義する場合
+func countElement[T comparable](slice []T, target T) int {
+    count := 0
+    for _, v := range slice {
+        if v == target {
+            count++
+        }
+    }
+    return count
+}
+
+nums := []int{1, 2, 1, 3, 1, 4}
+count2 := countElement(nums, 1)
+fmt.Println(count2)  // 3
 ```
 
 </div>

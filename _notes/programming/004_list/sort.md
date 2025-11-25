@@ -2,8 +2,8 @@
 title: "リストのソート"
 date: "2019-10-26T19:35:30+09:00"
 excerpt: "リスト内の要素をソートする方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-26T19:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -16,146 +16,139 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-import java.util.Collections;
-Collections.sort(リスト)    // リストがソートされる（インプレース）
-
-// 逆順にソートしたい時は以下も行う
-Collections.reverse(リスト) // リストが逆順になる（インプレース）
+List<Integer> list = Arrays.asList(3, 1, 4, 1, 5);
+Collections.sort(list);              // 昇順
+Collections.sort(list, Collections.reverseOrder()); // 降順
 ```
 
-Java ではリストに関するメソッドがあるライブラリ**java.util.Collections**に、リストをソートするメソッド **sort()** があるので、それを利用する。
+Java では**Collections.sort()**でリストをソートする。
 
-逆順にソートしたい時は、ソート した後に リストを逆順にする reverse メソッドを利用する。
+- **昇順ソート**: `Collections.sort(list)`
+- **降順ソート**: `Collections.sort(list, Collections.reverseOrder())`
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Collections;
-class Main{
-  public static void main(String args[]){
-    List<Integer> l = new ArrayList<Integer>();
-    l.add(1);
-    l.add(3);
-    l.add(-2);
-    l.add(100);
+List<Integer> list = new ArrayList<>(Arrays.asList(3, 1, 4, 1, 5, 9));
 
-    for(int i=0;i<l.size();i++){
-        System.out.print(l.get(i) + " ");
-    }
+// 昇順ソート
+Collections.sort(list);
+System.out.println(list);  // [1, 1, 3, 4, 5, 9]
 
-    System.out.println();
-    Collections.sort(l);
+// 降順ソート
+Collections.sort(list, Collections.reverseOrder());
+System.out.println(list);  // [9, 5, 4, 3, 1, 1]
 
-    for(int i=0;i<l.size();i++){
-      System.out.print(l.get(i) + " ");
-    }
-
-    Collections.reverse(l);
-
-    for(int i=0;i<l.size();i++){
-      System.out.print(l.get(i) + " ");
-    }
-  }
-}
-```
-
-実行結果
-
-```
-> java Main
-1 3 -2 100
--2 1 3 100
-100 3 1 -2
+// Java 8以降はList.sort()も使用可能
+list.sort(Comparator.naturalOrder());     // 昇順
+list.sort(Comparator.reverseOrder());     // 降順
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-リスト.sort() # インプレースで処理。リスト自体もソートされる
-# または
-sorted(リスト) # インプレースではない。ソートされたリストが返され、リスト自体はそのまま
-
-# 逆順にソートしたい時
-リスト.sort(reverse=True)
-# または
-sorted(リスト,reverse=True)
+arr = [3, 1, 4, 1, 5]
+arr.sort()              # 破壊的（昇順）
+sorted_arr = sorted(arr)  # 非破壊的（昇順）
+arr.sort(reverse=True)  # 降順
 ```
 
-Python ではリストをソートする関数は以下の 2 つがある。
+Python では**sort()**（破壊的）と**sorted()**（非破壊的）の 2 つの方法がある。
 
-- 組み込み関数**sorted()**
-- リストの関数**sort()**
-
-sorted 関数は引数に受け取ったリストをソートしたものを返す。この時、リスト自体はソートされた形にはならない。  
-sort 関数は引数は無く、ソートしたいリストの関数として呼び出し利用する。実行後、リストはインプレース(コピーを取らず、そのリストオブジェクトを直接ソートする)でソートされる。
-
-またこの 2 つの関数においてはそれぞれ引数**reverse**があり、それを True に設定してやると逆順にソートしてくれる。（デフォルトではこの引数 reverse は False になっている）
+- **破壊的ソート**: `list.sort()` - リスト自体を変更
+- **非破壊的ソート**: `sorted(list)` - 新しいリストを返す
+- **降順**: `reverse=True` オプションを使用
 
 ```python
->>> a=[1,9,8,7,6,5,3,2]
->>>
->>> sorted(a)
-[1, 2, 3, 5, 6, 7, 8, 9]
->>> a
-[1, 9, 8, 7, 6, 5, 3, 2]
->>>
->>> a.sort()
->>> a
-[1, 2, 3, 5, 6, 7, 8, 9]
->>>
->>> a=[1,9,8,7,6,5,3,2]
->>>
->>> sorted(a,reverse=True)
-[9, 8, 7, 6, 5, 3, 2, 1]
->>>
->>> a
-[1, 9, 8, 7, 6, 5, 3, 2]
->>>
->>> a.sort(reverse=True)
->>> a
-[9, 8, 7, 6, 5, 3, 2, 1]
->>>
+arr = [3, 1, 4, 1, 5, 9]
+
+# 破壊的ソート（元のリストが変更される）
+arr.sort()
+print(arr)  # [1, 1, 3, 4, 5, 9]
+
+arr.sort(reverse=True)
+print(arr)  # [9, 5, 4, 3, 1, 1]
+
+# 非破壊的ソート（元のリストは変更されない）
+original = [3, 1, 4, 1, 5]
+sorted_list = sorted(original)
+print(sorted_list)  # [1, 1, 3, 4, 5]
+print(original)     # [3, 1, 4, 1, 5]
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-Array.sort([比較関数]); // 破壊的メソッド
+let arr = [3, 1, 4, 1, 5];
+arr.sort((a, b) => a - b); // 昇順
+arr.sort((a, b) => b - a); // 降順
 ```
 
-javascript では Array オブジェクトに**sort**メソッドがあり、これによりオブジェクト内の要素を昇順でソートする。
+JavaScript では**sort()**メソッドで配列をソートする（破壊的）。
 
-ただし、sort メソッドはオブジェクト内の要素を文字列に置き換えてソートするので注意。
-例えば数値型の要素の時、10,100 などは 9 の前にソートされる。（文字列型だと 10,100 の方が 9 より早いため。）
+**重要**: デフォルトでは文字列としてソートされるため、数値のソートには比較関数が必須。
 
-そのような比較を避けたい場合は、sort メソッドの引数に比較用の関数を入力する。
-
-この関数は、２要素 a,b(名前は何でも良い)が与えられたときに、その２要素の順番を決めるのに必要な式を定義する必要がある。
-
-この式は、a が b より大きい場合は正の値を、a が b より小さい場合は負の値を、等しいときは 0 を出力させるような式にする。
-
-以下に例を示す。
+- **昇順ソート**: `arr.sort((a, b) => a - b)`
+- **降順ソート**: `arr.sort((a, b) => b - a)`
 
 ```javascript
-let arr = [1, 2, 9, 3, 8, 4, 7, 5, 6, 10];
+let arr = [3, 1, 4, 10, 5, 9];
+
+// デフォルト（文字列としてソート）- 数値では不適切
 arr.sort();
-console.log(arr); // このソートだと10が9の前にくる
+console.log(arr); // [1, 10, 3, 4, 5, 9] ← 10が3の前に来てしまう
 
-arr.sort((a, b) => a - b); // aがbより大きいならaが前に
-console.log(arr);
+// 数値として昇順ソート
+arr.sort((a, b) => a - b);
+console.log(arr); // [1, 3, 4, 5, 9, 10]
 
-arr.sort((a, b) => b - a); // aがbより小さいならaが後に
-console.log(arr);
+// 数値として降順ソート
+arr.sort((a, b) => b - a);
+console.log(arr); // [10, 9, 5, 4, 3, 1]
 ```
 
-実行結果
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
 
+```go
+import "sort"
+
+slice := []int{3, 1, 4, 1, 5}
+sort.Ints(slice)              // 昇順
+sort.Sort(sort.Reverse(sort.IntSlice(slice))) // 降順
 ```
-[1, 10, 2, 3, 4, 5, 6, 7, 8, 9]
-[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+Go では**sort パッケージ**を使用してスライスをソートする。
+
+- **整数の昇順**: `sort.Ints(slice)`
+- **整数の降順**: `sort.Sort(sort.Reverse(sort.IntSlice(slice)))`
+- **文字列の昇順**: `sort.Strings(slice)`
+- **浮動小数点の昇順**: `sort.Float64s(slice)`
+
+```go
+import (
+    "fmt"
+    "sort"
+)
+
+// 整数のソート
+nums := []int{3, 1, 4, 10, 5, 9}
+sort.Ints(nums)
+fmt.Println(nums)  // [1 3 4 5 9 10]
+
+// 降順ソート
+sort.Sort(sort.Reverse(sort.IntSlice(nums)))
+fmt.Println(nums)  // [10 9 5 4 3 1]
+
+// 文字列のソート
+strs := []string{"banana", "apple", "cherry"}
+sort.Strings(strs)
+fmt.Println(strs)  // [apple banana cherry]
+
+// カスタムソート（独自の比較関数）
+sort.Slice(nums, func(i, j int) bool {
+    return nums[i] < nums[j]  // 昇順
+})
 ```
 
 </div>

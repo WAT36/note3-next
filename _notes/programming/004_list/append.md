@@ -18,127 +18,99 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-// 末尾に追加
-リスト.add(追加する値)
-// 指定した位置に追加
-リスト.add(追加する位置,追加する値)
+List<Integer> list = new ArrayList<>();
+list.add(1);           // 末尾に追加
+list.add(0, 10);       // 指定位置に追加
 ```
 
-Java では List クラスに **add()** というメソッドがあり、引数の要素をリストの最後に追加する。  
-`boolean add(E e)`  
-型の問題などで要素を追加できない時はエラーとなる。  
-また、オーバーロードとしてリストの指定した位置に要素を追加する add メソッドもある。  
-`void add(int index, E element)`  
-実行例を以下に示す。
+Java では**add()**メソッドでリストに要素を追加する。
+
+- **末尾に追加**: `list.add(element)`
+- **指定位置に追加**: `list.add(index, element)`
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
-class Main{
-  public static void main(String args[]){
-    List<Integer> l = new ArrayList<Integer>();
-    l.add(1);
-    l.add(3);
-    l.add(1,100);
-
-    for(int i=0;i<l.size();i++){
-        System.out.println(l.get(i));
-    }
-  }
-}
-```
-
-実行結果
-
-```
-> java Main
-1
-100
-3
+List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3));
+list.add(4);        // 末尾に追加 → [1, 2, 3, 4]
+list.add(1, 10);    // インデックス1に追加 → [1, 10, 2, 3, 4]
+System.out.println(list);
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-# 末尾に追加
-リスト.append(追加する値)
-# 指定した位置に追加
-リスト.insert(追加する位置,追加する値)
+arr = [1, 2, 3]
+arr.append(4)       # 末尾に追加
+arr.insert(1, 10)   # 指定位置に追加
 ```
 
-Python ではリストの関数として
+Python では**append()**と**insert()**でリストに要素を追加する。
 
-- リストの末尾に要素を追加したい場合は**append()**
-- リストの末尾以外の指定した位置に要素を追加したい場合は**insert()**
-
-の関数があるので、適宜使い分ける。  
-(リストの末尾に要素 x を追加したい時)  
-`list.append(x)`  
-(リストの指定した位置 i に要素 x を追加したい時)  
-`list.insert(i, x)`
+- **末尾に追加**: `list.append(element)`
+- **指定位置に追加**: `list.insert(index, element)`
 
 ```python
->>> a=[]
->>> a.append(1)
->>> a.append(3)
->>>
->>> a
-[1, 3]
->>>
->>> a.insert(1,100)
->>> a
-[1, 100, 3]
->>>
+arr = [1, 2, 3]
+arr.append(4)       # 末尾に追加 → [1, 2, 3, 4]
+arr.insert(1, 10)   # インデックス1に追加 → [1, 10, 2, 3, 4]
+print(arr)          # [1, 10, 2, 3, 4]
+
+# リスト同士を結合する場合
+arr.extend([5, 6])  # [1, 10, 2, 3, 4, 5, 6]
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-// 指定した位置に追加
-Array.splice(指定位置, 0, 追加する要素何個でも);
-// 先頭に追加
-Array.unshift(要素);
-// 末尾に追加
-Array.push(要素);
+let arr = [1, 2, 3];
+arr.push(4); // 末尾に追加
+arr.unshift(0); // 先頭に追加
+arr.splice(1, 0, 10); // 指定位置に追加
 ```
 
-Javascript では Array オブジェクトの**unshift**,**push**メソッドで、Array オブジェクトの先頭、末尾に要素を追加できる。
+JavaScript では**push()**, **unshift()**, **splice()**で配列に要素を追加する。
 
-また、Array オブジェクトに**splice**メソッドも存在し、これは Array オブジェクトの指定した位置から指定した要素数を削除し、そこを指定した要素で置き換えるというメソッドである。
-
-ここで、削除する要素数を 0 とすれば、Array オブジェクトの指定した位置に指定した要素を挿入することができる。
-
-使用例を以下に示す。
+- **末尾に追加**: `arr.push(element)`
+- **先頭に追加**: `arr.unshift(element)`
+- **指定位置に追加**: `arr.splice(index, 0, element)`
 
 ```javascript
-let arr = [1, 2, 3, 4, 5];
-arr.push(6);
-console.log(arr); // [1, 2, 3, 4, 5, 6]
-arr.unshift(0);
-console.log(arr); // [0, 1, 2, 3, 4, 5, 6]
-arr.splice(2, 0, "new", "added");
-console.log(arr); // [0, 1, 'new', 'added', 2, 3, 4, 5, 6]
+let arr = [1, 2, 3];
+arr.push(4); // 末尾に追加 → [1, 2, 3, 4]
+arr.unshift(0); // 先頭に追加 → [0, 1, 2, 3, 4]
+arr.splice(2, 0, 10); // インデックス2に追加 → [0, 1, 10, 2, 3, 4]
+console.log(arr);
+
+// 複数要素を追加
+arr.push(5, 6); // [0, 1, 10, 2, 3, 4, 5, 6]
 ```
 
 </div>
-<div class="note_content_by_programming_language" id="note_content_Javascript">
+<div class="note_content_by_programming_language" id="note_content_Go">
 
 ```go
-append(スライス,要素[何個でも可])
+slice := []int{1, 2, 3}
+slice = append(slice, 4)      // 末尾に追加
+slice = append(slice, 5, 6)   // 複数追加
 ```
 
-Go ではスライスに対し、関数**append**を使ってスライスの末尾に要素を追加することができる。
+Go では組み込み関数**append()**でスライスに要素を追加する。
 
-追加する要素は何個でも指定できる。
+- **末尾に追加**: `slice = append(slice, element)`
+- **複数追加**: `slice = append(slice, elem1, elem2, ...)`
 
-なお、append 関数を使う場合は、必ず:=か=による変数の代入が必要であるので注意。
+**注意**: `append()`は新しいスライスを返すため、必ず代入が必要。
 
 ```go
-s := []int{1,2,3}
-s = append(s,4,5,6)
-fmt.Println(s) //[1,2,3,4,5,6]
+slice := []int{1, 2, 3}
+slice = append(slice, 4)        // 末尾に追加 → [1, 2, 3, 4]
+slice = append(slice, 5, 6, 7)  // 複数追加 → [1, 2, 3, 4, 5, 6, 7]
+fmt.Println(slice)
+
+// スライス同士を結合する場合
+other := []int{8, 9}
+slice = append(slice, other...)  // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
 </div>

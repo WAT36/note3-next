@@ -1,10 +1,10 @@
 ---
 title: "テンプレート文字列"
 excerpt: "文字列の中に変数の値、改行を入れたい時"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 date: "2024-06-08T18:47:45.000Z"
-updatedAt: "2024-06-08T18:47:45.000Z"
+updatedAt: '2025-11-25T00:12:02.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -20,33 +20,81 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-// 作成中...
+String.format("Hello %s", name);
+```
+
+Java では **String.format()** でテンプレート文字列を作成する。
+
+**StringBuilder** や **printf()** も利用可能。
+
+実行例
+
+```java
+String name = "佐藤";
+String message = String.format("こんにちは、%sさん！", name);
+System.out.println(message); // こんにちは、佐藤さん！
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-# 作成中...
+f"Hello {name}"
+```
+
+Python では **f-string** でテンプレート文字列を作成する。
+
+**format()** メソッドや **%** 演算子も利用可能。
+
+実行例
+
+```python
+name = "佐藤"
+message = f"こんにちは、{name}さん！"
+print(message)  # こんにちは、佐藤さん！
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-`変数の値：${変数}`;
+`Hello ${name}`;
 ```
 
-Javascript では、バッククォート「`」1 文字で囲った部分がテンプレート文字列になる。
+JavaScript ではバッククォート「`」でテンプレート文字列を作成する。
 
-変数等の値を入れたいときは、「${変数名}」の形式で埋め込ませる。
+**${}** で変数を埋め込み、改行も可能。
 
-例
+実行例
 
 ```javascript
 let name = "佐藤";
-console.log(`こんにちは。${name}さん。
-今日もいい天気ですね！`);
+let message = `こんにちは、${name}さん！`;
+console.log(message); // こんにちは、佐藤さん！
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+fmt.Sprintf("Hello %s", name)
+```
+
+Go 言語では **fmt.Sprintf()** でテンプレート文字列を作成する。
+
+**fmt.Printf()** や **strings.Replace()** も利用可能。
+
+実行例
+
+```go
+package main
+import "fmt"
+
+func main() {
+    name := "佐藤"
+    message := fmt.Sprintf("こんにちは、%sさん！", name)
+    fmt.Println(message) // こんにちは、佐藤さん！
+}
 ```
 
 </div>

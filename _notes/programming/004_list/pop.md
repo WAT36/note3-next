@@ -2,8 +2,8 @@
 title: "リストの指定したインデックスの要素を削除する"
 date: "2019-10-27T00:35:30+09:00"
 excerpt: "リストの指定したインデックスの要素を削除する方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-27T00:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -16,130 +16,117 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-リスト.remove(削除する位置) // インプレースで処理
+List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+list.remove(2);  // インデックス2を削除 → [1, 2, 4, 5]
 ```
 
-Java では List クラスにリストの指定した位置（インデックス）の要素を削除するメソッド **remove()** がある。  
-`E remove(int index)`  
-このメソッドはリストから指定したインデックスの要素を取り出して返す。その後リストでは取り出されたインデックスよりも後続の要素を左に移動する動作を行う。
+Java では**remove()**メソッドで指定したインデックスの要素を削除する（破壊的）。
+
+削除された要素を返し、後続の要素は左に移動する。
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Collections;
-class Main{
-  public static void main(String args[]){
-    List<Integer> l = new ArrayList<Integer>();
-    l.add(1);
-    l.add(3);
-    l.add(-2);
-    l.add(100);
+List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+System.out.println(list);  // [1, 2, 3, 4, 5]
 
-    for(int i=0;i<l.size();i++){
-        System.out.print(l.get(i) + " ");
-    }
-
-    System.out.println();
-    System.out.println(l.remove(1));    //lの1番目の要素を取り出して返す
-
-    for(int i=0;i<l.size();i++){
-      System.out.print(l.get(i) + " ");
-    }
-  }
-}
-```
-
-実行結果
-
-```
-> java Main
-1 3 -2 100
-3
-1 -2 100
+int removed = list.remove(2);  // インデックス2を削除
+System.out.println(removed);   // 3（削除された要素）
+System.out.println(list);      // [1, 2, 4, 5]
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-リスト.pop(削除する位置)
-# または
-del リスト[削除する位置]
+my_list = [1, 2, 3, 4, 5]
+my_list.pop(2)  # または del my_list[2]
 ```
 
-Python での方法は次の 2 つがある。
+Python では**pop()**または**del**で指定したインデックスの要素を削除する（破壊的）。
 
-- リストの関数 **pop()** を利用する。
-- **del** 文を利用する
-
-pop 関数はリストの指定した位置（インデックス）を引数とし、実行するとリストからそのインデックスの要素を取り出し、返す。  
-del 文は リスト[インデックス] の形で入力を行い、実行するとリストからそのインデックスの要素が取り出されるが、値は返されない。
-
-以下に実行例を示す。
+- **pop()**: 削除された要素を返す
+- **del**: 返り値なし
 
 ```python
->>> a=[1,9,8,7,6,5,3,2]
->>>
->>> a
-[1, 9, 8, 7, 6, 5, 3, 2]
->>>
->>> #pop では値が返ってくる
->>> a.pop(1)
-9
->>>
->>> a
-[1, 8, 7, 6, 5, 3, 2]
->>>
->>> #delでは取り出された値は返ってこない (返り値無し)
->>> del a[1]
->>>
->>> a
-[1, 7, 6, 5, 3, 2]
->>>
+my_list = [1, 2, 3, 4, 5]
+print(my_list)  # [1, 2, 3, 4, 5]
+
+removed = my_list.pop(2)  # インデックス2を削除
+print(removed)            # 3（削除された要素）
+print(my_list)            # [1, 2, 4, 5]
+
+# del文を使う場合（返り値なし）
+my_list2 = [1, 2, 3, 4, 5]
+del my_list2[2]
+print(my_list2)  # [1, 2, 4, 5]
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-Array.splice(削除する位置, 1);
-// 先頭の要素を削除したい場合は以下も可
-Array.shift();
-// 末尾の要素を削除したい場合は以下も可
-Array.pop();
+let arr = [1, 2, 3, 4, 5];
+arr.splice(2, 1); // インデックス2を削除 → [1, 2, 4, 5]
 ```
 
-javascript で Array オブジェクト中の指定した位置の要素を削除したい時は、基本的には**splice**メソッドを使う。
+JavaScript では**splice()**で指定したインデックスの要素を削除する（破壊的）。
 
-splice メソッドは、指定した位置から指定した数の文だけの要素を、指定した要素に置き換えるメソッドである。
-
-ここでは、指定した位置から 1 個分(=指定した位置のみ)を、要素無しに置き換えているので、指定した位置の要素が削除されることになる。
-
-また、Array オブジェクトの先頭または末尾の要素を削除したい場合は、それぞれ**shift**、**pop**メソッドがあるので、こちらを使った方が良い。
-
-shift,pop メソッドは、実行するとそれぞれ Array オブジェクトの先頭、末尾の要素が返ってくる。その後元の Array オブジェクトは先頭、末尾の要素が削除された状態になる。
-
-例を以下に示す。
+先頭・末尾の削除には**shift()**、**pop()**も使える。
 
 ```javascript
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let arr = [1, 2, 3, 4, 5];
+console.log(arr); // [1, 2, 3, 4, 5]
 
-arr.splice(4, 1);
-console.log(arr);
+// 指定したインデックスの要素を削除
+let removed = arr.splice(2, 1); // インデックス2から1個削除
+console.log(removed); // [3]（削除された要素の配列）
+console.log(arr); // [1, 2, 4, 5]
 
-arr.shift();
-console.log(arr);
+// 先頭の要素を削除
+let arr2 = [1, 2, 3, 4, 5];
+let first = arr2.shift();
+console.log(first); // 1
+console.log(arr2); // [2, 3, 4, 5]
 
-arr.pop();
-console.log(arr);
+// 末尾の要素を削除
+let arr3 = [1, 2, 3, 4, 5];
+let last = arr3.pop();
+console.log(last); // 5
+console.log(arr3); // [1, 2, 3, 4]
 ```
 
-実行結果
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
 
+```go
+slice := []int{1, 2, 3, 4, 5}
+slice = append(slice[:2], slice[3:]...)  // インデックス2を削除
 ```
-[1, 2, 3, 4, 6, 7, 8, 9, 10]
-[2, 3, 4, 6, 7, 8, 9, 10]
-[2, 3, 4, 6, 7, 8, 9]
+
+Go では**append()**と**スライス式**を組み合わせて指定したインデックスの要素を削除する。
+
+削除前のインデックスより前の部分と後の部分を結合する。
+
+```go
+slice := []int{1, 2, 3, 4, 5}
+fmt.Println(slice)  // [1 2 3 4 5]
+
+// インデックス2の要素を削除
+index := 2
+slice = append(slice[:index], slice[index+1:]...)
+fmt.Println(slice)  // [1 2 4 5]
+
+// 削除する要素を保存する場合
+slice2 := []int{1, 2, 3, 4, 5}
+removed := slice2[2]
+slice2 = append(slice2[:2], slice2[3:]...)
+fmt.Println(removed)  // 3
+fmt.Println(slice2)   // [1 2 4 5]
+
+// 順序を保たなくて良い場合（高速）
+slice3 := []int{1, 2, 3, 4, 5}
+slice3[2] = slice3[len(slice3)-1]  // 最後の要素を削除位置にコピー
+slice3 = slice3[:len(slice3)-1]    // 末尾を削除
+fmt.Println(slice3)  // [1 2 5 4]
 ```
 
 </div>

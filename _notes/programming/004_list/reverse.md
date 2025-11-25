@@ -2,8 +2,8 @@
 title: "リストを逆順にする"
 date: "2019-10-26T21:35:30+09:00"
 excerpt: "リスト内の要素を逆順にする方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-26T21:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -16,100 +16,115 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-import java.util.Collections;
-Collections.reverse(リスト);  //インプレース
+List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+Collections.reverse(list);  // [5, 4, 3, 2, 1]
 ```
 
-Java ではライブラリ**java.util.Collections**に、リスト内の要素を逆にするメソッド **reverse()** があるので、それを利用する。  
-`public static void reverse(List<?> list)`  
-実行例を以下に示す。
+Java では**Collections.reverse()**でリストを逆順にする（破壊的）。
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Collections;
-class Main{
-  public static void main(String args[]){
-    List<Integer> l = new ArrayList<Integer>();
-    l.add(1);
-    l.add(3);
-    l.add(-2);
-    l.add(100);
+List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+System.out.println(list);  // [1, 2, 3, 4, 5]
 
-    for(int i=0;i<l.size();i++){
-        System.out.print(l.get(i) + " ");
-    }
-
-    System.out.println();
-    Collections.reverse(l);
-
-    for(int i=0;i<l.size();i++){
-      System.out.print(l.get(i) + " ");
-    }
-  }
-}
-```
-
-実行結果
-
-```
-> java Main
-1 3 -2 100
-100 -2 3 1
+Collections.reverse(list);
+System.out.println(list);  // [5, 4, 3, 2, 1]
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-list(reversed(リスト)) # インプレース処理ではない
-# または
-リスト.reverse()       # インプレース処理
+arr = [1, 2, 3, 4, 5]
+arr.reverse()              # 破壊的
+reversed_arr = list(reversed(arr))  # 非破壊的
 ```
 
-Python ではリストをソートする関数は以下の 2 つがある。
+Python では**reverse()**（破壊的）と**reversed()**（非破壊的）の 2 つの方法がある。
 
-- 組み込み関数**reversed()**
-- リストの関数**reverse()**
-
-組み込み関数の reversed 関数は引数に受け取ったリスト内の要素を逆順にしたイテレータを返す。しかし、イテレータのままでは表示ができないので、リストとして表示するには list()でリストにする必要がある。また、reversed 関数を実行してもリスト自体の順番は変わらない。  
-リスト型の reverse 関数は実行するとリストの順番を逆にするが、返り値は何もない(None)になるので注意。実行した後再度リストを表示すると逆順になっている。
+- **破壊的**: `list.reverse()` - リスト自体を変更
+- **非破壊的**: `list(reversed(list))` - 新しいリストを返す
 
 ```python
->>> a=[1,9,8,7,6,5,3,2]
->>>
->>> reversed(a)  # reversedの返り値（＝イテレータ）をそのまま出力すると以下のようになる
-<list_reverseiterator object at 0x000002096F480668>
->>>
->>> list(reversed(a)) #reversedの返り値をリスト化する
-[2, 3, 5, 6, 7, 8, 9, 1]
->>>
->>> a  # reversedを実行しても元のリストの順番は変わらない
-[1, 9, 8, 7, 6, 5, 3, 2]
->>>
->>> a.reverse()
->>> a
-[2, 3, 5, 6, 7, 8, 9, 1]
->>>
+arr = [1, 2, 3, 4, 5]
+
+# 破壊的（元のリストが変更される）
+arr.reverse()
+print(arr)  # [5, 4, 3, 2, 1]
+
+# 非破壊的（元のリストは変更されない）
+original = [1, 2, 3, 4, 5]
+reversed_list = list(reversed(original))
+print(reversed_list)  # [5, 4, 3, 2, 1]
+print(original)       # [1, 2, 3, 4, 5]
+
+# スライスを使った非破壊的な方法
+reversed_slice = original[::-1]
+print(reversed_slice)  # [5, 4, 3, 2, 1]
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-Array.reverse(); // 破壊的メソッド
+let arr = [1, 2, 3, 4, 5];
+arr.reverse(); // [5, 4, 3, 2, 1]
 ```
 
-javascript では Arraay オブジェクトに**reverse**メソッドがあり、これにより要素の順番を逆順にできる。
-
-以下に例を示す。
+JavaScript では**reverse()**メソッドで配列を逆順にする（破壊的）。
 
 ```javascript
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-arr.reverse();
+let arr = [1, 2, 3, 4, 5];
+console.log(arr); // [1, 2, 3, 4, 5]
 
-console.log(arr);
-// [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+arr.reverse();
+console.log(arr); // [5, 4, 3, 2, 1]
+
+// 非破壊的に逆順にする場合
+let original = [1, 2, 3, 4, 5];
+let reversed = [...original].reverse();
+console.log(reversed); // [5, 4, 3, 2, 1]
+console.log(original); // [1, 2, 3, 4, 5]
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+slice := []int{1, 2, 3, 4, 5}
+for i, j := 0, len(slice)-1; i < j; i, j = i+1, j-1 {
+    slice[i], slice[j] = slice[j], slice[i]
+}
+```
+
+Go では標準ライブラリに逆順にする関数がないため、ループで要素を入れ替える。
+
+```go
+// スライスを逆順にする関数
+func reverseSlice(slice []int) {
+    for i, j := 0, len(slice)-1; i < j; i, j = i+1, j-1 {
+        slice[i], slice[j] = slice[j], slice[i]
+    }
+}
+
+slice := []int{1, 2, 3, 4, 5}
+fmt.Println(slice)  // [1 2 3 4 5]
+
+reverseSlice(slice)
+fmt.Println(slice)  // [5 4 3 2 1]
+
+// 非破壊的に逆順にする場合
+func reversedSlice(original []int) []int {
+    reversed := make([]int, len(original))
+    for i, v := range original {
+        reversed[len(original)-1-i] = v
+    }
+    return reversed
+}
+
+original := []int{1, 2, 3, 4, 5}
+reversed := reversedSlice(original)
+fmt.Println(reversed)  // [5 4 3 2 1]
+fmt.Println(original)  // [1 2 3 4 5]
 ```
 
 </div>

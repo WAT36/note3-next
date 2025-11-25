@@ -3,8 +3,9 @@ title: "文字列を切り出す"
 excerpt: "文字列のp文字目からq文字目を切り出して取得する方法"
 coverImage: ""
 date: "2024-06-24T20:17:32.000Z"
-updatedAt: "2024-06-24T20:17:32.000Z"
-tag: []
+updatedAt: '2025-11-25T00:12:02.000Z'
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -16,49 +17,81 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-// 工事中。。
+"Hello".substring(1, 4); // "ell"
+```
+
+Java では **String.substring()** メソッドで文字列の一部分を切り出す。
+
+開始位置と終了位置（含まない）を指定する。
+
+実行例
+
+```java
+String s = "Hello";
+String result = s.substring(1, 4); // "ell"
+System.out.println(result);
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-# 工事中。。
+"Hello"[1:4]  # "ell"
+```
+
+Python では **スライス記法** で文字列の一部分を切り出す。
+
+**[開始:終了]** で範囲を指定する（終了位置は含まない）。
+
+実行例
+
+```python
+s = "Hello"
+result = s[1:4]  # "ell"
+print(result)
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-"文字列".substring(start [,end]);
-"文字列".substr(start [,cnt]);
+"Hello".substring(1, 4); // "ell"
 ```
 
-javascript は String に**substring**メソッドがあり、これによって文字列の一部分を切り出すことができる。
+JavaScript では **String.substring()** メソッドで文字列の一部分を切り出す。
 
-引数には 1 つか 2 つ(start,end とする)とることができ、これにより文字列の start+1 文字目から end 文字目までを切り出せる。
+開始位置と終了位置（含まない）を指定する。
 
-また、**substr**メソッドもあり、こちらを利用しても文字列の一部分を切り出すことができる。
-
-こちらも引数には 1 つか 2 つ(start,cnt とする)とることができ、これにより文字列の start+1 文字目から cnt 文字までを切り出せる。
+実行例
 
 ```javascript
-let str = "abcdefghijklmnopqrstuvwxyz";
-
-console.log(str.substring(10));
-console.log(str.substring(10, 20));
-
-console.log(str.substr(10));
-console.log(str.substr(10, 5));
+let s = "Hello";
+let result = s.substring(1, 4); // "ell"
+console.log(result);
 ```
 
-実行結果
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
 
+```go
+s[1:4]  // "ell"
 ```
-klmnopqrstuvwxyz
-klmnopqrst
-klmnopqrstuvwxyz
-klmno
+
+Go 言語では **スライス記法** で文字列の一部分を切り出す。
+
+**[開始:終了]** で範囲を指定する（終了位置は含まない）。
+
+実行例
+
+```go
+package main
+import "fmt"
+
+func main() {
+    s := "Hello"
+    result := s[1:4]  // "ell"
+    fmt.Println(result)
+}
 ```
 
 </div>
