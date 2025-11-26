@@ -2,8 +2,8 @@
 title: "切り上げ・切り捨て"
 date: "2019-10-16T20:35:30+09:00"
 excerpt: "小数点以下切り上げ・切り捨てする方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-16T20:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -16,10 +16,8 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-// 切り上げ
-Math.ceil(数値)
-// 切り捨て
-Math.floor(数値)
+Math.ceil(3.14);  // 4.0
+Math.floor(3.14); // 3.0
 ```
 
 Java では Math クラスにあるメソッド **ceil()** を利用することで小数点以下切り上げを行える。
@@ -70,12 +68,8 @@ class Main{
 
 ```python
 import math
-# 切り上げ
-math.ceil(数値)
-- (- 数値 // 1)
-# 切り捨て
-math.floor(数値)
-数値 // 1
+math.ceil(3.14)   # 4
+math.floor(3.14)  # 3
 ```
 
 主に方法は二つある。
@@ -168,10 +162,8 @@ python にも math モジュールに **floor()** 関数がある。それを利
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-// 切り上げ
-Math.ceil(数値);
-// 切り捨て
-Math.floor(数値);
+Math.ceil(3.14); // 4
+Math.floor(3.14); // 3
 ```
 
 Javascript には Math オブジェクトに **ceil()** 関数がある。それを利用すると小数点以下切り上げが行える。
@@ -199,7 +191,65 @@ console.log(Math.floor(c));
 
 ```
 11
+10
+10
+10
+10
+9
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+import "math"
+
+math.Ceil(3.14)  // 4
+math.Floor(3.14) // 3
+```
+
+Go 言語では **math** パッケージの **Ceil()** 関数で小数点以下切り上げを行う。
+
+`func Ceil(x float64) float64`
+
+この関数は引数に入力した数値以上で最も小さい整数を返す。戻り値は float64 型。
+
+また、**math** パッケージの **Floor()** 関数で小数点以下切り捨てを行う。
+
+`func Floor(x float64) float64`
+
+この関数は引数に入力した数値以下で最も大きい整数を返す。戻り値は float64 型。
+
+実行例
+
+```go
+package main
+
+import (
+    "fmt"
+    "math"
+)
+
+func main() {
+    a := 10.1
+    b := 10.0
+    c := 9.9
+
+    fmt.Println(math.Ceil(a))  // 11
+    fmt.Println(math.Ceil(b))  // 10
+    fmt.Println(math.Ceil(c))  // 10
+
+    fmt.Println(math.Floor(a)) // 10
+    fmt.Println(math.Floor(b)) // 10
+    fmt.Println(math.Floor(c)) // 9
+}
+```
+
+実行結果
+
+```
 11
+10
 10
 10
 10

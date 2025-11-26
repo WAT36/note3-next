@@ -2,9 +2,9 @@
 title: "標準出力"
 date: "2019-10-12T17:19:30.000Z"
 excerpt: ""
-tag: ["Java", "Python", "Node.js", "Go"]
-programming: ["Java", "Python", "Node.js", "Go"]
-updatedAt: '2025-06-30T20:44:30.000Z'
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
+updatedAt: '2025-11-25T00:12:02.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -16,68 +16,77 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-System.out.println(変数もしくは値);
+System.out.println("Hello, World!");
 ```
 
-クラスはここでは Main.java とする
+Java で標準出力を扱うには、**System.out.println()** メソッドを使用する。
 
-java で画面に出力したい時は **System.out.println()** を利用する。
+出力後改行したくない時は、**System.out.print()** を利用する。
 
-引数には画面に出力したい変数またはデータを入れる。
+実行例
 
-出力後改行したくない時は System.out. **print()** を使う。
+```
+$ javac Main.java
+$ java Main
+Hello, World!
+```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-print(変数もしくは値)
+print("Hello, World!")
 ```
 
-Python でコンソール画面への出力を扱うには組み込み関数の **print()** を使う。
+Python で標準出力を扱うには、組み込み関数の **print()** を使用する。
 
-基本、入力された引数を画面に出力する。
+改行したくない場合は、end パラメータに "" を指定する。
 
-改行したくない場合は print()の end パラメータに""を指定する
+実行例
 
-```python
-print(値,end="")
+```
+$ python main.py
+Hello, World!
 ```
 
 </div>
-<div class="note_content_by_programming_language" id="note_content_Node.js">
+<div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-console.log(変数もしくは値);
+console.log("Hello, World!");
 ```
 
-Javascript 及び Node.js では、**console.log()** 関数を利用する。
-引数には出力したい値及び変数を入力する。
+JavaScript(Node.js)で標準出力を扱うには、**console.log()** 関数を使用する。
+
+実行例
+
+```
+$ node main.js
+Hello, World!
+```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Go">
 
 ```go
 package main
-
 import "fmt"
 
 func main() {
     fmt.Println("Hello, World!")
-    fmt.Printf("フォーマット文字列", 値1, 値2, ...)
 }
 ```
 
-Go（Golang）で コンソール出力（標準出力）を行う方法 は、標準ライブラリの fmt パッケージ を利用して行う方法です。
+Go 言語で標準出力を扱うには、**fmt** パッケージの **Println()** 関数を使用する。
 
-`import "fmt"`はフォーマット付きの出力を行う標準ライブラリです。fmt は "format" の略になります。
+出力後改行したくない時は、**fmt.Print()** を利用する。
+フォーマット付き出力には **fmt.Printf()** を使用する。
 
-fmt の **Println()** 関数を利用することで、コンソール出力を行います。
+実行例
 
-なお出力した時に改行したくない時は、 **fmt.Print()** 関数を使います。
-
-また、**Printf()** 関数を利用することでも出力できます。
-
-利用するには、フォーマット文字列内に % で始まるプレースホルダ を書き、後ろの引数に対応させて出力します。
+```
+$ go run main.go
+Hello, World!
+```
 
 </div>

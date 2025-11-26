@@ -2,9 +2,9 @@
 title: "コマンドライン引数"
 date: "2019-10-12T16:42:45.000Z"
 excerpt: ""
-tag: ["Java", "Python", "Node.js"]
-programming: ["Java", "Python", "Node.js"]
-updatedAt: "2019-10-12T16:42:45.000Z"
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
+updatedAt: '2025-11-25T00:12:02.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -23,7 +23,7 @@ $ (実行ファイル名) 値1 値2..
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-public static void main(String args[]){
+public static void main(String[] args){
     // args[] にコマンドライン引数が入る
 }
 ```
@@ -37,14 +37,14 @@ Java ではコマンドライン引数はクラス内で宣言する main メソ
 ```
 $ javac Main.java
 $ java Main aa 10
-[aa, 10]
+// args[0] = "aa", args[1] = "10"
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-import sys          # sysモジュールをインポート
+import sys
 print(sys.argv)
 ```
 
@@ -76,12 +76,32 @@ Javascript(Node.js)では、process オブジェクトの**argv**プロパティ
 
 ```
 $ node main.js AA 10
-[
-  '（nodeがあるディレクトリ、略）/node/v14.15.4/bin/node',
-  '（main.jsがあるディレクトリ、略）/main.js',
-  'AA',
-  '10'
-]
+['/usr/local/bin/node', '/path/to/main.js', 'AA', '10']
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+package main
+import "os"
+
+func main() {
+    // os.Args にコマンドライン引数が入る
+}
+```
+
+Go 言語では、os パッケージの Args 変数にコマンドライン引数がスライス形式で入る。
+
+コマンドライン引数を取得するには、os パッケージをインポートして Args を参照する。
+
+ただし Go 言語では、コマンドライン引数の最初には"実行ファイル名"が入るので順序に注意すること。
+
+実行例（上のファイルを main.go とする）
+
+```
+$ go run main.go aa 10
+// os.Args[0] = "/tmp/go-build.../main", os.Args[1] = "aa", os.Args[2] = "10"
 ```
 
 </div>

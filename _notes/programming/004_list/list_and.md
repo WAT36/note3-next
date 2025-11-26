@@ -2,8 +2,8 @@
 title: "リストa,bに共通して入っている要素のみを表示（積集合）"
 date: "2019-10-26T21:35:30+09:00"
 excerpt: "リスト2つの積集合(共通する要素)をとる方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-26T21:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -16,113 +16,131 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-// リストaとリストbの積集合をとる
-import java.util.HashSet;
-import java.util.Set;
-
-リストa.retainAll(リストb); //リストaのうちリストbにもある要素のみを残し他は全て排除する
+List<Integer> listA = Arrays.asList(1, 2, 3, 4, 5);
+List<Integer> listB = Arrays.asList(4, 5, 6, 7, 8);
+listA.retainAll(listB);  // [4, 5]
 ```
 
-Java では List クラスに **retainAll()** というメソッドがある。これは呼び出し元のリストに含まれている要素の内、引数に指定したリスト内にも含まれている要素のみを残し、他の要素は全て削除するというメソッドである。  
-`boolean retainAll(Collection<?> c)`  
-このメソッドを活用することにより２つのリストに共通して入っている要素のみを取り出すことができる。ただし同じ値の要素が複数入っていた場合はその数だけ要素が残るということもあるので、重複している値を１つにするには **Set()** 等を使い重複を排除する。
+Java では**retainAll()**メソッドで 2 つのリストの積集合を取る（破壊的）。
 
-使用例を以下に示す。
+呼び出し元のリストから、引数に指定したリストにも含まれる要素のみを残す。
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
-class Main{
+List<Integer> listA = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+List<Integer> listB = Arrays.asList(4, 5, 6, 7, 8);
 
-  //List println
-  public static void listprint(String name,List<Integer> l){
-    System.out.print(name + ": ");
-    for(int i=0;i<l.size();i++){
-      System.out.print(l.get(i) + " ");
-    }
-    System.out.println();
-  }
+listA.retainAll(listB);
+System.out.println(listA);  // [4, 5]
 
-  public static void main(String args[]){
-    List<Integer> l = new ArrayList<Integer>();
-    l.add(1);
-    l.add(3);
-    l.add(100);
-    l.add(0);
-
-    List<Integer> m = new ArrayList<Integer>();
-    m.add(2);
-    m.add(4);
-    m.add(100);
-    m.add(100);
-
-    listprint("l", l);
-    listprint("m", m);
-
-    l.retainAll(m);
-
-    listprint("l", l);
-  }
-}
-```
-
-実行結果
-
-```
-> java Main
-l: 1 3 100 0
-m: 2 4 100 100
-l: 100
+// 非破壊的に積集合を取る場合（Stream API使用）
+List<Integer> original = Arrays.asList(1, 2, 3, 4, 5);
+List<Integer> other = Arrays.asList(4, 5, 6, 7, 8);
+List<Integer> intersection = original.stream()
+    .filter(other::contains)
+    .collect(Collectors.toList());
+System.out.println(intersection);  // [4, 5]
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-# リストaとリストbの積集合をとる
-list(set(リストa) & set(リストb))
+list_a = [1, 2, 3, 4, 5]
+list_b = [4, 5, 6, 7, 8]
+result = list(set(list_a) & set(list_b))
 ```
 
-Python ではリストを set 型に変換し、その後 **&** 演算子を使うと、重複している要素のみが残る。  
-リストに戻したい時は、計算後の set を list()で変換してリストにする。
+Python では set 型に変換して**&**演算子で積集合を取る。
+
+1. 各リストを set に変換
+2. `&`演算子で積集合を計算
+3. `list()`でリストに戻す
 
 ```python
->>> a=[1,9,8,7,6,5,3,2]
->>> b=[2,3,4]
->>>
->>> a_and_b=set(a) & set(b)
->>> a_and_b
-{2, 3}
->>>
->>> list(a_and_b)
-[2, 3]
->>>
+list_a = [1, 2, 3, 4, 5]
+list_b = [4, 5, 6, 7, 8]
+
+# 積集合を取る
+intersection = set(list_a) & set(list_b)
+result = list(intersection)
+print(result)  # [4, 5]
+
+# 1行で書く場合
+result = list(set(list_a) & set(list_b))
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-//Array_a,Array_bの2つのArrayオブジェクトがあるとする
-Array_a.filter((value) => Array_b.includes(value));
+let arrA = [1, 2, 3, 4, 5];
+let arrB = [4, 5, 6, 7, 8];
+let intersection = arrA.filter((v) => arrB.includes(v));
 ```
 
-2 つの Array オブジェクトに対し共通の要素のみを取り出す(積集合)には、専用のメソッドが見当たらない（あればお知らせください。。）ため、Array オブジェクトの**filter**メソッドと**includes**メソッドを利用する。
+JavaScript では**filter()**と**includes()**を使用して積集合を取る。
 
-この２メソッドについては別のところで詳細を述べるため詳しくは割愛するが、流れを軽く言うと filter メソッドである Array オブジェクトにある要素のうち別の Array オブジェクトにある要素のみを、includes メソッドを使う形で残すと言うやり方である。
-
-実行例を以下に示す。
+`filter()`で配列 A の要素をフィルタリングし、配列 B に含まれる要素のみを残す。
 
 ```javascript
-let arrA = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let arrB = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-console.log(arrA.filter((value) => arrB.includes(value)));
+let arrA = [1, 2, 3, 4, 5];
+let arrB = [4, 5, 6, 7, 8];
+
+// 積集合を取る
+let intersection = arrA.filter((value) => arrB.includes(value));
+console.log(intersection); // [4, 5]
+
+// Setを使った方法（重複も排除）
+let setA = new Set(arrA);
+let setB = new Set(arrB);
+let intersectionSet = [...setA].filter((v) => setB.has(v));
+console.log(intersectionSet); // [4, 5]
 ```
 
-実行結果
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
 
+```go
+sliceA := []int{1, 2, 3, 4, 5}
+sliceB := []int{4, 5, 6, 7, 8}
+
+mapB := make(map[int]bool)
+for _, v := range sliceB {
+    mapB[v] = true
+}
+
+result := []int{}
+for _, v := range sliceA {
+    if mapB[v] {
+        result = append(result, v)
+    }
+}
 ```
-[5, 6, 7, 8, 9, 10]
+
+Go では map を使用して 2 つのスライスの積集合を取る。
+
+1. スライス B の要素を map に格納
+2. スライス A の要素をループし、map に存在するものだけを結果に追加
+
+```go
+sliceA := []int{1, 2, 3, 4, 5}
+sliceB := []int{4, 5, 6, 7, 8}
+
+// スライスBの要素をmapに格納
+mapB := make(map[int]bool)
+for _, v := range sliceB {
+    mapB[v] = true
+}
+
+// スライスAの要素のうち、mapに存在するものを取得
+result := []int{}
+for _, v := range sliceA {
+    if mapB[v] {
+        result = append(result, v)
+    }
+}
+
+fmt.Println(result)  // [4 5]
 ```
 
 </div>

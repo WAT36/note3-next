@@ -2,8 +2,8 @@
 title: "リストの全要素を連結して１つの文字列に変換する"
 date: "2019-10-27T05:35:30+09:00"
 excerpt: "リストの全要素を連結して１つの文字列に変換する方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
 updatedAt: "2019-10-27T05:35:30+09:00"
 author:
   name: Tatsuroh Wakasugi
@@ -17,85 +17,138 @@ mode: programming
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-String.join("",リスト)
+List<String> list = Arrays.asList("a", "b", "c");
+String result = String.join("", list);  // "abc"
 ```
 
-Java では String に **join()** というメソッドがある。これは引数にデリミタと Iterable 変数を指定し、Iterable の中にある要素を全てデリミタで繋げて出力するというメソッドである。
+Java では**String.join()**でリストの全要素を指定したデリミタで連結する。
 
-`public static String join(CharSequence delimiter, Iterable<? extends CharSequence> elements)`
-
-使用例を以下に示す。
+第 1 引数にデリミタ（区切り文字）、第 2 引数にリストを指定する。
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
-class Main{
-  public static void main(String args[]){
+List<String> list = Arrays.asList("a", "b", "c");
+System.out.println(list);  // [a, b, c]
 
-    List<String> l = new ArrayList<>();
-    l.add("a");
-    l.add("bb");
-    l.add("ccc");
-    l.add("dddd");
+// デリミタなしで連結
+String result1 = String.join("", list);
+System.out.println(result1);  // abc
 
-    System.out.println(l + " -> " + String.join("",l));
-  }
-}
-```
+// カンマで連結
+String result2 = String.join(",", list);
+System.out.println(result2);  // a,b,c
 
-実行結果
-
-```
-> java Main
-[a, bb, ccc, dddd] -> abbcccdddd
+// スペースで連結
+String result3 = String.join(" ", list);
+System.out.println(result3);  // a b c
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Python">
 
 ```python
-''.join(リスト)
+my_list = ["a", "b", "c"]
+result = "".join(my_list)  # "abc"
 ```
 
-Python では文字列の関数に **join()** というのがあり、引数にリスト等を指定してやると、リスト内の要素を呼び出し元の文字列で繋げた文字列を返す。
-呼び出し元を **""** にすると、リスト内の要素が全て連結された形で出てくる。
+Python では**join()**でリストの全要素を指定したデリミタで連結する。
 
-使用例を以下に示す。
+デリミタ文字列に対して`join()`メソッドを呼び出し、引数にリストを渡す。
 
 ```python
->>> a=["a","bb","ccc","dddd"]
->>>
->>> a
-['a', 'bb', 'ccc', 'dddd']
->>>
->>> ''.join(a)
-'abbcccdddd'
->>>
+my_list = ["a", "b", "c"]
+print(my_list)  # ['a', 'b', 'c']
+
+# デリミタなしで連結
+result1 = "".join(my_list)
+print(result1)  # abc
+
+# カンマで連結
+result2 = ",".join(my_list)
+print(result2)  # a,b,c
+
+# スペースで連結
+result3 = " ".join(my_list)
+print(result3)  # a b c
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-Array.join("");
-// または
-Array.toString();
+let arr = ["a", "b", "c"];
+let result = arr.join(""); // "abc"
 ```
 
-Javascript では Array オブジェクトに**join**メソッドがあり、これを利用すると Array オブジェクト内の要素を引数で指定した文字列で連結し、1 つの文字列を作成する。
+JavaScript では**join()**で配列の全要素を指定したデリミタで連結する。
 
-指定した文字列を空文字`""`にすると、Array オブジェクトの要素を全てそのまま繋げた文字列を出力する。
-
-また、Array オブジェクトの**toString**メソッドを使っても要素を連結した文字列を出力できる。ただしこちらは要素をカンマで繋げた形で出力される。
-
-例を以下に示す。
+引数にデリミタ（区切り文字）を指定する。省略するとカンマで連結される。
 
 ```javascript
-let arr = ["aaa", "bbb", "ccc"];
-let arrJoin = arr.join("");
-console.log(arrJoin); // aaabbbccc
-let arrString = arr.toString();
-console.log(arrString); // aaa,bbb,ccc
+let arr = ["a", "b", "c"];
+console.log(arr); // ['a', 'b', 'c']
+
+// デリミタなしで連結
+let result1 = arr.join("");
+console.log(result1); // abc
+
+// カンマで連結
+let result2 = arr.join(",");
+console.log(result2); // a,b,c
+
+// スペースで連結
+let result3 = arr.join(" ");
+console.log(result3); // a b c
+
+// 省略するとカンマで連結
+let result4 = arr.join();
+console.log(result4); // a,b,c
+
+// toString()を使う方法（常にカンマで連結）
+let result5 = arr.toString();
+console.log(result5); // a,b,c
+```
+
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
+
+```go
+slice := []string{"a", "b", "c"}
+result := strings.Join(slice, "")  // "abc"
+```
+
+Go では**strings.Join()**でスライスの全要素を指定したデリミタで連結する。
+
+第 1 引数にスライス、第 2 引数にデリミタ（区切り文字）を指定する。
+
+```go
+import (
+    "fmt"
+    "strings"
+)
+
+slice := []string{"a", "b", "c"}
+fmt.Println(slice)  // [a b c]
+
+// デリミタなしで連結
+result1 := strings.Join(slice, "")
+fmt.Println(result1)  // abc
+
+// カンマで連結
+result2 := strings.Join(slice, ",")
+fmt.Println(result2)  // a,b,c
+
+// スペースで連結
+result3 := strings.Join(slice, " ")
+fmt.Println(result3)  // a b c
+
+// 数値スライスの場合は文字列に変換が必要
+nums := []int{1, 2, 3}
+strs := make([]string, len(nums))
+for i, n := range nums {
+    strs[i] = strconv.Itoa(n)
+}
+result4 := strings.Join(strs, ",")
+fmt.Println(result4)  // 1,2,3
 ```
 
 </div>

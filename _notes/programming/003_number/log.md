@@ -2,9 +2,9 @@
 title: "対数"
 date: "2019-10-16T19:19:30.000Z"
 excerpt: "対数を計算する方法。"
-tag: ["Java", "Python", "Javascript"]
-programming: ["Java", "Python", "Javascript"]
-updatedAt: '2025-06-30T20:44:49.000Z'
+tag: ["Java", "Python", "Javascript", "Go"]
+programming: ["Java", "Python", "Javascript", "Go"]
+updatedAt: '2025-11-25T00:12:02.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -20,51 +20,21 @@ log<sub>a</sub>b = log<sub>c</sub>b / log<sub>c</sub>a
 <div class="note_content_by_programming_language" id="note_content_Java">
 
 ```java
-//常用対数
-Math.log10(数値)
-//自然対数
-Math.log(数値)
-//底a,真数bの対数を取りたいとき
-Math.log(b)/Math.log(a)
+Math.log10(100);  // 常用対数
+Math.log(2.718);  // 自然対数
+Math.log(b)/Math.log(a);  // 任意の底
 ```
 
-Java では java.lang.Math クラス内にある **log10()** メソッドがこの役割を果たす。
+Java では **Math** クラスで対数を計算する。
 
-`public static double log10(double a)`
+**log10()** で常用対数、**log()** で自然対数、底の変換公式で任意の底。
 
-自然対数は java.lang.Math クラス内にある **log()** メソッドがこの役割を果たす。
-
-`public static double log(double a)`
-
-任意の底での対数を算出するメソッドは無いため、
-
-底の変換公式 を用いて前述の**log10()**、**loge()** を利用し算出する。
+実行例
 
 ```java
-import java.lang.Math;
-class Main{
-    public static void main(String args[]){
-        int a = 2;
-        int b = 4;
-        int c = 1024;
-
-        //常用対数
-        System.out.println(Math.log10(100));
-
-        //log2(n)を算出する
-        System.out.println(Math.log(b)/Math.log(a)); //log(2)4
-        System.out.println(Math.log(c)/Math.log(a)); //log(2)1024
-    }
-}
-```
-
-実行結果
-
-```
-> java Main
-2.0
-2.0
-10.0
+double result = Math.log10(100); // 2.0
+double ln = Math.log(Math.E);    // 1.0
+double log2 = Math.log(8)/Math.log(2); // 3.0
 ```
 
 </div>
@@ -72,87 +42,74 @@ class Main{
 
 ```python
 import math
-math.log10(数値)  # 常用対数
-math.log(数値)    # 自然対数
-math.log(b,a)     # 底a,真数bの対数を取りたいとき
+math.log10(100)      # 常用対数
+math.log(2.718)      # 自然対数
+math.log(b, a)       # 任意の底
 ```
 
-python で常用対数を算出するには math モジュールにある関数 **log10()** 関数を使用する。
+Python では **math** モジュールで対数を計算する。
 
-`math.log10(x)`
+**log10()** で常用対数、**log()** で自然対数、**log(b,a)** で任意の底。
 
-自然対数を算出するには math モジュールにある関数 **log()** 関数を使用する。
-
-`math.log(x)`
-
-また任意の数を底とする対数を算出する関数が存在し、
-
-それは自然対数を算出する時にも利用した math モジュールにある **log()** 関数である。
-
-log(x,y)関数は、y を底とした x の対数を返す。
-
-y を略した場合（引数１つの場合）、底は自動的に e となり、自然対数になる。(→ 自然対数)
-
-使用するには math モジュールをインポートする。
+実行例
 
 ```python
->>> import math
->>> a=2
->>> b=4
->>> c=1024
->>>
->>> math.log10(100)
-2.0
->>> math.log(b,a)
-2.0
->>> math.log(c,a)
-10.0
->>>
+import math
+result = math.log10(100)  # 2.0
+ln = math.log(math.e)     # 1.0
+log2 = math.log(8, 2)     # 3.0
 ```
 
 </div>
 <div class="note_content_by_programming_language" id="note_content_Javascript">
 
 ```javascript
-// 常用対数
-Math.log10(数値);
-// 自然対数
-Math.log(数値);
-// 底a,真数bの対数を取りたいとき
-Math.log(b) / Math.log(a);
+Math.log10(100); // 常用対数
+Math.log(2.718); // 自然対数
+Math.log(b) / Math.log(a); // 任意の底
 ```
 
-Javascript で常用対数を算出するには Math オブジェクトにある関数 **log10()** 関数を使用する。
+JavaScript では **Math** オブジェクトで対数を計算する。
 
-`Math.log10(x)`
+**log10()** で常用対数、**log()** で自然対数、底の変換公式で任意の底。
 
-自然対数を算出するには Math オブジェクトにある **log()** 関数を使用する。
-
-`Math.log(x)`
-
-また任意の底での対数を算出する関数は無いため、
-
-底の変換公式 を用いて前述の **Math.log()** などを利用し算出する。
+実行例
 
 ```javascript
-let a = 2;
-let b = 4;
-let c = 1024;
-
-//常用対数
-console.log(Math.log10(100));
-
-//log2(n)を算出する
-console.log(Math.log(b) / Math.log(a)); //log(2)4
-console.log(Math.log(c) / Math.log(a)); //log(2)1024
+let result = Math.log10(100); // 2
+let ln = Math.log(Math.E); // 1
+let log2 = Math.log(8) / Math.log(2); // 3
 ```
 
-実行結果
+</div>
+<div class="note_content_by_programming_language" id="note_content_Go">
 
+```go
+import "math"
+math.Log10(100)      // 常用対数
+math.Log(2.718)      // 自然対数
+math.Log(b)/math.Log(a)  // 任意の底
 ```
-2
-2
-10
+
+Go 言語では **math** パッケージで対数を計算する。
+
+**Log10()** で常用対数、**Log()** で自然対数、底の変換公式で任意の底。
+
+実行例
+
+```go
+package main
+import (
+    "fmt"
+    "math"
+)
+
+func main() {
+    result := math.Log10(100) // 2
+    ln := math.Log(math.E)    // 1
+    log2 := math.Log(8)/math.Log(2) // 3
+    fmt.Println(result, ln, log2)
+}
 ```
 
 </div>
