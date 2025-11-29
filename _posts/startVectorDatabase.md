@@ -16,7 +16,7 @@ ogImage:
 
 # ベクトルデータベースとは
 
-ベクトルデータベースは、**ベクトル(多次元の数値配列)を効率的に保存・検索するために最適化されたデータベース**です。
+ベクトルデータベースは、ベクトル(多次元の数値配列)を効率的に保存・検索するために最適化されたデータベースです。
 
 通常のデータベース(MySQL や PostgreSQL など)が「完全一致」や「範囲検索」を得意とするのに対し、ベクトルデータベースは**「類似度検索」**に特化しています。
 
@@ -29,7 +29,7 @@ ogImage:
 "犬が好きです" → [0.019, -0.876, 0.438, ..., 0.119] (1536個の数値)
 ```
 
-この 2 つのベクトルは意味が似ているため、ベクトル空間上で近い位置に配置されます。ベクトルデータベースは、この「近さ」を高速に見つけ出すことができるのです。
+この 2 つのベクトルは意味が似ているため、ベクトル空間上で近い位置に配置されます。ベクトルデータベースは、この「近さ」を高速に見つけ出すことができます。
 
 ## ベクトルデータベースの主な特徴
 
@@ -49,7 +49,7 @@ ogImage:
 
 クラウドベースのベクトルデータベースは、データ量の増加に応じて自動的にスケールします。
 
-## 主要なベクトルデータベース製品
+## 主なベクトルデータベース製品
 
 調べたところ、以下のような製品があるようです。
 
@@ -59,7 +59,7 @@ ogImage:
 - **Qdrant**: 高性能でフィルタリング機能が豊富
 - **Milvus**: エンタープライズ向けのスケーラビリティ
 
-今回のハンズオンでは、シンプルで使いやすい**Chroma**[^1]を使用します。
+今回のハンズオンでは、シンプルで使いやすい**Chroma**[^1]を使用してみます。
 
 # ハンズオン:ベクトルデータベースを使った類似文書検索システムを作る
 
@@ -225,22 +225,22 @@ import openai
 import os
 from dotenv import load_dotenv
 
-*# 環境変数の読み込み*
+# 環境変数の読み込み
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-*# Chromaクライアントの初期化*
+# Chromaクライアントの初期化
 client = chromadb.Client(Settings(
     anonymized_telemetry=False
 ))
 
-*# コレクションの作成*
+# コレクションの作成
 collection = client.create_collection(
     name="tech_articles",
     metadata={"description": "技術記事のコレクション"}
 )
 
-*# サンプル文書データ*
+# サンプル文書データ
 documents = [
     "Pythonは機械学習やデータ分析に広く使われるプログラミング言語です",
     "JavaScriptはWebブラウザ上で動作するスクリプト言語で、フロントエンド開発に不可欠です",
@@ -249,7 +249,7 @@ documents = [
     "ベクトルデータベースは類似度検索に特化したデータベースで、生成AIと相性が良いです"
 ]
 
-*# 文書IDとメタデータの準備*
+# 文書IDとメタデータの準備
 ids = [f"doc_{i}" for i in range(len(documents))]
 metadatas = [
     {"category": "programming", "language": "Python"},
@@ -259,7 +259,7 @@ metadatas = [
     {"category": "database", "type": "vector"}
 ]
 
-*# 文書をコレクションに追加*
+# 文書をコレクションに追加
 collection.add(
     documents=documents,
     ids=ids,
@@ -283,13 +283,19 @@ python main.py
 
 ### 類似文書の検索
 
+では、キーワードを入力して、検索をしてみましょう。
+
 `main.py`に以下のコードを追加します。
 
+ここでは、「AI や機械学習について知りたい」というキーワードで検索します。
+
+通常の検索エンジンと違って、完全一致する単語を探すのではなく、意味が似ている文書を探します。
+
 ```python
-*# クエリ(検索したい内容)*
+# クエリ(検索したい内容)
 query = "AIや機械学習について知りたい"
 
-*# 類似文書の検索(上位3件)*
+# 類似文書の検索(上位3件)
 results = collection.query(
     query_texts=[query],
     n_results=3
@@ -330,18 +336,22 @@ for i, (doc, metadata, distance) in enumerate(zip(
 メタデータ: {'category': 'database', 'type': 'general'}
 ```
 
+ここでは、登録した 5 つの文書のベクトルと比較して、ベクトル空間上で「距離が近い」ものを上位 3 件取り出して表示しています。
+
 ### メタデータフィルタリング付き検索
 
 さらに以下を追加します。
 
+ここでは「プログラミング言語について」という検索をしますが、結果は"programming"カテゴリに絞り込む処理になります。
+
 ```python
-*# カテゴリを指定した検索*
+# カテゴリを指定した検索
 query = "プログラミング言語について"
 
 results = collection.query(
     query_texts=[query],
     n_results=2,
-    where={"category": "programming"}  *# programmingカテゴリのみに絞り込み*
+    where={"category": "programming"}  # programmingカテゴリのみに絞り込み
 )
 
 print(f"\n検索クエリ: {query}")
@@ -376,12 +386,14 @@ for i, (doc, metadata) in enumerate(zip(
 メタデータ: {'category': 'programming', 'language': 'Python'}
 ```
 
-### OpenAI の Embedding を使った高度な検索
+### OpenAI の Embedding によるベクトル化と高度な検索
 
-Chroma はデフォルトでも埋め込みを生成してくれますが、OpenAI の Embedding モデルを使うとより高精度な検索が可能です。
+先ほどまでは Chroma が自動的に文章をベクトルに変換していましたが、ここでは OpenAI の**Embedding**という高性能なモデルを使ってベクトル化してみましょう。これにより精度の高い検索ができるようになります。
+
+Embedding は、テキストを数値の配列(ベクトル)に変換する技術です。
 
 ```python
-*# OpenAIのEmbedding関数を定義*
+# OpenAIのEmbedding関数を定義
 def get_embedding(text):
     response = openai.embeddings.create(
         model="text-embedding-3-small",
@@ -389,12 +401,12 @@ def get_embedding(text):
     )
     return response.data[0].embedding
 
-*# 新しいコレクションを作成(OpenAIのEmbeddingを使用)*
+# 新しいコレクションを作成(OpenAIのEmbeddingを使用)
 collection_openai = client.create_collection(
     name="tech_articles_openai"
 )
 
-*# Embeddingを生成して文書を追加*
+# Embeddingを生成して文書を追加
 embeddings = [get_embedding(doc) for doc in documents]
 
 collection_openai.add(
@@ -404,7 +416,7 @@ collection_openai.add(
     metadatas=metadatas
 )
 
-*# クエリのEmbeddingを生成して検索*
+# クエリのEmbeddingを生成して検索
 query = "データを扱う技術について"
 query_embedding = get_embedding(query)
 
@@ -447,19 +459,17 @@ OpenAI Embeddingを使った検索結果:
 メタデータ: {'topic': 'machine_learning', 'category': 'AI'}
 ```
 
+プロトタイプや小規模な程度では Chroma デフォルトで十分ですが、本番環境や高精度が必要な場合は OpenAI Embedding がオススメです。
+
+実際のアプリケーションでは、検索精度が直接ユーザー体験に影響するため、高品質な Embedding モデルを使うことが推奨されます。
+
 ---
 
-ベクトルデータベースは、生成 AI システムを構築する上で非常に重要な技術です。本記事では以下のポイントを学びました。
+ベクトルデータベースは、生成 AI システムを構築する上で非常に重要な技術です。
 
-1. **ベクトルデータベースの基本概念**: 類似度検索に特化したデータベースシステム
-2. **生成 AI との関係**: Embedding を通じてテキストをベクトル化し、意味的な検索を実現
-3. **環境構築**: Python 環境のセットアップから API キーの設定まで
-4. **実践的な使い方**: Chroma を使った文書の登録・検索・フィルタリング
-5. **RAG パターン**: ベクトルデータベースと LLM を組み合わせた応用システム
+これからベクトルデータベースを使ったプロジェクトに取り組む方は、まず小規模なデータセットで試してみて、徐々にスケールアップしていくことをお勧めします。
 
-これからベクトルデータベースを使ったプロジェクトに取り組む方は、まず小規模なデータセットで試してみて、徐々にスケールアップしていくことをお勧めします。Chroma でローカル開発に慣れたら、Pinecone や Weaviate などのクラウドサービスにも挑戦してみてください。
-
-生成 AI× ベクトルデータベースの組み合わせは、これからのアプリケーション開発において必須のスキルとなるでしょう。ぜひ実際に手を動かして、その可能性を体感してみてください!
+Chroma でローカル開発に慣れたら、Pinecone や Weaviate などのクラウドサービスにも挑戦してみたいですね。
 
 ---
 
