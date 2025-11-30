@@ -3,7 +3,7 @@ title: "ベクトルデータベース（chroma）を利用してみる"
 excerpt: ""
 coverImage: "/assets/posts/startVectorDatabase/vectorDb.png"
 date: "2025-11-30T00:56:53.000Z"
-updatedAt: "2025-11-30T00:56:53.000Z"
+updatedAt: '2025-12-01T00:07:04.000Z'
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
