@@ -28,6 +28,7 @@ export default function Post({ post, morePosts, preview }: Props) {
     return <ErrorPage statusCode={404} />;
   }
 
+  // highlight.js
   useEffect(() => {
     hljs.highlightAll();
   }, []);
