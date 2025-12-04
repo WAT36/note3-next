@@ -4,7 +4,7 @@ date: "2019-10-12T17:03:35.000Z"
 excerpt: ""
 tag: ["Java", "Python", "Javascript", "Go"]
 programming: ["Java", "Python", "Javascript", "Go"]
-updatedAt: "2025-11-25T00:12:02.000Z"
+updatedAt: '2025-12-04T22:28:09.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
