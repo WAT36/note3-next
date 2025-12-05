@@ -53,7 +53,7 @@ class Main{
 
 実行結果
 
-```
+```bash
 > java Main
 11.0
 10.0
@@ -189,7 +189,7 @@ console.log(Math.floor(c));
 
 実行結果
 
-```
+```bash
 11
 10
 10
@@ -247,7 +247,7 @@ func main() {
 
 実行結果
 
-```
+```bash
 11
 10
 10
