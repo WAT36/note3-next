@@ -4,7 +4,7 @@ date: "2019-10-12T19:46:41.000Z"
 excerpt: "文字列を別の文字列に置換する"
 tag: ["Java", "Python", "Javascript", "Go"]
 programming: ["Java", "Python", "Javascript", "Go"]
-updatedAt: '2025-11-25T00:12:02.000Z'
+updatedAt: "2025-11-25T00:12:02.000Z"
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -15,7 +15,7 @@ mode: programming
 
 例えば"a"という文字を全て"e"に変えたいとなった時
 
-```
+```plaintext
 "a" -> "e"
 "and" -> "end"
 ```
