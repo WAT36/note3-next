@@ -52,7 +52,7 @@ public class Main {
 
 パッケージ名はディレクトリ構造と一致させる必要がある。
 
-```
+```plaintext
 src/
   com/
     example/
@@ -126,7 +126,7 @@ public class Main {
 
 **実用例**:
 
-```
+```plaintext
 src/
   com/
     example/
@@ -221,7 +221,7 @@ Python ではディレクトリ構造でパッケージを定義する。`__init
 
 **基本的なパッケージ構造**:
 
-```
+```plaintext
 mypackage/
     __init__.py      # パッケージの初期化ファイル
     module1.py
@@ -275,7 +275,7 @@ __all__ = ["func1", "func2"]  # これらのみが * でインポートされる
 
 **サブパッケージ**:
 
-```
+```plaintext
 mypackage/
     __init__.py
     module1.py
@@ -308,7 +308,7 @@ from .. import parent_module    # 親パッケージの parent_module
 
 **実用例**:
 
-```
+```plaintext
 myapp/
     __init__.py
     main.py
@@ -379,7 +379,7 @@ print(user)  # User(id=1, name=John Doe)
 
 `__init__.py`なしでもパッケージとして認識される（複数の場所に分散したパッケージを統合できる）。
 
-```
+```plaintext
 # __init__.py なし
 mypackage/
     module1.py
@@ -501,7 +501,7 @@ ES6 Modules を使用するには`package.json`に追加する。
 
 **ディレクトリ構造（実用例）**:
 
-```
+```plaintext
 myapp/
     package.json
     index.js
@@ -747,7 +747,7 @@ const internalValue = 100
 
 **ディレクトリ構造**:
 
-```
+```plaintext
 myapp/
     go.mod              // module myapp
     main.go             // package main
@@ -809,7 +809,7 @@ func main() {
 
 実行結果:
 
-```
+```plaintext
 init 1 を実行中...
 init 2 を実行中...
 main を実行中...
@@ -824,7 +824,7 @@ main を実行中...
 
 **実用例**:
 
-```
+```plaintext
 myapp/
     go.mod
     main.go
@@ -912,7 +912,7 @@ func main() {
 
 `internal`という名前のディレクトリ内のパッケージは、親パッケージからのみアクセス可能。
 
-```
+```plaintext
 myapp/
     go.mod
     main.go
