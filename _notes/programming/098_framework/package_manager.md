@@ -2,8 +2,8 @@
 title: "パッケージマネージャ"
 excerpt: "パッケージマネージャについて"
 coverImage: ""
-date: '2025-11-25T00:12:01.000Z'
-updatedAt: '2025-11-25T00:12:01.000Z'
+date: "2025-11-25T00:12:01.000Z"
+updatedAt: "2025-11-25T00:12:01.000Z"
 tag: ["Go", "Java", "Python", "Javascript"]
 programming: ["Go", "Java", "Python", "Javascript"]
 author:
@@ -122,7 +122,7 @@ go mod vendor
 
 **5. go.sum ファイル（ロックファイル）**:
 
-```
+```plaintext
 github.com/gin-gonic/gin v1.9.1 h1:4idEAncQnU5cB7BeOkPtxjfCSye0AAm1R0RVIqJ+Jmg=
 github.com/gin-gonic/gin v1.9.1/go.mod h1:hPrL7YrpYKXt5YId3A/Tnip5kqbEAP+KLuI3SUcPTeU=
 ```
