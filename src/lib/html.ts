@@ -1,9 +1,8 @@
-import { JSDOM } from "jsdom";
 import type { TagData } from "../interfaces/html";
 
-// HTML文書の文字列から見出しタグを抜き出す関数
-export const extractHeadings = (html: string): TagData[] => {
-  // DOMParserでHTML文字列を解析
+// HTML文字列から見出しタグを抽出（サーバーサイドのみで実行）
+export const extractHeadings = async (html: string): Promise<TagData[]> => {
+  const { JSDOM } = await import("jsdom");
   const dom = new JSDOM(html);
   const document = dom.window.document;
 

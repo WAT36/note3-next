@@ -11,13 +11,13 @@ import { TITLE } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
 import type PostType from "../../interfaces/post";
 import { OutlineBar } from "../../components/ui-elements/outlineBar/OutlineBar";
-import { JSDOM } from "jsdom";
 import hljs from "highlight.js";
 import { useEffect } from "react";
 import { extractHeadings } from "../../lib/html";
+import type { TagData } from "../../interfaces/html";
 
 type Props = {
-  post: PostType;
+  post: PostType & { headings: TagData[] };
   morePosts: PostType[];
   preview?: boolean;
 };
@@ -57,7 +57,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                 />
                 <PostBody content={post.content} />
               </article>
-              <OutlineBar headings={extractHeadings(post.content)} />
+              <OutlineBar headings={post.headings} />
             </div>
           </>
         )}
@@ -66,9 +66,8 @@ export default function Post({ post, morePosts, preview }: Props) {
   );
 }
 
-// TODO 関数は別ファイルに入れたい
-function addIdsToHeadings(html: string): string {
-  // DOMParserでHTML文字列を解析
+async function addIdsToHeadings(html: string): Promise<string> {
+  const { JSDOM } = await import("jsdom");
   const dom = new JSDOM(html);
   const doc = dom.window.document;
 
@@ -107,13 +106,15 @@ export async function getStaticProps({ params }: Params) {
     "coverImage",
     "tag",
   ]);
-  const content = addIdsToHeadings(await markdownToHtml(post.content || ""));
+  const content = await addIdsToHeadings(await markdownToHtml(post.content || ""));
+  const headings = await extractHeadings(content);
 
   return {
     props: {
       post: {
         ...post,
         content,
+        headings,
       },
     },
   };
