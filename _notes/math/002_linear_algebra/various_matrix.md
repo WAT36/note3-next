@@ -325,10 +325,12 @@ $$
 
 A =
 
-\begin{bmatrix}
-A_{11} &  A_{12} \\
+\left[
+\begin{array}{c:c}
+A_{11} &  A_{12} \\ \hdashline
 A_{21} & A_{22}
-\end{bmatrix} \quad
+\end{array} \quad
+\right]
 
 
 $$
