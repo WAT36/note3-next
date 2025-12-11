@@ -14,7 +14,6 @@ type Props = {
 };
 
 const PostHeader = ({ title, coverImage, date, author, tag }: Props) => {
-  console.log("note tags:", JSON.stringify(tag));
   return (
     <>
       <div className="max-w-2xl mx-auto">

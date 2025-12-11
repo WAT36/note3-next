@@ -287,7 +287,7 @@ print(PI)  # 3.14159
 
 ディレクトリ構造でモジュールを整理できる。
 
-```
+```plaintext
 mypackage/
     __init__.py
     module1.py
@@ -327,7 +327,7 @@ print(result1, result2, pi, e)
 
 パッケージ内で相対パスを使ってインポートする。
 
-```
+```plaintext
 mypackage/
     __init__.py
     module1.py
@@ -811,7 +811,7 @@ func main() {
 
 モジュールのパスを使ってインポートする。
 
-```
+```plaintext
 myproject/
     go.mod           // module myproject
     main.go
@@ -856,7 +856,7 @@ func main() {
 
 **サブパッケージのインポート**:
 
-```
+```plaintext
 myproject/
     go.mod
     main.go
@@ -993,7 +993,7 @@ func main() {
    ```
 
 4. **循環インポートはエラー**:
-   ```
+   ```plaintext
    package A imports package B
    package B imports package A  // エラー: 循環
    ```
@@ -1017,7 +1017,7 @@ func main() {
 
 Go 1.11+ では`go.mod`でモジュールを管理する。
 
-```
+```plaintext
 // go.mod
 module myproject
 

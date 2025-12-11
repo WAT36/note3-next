@@ -4,7 +4,7 @@ date: "2019-10-12T17:25:47.000Z"
 excerpt: ""
 tag: ["Java", "Python", "Javascript", "Go"]
 programming: ["Java", "Python", "Javascript", "Go"]
-updatedAt: '2025-11-25T00:12:02.000Z'
+updatedAt: '2025-12-04T22:29:08.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -26,7 +26,7 @@ Java で標準エラー出力を扱うには、**System.err.println()** メソ�
 
 実行例
 
-```
+```bash
 $ javac Main.java
 $ java Main
 エラーメッセージ
@@ -45,7 +45,7 @@ print()の file パラメータに **sys.stderr** を指定する。
 
 実行例
 
-```
+```bash
 $ python main.py
 エラーメッセージ
 ```
@@ -63,7 +63,7 @@ JavaScript(Node.js)で標準エラー出力を扱うには、**console.error()**
 
 実行例
 
-```
+```bash
 $ node main.js
 エラーメッセージ
 ```
@@ -90,7 +90,7 @@ fmt.Fprintln(os.Stderr, 値) で標準エラー出力に値を出力する。
 
 実行例（上のファイルを main.go とする）
 
-```
+```bash
 $ go run main.go
 エラーメッセージ
 ```

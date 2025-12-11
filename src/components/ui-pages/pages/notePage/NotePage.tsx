@@ -5,12 +5,17 @@ import NoteType from "../../../../interfaces/note";
 import { TITLE } from "../../../../lib/constants";
 import PostHeader from "../../../ui-parts/postHeader/PostHeader";
 import PostBody from "../../../ui-elements/postBody/PostBody";
+import { useClientOnly, useHighlightJs } from "../../../../hooks/notePage";
 
 type Props = {
   note: NoteType;
 };
 
 const NotePage = ({ note }: Props) => {
+  const isClient = useClientOnly();
+  // highlight.js
+  useHighlightJs(isClient);
+
   return (
     <Layout canChangeProgrammingLanguage={true}>
       <Container>
