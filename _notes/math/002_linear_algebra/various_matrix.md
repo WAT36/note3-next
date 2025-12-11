@@ -341,107 +341,112 @@ $$
 
 ## ベクトルの分割
 
-$A=[a_{ij}]$を m×n 行列とする。A の各列ベクトルを
+$A=[a_{ij}]$を $m×n$ 行列とする。$A$ の各列ベクトルを
 
 $$
 
-a_1 =
+\mathbf{a}_1 =
 
 \begin{bmatrix}
 a_{11}  \\
 a_{21}  \\
 \vdots \\
 a_{m1}
-\end{bmatrix} \quad
-
+\end{bmatrix}
 ,
+\quad
 
-a_2 =
+\mathbf{a}_2 =
 
 \begin{bmatrix}
 a_{12}  \\
 a_{22}  \\
 \vdots \\
 a_{m2}
-\end{bmatrix} \quad
-
+\end{bmatrix}
 ,
 
-\cdots
+\quad
 
-a_n =
+\cdots
+,
+\quad
+
+\mathbf{a}_n =
 
 \begin{bmatrix}
 a_{1n}  \\
 a_{2n}  \\
 \vdots \\
 a_{mn}
-\end{bmatrix} \quad
+\end{bmatrix}
 
-,
-
-
-$$
-
-とおく時、A の分割
-
-$$
-
-A=[a_1,a_2, \cdots , a_n]
+\quad
 
 
 $$
 
-を A の列ベクトル分割という。
-
-同様に、A の行ベクトルをそれぞれ
+とおく時、$A$ の分割
 
 $$
 
-a’_1 =
+A=[\mathbf{a}_1,\mathbf{a}_2, \cdots , \mathbf{a}_n]
+
+
+$$
+
+を $A$ の列ベクトル分割という。
+
+同様に、$A$ の行ベクトルをそれぞれ
+
+$$
+
+\mathbf{a’}_1 =
 
 \begin{bmatrix}
 a_{11} & a_{12} & \cdots & a_{1n}
-\end{bmatrix} \quad
+\end{bmatrix}
 
 ,
+\\
 
-a’_2 =
+\mathbf{a’}_2 =
 
 \begin{bmatrix}
 a_{21} & a_{22} & \cdots & a_{2n}
-\end{bmatrix} \quad
+\end{bmatrix}
 
 ,
-
+\\
 \vdots
-
-a’_m =
+\\
+\mathbf{a’}_m =
 
 \begin{bmatrix}
 a_{m1} & a_{m2} & \cdots & a_{mn}
-\end{bmatrix} \quad
+\end{bmatrix}
+\\
 
 
 $$
 
-とおくとき、A の分割
+とおくとき、$A$ の分割
 
 $$
 
 A =
 
 \begin{bmatrix}
-a’_{1}  \\
-a’_{2}  \\
+\mathbf{a’}_{1}  \\
+\mathbf{a’}_{2}  \\
 \vdots \\
-a’_{m}
+\mathbf{a’}_{m}
 \end{bmatrix} \quad
 
 
 $$
 
-を A の行ベクトル分割という。
+を $A$ の行ベクトル分割という。
 
 特に単位行列において、
 
@@ -499,4 +504,4 @@ I = [e_1,e_2, \cdots, e_n]
 
 $$
 
-は単位行列 I の列ベクトル分割になる。
+は単位行列 $I$ の列ベクトル分割になる。
