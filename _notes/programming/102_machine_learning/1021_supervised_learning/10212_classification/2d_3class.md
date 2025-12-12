@@ -237,7 +237,7 @@ plt.show()
 
 実行結果
 
-```
+```plaintext
 CEE=0.23
 ```
 
