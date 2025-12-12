@@ -96,7 +96,8 @@ type Post = {
 };
 
 async function getPosts(): Promise<Post[]> {
-  // ビルド時に実行される// 実際にはAPIやデータベースから取得
+  // ビルド時に実行される
+  // 実際にはAPIやデータベースから取得
   return [
     { id: 1, title: "最初の記事", content: "これはSSGで生成された記事です" },
     { id: 2, title: "2つ目の記事", content: "ビルド時に生成されます" },
@@ -117,7 +118,7 @@ export default async function BlogPage() {
         color: "black",
       }}
     >
-      <h1>ブログ記事一覧 (SSG)</h1>
+      <h1 style={{ color: "white" }}>ブログ記事一覧 (SSG)</h1>
       <p
         style={{
           background: "#fff3cd",
@@ -150,7 +151,7 @@ export default async function BlogPage() {
       <div
         style={{
           marginTop: "30px",
-          padding: "15px",
+          padding: "15px 20px",
           background: "#e7f3ff",
           borderRadius: "5px",
         }}
@@ -176,6 +177,10 @@ npm run dev
 # ブラウザで以下のURLにアクセス# http://localhost:3000/blog
 ```
 
+以下のような画面が出ると思います。
+
+![](/assets/posts/nextjsRendering/ssgExample.png)
+
 開発モードでは動的に見えますが、本番ビルドすると静的 HTML が生成されます。
 
 - 本番ビルドで確認
@@ -185,6 +190,10 @@ npm run dev
 npm run build
 
 # ビルド結果を確認
+# Route (app)
+# ┌ ○ /
+# ├ ○ /_not-found
+# └ ○ /blog
 # ○ (Static) と表示されているのがSSGのページ
 
 # 本番モードで起動
