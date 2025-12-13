@@ -258,7 +258,7 @@ export default async function DashboardPage() {
         color: "black",
       }}
     >
-      <h1>ダッシュボード (SSR)</h1>
+      <h1 style={{ color: "white" }}>ダッシュボード (SSR)</h1>
 
       <div
         style={{
@@ -280,7 +280,7 @@ export default async function DashboardPage() {
 
       <div
         style={{
-          padding: "15px",
+          padding: "15px 20px",
           background: "#d4edda",
           borderRadius: "5px",
           border: "1px solid #c3e6cb",
@@ -297,7 +297,7 @@ export default async function DashboardPage() {
       <div
         style={{
           marginTop: "20px",
-          padding: "15px",
+          padding: "15px 20px",
           background: "#e7f3ff",
           borderRadius: "5px",
         }}
@@ -339,6 +339,10 @@ npm start
 # http://localhost:3000/dashboard にアクセス
 # 更新のたびに時刻が変わることを確認
 ```
+
+以下のような画面が出ると思います。
+
+![](/assets/posts/nextjsRendering/ssrExample.png)
 
 ---
 
