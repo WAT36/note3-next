@@ -55,9 +55,7 @@ $$
 
 上から $i$ 番目に並ぶ成分 $a_{i1},a_{i2},\cdots,a_{in}$ を第 $i$ 行、
 
-左から $j$ 番目の縦方向に並ぶ $a_{1j},a_{2j},\cdots,a_{mj}$ を第 $j$ 列といい、
-
-という。
+左から $j$ 番目の縦方向に並ぶ $a_{1j},a_{2j},\cdots,a_{mj}$ を第 $j$ 列という。
 
 第 $i$ 行と第 $j$ 列が交わる位置にある成分 $a_{ij}$ を行列の $(i,j)$ 成分と呼ぶ。
 
@@ -92,9 +90,9 @@ A =
 \begin{bmatrix}
 a_{11} & a_{12} &  \cdots & a_{1j} & \cdots  & a_{1n} \\
 a_{21} & a_{22} &  \cdots & a_{2j} & \cdots  & a_{2n} \\
-\vdots & \vdots &  \quad & \vdots & \quad  & \vdots \\
+\vdots & \vdots &  \ddots & \vdots & \quad  & \vdots \\
 a_{i1} & a_{i2} &  \cdots & a_{ij} & \cdots  & a_{in} \\
-\vdots & \vdots &  \quad & \vdots & \quad  & \vdots \\
+\vdots & \vdots &  \quad & \vdots &  \ddots  & \vdots \\
 a_{n1} & a_{n2} &  \cdots & a_{nj} & \cdots  & a_{nn}
 \end{bmatrix} \quad
 $$
