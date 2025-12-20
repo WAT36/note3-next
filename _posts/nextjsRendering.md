@@ -1,6 +1,6 @@
 ---
 title: "Next.jsのレンダリング方式整理"
-excerpt: ""
+excerpt: "Next.jsの4つのレンダリング方式（SSG、SSR、ISR、CSR）の違いと使い分けをハンズオン形式で解説します。"
 coverImage: "/assets/blog/firstPost/nextjs-logo.png"
 date: "2025-12-12T16:57:46.000Z"
 updatedAt: "2025-12-12T16:57:46.000Z"
