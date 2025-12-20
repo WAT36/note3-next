@@ -23,7 +23,7 @@ Next.js には主に以下の 4 つのレンダリング方式があります。
 3. **ISR (Incremental Static Regeneration)** - 増分静的再生成
 4. **CSR (Client-Side Rendering)** - クライアントサイドレンダリング
 
-それぞれ、HTML をどこで・いつ生成するかが異なります。
+それぞれ、HTML をいつ・どこで生成するかが異なります。
 
 今回は、ハンズオンを通してれぞれ実行して確認してみます。
 
@@ -58,13 +58,11 @@ cd nextjs-rendering-demo
 npm run dev
 ```
 
-これでローカル環境で `http://localhost:3000` にアクセスできます。
+これでローカル環境で `http://localhost:3000` にアクセスすることで表示できます。
 
 ---
 
 # 1. SSG (Static Site Generation)
-
-## 概要
 
 SSG は、ビルド時に静的な HTML ファイルを生成する方式です。一度生成された HTML は、すべてのユーザーに同じ内容が配信されます。
 
@@ -77,7 +75,7 @@ SSG は、ビルド時に静的な HTML ファイルを生成する方式です�
 
 ## ハンズオン: ブログ記事一覧を作る
 
-`app/blog/page.tsx` ファイルを作成します。
+`app/blog/page.tsx` ファイルを作成してみましょう。
 
 ```tsx
 type Post = {
@@ -162,13 +160,11 @@ export default async function BlogPage() {
 - 実行方法
 
 ```bash
-# 開発サーバーを起動(まだ起動していない場合)
+# 開発サーバーを起動
 npm run dev
-
-# ブラウザで以下のURLにアクセス# http://localhost:3000/blog
 ```
 
-以下のような画面が出ると思います。
+ブラウザで`http://localhost:3000/blog`にアクセスすると、以下のような画面が出ると思います。
 
 ![](/assets/posts/nextjsRendering/ssgExample.png)
 
@@ -180,25 +176,15 @@ npm run dev
 # ビルド実行
 npm run build
 
-# ビルド結果を確認
-# Route (app)
-# ┌ ○ /
-# ├ ○ /_not-found
-# └ ○ /blog
-# ○ (Static) と表示されているのがSSGのページ
-
 # 本番モードで起動
 npm start
-
-# http://localhost:3000/blog にアクセス
-# 何度更新してもビルド時刻が変わらないことを確認
 ```
+
+これで再び`http://localhost:3000/blog`にアクセスしてみましょう。何度更新してもビルド時刻が変わらないことを確認できると思います。
 
 ---
 
 # 2. SSR (Server-Side Rendering)
-
-## 概要
 
 SSR は、リクエストのたびにサーバーで HTML を生成する方式です。ユーザーごと・アクセスごとに異なる内容を表示できます。
 
@@ -211,7 +197,7 @@ SSR は、リクエストのたびにサーバーで HTML を生成する方式�
 
 ## ハンズオン: 現在時刻とユーザーエージェントを表示
 
-`app/dashboard/page.tsx` ファイルを作成します。
+`app/dashboard/page.tsx` ファイルを作成しましょう。
 
 ```tsx
 import { headers } from "next/headers";
@@ -301,10 +287,6 @@ export default async function DashboardPage() {
 ```bash
 # 開発サーバーを起動
 npm run dev
-
-# ブラウザで以下のURLにアクセス
-# http://localhost:3000/dashboard
-# ページを何度か更新(F5キー)して時刻が変わることを確認
 ```
 
 - 本番ビルドで確認
@@ -313,24 +295,19 @@ npm run dev
 # ビルド実行
 npm run build
 
-# ビルド結果を確認
-# λ (Dynamic) と表示されているのがSSRのページ
 # 本番モードで起動
 npm start
-
-# http://localhost:3000/dashboard にアクセス
-# 更新のたびに時刻が変わることを確認
 ```
 
-以下のような画面が出ると思います。
+ブラウザで`http://localhost:3000/dashboard`にアクセスしましょう。以下のような画面が出ると思います。
+
+ページを何度か更新(F5 キー)すると、時刻が変わることを確認できると思います。
 
 ![](/assets/posts/nextjsRendering/ssrExample.png)
 
 ---
 
 # 3. ISR (Incremental Static Regeneration)
-
-## 概要
 
 ISR は、SSG と SSR の良いとこ取りです。最初は SSG のように静的生成し、指定した時間が経過したら自動的に再生成します。
 
@@ -496,12 +473,6 @@ export default async function NewsPage() {
 ```bash
 # 開発サーバーを起動
 npm run dev
-
-# ブラウザで以下のURLにアクセス
-# http://localhost:3000/news
-# 生成時刻を確認
-# 10秒以上待ってからページを更新
-# 時刻が更新されていることを確認
 ```
 
 - 本番ビルドで確認
@@ -512,24 +483,19 @@ ISR は本番環境で真価を発揮します。
 # ビルド実行
 npm run build
 
-# ビルド結果を確認
-# ○ (Static) と表示されているが、ISRが有効
 # 本番モードで起動
 npm start
-
-# http://localhost:3000/news にアクセス
-# 10秒待ってから更新を繰り返し、時刻が変わることを確認
 ```
 
-以下のような画面が出ると思います。
+同様に`http://localhost:3000/news`にアクセスしてみましょう。以下のような画面が出ると思います。
+
+10 秒待ってから更新を繰り返すと、時刻が変わることを確認できます。
 
 ![](/assets/posts/nextjsRendering/isrExample.png)
 
 ---
 
 # 4. CSR (Client-Side Rendering)
-
-## 概要
 
 CSR は、ブラウザ上で JavaScript を使ってコンテンツを生成する方式です。従来の React アプリと同じ動作です。
 
@@ -745,15 +711,15 @@ export default function InteractivePage() {
 ```bash
 # 開発サーバーを起動
 npm run dev
-
-# ブラウザで以下のURLにアクセス
-# http://localhost:3000/interactive
-# カウンターをクリックして動作を確認
-# ページのソースを表示(右クリック→「ページのソースを表示」)
-# HTMLにユーザーデータが含まれていないことを確認
 ```
 
-以下のような画面が出ると思います。
+# ブラウザで以下の URL
+
+`http://localhost:3000/interactive`にアクセスすると、以下のような画面が出ると思います。
+
+カウンターをクリックして動作を確認してみましょう。
+
+また、ページのソースを表示すると、HTML にユーザーデータが含まれていないことを確認できます。
 
 ![](/assets/posts/nextjsRendering/csrExample.png)
 
@@ -761,7 +727,7 @@ npm run dev
 
 # ビルド結果の見方
 
-`npm run build` を実行すると、各ページがどのレンダリング方式を使っているか確認できます。
+`npm run build` を実行すると、各ページがどのレンダリング方式を使っているか確認できます。出力例を以下に記載します。
 
 ```bash
 `Route (app)                              Size     First Load JS
@@ -778,6 +744,8 @@ npm run dev
 
 # 選び方のフローチャート
 
+人により分かれるとは思いますが、どの画面にどのレンダリング方式を採用するかは以下に沿って決めると良いと思います。
+
 ```plaintext
 SEOが重要か?
 ├─ YES → コンテンツは頻繁に変わるか?
@@ -787,6 +755,8 @@ SEOが重要か?
 ```
 
 # 実践的な使い分け例
+
+例えばですが、使い分けとしては以下のような例が挙げられると思います。
 
 ## ブログサイト
 
