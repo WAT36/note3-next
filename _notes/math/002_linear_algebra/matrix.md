@@ -2,8 +2,8 @@
 title: "行列とは"
 excerpt: ""
 coverImage: ""
-date: "2025-10-20T22:41:56.000Z"
-updatedAt: "2025-10-20T22:41:56.000Z"
+date: '2025-12-21T01:10:48.000Z'
+updatedAt: '2025-12-21T01:10:48.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi

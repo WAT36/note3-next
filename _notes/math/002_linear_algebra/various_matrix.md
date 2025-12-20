@@ -2,8 +2,8 @@
 title: "さまざまな行列"
 excerpt: ""
 coverImage: ""
-date: "2025-11-02T22:53:41.000Z"
-updatedAt: "2025-11-02T22:53:41.000Z"
+date: '2025-12-21T01:10:48.000Z'
+updatedAt: '2025-12-21T01:10:48.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi

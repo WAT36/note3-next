@@ -127,7 +127,7 @@ cost=[[0,2,5,6,INF],[2,0,1,INF,9],[5,1,0,INF,10],[6,INF,INF,0,4],[INF,9,10,4,0]]
 
 すると、実行結果は以下のようになる。
 
-```
+```plaintext
 [[0, 2, inf, 6, inf], [2, 0, 1, inf, inf], [inf, 1, 0, inf, inf], [6, inf, inf, 0, 4], [inf, inf, inf, 4, 0]]
 ```
 
@@ -226,6 +226,6 @@ cost=[[0,2,5,6,INF],[2,0,1,INF,9],[5,1,0,INF,10],[6,INF,INF,0,4],[INF,9,10,4,0]]
 
 実行結果は以下の通り。
 
-```
+```plaintext
 [[inf, 2, inf, 6, inf], [2, inf, 1, inf, inf], [inf, 1, inf, inf, inf], [6, inf, inf, inf, 4], [inf, inf, inf, 4, inf]]
 ```

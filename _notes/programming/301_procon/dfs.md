@@ -59,7 +59,7 @@ print(dfs(0,0))
 
 実行例
 
-```
+```bash
 $ python coin_dfs.py
 k:3
 False
