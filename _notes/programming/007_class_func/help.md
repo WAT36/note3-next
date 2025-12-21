@@ -203,7 +203,7 @@ help(max)
 
 実行結果:
 
-```
+```plaintext
 Help on built-in function max in module builtins:
 
 max(...)

@@ -23,6 +23,14 @@ type Props = {
 const Note = ({ note, subPageLinks }: Props) => {
   const router = useRouter();
   const { query } = router;
+
+  // すべてのフックを最初に呼び出す（条件分岐の前）
+  const isClient = useClientOnly();
+  useDynamicScriptsFromNote(note.link?.javascript ?? null);
+  // フロントエンド CodePen用(ローカル)
+  useCodepenEmbed();
+
+  // フック呼び出し後に条件チェックを行う
   if (!router.isFallback && !note?.slug) {
     return <ErrorPage statusCode={404} />;
   } else if (
@@ -32,13 +40,6 @@ const Note = ({ note, subPageLinks }: Props) => {
     return <ErrorPage statusCode={403} />;
   }
 
-  useHighlightJs();
-
-  useDynamicScriptsFromNote(note.link?.javascript ?? null);
-
-  // フロントエンド CodePen用(ローカル)
-  useCodepenEmbed();
-  const isClient = useClientOnly();
   if (!isClient) {
     return null; // サーバーサイドでは何も表示しない
   }

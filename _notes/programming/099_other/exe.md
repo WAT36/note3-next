@@ -3,7 +3,7 @@ title: "コードのビルドと実行方法"
 excerpt: "コードのビルドと実行方法について"
 coverImage: ""
 date: "2025-06-30T20:44:30.000Z"
-updatedAt: '2025-11-25T00:12:05.000Z'
+updatedAt: '2025-12-10T21:26:21.000Z'
 tag: ["Go", "Java", "Python", "Javascript"]
 programming: ["Go", "Java", "Python", "Javascript"]
 author:
@@ -343,7 +343,7 @@ jar cvf myapp.jar -C bin .
 
 **manifest.txt の例**:
 
-```
+```plaintext
 Manifest-Version: 1.0
 Main-Class: Main
 ```

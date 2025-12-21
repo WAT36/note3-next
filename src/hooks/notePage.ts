@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import hljs from "highlight.js";
 
-export const useHighlightJs = () => {
+export const useHighlightJs = (shouldRun: boolean = true) => {
   useEffect(() => {
-    hljs.highlightAll();
-  }, []);
+    if (shouldRun) {
+      hljs.highlightAll();
+    }
+  }, [shouldRun]);
 };
 
 export const useDynamicScriptsFromNote = (

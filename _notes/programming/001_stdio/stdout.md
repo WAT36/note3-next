@@ -4,7 +4,7 @@ date: "2019-10-12T17:19:30.000Z"
 excerpt: ""
 tag: ["Java", "Python", "Javascript", "Go"]
 programming: ["Java", "Python", "Javascript", "Go"]
-updatedAt: '2025-11-25T00:12:02.000Z'
+updatedAt: '2025-12-04T22:29:38.000Z'
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"
@@ -25,7 +25,7 @@ Java で標準出力を扱うには、**System.out.println()** メソッドを�
 
 実行例
 
-```
+```bash
 $ javac Main.java
 $ java Main
 Hello, World!
@@ -44,7 +44,7 @@ Python で標準出力を扱うには、組み込み関数の **print()** を使
 
 実行例
 
-```
+```bash
 $ python main.py
 Hello, World!
 ```
@@ -60,7 +60,7 @@ JavaScript(Node.js)で標準出力を扱うには、**console.log()** 関数を�
 
 実行例
 
-```
+```bash
 $ node main.js
 Hello, World!
 ```
@@ -84,7 +84,7 @@ Go 言語で標準出力を扱うには、**fmt** パッケージの **Println()
 
 実行例
 
-```
+```bash
 $ go run main.go
 Hello, World!
 ```
