@@ -215,3 +215,89 @@ $$
 階段行列における零ベクトルでない行の数（すなわち階段行列の段の数）$k$ は、変形の仕方に関係しない定数である。
 
 この定数 $k$ を行列 $A$ の階数といい、$\mathrm{rank}A$で表す。零行列の階数は０となる。
+
+# 連立１次方程式の解法
+
+## 係数行列
+
+連立１次方程式
+
+$$
+
+\begin{equation}
+\left\{ \,
+\begin{aligned}
+& a_{11} x_1 & + a_{12} x_2 & + \cdots & + a_{1n} x_n & = b_1 \\
+& a_{21} x_1 & + a_{22} x_2 & + \cdots & + a_{2n} x_n & = b_2 \\
+
+&                   &                       &  \cdots \cdots &              & \\
+& a_{m1} x_1 & + a_{m2} x_2 & + \cdots & + a_{mn} x_n & = b_m \\
+\end{aligned}
+\right.
+\end{equation}
+
+
+$$
+
+の解法についてを考える。
+
+ここで係数、未知数および右辺の定数が作る行列をそれぞれ
+
+$$
+
+A =
+
+\begin{bmatrix}
+a_{11}  & a_{12}  & \cdots & a_{1n} \\
+a_{21}  & a_{22}  & \cdots & a_{2n} \\
+\vdots & \vdots & \quad & \vdots \\
+a_{m1}  & a_{m2}  & \cdots & a_{mn}
+\end{bmatrix} \quad
+
+\mathbf{x} =
+
+\begin{bmatrix}
+x_{1}  \\
+x_{2}  \\
+\vdots \\
+x_{n}
+\end{bmatrix} \quad
+
+\mathbf{b} =
+
+\begin{bmatrix}
+b_{1}  \\
+b_{2}  \\
+\vdots \\
+b_{m}
+\end{bmatrix} \quad
+
+
+$$
+
+とおくと、上記の連立１次方程式は以下のように表せる。
+
+$$
+
+A \mathbf{x} = \mathbf{b}
+$$
+
+この$m×n$行列$A$を連立１次方程式の**係数行列**といい、$A$に右辺のベクトル b を付け加えた$m×(n+1)$行列
+
+$$
+
+[A,\mathbf{b}] =
+
+\begin{bmatrix}
+a_{11}  & a_{12}  & \cdots & a_{1n} & b_{1} \\
+a_{21}  & a_{22}  & \cdots & a_{2n} & b_{2} \\
+\vdots & \vdots & \quad & \vdots & \vdots \\
+a_{m1}  & a_{m2}  & \cdots & a_{mn} & b_{m}
+\end{bmatrix} \quad
+
+
+$$
+
+を連立１次方程式の**拡大係数行列**という。
+
+また、未知数の作る$n$次ベクトル$x$を未知数ベクトル、右辺の作る$m$次ベクトル$b$を定数項ベクトルという。
