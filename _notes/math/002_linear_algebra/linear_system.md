@@ -370,3 +370,39 @@ n−rank(A)
 $$
 
 を**解の自由度**という。自由度とは、任意に値を選べる変数(自由変数)の個数を表す。
+
+# 同次連立 1 次方程式
+
+連立 1 次方程式 $$A \mathbf{x} = \mathbf{b} $$において、定数項ベクトル$\mathbf{b}$ が$\mathbf{o}$の場合、すなわち、方程式
+
+$$
+
+A \mathbf{x} = \mathbf{o}
+
+
+$$
+
+を**同次連立 1 次方程式**という。
+
+一般に、未知数 n 個の同次連立 1 次方程式$A \mathbf{x} = \mathbf{o}$において、
+
+- $A \mathbf{x} = \mathbf{o}$は常に自明な解$\mathbf{x} = \mathbf{o}$を持つ。
+- $A \mathbf{x} = \mathbf{o}$が自明な解$\mathbf{x} = \mathbf{o}$のみを持つための必要十分条件は
+
+$$
+
+rank A = n
+
+
+$$
+
+- $A \mathbf{x} = \mathbf{o}$が無数な解を持つための必要十分条件は
+
+$$
+
+rank A <  n
+
+
+$$
+
+さらに、このとき解の自由度は$n-rankA$である。
