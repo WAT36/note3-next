@@ -2,8 +2,8 @@
 title: "RAGについて"
 excerpt: "RAGの紹介とChromaとOpenAIでのハンズオン実践"
 coverImage: ""
-date: "2026-01-05T01:25:26.000Z"
-updatedAt: "2026-01-05T01:25:26.000Z"
+date: '2026-01-07T22:44:21.000Z'
+updatedAt: '2026-01-07T22:44:21.000Z'
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
