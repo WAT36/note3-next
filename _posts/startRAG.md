@@ -63,7 +63,7 @@ RAG は以下のような仕組みで課題を解決します。
 
 3. ハルシネーションの削減
 
-LLM は提供されたコンテキストに基づいて回答するため、事実に基づかない創作的な回答が大幅に減ります。
+LLM は提供されたコンテキストに基づいて回答するため、事実に基づかない創作的な回答を減らせる傾向があります。
 
 4. 透明性と信頼性
 
@@ -210,17 +210,19 @@ Transformerは2017年に「Attention is All You Need」論文で提案された�
 
 文書をチャンクに分割して ベクターデータベース に格納するスクリプト`data_preparation.py`を作成します。
 
+（今回はサンプル文書が短いため、セクション単位を 1 チャンクとして扱っています。実務などでは文書が長くなることが多いため、トークン数ベースで一定長＋オーバーラップ付きで分割するのが一般的です。）
+
 ```python
 import chromadb
 from chromadb.config import Settings
-import openai
 import os
 from dotenv import load_dotenv
 import re
+from openai import OpenAI
 
 # 環境変数の読み込み
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def load_documents(file_path):
     """
@@ -292,7 +294,7 @@ def get_embedding(text):
     """
     OpenAI APIを使ってテキストをベクトル化
     """
-    response = openai.embeddings.create(
+    response = client.embeddings.create(
         model="text-embedding-3-small",
         input=text
     )
@@ -372,7 +374,6 @@ def prepare_vector_database():
     print(f"{'='*60}")
 
     # 動作確認
-# 動作確認
     print("\n動作確認: テスト検索を実行...")
     test_query = "Pythonについて"
     test_query_embedding = get_embedding(test_query)  # Embeddingを生成
@@ -464,14 +465,14 @@ Chromaクライアントを初期化しています...
 
 ```python
 import chromadb
-import openai
 import os
 from dotenv import load_dotenv
 from typing import List, Dict
+from openai import OpenAI
 
 # 環境変数の読み込み
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 class RAGSystem:
     """
@@ -493,7 +494,7 @@ class RAGSystem:
         """
         テキストをベクトル化
         """
-        response = openai.embeddings.create(
+        response = client.embeddings.create(
             model="text-embedding-3-small",
             input=text
         )
@@ -550,7 +551,7 @@ class RAGSystem:
 【回答】"""
 
         # OpenAI APIで回答を生成
-        response = openai.chat.completions.create(
+        response = client.chat.completions.create(
             model=model,
             messages=[
                 {"role": "system", "content": system_prompt},
