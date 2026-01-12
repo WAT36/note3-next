@@ -1,9 +1,9 @@
 ---
-title: "RAGについて"
+title: "RAG入門：仕組みとPython×Chromaで作る最小実装"
 excerpt: "RAGの紹介とChromaとOpenAIでのハンズオン実践"
 coverImage: "/assets/posts/startRAG/rag.png"
-date: "2026-01-07T22:44:21.000Z"
-updatedAt: '2026-01-11T23:08:19.000Z'
+date: "2026-01-12T23:39:21.000Z"
+updatedAt: "2026-01-12T23:39:21.000Z"
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
@@ -485,8 +485,8 @@ class RAGSystem:
         Args:
             collection_name: 使用するChromaコレクション名
         """
-        self.client = chromadb.PersistentClient(path="./chroma_db")
-        self.collection = self.client.get_collection(name=collection_name)
+        self.chroma_client = chromadb.PersistentClient(path="./chroma_db")
+        self.collection = self.chroma_client.get_collection(name=collection_name)
         print(f"✓ コレクション '{collection_name}' を読み込みました")
 
     def get_embedding(self, text: str) -> List[float]:
@@ -776,5 +776,6 @@ RAG（Retrieval-Augmented Generation）とは、大規模言語モデル（LLM�
 
 ---
 
-RAG は生成 AI を実用化する上で最も重要な技術です。まずは小さく始めて、ユーザーの反応を見ながら改善していくアプローチが成功の鍵となります。
+RAG は社内データや最新情報を扱う用途で、特に採用されやすい重要技術です。まずは小さく始めて、ユーザーの反応を見ながら改善していくアプローチが成功の鍵となります。
+
 実際に手を動かして、自分のドメインに合わせた RAG システムを構築してみてください。
