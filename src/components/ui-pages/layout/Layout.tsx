@@ -49,7 +49,9 @@ const Layout = ({ preview, children, canChangeProgrammingLanguage }: Props) => {
         <SubHeader
           canChangeProgrammingLanguage={canChangeProgrammingLanguage}
         />
-        <GoogleAnalytics gaId={GA_ID} />
+        {process.env.NEXT_PUBLIC_APP_ENV === "prd" && GA_ID && (
+          <GoogleAnalytics gaId={GA_ID} />
+        )}
         <main>{children}</main>
       </div>
       <Footer />
