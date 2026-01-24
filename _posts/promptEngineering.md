@@ -3,7 +3,7 @@ title: "生成AIのコンテキストとプロンプトエンジニアリング�
 excerpt: ""
 coverImage: ""
 date: "2026-01-13T00:02:46.000Z"
-updatedAt: "2026-01-13T00:02:46.000Z"
+updatedAt: '2026-01-24T19:39:18.000Z'
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
