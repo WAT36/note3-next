@@ -1,7 +1,7 @@
 ---
 title: 'Honoを使ってみた'
-excerpt: ''
-coverImage: ''
+excerpt: 'Honoとは何か、その特徴や使い方、多様なランタイムへのデプロイ例を紹介。'
+coverImage: '/assets/posts/startHono/honoicon.svg'
 date: '2026-02-01T12:39:52.000Z'
 updatedAt: '2026-02-01T12:39:52.000Z'
 tag: ["API"]
@@ -331,7 +331,7 @@ $ curl -X DELETE http://localhost:3000/users/1770086188714
 
 Honoには便利なミドルウェアが豊富に用意されています。
 
-## CORS対応
+- CORS対応
 
 ```tsx
 import { Hono } from 'hono'
@@ -346,7 +346,7 @@ app.get('/api/data', (c) => {
 })
 ```
 
-## Basic認証
+- Basic認証
 
 ```tsx
 import { Hono } from 'hono'
@@ -367,7 +367,7 @@ app.get('/admin', (c) => {
 })
 ```
 
-## ロギング
+- ロギング
 
 ```tsx
 import { Hono } from 'hono'
@@ -464,7 +464,7 @@ export default app
 
 Honoの大きな利点は、様々なプラットフォームにデプロイできることです。
 
-## AWS Lambdaへのデプロイ
+- AWS Lambdaへのデプロイ
 
 Node.jsアダプタを使用することで、AWS Lambdaでも動作します。
 
@@ -479,7 +479,7 @@ app.get('/', (c) => c.text('Hello from Lambda!'))
 export const handler = handle(app)
 ```
 
-## Vercelへのデプロイ
+- Vercelへのデプロイ
 
 Vercelアダプタを使用します。
 
