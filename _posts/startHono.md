@@ -2,8 +2,8 @@
 title: 'Honoを使ってみた'
 excerpt: 'Honoとは何か、その特徴や使い方、多様なランタイムへのデプロイ例を紹介。'
 coverImage: '/assets/posts/startHono/honoicon.svg'
-date: '2026-02-01T12:39:52.000Z'
-updatedAt: '2026-02-01T12:39:52.000Z'
+date: '2026-02-03T18:52:46.000Z'
+updatedAt: '2026-02-03T18:52:46.000Z'
 tag: ["API"]
 author:
   name: Tatsuroh Wakasugi
