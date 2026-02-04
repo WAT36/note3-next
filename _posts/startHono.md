@@ -30,16 +30,16 @@ hono/tinyプリセットは12KB未満で、Honoには依存関係がなく、Web
 
 - マルチランタイム対応
 
-Honoの最大の特徴の1つが、複数のランタイムで同じコードが動作することです。以下の環境で動作します：
+Honoの最大の特徴の1つが、複数のランタイムで同じコードが動作することです。以下の環境で動作します。
 
-- Node.js
-- Deno
-- Bun
-- Cloudflare Workers
-- AWS Lambda / Lambda@Edge
-- Fastly Compute
-- Vercel
-- その他のエッジ環境
+  - Node.js
+  - Deno
+  - Bun
+  - Cloudflare Workers
+  - AWS Lambda / Lambda@Edge
+  - Fastly Compute
+  - Vercel
+  - その他のエッジ環境
 
 **「一度書けば、どこでも動く」** というのがHonoの哲学です。
 
@@ -504,4 +504,4 @@ Honoは、以下のような特徴を持つ次世代のWebフレームワーク�
 - **豊富なミドルウェア**: 実用的な機能が最初から揃っている
 - **シンプルなAPI**: 学習コストが低く、すぐに使い始められる
 
-ぜひ、実際に手を動かしてHonoの開発を体験してみてください。きっと、その軽量さと高速性、そして開発のしやすさに驚くはずです。
+ぜひ、実際に手を動かしてHonoの開発を体験してみてください。
