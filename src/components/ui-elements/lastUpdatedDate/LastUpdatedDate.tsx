@@ -1,7 +1,7 @@
 export default function LastUpdatedDate({}) {
   return (
     <>
-      <p>Last Updated: 2026-02-03</p>
+      <p>Last Updated: 2026-02-04</p>
     </>
   );
 }
