@@ -628,3 +628,33 @@ $$
 - 第 i 列を c 倍する（c≠0）
 - 第 i 列に第 j 列の c 倍を加える
 - 第 i 列と第 j 列を入れ替える
+
+## 標準形
+
+$m \times n$ 行列 $A$ に対して、行基本変形と列基本変形を組み合わせると、次の形の行列に変形できる。
+
+$$
+A \longrightarrow \begin{pmatrix} E_r & O \\ O & O \end{pmatrix}
+$$
+
+ここで、$E_r$ は $r$ 次単位行列、$O$ はすべての成分が 0 の零行列です。この形を行列 $A$ の**標準形**(canonical form)といい、$r = \mathrm{rank}(A)$ になる。
+
+具体的に書くと、$m \times n$ の標準形は次の通りです。
+
+$$
+\begin{pmatrix}
+1 & 0 & \cdots & 0 & 0 & \cdots & 0 \\
+0 & 1 & \cdots & 0 & 0 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots & \vdots & & \vdots \\
+0 & 0 & \cdots & 1 & 0 & \cdots & 0 \\
+0 & 0 & \cdots & 0 & 0 & \cdots & 0 \\
+\vdots & \vdots & & \vdots & \vdots & & \vdots \\
+0 & 0 & \cdots & 0 & 0 & \cdots & 0
+\end{pmatrix}
+$$
+
+左上の $r \times r$ の部分が単位行列 $E_r$ で、残りはすべて 0 です。
+
+### 定理（標準形の一意性）
+
+行列 $A$ の標準形は一意に定まります。すなわち、変形の手順が異なっても、得られる標準形は同じです。この標準形を決定しているのは、$r = \mathrm{rank}(A)$ のみです。
