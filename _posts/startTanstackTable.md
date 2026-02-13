@@ -12,32 +12,31 @@ ogImage:
   url: ""
 ---
 
-こんにちは！今回はモダンな Web 開発において欠かせないツールとなりつつある「TanStack」について、
+今回はモダンな Web 開発におけるライブラリ「TanStack」について、
+
 そしてその中の一つである複雑なテーブル UI を構築するための強力なライブラリ「TanStack Table」について、初学者の方にもわかりやすく解説していきます。
 
 TanStack Table は、ソート、フィルタリング、ページネーション、行選択など、テーブルに必要な機能を簡単に実装できる「ヘッドレス UI」ライブラリです。UI を持たないため、デザインは完全に自由にカスタマイズできます。
 
-この記事では、基本的な概念から実際に動くテーブルの構築まで、ステップバイステップで学んでいきましょう。
+この記事では、基本的な概念から実際に動くテーブルの構築まで記していきます。
 
-## TanStack とは？
+# TanStack とは
 
-その前に TanStack とは何かというと、**Web 開発における様々な課題を解決するためのライブラリ群**です。元々は「React Query」という名前で React のデータフェッチライブラリとして知られていましたが、現在はフレームワーク非依存の汎用的なツール群として進化しています。
+その前に TanStack[^1] とは何かというと、**Web 開発における様々な課題を解決するためのライブラリ群**です。元々は「React Query」という名前で React のデータフェッチライブラリとして知られていましたが、現在はフレームワーク非依存の汎用的なツール群として進化しています。
 
-### 重要なポイント
+**重要なポイント**
 
 - TanStack は**単一のライブラリではなく、複数のライブラリの総称**です
 - もともとは React 専用でしたが、現在は Vue、Solid、Svelte など様々なフレームワークに対応しています
 - 開発者は Tanner Linsley 氏で、彼の名前から「TanStack」と名付けられました
 
-## TanStack Table とは？
+# TanStack Table とは
 
-TanStack Table はその中の一つで、**テーブル UI のロジックを提供するヘッドレス UI ライブラリ**です。React、Vue、Solid、Svelte など、様々なフレームワークに対応しています。
+TanStack Table[^2] はその中の一つで、**テーブル UI のロジックを提供するヘッドレス UI ライブラリ**です。React、Vue、Solid、Svelte など、様々なフレームワークに対応しています。
 
-### ヘッドレス UI とは？
+ここでいう「ヘッドレス」とは、**UI を持たず、ロジックだけを提供する**という意味です。
 
-「ヘッドレス」とは、**UI を持たず、ロジックだけを提供する**という意味です。
-
-```
+```plaintext
 従来のUIライブラリ:
 ┌─────────────────────────────┐
 │  ロジック + スタイル（固定）  │
@@ -55,7 +54,7 @@ TanStack Table はその中の一つで、**テーブル UI のロジックを�
 ↓ 完全な自由度
 ```
 
-### 主な特徴
+特徴としては、主に以下があります。
 
 - **完全なカスタマイズ性**: TailwindCSS、Material-UI、独自 CSS など、好きなスタイルを適用可能
 - **豊富な機能**: ソート、フィルタリング、ページネーション、行選択、列のリサイズなど
@@ -63,7 +62,7 @@ TanStack Table はその中の一つで、**テーブル UI のロジックを�
 - **軽量**: 必要な機能だけをインポートできる
 - **フレームワーク非依存**: React、Vue、Solid、Svelte に対応
 
-### なぜ TanStack Table が必要なのか？
+## なぜ TanStack Table が必要なのか
 
 従来の方法では、ソート・フィルタリング・ページネーションなどを毎回自前で実装する必要がありました。
 
@@ -99,6 +98,8 @@ function UserTable({ users }) {
 
 ## TanStack Table の主要概念
 
+Tanstack Table で利用する概念としては以下があります。
+
 | 概念              | 説明                                                                               |
 | ----------------- | ---------------------------------------------------------------------------------- |
 | Column Definition | テーブルの各列を定義。ヘッダー、セルの表示方法、ソート可能かどうかなどを指定       |
@@ -107,17 +108,19 @@ function UserTable({ users }) {
 | Cell              | テーブルの各セルを表す。値の取得やレンダリングを行う                               |
 | Header            | テーブルのヘッダー行を表す。ソートボタンやフィルター入力などを配置                 |
 
-## 実践ハンズオン - ユーザー管理テーブルを作ろう
+# 実践ハンズオン - ユーザー管理テーブルを作ろう
 
 それでは、実際に TanStack Table を使って、ソート、フィルタリング、ページネーション、行選択機能を持つユーザー管理テーブルを構築してみましょう。
 
-### 前提条件
+## 前提条件
 
 - Node.js（v18 以上）がインストールされていること
 - React の基本的な知識があること
 - TypeScript の基礎知識があること
 
-### ステップ 1: プロジェクトのセットアップ
+## プロジェクトのセットアップ
+
+以下で今回利用するプロジェクトを作成します。
 
 ```bash
 # Viteを使ってReact + TypeScriptプロジェクトを作成
@@ -129,9 +132,9 @@ npm install
 npm install @tanstack/react-table
 ```
 
-### ステップ 2: 型定義とサンプルデータの作成
+## 型定義とサンプルデータの作成
 
-`src/data/users.ts`を作成します：
+`src/data/users.ts`を作成します。
 
 ```typescript
 // ユーザーの型定義
@@ -271,9 +274,9 @@ export const users: User[] = [
 ];
 ```
 
-### ステップ 3: 基本的なテーブルコンポーネントの作成
+## 基本的なテーブルコンポーネントの作成
 
-まずは最小限の構成でテーブルを表示してみましょう。`src/components/BasicTable.tsx`を作成します：
+まずは最小限の構成でテーブルを表示してみましょう。`src/components/BasicTable.tsx`を作成します。
 
 ```tsx
 import {
@@ -282,7 +285,7 @@ import {
   flexRender,
   createColumnHelper,
 } from "@tanstack/react-table";
-import { User } from "../data/users";
+import type { User } from "../data/users";
 
 interface BasicTableProps {
   data: User[];
@@ -359,7 +362,7 @@ function BasicTable({ data }: BasicTableProps) {
                     ? null
                     : flexRender(
                         header.column.columnDef.header,
-                        header.getContext(),
+                        header.getContext()
                       )}
                 </th>
               ))}
@@ -393,9 +396,9 @@ export default BasicTable;
 - `getCoreRowModel()`: 基本的な行モデルを取得（必須）
 - `flexRender()`: ヘッダーやセルをレンダリングするユーティリティ
 
-### ステップ 4: スタイリング
+## スタイリング
 
-`src/App.css`を以下のように編集します：
+`src/App.css`を以下のように編集します。
 
 ```css
 .App {
@@ -647,7 +650,7 @@ tbody tr:last-child td {
 }
 ```
 
-`src/index.css`も更新します：
+`src/index.css`も更新します。
 
 ```css
 * {
@@ -665,9 +668,9 @@ body {
 }
 ```
 
-### ステップ 5: App.tsx の作成と動作確認
+## App.tsx の作成と動作確認
 
-`src/App.tsx`を以下のように編集します：
+`src/App.tsx`を以下のように編集します。
 
 ```tsx
 import "./App.css";
@@ -694,7 +697,7 @@ npm run dev
 
 ![](/assets/posts/startTanstacktable/demo.png)
 
-### ステップ 6: 全機能統合版テーブルの作成
+## 全機能統合版テーブルの作成
 
 基本が理解できたところで、ソート・フィルタリング・ページネーション・行選択・列表示切替をすべて備えた完成版を作成しましょう。
 
@@ -838,7 +841,7 @@ function FullFeaturedTable({ data, onEdit, onDelete }: FullFeaturedTableProps) {
         enableHiding: false,
       },
     ],
-    [onEdit, onDelete],
+    [onEdit, onDelete]
   );
 
   const table = useReactTable({
@@ -1047,7 +1050,7 @@ function FullFeaturedTable({ data, onEdit, onDelete }: FullFeaturedTableProps) {
                         ? null
                         : flexRender(
                             header.column.columnDef.header,
-                            header.getContext(),
+                            header.getContext()
                           )}
                       {header.column.getCanSort() && (
                         <span className="sort-indicator">
@@ -1083,7 +1086,7 @@ function FullFeaturedTable({ data, onEdit, onDelete }: FullFeaturedTableProps) {
                     <td key={cell.id}>
                       {flexRender(
                         cell.column.columnDef.cell,
-                        cell.getContext(),
+                        cell.getContext()
                       )}
                     </td>
                   ))}
@@ -1148,7 +1151,7 @@ function FullFeaturedTable({ data, onEdit, onDelete }: FullFeaturedTableProps) {
 export default FullFeaturedTable;
 ```
 
-### ステップ 7: App.tsx を更新して完成版を表示
+## App.tsx を更新して完成版を表示
 
 `src/App.tsx`を更新します：
 
@@ -1183,25 +1186,25 @@ function App() {
 export default App;
 ```
 
-これで、以下の機能を持つテーブルが完成しました：
+これで、以下の機能を持つテーブルが完成しました。
 
-- ✅ ソート（列ヘッダークリック）
-- ✅ グローバル検索
-- ✅ 列フィルター（ステータス・権限）
-- ✅ ページネーション
-- ✅ 行選択と一括操作
-- ✅ 列の表示/非表示切替
-- ✅ 編集・削除アクション
+- ソート（列ヘッダークリック）
+- グローバル検索
+- 列フィルター（ステータス・権限）
+- ページネーション
+- 行選択と一括操作
+- 列の表示/非表示切替
+- 編集・削除アクション
 
 実際に起動した画面は以下の通りです。
 
 ![](/assets/posts/startTanstacktable/demo2.png)
 
-## 機能追加のポイント解説
+# 機能追加のポイント解説
 
 各機能を追加する際の重要なポイントをまとめます。
 
-### ソート機能
+- ソート機能
 
 ```tsx
 import { getSortedRowModel, SortingState } from "@tanstack/react-table";
@@ -1216,7 +1219,7 @@ const table = useReactTable({
 });
 ```
 
-### フィルタリング機能
+- フィルタリング機能
 
 ```tsx
 import { getFilteredRowModel, ColumnFiltersState } from "@tanstack/react-table";
@@ -1233,7 +1236,7 @@ const table = useReactTable({
 });
 ```
 
-### ページネーション機能
+- ページネーション機能
 
 ```tsx
 import { getPaginationRowModel, PaginationState } from "@tanstack/react-table";
@@ -1251,7 +1254,7 @@ const table = useReactTable({
 });
 ```
 
-### 行選択機能
+- 行選択機能
 
 ```tsx
 import { RowSelectionState } from "@tanstack/react-table";
@@ -1266,20 +1269,11 @@ const table = useReactTable({
 });
 ```
 
-## トラブルシューティング
-
-| 問題                  | 原因                        | 解決策                                          |
-| --------------------- | --------------------------- | ----------------------------------------------- |
-| 列が表示されない      | `getCoreRowModel`が未設定   | `getCoreRowModel: getCoreRowModel()`を追加      |
-| ソートが動作しない    | `getSortedRowModel`が未設定 | `getSortedRowModel: getSortedRowModel()`を追加  |
-| TypeScript の型エラー | 列定義の型が不正            | `createColumnHelper<T>()`を使用して型安全に定義 |
-| 再レンダリングが多い  | 列定義が毎回再生成される    | `useMemo`で列定義をメモ化                       |
-
-## まとめ
+# まとめ
 
 TanStack Table は、モダンな Web アプリケーションで複雑なテーブル UI を構築するための強力なライブラリです。
 
-### TanStack Table を使うメリット
+TanStack Table を使うメリットとしては、主に以下があります。
 
 | メリット             | 説明                                                 |
 | -------------------- | ---------------------------------------------------- |
@@ -1289,7 +1283,7 @@ TanStack Table は、モダンな Web アプリケーションで複雑なテー
 | パフォーマンス       | 必要な機能だけをインポート、仮想スクロール対応       |
 | フレームワーク非依存 | React、Vue、Solid、Svelte で使用可能                 |
 
-### こんな場合におすすめ
+こんな場合におすすめです。
 
 - 複雑なテーブル UI が必要なアプリケーション
 - デザインの自由度が求められるプロジェクト
@@ -1300,7 +1294,7 @@ TanStack Table は、モダンな Web アプリケーションで複雑なテー
 
 ---
 
-## 完成したプロジェクト構造
+# 完成したプロジェクト構造
 
 ```
 tanstack-table-demo/
