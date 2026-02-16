@@ -1,6 +1,6 @@
 ---
-title: "Tanstack Tableを利用してみた"
-excerpt: "TanStack Tableを使ったテーブルUI構築について"
+title: "TanStack Tableを使ったテーブルUI構築について"
+excerpt: "TanStack Tableを使ったテーブルUI構築のハンズオン。ソート、フィルタリング、ページネーション、行選択などの機能を実装しながら、ヘッドレスUIライブラリの使い方を学びます。"
 coverImage: "/assets/posts/startTanstacktable/tanstack-logo.png"
 date: "2026-02-12T15:05:18.000Z"
 updatedAt: "2026-02-12T15:05:18.000Z"
@@ -400,6 +400,8 @@ export default BasicTable;
 
 `src/App.css`を以下のように編集します。
 
+<details><summary>（長いので折りたたみを開いて表示して下さい）</summary>
+
 ```css
 .App {
   max-width: 1200px;
@@ -650,6 +652,8 @@ tbody tr:last-child td {
 }
 ```
 
+</details>
+
 `src/index.css`も更新します。
 
 ```css
@@ -718,6 +722,8 @@ import {
   type PaginationState,
   type RowSelectionState,
   type VisibilityState,
+  type HeaderContext,
+  type CellContext,
 } from "@tanstack/react-table";
 import type { User } from "../data/users";
 
@@ -748,7 +754,7 @@ function FullFeaturedTable({ data, onEdit, onDelete }: FullFeaturedTableProps) {
       // 選択チェックボックス列
       {
         id: "select",
-        header: ({ table }: any) => (
+        header: ({ table }: HeaderContext<User, unknown>) => (
           <input
             type="checkbox"
             className="checkbox"
@@ -756,7 +762,7 @@ function FullFeaturedTable({ data, onEdit, onDelete }: FullFeaturedTableProps) {
             onChange={table.getToggleAllRowsSelectedHandler()}
           />
         ),
-        cell: ({ row }: any) => (
+        cell: ({ row }: CellContext<User, unknown>) => (
           <input
             type="checkbox"
             className="checkbox"
@@ -821,7 +827,7 @@ function FullFeaturedTable({ data, onEdit, onDelete }: FullFeaturedTableProps) {
       {
         id: "actions",
         header: "操作",
-        cell: ({ row }: any) => (
+        cell: ({ row }: CellContext<User, unknown>) => (
           <div className="action-buttons">
             <button
               className="btn btn-edit"
@@ -1280,7 +1286,7 @@ TanStack Table を使うメリットとしては、主に以下があります�
 | 完全なカスタマイズ性 | ヘッドレスなので、どんなデザインにも対応可能         |
 | 豊富な機能           | ソート、フィルタリング、ページネーション、行選択など |
 | 型安全性             | TypeScript との親和性が高い                          |
-| パフォーマンス       | 必要な機能だけをインポート、仮想スクロール対応       |
+| パフォーマンス       | 必要な機能だけをインポート                           |
 | フレームワーク非依存 | React、Vue、Solid、Svelte で使用可能                 |
 
 こんな場合におすすめです。
