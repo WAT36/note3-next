@@ -1,6 +1,6 @@
 ---
 title: "Tanstack Tableを利用してみた"
-excerpt: "TanStack Tableを使ったテーブルUI構築をソート、フィルタリング、ページネーション、行選択などの機能を通して、ヘッドレスUIライブラリの使い方を学びます。"
+excerpt: "TanStack Tableを使ったテーブルUI構築について"
 coverImage: "/assets/posts/startTanstacktable/tanstack-logo.png"
 date: "2026-02-12T15:05:18.000Z"
 updatedAt: "2026-02-12T15:05:18.000Z"
@@ -14,7 +14,7 @@ ogImage:
 
 今回はモダンな Web 開発におけるライブラリ「TanStack」について、
 
-そしてその中の一つである複雑なテーブル UI を構築するための強力なライブラリ「TanStack Table」について、初学者の方にもわかりやすく解説していきます。
+そしてその中の一つである複雑なテーブル UI を構築するための強力なライブラリ「TanStack Table」について記載していきます。
 
 TanStack Table は、ソート、フィルタリング、ページネーション、行選択など、テーブルに必要な機能を簡単に実装できる「ヘッドレス UI」ライブラリです。UI を持たないため、デザインは完全に自由にカスタマイズできます。
 
@@ -79,7 +79,7 @@ function UserTable({ users }) {
 }
 ```
 
-TanStack Table を使えば、これらの機能を宣言的に追加できます：
+TanStack Table を使えば、これらの機能を宣言的に追加できます
 
 ```tsx
 // TanStack Tableを使った方法
@@ -388,7 +388,7 @@ function BasicTable({ data }: BasicTableProps) {
 export default BasicTable;
 ```
 
-**ポイント解説：**
+**ポイント解説**
 
 - `createColumnHelper<User>()`: 型安全な列定義を作成するためのヘルパー
 - `columnHelper.accessor()`: データのプロパティにアクセスする列を定義
@@ -701,7 +701,7 @@ npm run dev
 
 基本が理解できたところで、ソート・フィルタリング・ページネーション・行選択・列表示切替をすべて備えた完成版を作成しましょう。
 
-`src/components/FullFeaturedTable.tsx`を作成します：
+`src/components/FullFeaturedTable.tsx`を作成します
 
 ```tsx
 import { useState, useMemo } from "react";
@@ -1153,7 +1153,7 @@ export default FullFeaturedTable;
 
 ## App.tsx を更新して完成版を表示
 
-`src/App.tsx`を更新します：
+`src/App.tsx`を更新します
 
 ```tsx
 import "./App.css";
@@ -1290,7 +1290,7 @@ TanStack Table を使うメリットとしては、主に以下があります�
 - TypeScript で型安全に開発したい場合
 - 大量のデータを効率的に表示したい場合
 
-ぜひ実際に手を動かして、TanStack Table の便利さを体感してください！
+ぜひ実際に手を動かして、TanStack Table の便利さを体感してください。
 
 ---
 
