@@ -1,7 +1,7 @@
 ---
 title: "TanStack Tableを使ったテーブルUI構築について"
 excerpt: "TanStack Tableを使ったテーブルUI構築のハンズオン。ソート、フィルタリング、ページネーション、行選択などの機能を実装しながら、ヘッドレスUIライブラリの使い方を学びます。"
-coverImage: "/assets/posts/startTanstacktable/tanstack-logo.png"
+coverImage: "/assets/posts/startTanstackTable/tanstack-logo.png"
 date: "2026-02-17T10:49:23.000Z"
 updatedAt: "2026-02-17T10:49:23.000Z"
 tag: ["フロントエンド"]
@@ -699,7 +699,7 @@ npm run dev
 
 ブラウザで `http://localhost:5173` を開くと、基本的なテーブルが表示されます。
 
-![](/assets/posts/startTanstacktable/demo.png)
+![](/assets/posts/startTanstackTable/demo.png)
 
 ## 全機能統合版テーブルの作成
 
@@ -1204,7 +1204,7 @@ export default App;
 
 実際に起動した画面は以下の通りです。
 
-![](/assets/posts/startTanstacktable/demo2.png)
+![](/assets/posts/startTanstackTable/demo2.png)
 
 # 機能追加のポイント解説
 
