@@ -79,3 +79,21 @@ $n=3$ の全順列の転倒数：
 $\text{sgn}(\sigma) = (-1)^{\text{inv}(\sigma)}$
 
 と定義する。偶置換なら $\text{sgn}(\sigma) = +1$、奇置換なら $\text{sgn}(\sigma) = -1$ となる。
+
+# 行列式
+
+n 次正方行列 $A = (a_{ij})$ に対して、一つの数値を対応させる関数を
+**行列式（determinant）** といい、$\det A$ または $|A|$ と表す。
+
+$n$ 次正方行列 $A = (a_{ij})$ の行列式は、
+$n$ 次のすべての順列 $\sigma = (j_1, j_2, \ldots, j_n)$ を用いて次のように定義される。
+
+$$
+\det A = \sum_{\sigma \in S_n} \text{sgn}(\sigma)\, a_{1j_1} a_{2j_2} \cdots a_{nj_n}
+$$
+
+ここで、
+
+- $S_n$ は $n$ 次の全順列の集合（$n!$ 個の要素を持つ）
+- $\text{sgn}(\sigma) = (-1)^{\text{inv}(\sigma)}$ は順列 $\sigma$ の符号
+- 各項は「各行から一つずつ、かつ各列から一つずつ」要素を選んだ積
