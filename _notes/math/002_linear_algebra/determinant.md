@@ -142,4 +142,64 @@ $$
 これは **サラスの公式** としても知られている。
 
 
+# 行列式の基本性質
+
+行列式は以下の重要な性質を持つ。
+
+## 行（列）の線形性
+
+行列 $A$ の第 $i$ 行を $\boldsymbol{a}_i$​ と書くとき、
+
+
+$$
+
+\det
+\begin{pmatrix}
+\boldsymbol{a}\_1 \\
+\vdots \\
+k\boldsymbol{a}\_i \\
+\vdots \\
+\boldsymbol{a}\_n
+\end{pmatrix}
+= k \det A
+
+$$
+
+
+$$
+
+\det
+\begin{pmatrix}
+\boldsymbol{a}\_1 \\
+\vdots \\
+\boldsymbol{b} + \boldsymbol{c} \\
+\vdots \\
+\boldsymbol{a}\_n
+\end{pmatrix}
+
+=
+
+\det
+\begin{pmatrix}
+\boldsymbol{a}\_1 \\
+\vdots \\
+\boldsymbol{b} \\
+\vdots \\
+\boldsymbol{a}\_n
+\end{pmatrix}
+
+-
+
+\det
+\begin{pmatrix}
+\boldsymbol{a}\_1 \\
+\vdots \\
+\boldsymbol{c} \\
+\vdots \\
+\boldsymbol{a}\_n
+\end{pmatrix}
+
+$$
+
+
 $$
