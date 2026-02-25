@@ -254,4 +254,55 @@ $$
 \boldsymbol{a}\_j = c \boldsymbol{a}\_i (i \neq j) \text{ならば} \det A = 0
 
 $$
+
+## 次数を下げる公式１
+
+// 工事中
+//
+
+応用して、
+
+### 単位行列
+
+
+$$
+
+\det I_n = 1
+
+$$
+
+### 対角行列
+
+
+$$
+
+\det
+\begin{pmatrix} d_1 & 0 & \cdots & 0 \\
+0 & d_2 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & d_n
+\end{pmatrix}
+= d_1 d_2 \cdots d_n
+
+$$
+
+### 三角行列
+
+上三角行列および下三角行列の行列式は、対角成分の積に等しい。
+
+
+$$
+
+\det
+\begin{pmatrix}
+a*{11} & * & \cdots & _ \\
+0 & a_{22} & \cdots & \* \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & a*{nn}
+\end{pmatrix}
+= a*{11} a*{22} \cdots a*{nn}
+
+$$
+
+
 $$
