@@ -257,8 +257,37 @@ $$
 
 ## 次数を下げる公式１
 
-// 工事中
-//
+$n$ 次正方行列 $A$ が次のような形をしているとする。
+
+
+$$
+
+A = \begin{pmatrix}
+a*{11} & a*{12} & a*{13} & \cdots & a*{1n} \\
+0 & a*{22} & a*{23} & \cdots & a*{2n} \\
+0 & a*{32} & a*{33} & \cdots & a*{3n} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & a*{n2} & a*{n3} & \cdots & a\_{nn}
+\end{pmatrix}
+
+$$
+
+つまり、第1列の第2成分以降がすべて0であるとき、
+
+
+$$
+
+\det A = a*{11} \cdot \det \begin{pmatrix}
+a*{22} & a*{23} & \cdots & a*{2n} \\
+a*{32} & a*{33} & \cdots & a*{3n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a*{n2} & a*{n3} & \cdots & a*{nn}
+\end{pmatrix}
+
+$$
+
+​が成り立つ。つまり、$(1,1)$ 成分を係数として外に出し、残りの $(n-1)$ 次の小行列の行列式との積で表せる。
+
 
 応用して、
 
