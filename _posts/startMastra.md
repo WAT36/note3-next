@@ -127,6 +127,8 @@ npm run dev
 
 ブラウザで`http://localhost:4111`にアクセスすると、Mastra Playground が表示されます。ここでエージェントと対話してテストできます。
 
+![](/assets/posts/startMastra/mastraPlayground.png)
+
 ---
 
 # ハンズオン 2：ツールを追加する
@@ -183,6 +185,8 @@ export const getWeatherTool = createTool({
 
 ## エージェントにツールを追加
 
+`src/mastra/agents/index.ts`に以下を追加します。
+
 ```typescript
 import { Agent } from "@mastra/core/agent";
 import { openai } from "@ai-sdk/openai";
@@ -204,7 +208,25 @@ export const weatherAgent = new Agent({
 });
 ```
 
+最後に、`src/mastra/index.ts`にこのエージェントを登録しましょう。
+
+```typescript
+import { Mastra } from "@mastra/core";
+import { myFirstAgent, weatherAgent } from "./agents";
+
+export const mastra = new Mastra({
+  agents: {
+    myFirstAgent, // ハンズオン１
+    weatherAgent, // ハンズオン２
+  },
+});
+```
+
 これで「東京の天気を教えて」と聞くと、エージェントがツールを呼び出して天気情報を返してくれます。
+
+![](/assets/posts/startMastra/mastraAgents.png)
+
+![](/assets/posts/startMastra/mastraWeatherAgent.png)
 
 # ハンズオン 3：ワークフローを作成する
 
@@ -214,13 +236,15 @@ export const weatherAgent = new Agent({
 
 トピックを受け取り、アウトラインを作成してから本文を生成するワークフローを作成します。
 
+`src/mastra/workflows/index.ts`を作ります。
+
 ```typescript
-import { Workflow, Step } from "@mastra/core";
+import { createStep, createWorkflow } from "@mastra/core/workflows";
 import { z } from "zod";
 import { myFirstAgent } from "../agents";
 
 // ステップ1: アウトラインの生成
-const generateOutline = new Step({
+const generateOutline = createStep({
   id: "generate-outline",
   inputSchema: z.object({
     topic: z.string().describe("ブログ記事のトピック"),
@@ -228,16 +252,16 @@ const generateOutline = new Step({
   outputSchema: z.object({
     outline: z.string(),
   }),
-  execute: async ({ context }) => {
+  execute: async ({ inputData }) => {
     const response = await myFirstAgent.generate(
-      `以下のトピックについて、ブログ記事のアウトラインを作成してください：${context.topic}`
+      `以下のトピックについて、ブログ記事のアウトラインを作成してください：${inputData.topic}`
     );
     return { outline: response.text };
   },
 });
 
 // ステップ2: 本文の生成
-const generateContent = new Step({
+const generateContent = createStep({
   id: "generate-content",
   inputSchema: z.object({
     outline: z.string(),
@@ -245,44 +269,61 @@ const generateContent = new Step({
   outputSchema: z.object({
     content: z.string(),
   }),
-  execute: async ({ context }) => {
+  execute: async ({ inputData }) => {
     const response = await myFirstAgent.generate(
-      `以下のアウトラインに基づいて、ブログ記事の本文を作成してください：\n${context.outline}`
+      `以下のアウトラインに基づいて、ブログ記事の本文を作成してください：\n${inputData.outline}`
     );
     return { content: response.text };
   },
 });
 
 // ワークフローの定義
-export const blogWorkflow = new Workflow({
-  name: "blog-generator",
-  triggerSchema: z.object({
+export const blogWorkflow = createWorkflow({
+  id: "blog-generator",
+  inputSchema: z.object({
     topic: z.string(),
+  }),
+  outputSchema: z.object({
+    content: z.string(),
   }),
 });
 
 // ステップの連結
-blogWorkflow.step(generateOutline).then(generateContent).commit();
+blogWorkflow.then(generateOutline).then(generateContent).commit();
 ```
 
-## ワークフローの実行
+## ワークフローの登録
+
+`src/mastra/index.ts`に登録します。
 
 ```typescript
-import { mastra } from "./mastra";
+import { Mastra } from "@mastra/core";
+import { myFirstAgent, weatherAgent } from "./agents";
+import { blogWorkflow } from "./workflows";
 
-async function main() {
-  const workflow = mastra.getWorkflow("blog-generator");
+export const mastra = new Mastra({
+  agents: {
+    myFirstAgent, // ハンズオン１
+    weatherAgent, // ハンズオン２
+  },
+  workflows: {
+    blogWorkflow, // ハンズオン３
+  },
+});
+```
 
-  const result = await workflow.execute({
-    triggerData: {
-      topic: "TypeScriptの型システムの魅力",
-    },
-  });
+再度起動して画面を開くと、workflow の欄に作成したワークフローが表示されます。
 
-  console.log(result);
+![](/assets/posts/startMastra/mastraWorkflow.png)
+
+起動すると、記事内容が出力されます。
+
+![](/assets/posts/startMastra/mastraExecuteWorkflow.png)
+
+```json
+{
+  "content": "# TypeScriptの型システムの魅力\n\n## 1. はじめに ..(中略).. ログラミング体験を得ることができるでしょう。"
 }
-
-main();
 ```
 
 # プログラムからエージェントを呼び出す
