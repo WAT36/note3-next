@@ -399,25 +399,18 @@ Mastra は自動的に REST API を生成します。開発サーバー起動後
 
 ```bash
 # エージェントへのリクエスト
-curl -X POST http://localhost:4111/api/agents/myFirstAgent/generate \\n  -H "Content-Type: application/json" \\n  -d '{"messages": [{"role": "user", "content": "こんにちは"}]}'
+$ curl -X POST http://localhost:4111/api/agents/myFirstAgent/generate \\n  -H "Content-Type: application/json" \\n  -d '{"messages": [{"role": "user", "content": "こんにちは"}]}'
 ```
 
 Swagger UI は`http://localhost:4111/swagger-ui`で確認できます。
 
----
+![](/assets/posts/startMastra/mastraWorkflow.png)
 
-# まとめ
+---
 
 本記事では、Mastra の基本的な使い方を紹介しました。
 
-## 学んだこと
-
-1. **Mastra の概要**: TypeScript 製の AI エージェント開発フレームワーク
-2. **エージェントの作成**: LLM を活用した基本的なエージェント
-3. **ツールの追加**: エージェントに外部機能を持たせる方法
-4. **ワークフロー**: 複数ステップの処理を定義する方法
-
-Mastra は活発に開発が進んでいるフレームワークです。公式ドキュメント（https://mastra.ai/docs）も参考にしながら、ぜひAIエージェント開発に挑戦してみてください。
+Mastra は活発に開発が進んでいるフレームワークです。公式サイト[^1]も参考にしながら、ぜひ AI エージェント開発に挑戦してみてください。
 
 ---
 
