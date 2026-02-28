@@ -369,4 +369,54 @@ $$
 $$
 
 行列を転置しても行列式の値は変わらない。したがって「行について成り立つ性質は列についても成り立つ」。
+
+
+## 行（列）の線形性
+
+行列 $A$ の第 $i$ 行を $ai\boldsymbol{a}_i$​ と書くとき、
+
+
 $$
+
+\det
+\begin{pmatrix}
+\boldsymbol{a}\_1 \\
+\vdots \\
+k\boldsymbol{a}\_i \\
+\vdots \\
+\boldsymbol{a}\_n
+\end{pmatrix}
+= k \det A
+
+$$
+
+
+$$
+
+\det
+\begin{pmatrix}
+\boldsymbol{a}\_1 \\
+\vdots \\
+\boldsymbol{b} + \boldsymbol{c} \\
+\vdots \\
+\boldsymbol{a}\_n
+\end{pmatrix}
+=
+\det
+\begin{pmatrix}
+\boldsymbol{a}\_1 \\
+\vdots \\
+\boldsymbol{b} \\
+\vdots \\
+\boldsymbol{a}\_n
+\end{pmatrix}
+
+- \det
+  \begin{pmatrix}
+  \boldsymbol{a}\_1 \\
+  \vdots \\
+  \boldsymbol{c} \\
+  \vdots \\
+  \boldsymbol{a}\_n
+  \end{pmatrix}
+  $$
