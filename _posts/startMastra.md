@@ -330,7 +330,10 @@ export const mastra = new Mastra({
 
 Playground だけでなく、プログラムから直接エージェントを呼び出すこともできます。
 
+`src/run-agent.ts`を作成します。
+
 ```typescript
+import "dotenv/config";
 import { mastra } from "./mastra";
 
 async function main() {
@@ -343,12 +346,51 @@ async function main() {
 
   // ストリーミング生成
   const stream = await agent.stream("Mastraの特徴を説明してください");
-  for await (const chunk of stream) {
-    process.stdout.write(chunk.text);
+  if (Symbol.asyncIterator in stream) {
+    for await (const chunk of stream as AsyncIterable<any>) {
+      process.stdout.write(chunk.text);
+    }
+  } else if (Array.isArray(stream)) {
+    for (const chunk of stream) {
+      process.stdout.write(chunk.text);
+    }
+  } else {
+    process.stdout.write((await stream.text) ?? "");
   }
 }
 
 main();
+```
+
+実行例
+
+```bash
+$ npx tsx src/run-agent.ts
+TypeScriptの利点を3つ挙げますね。
+
+1. **型安全性**: TypeScriptは静的型付けを提供します。これにより、変数や関数の型を明示的に定義でき、型に関するエラーをコンパイル時に検出できます。これにより、バグの発生を減らし、コードの信頼性が向上します。
+
+2. **コードの可読性と保守性**: 型情報があることで、コードの意図が明確になり、他の開発者が理解しやすくなります。また、IDE（統合開発環境）での補完機能やリファクタリングが強化され、開発効率が向上します。
+
+3. **最新のJavaScript機能のサポート**: TypeScriptは最新のJavaScript（ES6以降）の機能をサポートしており、トランスパイルすることで古いブラウザでも動作するコードに変換できます。これにより、最新の言語機能を利用しながら、広範な互換性を保つことができます。
+
+これらの利点により、TypeScriptは大規模なアプリケーション開発に特に適しています。
+Mastra（マストラ）は、主に以下のような特徴を持つプラットフォームやサービスです：
+
+1. **多機能性**: Mastraは、さまざまな機能を統合して提供することが多く、ユーザーが一つのプラットフォームで多くの作業を行えるように設計されています。
+
+2. **ユーザーフレンドリーなインターフェース**: 直感的なデザインが施されており、初心者でも使いやすいのが特徴です。
+
+3. **カスタマイズ性**: ユーザーのニーズに応じて、機能や設定をカスタマイズできる柔軟性があります。
+
+4. **データ分析機能**: データの収集や分析が可能で、ビジネスの意思決定をサポートします。
+
+5. **セキュリティ**: データの保護に関する機能が充実しており、安心して利用できる環境が整っています。
+
+6. **サポート体制**: ユーザー向けのサポートが充実しており、問題が発生した際にも迅速に対応してくれます。
+
+具体的な機能や用途は、Mastraのバージョンや提供されるサービスによって異なる場合がありますので、詳細は公式サイトや関連資料を参照することをお勧めします。
+$
 ```
 
 # REST API として公開する
