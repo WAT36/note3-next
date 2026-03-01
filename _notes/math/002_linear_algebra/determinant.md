@@ -420,3 +420,51 @@ $$
   \boldsymbol{a}\_n
   \end{pmatrix}
   $$
+
+## 行列式の展開
+
+行列式は任意の行（または列）に沿って展開することができる。
+
+### 小行列と余因子
+
+行列 $A$ の第 $i$ 行、第 $j$ 列を取り除いた $(n-1)$ 次の小行列を $A_{ij}$​ とする。このとき、
+
+$$
+\tilde{a}_{ij} = (-1)^{i+j} \det A_{ij}​
+$$
+
+を $(i,j)$ 余因子（cofactor）という。
+
+### 余因子展開
+
+第 $i$ 行に沿った展開
+
+$$
+\det A = \sum_{j=1}^n a_{ij} \tilde{a}_{ij} = a_{i1}\tilde{a}_{i1} + a_{i2}\tilde{a}_{i2} + \cdots + a_{in}\tilde{a}_{in}
+$$
+
+第 $j$ 列に沿った展開
+
+$$
+\det A = \sum_{i=1}^n a_{ij} \tilde{a}_{ij} = a_{1j}\tilde{a}_{1j} + a_{2j}\tilde{a}_{2j} + \cdots + a_{nj}\tilde{a}_{nj}
+$$
+
+例： 3 次行列の第 1 行に沿った展開
+
+$$
+\det A = a_{11}
+\begin{vmatrix}
+a_{22} & a_{23} \\
+a_{32} & a_{33}
+\end{vmatrix}
+- a_{12}
+\begin{vmatrix}
+a_{21} & a_{23} \\
+a_{31} & a_{33}
+\end{vmatrix}
++ a_{13}
+\begin{vmatrix}
+a_{21} & a_{22} \\
+a_{31} & a_{32}
+\end{vmatrix}
+$$
