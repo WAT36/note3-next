@@ -60,7 +60,7 @@ cd mastra-first-agent
 npm i @ai-sdk/openai
 ```
 
-CLI の対話形式で以下を選択します：
+CLI の対話形式で以下を選択します。
 
 - **Components to install**: Agents（必須）、Tools、Workflows など必要なものを選択
 - **Default LLM provider**: OpenAI、Anthropic、Gemini などから選択
@@ -404,7 +404,7 @@ $ curl -X POST http://localhost:4111/api/agents/myFirstAgent/generate \\n  -H "C
 
 Swagger UI は`http://localhost:4111/swagger-ui`で確認できます。
 
-![](/assets/posts/startMastra/mastraWorkflow.png)
+![](/assets/posts/startMastra/mastraSwagger.png)
 
 ---
 
