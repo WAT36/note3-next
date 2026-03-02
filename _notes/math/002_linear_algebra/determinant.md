@@ -482,3 +482,20 @@ $$
 $$
 \sum_{i=1}^n a_{ij} \tilde{a}_{il} = 0
 $$
+
+## 余因子行列
+
+$n$ 次正方行列 $A = (a_{ij})$ の余因子 $\tilde{a}_{ij}$​ を $(j, i)$ 成分（注意：転置されている）とする行列を $A$ の
+余因子行列（cofactor matrix）または余因子転置行列といい、$\tilde{A}$ と表す。
+
+$$
+\tilde{A} =
+\begin{pmatrix}
+\tilde{a}_{11} & \tilde{a}_{21} & \cdots & \tilde{a}_{n1} \\
+\tilde{a}_{12} & \tilde{a}_{22} & \cdots & \tilde{a}_{n2} \\
+\vdots & \vdots & \ddots & \vdots \\
+\tilde{a}_{1n} & \tilde{a}_{2n} & \cdots & \tilde{a}_{nn}
+\end{pmatrix}
+$$
+
+つまり、$\tilde{A}$ の $(i,j)$ 成分は $\tilde{a}_{ji}$​ である。
