@@ -499,3 +499,32 @@ $$
 $$
 
 つまり、$\tilde{A}$ の $(i,j)$ 成分は $\tilde{a}_{ji}$​ である。
+
+## 余因子行列の基本性質
+
+定理：
+
+$$
+\tilde{A} = \tilde{A} A = (\det A) I_n
+$$
+
+ここで $I_n$​ は $n$ 次単位行列である。
+
+証明： $A\tilde{A}$ の $(i,k)$ 成分を計算する：
+
+$$
+(A\tilde{A})_{ik} = \sum_{j=1}^n a_{ij} (\tilde{A})_{jk} = \sum_{j=1}^n a_{ij} \tilde{a}_{kj}
+$$
+
+余因子の性質より、これは $\delta_{ik} \det A$ に等しい。したがって、
+
+$$
+A\tilde{A} = \begin{pmatrix}
+\det A & 0 & \cdots & 0 \\
+0 & \det A & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & \det A
+\end{pmatrix} = (\det A) I_n
+$$
+
+$\tilde{A} A = (\det A) I_n$​ も同様に示される。
