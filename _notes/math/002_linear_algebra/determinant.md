@@ -552,3 +552,53 @@ $$
 ここで、$A_i$​ は $A$ の第 $i$ 列を $\boldsymbol{b}$ で置き換えた行列である。
 
 これは余因子展開を用いて証明される。
+
+# 行列式の図形的意味
+
+## 2 次元の場合：平行四辺形の面積
+
+2 次元平面上の 2 つのベクトル
+
+$$
+\boldsymbol{a} = \begin{pmatrix} a_1 \\ a_2 \end{pmatrix}, \quad \boldsymbol{b} = \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}
+$$
+
+を列ベクトルとする行列
+
+$$
+A = \begin{pmatrix} a_1 & b_1 \\ a_2 & b_2 \end{pmatrix}
+$$
+
+を考える。このとき、
+
+$$
+\det A = a_1 b_2 - a_2 b_1
+$$
+
+の絶対値 $|\det A|$ は、ベクトル $\boldsymbol{a}$ と $\boldsymbol{b}$ が張る平行四辺形の面積に等しい。
+
+(具体例)
+
+$$
+\boldsymbol{a} = \begin{pmatrix} 3 \\ 1 \end{pmatrix}, \quad \boldsymbol{b} = \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+$$
+
+のとき、
+
+$$
+\det A = 3 \cdot 2 - 1 \cdot 1 = 5
+$$
+
+したがって、これらのベクトルが張る平行四辺形の面積は 5 である。
+
+### 符号の意味
+
+行列式の符号は、ベクトルの向きを表す：
+
+$\det A > 0$ ： $\boldsymbol{a}$ から $\boldsymbol{b}$ への回転が反時計回り（右手系、正の向き）
+
+$\det A < 0$ ： $\boldsymbol{a}$ から $\boldsymbol{b}$ への回転が時計回り（左手系、負の向き）
+
+$\det A = 0$ ： 2 つのベクトルが平行（同一直線上にある）、面積は 0
+
+したがって、行列式は「符号付き面積」を表すと言える。
