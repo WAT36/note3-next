@@ -2,8 +2,8 @@
 title: "Mastraで始めるAIエージェント開発"
 excerpt: "TypeScript製のAIエージェント開発フレームワーク「Mastra」の基本から、エージェント・ツール・ワークフローの作成までを実践。"
 coverImage: "/assets/posts/startMastra/mastra.png"
-date: "2026-03-03T22:36:50.000Z"
-updatedAt: '2026-03-07T22:47:00.000Z'
+date: "2026-03-08T22:36:50.000Z"
+updatedAt: "2026-03-07T22:47:00.000Z"
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
