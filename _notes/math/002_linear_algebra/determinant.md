@@ -634,3 +634,63 @@ $$
 $$
 
 したがって、任意の図形の面積は 6 倍になる。
+
+## 3 次元の場合：平行六面体の体積
+
+3 次元空間の 3 つのベクトル
+
+$$
+\boldsymbol{a} =
+\begin{pmatrix}
+a_1 \\
+a_2 \\
+a_3
+\end{pmatrix},
+\quad
+\boldsymbol{b} =
+\begin{pmatrix}
+b_1 \\
+b_2 \\
+b_3
+\end{pmatrix},
+\quad
+\boldsymbol{c} =
+\begin{pmatrix}
+c_1 \\
+c_2 \\
+c_3
+\end{pmatrix}
+$$
+
+を列ベクトルとする行列
+
+$$
+A =
+\begin{pmatrix}
+a_1 & b_1 & c_1 \\
+a_2 & b_2 & c_2 \\
+a_3 & b_3 & c_3
+\end{pmatrix}
+$$
+
+の行列式の絶対値 $|\det A|$ は、これら 3 つのベクトルが張る平行六面体の体積に等しい。
+
+### スカラー三重積との関係
+
+ベクトルの外積とスカラー積を用いて、
+
+$$
+\det A = \boldsymbol{a} \cdot (\boldsymbol{b} \times \boldsymbol{c})
+$$
+
+と表すこともできる。これはスカラー三重積（scalar triple product）と呼ばれる。
+
+### 符号の意味
+
+3 次元でも符号は向きを表す。
+
+$\det A > 0$：3 つのベクトルが右手系をなす
+
+$\det A < 0$：3 つのベクトルが左手系をなす
+
+$\det A = 0$：3 つのベクトルが同一平面上にある（一次従属）、体積は $0$
