@@ -150,11 +150,11 @@ $$
 
 \det
 \begin{pmatrix}
-\boldsymbol{a}\_1 \\
+\boldsymbol{a}_1 \\
 \vdots \\
-k\boldsymbol{a}\_i \\
+k\boldsymbol{a}_i \\
 \vdots \\
-\boldsymbol{a}\_n
+\boldsymbol{a}_n
 \end{pmatrix}
 = k \det A
 
@@ -165,33 +165,33 @@ $$
 
 \det
 \begin{pmatrix}
-\boldsymbol{a}\_1 \\
+\boldsymbol{a}_1 \\
 \vdots \\
 \boldsymbol{b} + \boldsymbol{c} \\
 \vdots \\
-\boldsymbol{a}\_n
+\boldsymbol{a}_n
 \end{pmatrix}
 
 =
 
 \det
 \begin{pmatrix}
-\boldsymbol{a}\_1 \\
+\boldsymbol{a}_1 \\
 \vdots \\
 \boldsymbol{b} \\
 \vdots \\
-\boldsymbol{a}\_n
+\boldsymbol{a}_n
 \end{pmatrix}
 
 -
 
 \det
 \begin{pmatrix}
-\boldsymbol{a}\_1 \\
+\boldsymbol{a}_1 \\
 \vdots \\
 \boldsymbol{c} \\
 \vdots \\
-\boldsymbol{a}\_n
+\boldsymbol{a}_n
 \end{pmatrix}
 
 
@@ -225,7 +225,7 @@ $$
 
 $$
 
-\boldsymbol{a}\_i = \boldsymbol{0} \text{ならば} \det A = 0
+\boldsymbol{a}_i = \boldsymbol{0} \text{ならば} \det A = 0
 
 
 $$
@@ -234,7 +234,7 @@ $$
 
 $$
 
-\boldsymbol{a}\_i = \boldsymbol{a}\_j (i \neq j) \text{ならば} \det A = 0
+\boldsymbol{a}_i = \boldsymbol{a}_j (i \neq j) \text{ならば} \det A = 0
 
 
 $$
@@ -243,7 +243,7 @@ $$
 
 $$
 
-\boldsymbol{a}\_j = c \boldsymbol{a}\_i (i \neq j) \text{ならば} \det A = 0
+\boldsymbol{a}_j = c \boldsymbol{a}_i (i \neq j) \text{ならば} \det A = 0
 
 
 $$
@@ -255,11 +255,11 @@ $n$ 次正方行列 $A$ が次のような形をしているとする。
 $$
 
 A = \begin{pmatrix}
-a*{11} & a*{12} & a*{13} & \cdots & a*{1n} \\
-0 & a*{22} & a*{23} & \cdots & a*{2n} \\
-0 & a*{32} & a*{33} & \cdots & a*{3n} \\
+a_{11} & a_{12} & a_{13} & \cdots & a_{1n} \\
+0 & a_{22} & a_{23} & \cdots & a_{2n} \\
+0 & a_{32} & a_{33} & \cdots & a_{3n} \\
 \vdots & \vdots & \vdots & \ddots & \vdots \\
-0 & a*{n2} & a*{n3} & \cdots & a\_{nn}
+0 & a_{n2} & a_{n3} & \cdots & a_{nn}
 \end{pmatrix}
 
 
@@ -269,11 +269,11 @@ $$
 
 $$
 
-\det A = a*{11} \cdot \det \begin{pmatrix}
-a*{22} & a*{23} & \cdots & a*{2n} \\
-a*{32} & a*{33} & \cdots & a*{3n} \\
+\det A = a_{11} \cdot \det \begin{pmatrix}
+a_{22} & a_{23} & \cdots & a_{2n} \\
+a_{32} & a_{33} & \cdots & a_{3n} \\
 \vdots & \vdots & \ddots & \vdots \\
-a*{n2} & a*{n3} & \cdots & a*{nn}
+a_{n2} & a_{n3} & \cdots & a_{nn}
 \end{pmatrix}
 
 
@@ -315,12 +315,12 @@ $$
 
 \det
 \begin{pmatrix}
-a*{11} & * & \cdots & _ \\
-0 & a_{22} & \cdots & \* \\
+a_{11} & * & \cdots & * \\
+0 & a_{22} & \cdots & * \\
 \vdots & \vdots & \ddots & \vdots \\
-0 & 0 & \cdots & a*{nn}
+0 & 0 & \cdots & a_{nn}
 \end{pmatrix}
-= a*{11} a*{22} \cdots a*{nn}
+= a_{11} a_{22} \cdots a_{nn}
 
 
 $$
@@ -362,17 +362,17 @@ $$
 
 ## 行（列）の線形性
 
-行列 $A$ の第 $i$ 行を $ai\boldsymbol{a}_i$​ と書くとき、
+行列 $A$ の第 $i$ 行を $\boldsymbol{a}_i$​ と書くとき、
 
 $$
 
 \det
 \begin{pmatrix}
-\boldsymbol{a}\_1 \\
+\boldsymbol{a}_1 \\
 \vdots \\
-k\boldsymbol{a}\_i \\
+k\boldsymbol{a}_i \\
 \vdots \\
-\boldsymbol{a}\_n
+\boldsymbol{a}_n
 \end{pmatrix}
 = k \det A
 
@@ -383,29 +383,29 @@ $$
 
 \det
 \begin{pmatrix}
-\boldsymbol{a}\_1 \\
+\boldsymbol{a}_1 \\
 \vdots \\
 \boldsymbol{b} + \boldsymbol{c} \\
 \vdots \\
-\boldsymbol{a}\_n
+\boldsymbol{a}_n
 \end{pmatrix}
 =
 \det
 \begin{pmatrix}
-\boldsymbol{a}\_1 \\
+\boldsymbol{a}_1 \\
 \vdots \\
 \boldsymbol{b} \\
 \vdots \\
-\boldsymbol{a}\_n
+\boldsymbol{a}_n
 \end{pmatrix}
 
 - \det
   \begin{pmatrix}
-  \boldsymbol{a}\_1 \\
+  \boldsymbol{a}_1 \\
   \vdots \\
   \boldsymbol{c} \\
   \vdots \\
-  \boldsymbol{a}\_n
+  \boldsymbol{a}_n
   \end{pmatrix}
 $$
 
@@ -498,7 +498,7 @@ $$
 
 ここで $I_n$​ は $n$ 次単位行列である。
 
-証明： $A\tilde{A}$ の $(i,k)$ 成分を計算する：
+証明： $A\tilde{A}$ の $(i,k)$ 成分を計算する。
 
 $$
 (A\tilde{A})_{ik} = \sum_{j=1}^n a_{ij} (\tilde{A})_{jk} = \sum_{j=1}^n a_{ij} \tilde{a}_{kj}
