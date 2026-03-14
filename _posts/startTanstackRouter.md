@@ -12,7 +12,7 @@ ogImage:
   url: ""
 ---
 
-今回は、React アプリケーションのルーティングライブラリとして注目を集めている **TanStack Router** についてを使ってみます。
+今回は、React アプリケーションのルーティングライブラリとして注目を集めている **TanStack Router** についてを取り上げます。
 
 従来の React Router とは異なるアプローチで、**100%型安全**なルーティングを実現するこのライブラリの魅力を、ハンズオン形式で学んでいきましょう。
 
@@ -22,7 +22,7 @@ ogImage:
 
 ## 概要
 
-TanStack Router は、Tanstack Table の章で出た Tanstack の一種で、**TypeScript ファーストのルーティングライブラリ**です。
+TanStack Router も Tanstack の一種で、**TypeScript ファーストのルーティングライブラリ**です。
 
 ## 主な特徴
 
