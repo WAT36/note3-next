@@ -1,0 +1,64 @@
+<svg width="100%" viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      text { font-family: sans-serif; fill: #1a1a1a; }
+      .th { font-size: 14px; font-weight: 500; }
+      .ts { font-size: 12px; font-weight: 400; fill: #555; }
+      .t  { font-size: 14px; font-weight: 400; }
+    </style>
+  </defs>
+
+  <!-- Grid lines -->
+  <line x1="60" y1="40" x2="60" y2="240" stroke="#ccc" stroke-width="0.5"/>
+  <line x1="60" y1="240" x2="340" y2="240" stroke="#ccc" stroke-width="0.5"/>
+  <line x1="80" y1="40" x2="80" y2="240" stroke="#ccc" stroke-width="0.5" stroke-dasharray="2 4"/>
+  <line x1="140" y1="40" x2="140" y2="240" stroke="#ccc" stroke-width="0.5" stroke-dasharray="2 4"/>
+  <line x1="200" y1="40" x2="200" y2="240" stroke="#ccc" stroke-width="0.5" stroke-dasharray="2 4"/>
+  <line x1="260" y1="40" x2="260" y2="240" stroke="#ccc" stroke-width="0.5" stroke-dasharray="2 4"/>
+  <line x1="320" y1="40" x2="320" y2="240" stroke="#ccc" stroke-width="0.5" stroke-dasharray="2 4"/>
+  <line x1="60" y1="80" x2="340" y2="80" stroke="#ccc" stroke-width="0.5" stroke-dasharray="2 4"/>
+  <line x1="60" y1="140" x2="340" y2="140" stroke="#ccc" stroke-width="0.5" stroke-dasharray="2 4"/>
+  <line x1="60" y1="180" x2="340" y2="180" stroke="#ccc" stroke-width="0.5" stroke-dasharray="2 4"/>
+
+  <!-- Axes -->
+  <line x1="60" y1="240" x2="340" y2="240" stroke="#555" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="60" y1="240" x2="60" y2="40" stroke="#555" stroke-width="1" marker-end="url(#arrow)"/>
+  <text class="ts" x="346" y="244">x</text>
+  <text class="ts" x="52" y="36">y</text>
+
+  <!-- Vector a -->
+  <line x1="60" y1="240" x2="235" y2="120" stroke="#3B8BD4" stroke-width="2" marker-end="url(#arrow)"/>
+  <text class="th" x="148" y="165" fill="#185FA5">a</text>
+
+  <!-- Vector a (translated) -->
+  <line x1="120" y1="240" x2="295" y2="120" stroke="#5DCAA5" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="5 3"/>
+  <text class="th" x="218" y="195" fill="#0F6E56">a (平行移動)</text>
+
+  <!-- Dotted component lines -->
+  <line x1="60" y1="120" x2="235" y2="120" stroke="#3B8BD4" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.7"/>
+  <line x1="235" y1="240" x2="235" y2="120" stroke="#3B8BD4" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.7"/>
+
+  <!-- Component labels -->
+  <text class="ts" x="148" y="258" text-anchor="middle" fill="#185FA5">3</text>
+  <text class="ts" x="245" y="185" fill="#185FA5">2</text>
+
+  <!-- Origin label -->
+  <text class="ts" x="48" y="254" text-anchor="end">O</text>
+
+  <!-- Right panel: number vector -->
+  <rect x="400" y="60" width="220" height="160" rx="8" fill="none" stroke="#bbb" stroke-width="0.5"/>
+  <text class="th" x="510" y="90" text-anchor="middle">数ベクトル（列ベクトル）</text>
+
+  <text class="t" x="510" y="130" text-anchor="middle" style="font-size:26px">a = </text>
+  <text class="t" x="570" y="115" text-anchor="middle" style="font-size:15px">(</text>
+  <text class="t" x="570" y="195" text-anchor="middle" style="font-size:15px">)</text>
+  <text class="t" x="595" y="135" text-anchor="middle">3</text>
+  <text class="t" x="595" y="165" text-anchor="middle">2</text>
+  <line x1="582" y1="110" x2="582" y2="200" stroke="#555" stroke-width="1"/>
+  <line x1="612" y1="110" x2="612" y2="200" stroke="#555" stroke-width="1"/>
+
+  <text class="ts" x="510" y="232" text-anchor="middle">始点によらず向きと大きさが等しければ同じベクトル</text>
+</svg>
