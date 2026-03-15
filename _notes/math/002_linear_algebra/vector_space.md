@@ -43,3 +43,29 @@ $$
 $$
 \boldsymbol{a} + \boldsymbol{b} = \begin{pmatrix} a_1 + b_1 \\ a_2 + b_2 \end{pmatrix}, \qquad c\boldsymbol{a} = \begin{pmatrix} ca_1 \\ ca_2 \end{pmatrix}
 $$
+
+## 数ベクトル空間
+
+数ベクトルを土台に、数ベクトル空間を厳密に定義します。
+
+n 個の実数を縦に並べた列ベクトル全体の集合
+
+$$
+\mathbb{R}^n = \left\{ \begin{pmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{pmatrix} \ \middle|\ a_1, a_2, \ldots, a_n \in \mathbb{R} \right\}
+$$
+
+に、以下の 2 つの演算を定めます。
+
+加法：
+
+$$
+\boldsymbol{a} + \boldsymbol{b} = \begin{pmatrix} a_1 \\ \vdots \\ a_n \end{pmatrix} + \begin{pmatrix} b_1 \\ \vdots \\ b_n \end{pmatrix} = \begin{pmatrix} a_1 + b_1 \\ \vdots \\ a_n + b_n \end{pmatrix}
+$$
+
+スカラー倍：
+
+$$
+\boldsymbol{a} = c\begin{pmatrix} a_1 \\ \vdots \\ a_n \end{pmatrix} = \begin{pmatrix} ca_1 \\ \vdots \\ ca_n \end{pmatrix}
+$$
+
+この集合 $\mathbb{R}^n$ と 2 つの演算の組を **n 次元数ベクトル空間** といいます。
