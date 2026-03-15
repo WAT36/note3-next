@@ -1,7 +1,7 @@
 ---
 title: "TanStack Routerについて"
 excerpt: ""
-coverImage: ""
+coverImage: "/assets/posts/startTanstackRouter/tanstack-logo.png"
 date: "2026-03-09T22:12:47.000Z"
 updatedAt: "2026-03-09T22:12:47.000Z"
 tag: []
@@ -85,7 +85,6 @@ npm install -D @tanstack/router-plugin @tanstack/router-devtools
 まず、`vite.config.ts`を編集して TanStack Router のプラグインを追加します。
 
 ```typescript
-// vite.config.ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
@@ -114,8 +113,9 @@ src/
 
 ## Step 3: ルートレイアウトの作成
 
+`src/routes/__root.tsx` を作ります。
+
 ```typescript
-// src/routes/__root.tsx
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 
@@ -151,8 +151,9 @@ export const Route = createRootRoute({
 
 ## Step 4: 各ページコンポーネントの作成
 
+次に、`src/routes/index.tsx`を作ります。
+
 ```typescript
-// src/routes/index.tsx
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -193,8 +194,9 @@ function AboutPage() {
 }
 ```
 
+`src/routes/posts/index.tsx`を作ります。
+
 ```typescript
-// src/routes/posts/index.tsx
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 // サンプルデータ
@@ -232,8 +234,9 @@ function PostsPage() {
 
 ## Step 5: 動的ルート（パラメータ付き）の作成
 
+`src/routes/posts/$postId.tsx`を作ります。
+
 ```typescript
-// src/routes/posts/$postId.tsx
 import { createFileRoute } from "@tanstack/react-router";
 
 // サンプルデータ
@@ -277,8 +280,9 @@ function PostDetailPage() {
 
 ## Step 6: main.tsx の設定
 
+`src/main.tsx`を作ります。
+
 ```typescript
-// src/main.tsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
@@ -310,6 +314,8 @@ npm run dev
 ```
 
 これで、`http://localhost:5173` でアプリケーションが起動します！
+
+![](/assets/posts/startTanstackRouter/demo.png)
 
 ---
 
