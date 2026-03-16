@@ -16,23 +16,21 @@ ogImage:
 
 従来の React Router とは異なるアプローチで、**100%型安全**なルーティングを実現するこのライブラリの魅力を、ハンズオン形式で学んでいきましょう。
 
----
-
 # TanStack Router とは？
 
 ## 概要
 
-TanStack Router も Tanstack の一種で、**TypeScript ファーストのルーティングライブラリ**です。
+TanStack Router は、TanStack が提供する React / Solid 向けの **TypeScript ファーストのルーティングライブラリ**です。
 
 ## 主な特徴
 
-| 特徴                             | 説明                                                 |
-| -------------------------------- | ---------------------------------------------------- |
-| **100%型安全**                   | パス、パラメータ、検索クエリがすべて型チェックされる |
-| **ファイルベースルーティング**   | Next.js のようなファイル構造でルートを自動生成       |
-| **組み込みのデータローディング** | ルートレベルでのデータ取得をネイティブサポート       |
-| **検索パラメータの状態管理**     | URL の検索パラメータを型安全に扱える                 |
-| **DevTools**                     | 開発時のデバッグを強力にサポート                     |
+| 特徴                                       | 説明                                                 |
+| ------------------------------------------ | ---------------------------------------------------- |
+| **型推論ベースで非常に強い型安全性を持つ** | パス、パラメータ、検索クエリがすべて型チェックされる |
+| **ファイルベースルーティング**             | Next.js のようなファイル構造でルートを自動生成       |
+| **組み込みのデータローディング**           | ルートレベルでのデータ取得をネイティブサポート       |
+| **検索パラメータの状態管理**               | URL の検索パラメータを型安全に扱える                 |
+| **DevTools**                               | 開発時のデバッグを強力にサポート                     |
 
 ## React Router との違い
 
@@ -53,6 +51,8 @@ TanStack Router
 ---
 
 # 環境構築
+
+それでは、実際に Tanstack Router を使ったハンズオンを実施してみましょう。
 
 ## 前提条件
 
@@ -115,6 +115,18 @@ src/
 
 `src/routes/__root.tsx` を作ります。
 
+このファイルは、アプリケーション全体のルートレイアウトを定義する特別なルートファイルです。
+
+TanStack Router では、routes ディレクトリ内のファイル構造からルートツリーが自動生成されます。その中で \_\_root.tsx は すべてのページの最上位に位置するルートになります。
+
+このファイルでは、以下のような アプリ全体で共通の UI を定義することができます。
+
+- ナビゲーションバー
+- フッター
+- 共通レイアウト
+- DevTools
+- グローバルなコンテキスト
+
 ```typescript
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
@@ -151,7 +163,7 @@ export const Route = createRootRoute({
 
 ## Step 4: 各ページコンポーネントの作成
 
-次に、`src/routes/index.tsx`を作ります。
+トップページとなる、`src/routes/index.tsx`を作ります。
 
 ```typescript
 import { createFileRoute } from "@tanstack/react-router";
@@ -170,8 +182,9 @@ function HomePage() {
 }
 ```
 
+About ページ(`src/routes/about.tsx`)を作ります。
+
 ```typescript
-// src/routes/about.tsx
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/about")({
@@ -194,7 +207,7 @@ function AboutPage() {
 }
 ```
 
-`src/routes/posts/index.tsx`を作ります。
+記事一覧ページ（`src/routes/posts/index.tsx`）を作ります。
 
 ```typescript
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -280,7 +293,7 @@ function PostDetailPage() {
 
 ## Step 6: main.tsx の設定
 
-`src/main.tsx`を作ります。
+最後に`src/main.tsx`を作ります。
 
 ```typescript
 import React from "react";
@@ -309,6 +322,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 
 ## Step 7: 開発サーバーの起動
 
+一連のページを作り終わったら、起動してみましょう。
+
 ```bash
 npm run dev
 ```
@@ -319,9 +334,11 @@ npm run dev
 
 ---
 
-# 型安全性を体験してみよう
+# 型安全性を体験してみる
 
 TanStack Router の最大の魅力は型安全性です。以下のコードをエディタで試してみてください。
+
+存在しないパスやパラメータの指定漏れなど異常値がある場合は、コンパイルエラーが発生します。
 
 ```typescript
 // 正しいパス - 型チェックOK
