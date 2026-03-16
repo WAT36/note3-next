@@ -69,3 +69,23 @@ $$
 $$
 
 この集合 $\mathbb{R}^n$ と 2 つの演算の組を **n 次元数ベクトル空間** といいます。
+
+# 1 次結合
+
+ベクトルの「組み合わせ可能性」を議論するために、線形結合と独立性の概念が必要です。
+
+定義（線形結合）： ベクトル $\boldsymbol{v}_1, \boldsymbol{v}_2, \ldots, \boldsymbol{v}_k$​ とスカラー $c_1, c_2, \ldots, c_k$​ に対し、
+
+$$
+c_1\boldsymbol{v}_1 + c_2\boldsymbol{v}_2 + \cdots + c_k\boldsymbol{v}_k
+$$
+
+をこれらの**線形結合（1 次結合）**という。
+
+またこの時、1 次結合として零ベクトル $\boldsymbol{0}$ を表す式
+
+$$
+c_1\boldsymbol{v}_1 + c_2\boldsymbol{v}_2 + \cdots + c_k\boldsymbol{v}_k = \boldsymbol{0}
+$$
+
+を $\boldsymbol{v}_1, \boldsymbol{v}_2, \ldots, \boldsymbol{v}_k$ の**1 次関係式**という。
