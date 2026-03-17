@@ -89,3 +89,20 @@ c_1\boldsymbol{v}_1 + c_2\boldsymbol{v}_2 + \cdots + c_k\boldsymbol{v}_k = \bold
 $$
 
 を $\boldsymbol{v}_1, \boldsymbol{v}_2, \ldots, \boldsymbol{v}_k$ の**1 次関係式**という。
+
+# 1 次独立・1 次従属
+
+すべてのスカラーを 0 にした場合のみ線形結合が零ベクトルになるとき、すなわち
+
+$$
+\boldsymbol{v}_1 + c_2\boldsymbol{v}_2 + \cdots + c_k\boldsymbol{v}_k = \boldsymbol{0} \implies c_1 = c_2 = \cdots = c_k = 0
+$$
+
+が成り立つとき、$\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k$​ は
+**1 次独立（線形独立）**であるという。そうでない場合、すなわち全てがゼロでない $c_i$​ の組合せで零ベクトルになるとき、**1 次従属（線形従属）**であるという。
+
+![](/assets/note/math/002_linear_algebra/vector_space/linear_independence.svg)
+
+直感的にいえば、「1 次独立」とは各ベクトルが他のベクトルたちの線形結合では表せない（お互いに「余剰情報がない」）状態のことです。
+
+1 次従属の場合には、あるベクトルを他の残りのベクトルの線形結合で表すことができます。
