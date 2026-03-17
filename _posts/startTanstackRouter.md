@@ -330,7 +330,21 @@ npm run dev
 
 これで、`http://localhost:5173` でアプリケーションが起動します！
 
+ホーム
+
 ![](/assets/posts/startTanstackRouter/demo.png)
+
+About
+
+![](/assets/posts/startTanstackRouter/about.png)
+
+記事一覧
+
+![](/assets/posts/startTanstackRouter/posts.png)
+
+記事(1 記事目)
+
+![](/assets/posts/startTanstackRouter/posts1.png)
 
 ---
 
