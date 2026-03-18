@@ -106,3 +106,42 @@ $$
 直感的にいえば、「1 次独立」とは各ベクトルが他のベクトルたちの線形結合では表せない（お互いに「余剰情報がない」）状態のことです。
 
 1 次従属の場合には、あるベクトルを他の残りのベクトルの線形結合で表すことができます。
+
+## 1 次独立と同次連立 1 次方程式
+
+1 次独立性の定義に立ち返ると、そこには自然に連立方程式が現れます。$n$ 次元ベクトル $\boldsymbol{v}_1, \boldsymbol{v}_2, \ldots, \boldsymbol{v}_k \in \mathbb{R}^n$ の 1 次独立性を調べるには、
+
+$$
+c1v1+c2v2+⋯+ckvk=0c_1\boldsymbol{v}_1 + c_2\boldsymbol{v}_2 + \cdots + c_k\boldsymbol{v}_k = \boldsymbol{0}
+$$
+
+を満たすスカラーの組 $(c_1, \ldots, c_k)$ が自明な解 $c_1 = c_2 = \cdots = c_k = 0$ のみかどうかを問うわけです。これをベクトルの成分で書き下すと、
+
+$$
+\begin{pmatrix}
+v_{11} & v_{12} & \cdots & v_{1k} \\
+v_{21} & v_{22} & \cdots & v_{2k} \\
+\vdots & & \ddots & \vdots \\
+v_{n1} & v_{n2} & \cdots & v_{nk}
+\end{pmatrix}
+
+\begin{pmatrix}
+c_1 \\
+c_2 \\
+\vdots \\
+c_k
+\end{pmatrix}
+
+=
+
+\begin{pmatrix}
+0 \\
+0 \\
+\vdots \\
+0
+\end{pmatrix}
+
+
+$$
+
+​​ すなわち $\boldsymbol{c} = \boldsymbol{0}$ という形になります。右辺がすべてゼロの連立方程式を **同次連立 1 次方程式（homogeneous system）**といいます。
