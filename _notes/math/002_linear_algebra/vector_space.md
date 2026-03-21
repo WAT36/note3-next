@@ -171,7 +171,7 @@ $$
 
 3. スカラー倍について閉じている： $\boldsymbol{v} \in W,\ c \in \mathbb{R} \implies c\boldsymbol{v} \in W$
 
-![](/assets/note/math/002_linear_algebra/vector_space/linear_independence.svg)
+![](/assets/note/math/002_linear_algebra/vector_space/subspace_examples.svg)
 
 部分空間を判定するコツは「閉性を確かめる」ことです。加法とスカラー倍を何度行っても集合の外に出ないかを確認します。特に、任意の部分空間は必ず零ベクトルを含むことに注意してください（$c = 0$ のスカラー倍を考えれば明らかです）。
 
@@ -181,3 +181,26 @@ $$
 - 原点を通る直線
 - 原点を通る平面
 - $\mathbb{R}^3$ 全体
+
+# 生成系
+
+ベクトルの集まりから「作れる」すべてのベクトルの集合を考えます。
+
+定義（生成系・スパン）： ベクトル $\boldsymbol{v}_1, \boldsymbol{v}_2, \ldots, \boldsymbol{v}_k \in V$ に対し、これらのすべての線形結合からなる集合
+
+$$
+\mathrm{span}(\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k) = \left\{ c_1\boldsymbol{v}_1 + c_2\boldsymbol{v}_2 + \cdots + c_k\boldsymbol{v}_k \ \middle|\ c_1, \ldots, c_k \in \mathbb{R} \right\}
+$$
+
+を $\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k$​ の
+**生成系（スパン）**という。また、$\mathrm{span}(\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k) = V$ が成り立つとき、$\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k$​ は $V$ を生成するという。
+
+![](/assets/note/math/002_linear_algebra/vector_space/span_generation.svg)
+
+$\mathrm{span}(\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k)$ は常に部分空間になります。これは 3 条件（零ベクトルを含む・加法で閉じる・スカラー倍で閉じる）がすべて満たされることから確かめられます。
+
+また、生成系は次の事実と深く関わっています。
+
+命題： $\mathrm{span}(\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k)$ の次元は、$\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k$​ の中で 1 次独立なベクトルの最大個数に等しい。
+
+すなわち、1 次従属なベクトルを加えても生成系は広がりません。逆に、1 次独立なベクトルを追加するたびに生成系の次元が 1 つずつ増えていきます。
