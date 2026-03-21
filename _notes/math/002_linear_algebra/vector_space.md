@@ -157,3 +157,27 @@ $n$ 本の $n$ 次元ベクトル $\boldsymbol{v}_1, \ldots, \boldsymbol{v}_n$�
 $$
 \boldsymbol{v}_1, \ldots, \boldsymbol{v}_n \text{ が1次独立} \iff \det(A) \neq 0v1​,…,vn​ が1次独立⟺det(A)=0
 $$
+
+# 部分空間
+
+ベクトル空間の「部分」であっても、それ自体がベクトル空間の構造を持つ場合があります。
+
+定義（部分空間）： ベクトル空間 V の空でない部分集合 W が次の 3 条件を満たすとき、W を V の
+**部分空間**という。
+
+1. 零ベクトルを含む： $\boldsymbol{0} \in W$
+
+2. 加法について閉じている： $\boldsymbol{u}, \boldsymbol{v} \in W \implies \boldsymbol{u} + \boldsymbol{v} \in W$
+
+3. スカラー倍について閉じている： $\boldsymbol{v} \in W,\ c \in \mathbb{R} \implies c\boldsymbol{v} \in W$
+
+![](/assets/note/math/002_linear_algebra/vector_space/linear_independence.svg)
+
+部分空間を判定するコツは「閉性を確かめる」ことです。加法とスカラー倍を何度行っても集合の外に出ないかを確認します。特に、任意の部分空間は必ず零ベクトルを含むことに注意してください（$c = 0$ のスカラー倍を考えれば明らかです）。
+
+典型的な部分空間の例（$\mathbb{R}^3$ の場合）
+
+- $\{\boldsymbol{0}\}$（零部分空間）
+- 原点を通る直線
+- 原点を通る平面
+- $\mathbb{R}^3$ 全体
