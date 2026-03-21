@@ -145,3 +145,15 @@ c_k
 $$
 
 ​​ すなわち $\boldsymbol{c} = \boldsymbol{0}$ という形になります。右辺がすべてゼロの連立方程式を **同次連立 1 次方程式（homogeneous system）**といいます。
+
+## 行列式の 1 次独立性の判定
+
+$k=n$ の正方の場合、すなわちちょうど $n$ 本の $n$ 次元ベクトルが与えられたときは、行列式（determinant）による簡潔な判定が可能です。
+
+定理（行列式と 1 次独立性）：
+
+$n$ 本の $n$ 次元ベクトル $\boldsymbol{v}_1, \ldots, \boldsymbol{v}_n$​ を列に並べた $n \times n$ 行列を $A = (\boldsymbol{v}_1\ \cdots\ \boldsymbol{v}_n)$ とするとき、
+
+$$
+\boldsymbol{v}_1, \ldots, \boldsymbol{v}_n \text{ が1次独立} \iff \det(A) \neq 0v1​,…,vn​ が1次独立⟺det(A)=0
+$$
