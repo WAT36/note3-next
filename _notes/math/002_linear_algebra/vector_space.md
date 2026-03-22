@@ -204,3 +204,23 @@ $\mathrm{span}(\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k)$ は常に部分空�
 命題： $\mathrm{span}(\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k)$ の次元は、$\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k$​ の中で 1 次独立なベクトルの最大個数に等しい。
 
 すなわち、1 次従属なベクトルを加えても生成系は広がりません。逆に、1 次独立なベクトルを追加するたびに生成系の次元が 1 つずつ増えていきます。
+
+## 解空間
+
+$m \times n$ 行列 $A$ に対し、同次連立方程式 $A\boldsymbol{x} = \boldsymbol{0}$ の解全体の集合
+
+$$
+\ker(A) = \{\boldsymbol{x} \in \mathbb{R}^n \mid A\boldsymbol{x} = \boldsymbol{0}\}
+$$
+
+を$A$ の**解空間（または核、kernel）**という。
+
+$\ker(A)$ が $\mathbb{R}^n$ の部分空間であることは、3 条件を確かめることで示せます。
+
+$A\boldsymbol{x} = \boldsymbol{0}$、$A\boldsymbol{y} = \boldsymbol{0}$ ならば
+
+$$
+A(\boldsymbol{x}+\boldsymbol{y}) = A\boldsymbol{x}+A\boldsymbol{y} = \boldsymbol{0}+\boldsymbol{0} = \boldsymbol{0}, \qquad A(c\boldsymbol{x}) = cA\boldsymbol{x} = \boldsymbol{0}
+$$
+
+が成り立つので、加法とスカラー倍について閉じています。零ベクトルも解であることは明らかです。
