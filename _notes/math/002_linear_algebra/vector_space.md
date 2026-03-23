@@ -224,3 +224,21 @@ A(\boldsymbol{x}+\boldsymbol{y}) = A\boldsymbol{x}+A\boldsymbol{y} = \boldsymbol
 $$
 
 が成り立つので、加法とスカラー倍について閉じています。零ベクトルも解であることは明らかです。
+
+## 和空間
+
+2 つの部分空間を「合わせた」空間を定義する。
+
+定義（和空間）： ベクトル空間 $V$ の部分空間 $U$、$W$ に対し、
+
+$$
+U + W = \{\boldsymbol{u} + \boldsymbol{w} \mid \boldsymbol{u} \in U,\ \boldsymbol{w} \in W\}
+$$
+
+を $U$ と $W$ の**和空間**という。
+
+$U + W$ は $V$ の部分空間であり、$U$ と $W$ の両方を含む最小の部分空間です。
+
+一方、$U \cup W$（集合としての合併）は一般に部分空間にならないことに注意してください。
+
+![](/assets/note/math/002_linear_algebra/vector_space/sum_space_vs_union.svg)
