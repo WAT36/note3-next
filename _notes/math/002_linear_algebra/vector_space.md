@@ -242,3 +242,34 @@ $U + W$ は $V$ の部分空間であり、$U$ と $W$ の両方を含む最小�
 一方、$U \cup W$（集合としての合併）は一般に部分空間にならないことに注意してください。
 
 ![](/assets/note/math/002_linear_algebra/vector_space/sum_space_vs_union.svg)
+
+## 直和
+
+定義（直和）： $U + W$ において $U \cap W = \{\boldsymbol{0}\}$ が成り立つとき、この和を**直和**といい、
+
+$$
+V = U \oplus WV=U⊕W
+$$
+
+と書く。このとき任意の $\boldsymbol{v} \in V$ は $\boldsymbol{v} = \boldsymbol{u} + \boldsymbol{w}$（ $\boldsymbol{u} \in U$、$\boldsymbol{w} \in W$）と
+一意に分解できる。
+
+直和の条件 $U \cap W = \{\boldsymbol{0}\}$ は、「$U$ と $W$ は零ベクトル以外に共通点を持たない」ことを意味します。
+
+![](/assets/note/math/002_linear_algebra/vector_space/direct_sum_decomposition.svg)
+
+**定理（直和の同値条件）**： 次の 3 条件は同値です。
+
+1. $U + W$ が直和（$U \cap W = \{\boldsymbol{0}\}$）
+
+2. 任意の $\boldsymbol{v} \in U + W$ の分解 $\boldsymbol{v} = \boldsymbol{u} + \boldsymbol{w}$ が一意
+
+3. $\boldsymbol{u} + \boldsymbol{w} = \boldsymbol{0}$（$\boldsymbol{u} \in U$、$\boldsymbol{w} \in W$）  $\implies \boldsymbol{u} = \boldsymbol{w} = \boldsymbol{0}$
+
+直和の場合、次元公式は $U \cap W = \{\boldsymbol{0}\}$ より $\dim(U \cap W) = 0$ となるので、
+
+$$
+\dim(U \oplus W) = \dim U + \dim W
+$$
+
+と非常にすっきりした形になります。
