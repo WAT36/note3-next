@@ -273,3 +273,23 @@ $$
 $$
 
 と非常にすっきりした形になります。
+
+# 基底
+
+前章までで「生成系」と「1 次独立」という 2 つの概念を学びました。この 2 つを同時に満たすベクトルの組が基底です。
+
+定義（基底）： ベクトル空間 $V$ のベクトルの組 $\{\boldsymbol{v}_1, \boldsymbol{v}_2, \ldots, \boldsymbol{v}_n\}$ が次の 2 条件を満たすとき、これを $V$ の**基底**という。
+
+1. 生成系： $\mathrm{span}(\boldsymbol{v}_1, \ldots, \boldsymbol{v}_n) = V$
+
+2. 1 次独立： $\boldsymbol{v}_1, \ldots, \boldsymbol{v}_n$​ は 1 次独立
+
+基底は「多すぎず少なすぎない、ちょうどよい生成系」と言い換えることができます。生成系から冗長なベクトルをすべて取り除いたものが基底です。
+
+![](/assets/note/math/002_linear_algebra/vector_space/basis_two_conditions.svg)
+
+基底の本質的な性質は表現の一意性です
+
+定理： $\{\boldsymbol{v}_1, \ldots, \boldsymbol{v}_n\} が $V$ の基底であるとき、$V$ の任意のベクトル $\boldsymbol{x}$ はこの基底の線形結合として唯一通りに表せる。すなわち$\boldsymbol{x} = c_1\boldsymbol{v}_1 + \cdots + c_n\boldsymbol{v}_n$​ を満たすスカラーの組 $(c_1, \ldots, c_n)$ はただ 1 つ存在する。
+
+（証明の概略）存在は生成系の条件から、一意性は 1 次独立の条件から従います。2 通りの表現があるとすると、その差を取ることで $\boldsymbol{0}$ の非自明な線形結合が得られ、1 次独立に矛盾します。
