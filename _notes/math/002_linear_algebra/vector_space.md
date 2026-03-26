@@ -293,3 +293,23 @@ $$
 定理： $\{\boldsymbol{v}_1, \ldots, \boldsymbol{v}_n\} が $V$ の基底であるとき、$V$ の任意のベクトル $\boldsymbol{x}$ はこの基底の線形結合として唯一通りに表せる。すなわち$\boldsymbol{x} = c_1\boldsymbol{v}_1 + \cdots + c_n\boldsymbol{v}_n$​ を満たすスカラーの組 $(c_1, \ldots, c_n)$ はただ 1 つ存在する。
 
 （証明の概略）存在は生成系の条件から、一意性は 1 次独立の条件から従います。2 通りの表現があるとすると、その差を取ることで $\boldsymbol{0}$ の非自明な線形結合が得られ、1 次独立に矛盾します。
+
+## 標準基底
+
+$\mathbb{R}^n$ には特に自然な基底が存在します。
+
+定義（標準基底）： $\mathbb{R}^n$ において、$i$ 番目の成分のみが $1$ で残りがすべて $0$ であるベクトル
+
+$$
+\boldsymbol{e}_i = \begin{pmatrix}0\\\vdots\\1\\\vdots\\0\end{pmatrix} \leftarrow i\text{番目}
+$$
+
+を**標準基底ベクトル**といい、$\{\boldsymbol{e}_1, \boldsymbol{e}_2, \ldots, \boldsymbol{e}_n\}$
+を $\mathbb{R}^n$ の **標準基底**という。
+
+標準基底が基底であることは、以下の 2 点から確かめられます。任意の $\boldsymbol{a} = (a_1, \ldots, a_n)^\top$ が $\boldsymbol{a} = a_1\boldsymbol{e}_1 + \cdots + a_n\boldsymbol{e}_n$​ と表せるので生成系であり、$c_1\boldsymbol{e}_1 + \cdots + c_n\boldsymbol{e}_n = \boldsymbol{0}$ の各成分を見れば直ちに $c_i = 0$ が従うので
+1 次独立です。
+
+![](/assets/note/math/002_linear_algebra/vector_space/standard_basis_detailed.svg)
+
+標準基底の最大の利点は、座標と成分が一致することです。すなわち $\boldsymbol{a} = (a_1, \ldots, a_n)^\top$ の標準基底に関する座標はそのまま $(a_1, \ldots, a_n)$ です。
