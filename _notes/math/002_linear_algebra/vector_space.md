@@ -313,3 +313,17 @@ $$
 ![](/assets/note/math/002_linear_algebra/vector_space/standard_basis_detailed.svg)
 
 標準基底の最大の利点は、座標と成分が一致することです。すなわち $\boldsymbol{a} = (a_1, \ldots, a_n)^\top$ の標準基底に関する座標はそのまま $(a_1, \ldots, a_n)$ です。
+
+# 次元
+
+ベクトル空間 $V$ が有限個のベクトルで生成されるとき、$V$ の基底の本数を $V$ の**次元**といい、$\dim V$ で表す。特に $V = \{\boldsymbol{0}\}$ のとき $\dim V = 0$ と定める。
+
+次元は「空間の広がりの自由度」を表す量です。直線は 1 次元、平面は 2 次元、空間は 3 次元——これは私たちの直感と完全に一致します。
+
+![](/assets/note/math/002_linear_algebra/vector_space/dimension_intution.svg)
+
+次元が「well-defined」（矛盾なく定義できる）であるためには、基底の本数が一定であることを証明する必要があります。
+
+定理（基底の本数の一定性）： ベクトル空間 $V$ の任意の 2 つの基底は、同じ本数のベクトルからなる。
+
+証明の概略： $\{\boldsymbol{u}_1, \ldots, \boldsymbol{u}_m\}$ と $\{\boldsymbol{v}_1, \ldots, \boldsymbol{v}_n\}$ がともに $V$ の基底であるとする。$\boldsymbol{u}_1, \ldots, \boldsymbol{u}_m$​ は $V$ に属するから、$\boldsymbol{v}_1, \ldots, \boldsymbol{v}_n$​ の線形結合で表せる。$m > n$ と仮定すると $\boldsymbol{u}_1, \ldots, \boldsymbol{u}_m$​ が 1 次従属となり基底の条件に矛盾する。対称的な議論より $n > m$ も矛盾するから、$m = n$。
