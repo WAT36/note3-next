@@ -339,3 +339,17 @@ $0 \leq \dim W \leq n$ 等号 $\dim W = n$ が成立するのは $W = V$ のと�
 ![](/assets/note/math/002_linear_algebra/vector_space/subspace_dimension_hierarchy.svg)
 
 $\mathbb{R}^3$ の部分空間の分類は入れ子構造になっています。零空間 $\{0\}$（次元 0）、原点を通る直線（次元 1）、原点を通る平面（次元 2）、$\mathbb{R}^3$ 全体（次元 3）の 4 種類に限られます。
+
+## 和空間の次元公式
+
+和空間の次元には、「重なり」を表す交わり $U \cap W$ が関わる美しい公式が成り立ちます。
+
+定理（和空間の次元公式）： 有限次元ベクトル空間 $V$ の部分空間 $U$、$W$ に対して
+
+$$
+\dim(U + W) = \dim U + \dim W - \dim(U \cap W)
+$$
+
+![](/assets/note/math/002_linear_algebra/vector_space/dimension_formula_venn.svg)
+
+この公式は集合論の包除原理の「次元版」です。$U$ と $W$ を単純に足すと $U \cap W$ の部分が二重に数えられるため、それを 1 度引いて正しい次元を得ます。
