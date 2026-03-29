@@ -327,3 +327,15 @@ $$
 定理（基底の本数の一定性）： ベクトル空間 $V$ の任意の 2 つの基底は、同じ本数のベクトルからなる。
 
 証明の概略： $\{\boldsymbol{u}_1, \ldots, \boldsymbol{u}_m\}$ と $\{\boldsymbol{v}_1, \ldots, \boldsymbol{v}_n\}$ がともに $V$ の基底であるとする。$\boldsymbol{u}_1, \ldots, \boldsymbol{u}_m$​ は $V$ に属するから、$\boldsymbol{v}_1, \ldots, \boldsymbol{v}_n$​ の線形結合で表せる。$m > n$ と仮定すると $\boldsymbol{u}_1, \ldots, \boldsymbol{u}_m$​ が 1 次従属となり基底の条件に矛盾する。対称的な議論より $n > m$ も矛盾するから、$m = n$。
+
+## 部分空間の次元
+
+$V$ の部分空間の次元は $V$ の次元を超えることはありません。
+
+定理： $W$ が $\dim V = n$ のベクトル空間 $V$ の部分空間ならば
+
+$0 \leq \dim W \leq n$ 等号 $\dim W = n$ が成立するのは $W = V$ のときに限る。
+
+![](/assets/note/math/002_linear_algebra/vector_space/subspace_dimension_hierarchy.svg)
+
+$\mathbb{R}^3$ の部分空間の分類は入れ子構造になっています。零空間 $\{0\}$（次元 0）、原点を通る直線（次元 1）、原点を通る平面（次元 2）、$\mathbb{R}^3$ 全体（次元 3）の 4 種類に限られます。
