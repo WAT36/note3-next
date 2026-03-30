@@ -353,3 +353,17 @@ $$
 ![](/assets/note/math/002_linear_algebra/vector_space/dimension_formula_venn.svg)
 
 この公式は集合論の包除原理の「次元版」です。$U$ と $W$ を単純に足すと $U \cap W$ の部分が二重に数えられるため、それを 1 度引いて正しい次元を得ます。
+
+# 座標
+
+基底を固定することで、ベクトルを数の組として扱えるようになります。
+
+$\mathbb{R}^n$ の基底 $\{\boldsymbol{v}_1, \ldots, \boldsymbol{v}_n\}$ を 1 つ選ぶと、任意の $\boldsymbol{a} \in \mathbb{R}^n$ はこの基底の線形結合として一意に表せます。
+
+$\boldsymbol{a} = c_1\boldsymbol{v}_1 + c_2\boldsymbol{v}_2 + \cdots + c_n\boldsymbol{v}_n$
+
+このとき係数の組 $(c_1, c_2, \ldots, c_n)$ を、この基底に関する $\boldsymbol{a}$ の**座標**といいます。
+
+標準基底を選んだときの座標がまさに通常の成分 $(a_1, a_2, \ldots, a_n)$ に他なりません。基底が変わると座標も変わりますが、ベクトルそのものは変わりません。
+
+![](/assets/note/math/002_linear_algebra/vector_space/coordinate_change_of_basis.svg)
