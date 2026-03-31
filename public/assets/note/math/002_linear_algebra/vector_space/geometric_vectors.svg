@@ -49,16 +49,14 @@
   <text class="ts" x="48" y="254" text-anchor="end">O</text>
 
   <!-- Right panel: number vector -->
-  <rect x="400" y="60" width="220" height="160" rx="8" fill="none" stroke="#bbb" stroke-width="0.5"/>
+  <rect x="400" y="60" width="220" height="160" rx="8" fill="#ffffff" fill-opacity="0.92" stroke="#bbb" stroke-width="0.5"/>
   <text class="th" x="510" y="90" text-anchor="middle">数ベクトル（列ベクトル）</text>
 
-  <text class="t" x="510" y="130" text-anchor="middle" style="font-size:26px">a = </text>
-  <text class="t" x="570" y="115" text-anchor="middle" style="font-size:15px">(</text>
-  <text class="t" x="570" y="195" text-anchor="middle" style="font-size:15px">)</text>
-  <text class="t" x="595" y="135" text-anchor="middle">3</text>
-  <text class="t" x="595" y="165" text-anchor="middle">2</text>
-  <line x1="582" y1="110" x2="582" y2="200" stroke="#555" stroke-width="1"/>
-  <line x1="612" y1="110" x2="612" y2="200" stroke="#555" stroke-width="1"/>
+  <text class="t" x="500" y="140" text-anchor="middle" style="font-size:26px">a = </text>
+  <text class="t" x="555" y="150" text-anchor="middle" dominant-baseline="middle" style="font-size:76px; font-weight:300">(</text>
+  <text class="t" x="610" y="150" text-anchor="middle" dominant-baseline="middle" style="font-size:76px; font-weight:300">)</text>
+  <text class="t" x="582" y="136" text-anchor="middle">3</text>
+  <text class="t" x="582" y="166" text-anchor="middle">2</text>
 
   <text class="ts" x="510" y="232" text-anchor="middle">始点によらず向きと大きさが等しければ同じベクトル</text>
 </svg>

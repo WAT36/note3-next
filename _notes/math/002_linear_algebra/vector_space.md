@@ -80,7 +80,7 @@ $$
 c_1\boldsymbol{v}_1 + c_2\boldsymbol{v}_2 + \cdots + c_k\boldsymbol{v}_k
 $$
 
-をこれらの**線形結合（1 次結合）**という。
+をこれらの **線形結合（1 次結合）** という。
 
 またこの時、1 次結合として零ベクトル $\boldsymbol{0}$ を表す式
 
@@ -99,7 +99,7 @@ $$
 $$
 
 が成り立つとき、$\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k$​ は
-**1 次独立（線形独立）**であるという。そうでない場合、すなわち全てがゼロでない $c_i$​ の組合せで零ベクトルになるとき、**1 次従属（線形従属）**であるという。
+**1 次独立（線形独立）** であるという。そうでない場合、すなわち全てがゼロでない $c_i$​ の組合せで零ベクトルになるとき、 **1 次従属（線形従属）** であるという。
 
 ![](/assets/note/math/002_linear_algebra/vector_space/linear_independence.svg)
 
@@ -144,7 +144,7 @@ c_k
 
 $$
 
-​​ すなわち $\boldsymbol{c} = \boldsymbol{0}$ という形になります。右辺がすべてゼロの連立方程式を **同次連立 1 次方程式（homogeneous system）**といいます。
+​​ すなわち $\boldsymbol{c} = \boldsymbol{0}$ という形になります。右辺がすべてゼロの連立方程式を **同次連立 1 次方程式（homogeneous system）** といいます。
 
 ## 行列式の 1 次独立性の判定
 
@@ -155,7 +155,7 @@ $k=n$ の正方の場合、すなわちちょうど $n$ 本の $n$ 次元ベク�
 $n$ 本の $n$ 次元ベクトル $\boldsymbol{v}_1, \ldots, \boldsymbol{v}_n$​ を列に並べた $n \times n$ 行列を $A = (\boldsymbol{v}_1\ \cdots\ \boldsymbol{v}_n)$ とするとき、
 
 $$
-\boldsymbol{v}_1, \ldots, \boldsymbol{v}_n \text{ が1次独立} \iff \det(A) \neq 0v1​,…,vn​ が1次独立⟺det(A)=0
+\boldsymbol{v}_1, \ldots, \boldsymbol{v}_n \text{ が1次独立} \iff \det(A) \neq 0
 $$
 
 # 部分空間
@@ -193,7 +193,7 @@ $$
 $$
 
 を $\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k$​ の
-**生成系（スパン）**という。また、$\mathrm{span}(\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k) = V$ が成り立つとき、$\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k$​ は $V$ を生成するという。
+**生成系（スパン）** という。また、$\mathrm{span}(\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k) = V$ が成り立つとき、$\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k$​ は $V$ を生成するという。
 
 ![](/assets/note/math/002_linear_algebra/vector_space/span_generation.svg)
 
@@ -213,7 +213,7 @@ $$
 \ker(A) = \{\boldsymbol{x} \in \mathbb{R}^n \mid A\boldsymbol{x} = \boldsymbol{0}\}
 $$
 
-を$A$ の**解空間（または核、kernel）**という。
+を$A$ の **解空間（または核、kernel）** という。
 
 $\ker(A)$ が $\mathbb{R}^n$ の部分空間であることは、3 条件を確かめることで示せます。
 
@@ -248,7 +248,7 @@ $U + W$ は $V$ の部分空間であり、$U$ と $W$ の両方を含む最小�
 定義（直和）： $U + W$ において $U \cap W = \{\boldsymbol{0}\}$ が成り立つとき、この和を**直和**といい、
 
 $$
-V = U \oplus WV=U⊕W
+V = U \oplus W
 $$
 
 と書く。このとき任意の $\boldsymbol{v} \in V$ は $\boldsymbol{v} = \boldsymbol{u} + \boldsymbol{w}$（ $\boldsymbol{u} \in U$、$\boldsymbol{w} \in W$）と
@@ -290,7 +290,7 @@ $$
 
 基底の本質的な性質は表現の一意性です
 
-定理： $\{\boldsymbol{v}_1, \ldots, \boldsymbol{v}_n\} が $V$ の基底であるとき、$V$ の任意のベクトル $\boldsymbol{x}$ はこの基底の線形結合として唯一通りに表せる。すなわち$\boldsymbol{x} = c_1\boldsymbol{v}_1 + \cdots + c_n\boldsymbol{v}_n$​ を満たすスカラーの組 $(c_1, \ldots, c_n)$ はただ 1 つ存在する。
+定理： $\{\boldsymbol{v}_1, \ldots, \boldsymbol{v}_n\}$ が $V$ の基底であるとき、$V$ の任意のベクトル $\boldsymbol{x}$ はこの基底の線形結合として唯一通りに表せる。すなわち$\boldsymbol{x} = c_1\boldsymbol{v}_1 + \cdots + c_n\boldsymbol{v}_n$​ を満たすスカラーの組 $(c_1, \ldots, c_n)$ はただ 1 つ存在する。
 
 （証明の概略）存在は生成系の条件から、一意性は 1 次独立の条件から従います。2 通りの表現があるとすると、その差を取ることで $\boldsymbol{0}$ の非自明な線形結合が得られ、1 次独立に矛盾します。
 
@@ -334,7 +334,7 @@ $V$ の部分空間の次元は $V$ の次元を超えることはありませ�
 
 定理： $W$ が $\dim V = n$ のベクトル空間 $V$ の部分空間ならば
 
-$0 \leq \dim W \leq n$ 等号 $\dim W = n$ が成立するのは $W = V$ のときに限る。
+$0 \leq \dim W \leq n$ 、等号 $\dim W = n$ が成立するのは $W = V$ のときに限る。
 
 ![](/assets/note/math/002_linear_algebra/vector_space/subspace_dimension_hierarchy.svg)
 
