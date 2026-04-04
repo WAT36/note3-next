@@ -1,7 +1,7 @@
 ---
 title: "Drizzleを利用する"
 excerpt: ""
-coverImage: ""
+coverImage: "/assets/posts/startDrizzle/drizzle.svg"
 date: "2026-03-30T22:04:35.000Z"
 updatedAt: "2026-03-30T22:04:35.000Z"
 tag: []
