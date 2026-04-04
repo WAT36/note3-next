@@ -59,3 +59,41 @@ $$
 ![](/assets/note/math/002_linear_algebra/linear_algebra/matrix_representation_of_linear_map.svg)
 
 定理： 有限次元ベクトル空間間の線形写像と行列は一対一に対応する。基底を固定するたびに写像が行列に、行列が写像に翻訳される
+
+## 基底の取り替え行列
+
+「基底を固定すると線形写像が行列で表現される」ことを学びました。しかし基底の選び方は一意ではありません。同じ写像でも基底が変われば表現行列が変わる——この変換の法則を体系的に扱うのが本章の目標です。まず座標の変換から始めます。$\mathbb{R}^n$ の 2 つの基底
+
+$$
+B = \{\boldsymbol{b}_1, \ldots, \boldsymbol{b}_n\}, \qquad B' = \{\boldsymbol{b}_1', \ldots, \boldsymbol{b}_n'\}
+$$
+
+を考えます。同じベクトル
+$\boldsymbol{x}$ を $B$ で表した座標と $B'$ で表した座標は一般に異なります。これらを結びつける行列が **基底の取り替え行列（推移行列）** です。
+
+![](/assets/note/math/002_linear_algebra/linear_algebra/change_of_basis_motivation.svg)
+
+**定義（基底の取り替え行列）：** $\mathbb{R}^n$ の基底 $B = \{\boldsymbol{b}_1, \ldots, \boldsymbol{b}_n\}$ から基底 $B' = \{\boldsymbol{b}_1', \ldots, \boldsymbol{b}_n'\}$ への**取り替え行列**（推移行列）$P$ とは、任意のベクトルの $B$ に関する座標 $[\boldsymbol{x}]_B$​ を $B'$ に関する座標 $[\boldsymbol{x}]_{B'}$​ に変換する行列である。
+
+$[x]B[\boldsymbol{x}]\_{B'} = P\,[\boldsymbol{x}]\_B[x]B′​=P[x]B​
+
+構成法： $B$ の各基底ベクトル $\boldsymbol{b}_j$​ を $B'$ の線形結合で表し、その係数を $j$ 列目に並べれば $P$ が得られます。すなわち
+
+$$
+\boldsymbol{b}_j = p_{1j}\boldsymbol{b}_1' + p_{2j}\boldsymbol{b}_2' + \cdots + p_{nj}\boldsymbol{b}_n' \implies P =
+\begin{pmatrix}
+p_{11} & \cdots & p_{1n} \\
+\vdots & \ddots & \vdots \\
+p_{n1} & \cdots & p_{nn}
+\end{pmatrix}
+$$
+
+標準基底 $E = \{\boldsymbol{e}_1, \ldots, \boldsymbol{e}_n\}$ を経由すると計算が整理されます。
+
+![](/assets/note/math/002_linear_algebra/linear_algebra/change_of_basis_construction.svg)
+
+特に $B$ が標準基底 $E$ のとき $M_E = I$（単位行列）なので、
+
+$P = M_{B'}^{-1}$
+
+つまり新しい基底ベクトルを列に並べた行列の逆行列が取り替え行列になります。
