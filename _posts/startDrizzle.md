@@ -1,6 +1,6 @@
 ---
-title: "Drizzleを利用する"
-excerpt: ""
+title: "Drizzle ORM入門"
+excerpt: "TypeScript製の軽量ORM「Drizzle」の基本概念からCRUD操作のハンズオンまでを紹介。"
 coverImage: "/assets/posts/startDrizzle/drizzle.svg"
 date: "2026-03-30T22:04:35.000Z"
 updatedAt: "2026-03-30T22:04:35.000Z"
