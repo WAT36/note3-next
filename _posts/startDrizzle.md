@@ -118,9 +118,9 @@ drizzle-handson/
 ├── src/
 │   ├── db/
 │   │   ├── schema.ts      # スキーマ定義
-│   │   └── index.ts        # DB接続
-│   └── index.ts             # ハンズオン用メインファイル
-├── drizzle.config.ts         # Drizzle Kit 設定
+│   │   └── index.ts       # DB接続
+│   └── index.ts           # ハンズオン用メインファイル
+├── drizzle.config.ts      # Drizzle Kit 設定
 ├── tsconfig.json
 └── package.json
 ```
@@ -446,6 +446,8 @@ main().catch((err) => {
 npx tsx src/index.ts
 ```
 
+すると DB 操作が行えます。
+
 ## 各操作と SQL の対応
 
 Drizzle の大きな特徴は、このようにコードと SQL がほぼ 1 対 1 に対応する点です。
@@ -532,28 +534,11 @@ npx drizzle-kit studio
 
 ブラウザで `https://local.drizzle.studio` が開き、テーブルの閲覧・編集が GUI で行えます。開発中のデータ確認に非常に便利です。（※ CLI 実行時に自動でブラウザが開きます）
 
+![](/assets/posts/startDrizzle/drizzleStudioDemo.png)
+
 ---
 
-# まとめ
-
-## Drizzle ORM の強み
-
-- **SQL を知っていれば即戦力** — 独自の DSL を新たに学ぶ負荷が少ない
-- **完全な型安全** — スキーマ定義がそのまま型になり、タイポや型ミスをコンパイル時にキャッチ
-- **軽量** — サーバーレス環境や Edge Runtime にも最適
-- **マイグレーションが SQL** — 何が実行されるか透明性が高い
-- **Relational Queries** — 必要に応じて Prisma ライクな書き方も可能
-
-## こんなケースにおすすめ
-
-- サーバーレス / Edge 環境で ORM を使いたい
-- SQL の知識を活かしたい
-- バンドルサイズや Cold Start を最小限にしたい
-- Next.js (App Router) や Hono など、モダンフレームワークと組み合わせたい
-
-## 次のステップ
-
-今回は軽く行いましたが、Drizzle をさらに深く学ぶには、以下のトピックに挑戦してみてください。
+Drizzle ORM についての DB 操作を今回は軽く行いましたが、もしさらに深く実践、学びたい場合には、以下のトピックに挑戦してみてください。
 
 - **トランザクション** (`db.transaction()`)
 - **Prepared Statements** によるパフォーマンス最適化
