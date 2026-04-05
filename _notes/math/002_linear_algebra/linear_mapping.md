@@ -97,3 +97,23 @@ $$
 $P = M_{B'}^{-1}$
 
 つまり新しい基底ベクトルを列に並べた行列の逆行列が取り替え行列になります。
+
+# 像と核
+
+線形写像には 2 つの重要な部分空間が自然に伴います。
+
+定義（核・像）： 線形写像 $f: V \to W$ に対し
+
+$$
+\ker(f) = \{\boldsymbol{v} \in V \mid f(\boldsymbol{v}) = \boldsymbol{0}\} \quad \text{（核、kernel）}
+$$
+
+$$
+\mathrm{Im}(f) = \{f(\boldsymbol{v}) \mid \boldsymbol{v} \in V\} \quad \text{（像、image）}
+$$
+
+と定める。$\ker(f)$ は $V$ の部分空間、$\mathrm{Im}(f)$ は $W$ の部分空間になる。
+
+![](/assets/note/math/002_linear_algebra/linear_algebra/kernel_and_image.svg)
+
+$\ker(f)$ が部分空間であることは、$f(\boldsymbol{u}) = f(\boldsymbol{v}) = \boldsymbol{0}$ のとき $f(\boldsymbol{u}+\boldsymbol{v}) = \boldsymbol{0}$、$f(c\boldsymbol{u}) = c\boldsymbol{0} = \boldsymbol{0}$ から確かめられます。$\mathrm{Im}(f)$ についても同様です。
