@@ -3,7 +3,7 @@ title: "Drizzle ORM入門"
 excerpt: "TypeScript製の軽量ORM「Drizzle」の基本概念からCRUD操作のハンズオンまでを紹介。"
 coverImage: "/assets/posts/startDrizzle/drizzle.svg"
 date: "2026-04-04T18:08:05.000Z"
-updatedAt: "2026-04-04T18:08:05.000Z"
+updatedAt: '2026-04-05T21:56:32.000Z'
 tag: ["データベース"]
 author:
   name: Tatsuroh Wakasugi
