@@ -58,3 +58,7 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 *snapshots/
+
+# Claude Code
+.claude/settings.local.json
+.claude/worktrees/

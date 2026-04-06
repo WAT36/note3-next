@@ -50,8 +50,8 @@ git log --diff-filter=A --name-status --pretty=format: $(git rev-parse @{push}).
     # 更新時刻を取得（フォーマット: YYYY-MM-DD HH:MM:SS）
     mod_time=$(get_mod_time "$file")
 
-    # ファイルからupdatedAtを取得
-    file_time=$(grep 'updatedAt:' "$file" | grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.000Z')
+    # ファイルからupdatedAtを取得（フロントマターの最初の1件のみ）
+    file_time=$(grep -m 1 '^updatedAt:' "$file" | grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.000Z')
 
     # YYYY-MM-DD の部分だけを抽出
     mod_day=$(echo "$mod_time" | cut -d 'T' -f 1)
@@ -62,9 +62,9 @@ git log --diff-filter=A --name-status --pretty=format: $(git rev-parse @{push}).
         # たまにあるが updatedAtないファイルは更新しない
         echo -e "updatedAt none. $file"
     elif [[ "$mod_day" != "$file_day" ]]; then
-        # 作成時刻、更新時刻を更新
-        sed -i '' "s/date:.*/date: '${mod_time}'/g" $file
-        sed -i '' "s/updatedAt:.*/updatedAt: '${mod_time}'/g" $file
+        # 作成時刻、更新時刻を更新（行頭マッチでフロントマターのみ対象）
+        sed -i '' "s/^date:.*/date: '${mod_time}'/g" $file
+        sed -i '' "s/^updatedAt:.*/updatedAt: '${mod_time}'/g" $file
         git add $file
     fi
 done
@@ -74,8 +74,8 @@ git log --diff-filter=CMRT --name-status --pretty=format: $(git rev-parse @{push
     # 更新時刻を取得（フォーマット: YYYY-MM-DD HH:MM:SS）
     mod_time=$(get_mod_time "$file")
 
-    # ファイルからupdatedAtを取得
-    file_time=$(grep 'updatedAt:' "$file" | grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.000Z')
+    # ファイルからupdatedAtを取得（フロントマターの最初の1件のみ）
+    file_time=$(grep -m 1 '^updatedAt:' "$file" | grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.000Z')
 
     # YYYY-MM-DD の部分だけを抽出
     mod_day=$(echo "$mod_time" | cut -d 'T' -f 1)
@@ -86,7 +86,8 @@ git log --diff-filter=CMRT --name-status --pretty=format: $(git rev-parse @{push
         # たまにあるが updatedAtないファイルは更新しない
         echo -e "updatedAt none. $file"
     elif [[ "$mod_day" != "$file_day" ]]; then
-        sed -i '' "s/updatedAt:.*/updatedAt: '${mod_time}'/g" $file
+        # 行頭マッチでフロントマターのみ対象
+        sed -i '' "s/^updatedAt:.*/updatedAt: '${mod_time}'/g" $file
         git add $file
     fi
 done
