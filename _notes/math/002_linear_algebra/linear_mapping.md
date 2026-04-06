@@ -114,6 +114,20 @@ $$
 
 と定める。$\ker(f)$ は $V$ の部分空間、$\mathrm{Im}(f)$ は $W$ の部分空間になる。
 
-![](/assets/note/math/002_linear_algebra/linear_algebra/kernel_and_image.svg)
+![](/assets/note/math/002_linear_algebra/linear_mapping/kernel_and_image.svg)
 
 $\ker(f)$ が部分空間であることは、$f(\boldsymbol{u}) = f(\boldsymbol{v}) = \boldsymbol{0}$ のとき $f(\boldsymbol{u}+\boldsymbol{v}) = \boldsymbol{0}$、$f(c\boldsymbol{u}) = c\boldsymbol{0} = \boldsymbol{0}$ から確かめられます。$\mathrm{Im}(f)$ についても同様です。
+
+## 線形写像の次元定理
+
+核と像の次元には、先ほどの次元定理が線形写像の形で現れます。
+
+定理（線形写像の次元定理）： 線形写像 $f: V \to W$ において $V$ が有限次元ならば
+
+$$
+\dim \ker(f) + \dim \mathrm{Im}(f) = \dim V
+$$
+
+![](/assets/note/math/002_linear_algebra/linear_mapping/rank_nullity_linear_map.svg)
+
+行列写像 $f_A(\boldsymbol{x}) = A\boldsymbol{x}$ に適用すると、$\ker(f_A) = \ker(A)$、$\mathrm{Im}(f_A) = \text{列空間}$ となり、前章の次元定理 $\mathrm{rank}(A) + \dim\ker(A) = n$ と完全に一致します。
