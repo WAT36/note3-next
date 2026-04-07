@@ -75,7 +75,9 @@ $\boldsymbol{x}$ を $B$ で表した座標と $B'$ で表した座標は一般�
 
 **定義（基底の取り替え行列）：** $\mathbb{R}^n$ の基底 $B = \{\boldsymbol{b}_1, \ldots, \boldsymbol{b}_n\}$ から基底 $B' = \{\boldsymbol{b}_1', \ldots, \boldsymbol{b}_n'\}$ への**取り替え行列**（推移行列）$P$ とは、任意のベクトルの $B$ に関する座標 $[\boldsymbol{x}]_B$​ を $B'$ に関する座標 $[\boldsymbol{x}]_{B'}$​ に変換する行列である。
 
-$[x]B[\boldsymbol{x}]\_{B'} = P\,[\boldsymbol{x}]\_B[x]B′​=P[x]B​
+$$
+[x]B[\boldsymbol{x}]\_{B'} = P\,[\boldsymbol{x}]\_B[x]B′​=P[x]B​
+$$
 
 構成法： $B$ の各基底ベクトル $\boldsymbol{b}_j$​ を $B'$ の線形結合で表し、その係数を $j$ 列目に並べれば $P$ が得られます。すなわち
 
