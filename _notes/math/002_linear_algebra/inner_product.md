@@ -44,3 +44,29 @@ $$
 $$
 
 と定義したものである。
+
+# ベクトルの大きさ（ノルム）
+
+内積を用いることで、ベクトルの「長さ」を自然に定義できます。
+
+定義（ノルム）： 内積空間 $(V, \langle \cdot, \cdot \rangle)$ において、$\boldsymbol{v} \in V$ の **ノルム（大きさ）** を
+
+$$
+\|\boldsymbol{v}\| = \sqrt{\langle \boldsymbol{v}, \boldsymbol{v} \rangle}
+$$
+
+と定義する。$\mathbb{R}^n$ の標準内積のもとでは
+
+$$
+\|\boldsymbol{v}\| = \sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}​
+$$
+
+となり、これはユークリッドノルムに一致する。
+
+ノルムには次の基本性質があります。
+
+1.  非負性： $ \|\boldsymbol{v}\| \geq 0,\quad \text{等号成立} \iff \boldsymbol{v} = \boldsymbol{0}$
+
+2.  斉次性： $ \|c\boldsymbol{v}\| = |c|\,\|\boldsymbol{v}\|$
+
+3.  三角不等式： $ \|\boldsymbol{u} + \boldsymbol{v}\| \leq \|\boldsymbol{u}\| + \|\boldsymbol{v}\|$
