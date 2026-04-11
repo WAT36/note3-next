@@ -32,3 +32,15 @@ $$
 代表的な内積の例を 2 つ挙げます。
 
 ![](/assets/note/math/002_linear_algebra/inner_product/inner_product_examples.svg)
+
+## 内積空間
+
+内積 $\langle \cdot, \cdot \rangle$ が定義されたベクトル空間 $(V, \langle \cdot, \cdot \rangle)$ を **内積空間** （または準ヒルベルト空間）という。特に完備な内積空間をヒルベルト空間という。
+
+内積空間の代表例として $\mathbb{R}^n$（標準内積）、 $\mathbb{R}^{m \times n}$ （フロベニウス内積）、$C[a,b]$（関数空間）などがある。フロベニウス内積とは、$m \times n$ 実行列の空間において
+
+$$
+\langle A, B \rangle_F = \mathrm{tr}(A^T B) = \sum_{i,j} a_{ij} b_{ij}
+$$
+
+と定義したものである。
