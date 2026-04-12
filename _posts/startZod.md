@@ -20,15 +20,11 @@ TypeScript を使っていると、「型があるから安全」と思いがち
 
 ---
 
-## Zod とは？
+# Zod とは？
 
-**Zod** は、TypeScript ファーストの **スキーマ宣言 & バリデーションライブラリ** です。
+**Zod** [^1]は、TypeScript ファーストの **スキーマ宣言 & バリデーションライブラリ** です。
 
-```
-「スキーマを一度定義すれば、バリデーションと型の両方が手に入る」
-```
-
-### 主な特徴
+**主な特徴**
 
 | 特徴                   | 説明                                                            |
 | ---------------------- | --------------------------------------------------------------- |
@@ -38,21 +34,18 @@ TypeScript を使っていると、「型があるから安全」と思いがち
 | 豊富なバリデーション   | 文字列・数値・配列・オブジェクト・ユニオンなど幅広く対応        |
 | エコシステムとの親和性 | React Hook Form, tRPC, Next.js など主要ライブラリとの連携が容易 |
 
-### 公式リンク
-
-- GitHub: `https://github.com/colinhacks/zod`
-- ドキュメント: `https://zod.dev`
-
 ---
 
-## 環境構築
+# 環境構築
 
-### 前提条件
+では、ハンズオンをやってみましょう。
+
+**前提条件**
 
 - Node.js（v18 以上推奨）
 - TypeScript 5.x 以上
 
-### プロジェクトのセットアップ
+## プロジェクトのセットアップ
 
 ```bash
 # プロジェクトディレクトリを作成
@@ -85,11 +78,11 @@ npx tsc --init
 
 ---
 
-## ハンズオン ① — 基本的なスキーマ定義
+# ハンズオン ① — 基本的なスキーマ定義
 
 まずは最もシンプルなプリミティブ型のバリデーションから始めましょう。
 
-### `src/01-primitives.ts`
+- `src/01-primitives.ts`
 
 ```typescript
 import { z } from "zod";
@@ -120,13 +113,13 @@ if (!result.success) {
 }
 ```
 
-### 実行
+- 実行
 
 ```bash
 npx ts-node src/01-primitives.ts
 ```
 
-### 実行結果
+- 実行結果
 
 ```bash
 Taro
@@ -142,7 +135,7 @@ true
 ]
 ```
 
-### ポイント
+- ポイント
 
 | メソッド           | 挙動                                                 |
 | ------------------ | ---------------------------------------------------- |
@@ -151,11 +144,11 @@ true
 
 ---
 
-## ハンズオン ② — オブジェクトスキーマと型推論
+# ハンズオン ② — オブジェクトスキーマと型推論
 
 Zod の真価はオブジェクトスキーマにあります。スキーマから TypeScript の型を **自動生成** できます。
 
-### `src/02-object.ts`
+- `src/02-object.ts`
 
 ```typescript
 import { z } from "zod";
@@ -212,15 +205,15 @@ if (!result.success) {
 }
 ```
 
-### 実行
+- 実行
 
 ```bash
 npx ts-node src/02-object.ts
 ```
 
-### 出力例
+- 出力例
 
-```
+```bash
 ✅ パース成功: {
   id: 1,
   name: '田中太郎',
@@ -238,11 +231,11 @@ npx ts-node src/02-object.ts
 
 ---
 
-## ハンズオン ③ — ネストとスキーマの合成
+# ハンズオン ③ — ネストとスキーマの合成
 
 実際のアプリケーションでは、スキーマをネストしたり合成したりするケースが頻出します。
 
-### `src/03-composition.ts`
+- `src/03-composition.ts`
 
 ```typescript
 import { z } from "zod";
@@ -285,7 +278,7 @@ console.log("✅ Customer:", customer);
 console.log("   tags:", customer.tags); // []
 ```
 
-### スキーマ操作の早見表
+- スキーマ操作の早見表
 
 ```typescript
 // pick — 特定のフィールドだけ抽出
@@ -301,7 +294,7 @@ const PartialCustomer = CustomerSchema.partial();
 const MergedSchema = PersonSchema.merge(AddressSchema);
 ```
 
-### 実行例
+- 実行例
 
 ```bash
 ✅ Customer: {
@@ -315,9 +308,9 @@ const MergedSchema = PersonSchema.merge(AddressSchema);
 
 ---
 
-## ハンズオン ④ — カスタムバリデーションと transform
+# ハンズオン ④ — カスタムバリデーションと transform
 
-### `src/04-advanced.ts`
+- `src/04-advanced.ts`
 
 ```typescript
 import { z } from "zod";
@@ -377,11 +370,11 @@ if (!signupResult.success) {
 
 ---
 
-## ハンズオン ⑤ — API レスポンスのバリデーション（実践例）
+# ハンズオン ⑤ — API レスポンスのバリデーション（実践例）
 
 最後に、実際のユースケースに近い「外部 API レスポンスのバリデーション」を実装してみましょう。
 
-### `src/05-api-validation.ts`
+- `src/05-api-validation.ts`
 
 ```typescript
 import { z } from "zod";
@@ -432,13 +425,13 @@ async function fetchPosts(): Promise<ApiPost[]> {
 })();
 ```
 
-### 実行
+- 実行
 
 ```bash
 npx ts-node src/05-api-validation.ts
 ```
 
-### 実行結果
+- 実行結果
 
 ```bash
 📝 [1] sunt aut facere repellat provident occaecati excepturi optio reprehenderit
@@ -448,7 +441,7 @@ npx ts-node src/05-api-validation.ts
 
 ---
 
-## よく使うスキーマメソッド チートシート
+# よく使うスキーマメソッド チートシート
 
 | カテゴリ            | メソッド                                                                    | 説明                     |
 | ------------------- | --------------------------------------------------------------------------- | ------------------------ |
@@ -463,7 +456,7 @@ npx ts-node src/05-api-validation.ts
 
 ---
 
-## まとめ
+# まとめ
 
 ```mermaid
 flowchart LR
@@ -483,3 +476,7 @@ flowchart LR
 Zod は **「TypeScript の型安全性をランタイムまで拡張する」** ための必須ツールです。特に API 通信やフォームバリデーションといった **信頼境界（Trust Boundary）** を超えるデータの取り扱いにおいて、非常に大きな威力を発揮します。
 
 ぜひ実際に手を動かして、Zod の便利さを体感してみてください！
+
+---
+
+[^1]: [Zod（ドキュメント）](https://zod.dev/)
