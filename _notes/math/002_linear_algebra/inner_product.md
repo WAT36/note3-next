@@ -70,3 +70,44 @@ $$
 2.  斉次性： $ \|c\boldsymbol{v}\| = |c|\,\|\boldsymbol{v}\|$
 
 3.  三角不等式： $ \|\boldsymbol{u} + \boldsymbol{v}\| \leq \|\boldsymbol{u}\| + \|\boldsymbol{v}\|$
+
+## シュワルツの不等式と三角不等式
+
+内積とノルムに関する最も重要な不等式を証明します。
+
+定理（コーシー・シュワルツの不等式）： 内積空間の任意のベクトル $\boldsymbol{u}, \boldsymbol{v} \in V$
+
+$$
+\langle \boldsymbol{u}, \boldsymbol{v} \rangle| \leq \|\boldsymbol{u}\| \cdot \|\boldsymbol{v}\|
+$$
+
+が成立する。等号成立条件は $\boldsymbol{u}$ と $\boldsymbol{v}$ が線形従属のときに限る。
+
+証明： $\boldsymbol{v} = \boldsymbol{0}$ のときは両辺ともに $0$ で成立する。$\boldsymbol{v} \neq \boldsymbol{0}$ とし、任意の $t \in \mathbb{R}$ に対して正定値性より
+
+$$
+0 \leq \|\boldsymbol{u} - t\boldsymbol{v}\|^2 = \|\boldsymbol{u}\|^2 - 2t\langle \boldsymbol{u}, \boldsymbol{v} \rangle + t^2\|\boldsymbol{v}\|^2
+$$
+
+が成立する。これは $t$ についての下に凸な 2 次式であり、常に非負だから判別式 $D \leq 0$：
+
+$$
+\frac{D}{4} = \langle \boldsymbol{u}, \boldsymbol{v} \rangle^2 - \|\boldsymbol{u}\|^2\|\boldsymbol{v}\|^2 \leq 0
+$$
+
+よって $|\langle \boldsymbol{u}, \boldsymbol{v} \rangle| \leq \|\boldsymbol{u}\| \cdot \|\boldsymbol{v}\|$。等号は $D = 0$、すなわち $\boldsymbol{u} = t_0\boldsymbol{v}$ となる $t_0$​ が存在するときに限る。$\square$
+
+定理（三角不等式）： 任意の $\boldsymbol{u}, \boldsymbol{v} \in V$ に対して $\boldsymbol{u} + \boldsymbol{v}\| \leq \|\boldsymbol{u}\| + \|\boldsymbol{v}\|$。
+
+証明：$\boldsymbol{u} + \boldsymbol{v}\|^2 = \|\boldsymbol{u}\|^2 + 2\langle \boldsymbol{u}, \boldsymbol{v} \rangle + \|\boldsymbol{v}\|^2$ であり、シュワルツの不等式より $\langle \boldsymbol{u}, \boldsymbol{v} \rangle \leq |\langle \boldsymbol{u}, \boldsymbol{v} \rangle| \leq \|\boldsymbol{u}\|\|\boldsymbol{v}\|$ だから
+
+$$
+\boldsymbol{u} + \boldsymbol{v}\|^2 \leq \|\boldsymbol{u}\|^2 + 2\|\boldsymbol{u}\|\|\boldsymbol{v}\| + \|\boldsymbol{v}\|^2 = (\|\boldsymbol{u}\| + \|\boldsymbol{v}\|)^2
+$$
+
+両辺は非負だから平方根をとって成立する。$\square$
+
+シュワルツの不等式より $-1 \leq \langle \boldsymbol{u}, \boldsymbol{v} \rangle / (\|\boldsymbol{u}\|\|\boldsymbol{v}\|) \leq 1$ が成り立つため、0 でないベクトル $\boldsymbol{u}, \boldsymbol{v}$ のなす角度 $\theta$ を
+
+$\cos\theta = \frac{\langle \boldsymbol{u}, \boldsymbol{v} \rangle}{\|\boldsymbol{u}\| \cdot \|\boldsymbol{v}\|}, \quad 0 \leq \theta \leq \pi$
+と定義することが正当化されます。
