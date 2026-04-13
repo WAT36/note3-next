@@ -111,3 +111,25 @@ $$
 
 $\cos\theta = \frac{\langle \boldsymbol{u}, \boldsymbol{v} \rangle}{\|\boldsymbol{u}\| \cdot \|\boldsymbol{v}\|}, \quad 0 \leq \theta \leq \pi$
 と定義することが正当化されます。
+
+## 直交
+
+定義（直交）： 内積空間 $V$ の 2 つのベクトル $\boldsymbol{u}, \boldsymbol{v}$ が
+
+$$
+\langle \boldsymbol{u}, \boldsymbol{v} \rangle = 0
+$$
+
+を満たすとき、$\boldsymbol{u}$ と $\boldsymbol{v}$ は **直交** するといい、$\boldsymbol{u} \perp \boldsymbol{v}$ と書く。またベクトルの集合 $\{\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k\}$ において任意の相異なる 2 ベクトルが直交するとき、これを **直交系** という。
+
+直交するベクトルには、ピタゴラスの定理の一般化が成り立ちます。
+
+定理（一般化ピタゴラスの定理）： $\boldsymbol{u} \perp \boldsymbol{v}$ ならば $\boldsymbol{u} + \boldsymbol{v}\|^2 = \|\boldsymbol{u}\|^2 + \|\boldsymbol{v}\|^2$。
+
+証明： $|\boldsymbol{u} + \boldsymbol{v}\|^2 = \|\boldsymbol{u}\|^2 + 2\langle \boldsymbol{u}, \boldsymbol{v} \rangle + \|\boldsymbol{v}\|^2 = \|\boldsymbol{u}\|^2 + 0 + \|\boldsymbol{v}\|^2$
+
+直交系には重要な性質があります。
+
+定理（直交系の線形独立性）： 零ベクトルを含まない直交系 $\{\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k\}$ は線形独立である。
+
+証明： $\boldsymbol{v}_1 + \cdots + c_k\boldsymbol{v}_k = \boldsymbol{0}$ とする。任意の $j$ について両辺と $\boldsymbol{v}_j$​ の内積をとると $c_j\|\boldsymbol{v}_j\|^2 = 0$。$\boldsymbol{v}_j \neq \boldsymbol{0}$ より $\|\boldsymbol{v}_j\|^2 > 0$ だから $c_j = 0$ 。
