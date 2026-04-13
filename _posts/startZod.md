@@ -1,7 +1,7 @@
 ---
 title: "Zod事始め"
 excerpt: ""
-coverImage: ""
+coverImage: "/assets/posts/startZod/logos.svg"
 date: "2026-04-09T23:15:46.000Z"
 updatedAt: "2026-04-09T23:15:46.000Z"
 tag: []
