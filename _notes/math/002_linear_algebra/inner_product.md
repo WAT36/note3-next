@@ -181,3 +181,5 @@ $$
 $$
 
 各ステップの意味は明快です。$\boldsymbol{v}_j$​ は $\boldsymbol{a}_j$​ から、すでに構成した正規直交ベクトル $\boldsymbol{e}_1, \ldots, \boldsymbol{e}_{j-1}$​ への射影成分をすべて取り除いた「残差」であり、これを正規化することで既存の全ベクトルに直交する単位ベクトルが得られます
+
+![](/assets/note/math/002_linear_algebra/inner_product/gram_schmidt_diagram.svg)
