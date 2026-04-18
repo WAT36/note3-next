@@ -133,3 +133,5 @@ $$
 定理（直交系の線形独立性）： 零ベクトルを含まない直交系 $\{\boldsymbol{v}_1, \ldots, \boldsymbol{v}_k\}$ は線形独立である。
 
 証明： $\boldsymbol{v}_1 + \cdots + c_k\boldsymbol{v}_k = \boldsymbol{0}$ とする。任意の $j$ について両辺と $\boldsymbol{v}_j$​ の内積をとると $c_j\|\boldsymbol{v}_j\|^2 = 0$。$\boldsymbol{v}_j \neq \boldsymbol{0}$ より $\|\boldsymbol{v}_j\|^2 > 0$ だから $c_j = 0$ 。
+
+![](/assets/note/math/002_linear_algebra/inner_product/orthogonality_diagram.svg)
