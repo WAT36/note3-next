@@ -135,3 +135,29 @@ $$
 証明： $\boldsymbol{v}_1 + \cdots + c_k\boldsymbol{v}_k = \boldsymbol{0}$ とする。任意の $j$ について両辺と $\boldsymbol{v}_j$​ の内積をとると $c_j\|\boldsymbol{v}_j\|^2 = 0$。$\boldsymbol{v}_j \neq \boldsymbol{0}$ より $\|\boldsymbol{v}_j\|^2 > 0$ だから $c_j = 0$ 。
 
 ![](/assets/note/math/002_linear_algebra/inner_product/orthogonality_diagram.svg)
+
+## 正規直交系
+
+直交系の各ベクトルをさらに単位ベクトル（大きさ 1）に正規化したものが正規直交系です。
+
+定義（正規直交系・正規直交基底）： ベクトルの集合 $\{\boldsymbol{e}_1, \ldots, \boldsymbol{e}_k\}$ が
+
+$$
+\langle \boldsymbol{e}_i, \boldsymbol{e}_j \rangle = \delta_{ij} = \begin{cases} 1 & (i = j) \\ 0 & (i \neq j) \end{cases}
+$$
+
+を満たすとき、 **正規直交系** という。ここで $\delta_{ij}$​ はクロネッカーのデルタである。正規直交系がベクトル空間 $V$ の基底をなすとき、 **正規直交基底** という。
+
+$\mathbb{R}^n$ の標準基底 $\{\boldsymbol{e}_1, \ldots, \boldsymbol{e}_n\}$ は標準内積のもとで正規直交基底をなします。正規直交基底の最大の利点は、座標（フーリエ係数）が内積を取るだけで求まることです。
+
+定理（正規直交基底による展開）： $\{\boldsymbol{e}_1, \ldots, \boldsymbol{e}_n\}$ が $V$ の正規直交基底ならば、任意の $\boldsymbol{v} \in V$ は
+
+$$
+\boldsymbol{v} = \langle \boldsymbol{v}, \boldsymbol{e}_1 \rangle \boldsymbol{e}_1 + \langle \boldsymbol{v}, \boldsymbol{e}_2 \rangle \boldsymbol{e}_2 + \cdots + \langle \boldsymbol{v}, \boldsymbol{e}_n \rangle \boldsymbol{e}_n
+$$
+
+と展開できる。係数 $\langle \boldsymbol{v}, \boldsymbol{e}_i \rangle$ を **フーリエ係数** という。
+
+証明： $\boldsymbol{v} = c_1\boldsymbol{e}_1 + \cdots + c_n\boldsymbol{e}_n$​ の両辺と $\boldsymbol{e}_j$​ の内積をとると、正規直交性より $\langle \boldsymbol{v}, \boldsymbol{e}_j \rangle = c_j\|\boldsymbol{e}_j\|^2 = c_j$
+
+一般の基底では行列の逆行列計算が必要だが、正規直交基底では内積を取るだけで係数が求まる。これが正規直交基底を積極的に構成する動機です。
