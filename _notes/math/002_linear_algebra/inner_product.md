@@ -207,3 +207,19 @@ $$
 $$
 
 $\|\boldsymbol{e}_i\| = 1$、$\langle \boldsymbol{e}_i, \boldsymbol{e}_j \rangle = 0\ (i \neq j)$ が確認できます。
+
+# 直交補空間
+
+ベクトル空間 $V$ の部分空間 $W$ が与えられたとき、$W$ のすべてのベクトルに直交するベクトル全体の集合を考えます。
+
+定義（直交補空間）： 内積空間 $V$ の部分空間 $W$ に対し
+
+$$
+W^\perp = \{ \boldsymbol{v} \in V \mid \langle \boldsymbol{v}, \boldsymbol{w} \rangle = 0 \text{ for all } \boldsymbol{w} \in W \}
+$$
+
+を $W$ の **直交補空間** （orthogonal complement）という。
+
+$W^\perp$ は「 $W$ の全要素と直交するベクトルをすべて集めた集合」です。定義から $W \cap W^\perp \subseteq \{\boldsymbol{0}\}$ であることが分かります（$W$ と $W^\perp$ の両方に属するベクトル $\boldsymbol{v}$ があれば $\langle \boldsymbol{v}, \boldsymbol{v} \rangle = 0$、正定値性より $\boldsymbol{v} = \boldsymbol{0}$）。
+
+![](/assets/note/math/002_linear_algebra/inner_product/orthogonal_complement_def.svg)
