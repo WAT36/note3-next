@@ -161,3 +161,23 @@ $$
 証明： $\boldsymbol{v} = c_1\boldsymbol{e}_1 + \cdots + c_n\boldsymbol{e}_n$​ の両辺と $\boldsymbol{e}_j$​ の内積をとると、正規直交性より $\langle \boldsymbol{v}, \boldsymbol{e}_j \rangle = c_j\|\boldsymbol{e}_j\|^2 = c_j$
 
 一般の基底では行列の逆行列計算が必要だが、正規直交基底では内積を取るだけで係数が求まる。これが正規直交基底を積極的に構成する動機です。
+
+## グラム・シュミットの正規直交化法
+
+任意の線形独立なベクトルの組から正規直交系を構成する系統的な手順を説明します。
+
+定義（正射影）： 0 でないベクトル $\boldsymbol{b}$ への $\boldsymbol{a}$ の正射影を
+
+$$
+\mathrm{proj}_{\boldsymbol{b}}\, \boldsymbol{a} = \frac{\langle \boldsymbol{a}, \boldsymbol{b} \rangle}{\|\boldsymbol{b}\|^2}\, \boldsymbol{b}
+$$
+
+と定義する。残差 $\boldsymbol{a} - \mathrm{proj}_{\boldsymbol{b}}\boldsymbol{a}$ は $\boldsymbol{b}$ に直交する。
+
+定理（グラム・シュミットの正規直交化法）： 線形独立なベクトルの組 $\{\boldsymbol{a}_1, \ldots, \boldsymbol{a}_k\}$ から、以下の手順によって同じ部分空間を張る正規直交系 $\{\boldsymbol{e}_1, \ldots, \boldsymbol{e}_k\}$ が構成できる。
+
+$$
+\boldsymbol{v}_j = \boldsymbol{a}_j - \sum_{i=1}^{j-1} \langle \boldsymbol{a}_j, \boldsymbol{e}_i \rangle\, \boldsymbol{e}_i, \qquad \boldsymbol{e}_j = \frac{\boldsymbol{v}_j}{\|\boldsymbol{v}_j\|}
+$$
+
+各ステップの意味は明快です。$\boldsymbol{v}_j$​ は $\boldsymbol{a}_j$​ から、すでに構成した正規直交ベクトル $\boldsymbol{e}_1, \ldots, \boldsymbol{e}_{j-1}$​ への射影成分をすべて取り除いた「残差」であり、これを正規化することで既存の全ベクトルに直交する単位ベクトルが得られます
