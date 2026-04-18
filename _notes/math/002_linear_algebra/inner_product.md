@@ -183,3 +183,27 @@ $$
 各ステップの意味は明快です。$\boldsymbol{v}_j$​ は $\boldsymbol{a}_j$​ から、すでに構成した正規直交ベクトル $\boldsymbol{e}_1, \ldots, \boldsymbol{e}_{j-1}$​ への射影成分をすべて取り除いた「残差」であり、これを正規化することで既存の全ベクトルに直交する単位ベクトルが得られます
 
 ![](/assets/note/math/002_linear_algebra/inner_product/gram_schmidt_diagram.svg)
+
+計算例
+
+$\boldsymbol{a}_1 = (1, 1, 0)^T$、$\boldsymbol{a}_2 = (1, 0, 1)^T$、$\boldsymbol{a}_3 = (0, 1, 1)^T$ に適用する。
+
+Step 1： $\boldsymbol{v}_1 = \boldsymbol{a}_1$​、$\|\boldsymbol{v}_1\| = \sqrt{2}$​ より
+
+$$
+\boldsymbol{e}_1 = \frac{1}{\sqrt{2}}\begin{pmatrix}1\\1\\0\end{pmatrix}
+$$
+
+Step 2： $\langle \boldsymbol{a}_2, \boldsymbol{e}_1 \rangle = \frac{1}{\sqrt{2}}$​ より $\boldsymbol{v}_2 = \boldsymbol{a}_2 - \frac{1}{\sqrt{2}}\boldsymbol{e}_1 = \left(\frac{1}{2}, -\frac{1}{2}, 1\right)^T$、$\|\boldsymbol{v}_2\| = \sqrt{\frac{3}{2}}$​​ より
+
+$$
+\boldsymbol{e}_2 = \frac{1}{\sqrt{6}}\begin{pmatrix}1\\-1\\2\end{pmatrix}
+$$
+
+Step 3： 同様に計算して
+
+$$
+\boldsymbol{e}_3 = \frac{1}{\sqrt{3}}\begin{pmatrix}-1\\1\\1\end{pmatrix}
+$$
+
+$\|\boldsymbol{e}_i\| = 1$、$\langle \boldsymbol{e}_i, \boldsymbol{e}_j \rangle = 0\ (i \neq j)$ が確認できます。
