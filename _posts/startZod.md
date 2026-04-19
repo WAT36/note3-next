@@ -43,7 +43,7 @@ TypeScript を使っていると、「型があるから安全」と思いがち
 **前提条件**
 
 - Node.js（v18 以上推奨）
-- TypeScript 5.x 以上
+- TypeScript 5.5 以上
 
 ## プロジェクトのセットアップ
 
@@ -156,11 +156,11 @@ import { z } from "zod";
 // ユーザースキーマの定義
 const UserSchema = z.object({
   id: z.number().int().positive(),
-  name: z.string().min(1, "名前は必須です"),
+  name: z.string().min(1, { error: "名前は必須です" }),
   email: z.string().email("有効なメールアドレスを入力してください"),
   age: z.number().int().min(0).optional(), // 任意項目
   role: z.enum(["admin", "editor", "viewer"]), // 列挙型
-  createdAt: z.string().datetime(), // ISO 8601 形式
+  createdAt: z.iso.datetime(), // ISO 8601 形式の日時文字列
 });
 
 // スキーマから TypeScript の型を自動推論 🎉
@@ -333,10 +333,7 @@ console.log(PasswordSchema.safeParse("Strong1Pass"));
 // → { success: true, data: "Strong1Pass" }
 
 // --- transform: パース時にデータを変換 ---
-const TrimmedLowerEmail = z
-  .string()
-  .email()
-  .transform((val) => val.trim().toLowerCase());
+const TrimmedLowerEmail = z.string().trim().toLowerCase().email();
 
 console.log(TrimmedLowerEmail.parse("  TARO@Example.COM  "));
 // → "taro@example.com"
