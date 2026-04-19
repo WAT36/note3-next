@@ -223,3 +223,27 @@ $$
 $W^\perp$ は「 $W$ の全要素と直交するベクトルをすべて集めた集合」です。定義から $W \cap W^\perp \subseteq \{\boldsymbol{0}\}$ であることが分かります（$W$ と $W^\perp$ の両方に属するベクトル $\boldsymbol{v}$ があれば $\langle \boldsymbol{v}, \boldsymbol{v} \rangle = 0$、正定値性より $\boldsymbol{v} = \boldsymbol{0}$）。
 
 ![](/assets/note/math/002_linear_algebra/inner_product/orthogonal_complement_def.svg)
+
+## 正射影
+
+定義（正射影写像）： 有限次元内積空間 $V$ の部分空間 $W$ に対し、直交分解
+
+$$
+\boldsymbol{v} = \underbrace{\boldsymbol{w}}_{\in W} + \underbrace{\boldsymbol{w}^\perp}_{\in W^\perp}
+$$
+
+における $W$ 成分への対応
+
+$$
+P_W : V \to V、P_W(\boldsymbol{v}) = \boldsymbol{w}
+$$
+
+を $W$ への **正射影（直交射影）** という。
+
+正射影は$W$ の正規直交基底 $\{\boldsymbol{e}_1, \ldots, \boldsymbol{e}_k\}$ を用いると、正射影は明示的に
+
+$$
+P_W(\boldsymbol{v}) = \sum_{i=1}^k \langle \boldsymbol{v}, \boldsymbol{e}_i \rangle\, \boldsymbol{e}_i
+$$
+
+と具体的に書き下せます。
