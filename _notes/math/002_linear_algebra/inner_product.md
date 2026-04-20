@@ -247,3 +247,21 @@ P_W(\boldsymbol{v}) = \sum_{i=1}^k \langle \boldsymbol{v}, \boldsymbol{e}_i \ran
 $$
 
 と具体的に書き下せます。
+
+# 直交行列
+
+定義（直交行列）： 実正方行列 $Q \in \mathbb{R}^{n \times n}$ が
+
+$$
+Q^T Q = I
+$$
+
+を満たすとき、$Q$ を **直交行列** （orthogonal matrix）という。
+
+この条件は「$Q$ の列ベクトル $\boldsymbol{q}_1, \ldots, \boldsymbol{q}_n$​ が $\mathbb{R}^n$ の正規直交基底をなす」ことと同値です。実際、$(Q^TQ)_{ij} = \boldsymbol{q}_i^T \boldsymbol{q}_j = \langle \boldsymbol{q}_i, \boldsymbol{q}_j \rangle$ ですから、$Q^TQ = I$ は
+
+$$
+\langle \boldsymbol{q}_i, \boldsymbol{q}_j \rangle = \delta_{ij} = \begin{cases} 1 & (i = j) \\ 0 & (i \neq j) \end{cases}
+$$
+
+に他なりません。
