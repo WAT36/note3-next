@@ -2,8 +2,8 @@
 title: "Zod事始め"
 excerpt: ""
 coverImage: "/assets/posts/startZod/logos.svg"
-date: "2026-04-09T23:15:46.000Z"
-updatedAt: "2026-04-09T23:15:46.000Z"
+date: '2026-04-19T22:20:18.000Z'
+updatedAt: '2026-04-20T18:10:30.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
