@@ -1,9 +1,9 @@
 ---
 title: "Zod事始め"
-excerpt: ""
+excerpt: "TypeScriptだけでは守れない実行時の型安全を、Zodの基本から実践までハンズオンで学ぶ。"
 coverImage: "/assets/posts/startZod/logos.svg"
-date: '2026-04-19T22:20:18.000Z'
-updatedAt: '2026-04-20T18:10:30.000Z'
+date: "2026-04-19T22:20:18.000Z"
+updatedAt: "2026-04-20T18:10:30.000Z"
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -90,19 +90,19 @@ import { z } from "zod";
 // --- 文字列スキーマ ---
 const nameSchema = z.string();
 
-console.log(nameSchema.parse("Taro")); // ✅ "Taro"
-// console.log(nameSchema.parse(123));        // ❌ ZodError がスローされる
+console.log(nameSchema.parse("Taro")); //  "Taro"
+// console.log(nameSchema.parse(123));        //  ZodError がスローされる
 
 // --- 数値スキーマ ---
 const ageSchema = z.number().int().min(0).max(150);
 
-console.log(ageSchema.parse(25)); // ✅ 25
-// console.log(ageSchema.parse(-1));          // ❌ ZodError
+console.log(ageSchema.parse(25)); //  25
+// console.log(ageSchema.parse(-1));          //  ZodError
 
 // --- 真偽値スキーマ ---
 const isActiveSchema = z.boolean();
 
-console.log(isActiveSchema.parse(true)); // ✅ true
+console.log(isActiveSchema.parse(true)); //  true
 
 // --- safeParse: エラーをスローせずに結果を取得 ---
 const result = ageSchema.safeParse("not a number");
@@ -113,15 +113,9 @@ if (!result.success) {
 }
 ```
 
-- 実行
+- 実行例
 
-```bash
-npx ts-node src/01-primitives.ts
-```
-
-- 実行結果
-
-```bash
+```whitespace
 Taro
 25
 true
@@ -146,7 +140,7 @@ true
 
 # ハンズオン ② — オブジェクトスキーマと型推論
 
-Zod の真価はオブジェクトスキーマにあります。スキーマから TypeScript の型を **自動生成** できます。
+Zod の真価はオブジェクトスキーマにあります。スキーマから TypeScript の型を **自動推論** できます。
 
 - `src/02-object.ts`
 
@@ -157,7 +151,7 @@ import { z } from "zod";
 const UserSchema = z.object({
   id: z.number().int().positive(),
   name: z.string().min(1, { error: "名前は必須です" }),
-  email: z.string().email("有効なメールアドレスを入力してください"),
+  email: z.string().email({ error: "有効なメールアドレスを入力してください" }),
   age: z.number().int().min(0).optional(), // 任意項目
   role: z.enum(["admin", "editor", "viewer"]), // 列挙型
   createdAt: z.iso.datetime(), // ISO 8601 形式の日時文字列
@@ -185,7 +179,7 @@ const validUser: unknown = {
 };
 
 const parsed = UserSchema.parse(validUser);
-console.log("✅ パース成功:", parsed);
+console.log("パース成功:", parsed);
 
 // --- 異常系 ---
 const invalidUser: unknown = {
@@ -198,30 +192,24 @@ const invalidUser: unknown = {
 
 const result = UserSchema.safeParse(invalidUser);
 if (!result.success) {
-  console.log("❌ バリデーションエラー一覧:");
+  console.log("バリデーションエラー一覧:");
   result.error.issues.forEach((issue) => {
     console.log(`  [${issue.path.join(".")}] ${issue.message}`);
   });
 }
 ```
 
-- 実行
-
-```bash
-npx ts-node src/02-object.ts
-```
-
 - 出力例
 
-```bash
-✅ パース成功: {
+```whitespace
+パース成功: {
   id: 1,
   name: '田中太郎',
   email: 'taro@example.com',
   role: 'admin',
   createdAt: '2026-03-23T10:00:00Z'
 }
-❌ バリデーションエラー一覧:
+バリデーションエラー一覧:
   [id] Too small: expected number to be >0
   [name] 名前は必須です
   [email] 有効なメールアドレスを入力してください
@@ -242,7 +230,7 @@ import { z } from "zod";
 
 // 住所スキーマ
 const AddressSchema = z.object({
-  postalCode: z.string().regex(/^\d{3}-\d{4}$/, "例: 100-0001"),
+  postalCode: z.string().regex(/^\d{3}-\d{4}$/, { error: "例: 100-0001" }),
   prefecture: z.string(),
   city: z.string(),
   street: z.string().optional(),
@@ -273,7 +261,7 @@ const data: unknown = {
 };
 
 const customer = CustomerSchema.parse(data);
-console.log("✅ Customer:", customer);
+console.log("Customer:", customer);
 // tags は default([]) により空配列が自動付与される
 console.log("   tags:", customer.tags); // []
 ```
@@ -296,8 +284,8 @@ const MergedSchema = PersonSchema.merge(AddressSchema);
 
 - 実行例
 
-```bash
-✅ Customer: {
+```whitespace
+Customer: {
   name: '佐藤花子',
   age: 30,
   address: { postalCode: '100-0001', prefecture: '東京都', city: '千代田区' },
@@ -318,12 +306,12 @@ import { z } from "zod";
 // --- refine: カスタムバリデーション ---
 const PasswordSchema = z
   .string()
-  .min(8, "8文字以上で入力してください")
+  .min(8, { error: "8文字以上で入力してください" })
   .refine((val) => /[A-Z]/.test(val), {
-    message: "大文字を1文字以上含めてください",
+    error: "大文字を1文字以上含めてください",
   })
   .refine((val) => /[0-9]/.test(val), {
-    message: "数字を1文字以上含めてください",
+    error: "数字を1文字以上含めてください",
   });
 
 console.log(PasswordSchema.safeParse("weakpass"));
@@ -360,9 +348,33 @@ const signupResult = SignupSchema.safeParse({
 });
 
 if (!signupResult.success) {
-  console.log("❌", signupResult.error.issues[0].message);
+  console.log(signupResult.error.issues[0].message);
   // → "パスワードが一致しません"
 }
+```
+
+- 出力例
+
+```whitespace
+{
+  success: false,
+  error: ZodError: [
+    {
+      "code": "custom",
+      "path": [],
+      "message": "大文字を1文字以上含めてください"
+    },
+    {
+      "code": "custom",
+      "path": [],
+      "message": "数字を1文字以上含めてください"
+    }
+  ]
+ （・・・中略・・・）
+}
+{ success: true, data: 'Strong1Pass' }
+taro@example.com
+パスワードが一致しません
 ```
 
 ---
@@ -414,7 +426,7 @@ async function fetchPosts(): Promise<ApiPost[]> {
   try {
     const posts = await fetchPosts();
     posts.forEach((post) => {
-      console.log(`📝 [${post.id}] ${post.title}`);
+      console.log(`[${post.id}] ${post.title}`);
     });
   } catch (err) {
     console.error("取得に失敗しました:", err);
@@ -422,18 +434,12 @@ async function fetchPosts(): Promise<ApiPost[]> {
 })();
 ```
 
-- 実行
+- 出力例
 
-```bash
-npx ts-node src/05-api-validation.ts
-```
-
-- 実行結果
-
-```bash
-📝 [1] sunt aut facere repellat provident occaecati excepturi optio reprehenderit
-📝 [2] qui est esse
-📝 [3] ea molestias quasi exercitationem repellat qui ipsa sit aut
+```whitespace
+[1] sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+[2] qui est esse
+[3] ea molestias quasi exercitationem repellat qui ipsa sit aut
 ```
 
 ---
@@ -462,7 +468,7 @@ npx ts-node src/05-api-validation.ts
 | バリデーションロジックが散在     | スキーマに集約し、再利用可能に           |
 | エラーメッセージが不親切         | `issues` 配列で構造化されたエラーを提供  |
 
-Zod は **「TypeScript の型安全性をランタイムまで拡張する」** ための必須ツールです。特に API 通信やフォームバリデーションといった **信頼境界（Trust Boundary）** を超えるデータの取り扱いにおいて、非常に大きな威力を発揮します。
+Zod は **「TypeScript の型安全性をランタイムまで拡張する」** ための有力な選択肢です。特に API 通信やフォームバリデーションといった **信頼境界（Trust Boundary）** を超えるデータの取り扱いにおいて、非常に有効です。
 
 ぜひ実際に手を動かして、Zod の便利さを体感してみてください！
 
