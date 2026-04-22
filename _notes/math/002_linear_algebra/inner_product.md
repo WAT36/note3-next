@@ -279,3 +279,43 @@ $$
 証明： $(1) \Rightarrow (3)$： $Q^TQ = I$ より $Q^T$ は $Q$ の左逆行列。正方行列では左逆行列＝逆行列だから $Q^T = Q^{-1}$。 $(3) \Rightarrow (2)$： $Q^{-1} = Q^T$ の両辺右から $Q$ をかけると $QQ^T = I$ 。$(2) \Leftrightarrow (4)$（行版）は列の場合と対称的に示せる。
 
 条件 (3) $Q^T = Q^{-1}$ は特に重要です。直交行列の逆行列は転置を計算するだけで得られるため、数値計算上も非常に扱いやすい行列です。
+
+## 直交行列と内積
+
+直交行列の最も本質的な性質は、内積・ノルム・角度を完全に保存することです。
+
+定理（直交変換の等長性）： $Q \in \mathbb{R}^{n \times n}$ を直交行列とする。任意の $\boldsymbol{u}, \boldsymbol{v} \in \mathbb{R}^n$ に対して
+
+$$
+\langle Q\boldsymbol{u},\, Q\boldsymbol{v} \rangle = \langle \boldsymbol{u}, \boldsymbol{v} \rangle
+$$
+
+証明：
+
+$$
+\langle Q\boldsymbol{u}, Q\boldsymbol{v} \rangle = (Q\boldsymbol{u})^T(Q\boldsymbol{v}) = \boldsymbol{u}^T Q^T Q \boldsymbol{v} = \boldsymbol{u}^T I \boldsymbol{v} = \langle \boldsymbol{u}, \boldsymbol{v} \rangle \quad
+$$
+
+内積が保存されることから、ノルムと角度の保存が直ちに従います。
+
+系（ノルムの保存）：
+
+$$
+\|Q\boldsymbol{v}\| = \|\boldsymbol{v}\|
+$$
+
+証明： $\|Q\boldsymbol{v}\|^2 = \langle Q\boldsymbol{v}, Q\boldsymbol{v} \rangle = \langle \boldsymbol{v}, \boldsymbol{v} \rangle = \|\boldsymbol{v}\|^2$
+
+系（角度の保存）： $\boldsymbol{u}, \boldsymbol{v} \neq \boldsymbol{0}$ のとき、$Q\boldsymbol{u}$ と $Q\boldsymbol{v}$ のなす角は $\boldsymbol{u}$ と $\boldsymbol{v}$ のなす角に等しい。
+
+証明：
+
+$$
+\cos\theta' = \frac{\langle Q\boldsymbol{u}, Q\boldsymbol{v} \rangle}{\|Q\boldsymbol{u}\|\,\|Q\boldsymbol{v}\|} = \frac{\langle \boldsymbol{u}, \boldsymbol{v} \rangle}{\|\boldsymbol{u}\|\,\|\boldsymbol{v}\|} = \cos\theta \quad
+$$
+
+内積を保存する線形写像を等長写像（isometry）または **直交変換** といいます。上の定理は「直交行列による変換は等長写像である」ことを示しています。逆も成り立ちます。
+
+定理（等長写像の特徴付け）： $\mathbb{R}^n$ の線形写像 $f$ が等長写像であること（すべての $\boldsymbol{u}, \boldsymbol{v}$ に対して $\langle f(\boldsymbol{u}), f(\boldsymbol{v})\rangle = \langle \boldsymbol{u}, \boldsymbol{v}\rangle$ は、$f$ を表す行列が直交行列であることと同値である。
+
+![](/assets/note/math/002_linear_algebra/inner_product/orthogonal_matrix_inner_product.svg)
