@@ -319,3 +319,27 @@ $$
 定理（等長写像の特徴付け）： $\mathbb{R}^n$ の線形写像 $f$ が等長写像であること（すべての $\boldsymbol{u}, \boldsymbol{v}$ に対して $\langle f(\boldsymbol{u}), f(\boldsymbol{v})\rangle = \langle \boldsymbol{u}, \boldsymbol{v}\rangle$ は、$f$ を表す行列が直交行列であることと同値である。
 
 ![](/assets/note/math/002_linear_algebra/inner_product/orthogonal_matrix_inner_product.svg)
+
+# 複素内積
+
+実内積の定義を複素数体に単純に流用しようとすると問題が生じます。例えば $\boldsymbol{v} = (i) \in \mathbb{C}^1$ に対して実内積の形式で $\langle \boldsymbol{v}, \boldsymbol{v} \rangle = i \cdot i = -1 < 0$ となり、正定値性が壊れてしまいます。これを修正するために対称性の公理を共役対称性に変更します。定義（複素内積）： 複素ベクトル空間 $V$ 上の複素内積とは、写像 $\langle \cdot, \cdot \rangle : V \times V \to \mathbb{C}$ であって、任意の $\boldsymbol{u}, \boldsymbol{v}, \boldsymbol{w} \in V$ および $c \in \mathbb{C}$ に対して次の 4 条件を満たすものをいう。
+
+$$
+\text{(1) 共役対称性：} \langle \boldsymbol{u}, \boldsymbol{v} \rangle = \overline{\langle \boldsymbol{v}, \boldsymbol{u} \rangle}
+$$
+
+$$
+\text{(2) 第1引数の線形性（スカラー倍）：} \langle c\boldsymbol{u}, \boldsymbol{v} \rangle = c\langle \boldsymbol{u}, \boldsymbol{v} \rangle
+$$
+
+$$
+\text{(3) 第1引数の線形性（加法）：} \langle \boldsymbol{u} + \boldsymbol{v}, \boldsymbol{w} \rangle = \langle \boldsymbol{u}, \boldsymbol{w} \rangle + \langle \boldsymbol{v}, \boldsymbol{w} \rangle
+$$
+
+$$
+\text{(4) 正定値性：} \langle \boldsymbol{v}, \boldsymbol{v} \rangle \geq 0, \quad \text{等号成立} \iff \boldsymbol{v} = \boldsymbol{0}
+$$
+
+実内積と比べて変更があるのは条件 (1) だけです。$\langle \boldsymbol{v}, \boldsymbol{v} \rangle = \overline{\langle \boldsymbol{v}, \boldsymbol{v} \rangle}$​ となるため $\langle \boldsymbol{v}, \boldsymbol{v} \rangle \in \mathbb{R}$ が自動的に保証され、正定値性の不等号 $\geq 0$ が意味を持ちます。
+
+![](/assets/note/math/002_linear_algebra/inner_product/complex_inner_product_def.svg)
