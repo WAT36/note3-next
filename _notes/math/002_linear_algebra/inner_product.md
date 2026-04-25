@@ -21,10 +21,19 @@ ogImage:
 定義（内積）： 実ベクトル空間 $V$ 上の内積とは、写像 $\langle \cdot, \cdot \rangle : V \times V \to \mathbb{R}$ であって、任意の $\boldsymbol{u}, \boldsymbol{v}, \boldsymbol{w} \in V$ および $c \in \mathbb{R}$ に対して次の 4 条件を満たすものをいう。
 
 $$
-(1) 対称性：\text{(1) 対称性：} \langle \boldsymbol{u}, \boldsymbol{v} \rangle = \langle \boldsymbol{v}, \boldsymbol{u} \rangle(1) 
-(2) 線形性（スカラー倍）： \text{(2) 線形性（スカラー倍）：} \langle c\boldsymbol{u}, \boldsymbol{v} \rangle = c\langle \boldsymbol{u}, \boldsymbol{v} \rangle(2) 
-(3) 線形性（加法）：\text{(3) 線形性（加法）：} \langle \boldsymbol{u} + \boldsymbol{v}, \boldsymbol{w} \rangle = \langle \boldsymbol{u}, \boldsymbol{w} \rangle + \langle \boldsymbol{v}, \boldsymbol{w} \rangle(3) 
-(4) 正定値性：\text{(4) 正定値性：} \langle \boldsymbol{v}, \boldsymbol{v} \rangle \geq 0,\quad \text{等号成立} \iff \boldsymbol{v} = \boldsymbol{0}(4) 
+\text{(1) 対称性：} \langle \boldsymbol{u}, \boldsymbol{v} \rangle = \langle \boldsymbol{v}, \boldsymbol{u} \rangle
+$$
+
+$$
+\text{(2) 線形性（スカラー倍）：} \langle c\boldsymbol{u}, \boldsymbol{v} \rangle = c\langle \boldsymbol{u}, \boldsymbol{v} \rangle
+$$
+
+$$
+\text{(3) 線形性（加法）：} \langle \boldsymbol{u} + \boldsymbol{v}, \boldsymbol{w} \rangle = \langle \boldsymbol{u}, \boldsymbol{w} \rangle + \langle \boldsymbol{v}, \boldsymbol{w} \rangle
+$$
+
+$$
+\text{(4) 正定値性：} \langle \boldsymbol{v}, \boldsymbol{v} \rangle \geq 0,\quad \text{等号成立} \iff \boldsymbol{v} = \boldsymbol{0}
 $$
 
 対称性と線形性を合わせて、内積は **双線形写像** であるといいます。すなわち第 2 引数についても $\langle \boldsymbol{u}, c\boldsymbol{v} + \boldsymbol{w} \rangle = c\langle \boldsymbol{u}, \boldsymbol{v} \rangle + \langle \boldsymbol{u}, \boldsymbol{w} \rangle$ が自動的に成立します。
@@ -95,7 +104,7 @@ $$
 \frac{D}{4} = \langle \boldsymbol{u}, \boldsymbol{v} \rangle^2 - \|\boldsymbol{u}\|^2\|\boldsymbol{v}\|^2 \leq 0
 $$
 
-よって $|\langle \boldsymbol{u}, \boldsymbol{v} \rangle| \leq \|\boldsymbol{u}\| \cdot \|\boldsymbol{v}\|$。等号は $D = 0$、すなわち $\boldsymbol{u} = t_0\boldsymbol{v}$ となる $t_0$​ が存在するときに限る。$\square$
+よって $|\langle \boldsymbol{u}, \boldsymbol{v} \rangle| \leq \|\boldsymbol{u}\| \cdot \|\boldsymbol{v}\|$。等号は $D = 0$、すなわち $\boldsymbol{u} = t_0\boldsymbol{v}$ となる $t_0$​ が存在するときに限る。
 
 定理（三角不等式）： 任意の $\boldsymbol{u}, \boldsymbol{v} \in V$ に対して $\boldsymbol{u} + \boldsymbol{v}\| \leq \|\boldsymbol{u}\| + \|\boldsymbol{v}\|$。
 
@@ -105,7 +114,7 @@ $$
 \boldsymbol{u} + \boldsymbol{v}\|^2 \leq \|\boldsymbol{u}\|^2 + 2\|\boldsymbol{u}\|\|\boldsymbol{v}\| + \|\boldsymbol{v}\|^2 = (\|\boldsymbol{u}\| + \|\boldsymbol{v}\|)^2
 $$
 
-両辺は非負だから平方根をとって成立する。$\square$
+両辺は非負だから平方根をとって成立する。
 
 シュワルツの不等式より $-1 \leq \langle \boldsymbol{u}, \boldsymbol{v} \rangle / (\|\boldsymbol{u}\|\|\boldsymbol{v}\|) \leq 1$ が成り立つため、0 でないベクトル $\boldsymbol{u}, \boldsymbol{v}$ のなす角度 $\theta$ を
 
