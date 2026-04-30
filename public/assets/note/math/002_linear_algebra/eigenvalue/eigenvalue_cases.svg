@@ -1,0 +1,67 @@
+<svg width="100%" viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>λの値による固有ベクトルの変換の違い</title>
+  <desc>λ>1（伸縮）、0<λ<1（縮小）、λ<0（反転して伸縮）、λ=1（不変）の4ケース</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      text { font-family: sans-serif; fill: #1a1a1a; }
+      .th { font-size: 13px; font-weight: 500; }
+      .ts { font-size: 11px; font-weight: 400; fill: #555; }
+      .fm { font-size: 11px; font-family: Georgia, serif; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <!-- λ > 1：伸長 -->
+  <rect x="20" y="20" width="148" height="220" rx="8" fill="none" stroke="#ccc" stroke-width="0.5"/>
+  <text class="th" x="94" y="44" text-anchor="middle" fill="#185FA5">λ &gt; 1</text>
+  <text class="ts" x="94" y="60" text-anchor="middle">同方向に伸びる</text>
+  <line x1="94" y1="190" x2="94" y2="60" stroke="#bbb" stroke-width="0.5" marker-end="url(#arrow)"/>
+  <line x1="30" y1="175" x2="158" y2="175" stroke="#bbb" stroke-width="0.5" marker-end="url(#arrow)"/>
+  <line x1="94" y1="175" x2="130" y2="110" stroke="#888" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <text class="fm" x="133" y="110" fill="#555">𝒗</text>
+  <line x1="94" y1="175" x2="156" y2="78" stroke="#3B8BD4" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text class="fm" x="144" y="78" fill="#185FA5">λ𝒗</text>
+  <rect x="28" y="208" width="132" height="22" rx="5" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text class="fm" x="94" y="223" text-anchor="middle" fill="#0C447C">A𝒗 = λ𝒗，λ&gt;1</text>
+
+  <!-- 0 < λ < 1：縮小 -->
+  <rect x="178" y="20" width="148" height="220" rx="8" fill="none" stroke="#ccc" stroke-width="0.5"/>
+  <text class="th" x="252" y="44" text-anchor="middle" fill="#1D9E75">0 &lt; λ &lt; 1</text>
+  <text class="ts" x="252" y="60" text-anchor="middle">同方向に縮む</text>
+  <line x1="252" y1="190" x2="252" y2="60" stroke="#bbb" stroke-width="0.5" marker-end="url(#arrow)"/>
+  <line x1="188" y1="175" x2="316" y2="175" stroke="#bbb" stroke-width="0.5" marker-end="url(#arrow)"/>
+  <line x1="252" y1="175" x2="300" y2="105" stroke="#888" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <text class="fm" x="302" y="105" fill="#555">𝒗</text>
+  <line x1="252" y1="175" x2="276" y2="140" stroke="#1D9E75" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text class="fm" x="278" y="138" fill="#0F6E56">λ𝒗</text>
+  <rect x="186" y="208" width="132" height="22" rx="5" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5"/>
+  <text class="fm" x="252" y="223" text-anchor="middle" fill="#085041">縮小（方向同じ）</text>
+
+  <!-- λ < 0：反転 -->
+  <rect x="336" y="20" width="148" height="220" rx="8" fill="none" stroke="#ccc" stroke-width="0.5"/>
+  <text class="th" x="410" y="44" text-anchor="middle" fill="#E24B4A">λ &lt; 0</text>
+  <text class="ts" x="410" y="60" text-anchor="middle">逆方向へ</text>
+  <line x1="410" y1="195" x2="410" y2="55" stroke="#bbb" stroke-width="0.5" marker-end="url(#arrow)"/>
+  <line x1="346" y1="155" x2="474" y2="155" stroke="#bbb" stroke-width="0.5" marker-end="url(#arrow)"/>
+  <line x1="410" y1="155" x2="452" y2="105" stroke="#888" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <text class="fm" x="454" y="105" fill="#555">𝒗</text>
+  <line x1="410" y1="155" x2="368" y2="205" stroke="#E24B4A" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text class="fm" x="344" y="215" fill="#A32D2D">λ𝒗</text>
+  <rect x="344" y="208" width="132" height="22" rx="5" fill="#FAECE7" stroke="#993C1D" stroke-width="0.5"/>
+  <text class="fm" x="410" y="223" text-anchor="middle" fill="#7A2F12">逆向きに伸縮</text>
+
+  <!-- λ = 1：不変 -->
+  <rect x="494" y="20" width="166" height="220" rx="8" fill="none" stroke="#ccc" stroke-width="0.5"/>
+  <text class="th" x="577" y="44" text-anchor="middle" fill="#534AB7">λ = 1</text>
+  <text class="ts" x="577" y="60" text-anchor="middle">変換で不変</text>
+  <line x1="577" y1="190" x2="577" y2="55" stroke="#bbb" stroke-width="0.5" marker-end="url(#arrow)"/>
+  <line x1="510" y1="175" x2="648" y2="175" stroke="#bbb" stroke-width="0.5" marker-end="url(#arrow)"/>
+  <line x1="577" y1="175" x2="625" y2="110" stroke="#534AB7" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text class="fm" x="627" y="110" fill="#3C3489">𝒗</text>
+  <line x1="577" y1="175" x2="625" y2="110" stroke="#888" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text class="ts" x="577" y="148" text-anchor="middle" fill="#534AB7">A𝒗 = 𝒗</text>
+  <rect x="502" y="208" width="150" height="22" rx="5" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text class="fm" x="577" y="223" text-anchor="middle" fill="#3C3489">完全に不変（恒等）</text>
+</svg>
