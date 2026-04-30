@@ -63,3 +63,27 @@ $$
 $A$ が $n$ 次正方行列のとき、$p(\lambda)$ は $\lambda$ の $n$ 次多項式（最高次の係数は $(-1)^n$）になります。代数学の基本定理より、$\mathbb{C}$ 上では重複度を込めてちょうど $n$ 個の固有値が存在します。
 
 ![](/assets/note/math/002_linear_algebra/eigenvalue/characteristic_polynomial.svg)
+
+# 固有空間
+
+定義（固有空間）： 固有値 $\lambda$ に対する固有空間を
+
+$$
+V_\lambda = \ker(A - \lambda I) = \{ \boldsymbol{v} \in \mathbb{R}^n \mid A\boldsymbol{v} = \lambda\boldsymbol{v} \}Vλ​=ker(A−λI)={v∈Rn∣Av=λv}
+$$
+
+と定義する。固有空間は $\mathbb{R}^n$ の部分空間であり、その次元
+
+$$
+\dim V_\lambda = n - \mathrm{rank}(A - \lambda I)
+$$
+
+を $\lambda$ の **幾何学的重複度** という。
+
+一方、固有多項式における $\lambda$ の根の重複度を **代数的重複度** といいます。常に
+
+$$
+\text{幾何学的重複度} \leq \text{代数的重複度}
+$$
+
+が成り立ちます。等号が成立するかどうかが対角化可能性の鍵です。
