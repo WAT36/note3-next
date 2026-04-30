@@ -24,7 +24,7 @@ $$
 A\boldsymbol{v} = \lambda\boldsymbol{v}Av=λv
 $$
 
-を満たすとき、$\lambda$ を $A$ の **固有値** （eigenvalue）、$\boldsymbol{v}$ を $\lambda$ に対応する固有ベクトル（eigenvector）という。
+を満たすとき、$\lambda$ を $A$ の **固有値** （eigenvalue）、$\boldsymbol{v}$ を $\lambda$ に対応する **固有ベクトル** （eigenvector）という。
 
 固有ベクトルに $\boldsymbol{0}$ を含めない理由は、$A\boldsymbol{0} = \lambda\boldsymbol{0}$ がすべての $\lambda$ に対して自明に成り立ってしまうためです。
 
