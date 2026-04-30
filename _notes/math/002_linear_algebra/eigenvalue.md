@@ -33,3 +33,33 @@ $$
 固有値 $\lambda$ の値によって、固有ベクトルの変換の様子は大きく異なります。
 
 ![](/assets/note/math/002_linear_algebra/eigenvalue/eigenvalue_cases.svg)
+
+# 固有多項式と特性方程式
+
+固有値を実際に求めるための系統的な方法を導きます。
+
+$A\boldsymbol{v} = \lambda\boldsymbol{v}$ を変形すると
+
+$$
+(A - \lambda I)\boldsymbol{v} = \boldsymbol{0}
+$$
+
+$\boldsymbol{v} \neq \boldsymbol{0}$ の解が存在するための必要十分条件は、行列 $(A - \lambda I)$ が正則でないこと、すなわち
+
+$$
+\det(A - \lambda I) = 0
+$$
+
+です。
+
+定義（固有多項式・特性方程式）： $\lambda$ の多項式
+
+$$
+p(\lambda) = \det(A - \lambda I)
+$$
+
+を $A$ の **固有多項式** （characteristic polynomial）という。方程式 $p(\lambda) = 0$ を **特性方程式**（characteristic equation）という。
+
+$A$ が $n$ 次正方行列のとき、$p(\lambda)$ は $\lambda$ の $n$ 次多項式（最高次の係数は $(-1)^n$）になります。代数学の基本定理より、$\mathbb{C}$ 上では重複度を込めてちょうど $n$ 個の固有値が存在します。
+
+![](/assets/note/math/002_linear_algebra/eigenvalue/characteristic_polynomial.svg)

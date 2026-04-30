@@ -1,0 +1,67 @@
+<svg width="100%" viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>固有多項式と固有空間</title>
+  <desc>左：特性方程式による固有値の求め方の手順、右：固有空間の定義と幾何的意味</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      text { font-family: sans-serif; fill: #1a1a1a; }
+      .th { font-size: 14px; font-weight: 500; }
+      .ts { font-size: 12px; font-weight: 400; fill: #555; }
+      .fm { font-size: 12px; font-family: Georgia, serif; fill: #1a1a1a; }
+      .fms { font-size: 11px; font-family: Georgia, serif; fill: #555; }
+    </style>
+  </defs>
+
+  <!-- 左：特性方程式の手順 -->
+  <rect x="20" y="20" width="300" height="205" rx="8" fill="none" stroke="#ccc" stroke-width="0.5"/>
+  <text class="th" x="170" y="46" text-anchor="middle">固有値の求め方（手順）</text>
+
+  <!-- Step 1 -->
+  <rect x="32" y="58" width="276" height="32" rx="5" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text class="ts" x="56" y="69" fill="#185FA5">Step 1</text>
+  <text class="fm" x="170" y="79" text-anchor="middle">A𝒗 = λ𝒗 を変形 → (A − λI)𝒗 = 𝟎</text>
+
+  <line x1="170" y1="90" x2="170" y2="100" stroke="#bbb" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Step 2 -->
+  <rect x="32" y="100" width="276" height="32" rx="5" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text class="ts" x="56" y="111" fill="#185FA5">Step 2</text>
+  <text class="fm" x="170" y="121" text-anchor="middle">𝒗 ≠ 𝟎 の解が存在 ⟺ det(A − λI) = 0</text>
+
+  <line x1="170" y1="132" x2="170" y2="142" stroke="#bbb" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Step 3 -->
+  <rect x="32" y="142" width="276" height="32" rx="5" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text class="ts" x="56" y="153" fill="#534AB7">Step 3</text>
+  <text class="fm" x="170" y="163" text-anchor="middle" fill="#3C3489">固有多項式 p(λ) = det(A − λI) を解く</text>
+
+  <line x1="170" y1="174" x2="170" y2="184" stroke="#bbb" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Step 4 -->
+  <rect x="32" y="184" width="276" height="28" rx="5" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5"/>
+  <text class="ts" x="56" y="195" fill="#0F6E56">Step 4</text>
+  <text class="fm" x="170" y="205" text-anchor="middle" fill="#085041">各 λ に対し (A − λI)𝒗 = 𝟎 を解いて固有ベクトル</text>
+
+  <!-- 右：固有空間 -->
+  <rect x="360" y="20" width="300" height="205" rx="8" fill="none" stroke="#ccc" stroke-width="0.5"/>
+  <text class="th" x="510" y="46" text-anchor="middle">固有空間</text>
+
+  <rect x="372" y="58" width="276" height="40" rx="6" fill="#f5f5f3" stroke="#ccc" stroke-width="0.5"/>
+  <text class="fm" x="510" y="74" text-anchor="middle">固有値 λ に対する固有空間：</text>
+  <text class="fm" x="510" y="90" text-anchor="middle">V_λ = ker(A − λI) = {𝒗 | A𝒗 = λ𝒗}</text>
+
+  <line x1="380" y1="106" x2="632" y2="106" stroke="#ccc" stroke-width="0.5" stroke-dasharray="4 3"/>
+
+  <text class="ts" x="510" y="122" text-anchor="middle">V_λ は ℝⁿ の部分空間（零空間）</text>
+
+  <rect x="372" y="130" width="276" height="28" rx="6" fill="#E1F5EE" stroke="#1D9E75" stroke-width="0.5"/>
+  <text class="fm" x="510" y="148" text-anchor="middle" fill="#085041">dim V_λ = n − rank(A − λI)</text>
+
+  <text class="ts" x="510" y="172" text-anchor="middle">固有空間の次元を</text>
+  <text class="ts" x="510" y="187" text-anchor="middle">λ の幾何学的重複度という</text>
+
+  <rect x="372" y="196" width="276" height="22" rx="5" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text class="fm" x="510" y="211" text-anchor="middle" fill="#5C3407">𝟎 は固有ベクトルに含めない（定義上の注意）</text>
+</svg>
