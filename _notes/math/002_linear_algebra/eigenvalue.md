@@ -101,3 +101,19 @@ $$
 定理（対角化可能条件）： $n$ 次正方行列 $A$ が対角化可能であることは、$\mathbb{R}^n$（または $\mathbb{C}^n$）の基底をなす $n$ 個の 1 次独立な固有ベクトルが存在することと同値である。
 
 証明： $A\boldsymbol{p}_i = \lambda_i\boldsymbol{p}_i$​ （ $i = 1, \ldots, n）が成り立つとき、 $P = (\boldsymbol{p}_1\ \cdots\ \boldsymbol{p}_n)$ とおくと $AP = P\Lambda$。 $P$ が正則（ $\boldsymbol{p}_i$​ が 1 次独立）のとき両辺左から $P^{-1}$ をかけて $P^{-1}AP = \Lambda$。
+
+// 対角化の十分条件・必要十分条件
+
+# トレースと行列式の固有値表示
+
+固有値は行列の重要な不変量と密接に関係しています。
+
+定理： $n$ 次正方行列 $A$ の固有値を $\lambda_1, \ldots, \lambda_n$​（重複度込み）とするとき
+
+$$
+\mathrm{tr}(A) = \lambda_1 + \lambda_2 + \cdots + \lambda_n, \qquad \det(A) = \lambda_1 \lambda_2 \cdots \lambda_n
+$$
+
+証明の概略： 固有多項式 $p(\lambda) = \det(A - \lambda I) = (-1)^n(\lambda - \lambda_1)\cdots(\lambda - \lambda_n)$ を展開して $\lambda^{n-1}$ の係数と定数項を比較することで得られる。
+
+特に $\det(A) = 0 \iff$ 固有値に $0$ が含まれる $\iff A$ が正則でない、という重要な結果が従います。
