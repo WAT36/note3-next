@@ -87,3 +87,17 @@ $$
 $$
 
 が成り立ちます。等号が成立するかどうかが対角化可能性の鍵です。
+
+# 対角化
+
+定義（対角化可能）： $n$ 次正方行列 $A$ が、正則行列 $P$ によって
+
+$$
+P^{-1}AP = \Lambda = \begin{pmatrix} \lambda_1 & & \\ & \ddots & \\ & & \lambda_n \end{pmatrix}
+$$
+
+と変換できるとき、$A$ は **対角化可能** （diagonalizable）であるという。このとき $P$ の各列は固有ベクトル、$\Lambda$ の対角成分は対応する固有値です。
+
+定理（対角化可能条件）： $n$ 次正方行列 $A$ が対角化可能であることは、$\mathbb{R}^n$（または $\mathbb{C}^n$）の基底をなす $n$ 個の 1 次独立な固有ベクトルが存在することと同値である。
+
+証明： $A\boldsymbol{p}_i = \lambda_i\boldsymbol{p}_i$​ （ $i = 1, \ldots, n）が成り立つとき、 $P = (\boldsymbol{p}_1\ \cdots\ \boldsymbol{p}_n)$ とおくと $AP = P\Lambda$。 $P$ が正則（ $\boldsymbol{p}_i$​ が 1 次独立）のとき両辺左から $P^{-1}$ をかけて $P^{-1}AP = \Lambda$。
