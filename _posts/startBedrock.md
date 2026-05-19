@@ -376,7 +376,7 @@ cat response.json | jq .
 aws lambda invoke
   --function-name bedrock-invoke-demo
   --cli-binary-format raw-in-base64-out
-  --payload '{"prompt": "Pythonでクイックソートを実装してください"}'
+  --payload '{"message": "Pythonでクイックソートを実装してください"}'
   response.json
 
 cat response.json | jq .body -r | jq .
@@ -384,60 +384,20 @@ cat response.json | jq .body -r | jq .
 
 **期待される出力例：**
 
-```json
+````json
 {
-  "model": "anthropic.claude-3-haiku-20240307-v1:0",
-  "prompt": "AWSのサービスを3つ挙げてください。",
-  "response": "AWSの代表的なサービスを3つ挙げます：
-
-1. **Amazon EC2** ...
-2. **Amazon S3** ...
-3. **AWS Lambda** ..."
+  "reply": "こんにちは！AWS Lambda から Bedrock（AWSの機械学習サービス）を呼び出すことは可能です。以下の手順で実現できます：\n\n1. **IAM ロールの設定**:\n   - AWS Lambda が Bedrock サービスを呼び出すには、適切な権限を持つ IAM ロールが必要です。\n   - Lambda 関数に、Bedrock にアクセスするためのポリシーアタッチします。例えば、`AmazonBedrockFullAccess` ポリシーなどです。\n\n2. **Lambda 関数の作成**:\n   - AWS Lambda コンソールまたは AWS CLI を使用して、Lambda 関数を作成します。\n   - Lambda 関数で Bedrock にアクセスするためのコードを記述します。\n\n3. **Bedrock へのリクエスト送信**:\n   - AWS SDK（例えば、Boto3 を使用）を使用して、Bedrock サービスを呼び出します。\n   - Bedrock の API ドキュメントを参照し、必要なエンドポイントやリクエスト形式を理解します。\n\n以下は、Python で AWS Lambda から Bedrock を呼び出す基本的なコード例です：\n\n```python\nimport boto3\nimport json\n\ndef lambda_handler(event, context):\n    # Bedrock クライアントの作成\n    bedrock_client = boto3.client('bed"
 }
-```
+
+{
+  "reply": "クイックソート（QuickSort）は、分割と統合の考え方に基づく分割統治法のアルゴリズムです。以下のPythonコードは、クイックソートの基本的な実装例を示しています。\n\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    else:\n        pivot = arr[len(arr) // 2]  # ピボット要素を選択\n        left = [x for x in arr if x < pivot]  # ピボットより小さい要素\n        middle = [x for x in arr if x == pivot]  # ピボットと等しい要素\n        right = [x for x in arr if x > pivot]  # ピボットより大きい要素\n        return quicksort(left) + middle + quicksort(right)  # 再帰的にソート\n\n# クイックソートの実行例\nunsorted_array = [3, 6, 8, 10, 1, 2, 1]\nsorted_array = quicksort(unsorted_array)\nprint(\"Sorted array:\", sorted_array)\n```\n\nこのコードは、配列を再帰的に分割し、ピボット要素を基準に小さい要素と大きい要素"
+}
+````
 
 ### 6.4 クリーンアップ
 
 ```bash
 terraform destroy
-```
-
----
-
-## 7. 【応用】Bedrock Guardrails を Terraform で管理する
-
-Bedrock にはモデルの出力を制御する **Guardrails** という機能があります。Terraform でコード管理しておくと、環境間の一貫性を保てます。
-
-```hcl
-resource "aws_bedrock_guardrail" "demo_guardrail" {
-  name                      = "demo-content-filter"
-  description               = "ハンズオン用のコンテンツフィルター"
-  blocked_input_messaging   = "この入力は許可されていません。"
-  blocked_outputs_messaging = "この出力は許可されていません。"
-
-  content_policy_config {
-    filters_config {
-      type             = "SEXUAL"
-      input_strength   = "HIGH"
-      output_strength  = "HIGH"
-    }
-    filters_config {
-      type             = "VIOLENCE"
-      input_strength   = "HIGH"
-      output_strength  = "HIGH"
-    }
-    filters_config {
-      type             = "HATE"
-      input_strength   = "HIGH"
-      output_strength  = "HIGH"
-    }
-    filters_config {
-      type             = "MISCONDUCT"
-      input_strength   = "HIGH"
-      output_strength  = "HIGH"
-    }
-  }
-}
 ```
 
 ---
