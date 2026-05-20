@@ -12,19 +12,15 @@ ogImage:
   url: ""
 ---
 
-## はじめに
-
 生成 AI をプロダクトに組み込みたいけれど、モデルのホスティングやインフラ管理が大変そう…。そんな悩みを解決してくれるのが **Amazon Bedrock** です。
 
 本記事では、Bedrock を触ったことがないエンジニア向けに **概要の紹介** と **Terraform を使った実践ハンズオン** をお届けします。
 
----
-
-## 1. Amazon Bedrock とは？
+# Amazon Bedrock とは？
 
 Amazon Bedrock は、AWS が提供するフルマネージドサービスで、主要な AI 企業が開発した高性能な基盤モデル（Foundation Model）に対して、安全かつエンタープライズグレードのアクセスを提供し、生成 AI アプリケーションの構築・スケールを可能にします。
 
-### 1.1 主な特徴
+## 主な特徴
 
 | 特徴                             | 説明                                                                                                                                           |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -35,13 +31,13 @@ Amazon Bedrock は、AWS が提供するフルマネージドサービスで、�
 | **コンプライアンス**             | ISO、SOC、CSA STAR Level 2、GDPR、FedRAMP High に対応し、HIPAA 対象です。                                                                      |
 | **コスト最適化**                 | Prompt Caching や Intelligent Prompt Routing により、コストを削減しつつパフォーマンスを維持できます。                                          |
 
-### 1.2 料金体系
+## 料金体系
 
 料金プランは大きく **オンデマンド** と **バッチ** の従量課金制があります。オンデマンドはトークン単位で課金され、バッチでは一連のプロンプトをまとめて処理できます。そのほかに、一定スループットを確保する **プロビジョンドスループット** があります。料金はモデルやリージョンによって異なるため、[公式料金ページ](https://aws.amazon.com/bedrock/pricing/)をご確認ください。
 
 ---
 
-## 2. 前提条件
+# 前提条件
 
 ハンズオンを始める前に以下を準備してください。
 
@@ -54,7 +50,7 @@ Amazon Bedrock は、AWS が提供するフルマネージドサービスで、�
 
 ---
 
-## 3. ハンズオン構成
+# ハンズオン構成
 
 本ハンズオンでは以下の構成を Terraform でデプロイします。
 
@@ -79,7 +75,7 @@ flowchart LR
 
 ---
 
-## 4. ディレクトリ構成
+# ディレクトリ構成
 
 ```
 bedrock-handson/
@@ -95,9 +91,9 @@ bedrock-handson/
 
 ---
 
-## 5. Terraform コード
+# Terraform コード
 
-### 5.1 `provider.tf`
+- provider.tf
 
 ```hcl
 terraform {
@@ -131,7 +127,7 @@ provider "aws" {
 }
 ```
 
-### 5.2 `variables.tf`
+- variables.tf
 
 ```hcl
 variable "aws_region" {
@@ -153,7 +149,7 @@ variable "lambda_function_name" {
 }
 ```
 
-### 5.3 `iam.tf`
+- iam.tf
 
 ```hcl
 # -----------------------------------------------
@@ -214,7 +210,7 @@ resource "aws_iam_role_policy" "bedrock_invoke_policy" {
 }
 ```
 
-### 5.4 `main.tf`
+- main.tf
 
 ```hcl
 # -----------------------------------------------
@@ -271,7 +267,7 @@ resource "aws_lambda_function" "bedrock_demo" {
 }
 ```
 
-### 5.5 `outputs.tf`
+- outputs.tf
 
 ```hcl
 output "lambda_function_name" {
@@ -290,7 +286,7 @@ output "bedrock_model_id" {
 }
 ```
 
-### 5.6 `lambda_src/index.py`
+- lambda_src/index.py
 
 ```python
 import json
@@ -333,9 +329,9 @@ def handler(event, context):
 
 ---
 
-## 6. デプロイ手順
+# デプロイ手順
 
-### 6.1 初期化 & プラン
+- 初期化 & プラン
 
 ```bash
 cd bedrock-handson
@@ -347,7 +343,7 @@ terraform init
 terraform plan
 ```
 
-### 6.2 デプロイ
+- デプロイ
 
 ```bash
 terraform apply
@@ -355,7 +351,7 @@ terraform apply
 
 `yes` を入力して適用します。
 
-### 6.3 動作確認
+- 動作確認
 
 AWS CLI で Lambda 関数を呼び出します。
 
@@ -394,7 +390,7 @@ cat response.json | jq .body -r | jq .
 }
 ````
 
-### 6.4 クリーンアップ
+- クリーンアップ
 
 ```bash
 terraform destroy
@@ -402,7 +398,7 @@ terraform destroy
 
 ---
 
-## 8. Terraform で Bedrock を管理するメリット
+# Terraform で Bedrock を管理するメリット
 
 Terraform では Bedrock リソース（エージェント、Knowledge Base、プロビジョンドスループット、カスタムモデル）をコードで定義できます。これにより以下のメリットがあります：
 
@@ -412,7 +408,9 @@ Terraform では Bedrock リソース（エージェント、Knowledge Base、�
 
 ---
 
-## 9. 次のステップ
+# 次のステップ
+
+今回は簡単な例でお出ししましたが、応用例として以下のようなものがあるので実践してみてください。
 
 | ステップ             | 内容                                                                   |
 | -------------------- | ---------------------------------------------------------------------- |
