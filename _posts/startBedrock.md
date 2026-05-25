@@ -18,17 +18,17 @@ ogImage:
 
 # Amazon Bedrock とは？
 
-Amazon Bedrock[^1] は、AWS が提供するフルマネージドサービスで、主要な AI 企業が開発した高性能な基盤モデル（Foundation Model）に対して、安全かつエンタープライズグレードのアクセスを提供し、生成 AI アプリケーションの構築・スケールを可能にします。
+Amazon Bedrock[^1] は、AWS が提供するフルマネージドサービスで、AWS や各種モデルプロバイダーが提供する基盤モデルに、安全かつエンタープライズグレードでアクセスできるサービスです。
 
 ## 主な特徴
 
-| 特徴                             | 説明                                                                                                                                                                                        |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| **フルマネージド**               | サーバーのデプロイもモデルランタイムの管理もスケーリングも不要。モデルを選び、ペイロードを整形して、リクエストを送るだけです。                                                              |
-| **複数モデルを単一 API で利用**  | Anthropic、Meta、Amazon などの複数のモデルを、Converse API などの共通インターフェース経由で扱える                                                                                           |
-| **カスタマイズ**                 | プロンプト設計、Knowledge Bases、モデルカスタマイズなどを組み合わせて、自社ビジネスに最適化できます。                                                                                       |
-| **エンタープライズセキュリティ** | 業界最高水準のセキュリティ・プライバシー・コンプライアンスを提供。データがモデルの学習に使われることはありません。                                                                          |     |
-| **コスト最適化**                 | Prompt Caching や Intelligent Prompt Routing により、コストを削減しつつパフォーマンスを維持できます。 （料金はモデルやリージョンによって異なるため、公式料金ページ[^2] をご確認ください。） |
+| 特徴 | 説明 |
+| --- | --- |
+| **フルマネージド** | サーバーのデプロイもモデルランタイムの管理もスケーリングも不要。モデルを選び、ペイロードを整形して、リクエストを送るだけです。 |
+| **複数モデルを統一的に呼び出せる** | Anthropic、Meta、Amazon などの複数のモデルを、Converse API などの共通インターフェース経由で扱える。 |
+| **カスタマイズ** | プロンプト設計、Knowledge Bases、モデルカスタマイズなどを組み合わせて、自社ビジネスに最適化できます。 |
+| **エンタープライズセキュリティ** | 業界最高水準のセキュリティ・プライバシー・コンプライアンスを提供。データがモデルの学習に使われることはありません。 |
+| **コスト最適化** | Prompt Caching や Intelligent Prompt Routing により、コストを削減しつつパフォーマンスを維持できます。（料金はモデルやリージョンによって異なるため、公式料金ページ[^2] をご確認ください。） |
 
 # ハンズオン構成
 
@@ -167,7 +167,7 @@ resource "aws_iam_role_policy_attachment" "lambda_basic_execution" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
-# Bedrock InvokeModel 権限
+# Bedrock 推論 API 呼び出し権限
 resource "aws_iam_role_policy" "bedrock_invoke_policy" {
   name = "bedrock-invoke-policy"
   role = aws_iam_role.lambda_bedrock_role.id
@@ -387,7 +387,7 @@ terraform destroy
 
 ---
 
-# Terraform で Bedrock を管理するメリット
+# Terraform で Bedrock 利用基盤を管理するメリット
 
 Terraform では Bedrock リソース（エージェント、Knowledge Base、プロビジョンドスループット、カスタムモデル）をコードで定義できます。これにより以下のメリットがあります：
 
@@ -405,7 +405,6 @@ Terraform では Bedrock リソース（エージェント、Knowledge Base、�
 | -------------------- | ---------------------------------------------------------------------- |
 | **RAG 構築**         | Bedrock Knowledge Bases + OpenSearch Serverless で社内ドキュメント検索 |
 | **エージェント構築** | Bedrock Agents で外部 API を呼び出すマルチステップエージェント         |
-| **ストリーミング**   | `InvokeModelWithResponseStream` でリアルタイム応答を実装               |
 | **コスト管理**       | Provisioned Throughput / Intelligent Prompt Routing の活用             |
 | **CI/CD 統合**       | GitHub Actions + Terraform Cloud で自動デプロイパイプライン構築        |
 
