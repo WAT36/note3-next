@@ -18,64 +18,53 @@ ogImage:
 
 # Amazon Bedrock とは？
 
-Amazon Bedrock は、AWS が提供するフルマネージドサービスで、主要な AI 企業が開発した高性能な基盤モデル（Foundation Model）に対して、安全かつエンタープライズグレードのアクセスを提供し、生成 AI アプリケーションの構築・スケールを可能にします。
+Amazon Bedrock[^1] は、AWS が提供するフルマネージドサービスで、主要な AI 企業が開発した高性能な基盤モデル（Foundation Model）に対して、安全かつエンタープライズグレードのアクセスを提供し、生成 AI アプリケーションの構築・スケールを可能にします。
 
 ## 主な特徴
 
-| 特徴                             | 説明                                                                                                                                           |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| **フルマネージド**               | サーバーのデプロイもモデルランタイムの管理もスケーリングも不要。モデルを選び、ペイロードを整形して、リクエストを送るだけです。                 |
-| **複数モデルを単一 API で利用**  | Anthropic、Meta、Stability AI、Amazon など大手 AI 企業のモデルに簡単にアクセスでき、単一の API で選択可能です。                                |
-| **カスタマイズ**                 | ファインチューニング、Knowledge Bases、RAG、プロンプトエンジニアリングなど複数のカスタマイズ手法を組み合わせて、自社ビジネスに最適化できます。 |
-| **エンタープライズセキュリティ** | 業界最高水準のセキュリティ・プライバシー・コンプライアンスを提供。データがモデルの学習に使われることはありません。                             |
-| **コンプライアンス**             | ISO、SOC、CSA STAR Level 2、GDPR、FedRAMP High に対応し、HIPAA 対象です。                                                                      |
-| **コスト最適化**                 | Prompt Caching や Intelligent Prompt Routing により、コストを削減しつつパフォーマンスを維持できます。                                          |
+| 特徴                             | 説明                                                                                                                                                                                        |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| **フルマネージド**               | サーバーのデプロイもモデルランタイムの管理もスケーリングも不要。モデルを選び、ペイロードを整形して、リクエストを送るだけです。                                                              |
+| **複数モデルを単一 API で利用**  | Anthropic、Meta、Amazon などの複数のモデルを、Converse API などの共通インターフェース経由で扱える                                                                                           |
+| **カスタマイズ**                 | プロンプト設計、Knowledge Bases、モデルカスタマイズなどを組み合わせて、自社ビジネスに最適化できます。                                                                                       |
+| **エンタープライズセキュリティ** | 業界最高水準のセキュリティ・プライバシー・コンプライアンスを提供。データがモデルの学習に使われることはありません。                                                                          |     |
+| **コスト最適化**                 | Prompt Caching や Intelligent Prompt Routing により、コストを削減しつつパフォーマンスを維持できます。 （料金はモデルやリージョンによって異なるため、公式料金ページ[^2] をご確認ください。） |
 
-## 料金体系
+# ハンズオン構成
 
-料金プランは大きく **オンデマンド** と **バッチ** の従量課金制があります。オンデマンドはトークン単位で課金され、バッチでは一連のプロンプトをまとめて処理できます。そのほかに、一定スループットを確保する **プロビジョンドスループット** があります。料金はモデルやリージョンによって異なるため、[公式料金ページ](https://aws.amazon.com/bedrock/pricing/)をご確認ください。
+本ハンズオンでは以下の構成を Terraform でデプロイします。
 
----
+（今回は Bedrock の全機能を網羅するのではなく、Lambda から基盤モデルを呼び出す最小構成に絞って試します。）
 
-# 前提条件
+```mermaid
+flowchart LR
+    User["ユーザー"]
+    Lambda["AWS Lambda(Python)"]
+    Bedrock["Amazon Bedrock(Nova モデル)"]
+    IAM["IAM Role & Policy"]
+    CW["CloudWatch Logs"]
+
+    User -->|"invoke"| Lambda
+    Lambda -->|"Converse API"| Bedrock
+    IAM -.->|"権限付与"| Lambda
+    Lambda -->|"ログ出力"| CW
+```
+
+**ゴール：** Lambda 関数から Bedrock の基盤モデル（Nova）を呼び出して、テキスト生成を行うシンプルなパイプラインを構築します。
+
+## 前提条件
 
 ハンズオンを始める前に以下を準備してください。
 
 - **AWS アカウント**（Bedrock が利用可能なリージョン：`us-east-1` 推奨）
 - **AWS CLI** がインストール・設定済み
 - **Terraform** がインストール済み（v1.14 以降を推奨）
-- **Bedrock のモデルアクセス有効化** — AWS コンソール → Amazon Bedrock → 「Model access」から利用したいモデルのアクセスをリクエストしてください。
 
 > **注意：** 一部のモデルは EULA への同意が必要なため、初回のアクセスリクエストはコンソールから行う必要があります。
 
----
+## ディレクトリ構成
 
-# ハンズオン構成
-
-本ハンズオンでは以下の構成を Terraform でデプロイします。
-
-```mermaid
-flowchart LR
-    User["ユーザー"]
-    Lambda["AWS Lambda
-(Python)"]
-    Bedrock["Amazon Bedrock
-(Claude モデル)"]
-    IAM["IAM Role
-& Policy"]
-    CW["CloudWatch Logs"]
-
-    User -->|"invoke"| Lambda
-    Lambda -->|"InvokeModel API"| Bedrock
-    IAM -.->|"権限付与"| Lambda
-    Lambda -->|"ログ出力"| CW
-```
-
-**ゴール：** Lambda 関数から Bedrock の基盤モデル（Claude）を呼び出して、テキスト生成を行うシンプルなパイプラインを構築します。
-
----
-
-# ディレクトリ構成
+今回のハンズオンでは以下のような構成を作ります。
 
 ```
 bedrock-handson/
@@ -298,14 +287,14 @@ bedrock = boto3.client("bedrock-runtime", region_name=os.environ["AWS_REGION"])
 def handler(event, context):
     user_message = event.get("message", "こんにちは。AWS Lambda から Bedrock を呼んでいます。")
 
+    model_id = os.environ["BEDROCK_MODEL_ID"]
+
     response = bedrock.converse(
-        modelId="amazon.nova-lite-v1:0",
+        modelId=model_id,
         messages=[
             {
                 "role": "user",
-                "content": [
-                    {"text": user_message}
-                ]
+                "content": [{"text": user_message}]
             }
         ],
         inferenceConfig={
@@ -357,10 +346,10 @@ AWS CLI で Lambda 関数を呼び出します。
 
 ```bash
 # デフォルトプロンプトで実行
-aws lambda invoke
-  --function-name bedrock-invoke-demo
-  --cli-binary-format raw-in-base64-out
-  --payload '{}'
+aws lambda invoke \
+  --function-name bedrock-invoke-demo \
+  --cli-binary-format raw-in-base64-out \
+  --payload '{}' \
   response.json
 
 cat response.json | jq .
@@ -369,10 +358,10 @@ cat response.json | jq .
 カスタムプロンプトを送る場合：
 
 ```bash
-aws lambda invoke
-  --function-name bedrock-invoke-demo
-  --cli-binary-format raw-in-base64-out
-  --payload '{"message": "Pythonでクイックソートを実装してください"}'
+aws lambda invoke \
+  --function-name bedrock-invoke-demo \
+  --cli-binary-format raw-in-base64-out \
+  --payload '{"message": "Pythonでクイックソートを実装してください"}' \
   response.json
 
 cat response.json | jq .body -r | jq .
@@ -424,6 +413,5 @@ Terraform では Bedrock リソース（エージェント、Knowledge Base、�
 
 ## 参考リンク
 
-- [Amazon Bedrock 公式ドキュメント](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html)
-- [Terraform AWS Provider - Bedrock リソース](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
-- [Amazon Bedrock 料金](https://aws.amazon.com/bedrock/pricing/)
+[^1] [Amazon Bedrock 公式ドキュメント](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html)
+[^2] [Amazon Bedrock 料金](https://aws.amazon.com/bedrock/pricing/)
