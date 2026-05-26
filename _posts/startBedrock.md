@@ -2,8 +2,8 @@
 title: "Amazon Bedrock を試す：Lambda から基盤モデルを呼び出すハンズオン"
 excerpt: "Amazon Bedrock を初めて触る方向けのサービス概要と実践ハンズオンについてを記載"
 coverImage: "/assets/posts/startBedrock/Bedrock.svg"
-date: "2026-05-18T22:37:00.000Z"
-updatedAt: "2026-05-18T22:37:00.000Z"
+date: '2026-05-27T00:05:00.000Z'
+updatedAt: '2026-05-27T00:05:00.000Z'
 tag: ["AWS", "AI"]
 author:
   name: Tatsuroh Wakasugi
