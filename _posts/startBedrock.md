@@ -410,7 +410,5 @@ Terraform では Bedrock リソース（エージェント、Knowledge Base、�
 
 ---
 
-## 参考リンク
-
 [^1] [Amazon Bedrock 公式ドキュメント](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html)
 [^2] [Amazon Bedrock 料金](https://aws.amazon.com/bedrock/pricing/)
