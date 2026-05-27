@@ -2,8 +2,8 @@
 title: "Amazon Bedrock を試す：Lambda から基盤モデルを呼び出すハンズオン"
 excerpt: "Amazon Bedrock を初めて触る方向けのサービス概要と実践ハンズオンについてを記載"
 coverImage: "/assets/posts/startBedrock/Bedrock.svg"
-date: '2026-05-27T00:05:00.000Z'
-updatedAt: '2026-05-27T00:05:00.000Z'
+date: "2026-05-27T00:05:00.000Z"
+updatedAt: "2026-05-27T00:05:00.000Z"
 tag: ["AWS", "AI"]
 author:
   name: Tatsuroh Wakasugi
@@ -36,19 +36,20 @@ Amazon Bedrock[^1] は、AWS が提供するフルマネージドサービスで
 
 （今回は Bedrock の全機能を網羅するのではなく、Lambda から基盤モデルを呼び出す最小構成に絞って試します。）
 
-```mermaid
-flowchart LR
-    User["ユーザー"]
-    Lambda["AWS Lambda(Python)"]
-    Bedrock["Amazon Bedrock(Nova モデル)"]
-    IAM["IAM Role & Policy"]
-    CW["CloudWatch Logs"]
+## 構成要素（何を作るか）
 
-    User -->|"invoke"| Lambda
-    Lambda -->|"Converse API"| Bedrock
-    IAM -.->|"権限付与"| Lambda
-    Lambda -->|"ログ出力"| CW
-```
+- **ユーザー**：AWS CLI などから Lambda を呼び出す
+- **AWS Lambda（Python）**：入力メッセージを受け取り、Bedrock を呼び出す実行基盤
+- **Amazon Bedrock（Nova モデル）**：Converse API 経由でテキスト生成を行う基盤モデル
+- **IAM Role / Policy**：Lambda に Bedrock 呼び出し権限と CloudWatch Logs への書き込み権限を付与
+- **CloudWatch Logs**：Lambda 実行ログの保存先
+
+## 処理の流れ（どう動くか）
+
+1. ユーザーが Lambda 関数を `invoke` する（ペイロードに `message` を指定）
+2. Lambda が Bedrock の **Converse API** を呼び出し、モデル応答（生成テキスト）を取得する
+3. Lambda が応答テキストを整形して呼び出し元へ返す
+4. 実行ログは CloudWatch Logs に出力される（トラブルシュートに利用）
 
 **ゴール：** Lambda 関数から Bedrock の基盤モデル（Nova）を呼び出して、テキスト生成を行うシンプルなパイプラインを構築します。
 
@@ -410,5 +411,5 @@ Terraform では Bedrock リソース（エージェント、Knowledge Base、�
 
 ---
 
-[^1] [Amazon Bedrock 公式ドキュメント](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html)
-[^2] [Amazon Bedrock 料金](https://aws.amazon.com/bedrock/pricing/)
+[^1]: [Amazon Bedrock 公式ドキュメント](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html)
+[^2]: [Amazon Bedrock 料金](https://aws.amazon.com/bedrock/pricing/)
