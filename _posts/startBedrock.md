@@ -61,7 +61,7 @@ Amazon Bedrock[^1] は、AWS が提供するフルマネージドサービスで
 - **AWS CLI** がインストール・設定済み
 - **Terraform** がインストール済み（v1.14 以降を推奨）
 
-> **注意：** 一部のモデルは EULA への同意が必要なため、初回のアクセスリクエストはコンソールから行う必要があります。
+> **注意：** 利用するモデルによっては、利用条件への同意やアクセス設定が必要です。必要な手順はモデルごとに異なるため、Bedrock コンソールや公式ドキュメントを確認してください。
 
 ## ディレクトリ構成
 
@@ -372,7 +372,7 @@ cat response.json | jq .body -r | jq .
 
 ````json
 {
-  "reply": "こんにちは！AWS Lambda から Bedrock（AWSの機械学習サービス）を呼び出すことは可能です。以下の手順で実現できます：\n\n1. **IAM ロールの設定**:\n   - AWS Lambda が Bedrock サービスを呼び出すには、適切な権限を持つ IAM ロールが必要です。\n   - Lambda 関数に、Bedrock にアクセスするためのポリシーアタッチします。例えば、`AmazonBedrockFullAccess` ポリシーなどです。\n\n2. **Lambda 関数の作成**:\n   - AWS Lambda コンソールまたは AWS CLI を使用して、Lambda 関数を作成します。\n   - Lambda 関数で Bedrock にアクセスするためのコードを記述します。\n\n3. **Bedrock へのリクエスト送信**:\n   - AWS SDK（例えば、Boto3 を使用）を使用して、Bedrock サービスを呼び出します。\n   - Bedrock の API ドキュメントを参照し、必要なエンドポイントやリクエスト形式を理解します。\n\n以下は、Python で AWS Lambda から Bedrock を呼び出す基本的なコード例です：\n\n```python\nimport boto3\nimport json\n\ndef lambda_handler(event, context):\n    # Bedrock クライアントの作成\n    bedrock_client = boto3.client('bed"
+  "reply": "こんにちは。Amazon Bedrock から応答しています。AWS Lambda から正常にモデルを呼び出せています。"
 }
 
 {
