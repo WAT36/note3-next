@@ -3,7 +3,7 @@ title: "Amazon Bedrock を試す：Lambda から基盤モデルを呼び出す�
 excerpt: "Amazon Bedrock を初めて触る方向けのサービス概要と実践ハンズオンについてを記載"
 coverImage: "/assets/posts/startBedrock/Bedrock.svg"
 date: "2026-05-27T00:05:00.000Z"
-updatedAt: '2026-05-29T20:02:45.000Z'
+updatedAt: "2026-05-29T20:02:45.000Z"
 tag: ["AWS", "AI"]
 author:
   name: Tatsuroh Wakasugi
@@ -388,7 +388,7 @@ terraform destroy
 
 ---
 
-今回は簡単な例でお出ししましたが、応用例として以下のようなものがあるので実践してみてください。
+今回は簡単な例でお出ししましたが、応用例として以下のようなものもあるので実践してみてください。
 
 | ステップ             | 内容                                                                   |
 | -------------------- | ---------------------------------------------------------------------- |
