@@ -2,8 +2,8 @@
 title: "ITエンジニアだがFP3級を受けてみた"
 excerpt: ""
 coverImage: "/assets/posts/fp3/IMG_3179.jpg"
-date: "2026-05-26T22:47:03.000Z"
-updatedAt: "2026-05-26T22:47:03.000Z"
+date: '2026-06-01T21:48:37.000Z'
+updatedAt: '2026-06-01T21:48:37.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
