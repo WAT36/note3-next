@@ -96,7 +96,7 @@ Langfuse から Bedrock を計装する方法はいくつかあります（LangC
 
 前回の構成に Layer 用のディレクトリを追加します。
 
-```
+```plaintext
 bedrock-handson/
 ├── main.tf              # メインリソース定義（Layer 追加）
 ├── variables.tf         # 変数定義（Langfuse 用変数を追加）
@@ -153,16 +153,16 @@ variable "langfuse_secret_key" {
 variable "langfuse_host" {
   description = "Langfuse のホスト URL"
   type        = string
-  # 🇯🇵 日本: https://jp.cloud.langfuse.com
-  # 🇪🇺 EU:  https://cloud.langfuse.com
-  # 🇺🇸 US:  https://us.cloud.langfuse.com
+  # 日本: https://jp.cloud.langfuse.com
+  # EU:  https://cloud.langfuse.com
+  # US:  https://us.cloud.langfuse.com
   default     = "https://jp.cloud.langfuse.com"
 }
 ```
 
 - layer/requirements.txt
 
-```text
+```plaintext
 langfuse
 ```
 
@@ -485,3 +485,5 @@ Nova のように Langfuse 側に標準の単価情報がないモデルでは�
 | **セキュアなキー管理** | キーを Secrets Manager / SSM に移し、Lambda 実行時に取得する              |
 
 ---
+
+[^1]: [Langfuse](https://langfuse.com/)
