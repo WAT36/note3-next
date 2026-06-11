@@ -1,7 +1,7 @@
 ---
 title: "Langfuseを使ってみる"
 excerpt: ""
-coverImage: ""
+coverImage: "/assets/posts/startLangfuse/langfuse-icon.svg""
 date: "2026-06-03T23:25:59.000Z"
 updatedAt: "2026-06-03T23:25:59.000Z"
 tag: ["AI"]
