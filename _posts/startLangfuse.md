@@ -90,7 +90,12 @@ Langfuse から Bedrock を計装する方法はいくつかあります（LangC
 1. Langfuse Cloud にサインインする（日本リージョンを使う場合は `https://jp.cloud.langfuse.com`）
 2. 新規プロジェクトを作成する
 3. プロジェクトの **Settings → API Keys** から **Create new API keys** を実行
+
+![](/assets/posts/startLangfuse/langfuseStartTracing.png)
+
 4. 表示される **Public Key（`pk-lf-...`）** と **Secret Key（`sk-lf-...`）** を控える（Secret Key は再表示されないので注意）
+
+![](/assets/posts/startLangfuse/langfuseAPIKeys.png)
 
 ## ディレクトリ構成
 
@@ -447,6 +452,8 @@ Langfuse Cloud にログインし、対象プロジェクトの **Tracing → Tr
 | **Metadata**       | 推論パラメータや `ResponseMetadata` など            |
 
 数回呼び出すと、ダッシュボードでトークン消費やレイテンシの推移も見えるようになります。
+
+![](/assets/posts/startLangfuse/langfuseTraceResult.png)
 
 ## コスト表示について
 
