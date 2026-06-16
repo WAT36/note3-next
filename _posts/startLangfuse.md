@@ -2,8 +2,8 @@
 title: "Langfuseを使ってみる"
 excerpt: ""
 coverImage: "/assets/posts/startLangfuse/langfuse-icon.svg"
-date: "2026-06-03T23:25:59.000Z"
-updatedAt: "2026-06-03T23:25:59.000Z"
+date: '2026-06-17T00:01:47.000Z'
+updatedAt: '2026-06-17T00:01:47.000Z'
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
