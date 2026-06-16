@@ -1,7 +1,7 @@
 ---
 title: "Langfuseを使ってみる"
 excerpt: ""
-coverImage: "/assets/posts/startLangfuse/langfuse-icon.svg""
+coverImage: "/assets/posts/startLangfuse/langfuse-icon.svg"
 date: "2026-06-03T23:25:59.000Z"
 updatedAt: "2026-06-03T23:25:59.000Z"
 tag: ["AI"]
@@ -47,7 +47,7 @@ Langfuse はこれらを **トレース／オブザベーション** という�
 | **評価機能**                    | LLM-as-a-judge やヒューマンアノテーションでトレースにスコアを付与できる。                        |
 | **OSS / マネージドの両対応**    | セルフホストも、Langfuse Cloud（マネージド）も選べる。                                           |
 
-> **ホスティングについて：** 本記事では手軽に始められる **Langfuse Cloud** を使います。Langfuse Cloud には EU・US に加えて **日本（jp.cloud.langfuse.com）** のデータリージョンがあるため、日本国内のプロジェクトでも扱いやすくなっています。セルフホストしたい場合は公式の Self-hosting ガイド[^2] を参照してください。
+> **ホスティングについて：** 本記事では手軽に始められる **Langfuse Cloud** を使います。Langfuse Cloud には EU・US に加えて **日本（jp.cloud.langfuse.com）** のデータリージョンがあるため、日本国内のプロジェクトでも扱いやすくなっています。セルフホストしたい場合は公式の Self-hosting ガイド を参照してください。
 
 # ハンズオン構成
 
@@ -450,7 +450,7 @@ Langfuse Cloud にログインし、対象プロジェクトの **Tracing → Tr
 
 ## コスト表示について
 
-Nova のように Langfuse 側に標準の単価情報がないモデルでは、コストが表示されないことがあります。その場合は Langfuse の **Settings → Models** からモデル名にマッチする **カスタム単価（input / output の 1,000 トークンあたり料金）** を登録すると、トレースにコストが自動計算されて表示されるようになります[^3]。実際の単価は Bedrock の公式料金ページ[^4] で確認してください。
+Nova のように Langfuse 側に標準の単価情報がないモデルでは、コストが表示されないことがあります。その場合は Langfuse の **Settings → Models** からモデル名にマッチする **カスタム単価（input / output の 1,000 トークンあたり料金）** を登録すると、トレースにコストが自動計算されて表示されるようになります。実際の単価は Bedrock の公式料金ページ で確認してください。
 
 ---
 
