@@ -3,7 +3,7 @@ title: "Langfuseを使ってみる"
 excerpt: "先ほどのAmazon Bedrock を使う Lambda に Langfuse を導入し、LLM 呼び出しのトレースやトークン使用量、レイテンシを可視化する。"
 coverImage: "/assets/posts/startLangfuse/langfuse-icon.svg"
 date: "2026-06-17T00:01:47.000Z"
-updatedAt: "2026-06-17T00:01:47.000Z"
+updatedAt: '2026-06-18T22:57:45.000Z'
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
