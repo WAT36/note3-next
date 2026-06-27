@@ -12,6 +12,7 @@ type PostType = {
   };
   content: string;
   tag: string[];
+  postNumber?: number;
 };
 
 export default PostType;

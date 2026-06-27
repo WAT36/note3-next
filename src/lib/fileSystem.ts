@@ -135,3 +135,11 @@ export function getAllPosts(fields: string[] = []) {
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 }
+
+// 指定slugの記事が何番目に書かれたものかを返す（日付昇順で1始まり）
+export function getPostNumber(slug: string): number {
+  const posts = getAllPosts(["slug", "date"]);
+  const sortedAsc = [...posts].sort((a, b) => (a.date < b.date ? -1 : 1));
+  const index = sortedAsc.findIndex((p) => p.slug === slug);
+  return index + 1;
+}
