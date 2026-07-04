@@ -265,6 +265,8 @@ Claude Code のプロンプトで以下を入力します。
 
 登録した手順とアウトプット形式でレビューが返ってきます。
 
+![](/assets/posts/claudeCodeSkills/skills.png)
+
 ---
 
 ## ④ Hooks — 自動で走るガードレールを設定する
@@ -372,6 +374,8 @@ Claude Code のプロンプトで以下を試してみます。
 
 Hook が発火して書き込みがブロックされます。`CLAUDE.md` の指示と違い、Claude は理由をつけてこれを回避できません。
 
+![](/assets/posts/claudeCodeSkills/hooks2.png)
+
 ### Hooks のタイミング一覧
 
 | タイミング     | 説明                 | 主なユースケース       |
@@ -451,6 +455,8 @@ code-reviewer エージェントを使って src/utils.js をレビューして�
 ```
 
 独立したコンテキストでレビュー専門エージェントが動き、結果が返ってきます。
+
+![](/assets/posts/claudeCodeSkills/subagentResult.png)
 
 ---
 
