@@ -266,3 +266,108 @@ Claude Code のプロンプトで以下を入力します。
 登録した手順とアウトプット形式でレビューが返ってきます。
 
 ---
+
+## ④ Hooks — 自動で走るガードレールを設定する
+
+### なぜ必要か
+
+`CLAUDE.md` にルールを書いても、Claude が「解釈」する余地があります。Hooks は **ルールをアーキテクチャとして強制する** 仕組みです。「.env ファイルへの書き込みを必ずブロックする」のような動作は、Hooks で設定するのが確実です。
+
+### 設定ファイルの場所
+
+Hooks の設定は以下のいずれかに書きます。
+
+- プロジェクト単位：`.claude/settings.json`
+- ユーザー全体：`~/.claude/settings.json`
+
+### ハンズオン ①：Hook が動作していることをログで確認する
+
+まず設定ファイルを作ります。
+
+```bash
+mkdir -p .claude
+touch .claude/settings.json
+```
+
+`.claude/settings.json` に以下を書きます。
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // \"\"' | xargs -I{} sh -c 'echo \"[$(date)] {} が編集されました\" >> /tmp/claude-hook.log'"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+- ポイント：`echo` の stdout はチャットに表示されない
+
+`echo '✅ 編集されました'` のようなコマンドを書いても、その出力は Claude Code のチャット画面には表示されません。PostToolUse hook の stdout は Claude に渡されないためです。
+
+動作確認するには、**ログファイルへの書き出し**が確実です。
+
+- 動作確認
+
+別ターミナルで以下を実行しておきます。
+
+```bash
+tail -f /tmp/claude-hook.log
+```
+
+この状態で Claude Code から何かファイルを編集してもらうと、編集のたびにログが追記されます。
+
+```
+[Fri Jul  4 12:00:00 JST 2026] src/utils.js が編集されました
+```
+
+ログが流れれば Hook は正常に動作しています。
+
+### ハンズオン ②：危険なファイルへの書き込みをブロックする
+
+`.claude/settings.json` を以下のように更新します。
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // \"\"' | grep -q '\\.env' && echo '{\"continue\": false, \"stopReason\": \".env ファイルへの書き込みは禁止されています\"}' || exit 0"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // \"\"' | xargs -I{} sh -c 'echo \"[$(date)] {} が編集されました\" >> /tmp/claude-hook.log'"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+Claude Code のプロンプトで以下を試してみます。
+
+```
+.env ファイルに TEST=hello と書いてください
+```
+
+Hook が発火して書き込みがブロックされます。`CLAUDE.md` の指示と違い、Claude は理由をつけてこれを回避できません。
