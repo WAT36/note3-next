@@ -1,7 +1,7 @@
 ---
 title: "Claude Code を使いこなす諸機能"
 excerpt: ""
-coverImage: ""
+coverImage: "/assets/posts/claudeCodeSkills/welcome.png"
 date: "2026-07-01T22:24:54.000Z"
 updatedAt: "2026-07-01T22:24:54.000Z"
 tag: ["AI"]
