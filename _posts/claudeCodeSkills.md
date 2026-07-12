@@ -1,5 +1,5 @@
 ---
-title: "Claude Code を使いこなす諸機能"
+title: "Claude CodeのCLAUDE.md・Skills・Hooks・Subagentsを試す"
 excerpt: ""
 coverImage: "/assets/posts/claudeCodeSkills/welcome.png"
 date: "2026-07-01T22:24:54.000Z"
@@ -12,13 +12,15 @@ ogImage:
   url: ""
 ---
 
-Claude Code を入れたはいいけど、なんとなく使っているだけ——そんな方に向けて、`CLAUDE.md`・`Skills`・`Hooks`・`Subagents`・`AGENTS.md` といった諸機能を実際に手を動かしながら学べるハンズオンを書きました。
+Claude Code を入れたものの、なんとなく対話しているだけ——そんな方に向けて、CLAUDE.md、Skills、Hooks、Subagents といった主要な拡張機能に加え、複数のコーディングエージェントで指示を共有するための AGENTS.md を、実際に手を動かしながら試します。
 
 # 前提
 
 - Claude Code はインストール済み
 - Node.js が使える環境
 - ターミナルの基本操作ができる
+
+※ 本記事は 2026 年 7 月時点の Claude Code をもとに作成しています。Claude Code は継続的に更新されているため、実行時には公式ドキュメントもあわせて確認してください。
 
 ---
 
@@ -77,8 +79,6 @@ module.exports = { greet, add };
 
 # 1. CLAUDE.md — プロジェクトの説明書を作る
 
-- なぜ必要か
-
 Claude Code はあなたのプロジェクトのルールを最初から知りません。「テストは `npm test` で実行して」「コメントは日本語で書いて」——これを毎回会話で伝えるのは非効率です。`CLAUDE.md` に書いておけば、Claude が自動的に読んで理解してくれます。
 
 ## ハンズオン：CLAUDE.md を作る
@@ -92,7 +92,11 @@ touch CLAUDE.md
 以下の内容を書きます。
 
 ```markdown
-# claude-code-hands-on
+@AGENTS.md
+
+## Claude Code 固有の指示
+
+- 作業前に変更方針を簡潔に説明すること
 
 ## プロジェクト概要
 
@@ -143,7 +147,9 @@ function multiply(a, b) {
 
 - CLAUDE.md との違い
 
-`CLAUDE.md` は Claude Code 専用ですが、`AGENTS.md` は Codex、Cursor、Gemini CLI など複数の AI ツールで共通して使えるフォーマットです。今は Claude Code しか使っていない場合も、将来を見越して書いておく価値があります。
+`CLAUDE.md` は Claude Code 専用ですが、`AGENTS.md` は Codex、Cursor、Gemini CLI など複数のコーディングエージェント間で共有しやすい指示ファイルです。
+
+ただし、Claude Code は AGENTS.md を直接は自動読み込みしません。Claude Code でも内容を利用するには、CLAUDE.md から AGENTS.md をインポートします。
 
 ## ハンズオン：AGENTS.md を作る
 
@@ -179,14 +185,14 @@ npm test
 
 - 使い分けの目安
 
-  - Claude Code だけ使う → `CLAUDE.md` で十分
-  - 複数の AI ツールを使い分けている → `AGENTS.md` も用意する
+  - Claude Code だけを使う場合は CLAUDE.md
+  - 複数ツールで指示を共有する場合は AGENTS.md
+  - Claude Code からは CLAUDE.md 内の@AGENTS.md で読み込む
+  - Claude Code 固有の指示だけを CLAUDE.md に追記する
 
 ---
 
 # 3. Skills — 繰り返し使う手順を「スキル」として登録する
-
-- なぜ便利か
 
 「このプロジェクトのコードレビューをするときはこの観点でチェックしてほしい」——こういった定型の指示を毎回書くのは手間です。Skills に登録しておけば、呼び出すだけで動いてくれます。
 
@@ -195,18 +201,19 @@ npm test
 ディレクトリを作成します。
 
 ```bash
-mkdir -p .claude/skills/pr-review
-touch .claude/skills/pr-review/SKILL.md
+mkdir -p .claude/skills/code-review
+touch .claude/skills/code-review/SKILL.md
 ```
 
-`.claude/skills/pr-review/SKILL.md` に以下を書きます。
+`.claude/skills/code-review/SKILL.md` に以下を書きます。
 
 ```
-# Skill: PR Review
+---
+name: code-review
+description: 変更されたコードを、機能面・コード品質・セキュリティの観点からレビューするときに使用します。
+---
 
-## 概要
-
-このスキルはプルリクエストのコードレビューを行う手順を定義します。
+# PR Review
 
 ## チェック項目
 
@@ -252,7 +259,7 @@ touch .claude/skills/pr-review/SKILL.md
 Claude Code のプロンプトで以下を入力します。
 
 ```plaintext
-/pr-review src/utils.js をレビューしてください
+/code-review src/utils.js をレビューしてください
 ```
 
 登録した手順とアウトプット形式でレビューが返ってきます。
@@ -263,8 +270,6 @@ Claude Code のプロンプトで以下を入力します。
 
 # 4. Hooks — 自動で走るガードレールを設定する
 
-- なぜ必要か
-
 `CLAUDE.md` にルールを書いても、Claude が「解釈」する余地があります。Hooks は **ルールをアーキテクチャとして強制する** 仕組みです。「.env ファイルへの書き込みを必ずブロックする」のような動作は、Hooks で設定するのが確実です。
 
 ## 設定ファイルの場所
@@ -274,7 +279,7 @@ Hooks の設定は以下のいずれかに書きます。
 - プロジェクト単位：`.claude/settings.json`
 - ユーザー全体：`~/.claude/settings.json`
 
-## ハンズオン 1：Hook が動作していることをログで確認する
+## ハンズオン ：Hook が動作していることをログで確認する
 
 まず設定ファイルを作ります。
 
@@ -325,50 +330,9 @@ tail -f /tmp/claude-hook.log
 
 ログが流れれば Hook は正常に動作しています。
 
-## ハンズオン 2：危険なファイルへの書き込みをブロックする
+## 代表的な Hook イベント
 
-`.claude/settings.json` を以下のように更新します。
-
-```json
-{
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "jq -r '.tool_input.file_path // \"\"' | grep -q '\\.env' && echo '{\"continue\": false, \"stopReason\": \".env ファイルへの書き込みは禁止されています\"}' || exit 0"
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "Write|Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "jq -r '.tool_input.file_path // \"\"' | xargs -I{} sh -c 'echo \"[$(date)] {} が編集されました\" >> /tmp/claude-hook.log'"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-Claude Code のプロンプトで以下を試してみます。
-
-```plaintext
-.env ファイルに TEST=hello と書いてください
-```
-
-Hook が発火して書き込みがブロックされます。`CLAUDE.md` の指示と違い、Claude は理由をつけてこれを回避できません。
-
-![](/assets/posts/claudeCodeSkills/hooks2.png)
-
-## Hooks のタイミング一覧
+Hook イベントは多数ありますが、代表的なものを以下に記載します。
 
 | タイミング     | 説明                 | 主なユースケース       |
 | -------------- | -------------------- | ---------------------- |
@@ -381,9 +345,9 @@ Hook が発火して書き込みがブロックされます。`CLAUDE.md` の指
 
 # 5. Subagents — 専門エージェントに作業を丸投げする
 
-- なぜ便利か
+1 つの会話に大量の検索結果やログ、ファイル内容が蓄積すると、メインのコンテキストを圧迫し、後続の作業に必要な情報を扱いにくくなることがあります。Subagents を使うと、専門のエージェントを独立したコンテキストで動かせるため、メインの会話に大量の途中経過を持ち込まずに済みます。
 
-1 つの会話で全部やろうとすると、コンテキストがどんどん膨らんで精度が落ちます。Subagents を使うと、専門のエージェントを独立したコンテキストで動かせるため、メインの会話が汚染されません。
+Skills と混同しがちですが、Skills は「どう進めるかという手順」を再利用する仕組みで、Subagents は「誰に、どのコンテキストと権限で任せるか」を分離する仕組み、と考えると整理しやすいです。
 
 ## ハンズオン：コードレビュー専門エージェントを作る
 
@@ -397,7 +361,8 @@ touch .claude/agents/code-reviewer.md
 ```markdown
 ---
 name: code-reviewer
-description: コードレビューを行う専門エージェント。コード品質・セキュリティ・パフォーマンスの観点で分析します。
+description: コード品質・セキュリティ・パフォーマンスの観点からコードをレビューします。実装後の確認に使用します。
+tools: Read, Grep, Glob
 ---
 
 # Code Reviewer Agent
@@ -463,7 +428,7 @@ claude-code-hands-on/
 ├── .claude/
 │   ├── settings.json                 # Hooks 設定
 │   ├── skills/
-│   │   └── pr-review/
+│   │   └── code-review/
 │   │       └── SKILL.md              # PR レビュースキル
 │   └── agents/
 │       └── code-reviewer.md          # コードレビュー専門エージェント
