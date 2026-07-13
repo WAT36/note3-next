@@ -281,7 +281,28 @@ Hooks の設定は以下のいずれかに書きます。
 
 ## ハンズオン ：Hook が動作していることをログで確認する
 
-まず設定ファイルを作ります。
+まず Hook で実行するファイルを作ります。
+
+```bash
+mkdir -p .claude/hooks
+touch .claude/hooks/log-file-change.sh
+chmod +x .claude/hooks/log-file-change.sh
+```
+
+`log-file-change.sh`は以下のようにします。
+
+```bash
+#!/bin/sh
+
+file_path=$(jq -r '.tool_input.file_path // ""')
+
+printf '[%s] %s が編集されました\n' \
+  "$(date)" \
+  "$file_path" \
+  >> /tmp/claude-hook.log
+```
+
+次に設定ファイルを作ります。
 
 ```bash
 mkdir -p .claude
@@ -299,7 +320,7 @@ touch .claude/settings.json
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '.tool_input.file_path // \"\"' | xargs -I{} sh -c 'echo \"[$(date)] {} が編集されました\" >> /tmp/claude-hook.log'"
+            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/log-file-change.sh"
           }
         ]
       }
@@ -308,11 +329,9 @@ touch .claude/settings.json
 }
 ```
 
-- ポイント：`echo` の stdout はチャットに表示されない
+- ポイント：通常の stdout はチャットにそのまま表示されない
 
-`echo '編集されました'` のようなコマンドを書いても、その出力は Claude Code のチャット画面には表示されません。PostToolUse hook の stdout は Claude に渡されないためです。
-
-動作確認するには、**ログファイルへの書き出し**が確実です。
+通常のテキストを stdout へ出力しても、PostToolUse ではその内容がチャット画面にそのまま表示されるわけではありません。今回のように Hook の実行を目視確認するだけなら、ログファイルへ書き出す方法が分かりやすいです。なお、所定の JSON 形式で出力すれば、Hook から Claude へ追加情報を渡すこともできます。
 
 - 動作確認
 
@@ -430,8 +449,11 @@ claude-code-hands-on/
 │   ├── skills/
 │   │   └── code-review/
 │   │       └── SKILL.md              # PR レビュースキル
+│   ├── hooks/
+│   │   └── log-file-change.sh
 │   └── agents/
 │       └── code-reviewer.md          # コードレビュー専門エージェント
+
 ├── src/
 │   ├── index.js
 │   └── utils.js
