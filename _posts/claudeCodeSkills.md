@@ -19,6 +19,8 @@ Claude Code を入れたものの、なんとなく対話しているだけ—�
 - Claude Code はインストール済み
 - Node.js が使える環境
 - ターミナルの基本操作ができる
+- macOS または Linux 環境
+- `jq`がインストール済み
 
 ※ 本記事は 2026 年 7 月時点の Claude Code をもとに作成しています。Claude Code は継続的に更新されているため、実行時には公式ドキュメントもあわせて確認してください。
 
@@ -104,8 +106,8 @@ Node.js の練習プロジェクト。Claude Code ハンズオン用。
 
 ## よく使うコマンド
 
-- `node src/index.js` — 実行
-- `npm test` — テスト実行（現時点では未設定）
+- `node src/index.js` — アプリケーションを実行する
+- 現時点ではテストは未導入
 
 ## コーディング規約
 
@@ -129,7 +131,7 @@ claude
 Claude Code のプロンプトで以下を入力してみましょう。
 
 ```plaintext
-src/utils.js に新しい関数 multiply を追加してください
+src/utils.js に新しい関数 multiply を追加してください。src/index.jsからmultiply(2, 3)を呼び出せるようにしてください。
 ```
 
 コメントが日本語で書かれ、セミコロンがある状態で出力されるはずです。`CLAUDE.md` の指示が効いています。
@@ -139,6 +141,8 @@ src/utils.js に新しい関数 multiply を追加してください
 function multiply(a, b) {
   return a * b;
 }
+
+module.exports = { greet, add, multiply };
 ```
 
 ---
@@ -160,10 +164,10 @@ touch AGENTS.md
 AGENTS.md は以下のように書きます。
 
 ````
-## テストコマンド
+## 動作確認コマンド
 
 ```bash
-npm test
+node src/index.js
 ```
 
 ## コーディング規約
@@ -179,7 +183,6 @@ npm test
 ## プロジェクト構造
 
 - `src/` — アプリケーションコード
-- `tests/` — テストコード（今後追加予定）
 
 ````
 
