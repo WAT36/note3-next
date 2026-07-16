@@ -93,6 +93,8 @@ touch CLAUDE.md
 
 以下の内容を書きます。
 
+※先頭の@AGENTS.md は、次章で作成する AGENTS.md を読み込むための記述です。現時点ではファイルが存在しませんが、次章で追加します。
+
 ```markdown
 @AGENTS.md
 
@@ -134,7 +136,7 @@ Claude Code のプロンプトで以下を入力してみましょう。
 src/utils.js に新しい関数 multiply を追加してください。src/index.jsからmultiply(2, 3)を呼び出せるようにしてください。
 ```
 
-コメントが日本語で書かれ、セミコロンがある状態で出力されるはずです。`CLAUDE.md` の指示が効いています。
+`CLAUDE.md`の指示に従い、日本語のコメントとセミコロンを含む変更になることを確認します。なお、`CLAUDE.md`は自然言語による指示であり、機械的に強制される設定ではありません。
 
 ```javascript
 // 2つの数値を掛け算して結果を返す
@@ -177,8 +179,9 @@ node src/index.js
 
 ## 禁止操作
 
-- .env ファイルへの直接書き込み禁止
-- node_modules/ の手動編集禁止
+- `node_modules/`を手動で編集しないこと
+- 依頼されていない依存パッケージを追加しないこと
+- 既存の公開APIを無断で変更しないこと
 
 ## プロジェクト構造
 
@@ -216,7 +219,7 @@ name: code-review
 description: 変更されたコードを、機能面・コード品質・セキュリティの観点からレビューするときに使用します。
 ---
 
-# PR Review
+# Code Review
 
 ## チェック項目
 
@@ -451,7 +454,7 @@ claude-code-hands-on/
 │   ├── settings.json                 # Hooks 設定
 │   ├── skills/
 │   │   └── code-review/
-│   │       └── SKILL.md              # PR レビュースキル
+│   │       └── SKILL.md              # コードレビュースキル
 │   ├── hooks/
 │   │   └── log-file-change.sh
 │   └── agents/
