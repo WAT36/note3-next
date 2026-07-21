@@ -122,7 +122,7 @@ Node.js の練習プロジェクト。Claude Code ハンズオン用。
 - `package-lock.json` は手動で編集しないこと
 ```
 
-- 動作確認
+## 動作確認
 
 Claude Code を起動してみます。
 
@@ -151,7 +151,7 @@ module.exports = { greet, add, multiply };
 
 # 2. AGENTS.md — 複数 AI ツール共通のルールブック
 
-- CLAUDE.md との違い
+## CLAUDE.md との違い
 
 `CLAUDE.md` は Claude Code 専用ですが、`AGENTS.md` は Codex、Cursor、Gemini CLI など複数のコーディングエージェント間で共有しやすい指示ファイルです。
 
@@ -189,12 +189,12 @@ node src/index.js
 
 ````
 
-- 使い分けの目安
+## 使い分けの目安
 
-  - Claude Code だけを使う場合は CLAUDE.md
-  - 複数ツールで指示を共有する場合は AGENTS.md
-  - Claude Code からは CLAUDE.md 内の@AGENTS.md で読み込む
-  - Claude Code 固有の指示だけを CLAUDE.md に追記する
+- Claude Code だけを使う場合は CLAUDE.md
+- 複数ツールで指示を共有する場合は AGENTS.md
+- Claude Code からは CLAUDE.md 内の@AGENTS.md で読み込む
+- Claude Code 固有の指示だけを CLAUDE.md に追記する
 
 ---
 
@@ -260,7 +260,7 @@ description: 変更されたコードを、機能面・コード品質・セキ�
 
 ```
 
-- 動作確認
+## 動作確認
 
 Claude Code のプロンプトで以下を入力します。
 
@@ -335,11 +335,11 @@ touch .claude/settings.json
 }
 ```
 
-- ポイント：通常の stdout はチャットにそのまま表示されない
+## ポイント：通常の stdout はチャットにそのまま表示されない
 
 通常のテキストを stdout へ出力しても、PostToolUse ではその内容がチャット画面にそのまま表示されるわけではありません。今回のように Hook の実行を目視確認するだけなら、ログファイルへ書き出す方法が分かりやすいです。なお、所定の JSON 形式で出力すれば、Hook から Claude へ追加情報を渡すこともできます。
 
-- 動作確認
+## 動作確認
 
 別ターミナルで以下を実行しておきます。
 
@@ -368,7 +368,7 @@ Hook イベントは多数ありますが、代表的なものを以下に記載
 
 ---
 
-# 5. Subagents — 専門エージェントに作業を丸投げする
+# 5. Subagents — 専門エージェントに作業を委譲する
 
 1 つの会話に大量の検索結果やログ、ファイル内容が蓄積すると、メインのコンテキストを圧迫し、後続の作業に必要な情報を扱いにくくなることがあります。Subagents を使うと、専門のエージェントを独立したコンテキストで動かせるため、メインの会話に大量の途中経過を持ち込まずに済みます。
 
@@ -428,12 +428,12 @@ tools: Read, Grep, Glob
 （任意の改善提案）
 ```
 
-- 動作確認
+## 動作確認
 
 Claude Code のプロンプトで以下を入力します。
 
 ```plaintext
-code-reviewer エージェントを使って src/utils.js をレビューしてください
+@code-reviewer src/utils.js をレビューしてください
 ```
 
 独立したコンテキストでレビュー専門エージェントが動き、結果が返ってきます。
