@@ -12,7 +12,7 @@ ogImage:
   url: ""
 ---
 
-Claude Code を入れたものの、なんとなく対話しているだけ——そんな方に向けて、CLAUDE.md、Skills、Hooks、Subagents といった主要な拡張機能に加え、複数のコーディングエージェントで指示を共有するための AGENTS.md を、実際に手を動かしながら試します。
+Claude Code を入れたものの、なんとなく対話しているだけ——そんな方に向けて、`CLAUDE.md`、Skills、Hooks、Subagents といった主要な拡張機能に加え、複数のコーディングエージェントで指示を共有するための `AGENTS.md` を、実際に手を動かしながら試します。
 
 # 前提
 
@@ -30,13 +30,13 @@ Claude Code を入れたものの、なんとなく対話しているだけ—�
 
 まず頭に入れておきたいのが、各機能の「役割分担」です。
 
-| 機能          | 一言で言うと               | いつ使う                           |
-| ------------- | -------------------------- | ---------------------------------- |
-| **CLAUDE.md** | プロジェクトの説明書       | 毎回同じ説明をしたくないとき       |
-| **AGENTS.md** | 複数 AI ツール共通ルール   | 複数の AI ツールを使い分けるとき   |
-| **Skills**    | 再利用できる専門手順       | 繰り返し使うフローがあるとき       |
-| **Hooks**     | 自動で走るガードレール     | 確実に実行させたい処理があるとき   |
-| **Subagents** | 専門エージェントへの丸投げ | 重い・専門的な作業を分離したいとき |
+| 機能          | 一言で言うと                   | いつ使う                                   |
+| ------------- | ------------------------------ | ------------------------------------------ |
+| **CLAUDE.md** | プロジェクトの説明書           | 毎回同じ説明をしたくないとき               |
+| **AGENTS.md** | 複数 AI ツール共通ルール       | 複数の AI ツールを使い分けるとき           |
+| **Skills**    | 再利用できる専門手順           | 繰り返し使うフローがあるとき               |
+| **Hooks**     | 特定のタイミングで走る自動処理 | ログ記録や検査などを自動化したいとき       |
+| **Subagents** | 独立した専門エージェント       | 専門タスクや大量の途中経過を分離したいとき |
 
 ---
 
@@ -93,7 +93,7 @@ touch CLAUDE.md
 
 以下の内容を書きます。
 
-※先頭の@AGENTS.md は、次章で作成する AGENTS.md を読み込むための記述です。現時点ではファイルが存在しませんが、次章で追加します。
+※先頭の`@AGENTS.md` は、次章で作成する `AGENTS.md` を読み込むための記述です。現時点ではファイルが存在しませんが、次章で追加します。
 
 ```markdown
 @AGENTS.md
@@ -113,13 +113,14 @@ Node.js の練習プロジェクト。Claude Code ハンズオン用。
 
 ## コーディング規約
 
-- 関数にはかならずコメントを書くこと
+- 関数には必ずコメントを書くこと
 - コメントは日本語で書くこと
 - セミコロンは省略しないこと
 
-## 触ってはいけないファイル
+## 変更時の注意
 
-- `package-lock.json` は手動で編集しないこと
+- `package.json`へ依存パッケージを追加する前に確認すること
+- `node_modules/`は手動で編集しないこと
 ```
 
 ## 動作確認
@@ -138,13 +139,33 @@ src/utils.js に新しい関数 multiply を追加してください。src/index
 
 `CLAUDE.md`の指示に従い、日本語のコメントとセミコロンを含む変更になることを確認します。なお、`CLAUDE.md`は自然言語による指示であり、機械的に強制される設定ではありません。
 
+`src/utils.js`
+
 ```javascript
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+function add(a, b) {
+  return a + b;
+}
+
 // 2つの数値を掛け算して結果を返す
 function multiply(a, b) {
   return a * b;
 }
 
 module.exports = { greet, add, multiply };
+```
+
+`src/index.js`
+
+```javascript
+const { greet, add, multiply } = require("./utils");
+
+console.log(greet("World"));
+console.log(add(1, 2));
+console.log(multiply(2, 3));
 ```
 
 ---
@@ -155,7 +176,7 @@ module.exports = { greet, add, multiply };
 
 `CLAUDE.md` は Claude Code 専用ですが、`AGENTS.md` は Codex、Cursor、Gemini CLI など複数のコーディングエージェント間で共有しやすい指示ファイルです。
 
-ただし、Claude Code は AGENTS.md を直接は自動読み込みしません。Claude Code でも内容を利用するには、CLAUDE.md から AGENTS.md をインポートします。
+ただし、Claude Code は AGENTS.md を直接は自動読み込みしません。Claude Code でも内容を利用するには、`CLAUDE.md` から `AGENTS.md` をインポートします。
 
 ## ハンズオン：AGENTS.md を作る
 
@@ -163,9 +184,9 @@ module.exports = { greet, add, multiply };
 touch AGENTS.md
 ```
 
-AGENTS.md は以下のように書きます。
+`AGENTS.md` は以下のように書きます。
 
-````
+````plaintext
 ## 動作確認コマンド
 
 ```bash
@@ -174,8 +195,8 @@ node src/index.js
 
 ## コーディング規約
 
+- 関数には必ず日本語のコメントを書くこと
 - セミコロンは省略しないこと
-- 関数コメントは日本語で書くこと
 
 ## 禁止操作
 
@@ -207,15 +228,15 @@ node src/index.js
 ディレクトリを作成します。
 
 ```bash
-mkdir -p .claude/skills/code-review
-touch .claude/skills/code-review/SKILL.md
+mkdir -p .claude/skills/project-code-review
+touch .claude/skills/project-code-review/SKILL.md
 ```
 
-`.claude/skills/code-review/SKILL.md` に以下を書きます。
+`.claude/skills/project-code-review/SKILL.md` に以下を書きます。
 
 ```
 ---
-name: code-review
+name: project-code-review
 description: 変更されたコードを、機能面・コード品質・セキュリティの観点からレビューするときに使用します。
 ---
 
@@ -265,7 +286,7 @@ description: 変更されたコードを、機能面・コード品質・セキ�
 Claude Code のプロンプトで以下を入力します。
 
 ```plaintext
-/code-review src/utils.js をレビューしてください
+/project-code-review src/utils.js をレビューしてください
 ```
 
 登録した手順とアウトプット形式でレビューが返ってきます。
@@ -285,7 +306,7 @@ Hooks の設定は以下のいずれかに書きます。
 - プロジェクト単位：`.claude/settings.json`
 - ユーザー全体：`~/.claude/settings.json`
 
-## ハンズオン ：Hook が動作していることをログで確認する
+## ハンズオン：Hook が動作していることをログで確認する
 
 まず Hook で実行するファイルを作ります。
 
@@ -433,7 +454,7 @@ tools: Read, Grep, Glob
 Claude Code のプロンプトで以下を入力します。
 
 ```plaintext
-@code-reviewer src/utils.js をレビューしてください
+@"code-reviewer (agent)" src/utils.js をレビューしてください
 ```
 
 独立したコンテキストでレビュー専門エージェントが動き、結果が返ってきます。
@@ -453,13 +474,12 @@ claude-code-hands-on/
 ├── .claude/
 │   ├── settings.json                 # Hooks 設定
 │   ├── skills/
-│   │   └── code-review/
+│   │   └── project-code-review/
 │   │       └── SKILL.md              # コードレビュースキル
 │   ├── hooks/
 │   │   └── log-file-change.sh
 │   └── agents/
 │       └── code-reviewer.md          # コードレビュー専門エージェント
-
 ├── src/
 │   ├── index.js
 │   └── utils.js
@@ -472,7 +492,7 @@ claude-code-hands-on/
 
 1. **CLAUDE.md**（今日からできる。一番効果が出やすい）
 2. **Skills**（繰り返しやっている作業を登録する）
-3. **Hooks**（自動フォーマットや危険操作のブロックを設定する）
+3. **Hooks**（ログ記録や自動フォーマットを設定する）
 4. **Subagents**（専門タスクを切り出したくなったら）
 5. **AGENTS.md**（複数の AI ツールを使い始めたら）
 
@@ -480,12 +500,12 @@ claude-code-hands-on/
 
 # まとめ
 
-| 機能      | やること                     | 効果                               |
-| --------- | ---------------------------- | ---------------------------------- |
-| CLAUDE.md | プロジェクトのルールを書く   | 毎回同じ説明が不要になる           |
-| AGENTS.md | 複数 AI 共通ルールを書く     | ツールを変えてもルールが統一される |
-| Skills    | 定型手順を登録する           | 呼び出すだけで専門的な動作をする   |
-| Hooks     | 自動処理・ブロックを設定する | 人手を介さず確実に実行される       |
-| Subagents | 専門エージェントを作る       | 複雑なタスクを分離して精度を保つ   |
+| 機能      | やること                   | 効果                               |
+| --------- | -------------------------- | ---------------------------------- |
+| CLAUDE.md | プロジェクトのルールを書く | 毎回同じ説明が不要になる           |
+| AGENTS.md | 複数 AI 共通ルールを書く   | ツールを変えてもルールが統一される |
+| Skills    | 定型手順を登録する         | 呼び出すだけで専門的な動作をする   |
+| Hooks     | イベントに応じた処理を書く | 定型処理を自動実行できる           |
+| Subagents | 専門エージェントを作る     | タスクとコンテキストを分離できる   |
 
 これらは「全部一気にやる」必要はありません。まず `CLAUDE.md` を書くところから始めて、徐々に自分のワークフローに合わせて拡張していくのが一番続きます。
