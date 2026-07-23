@@ -81,7 +81,7 @@ module.exports = { greet, add };
 
 # 1. CLAUDE.md — プロジェクトの説明書を作る
 
-Claude Code はあなたのプロジェクトのルールを最初から知りません。「テストは `npm test` で実行して」「コメントは日本語で書いて」——これを毎回会話で伝えるのは非効率です。`CLAUDE.md` に書いておけば、Claude が自動的に読んで理解してくれます。
+Claude Code はあなたのプロジェクトのルールを最初から知りません。「動作確認は `node src/index.js` で行って」「コメントは日本語で書いて」——これを毎回会話で伝えるのは非効率です。`CLAUDE.md` に書いておけば、Claude が自動的に読んで理解してくれます。
 
 ## ハンズオン：CLAUDE.md を作る
 
@@ -94,6 +94,7 @@ touch CLAUDE.md
 以下の内容を書きます。
 
 ※先頭の`@AGENTS.md` は、次章で作成する `AGENTS.md` を読み込むための記述です。現時点ではファイルが存在しませんが、次章で追加します。
+また、この時点ではまだ `AGENTS.md` を作成していないため、動作確認用のコーディング規約を `CLAUDE.md` にも記載しています。次章で `AGENTS.md` を作成した後は、共通規約をそちらへ移すこともできます。
 
 ```markdown
 @AGENTS.md
@@ -174,7 +175,7 @@ console.log(multiply(2, 3));
 
 ## CLAUDE.md との違い
 
-`CLAUDE.md` は Claude Code 専用ですが、`AGENTS.md` は Codex、Cursor、Gemini CLI など複数のコーディングエージェント間で共有しやすい指示ファイルです。
+`CLAUDE.md` は Claude Code 専用ですが、 `AGENTS.md` は対応する複数のコーディングエージェント間で指示を共有するために利用できます。
 
 ただし、Claude Code は AGENTS.md を直接は自動読み込みしません。Claude Code でも内容を利用するには、`CLAUDE.md` から `AGENTS.md` をインポートします。
 
@@ -186,7 +187,7 @@ touch AGENTS.md
 
 `AGENTS.md` は以下のように書きます。
 
-````plaintext
+````markdown
 ## 動作確認コマンド
 
 ```bash
@@ -202,13 +203,14 @@ node src/index.js
 
 - `node_modules/`を手動で編集しないこと
 - 依頼されていない依存パッケージを追加しないこと
-- 既存の公開APIを無断で変更しないこと
+- 既存の公開 API を無断で変更しないこと
 
 ## プロジェクト構造
 
 - `src/` — アプリケーションコード
-
 ````
+
+`AGENTS.md` を作成したら、いったん Claude Code を終了して再起動します。これにより、`CLAUDE.md` からインポートした `AGENTS.md` の内容が新しいセッションへ読み込まれます。
 
 ## 使い分けの目安
 
@@ -223,7 +225,7 @@ node src/index.js
 
 「このプロジェクトのコードレビューをするときはこの観点でチェックしてほしい」——こういった定型の指示を毎回書くのは手間です。Skills に登録しておけば、呼び出すだけで動いてくれます。
 
-## ハンズオン：PR レビュースキルを作る
+## ハンズオン：コードレビュースキルを作る
 
 ディレクトリを作成します。
 
