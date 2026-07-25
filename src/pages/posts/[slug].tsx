@@ -4,7 +4,7 @@ import Container from "../../components/ui-elements/container/Container";
 import PostBody from "../../components/ui-elements/postBody/PostBody";
 import PostHeader from "../../components/ui-parts/postHeader/PostHeader";
 import Layout from "../../components/ui-pages/layout/Layout";
-import { getPostBySlug, getAllPosts } from "../../lib/fileSystem";
+import { getPostBySlug, getAllPosts, getPostNumber } from "../../lib/fileSystem";
 import PostTitle from "../../components/ui-elements/postTitle/PostTitle";
 import Head from "next/head";
 import { TITLE } from "../../lib/constants";
@@ -54,6 +54,7 @@ export default function Post({ post, morePosts, preview }: Props) {
                   date={post.date}
                   author={post.author}
                   tag={post.tag}
+                  postNumber={post.postNumber}
                 />
                 <PostBody content={post.content} />
               </article>
@@ -106,6 +107,7 @@ export async function getStaticProps({ params }: Params) {
     "coverImage",
     "tag",
   ]);
+  const postNumber = getPostNumber(params.slug);
   const content = await addIdsToHeadings(await markdownToHtml(post.content || ""));
   const headings = await extractHeadings(content);
 
@@ -113,6 +115,7 @@ export async function getStaticProps({ params }: Params) {
     props: {
       post: {
         ...post,
+        postNumber,
         content,
         headings,
       },

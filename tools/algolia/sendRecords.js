@@ -114,6 +114,14 @@ for (let i = 0; i < files.length; i++) {
   });
 }
 
+// _postsのレコードにpostNumberを付与（日付昇順で連番、最初の記事が1番）
+const postRecords = records
+  .filter((r) => r.isPost)
+  .sort((a, b) => (a.date < b.date ? -1 : 1));
+postRecords.forEach((record, i) => {
+  record.postNumber = i + 1;
+});
+
 // algoliaに送り込む
 const appId = process.env.APP_ID;
 const indexName = process.env.INDEX_NAME;
