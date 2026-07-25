@@ -2,8 +2,8 @@
 title: "Claude CodeのCLAUDE.md・Skills・Hooks・Subagentsを試す"
 excerpt: "Claude CodeのCLAUDE.md、AGENTS.md、Skills、Hooks、Subagentsの役割と使い方を、Node.jsのサンプルを通して試します。"
 coverImage: "/assets/posts/claudeCodeSkills/welcome.png"
-date: "2026-07-01T22:24:54.000Z"
-updatedAt: "2026-07-01T22:24:54.000Z"
+date: '2026-07-25T17:06:36.000Z'
+updatedAt: '2026-07-25T17:06:36.000Z'
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
