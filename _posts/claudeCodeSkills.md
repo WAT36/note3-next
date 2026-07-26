@@ -48,7 +48,10 @@ Claude Code を入れたものの、なんとなく対話しているだけ—�
 mkdir claude-code-hands-on
 cd claude-code-hands-on
 npm init -y
-mkdir src
+mkdir -p src
+mkdir -p .claude/skills
+mkdir -p .claude/agents
+mkdir -p .claude/hooks
 touch src/index.js src/utils.js
 ```
 
@@ -236,7 +239,7 @@ touch .claude/skills/project-code-review/SKILL.md
 
 `.claude/skills/project-code-review/SKILL.md` に以下を書きます。
 
-```
+```markdown
 ---
 name: project-code-review
 description: 変更されたコードを、機能面・コード品質・セキュリティの観点からレビューするときに使用します。
@@ -282,6 +285,14 @@ description: 変更されたコードを、機能面・コード品質・セキ�
 - （あってもなくてもよい提案）
 
 ```
+
+Skillを作成したら、Claude Codeで次のコマンドを実行してSkillを再読み込みします。
+
+```plaintext
+/reload-skills
+```
+
+または、Claude Codeを再起動しても構いません。
 
 ## 動作確認
 
@@ -450,6 +461,8 @@ tools: Read, Grep, Glob
 **提案 💡**
 （任意の改善提案）
 ```
+
+※今回はセッション開始後に`.claude/agents/`ディレクトリを初めて作成しているため、ファイル作成後にClaude Codeを一度再起動します。
 
 ## 動作確認
 
