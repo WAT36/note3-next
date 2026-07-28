@@ -3,7 +3,7 @@ title: "Claude CodeのCLAUDE.md・Skills・Hooks・Subagentsを試す"
 excerpt: "Claude CodeのCLAUDE.md、AGENTS.md、Skills、Hooks、Subagentsの役割と使い方を、Node.jsのサンプルを通して実践"
 coverImage: "/assets/posts/claudeCodeSkills/welcome.png"
 date: '2026-07-25T17:06:36.000Z'
-updatedAt: '2026-07-25T17:06:36.000Z'
+updatedAt: '2026-07-28T21:22:21.000Z'
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
@@ -85,8 +85,6 @@ module.exports = { greet, add };
 # 1. CLAUDE.md — プロジェクトの説明書を作る
 
 Claude Code はあなたのプロジェクトのルールを最初から知りません。「動作確認は `node src/index.js` で行って」「コメントは日本語で書いて」——これを毎回会話で伝えるのは非効率です。`CLAUDE.md` に書いておけば、Claude が自動的に読んで理解してくれます。
-
-## ハンズオン：CLAUDE.md を作る
 
 プロジェクトルートに `CLAUDE.md` を作成します。
 
@@ -176,13 +174,11 @@ console.log(multiply(2, 3));
 
 # 2. AGENTS.md — 複数 AI ツール共通のルールブック
 
-## CLAUDE.md との違い
-
 `CLAUDE.md` は Claude Code 専用ですが、 `AGENTS.md` は対応する複数のコーディングエージェント間で指示を共有するために利用できます。
 
 ただし、Claude Code は AGENTS.md を直接は自動読み込みしません。Claude Code でも内容を利用するには、`CLAUDE.md` から `AGENTS.md` をインポートします。
 
-## ハンズオン：AGENTS.md を作る
+実際に作ってみましょう。
 
 ```bash
 touch AGENTS.md
@@ -228,9 +224,7 @@ node src/index.js
 
 「このプロジェクトのコードレビューをするときはこの観点でチェックしてほしい」——こういった定型の指示を毎回書くのは手間です。Skills に登録しておけば、呼び出すだけで動いてくれます。
 
-## ハンズオン：コードレビュースキルを作る
-
-ディレクトリを作成します。
+まず、ディレクトリを作成します。
 
 ```bash
 mkdir -p .claude/skills/project-code-review
@@ -312,14 +306,12 @@ Claude Code のプロンプトで以下を入力します。
 
 `CLAUDE.md`に書いた内容は Claude に対する自然言語の指示ですが、Hooks は Claude Code の処理中に特定のタイミングでコマンドを自動実行する仕組みです。ファイル編集後のフォーマットやログ記録など、毎回同じ処理を自動化したい場合に利用できます。
 
-## 設定ファイルの場所
-
 Hooks の設定は以下のいずれかに書きます。
 
 - プロジェクト単位：`.claude/settings.json`
 - ユーザー全体：`~/.claude/settings.json`
 
-## ハンズオン：Hook が動作していることをログで確認する
+それでは、実際に作成してみましょう。
 
 まず Hook で実行するファイルを作ります。
 
@@ -407,7 +399,7 @@ Hook イベントは多数ありますが、代表的なものを以下に記載
 
 Skills と混同しがちですが、Skills は「どう進めるかという手順」を再利用する仕組みで、Subagents は「誰に、どのコンテキストと権限で任せるか」を分離する仕組み、と考えると整理しやすいです。
 
-## ハンズオン：コードレビュー専門エージェントを作る
+実際に作成してみます。
 
 ```bash
 mkdir -p .claude/agents
