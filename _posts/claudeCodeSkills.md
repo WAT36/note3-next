@@ -1,6 +1,6 @@
 ---
 title: "Claude CodeのCLAUDE.md・Skills・Hooks・Subagentsを試す"
-excerpt: "Claude CodeのCLAUDE.md、AGENTS.md、Skills、Hooks、Subagentsの役割と使い方を、Node.jsのサンプルを通して試します。"
+excerpt: "Claude CodeのCLAUDE.md、AGENTS.md、Skills、Hooks、Subagentsの役割と使い方を、Node.jsのサンプルを通して実践"
 coverImage: "/assets/posts/claudeCodeSkills/welcome.png"
 date: '2026-07-25T17:06:36.000Z'
 updatedAt: '2026-07-25T17:06:36.000Z'
@@ -48,7 +48,10 @@ Claude Code を入れたものの、なんとなく対話しているだけ—�
 mkdir claude-code-hands-on
 cd claude-code-hands-on
 npm init -y
-mkdir src
+mkdir -p src
+mkdir -p .claude/skills
+mkdir -p .claude/agents
+mkdir -p .claude/hooks
 touch src/index.js src/utils.js
 ```
 
@@ -93,9 +96,6 @@ touch CLAUDE.md
 
 以下の内容を書きます。
 
-※先頭の`@AGENTS.md` は、次章で作成する `AGENTS.md` を読み込むための記述です。現時点ではファイルが存在しませんが、次章で追加します。
-また、この時点ではまだ `AGENTS.md` を作成していないため、動作確認用のコーディング規約を `CLAUDE.md` にも記載しています。次章で `AGENTS.md` を作成した後は、共通規約をそちらへ移すこともできます。
-
 ```markdown
 @AGENTS.md
 
@@ -123,6 +123,9 @@ Node.js の練習プロジェクト。Claude Code ハンズオン用。
 - `package.json`へ依存パッケージを追加する前に確認すること
 - `node_modules/`は手動で編集しないこと
 ```
+
+※先頭の`@AGENTS.md` は、次章で作成する `AGENTS.md` を読み込むための記述です。現時点ではファイルが存在しませんが、次章で追加します。
+また、この時点ではまだ `AGENTS.md` を作成していないため、動作確認用のコーディング規約を `CLAUDE.md` にも記載しています。次章で `AGENTS.md` を作成した後は、共通規約をそちらへ移すこともできます。
 
 ## 動作確認
 
@@ -236,7 +239,7 @@ touch .claude/skills/project-code-review/SKILL.md
 
 `.claude/skills/project-code-review/SKILL.md` に以下を書きます。
 
-```
+```markdown
 ---
 name: project-code-review
 description: 変更されたコードを、機能面・コード品質・セキュリティの観点からレビューするときに使用します。
@@ -282,6 +285,14 @@ description: 変更されたコードを、機能面・コード品質・セキ�
 - （あってもなくてもよい提案）
 
 ```
+
+Skillを作成したら、Claude Codeで次のコマンドを実行してSkillを再読み込みします。
+
+```plaintext
+/reload-skills
+```
+
+または、Claude Codeを再起動しても構いません。
 
 ## 動作確認
 
@@ -334,7 +345,6 @@ printf '[%s] %s が編集されました\n' \
 次に設定ファイルを作ります。
 
 ```bash
-mkdir -p .claude
 touch .claude/settings.json
 ```
 
@@ -450,6 +460,8 @@ tools: Read, Grep, Glob
 **提案 💡**
 （任意の改善提案）
 ```
+
+※今回はセッション開始後に`.claude/agents/`ディレクトリを初めて作成しているため、ファイル作成後にClaude Codeを一度再起動します。
 
 ## 動作確認
 
