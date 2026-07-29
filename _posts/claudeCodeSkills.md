@@ -3,7 +3,7 @@ title: "Claude CodeのCLAUDE.md・Skills・Hooks・Subagentsを試す"
 excerpt: "Claude CodeのCLAUDE.md、AGENTS.md、Skills、Hooks、Subagentsの役割と使い方を、Node.jsのサンプルを通して実践"
 coverImage: "/assets/posts/claudeCodeSkills/welcome.png"
 date: '2026-07-25T17:06:36.000Z'
-updatedAt: '2026-07-28T21:22:21.000Z'
+updatedAt: '2026-07-29T22:59:33.000Z'
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
@@ -280,14 +280,6 @@ description: 変更されたコードを、機能面・コード品質・セキ�
 
 ```
 
-Skillを作成したら、Claude Codeで次のコマンドを実行してSkillを再読み込みします。
-
-```plaintext
-/reload-skills
-```
-
-または、Claude Codeを再起動しても構いません。
-
 ## 動作確認
 
 Claude Code のプロンプトで以下を入力します。
@@ -452,8 +444,6 @@ tools: Read, Grep, Glob
 **提案 💡**
 （任意の改善提案）
 ```
-
-※今回はセッション開始後に`.claude/agents/`ディレクトリを初めて作成しているため、ファイル作成後にClaude Codeを一度再起動します。
 
 ## 動作確認
 
