@@ -3,7 +3,7 @@ title: "Claude CodeのCLAUDE.md・Skills・Hooks・Subagentsを試す"
 excerpt: "Claude CodeのCLAUDE.md、AGENTS.md、Skills、Hooks、Subagentsの役割と使い方を、Node.jsのサンプルを通して実践"
 coverImage: "/assets/posts/claudeCodeSkills/welcome.png"
 date: '2026-07-25T17:06:36.000Z'
-updatedAt: '2026-07-29T22:59:33.000Z'
+updatedAt: '2026-07-29T23:46:56.000Z'
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
@@ -366,7 +366,7 @@ tail -f /tmp/claude-hook.log
 
 この状態で Claude Code から何かファイルを編集してもらうと、編集のたびにログが追記されます。
 
-```bash
+```plaintext
 [Fri Jul  4 12:00:00 JST 2026] src/utils.js が編集されました
 ```
 
