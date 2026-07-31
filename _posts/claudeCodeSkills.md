@@ -2,8 +2,8 @@
 title: "Claude CodeのCLAUDE.md・Skills・Hooks・Subagentsを試す"
 excerpt: "Claude CodeのCLAUDE.md、AGENTS.md、Skills、Hooks、Subagentsの役割と使い方を、Node.jsのサンプルを通して実践"
 coverImage: "/assets/posts/claudeCodeSkills/welcome.png"
-date: '2026-07-29T23:50:57.000Z'
-updatedAt: '2026-07-29T23:50:57.000Z'
+date: '2026-07-31T22:15:54.000Z'
+updatedAt: '2026-07-31T22:15:54.000Z'
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
@@ -504,4 +504,4 @@ claude-code-hands-on/
 | Hooks     | イベントに応じた処理を書く | 定型処理を自動実行できる           |
 | Subagents | 専門エージェントを作る     | タスクとコンテキストを分離できる   |
 
-これらは「全部一気にやる」必要はありません。まず `CLAUDE.md` を書くところから始めて、徐々に自分のワークフローに合わせて拡張していくのが一番続きます。
+これらは「全部一気にやる」必要はありません。まず `CLAUDE.md` を書くところから始めて、徐々に自分のワークフローに合わせて拡張していくのが続きます。
