@@ -11,12 +11,16 @@ type Props = {
   date: string;
   author: Author;
   tag?: string[];
+  postNumber?: number;
 };
 
-const PostHeader = ({ title, coverImage, date, author, tag }: Props) => {
+const PostHeader = ({ title, coverImage, date, author, tag, postNumber }: Props) => {
   return (
     <>
       <div className="max-w-2xl mx-auto">
+        {postNumber && (
+          <div className="mb-2 text-sm text-gray-400">#{postNumber}</div>
+        )}
         <PostTitle>{title}</PostTitle>
         <div className="hidden md:block md:mb-12">
           <Avatar name={author.name} picture={author.picture} />

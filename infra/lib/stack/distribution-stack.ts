@@ -43,6 +43,26 @@ export class DistributionStack extends cdk.Stack {
       }
     );
 
+    // CloudFront Function: サブディレクトリのURLを /index.html に書き換え
+    const urlRewriteFunction = new cloudfront.Function(
+      this,
+      `${props.env}Note3UrlRewriteFunction`,
+      {
+        code: cloudfront.FunctionCode.fromInline(`
+function handler(event) {
+  var request = event.request;
+  var uri = request.uri;
+  if (uri.endsWith('/')) {
+    request.uri += 'index.html';
+  } else if (!uri.includes('.')) {
+    request.uri += '/index.html';
+  }
+  return request;
+}
+        `),
+      }
+    );
+
     // cloudfront
     const distribution = new cloudfront.Distribution(
       this,
@@ -63,6 +83,17 @@ export class DistributionStack extends cdk.Stack {
           cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
           viewerProtocolPolicy:
             cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+          // prd: CloudFront Function で URL rewrite
+          // dev/stg: Lambda@Edge 内で URL rewrite + 認証
+          functionAssociations:
+            props.env === "prd"
+              ? [
+                  {
+                    function: urlRewriteFunction,
+                    eventType: cloudfront.FunctionEventType.VIEWER_REQUEST,
+                  },
+                ]
+              : [],
           edgeLambdas:
             props.env === "prd"
               ? []
