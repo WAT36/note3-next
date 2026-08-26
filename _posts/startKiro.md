@@ -2,8 +2,8 @@
 title: 'Kiroを使ってみた'
 excerpt: ''
 coverImage: ''
-date: '2026-08-26T23:59:43.000Z'
-updatedAt: '2026-08-26T23:59:43.000Z'
+date: '2026-08-27T00:06:02.000Z'
+updatedAt: '2026-08-27T00:06:02.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -180,5 +180,162 @@ Spec ファイルは `.kiro/specs/<feature-name>/` に保存されます：
     ├── requirements.md
     ├── design.md
     └── tasks.md
+
+---
+
+## 3. Agent Hooks（エージェントフック）
+
+**「IDEのイベントをトリガーに、AIタスクを自動実行する仕組み」** です。
+
+例えば：
+
+- React コンポーネントを保存したとき → テストファイルを自動更新
+- 新しいファイルを作成したとき → セキュリティスキャンを実行
+- コミット前 → README や API ドキュメントを自動更新
+- スキーマ変更時 → 関連コードの型定義を同期
+
+Hook ファイルは `.kiro/hooks/` に JSON 形式で保存されます：
+
+    {
+      "version": "v1",
+      "hooks": [
+        {
+          "name": "lint-on-save",
+          "trigger": "PostFileSave",
+          "matcher": "\\.ts$",
+          "action": {
+            "type": "command",
+            "command": "npm run lint"
+          },
+          "timeout": 30,
+          "enabled": true
+        }
+      ]
+    }
+
+Hook の作成方法は3種類あります：
+
+1. 自然言語で説明する（Kiro が JSON を生成）
+2. フォームUIから設定
+3. JSON ファイルを直接編集
+
+> **Note:** Hooks はリポジトリレベルで保存されるため、チームメンバーが
+> リポジトリをチェックアウトすれば全員が同じ自動化の恩恵を受けられます。
+
+---
+
+# ハンズオン：ToDoアプリの機能をSpecで実装する
+
+ここでは **「ToDoアプリにタグ絞り込み機能を追加する」** という例でSpec機能を体験します。
+
+## Step 1: プロジェクトを開く
+
+既存のプロジェクト（ここでは React + TypeScript の ToDoアプリとします）を Kiro で開きます。
+
+    kiro .
+
+## Step 2: Steering を生成する
+
+初回はまず Steering を生成します。
+
+1. Kiro パネルを開く
+2. **「Generate Steering Docs」** をクリック
+3. 生成された `.kiro/steering/tech.md` を開いて内容を確認・修正
+
+`.kiro/steering/tech.md` の例：
+
+    ## 技術スタック
+    - フロントエンド: React 18 + TypeScript
+    - スタイリング: Tailwind CSS
+    - 状態管理: useState（グローバル状態は Context API）
+    - テスト: Vitest + Testing Library
+    - 命名規則: コンポーネントは PascalCase、関数は camelCase
+
+## Step 3: Spec セッションを開始する
+
+1. Kiro のチャットパネルで **Spec モード** を選択
+2. 以下のプロンプトを入力：
+
+    ToDoアプリにタグによる絞り込み機能を追加したい。
+    ユーザーはToDoアイテムに複数のタグを付けられ、
+    タグをクリックすると該当タグを持つアイテムだけ表示される。
+
+## Step 4: Requirements を確認・承認する
+
+Kiro が生成した要件を確認します。例：
+
+    ## 要件
+
+    ### 機能要件
+    - ユーザーはToDoアイテム作成・編集時に1つ以上のタグを付与できる
+    - タグ一覧がUIに表示される
+    - タグをクリックすると、そのタグを持つToDoのみ表示する
+    - 複数タグの AND/OR 絞り込みをサポートする
+
+    ### EARS 記法による受入条件
+    - When ユーザーがタグをクリックする
+      Then 該当タグを持つToDoアイテムのみが表示される
+    - When タグが選択されていない
+      Then すべてのToDoアイテムが表示される
+
+内容に問題なければ **「承認」** します。必要に応じて直接編集も可能です。
+
+## Step 5: Design を確認・承認する
+
+要件が確定すると、Kiro がコードベースを解析して設計書を生成します。
+
+    ## 設計
+
+    ### データ構造
+    interface Tag {
+      id: string;
+      name: string;
+      color: string;
+    }
+
+    interface TodoItem {
+      id: string;
+      title: string;
+      completed: boolean;
+      tags: Tag[];  // 既存の型に追加
+    }
+
+    ### 追加コンポーネント
+    - TagBadge: タグ表示用の小さなバッジ
+    - TagFilter: タグ絞り込み用のフィルタUI
+    - TagSelector: アイテム編集時のタグ選択UI
+
+    ### 状態管理
+    - selectedTags: Tag[] を Context で管理
+    - フィルタリングは useMemo で最適化
+
+設計を確認・修正して **「承認」** します。
+
+## Step 6: Tasks を実行する
+
+タスクリストが生成されます。例：
+
+    ## タスク
+    - [ ] Tag 型定義を types.ts に追加
+    - [ ] TodoItem に tags フィールドを追加
+    - [ ] TagBadge コンポーネントを作成
+    - [ ] TagFilter コンポーネントを作成
+    - [ ] TagSelector コンポーネントを作成
+    - [ ] フィルタリングロジックを TodoContext に追加
+    - [ ] 各コンポーネントのテストを作成
+
+**「Implement」** をクリックすると、上から順にタスクを実行してコードを生成します。
+各タスクの差分を確認しながら進められます。
+
+## Step 7: Hook を設定する（オプション）
+
+`.tsx` ファイルを保存したとき自動でテストを更新するように Hook を設定します。
+
+Kiro パネルで **「Agent Hooks」** → **「+」** をクリックして以下を入力：
+
+    Reactコンポーネントファイル（.tsx）を保存したときに、
+    対応するテストファイルを自動で確認・更新してください。
+
+Kiro が最適な Hook 設定を JSON で生成します。
 
 ---
