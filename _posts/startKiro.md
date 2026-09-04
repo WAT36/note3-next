@@ -2,8 +2,8 @@
 title: 'Kiroを使ってみた'
 excerpt: 'AWSのエージェント型IDE「Kiro」について'
 coverImage: '/assets/posts/startKiro/kiro-color.svg'
-date: '2026-09-05T06:07:35.000Z'
-updatedAt: '2026-09-05T06:07:35.000Z'
+date: '2026-09-05T06:15:19.000Z'
+updatedAt: '2026-09-05T06:15:19.000Z'
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
@@ -115,10 +115,12 @@ Steering はこの問題を解決します。
 
 **生成されるファイル例：**
 
-    .kiro/steering/
-    ├── product.md    # プロジェクトの概要・目的
-    ├── tech.md       # 使用技術スタック・ライブラリ
-    └── structure.md  # ディレクトリ構成・命名規約
+```whitespace
+.kiro/steering/
+├── product.md    # プロジェクトの概要・目的
+├── tech.md       # 使用技術スタック・ライブラリ
+└── structure.md  # ディレクトリ構成・命名規約
+```
 
 > **Tip:** Steering はAIへの指示文です。人間向けのドキュメントにしないよう注意。
 > 簡潔・具体的に書くことでコンテキスト消費を抑えられます。
@@ -164,10 +166,12 @@ Kiro が生成するもの：
 
 Spec ファイルは `.kiro/specs/<feature-name>/` に保存されます：
 
-    .kiro/specs/review-system/
-    ├── requirements.md
-    ├── design.md
-    └── tasks.md
+```whitespace
+.kiro/specs/review-system/
+├── requirements.md
+├── design.md
+└── tasks.md
+```
 
 ---
 
@@ -184,22 +188,24 @@ Spec ファイルは `.kiro/specs/<feature-name>/` に保存されます：
 
 Hook ファイルは `.kiro/hooks/` に JSON 形式で保存されます：
 
+```json
+{
+  "version": "v1",
+  "hooks": [
     {
-      "version": "v1",
-      "hooks": [
-        {
-          "name": "lint-on-save",
-          "trigger": "PostFileSave",
-          "matcher": "\\.ts$",
-          "action": {
-            "type": "command",
-            "command": "npm run lint"
-          },
-          "timeout": 30,
-          "enabled": true
-        }
-      ]
+      "name": "lint-on-save",
+      "trigger": "PostFileSave",
+      "matcher": "\\.ts$",
+      "action": {
+        "type": "command",
+        "command": "npm run lint"
+      },
+      "timeout": 30,
+      "enabled": true
     }
+  ]
+}
+```
 
 Hook の作成方法は3種類あります：
 
@@ -220,7 +226,9 @@ Hook の作成方法は3種類あります：
 
 既存のプロジェクト（ここでは React + TypeScript の ToDoアプリとします）を Kiro で開きます。
 
-    kiro .
+```bash
+kiro .
+```
 
 ## Step 2: Steering を生成する
 
