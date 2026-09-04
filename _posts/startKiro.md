@@ -1,9 +1,9 @@
 ---
 title: 'Kiroを使ってみた'
-excerpt: ''
+excerpt: 'AWSのエージェント型IDE「Kiro」について'
 coverImage: '/assets/posts/startKiro/kiro-color.svg'
-date: '2026-09-05T05:44:06.000Z'
-updatedAt: '2026-09-05T05:44:06.000Z'
+date: '2026-09-05T06:07:35.000Z'
+updatedAt: '2026-09-05T06:07:35.000Z'
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
