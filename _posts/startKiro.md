@@ -1,10 +1,10 @@
 ---
 title: 'Kiroを使ってみた'
 excerpt: ''
-coverImage: ''
-date: '2026-08-27T00:25:30.000Z'
-updatedAt: '2026-08-27T00:25:30.000Z'
-tag: []
+coverImage: '/assets/posts/startKiro/kiro-color.svg'
+date: '2026-09-05T04:09:06.000Z'
+updatedAt: '2026-09-05T04:09:06.000Z'
+tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
   picture: '/assets/blog/authors/WAT.jpg'
