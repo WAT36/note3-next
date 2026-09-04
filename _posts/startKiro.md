@@ -2,8 +2,8 @@
 title: 'Kiroを使ってみた'
 excerpt: ''
 coverImage: '/assets/posts/startKiro/kiro-color.svg'
-date: '2026-09-05T04:09:06.000Z'
-updatedAt: '2026-09-05T04:09:06.000Z'
+date: '2026-09-05T05:44:06.000Z'
+updatedAt: '2026-09-05T05:44:06.000Z'
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
@@ -12,7 +12,7 @@ ogImage:
   url: ''
 ---
 
-昨今いろんなAIエージェント搭載のIDEが登場しているが、今回は **Kiro** が気になっていたので使ってみた。
+昨今いろんなAIエージェント搭載のIDEが登場しているが、今回は **Kiro** が気になっていたので使ってみました。
 
 ---
 
@@ -34,7 +34,7 @@ AI補完ツールが普及したことで、「とりあえずプロンプトを
 
 Kiro はこの問題を解決するために、**コードを書く前に仕様を明示化するフロー** を導入しています。
 
-一言で言うと、 ** 「プロンプト → 仕様書 → 設計ドキュメント → コード」 ** という流れで開発を進めるAI IDEです。
+一言で言うと、 **「プロンプト → 仕様書 → 設計ドキュメント → コード」** という流れで開発を進めるAI IDEです。
 
 ---
 
@@ -49,19 +49,7 @@ Kiro はこの問題を解決するために、**コードを書く前に仕様�
 | **VS Code 互換** | 既存の拡張機能・設定がそのまま使える |
 | **マルチプラットフォーム** | Windows / macOS / Linux に対応 |
 
----
-
-# 他のAI IDEとの比較
-
-| ポイント | Kiro | Cursor | GitHub Copilot |
-|----------|------|--------|----------------|
-| 主な強み | 複雑な機能の構造化開発 | スムーズな補完・マルチファイル編集 | 40以上のIDE対応・GitHub連携 |
-| コード生成速度 | やや遅い（仕様生成フローがある） | 速い | 速い |
-| 仕様書管理 | ネイティブサポート | なし | なし |
-| 対応モデル | Anthropic Claude（Sonnet/Opus） | Claude・GPT・Gemini など多数 | OpenAI 系 |
-| 価格モデル | クレジット制 | 月額固定（Pro: $20〜） | 月額固定 |
-
-**Kiroが向いているケース**
+Kiroが向いているケースとしては、主に以下のような場合であると考えます。
 
 - 要件が複雑で、実装前に設計を固めたいプロジェクト
 - チームでAIの出力に一貫性を持たせたい場合
@@ -73,7 +61,7 @@ Kiro はこの問題を解決するために、**コードを書く前に仕様�
 
 ## ダウンロード
 
-kiro.dev から自分のOSに合ったインストーラーをダウンロードします。  
+kiro.dev[^1] から自分のOSに合ったインストーラーをダウンロードします。  
 インストール手順は VS Code とほぼ同じです。
 
 ```bash
@@ -240,101 +228,129 @@ Hook の作成方法は3種類あります：
 
 1. Kiro パネルを開く
 2. **「Generate Steering Docs」** をクリック
+
+コマンドパレット(command+shift+p)から入力すると出てきます
+
+![](/assets/posts/startKiro/generateSteeringDocs.png)
+
 3. 生成された `.kiro/steering/tech.md` を開いて内容を確認・修正
 
 `.kiro/steering/tech.md` の例：
 
-    ## 技術スタック
-    - フロントエンド: React 18 + TypeScript
-    - スタイリング: Tailwind CSS
-    - 状態管理: useState（グローバル状態は Context API）
-    - テスト: Vitest + Testing Library
-    - 命名規則: コンポーネントは PascalCase、関数は camelCase
+```markdown
+## 技術スタック
+- フロントエンド: React 18 + TypeScript
+- スタイリング: Tailwind CSS
+- 状態管理: useState（グローバル状態は Context API）
+- テスト: Vitest + Testing Library
+- 命名規則: コンポーネントは PascalCase、関数は camelCase
+```
 
 ## Step 3: Spec セッションを開始する
 
 1. Kiro のチャットパネルで **Spec モード** を選択
-2. 以下のプロンプトを入力：
 
-    ToDoアプリにタグによる絞り込み機能を追加したい。
-    ユーザーはToDoアイテムに複数のタグを付けられ、
-    タグをクリックすると該当タグを持つアイテムだけ表示される。
+![](/assets/posts/startKiro/specMode.png)
+
+2. 以下のプロンプトを入力
+
+```whitespace
+ToDoアプリにタグによる絞り込み機能を追加したい。
+ユーザーはToDoアイテムに複数のタグを付けられ、
+タグをクリックすると該当タグを持つアイテムだけ表示される。
+```
 
 ## Step 4: Requirements を確認・承認する
 
 Kiro が生成した要件を確認します。例：
 
-    ## 要件
+## 要件
 
-    ### 機能要件
-    - ユーザーはToDoアイテム作成・編集時に1つ以上のタグを付与できる
-    - タグ一覧がUIに表示される
-    - タグをクリックすると、そのタグを持つToDoのみ表示する
-    - 複数タグの AND/OR 絞り込みをサポートする
+``` markdown
+### 機能要件
+- ユーザーはToDoアイテム作成・編集時に1つ以上のタグを付与できる
+- タグ一覧がUIに表示される
+- タグをクリックすると、そのタグを持つToDoのみ表示する
+- 複数タグの AND/OR 絞り込みをサポートする
 
-    ### EARS 記法による受入条件
-    - When ユーザーがタグをクリックする
-      Then 該当タグを持つToDoアイテムのみが表示される
-    - When タグが選択されていない
-      Then すべてのToDoアイテムが表示される
+### EARS 記法による受入条件
+- When ユーザーがタグをクリックする
+  Then 該当タグを持つToDoアイテムのみが表示される
+- When タグが選択されていない
+  Then すべてのToDoアイテムが表示される
+```
 
-内容に問題なければ **「承認」** します。必要に応じて直接編集も可能です。
+作成された内容に問題なければ承認します。必要に応じて直接編集も可能です。
+
+![](/assets/posts/startKiro/requirements.png)
 
 ## Step 5: Design を確認・承認する
 
-要件が確定すると、Kiro がコードベースを解析して設計書を生成します。
+要件が確定すると、Kiro がコードベースを解析して設計書を生成します。以下は作成される一例です。
 
-    ## 設計
+```markdown
+## 設計
 
-    ### データ構造
-    interface Tag {
-      id: string;
-      name: string;
-      color: string;
-    }
+### データ構造
+interface Tag {
+  id: string;
+  name: string;
+  color: string;
+}
 
-    interface TodoItem {
-      id: string;
-      title: string;
-      completed: boolean;
-      tags: Tag[];  // 既存の型に追加
-    }
+interface TodoItem {
+  id: string;
+  title: string;
+  completed: boolean;
+  tags: Tag[];  // 既存の型に追加
+}
 
-    ### 追加コンポーネント
-    - TagBadge: タグ表示用の小さなバッジ
-    - TagFilter: タグ絞り込み用のフィルタUI
-    - TagSelector: アイテム編集時のタグ選択UI
+### 追加コンポーネント
+- TagBadge: タグ表示用の小さなバッジ
+- TagFilter: タグ絞り込み用のフィルタUI
+- TagSelector: アイテム編集時のタグ選択UI
 
-    ### 状態管理
-    - selectedTags: Tag[] を Context で管理
-    - フィルタリングは useMemo で最適化
+### 状態管理
+- selectedTags: Tag[] を Context で管理
+- フィルタリングは useMemo で最適化
+```
 
-設計を確認・修正して **「承認」** します。
+設計を確認・修正して 承認します。
+
+![](/assets/posts/startKiro/design.png)
 
 ## Step 6: Tasks を実行する
 
 タスクリストが生成されます。例：
 
-    ## タスク
-    - [ ] Tag 型定義を types.ts に追加
-    - [ ] TodoItem に tags フィールドを追加
-    - [ ] TagBadge コンポーネントを作成
-    - [ ] TagFilter コンポーネントを作成
-    - [ ] TagSelector コンポーネントを作成
-    - [ ] フィルタリングロジックを TodoContext に追加
-    - [ ] 各コンポーネントのテストを作成
+```markdown
+## タスク
+- [ ] Tag 型定義を types.ts に追加
+- [ ] TodoItem に tags フィールドを追加
+- [ ] TagBadge コンポーネントを作成
+- [ ] TagFilter コンポーネントを作成
+- [ ] TagSelector コンポーネントを作成
+- [ ] フィルタリングロジックを TodoContext に追加
+- [ ] 各コンポーネントのテストを作成
+```
 
-**「Implement」** をクリックすると、上から順にタスクを実行してコードを生成します。
+**Start task** をクリックすると、上から順にタスクを実行してコードを生成します。
 各タスクの差分を確認しながら進められます。
+
+![](/assets/posts/startKiro/tasks.png)
 
 ## Step 7: Hook を設定する（オプション）
 
 `.tsx` ファイルを保存したとき自動でテストを更新するように Hook を設定します。
 
+![](/assets/posts/startKiro/agentsHooks.png)
+
 Kiro パネルで **「Agent Hooks」** → **「+」** をクリックして以下を入力：
 
-    Reactコンポーネントファイル（.tsx）を保存したときに、
-    対応するテストファイルを自動で確認・更新してください。
+```whitespaces
+Reactコンポーネントファイル（.tsx）を保存したときに、
+対応するテストファイルを自動で確認・更新してください。
+```
 
 Kiro が最適な Hook 設定を JSON で生成します。
 
@@ -367,3 +383,6 @@ Kiro は「コードを速く書く」ためのツールではなく、「正し
 まずは無料トライアルで Spec セッションを1回試してみてください。
 **「プロンプトを出したら仕様書が生まれる」** という体験は、開発への向き合い方を変えてくれます。
 
+---
+
+[^1]: [kiro](https://kiro.dev)
