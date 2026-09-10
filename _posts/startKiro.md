@@ -2,8 +2,8 @@
 title: 'Kiroを使ってみた'
 excerpt: 'AWSのエージェント型IDE「Kiro」について'
 coverImage: '/assets/posts/startKiro/kiro-color.svg'
-date: '2026-09-10T00:44:27.000Z'
-updatedAt: '2026-09-10T00:44:27.000Z'
+date: '2026-09-11T00:22:08.000Z'
+updatedAt: '2026-09-11T00:22:08.000Z'
 tag: ["AI"]
 author:
   name: Tatsuroh Wakasugi
@@ -58,16 +58,16 @@ Kiroが向いているケースとしては、主に以下のような場合で�
 
 # インストールと初期設定
 
-## ダウンロード
+- **ダウンロード**
 
 kiro.dev[^1] から自分のOSに合ったインストーラーをダウンロードします。  
 インストール手順は VS Code とほぼ同じです。
 
-## 認証
+- **認証**
 
 起動後、利用するアカウントでサインインします。
 
-## VS Code 設定のインポート
+- **VS Code 設定のインポート**
 
 初回セットアップ時に VS Code の拡張・設定をインポートできます。  
 既存環境をそのまま移行できるので、学習コストが低いのも魅力です。
@@ -127,7 +127,7 @@ Kiro の最大の特徴がこの Spec です。
 
 Feature Specには複数の進め方がありますが、ここでは最も基本的なRequirements-Firstを例に説明します。Requirements-Firstでは、コードを書く前に以下の3段階を経ます。
 
-### Phase 1: Requirements（要件）
+### Requirements（要件）
 
 あなたの入力：「商品レビュー機能を追加して」
 
@@ -137,7 +137,7 @@ Kiro が生成するもの：
 - EARS（Easy Approach to Requirements Syntax）記法による受入条件
 - エッジケースの列挙
 
-### Phase 2: Design（設計）
+### Design（設計）
 
 プロジェクトの内容に応じて、例えば以下のような設計情報が生成されます。
 
@@ -147,7 +147,7 @@ Kiro が生成するもの：
 - API エンドポイント設計
 - DB スキーマ
 
-### Phase 3: Tasks（タスク）
+### Tasks（タスク）
 
 設計を承認すると、実装ステップに分解：
 
