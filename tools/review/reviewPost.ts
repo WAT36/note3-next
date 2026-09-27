@@ -3,28 +3,15 @@
 // 使い方: pnpm review <記事ファイル or 記事名> [--prompt <プロンプトファイル>] [--copy]
 import fs from "fs";
 import path from "path";
-import { spawnSync } from "child_process";
 import { fileURLToPath } from "url";
-import * as dotenv from "dotenv";
 import matter from "gray-matter";
 import OpenAI from "openai";
+import { MODEL, ROOT_DIR, copyToClipboard, exitWithError, resolvePostPath } from "../lib/post";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const ROOT_DIR = path.join(__dirname, "../..");
-const POSTS_DIR = path.join(ROOT_DIR, "_posts");
 const RESULTS_DIR = path.join(__dirname, "results");
 const DEFAULT_PROMPT_PATH = path.join(__dirname, "prompts/default.md");
-dotenv.config({ path: path.join(ROOT_DIR, ".env") });
-
-// モデルは環境変数OPENAI_MODELで変更可能
-const DEFAULT_MODEL = "gpt-5-mini";
-const MODEL = process.env.OPENAI_MODEL || DEFAULT_MODEL;
-
-const exitWithError = (message: string): never => {
-  console.error(`エラー: ${message}`);
-  process.exit(1);
-};
 
 // 引数を解析する
 const parseArgs = (args: string[]) => {
@@ -44,21 +31,6 @@ const parseArgs = (args: string[]) => {
     exitWithError("レビューする記事を指定してください\n使い方: pnpm review <記事ファイル or 記事名> [--prompt <プロンプトファイル>] [--copy]");
   }
   return { target: target!, promptPath, copy };
-};
-
-// パス指定・記事名指定のどちらでも_posts下の記事ファイルを特定する
-const resolvePostPath = (target: string) => {
-  // パスとして指定された場合はそのパスのみ、記事名の場合は_posts下も探す
-  const candidates = target.includes("/")
-    ? [path.resolve(target)]
-    : [path.resolve(target), path.join(POSTS_DIR, target), path.join(POSTS_DIR, `${target}.md`)];
-  const found = candidates.find((p) => fs.existsSync(p) && fs.statSync(p).isFile());
-  if (!found) {
-    const searched = [...new Set(candidates)].map((p) => `  - ${path.relative(ROOT_DIR, p)}`).join("\n");
-    exitWithError(`記事ファイルが見つかりません: ${target}\n以下を探しました:\n${searched}`);
-  }
-  if (!found!.startsWith(POSTS_DIR + path.sep)) exitWithError(`_posts下の記事ファイルを指定してください: ${found}`);
-  return found!;
 };
 
 // 実行日時をYYYYMMDD-HHmmss形式にする
@@ -94,8 +66,7 @@ const main = async () => {
   // --copy: プロンプトと記事をまとめてクリップボードへコピーして終了する
   if (copy) {
     const text = `${instructions.trimEnd()}\n\n---\n\n${input}`;
-    const result = spawnSync("pbcopy", { input: text });
-    if (result.error || result.status !== 0) exitWithError("クリップボードへのコピーに失敗しました（pbcopyが使えるか確認してください）");
+    copyToClipboard(text);
     console.log(`クリップボードにコピーしました (記事: ${path.relative(ROOT_DIR, postPath)}, 約${text.length.toLocaleString()}字)`);
     console.log("ChatGPTに貼り付けて送信してください");
     return;
