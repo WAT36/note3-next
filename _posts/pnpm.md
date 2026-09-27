@@ -1,9 +1,9 @@
 ---
 title: 'pnpmについて'
 excerpt: ''
-coverImage: ''
-date: '2026-09-27T00:48:24.000Z'
-updatedAt: '2026-09-27T00:48:24.000Z'
+coverImage: '/assets/posts/pnpm/pnpm.svg'
+date: '2026-09-27T11:35:12.000Z'
+updatedAt: '2026-09-27T11:35:12.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -59,7 +59,7 @@ npmでグローバルインストールする場合は次の通りです。
 npm install -g pnpm
 ```
 
-インストール確認:
+インストール確認
 
 ```bash
 pnpm --version
@@ -111,7 +111,7 @@ packages:
   - "packages/*"
 ```
 
-ルートの`package.json`:
+ルートの`package.json`
 
 ```json
 {
@@ -123,7 +123,7 @@ packages:
 }
 ```
 
-`packages/ui/package.json`（社内共有ライブラリ想定）:
+`packages/ui/package.json`（社内共有ライブラリ想定）
 
 ```json
 {
