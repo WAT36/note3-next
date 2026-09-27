@@ -2,8 +2,8 @@
 title: 'pnpmについて'
 excerpt: ''
 coverImage: '/assets/posts/pnpm/pnpm.svg'
-date: '2026-09-27T11:35:12.000Z'
-updatedAt: '2026-09-27T11:35:12.000Z'
+date: '2026-09-27T12:54:05.000Z'
+updatedAt: '2026-09-27T12:54:05.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -24,7 +24,7 @@ pnpmを特徴づけているのは大きく3点です。
 2. **非フラットなnode_modules**による依存の明示性（＝ファントム依存の防止）
 3. 依存の解決・取得・リンクを並列化した高速化
 
-具体的には、ダウンロードしたパッケージをホームディレクトリの共有ストア（既定では~/.local/share/pnpm/storeなど）に1バージョンにつき1回だけ保存し、プロジェクト側のnode_modulesには、そのストアのファイルへのハードリンクが張られます。これにより、複数プロジェクトで同じバージョンのパッケージを使っていてもディスク上には実体が1つしか存在せず、npmで悩まされがちな`node_modules`の肥大化が大幅に解消されます。
+具体的には、ダウンロードしたパッケージは「コンテンツアドレスストア」に保存され、プロジェクトの node_modules からはそのストア内のファイルへリンク（ハードリンクやシンボリックリンク／Windowsではジャンクション等）されます。ストアの実際の場所は OS と設定（XDG vars や環境変数 PNPM_STORE_PATH）に依存します。実際のパスは `pnpm store path` で確認できます。
 
 もう一つの重要な違いが「ファントム依存の防止」です。npmはフラットな`node_modules`構造のため、`package.json`に書いていないパッケージ（依存の依存）が誤って`require`できてしまうことがあります。pnpmはシンボリックリンクを使った階層構造でこれを防ぎ、「宣言していないパッケージは使えない」設計になっています。
 
@@ -47,7 +47,7 @@ pnpmを特徴づけているのは大きく3点です。
 
 (応用) pnpx は非推奨になっており、代わりにpnpm exec と pnpm dlx を使います。npxに慣れている場合はこの点だけ注意してください。
 
-なお、2026年4月にリリースされたメジャーバージョンの**pnpm 11.0**では、Node 18、19、20、21のサポートは終了し、Node.js 22以降が必要になりました。また設定ファイルの扱いも変わり、pnpm固有の設定は、プロジェクトではpnpm-workspace.yaml、グローバルでは新しい~/.config/pnpm/config.yamlに移す必要があり、package.json内のpnpmフィールドは設定として読まれなくなりました。これから新規に学ぶなら、`.npmrc`ではなく`pnpm-workspace.yaml`に設定を書く前提で覚えておくとよいでしょう。
+※ pnpmのサポートする Node.js バージョンや設定ファイルの扱いはメジャーアップデートで変わる可能性があります。現在の環境での要件や設定ファイルの場所は、必ず公式リリースノート／ドキュメントで確認してください（例: pnpm の Release Notes）。ローカルで現在のpnpmが要するNodeバージョンを確認するには `pnpm --version` と、必要なら `pnpm -v` と Node のバージョンを照合してください。
 
 # ハンズオン：pnpmを触ってみる
 
@@ -71,7 +71,10 @@ pnpm --version
 
 ```bash
 cd your-npm-project
-rm -rf node_modules package-lock.json
+# 既存のlockfileをpnpm-lock.yamlへ変換（推奨）
+pnpm import
+
+# 依存をインストール
 pnpm install
 ```
 
@@ -167,7 +170,6 @@ pnpm exec eslint .
 # さらに知っておくと便利な機能
 
 - **`pnpm patch`**: 依存パッケージのソースをその場で修正し、パッチとして固定できる機能。緊急のバグ修正や脆弱性対応に有効
-- **`pnpm catalog`**: モノレポ内で複数パッケージが依存するバージョンを一箇所（`pnpm-workspace.yaml`）で一元管理できる機能
 - **`--frozen-lockfile`**: CI環境で`pnpm-lock.yaml`と`package.json`の不整合を検知して失敗させるオプション（npmの`npm ci`に相当）
 
 ```bash
