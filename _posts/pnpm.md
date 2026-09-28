@@ -2,8 +2,8 @@
 title: 'pnpmについて'
 excerpt: ''
 coverImage: '/assets/posts/pnpm/pnpm.svg'
-date: '2026-09-27T12:54:05.000Z'
-updatedAt: '2026-09-27T12:54:05.000Z'
+date: '2026-09-28T23:33:40.000Z'
+updatedAt: '2026-09-28T23:33:40.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -41,13 +41,11 @@ pnpmを特徴づけているのは大きく3点です。
 | `npm uninstall <pkg>` | `pnpm remove <pkg>` |
 | `npm update` | `pnpm update`（`pnpm up`） |
 | `npm run build` | `pnpm run build`（`pnpm build`でも可） |
-| `npx <pkg>` | `pnpm dlx <pkg>`（一時実行）/ `pnpm exec <pkg>`（ローカルインストール済み実行） |
 | `package-lock.json` | `pnpm-lock.yaml` |
 | （なし／workspaces） | `pnpm-workspace.yaml` |
 
-(応用) pnpx は非推奨になっており、代わりにpnpm exec と pnpm dlx を使います。npxに慣れている場合はこの点だけ注意してください。
 
-※ pnpmのサポートする Node.js バージョンや設定ファイルの扱いはメジャーアップデートで変わる可能性があります。現在の環境での要件や設定ファイルの場所は、必ず公式リリースノート／ドキュメントで確認してください（例: pnpm の Release Notes）。ローカルで現在のpnpmが要するNodeバージョンを確認するには `pnpm --version` と、必要なら `pnpm -v` と Node のバージョンを照合してください。
+※ pnpm のバージョンは `pnpm --version`（`pnpm -v`）で確認できます。pnpm が動作する Node.js の最小要件は pnpm のリリースノートや公式ドキュメントに記載されているため、実際の互換性を確認するにはドキュメント（例: https://pnpm.io/）の「requirements / installation」ページを参照してください。ローカルの Node.js バージョンは `node --version` で確認し、pnpm の要求バージョンと照合してください。
 
 # ハンズオン：pnpmを触ってみる
 
@@ -73,6 +71,9 @@ pnpm --version
 cd your-npm-project
 # 既存のlockfileをpnpm-lock.yamlへ変換（推奨）
 pnpm import
+
+# 既存の node_modules を削除（Unix/macOSの場合）
+rm -rf node_modules
 
 # 依存をインストール
 pnpm install
