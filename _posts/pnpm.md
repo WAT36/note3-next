@@ -1,9 +1,9 @@
 ---
-title: 'pnpmについて'
-excerpt: ''
+title: "pnpmについて"
+excerpt: "pnpmの格納・参照の仕組み、npmとのコマンド対応、導入ハンズオンなど"
 coverImage: '/assets/posts/pnpm/pnpm.svg'
-date: '2026-09-28T23:33:40.000Z'
-updatedAt: '2026-09-28T23:33:40.000Z'
+date: '2026-09-29T23:47:35.000Z'
+updatedAt: '2026-09-29T23:47:35.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -45,7 +45,7 @@ pnpmを特徴づけているのは大きく3点です。
 | （なし／workspaces） | `pnpm-workspace.yaml` |
 
 
-※ pnpm のバージョンは `pnpm --version`（`pnpm -v`）で確認できます。pnpm が動作する Node.js の最小要件は pnpm のリリースノートや公式ドキュメントに記載されているため、実際の互換性を確認するにはドキュメント（例: https://pnpm.io/）の「requirements / installation」ページを参照してください。ローカルの Node.js バージョンは `node --version` で確認し、pnpm の要求バージョンと照合してください。
+※ pnpm のバージョンは `pnpm --version`（`pnpm -v`）で確認できます。pnpm が動作する Node.js の最小要件は pnpm のリリースノートや公式ドキュメントに記載されているため、実際の互換性を確認するにはドキュメントページを参照してください。ローカルの Node.js バージョンは `node --version` で確認し、pnpm の要求バージョンと照合してください。
 
 # ハンズオン：pnpmを触ってみる
 
