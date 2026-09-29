@@ -16,8 +16,9 @@
 
 ## 技術スタック / Tech Stack
 
-- **フレームワーク**: Next.js 14 (`next@^14.2.5`)
-- **言語**: TypeScript (`typescript@^4.9.x`)
+- **フレームワーク**: Next.js 16 (`next@^16.0.8`)、React 18
+- **言語**: TypeScript (`typescript@^5.6.2`)
+- **パッケージマネージャ**: pnpm
 - **ビルド/ランタイム**: ESM、`tsx` によるビルド後スクリプト実行
 - **スタイル**: Tailwind CSS 3、PostCSS、Autoprefixer
 - **Markdown/HTML パイプライン**:
@@ -30,14 +31,16 @@
 - **テスト**:
   - E2E/VRT: Playwright (`@playwright/test`)
   - Unit/DOM: Vitest (`vitest`, `@vitest/coverage-v8`, `@vitest/browser`) + `jsdom`
-- **ドキュメント/UI カタログ**: Storybook 8（`@storybook/experimental-nextjs-vite` 構成）+ Chromatic
-- **設定/その他**: `dotenv`, `gray-matter`（Front Matter 解析）
+- **ドキュメント/UI カタログ**: Storybook 10（`@storybook/react-vite` 構成）+ Chromatic
+- **設定/その他**: `dotenv`, `gray-matter`（Front Matter 解析）、`husky`（Git フック）
+- **アクセス解析**: `@next/third-parties`（Google Analytics）
+- **AI レビュー**: `openai`（記事レビュー用ツール）
 - **インフラ（任意）**: AWS CDK (`aws-cdk-lib`, `constructs`) による IaC。`infra/` 参照。
 
 ## ディレクトリ構成（抜粋）
 
 ```
-nextjs-blog/
+note3-next/
   _posts/            # 記事の Markdown
   _notes/            # 補助用ノート等（任意）
   public/            # 静的アセット
@@ -49,8 +52,11 @@ nextjs-blog/
     hooks/           # カスタムフック
     atoms/           # Recoil atoms/selectors
     api/             # 取得・整形ロジック 等
+    interfaces/      # 型定義
   tests/             # Playwright / Vitest テスト
+  tools/             # 運用スクリプト（Algolia 同期、更新日時更新、AI レビュー等）
   .storybook/        # Storybook 設定
+  .husky/            # Git フック（pre-commit / pre-push）
   infra/             # CDK スタック（任意）
 ```
 
@@ -58,14 +64,14 @@ nextjs-blog/
 
 ```bash
 # 依存関係のインストール
-npm ci
+pnpm install --frozen-lockfile
 
 # 開発サーバ起動
-npm run dev
+pnpm dev
 # http://localhost:3000
 ```
 
-## スクリプト / npm scripts
+## スクリプト / package.json scripts
 
 - `dev`: 開発サーバ起動 (Next.js)
 - `build`: 本番ビルド + RSS 生成（`tsx src/lib/generateRSS.ts`）
@@ -77,6 +83,10 @@ npm run dev
 - `git:push`: `git push` 後に Chromatic を実行
 - `test:vrt`: Playwright によるスナップショット更新（VRT 基準更新）
 - `test:vrt-report`: Playwright レポート表示
+- `test`: Vitest によるユニットテスト実行
+- `prepare`: husky の Git フックをセットアップ（`pnpm install` 時に自動実行）
+- `review`: 記事の AI レビュー（詳細は「[記事の AI レビュー](#記事の-ai-レビュー)」参照）
+- `meta`: 記事の title / excerpt を AI で生成・更新（詳細は「[記事の title / excerpt 生成](#記事の-title--excerpt-生成)」参照）
 
 ## Markdown / 数式 / ハイライト
 
@@ -92,8 +102,8 @@ npm run dev
 ## テスト / 品質保証
 
 - **VRT (Visual Regression Testing)**: Playwright のスナップショット（`test-snapshots/`）で視覚差分を検出
-  - 期待どおりの見た目変更時は `npm run test:vrt` でスナップショット更新
-  - 差分の可視化は `npm run test:vrt-report`
+  - 期待どおりの見た目変更時は `pnpm test:vrt` でスナップショット更新
+  - 差分の可視化は `pnpm test:vrt-report`
 - **Unit/DOM**: Vitest + jsdom によりロジックやコンポーネント単位のテストを実施
 - **Storybook + Chromatic**: コンポーネントの回帰や Visual Check を PR レビューに組み込み可能
 
@@ -102,7 +112,7 @@ npm run dev
 - `next.config.js`
   - `output: "export"` で `out/` に完全静的出力
   - `trailingSlash: true` で階層配信フレンドリー
-  - Node コアモジュールの `fs` などはブラウザバンドルから除外
+  - `turbopack: {}` で Turbopack を利用
 
 ## デプロイ
 
@@ -114,6 +124,59 @@ npm run dev
 
 1. `/_posts` に Markdown を追加（Front Matter 対応）
 2. ビルドで HTML 化・一覧へ反映、RSS も再生成
+
+## 記事の AI レビュー
+
+`tools/review/reviewPost.ts` で、`/_posts` の記事をレビュープロンプトと組み合わせて AI にレビューさせられます。
+
+### 使い方
+
+```bash
+# ChatGPT 画面用：プロンプト＋記事をクリップボードにコピー（API は呼ばない・費用なし）
+pnpm review algolia --copy
+
+# OpenAI API でレビューし、結果をファイルに保存
+pnpm review algolia
+pnpm review _posts/algolia.md   # パス指定も可
+
+# 別のプロンプトを使う
+pnpm review algolia --prompt tools/review/prompts/typo.md
+```
+
+- `--copy`: 実行後、ChatGPT の入力欄に `⌘V` で貼り付けて送信する（macOS の `pbcopy` を使用）
+- API モード: 結果は `tools/review/results/<記事名>_<YYYYMMDD-HHmmss>.md` に保存（git 管理外）
+
+### 設定（API モードのみ）
+
+`.env` に以下を設定します。API の利用には OpenAI のクレジットが必要です。
+
+```
+OPENAI_API_KEY=sk-...
+OPENAI_MODEL=gpt-5-mini   # 任意。未指定時は gpt-5-mini
+```
+
+### レビュープロンプト
+
+- 既定のプロンプトは `tools/review/prompts/default.md`。自由に編集・追加可能
+- プロンプト内の `{{title}}` / `{{excerpt}}` / `{{tags}}` は記事の Front Matter の値に置換される
+
+## 記事の title / excerpt 生成
+
+`tools/meta/generateMeta.ts` で、記事本文から Front Matter の `title`（タイトル）と `excerpt`（概略文、100 字以内）を AI に生成させられます。記事の指定方法・`.env` の設定は「記事の AI レビュー」と共通です（共通処理は `tools/lib/post.ts`）。
+
+```bash
+# ChatGPT 画面用：プロンプト＋記事をクリップボードにコピー（API は呼ばない・費用なし）
+pnpm meta algolia --copy
+
+# OpenAI API で生成し、確認のうえ記事の Front Matter を更新
+pnpm meta algolia
+pnpm meta algolia --yes   # 確認なしで更新
+```
+
+- `--copy`: ChatGPT に貼り付けて送信すると `title: "..."` / `excerpt: "..."` の 2 行が返るので、記事の Front Matter に手動で反映する
+- API モード: 変更前後を表示し、`y` を入力すると `title:` / `excerpt:` の行だけを書き換える（他の Front Matter の記述は変更しない）
+  - excerpt が 100 字を超えた場合は警告を表示
+- プロンプトは `tools/meta/prompts/default.md`。`--prompt` で別ファイルも指定可能
 
 ## ライセンス
 
