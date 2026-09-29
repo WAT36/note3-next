@@ -21,6 +21,7 @@
   },
   "exclude": [
     "node_modules",
+    "infra",
     "**/*.stories.ts",
     "**/*.stories.tsx",
     "**/*.stories.mdx"
