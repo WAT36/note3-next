@@ -5,7 +5,13 @@ import NoteType from "../../../../interfaces/note";
 import { TITLE } from "../../../../lib/constants";
 import PostHeader from "../../../ui-parts/postHeader/PostHeader";
 import PostBody from "../../../ui-elements/postBody/PostBody";
-import { useClientOnly, useHighlightJs } from "../../../../hooks/notePage";
+import { useRecoilValue } from "recoil";
+import { programmingLanguageState } from "../../../../atoms/ProgrammingLanguage";
+import {
+  useClientOnly,
+  useHighlightJs,
+  useProgrammingLanguageContent,
+} from "../../../../hooks/notePage";
 
 type Props = {
   note: NoteType;
@@ -15,6 +21,9 @@ const NotePage = ({ note }: Props) => {
   const isClient = useClientOnly();
   // highlight.js
   useHighlightJs(isClient);
+  // プログラミング言語の切り替え
+  const programmingLanguage = useRecoilValue(programmingLanguageState);
+  useProgrammingLanguageContent(programmingLanguage.language, note.content);
 
   return (
     <Layout canChangeProgrammingLanguage={true}>

@@ -56,7 +56,6 @@ export function getNoteBySlug(slug: string[], fields: string[] = []) {
       // programming用css類ファイル指定
       items.link = {
         css: ["/assets/note/programming/css/programming.css"],
-        javascript: ["/assets/note/programming/javascript/programming.js"],
       };
     }
   }

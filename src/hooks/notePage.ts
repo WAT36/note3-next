@@ -43,6 +43,26 @@ export const useDynamicScriptsFromNote = (
   }, [javascriptPaths]);
 };
 
+// 選択中のプログラミング言語に対応するセクションのみ表示する
+export const useProgrammingLanguageContent = (
+  language: string,
+  content: string
+) => {
+  useEffect(() => {
+    const targetId =
+      "note_content_" +
+      language.substring(0, 1).toUpperCase() +
+      language.substring(1);
+    const contents = document.getElementsByClassName(
+      "note_content_by_programming_language"
+    );
+    Array.from(contents).forEach((element) => {
+      (element as HTMLElement).style.display =
+        element.id === targetId ? "block" : "none";
+    });
+  }, [language, content]);
+};
+
 export const useCodepenEmbed = () => {
   useEffect(() => {
     const script = document.createElement("script");
