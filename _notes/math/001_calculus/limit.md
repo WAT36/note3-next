@@ -3,8 +3,8 @@ title: "極限とは"
 excerpt: "関数の極限について"
 coverImage: ""
 date: '2025-09-30T21:42:32.000Z'
-updatedAt: '2026-10-25T13:02:52.000Z'
-tag: [""]
+updatedAt: '2026-10-25T23:37:37.000Z'
+tag: []
 author:
   name: Tatsuroh Wakasugi
   picture: "/assets/blog/authors/WAT.jpg"

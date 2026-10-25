@@ -3,7 +3,7 @@ title: "逆関数と逆三角関数"
 excerpt: "逆関数と逆三角関数について"
 coverImage: ""
 date: '2025-09-30T21:42:32.000Z'
-updatedAt: '2025-10-02T00:31:46.000Z'
+updatedAt: '2026-10-25T23:23:28.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -28,7 +28,7 @@ $$
 
 （例：$y=2^x$と$y=\log_{2}x$の図。点線が$y=x$でこれを境に対になっている）
 
-<div id="inverse" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
+<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/003_inverse-2x-log2x.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="y = 2^x と y = log2(x) のグラフ"></iframe>
 
 逆関数は、単調関数 $y=f(x)$において、変数 x と y を入れ替えた関数 x=f(y)を y について解く事でも求められる。
 
@@ -99,7 +99,7 @@ $$
 
 以下に、正弦関数(黒線)と逆正弦関数(赤線)のグラフを示す。
 
-<div id="arcsin" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
+<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/004_arcsin.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="y = sin(x) と y = arcsin(x) のグラフ"></iframe>
 
 またこの図より、定義域は[-1,1]、値域は[-π/2,π/2]となる。
 
@@ -121,7 +121,7 @@ $$
 
 以下に、余弦関数(黒線)と逆余弦関数(赤線)のグラフを示す。
 
-<div id="arccos" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
+<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/005_arccos.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="y = cos(x) と y = arccos(x) のグラフ"></iframe>
 
 またこの図より、定義域は[-1,1]、値域は[0,π]となる。
 
@@ -143,7 +143,7 @@ $$
 
 以下に、正接関数(黒線)と逆正接関数(赤線)のグラフを示す。
 
-<div id="arctan" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
+<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/006_arctan.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="y = tan(x) と y = arctan(x) のグラフ"></iframe>
 
 またこの図より、定義域は(-∞,∞)、値域は(-π/2,π/2)となる。
 
@@ -265,119 +265,3 @@ $$
 &= \frac{1}{1+x^2}
 \end{aligned}
 $$
-
-<script>
-  // JSXGraph初期設定
-  const board = JXG.JSXGraph.initBoard("inverse", {
-    axis: true, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
-    boundingbox: [-5, 5, 5, -5], // 領域の座標[左、上、右、下]
-    showNavigation: false, // ナビゲーションボタンを表示するかの設定（デフォルトfalse）
-    showCopyright: false, // コピーライト文字列を表示するかの設定（デフォルトfalse）
-  });
-  // 関数
-  function x2(t) {
-    return 2 ** t;
-  }
-  function log2x(t) {
-    return Math.log2(t);
-  }
-  function x(t) {
-    return t;
-  }
-  // 関数をプロット
-  let graph1 = board.create("functiongraph", [x2, -5, 5], {
-    label: "関数ラベル",
-    withLabel: true,
-  });
-  let graph2 = board.create("functiongraph", [log2x, -5, 5]);
-  let graph3 = board.create("functiongraph", [x, -5, 5], {
-    strokeColor: "#a9a9a9", // 線の色
-    dash: 1, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
-  });
-
-  // 逆正弦関数
-  const board2 = JXG.JSXGraph.initBoard("arcsin", {
-    axis: true, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
-    boundingbox: [-3, 3, 3, -3], // 領域の座標[左、上、右、下]
-    showNavigation: false, // ナビゲーションボタンを表示するかの設定（デフォルトfalse）
-    showCopyright: false, // コピーライト文字列を表示するかの設定（デフォルトfalse）
-  });
-  // 関数
-  function sin(t) {
-    return Math.sin(t);
-  }
-  function arcsin(t) {
-    return Math.asin(t);
-  }
-  // 関数をプロット
-  let graph_sinall = board2.create("functiongraph", [sin, -5, 5], {
-    strokeColor: "#a9a9a9", // 線の色
-    dash: 1, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
-  });
-  let graph_sin = board2.create(
-    "functiongraph",
-    [sin, -Math.PI / 2, Math.PI / 2],
-    {
-      strokeColor: "#000000", // 線の色
-    }
-  );
-  let graph_arcsin = board2.create("functiongraph", [arcsin, -10, 10], {
-    strokeColor: "#ff0000", // 線の色
-    strokeWidth: 2,
-    highlight: true,
-  });
-
-  const board3 = JXG.JSXGraph.initBoard("arccos", {
-    axis: true, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
-    boundingbox: [-4, 4, 4, -4], // 領域の座標[左、上、右、下]
-    showNavigation: false, // ナビゲーションボタンを表示するかの設定（デフォルトfalse）
-    showCopyright: false, // コピーライト文字列を表示するかの設定（デフォルトfalse）
-  });
-  // 関数
-  function cos(t) {
-    return Math.cos(t);
-  }
-  function arccos(t) {
-    return Math.acos(t);
-  }
-  // 関数をプロット
-  let graph_cosall = board3.create("functiongraph", [cos, -5, 5], {
-    strokeColor: "#a9a9a9", // 線の色
-    dash: 1, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
-  });
-  let graph_cos = board3.create("functiongraph", [cos, 0, Math.PI], {
-    strokeColor: "#000000", // 線の色
-  });
-  let graph_arccos = board3.create("functiongraph", [arccos, -10, 10], {
-    strokeColor: "#ff0000", // 線の色
-    strokeWidth: 2,
-    highlight: true,
-  });
-
-  const board5 = JXG.JSXGraph.initBoard("arctan", {
-    axis: true, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
-    boundingbox: [-5, 5, 5, -5], // 領域の座標[左、上、右、下]
-    showNavigation: false, // ナビゲーションボタンを表示するかの設定（デフォルトfalse）
-    showCopyright: false, // コピーライト文字列を表示するかの設定（デフォルトfalse）
-  });
-  // 関数
-  function tan(t) {
-    return Math.tan(t);
-  }
-  function arctan(t) {
-    return Math.atan(t);
-  }
-  // 関数をプロット
-  let graph_tan = board5.create(
-    "functiongraph",
-    [tan, -Math.PI / 2, Math.PI / 2],
-    {
-      strokeColor: "#000000", // 線の色
-    }
-  );
-  let graph_arctan = board5.create("functiongraph", [arctan, -5, 5], {
-    strokeColor: "#ff0000", // 線の色
-    strokeWidth: 2,
-    highlight: true,
-  });
-</script>
