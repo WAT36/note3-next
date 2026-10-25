@@ -2,8 +2,8 @@
 title: "微分の諸公式(3) - 指数・対数関数"
 excerpt: "指数関数と対数関数の微分について"
 coverImage: ""
-date: '2025-09-30T21:42:32.000Z'
-updatedAt: '2025-10-02T00:31:45.000Z'
+date: '2024-02-18T20:57:40.000Z'
+updatedAt: '2026-10-26T00:29:16.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -28,7 +28,7 @@ $$
 
 参考までに、以下に上式のグラフを図示する。(h>0)
 
-<div id="e" class="jxgbox" style="width: 400px; height: 400px"></div>
+<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/010_napier-e-limit.html" width="400" height="400" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="y = (1 + h)^(1/h) のグラフ"></iframe>
 
 この極限値を文字 e で表し、**自然対数の底**あるいは**ネピア数**と呼ぶ。
 
@@ -201,22 +201,3 @@ $$
 $$
 
 よって、 $y=x^{\alpha}$ の微分は $y’=x^{\alpha -1}$ になる。
-
-<script>
-  // JSXGraph初期設定
-  const board = JXG.JSXGraph.initBoard("e", {
-    axis: true, // 軸・グリッド線を表示するかの設定（デフォルトfalse）
-    boundingbox: [-1, 3, 10, -0.2], // 領域の座標[左、上、右、下]
-    showNavigation: false, // ナビゲーションボタンを表示するかの設定（デフォルトfalse）
-    showCopyright: false, // コピーライト文字列を表示するかの設定（デフォルトfalse）
-  });
-  // 関数
-  function e(t) {
-    return (1 + t) ** (1 / t);
-  }
-  // 関数をプロット
-  let graph_e = board.create("functiongraph", [e, 0, 10], {
-    strokeWidth: 2, // 線の太さ
-    dash: 0, // 点線？0:単線,1:点線,2:小さい点線,3:普通の点線?,4:長い点線
-  });
-</script>
