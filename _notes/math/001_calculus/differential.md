@@ -3,7 +3,7 @@ title: "微分とは"
 excerpt: "関数の微分について"
 coverImage: ""
 date: '2023-12-05T21:49:36.000Z'
-updatedAt: '2026-10-25T23:59:55.000Z'
+updatedAt: '2026-10-26T00:09:07.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -38,7 +38,7 @@ $$
 
 この操作を示した図を以下に示す。
 
-<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/004_differential-secant-to-tangent.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="平均変化率から接線の傾きへのグラフ"></iframe>
+<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/003_differential-secant-to-tangent.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="平均変化率から接線の傾きへのグラフ"></iframe>
 
 この時、b=a+h（h は実数）とおくと、上式は以下の様に置き換えられる。
 

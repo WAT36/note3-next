@@ -2,8 +2,8 @@
 title: "連続関数、微分可能性"
 excerpt: "区間、関数の連続、微分可能について"
 coverImage: ""
-date: '2025-09-30T21:42:32.000Z'
-updatedAt: '2025-10-02T00:31:45.000Z'
+date: '2023-12-14T22:01:13.000Z'
+updatedAt: '2026-10-26T00:09:07.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -59,7 +59,7 @@ $$
 
 $y=\frac{x^2 - x}{|x|}$ （以下図）は x=0 において連続ではない。（x=0 を含まない区間では連続）
 
-<div id="jxgbox" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
+<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/004_continuous-discontinuous-at-0.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="y = (x^2 - x)/|x| のグラフ"></iframe>
 
 ## 連続関数の四則
 
@@ -155,16 +155,3 @@ $$
 > $f(c)=k,a<c<b$
 >
 > となる数 c が少なくとも１つある。
-
-<script>
-let board = JXG.JSXGraph.initBoard('jxgbox', {
-  boundingbox: [ -10, 10, 10, -10],  
-  axis: true, 
-  showNavigation: false,  
-  showCopyright: false    
-});
-function notcontinuous(t) {
-  return t===0 ? 10000 : (t**2 - t)/Math.abs(t);
-}
-board.create('functiongraph', [notcontinuous, -10, 10],{name:'y=f(x)'});
-</script>
