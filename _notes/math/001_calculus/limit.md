@@ -3,7 +3,7 @@ title: "極限とは"
 excerpt: "関数の極限について"
 coverImage: ""
 date: '2025-09-30T21:42:32.000Z'
-updatedAt: '2025-10-02T00:31:46.000Z'
+updatedAt: '2026-10-25T12:50:36.000Z'
 tag: [""]
 author:
   name: Tatsuroh Wakasugi
@@ -31,7 +31,7 @@ $$
 は存在しない。
 
 <!-- Graph -->
-<div id="jxgbox" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
+<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/001_limit-1-over-x2.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="y = 1/x^2 のグラフ"></iframe>
 
 このような、x→a のときに関数 f(x)が正で限りなく大きくなる場合、f(x)は**正の無限大に発散する**といい、
 
@@ -105,17 +105,6 @@ $$
 のことをそれぞれ、x=a における f(x)の **右極限**、**左極限**という。
 
 <script>
-let board = JXG.JSXGraph.initBoard('jxgbox', {
-  boundingbox: [ -10, 10, 10, -10],  
-  axis: true, 
-  showNavigation: false,  
-  showCopyright: false    
-});
-function hyperbola(t) {
-  return 1/(t**2);
-}
-let graph = board.create('functiongraph', [hyperbola, -10, 10]);
-
 let board2 = JXG.JSXGraph.initBoard('jxgbox2', {
   boundingbox: [ -10, 10, 10, -10],  
   axis: true, 
