@@ -36,3 +36,9 @@ export const NoteQueryParam: Story = {
     getNowPath: () => "/notes/a/b?queryParamTest=aaaaaa",
   },
 };
+
+export const NoteQueryParamTrailingSlash: Story = {
+  args: {
+    getNowPath: () => "/notes/a/b/?validationToken=aaaaaa#section",
+  },
+};

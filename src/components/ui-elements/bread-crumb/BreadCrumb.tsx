@@ -8,27 +8,21 @@ type Props = {
 };
 
 export const BreadCrumb: NextPage = ({ getNowPath = usePath }: Props) => {
+  // ハッシュを削除
+  const nowPath = getNowPath().split("#")[0];
+  // クエリパラメータ取得・削除(「/」で分解する前に行わないと末尾の「/?xxx」が消えてしまう)
+  const queryIndex = nowPath.indexOf("?");
+  const queryParam = queryIndex >= 0 ? nowPath.substring(queryIndex) : "";
+  const pathname = queryIndex >= 0 ? nowPath.substring(0, queryIndex) : nowPath;
+
   // pathを「/」で分解
-  const paths = getNowPath().substring(1).split("/");
-  // 末尾がindex.html・クエリパラメータ類だった場合それは削除
+  const paths = pathname.substring(1).split("/");
+  // 末尾がindex.html・空文字だった場合それは削除
   if (
     paths.slice(-1)[0].startsWith("index.html") ||
-    paths.slice(-1)[0] === "" ||
-    paths.slice(-1)[0].startsWith("#") ||
-    paths.slice(-1)[0].startsWith("?")
+    paths.slice(-1)[0] === ""
   ) {
     paths.pop();
-  }
-
-  // クエリパラメータ取得・削除
-  const queryParam =
-    paths.length > 0 && paths.slice(-1)[0].includes("?")
-      ? paths.slice(-1)[0].substring(paths.slice(-1)[0].indexOf("?"))
-      : "";
-  if (paths.length > 0 && paths.slice(-1)[0].includes("?")) {
-    paths[paths.length - 1] = paths
-      .slice(-1)[0]
-      .substring(0, paths.slice(-1)[0].indexOf("?"));
   }
 
   // リンク先アドレスの取得
