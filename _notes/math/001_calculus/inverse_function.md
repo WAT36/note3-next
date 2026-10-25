@@ -2,8 +2,8 @@
 title: "逆関数と逆三角関数"
 excerpt: "逆関数と逆三角関数について"
 coverImage: ""
-date: '2025-09-30T21:42:32.000Z'
-updatedAt: '2026-10-25T23:23:28.000Z'
+date: '2024-02-05T20:10:09.000Z'
+updatedAt: '2026-10-26T00:24:04.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -28,7 +28,7 @@ $$
 
 （例：$y=2^x$と$y=\log_{2}x$の図。点線が$y=x$でこれを境に対になっている）
 
-<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/003_inverse-2x-log2x.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="y = 2^x と y = log2(x) のグラフ"></iframe>
+<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/006_inverse-2x-log2x.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="y = 2^x と y = log2(x) のグラフ"></iframe>
 
 逆関数は、単調関数 $y=f(x)$において、変数 x と y を入れ替えた関数 x=f(y)を y について解く事でも求められる。
 
@@ -99,7 +99,7 @@ $$
 
 以下に、正弦関数(黒線)と逆正弦関数(赤線)のグラフを示す。
 
-<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/004_arcsin.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="y = sin(x) と y = arcsin(x) のグラフ"></iframe>
+<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/007_arcsin.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="y = sin(x) と y = arcsin(x) のグラフ"></iframe>
 
 またこの図より、定義域は[-1,1]、値域は[-π/2,π/2]となる。
 
@@ -121,7 +121,7 @@ $$
 
 以下に、余弦関数(黒線)と逆余弦関数(赤線)のグラフを示す。
 
-<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/005_arccos.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="y = cos(x) と y = arccos(x) のグラフ"></iframe>
+<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/008_arccos.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="y = cos(x) と y = arccos(x) のグラフ"></iframe>
 
 またこの図より、定義域は[-1,1]、値域は[0,π]となる。
 
@@ -143,7 +143,7 @@ $$
 
 以下に、正接関数(黒線)と逆正接関数(赤線)のグラフを示す。
 
-<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/006_arctan.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="y = tan(x) と y = arctan(x) のグラフ"></iframe>
+<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/009_arctan.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="y = tan(x) と y = arctan(x) のグラフ"></iframe>
 
 またこの図より、定義域は(-∞,∞)、値域は(-π/2,π/2)となる。
 
