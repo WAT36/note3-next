@@ -2,8 +2,8 @@
 title: "微分とは"
 excerpt: "関数の微分について"
 coverImage: ""
-date: '2025-09-30T21:42:32.000Z'
-updatedAt: '2025-10-02T00:31:45.000Z'
+date: '2023-12-05T21:49:36.000Z'
+updatedAt: '2026-10-25T23:59:55.000Z'
 tag: []
 author:
   name: Tatsuroh Wakasugi
@@ -38,7 +38,7 @@ $$
 
 この操作を示した図を以下に示す。
 
-<div id="jxgbox" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
+<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/004_differential-secant-to-tangent.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="平均変化率から接線の傾きへのグラフ"></iframe>
 
 この時、b=a+h（h は実数）とおくと、上式は以下の様に置き換えられる。
 
@@ -65,26 +65,3 @@ $$
 $$
 y',f',f'(x),\frac{dy}{dx},\frac{df}{dx},\frac{d}{dx}f(x)
 $$
-
-<script>
-let board = JXG.JSXGraph.initBoard('jxgbox', {
-  boundingbox: [ -2, 10, 10, -2],  
-  axis: true, 
-  showNavigation: false,  
-  showCopyright: false    
-});
-function parabola(t) {
-  return (t**2)/10;
-}
-board.create('functiongraph', [parabola, -2, 10],{name:'y=f(x)'});
-let p1 = board.create('point', [3,parabola(3)],{name:'(a,f(a))'});
-let p2 = board.create('point', [7,parabola(7)],{name:'(b,f(b))'});
-let l = board.create('line', [p1,p2],{strokeColor: 'red',});
-
-// Start infinite animation
-var i = 0;
-setInterval(() => {
-    p2.moveTo([7.0-(0.1*i), parabola(7.0-(0.1*i))], 100);
-    i>39 ? i=0 : i++;
-}, 100);
-</script>
