@@ -3,7 +3,7 @@ title: "極限とは"
 excerpt: "関数の極限について"
 coverImage: ""
 date: '2025-09-30T21:42:32.000Z'
-updatedAt: '2026-10-25T12:50:36.000Z'
+updatedAt: '2026-10-25T13:02:52.000Z'
 tag: [""]
 author:
   name: Tatsuroh Wakasugi
@@ -74,7 +74,7 @@ $$
 以下に例として、関数　$ f(x)= \frac{1}{x} $　の図を記載する。
 
 <!-- Graph -->
-<div id="jxgbox2" class="jxgbox" style="width:480px; height:480px; margin: 0px auto;"></div>
+<iframe src="https://wat36.github.io/jsxgraph/src/001_calculus/002_limit-1-over-x.html" width="480" height="480" scrolling="no" style="display:block; margin:0 auto; border:0; max-width:100%;" loading="lazy" title="y = 1/x のグラフ"></iframe>
 
 この図から、関数 f(x)において
 
@@ -103,16 +103,3 @@ $$
 $$
 
 のことをそれぞれ、x=a における f(x)の **右極限**、**左極限**という。
-
-<script>
-let board2 = JXG.JSXGraph.initBoard('jxgbox2', {
-  boundingbox: [ -10, 10, 10, -10],  
-  axis: true, 
-  showNavigation: false,  
-  showCopyright: false    
-});
-function hyperbola2(t) {
-  return 1/t;
-}
-let graph2 = board2.create('functiongraph', [hyperbola2, -10, 10]);
-</script>
