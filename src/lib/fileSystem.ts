@@ -2,6 +2,7 @@ import path from "path";
 import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
+import { countByYear, countTags } from "./postIndex";
 
 // _notesフォルダの場所(constant.tsに置くとstorybookでエラー起きるのでここに配置する)
 export const NOTES_DIR = path.join(process.cwd(), "_notes");
@@ -142,4 +143,16 @@ export function getPostNumber(slug: string): number {
   const sortedAsc = [...posts].sort((a, b) => (a.date < b.date ? -1 : 1));
   const index = sortedAsc.findIndex((p) => p.slug === slug);
   return index + 1;
+}
+
+// 記事一覧のサイドバー（タグ・年月アーカイブ）に表示するデータを取得
+export function getPostSidebarData() {
+  const posts = getAllPosts(["date", "tag"]) as unknown as {
+    date: string;
+    tag?: string[];
+  }[];
+  return {
+    tags: countTags(posts),
+    years: countByYear(posts),
+  };
 }

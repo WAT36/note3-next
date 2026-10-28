@@ -2,9 +2,15 @@ type Props = {
   pageNum: number;
   minPageNum: number;
   maxPageNum: number;
+  basePath?: string;
 };
 
-const Pagination = ({ pageNum, minPageNum, maxPageNum }: Props) => {
+const Pagination = ({
+  pageNum,
+  minPageNum,
+  maxPageNum,
+  basePath = "/posts",
+}: Props) => {
   const displayPage = [];
   for (let i = minPageNum; i <= maxPageNum; i++) {
     displayPage.push(i);
@@ -16,7 +22,7 @@ const Pagination = ({ pageNum, minPageNum, maxPageNum }: Props) => {
         <li className="ml-3">
           <a
             className="flex justify-center items-center flex-wrap w-11 h-11 bg-white border-solid border-2 border-black font-bold transition-all text-black"
-            href={`/posts${process.env.NEXT_PUBLIC_URL_END}?pageNum=${
+            href={`${basePath}${process.env.NEXT_PUBLIC_URL_END}?pageNum=${
               pageNum - 1
             }`}
           >
@@ -40,7 +46,7 @@ const Pagination = ({ pageNum, minPageNum, maxPageNum }: Props) => {
                 className={
                   "flex justify-center items-center flex-wrap w-11 h-11 border-solid border-2 border-black font-bold transition-all bg-white text-black "
                 }
-                href={`/posts${process.env.NEXT_PUBLIC_URL_END}?pageNum=${value}`}
+                href={`${basePath}${process.env.NEXT_PUBLIC_URL_END}?pageNum=${value}`}
               >
                 <span>{value}</span>
               </a>
@@ -52,7 +58,7 @@ const Pagination = ({ pageNum, minPageNum, maxPageNum }: Props) => {
         <li className="ml-3">
           <a
             className="flex justify-center items-center flex-wrap w-11 h-11 bg-white border-solid border-2 border-black font-bold transition-all text-black"
-            href={`/posts${process.env.NEXT_PUBLIC_URL_END}?pageNum=${
+            href={`${basePath}${process.env.NEXT_PUBLIC_URL_END}?pageNum=${
               pageNum + 1
             }`}
           >

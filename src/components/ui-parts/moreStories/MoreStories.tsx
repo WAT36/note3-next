@@ -5,9 +5,10 @@ import Pagination from "../../ui-elements/pagination/Pagination";
 type Props = {
   posts: Post[];
   pageNum: number;
+  basePath?: string;
 };
 
-const MoreStories = ({ posts, pageNum }: Props) => {
+const MoreStories = ({ posts, pageNum, basePath }: Props) => {
   // 表示する最大・最小ページ番号
   let minPageNum = pageNum - 2 > 0 ? pageNum - 2 : 1;
   let maxPageNum =
@@ -28,6 +29,7 @@ const MoreStories = ({ posts, pageNum }: Props) => {
         pageNum={pageNumAdjusted}
         minPageNum={minPageNum}
         maxPageNum={maxPageNum}
+        basePath={basePath}
       />
       <div className="mb-32">
         {posts
@@ -48,6 +50,7 @@ const MoreStories = ({ posts, pageNum }: Props) => {
         pageNum={pageNumAdjusted}
         minPageNum={minPageNum}
         maxPageNum={maxPageNum}
+        basePath={basePath}
       />
     </section>
   );

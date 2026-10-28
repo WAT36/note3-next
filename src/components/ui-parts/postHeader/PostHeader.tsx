@@ -4,6 +4,7 @@ import CoverImage from "../../ui-elements/cover-image/CoverImage";
 import PostTitle from "../../ui-elements/postTitle/PostTitle";
 import type Author from "../../../interfaces/author";
 import { Tag } from "../../ui-elements/tag/Tag";
+import { tagToSlug } from "../../../lib/postIndex";
 
 type Props = {
   title: string;
@@ -36,7 +37,16 @@ const PostHeader = ({ title, coverImage, date, author, tag, postNumber }: Props)
         <div className="mb-6 text-lg">
           <DateFormatter dateString={date} />
         </div>
-        <div className="">{tag && tag.map((t) => <Tag tagName={t} />)}</div>
+        <div className="">
+          {tag &&
+            tag.map((t) => (
+              <Tag
+                key={t}
+                tagName={t}
+                href={`/posts/tags/${tagToSlug(t)}${process.env.NEXT_PUBLIC_URL_END}`}
+              />
+            ))}
+        </div>
       </div>
     </>
   );

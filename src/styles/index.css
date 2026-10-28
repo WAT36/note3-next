@@ -25,6 +25,16 @@
   .postTag:before {
     background: black !important;
   }
+
+  .postTagCurrent {
+    color: white !important;
+    background: black !important;
+    border-color: white !important;
+  }
+
+  .postTagCurrent:before {
+    background: white !important;
+  }
 }
 
 @media (width >= 64rem) {
@@ -63,4 +73,38 @@ article {
   content: "";
   border-radius: 50%;
   background: #fff;
+}
+
+/* リンクになっているタグ */
+a.postTag {
+  color: white;
+}
+
+a.postTag:hover {
+  opacity: 0.8;
+}
+
+/* 表示中のタグ（白抜き） */
+.postTagCurrent {
+  color: black !important;
+  background: white;
+  border: 2px solid black;
+}
+
+.postTagCurrent:before {
+  background: black;
+}
+
+/* サイドバー等で使う小さいタグ */
+.postTagSmall {
+  padding: 0.25rem 0.75rem 0.25rem 1.875rem;
+  margin: 0.25rem 0.5rem 0.25rem 0;
+  font-size: 0.875rem;
+}
+
+.postTagSmall:before {
+  top: calc(50% - 6px);
+  left: 9px;
+  width: 12px;
+  height: 12px;
 }
